@@ -1,0 +1,8 @@
+
+tmp
+node_modules
+.env
+_images
+_*/
+.ipynb_checkpoints
+.DS_Store
