@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Selecting &gt; Loops</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Selecting</a></li>
+<li>Select Loops</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="select-loops">
+<h1>Select Loops</h1>
+<section id="select-edge-loops">
+<h2>Select Edge Loops</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode (Vertex or Edge select mode)</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Loops ‣ Edge Loops</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd>, or <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> for modifying existing selection.</p>
+</dd>
+</dl>
+</div>
+<p>Holding <kbd>Alt</kbd> while selecting an edge selects a loop of edges that are connected in
+a line end-to-end, passing through the edge under the mouse pointer.
+Holding <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd></kbd> while clicking adds to the current selection.</p>
+<div>
+<p>Note</p>
+<p><em>Vertex</em> mode</p>
+<p>In <em>Vertex</em> select mode, you can also select edge loops, by using the same shortcuts,
+and clicking on the <em>edges</em> (not on the vertices).</p>
+</div>
+<figure id="id6">
+<figcaption>
+<p>Longitudinal and latitudinal edge loops.</p>
+</figcaption>
+</figure>
+<p>The left sphere shows an edge that was selected longitudinally. Notice how the loop is open.
+This is because the algorithm hit the vertices at the poles and is terminated
+because the vertices at the pole connect to more than four edges. However,
+the right sphere shows an edge that was selected latitudinally and has formed a closed loop.
+This is because the algorithm hit the first edge that it started with.</p>
+<section id="select-edge-loops-all-boundaries">
+<h3>Select Edge Loops (All Boundaries)</h3>
+<p>All boundary edges can be selected by performing a second loop select action on a boundary edge.</p>
+<p>This can be useful for selecting boundaries for meshes that include triangles and n-gons,
+where loop select would not otherwise select the full boundary.</p>
+<figure id="id7">
+<figcaption>
+<p>The second loop select action is shown on the right.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="select-face-loops">
+<h2>Select Face Loops</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode (Face or Vertex select modes)</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> or <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> for modifying existing selection.</p>
+</dd>
+</dl>
+</div>
+<p>In face select mode, holding <kbd>Alt</kbd> while selecting an <em>edge</em> selects a loop of
+faces that are connected in a line end-to-end, along their opposite edges.</p>
+<p>In vertex select mode,
+the same can be accomplished by using <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd></kbd> to select an edge,
+which selects the face loop implicitly.</p>
+<figure id="id8">
+<figcaption>
+<p>Face loop selection.</p>
+</figcaption>
+</figure>
+<p>This face loop was selected by clicking with <kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> on an edge,
+in <em>face</em> select mode.
+The loop extends perpendicular from the edge that was selected.</p>
+<figure id="id9">
+<figcaption>
+<p>Alt versus Ctrl-Alt in vertex select mode.</p>
+</figcaption>
+</figure>
+<p>A face loop can also be selected in <em>Vertex</em> select mode.
+Technically <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> will select an <em>Edge Ring</em>,
+however, in <em>Vertex</em> select mode, selecting an <em>Edge Ring</em> implicitly
+selects a <em>Face Loop</em> since selecting opposite edges of a face implicitly selects
+the entire face.</p>
+</section>
+<section id="select-edge-rings">
+<h2>Select Edge Rings</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Loops ‣ Edge Rings</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>In <em>Edge</em> select mode, holding <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd></kbd>
+while selecting an edge (or two vertices) selects a sequence of edges that are not connected,
+but on opposite sides to each other continuing along a <a href="../structure.html">face loop</a>.</p>
+<p>As with edge loops, you can also select edge rings based on current selection,
+using either Select ‣ Select Loops ‣ Edge Rings.</p>
+<div>
+<p>Note</p>
+<p><em>Vertex</em> mode</p>
+<p>In <em>Vertex</em> select mode, you can use the same shortcuts when <em>clicking on the edges</em> (not on the vertices),
+but this will directly select the corresponding face loop…</p>
+</div>
+<figure id="id10">
+<figcaption>
+<p>A selected edge loop, and a selected edge ring.</p>
+</figcaption>
+</figure>
+<p>In Fig. <a href="#fig-mesh-select-advanced-loop-ring">A selected edge loop, and a selected edge ring.</a> the same edge was clicked on,
+but two different “groups of edges” were selected, based on the different tools.
+One is based on edges during computation and the other is based on faces.</p>
+<div>
+<p>Note</p>
+<p>Convert Selection to Whole Faces</p>
+<p>If the edge ring selection happened in Edge Select Mode, switching to Face Select Mode will erase the selection.</p>
+<p>This is because none of those faces had all its (four) edges selected,
+just two of them.</p>
+<p>Instead of selecting the missing edges manually or by using <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> twice,
+it is easier to first switch to Vertex Select Mode, which will kind of “flood” the selection.
+A subsequent switch to Face Select Mode will then properly select the faces.</p>
+</div>
+</section>
+<section id="select-loop-inner-region">
+<h2>Select Loop Inner-Region</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode (Edge select mode)</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Loops ‣ Select Loop Inner-Region</p>
+</dd>
+</dl>
+</div>
+<p><em>Select Loop Inner-Region</em> selects all faces that are inside a closed loop of edges.
+While it is possible to use this operator in <em>Vertex</em> and <em>Face</em> selection modes, results may be unexpected.
+Note that if the selected loop of edges is not closed,
+then all connected edges on the mesh will be considered inside the loop.</p>
+<figure id="id11">
+<figcaption>
+<p>Loop to Region.</p>
+</figcaption>
+</figure>
+<figure id="id12">
+<figcaption>
+<p>This tool handles multiple loops fine, as you can see.</p>
+</figcaption>
+</figure>
+<figure id="id13">
+<figcaption>
+<p>This tool handles “holes” just fine as well.</p>
+</figcaption>
+</figure>
+</section>
+<section id="select-boundary-loop">
+<h2>Select Boundary Loop</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode (Edge select mode)</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Loops ‣ Select Boundary Loop</p>
+</dd>
+</dl>
+</div>
+<p><em>Select Boundary Loop</em> does the opposite of <em>Select Loop Inner-Region</em>,
+based on all regions currently selected, it selects only the edges at the border (contour) of these islands.
+It can operate in any select mode, but when in <em>Face</em> mode it will switch to <em>Edge</em> select mode after running.</p>
+<p>All this is much more simple to illustrate with examples:</p>
+<figure id="id14">
+<figcaption>
+<p>Select Boundary Loop does the opposite and forces into Edge Select Mode.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

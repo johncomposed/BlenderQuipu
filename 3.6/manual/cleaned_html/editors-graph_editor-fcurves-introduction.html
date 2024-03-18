@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Graph Editor &gt; Fcurves &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Graph Editor</a></li>
+<li><a href="index.html">F-Curves</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>After animating some property in Blender using keyframes you can edit their corresponding curves.
+When something is “animated”, it changes over time. This curve is shown as something called an F-Curve.
+Basically what an F-Curve does is an interpolation between two animated properties. In Blender,
+animating an object means changing one of its properties, such as the object’s location, or its scale.</p>
+<p>As mentioned, Blender’s fundamental unit of time is the “frame”,
+which usually lasts just a fraction of a second, depending on the <em>frame rate</em> of the scene.
+As animation is composed of incremental changes spanning multiple frames,
+usually these properties are <strong>not</strong> manually modified <em>frame-by-frame</em>, because:</p>
+<ul>
+<li><p>It would take ages!</p></li>
+<li><p>It would be very difficult to get smooth variations of the property
+(unless you compute mathematical functions and type a precise value for each frame, which would be crazy).</p></li>
+</ul>
+<p>This is why nearly all direct animation is done using <em>interpolation</em>.</p>
+<p>The idea is simple: you define a few Keyframes, which are multiple frames apart.
+Between these keyframes, the properties’ values are computed (interpolated)
+by Blender and filled in. Thus, the animators’ workload is significantly reduced.</p>
+<figure id="id1">
+<figcaption>
+<p>Example of an interpolation.</p>
+</figcaption>
+</figure>
+<p>For example, if you have:</p>
+<ul>
+<li><p>A control point of value 0 at frame 0,</p></li>
+<li><p>another one of value 10 at frame 25,</p></li>
+<li><p>and you use linear interpolation, then, at frame 5 we get a value of 2.</p></li>
+</ul>
+<p>The same goes for all intermediate frames: with just two points,
+you get a smooth increase from (0 to 10) along the 25 frames.
+Obviously, if you would like the frame 15 to have a value of 9,
+you would have to add another control point (or keyframe)…</p>
+<section id="direction-of-time">
+<h2>Direction of Time</h2>
+<p>Although F-Curves are very similar to <a href="../../../modeling/curves/structure.html#curve-bezier">Bézier</a>,
+there are some important differences.</p>
+<p>For obvious reasons, a property represented by a curve
+cannot have more than <strong>one</strong> value at a given time, hence:</p>
+<ul>
+<li><p>When you move a control point ahead of a control point that was previously ahead of the point that you are moving,
+the two control points switch their order in the edited curve, to avoid the curve going back in time.</p></li>
+<li><p>For the above reason, it is impossible to have a closed F-Curve.</p></li>
+</ul>
+<table id="id2">
+<caption>Two control points switching: the curve cannot go back in time!</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Before moving the second keyframe.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>After moving the second keyframe.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

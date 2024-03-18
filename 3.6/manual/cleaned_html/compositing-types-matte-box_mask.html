@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Box Mask</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Box Mask Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="box-mask-node">
+<h1>Box Mask Node</h1>
+<p>The <em>Box Mask</em> node creates an image suitable for use as a simple matte.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mask</dt><dd><p>An optional mask to use as the base for mask operations.</p>
+</dd>
+<dt>Value</dt><dd><p>Intensity of the generated mask.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>X, Y</dt><dd><p>Position of the center of the box as a fraction of the total width or height.
+(0.5, 0.5 creates a centered box; 0.0, 0.0 creates a box in the lower left.)</p>
+</dd>
+<dt>Width</dt><dd><p>Width of the box as a fraction of the total image width.</p>
+</dd>
+<dt>Height</dt><dd><p>Height of the box as a fraction of the total image <em>width</em>, not height.</p>
+</dd>
+<dt>Rotation</dt><dd><p>Rotation of the box around its center point.</p>
+</dd>
+<dt>Mask Type</dt><dd><p>Operation to use against the input mask.</p>
+<dl>
+<dt>Add:</dt>
+<dd><p>This yields the <em>union</em> of the input mask and the generated mask:
+Areas covered by the generated mask are set to the specified <em>Value</em>.
+Other parts of the input masked are passed through unchanged, or set to black if there is no input mask.</p>
+</dd>
+<dt>Subtract:</dt>
+<dd><p>Values of the input mask have the specified <em>Value</em> subtracted from them.</p>
+</dd>
+<dt>Multiply:</dt>
+<dd><p>This yields the <em>intersection</em> of this generated mask and the input mask:
+Values of the input mask are multiplied by the specified <em>Value</em> for the area covered by the generated mask.
+All other areas become black.</p>
+</dd>
+<dt>Not:</dt>
+<dd><p>Any area covered by both the input mask and the generated mask becomes black.
+Areas covered by the generated mask that are black on the input mask become the specified <em>Value</em>.
+Areas uncovered by the generated mask remain unchanged.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mask</dt><dd><p>A generated rectangular mask merged with the input mask.
+The created mask is the size of the current scene render dimensions.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>For soft edges, pass the output mask through a slight <a href="../filter/blur_node.html">Blur node</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

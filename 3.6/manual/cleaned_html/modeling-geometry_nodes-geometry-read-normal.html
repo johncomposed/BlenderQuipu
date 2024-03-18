@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Read &gt; Normal</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Read Geometry Nodes</a></li>
+<li>Normal Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="normal-node">
+<h1>Normal Node</h1>
+<p>The <em>Normal</em> node returns a vector for each evaluated point indicating the
+<a href="../../../meshes/structure.html#modeling-meshes-structure-normals">normal direction</a>. The output can depend
+on the attribute domain used in the node evaluating the field, but the output
+is always a normalized <a href="https://en.wikipedia.org/wiki/Unit_vector">unit vector</a>.</p>
+<dl>
+<dt>Face:</dt>
+<dd><p>On the face domain, the normal is the “up” direction of the face.</p>
+</dd>
+<dt>Mesh Vertices:</dt>
+<dd><p>For mesh vertices, the normal is an average of the surrounding face normals.
+If the vertex does not have any connected faces, the output is simply the normalized position
+of that vertex.</p>
+</dd>
+<dt>Edge:</dt>
+<dd><p>The normal output for each edge is the average of the edge’s two vertex normals.</p>
+</dd>
+<dt>Face Corner:</dt>
+<dd><p>The output for each face corner is the same as the face normal of the corresponding face.</p>
+</dd>
+<dt>Curve Control Points:</dt>
+<dd><p>The output of this node when used for curve geometry is the evaluated normal of the curve,
+which depends on the twist method. The normal vector is always perpendicular to the direction
+of the curve’s path at every point.</p>
+</dd>
+</dl>
+<div>
+<p>Warning</p>
+<p>For NURBS and Bézier spline curves, keep in mind that the value retrieved from this node is
+the value at every control point, which may not correspond to the visible <em>evaluated</em> points.
+For NURBS splines the difference may be even more pronounced and the result may not be as expected.
+A <a href="../../curve/operations/resample_curve.html">Resample Curve Node</a> can be used to create a poly spline,
+where there is a control point for every evaluated point.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Normal</dt><dd><p>Vector indicating the normal of each geometry element.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

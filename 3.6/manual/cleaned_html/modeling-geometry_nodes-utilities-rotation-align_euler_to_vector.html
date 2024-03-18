@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Utilities &gt; Rotation &gt; Align Euler To Vector</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Utilities Nodes</a></li>
+<li><a href="index.html">Rotation Utility Nodes</a></li>
+<li>Align Euler to Vector Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="align-euler-to-vector-node">
+<h1>Align Euler to Vector Node</h1>
+<p>The <em>Align Euler to Vector</em> node rotates an Euler rotation into the given direction.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Rotation</dt><dd><p>The <a href="../../../../glossary/index.html#term-Euler">Euler</a> rotation to align.</p>
+<div>
+<p>Important</p>
+<p>This input has to be a rotation input. Be careful not to connect a direction vector
+like the <a href="../../geometry/read/normal.html">normal</a>.</p>
+</div>
+</dd>
+<dt>Factor</dt><dd><p>Determines how much the points are rotated towards the vector.
+Zero effectively disables the node and one means that the points are aligned with the vector perfectly.</p>
+</dd>
+<dt>Vector</dt><dd><p>The direction vector that points should be rotated to.
+The vector is in the local space of the object that is being modified.
+When it is all zeros for a point, it is not rotated at all.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Axis</dt><dd><p>Local axis of the object that is to be rotated towards the vector input.</p>
+</dd>
+<dt>Pivot</dt><dd><p>The local axis to rotate around.</p>
+<dl>
+<dt>Auto:</dt>
+<dd><p>The best rotation angle is computed automatically.
+This minimizes the angle of rotation.</p>
+</dd>
+<dt>X, Y, Z:</dt>
+<dd><p>Rotate around a specific local axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Rotation</dt><dd><p>The rotated Euler rotation.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

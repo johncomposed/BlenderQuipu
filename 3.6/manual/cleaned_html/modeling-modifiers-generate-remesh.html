@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Remesh</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Remesh Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="remesh-modifier">
+<h1>Remesh Modifier</h1>
+<p>The <em>Remesh</em> modifier is a tool for generating new mesh topology.
+The output follows the surface curvature of the input, but its topology contains only quads.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Remesh modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mode</dt><dd><p>There are three basic modes available in the <em>Remesh</em> modifier.
+The output topology is almost identical between the three modes, what changes is the smoothing.</p>
+<dl>
+<dt>Blocks</dt><dd><p>There is no smoothing at all.</p>
+</dd>
+<dt>Smooth</dt><dd><p>Output a smooth surface.</p>
+</dd>
+<dt>Sharp</dt><dd><p>Similar to <em>Smooth</em>, but preserves sharp edges and corners.</p>
+<dl>
+<dt>Sharpness</dt><dd><p>Higher values produce edges more similar to the input, while lower values filter out noise.</p>
+</dd>
+</dl>
+</dd>
+<dt>Voxel</dt><dd><p>Uses an OpenVDB to generate a new manifold mesh from the current geometry
+while trying to preserve the mesh’s original volume.</p>
+<dl>
+<dt>Adaptivity</dt><dd><p>Reduces the final face count by simplifying geometry where detail is not needed.
+This introduce triangulation to faces that do not need as much detail.</p>
+</dd>
+<dt>Smooth Shading</dt><dd><p>Outputs faces with <a href="../../../scene_layout/object/editing/shading.html#bpy-ops-object-shade-smooth">Smooth Shading</a> instead of flat shading.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Octree Depth</dt><dd><p>Sets the resolution of the output. Low values will generate larger faces relative to the input,
+higher values will generate a denser output.</p>
+</dd>
+<dt>Scale</dt><dd><p>The result can be tweaked further by this, lower values effectively decrease the output resolution.</p>
+</dd>
+<dt>Remove Disconnected</dt><dd><p>Filter out small disconnected pieces of the output.</p>
+<p>Thin parts of the input mesh can become lose, and generate small isolated bits of mesh.
+This option will remove those.</p>
+<dl>
+<dt>Threshold</dt><dd><p>Use this to control how small a disconnected component must be to be removed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Smooth Shading</dt><dd><p>Output faces with smooth shading rather than flat shading.
+The smooth/flat shading of the input faces is not preserved.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The input mesh should have some thickness to it. If the input is completely flat,
+add a <a href="solidify.html">Solidify Modifier</a> above the <em>Remesh</em> one.</p>
+</div>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Unmodified mesh.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Blocks mode with Octree Depth 3.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Smooth mode with Octree Depth 3.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Sharp mode with Octree Depth 2.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Sharp mode with Octree Depth 3.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Sharp mode with Octree Depth 4.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<figure id="id8">
+<figcaption>
+<p>The Remesh Modifier applied to a text to improve its topology.</p>
+</figcaption>
+</figure>
+<p><a href="https://www.youtube.com/watch?v=Mh-gUnS2c0Y">Animated Example</a></p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

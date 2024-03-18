@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Editing &gt; Switch Direction</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Switch Direction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="switch-direction">
+<h1>Switch Direction</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Switch Direction</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>F</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>This tool allows you to switch the direction of the selected bones
+(i.e. their root will become their tip, and vice versa).</p>
+<p>Switching the direction of a bone will generally break the chain(s) it belongs to.
+However, if you switch a whole (part of a) chain, the switched bones will still be parented/connected,
+but in “reversed order”. See the Fig. <a href="#fig-rig-properties-switch">Switching example.</a>.</p>
+<table id="id2">
+<caption>Switching example.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>An armature with one selected bone, and one selected chain of three bones, just before switching.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>The selected bones have been switched. Bone.005 is no more connected nor parented to anything.
+The chain of switched bones still exists, but reversed (now Bone.002 is its root, and Bone is its tip).
+Bone.003 is now a free bone.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div></body>
+</html>

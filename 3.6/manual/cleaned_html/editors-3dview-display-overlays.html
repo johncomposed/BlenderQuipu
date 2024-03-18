@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Display &gt; Overlays</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">3D Viewport</a></li>
+<li><a href="index.html">Display</a></li>
+<li>Viewport Overlays</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewport-overlays">
+<h1>Viewport Overlays</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Header:</dt>
+<dd><p> Overlays</p>
+</dd>
+</dl>
+</div>
+<p>Clicking the icon toggles all overlays in the 3D Viewport.
+The drop-down button displays a popover with more detailed settings,
+which are described below.</p>
+<p>The available options depend on the mode that the 3D Viewport is in.</p>
+<section id="object-mode">
+<h2>Object Mode</h2>
+<p>The following options are always present, independent of the current mode.
+Some of the overlays can be customized in the
+<a href="../../preferences/viewport.html">Viewport Preferences</a>.</p>
+<section id="guides">
+<h3>Guides</h3>
+<dl>
+<dt>Grid</dt><dd><p>Show grid in orthographic side view.</p>
+</dd>
+<dt>Floor</dt><dd><p>Show the ground plane in perspective view.</p>
+</dd>
+<dt>Axis</dt><dd><p>Show the X, Y and/or Z axis lines.</p>
+</dd>
+<dt>Scale</dt><dd><p>The distance between lines in the grid/floor.</p>
+</dd>
+<dt>Subdivision</dt><dd><p>The number of subdivisions between grid lines.</p>
+</dd>
+<dt>Text Info</dt><dd><p>Show various bits of information in the top left corner of the viewport.</p>
+<dl>
+<dt>View Perspective</dt><dd><p>Name of the <a href="../navigate/projections.html">View Perspective</a>,
+such as “Top Orthographic” or “User Perspective.”</p>
+</dd>
+<dt>Playback Frame Rate (FPS)</dt><dd><p>Displays the Frames Per Second at which the animation is playing.
+By default, Blender goes through every single frame, which may result in an FPS that’s lower than
+intended (and the animation playing slower than realtime); the FPS turns red in this case.
+You can change this behavior in the Playback popover of the <a href="../../timeline.html">Timeline</a>.</p>
+</dd>
+<dt>Object Info</dt><dd><p>Shows the current frame in parentheses, followed by the names of the selected
+<a href="../../../scene_layout/collections/index.html">Collection</a> and the <a href="../../../scene_layout/object/selecting.html#object-active">active object</a>.
+When applicable, also shows the selected <a href="../../../animation/shape_keys/introduction.html">Shape Key</a>
+and (in angle brackets) the <a href="../../../animation/markers.html">Marker</a> on the current frame.
+If the object has a keyframe on the current frame, the Object Info is displayed in yellow.</p>
+</dd>
+<dt>Grid Resolution</dt><dd><p>When the view is aligned to a world axis (see <a href="../navigate/viewpoint.html">Viewpoint</a>),
+the Text Info additionally shows the smallest distance between two parallel grid lines.</p>
+</dd>
+</dl>
+</dd>
+<dt>Statistics</dt><dd><p>Show information about the amount of objects and geometry.
+Note that the counters depend on the current selection.
+For example, selecting a mesh gives info on the number of vertices, edges, and faces,
+while selecting a light shows the number of lights in the scene.</p>
+<ul>
+<li><p>Objects – Number of the selected objects and the total count.</p></li>
+<li><p>Geometry – Displays information about the current scene depending on the mode and object type.
+This can be the number of vertices, faces, triangles, or bones.</p></li>
+</ul>
+</dd>
+<dt>HDRI Preview</dt><dd><p>Show two spheres, one glossy and one diffuse, to preview the HDRI that’s being used for world lighting.
+While HDRIs can be used in both the <em>Material Preview</em> and <em>Rendered</em>
+<a href="shading.html">shading modes</a>, the HDRI Preview overlay
+is only available in the former.</p>
+</dd>
+<dt>3D Cursor</dt><dd><p>Show the <a href="../3d_cursor.html">3D Cursor</a>.</p>
+</dd>
+<dt>Annotations</dt><dd><p>Show <a href="../../../interface/annotate_tool.html">annotations</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="objects">
+<h3>Objects</h3>
+<dl>
+<dt>Extras</dt><dd><p>Show objects that don’t have geometry (such as empties, cameras and lights).</p>
+</dd>
+</dl>
+<dl id="bpy-types-view3doverlay-show-light-colors">
+<dt>Light Colors</dt><dd><p>Shades the outline of light objects to the color the light produces.</p>
+</dd>
+<dt>Relationship Lines</dt><dd><p>Show dashed lines indicating parent or constraint relationships.</p>
+</dd>
+<dt>Outline Selected</dt><dd><p>Show an outline around selected objects.</p>
+</dd>
+<dt>Bones</dt><dd><p>Show Bones.</p>
+</dd>
+<dt>Motion Paths</dt><dd><p>Show the <a href="../../../animation/motion_paths.html">motion path</a> overlay.</p>
+</dd>
+<dt>Origin</dt><dd><p>Show the <a href="../../../scene_layout/object/origin.html">origins</a> of the selected objects.</p>
+</dd>
+<dt>Origin (All)</dt><dd><p>Show the origins of all objects.</p>
+</dd>
+</dl>
+</section>
+<section id="geometry">
+<h3>Geometry</h3>
+<dl id="bpy-types-view3doverlay-show-wireframes">
+<dt>Wireframe</dt><dd><p>Display mesh edges. Similar to <a href="shading.html#dview-shading-rendered">Wireframe Shading</a>,
+but displays edges on top of existing shading.
+The value slider adjusts which edges to display:
+lower values hide edges on surfaces that are almost flat, while a value of 1 shows all edges.</p>
+<dl id="bpy-types-view3doverlay-wireframe-opacity">
+<dt>Opacity</dt><dd><p>The opacity of the displayed edges, from 0 (invisible) to 1 (fully opaque).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-view3doverlay-show-fade-inactive">
+<dt>Fade Inactive Geometry</dt><dd><p>In modes other than Object Mode, fade out objects that you’re not working on.
+The slider controls how much they’re faded out.</p>
+</dd>
+</dl>
+<dl id="bpy-types-view3doverlay-show-face-orientation">
+<dt>Face Orientation</dt><dd><p>Show faces whose normal is pointing towards the camera in blue,
+and faces whose normal is pointing away from the camera in red.
+This lets you quickly check for faces that are oriented incorrectly:
+the outside surface of an object should typically be all blue.</p>
+</dd>
+</dl>
+</section>
+<section id="motion-tracking">
+<h3>Motion Tracking</h3>
+<p>Show the <a href="../../../movie_clip/tracking/introduction.html">motion tracking</a> overlay.</p>
+<dl>
+<dt>Camera Path</dt><dd><p>Show the reconstructed camera path.</p>
+</dd>
+<dt>Marker Names</dt><dd><p>Show the names for reconstructed track objects.</p>
+</dd>
+<dt>Tracks</dt><dd><p>Change the display of the reconstructed tracks:
+plain axes, arrows and so on.</p>
+</dd>
+<dt>Size</dt><dd><p>Change the display size of the reconstructed tracks.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="mesh-edit-mode">
+<h2>Mesh Edit Mode</h2>
+<p>The following options are available when in Mesh Edit Mode.</p>
+<dl>
+<dt>Edges</dt><dd><p>Highlight selected and partially selected edges.
+Only affects vertex and face selection modes, as edges are always highlighted in edge selection mode.</p>
+</dd>
+<dt>Faces</dt><dd><p>Highlight selected faces. Affects all selection modes.</p>
+</dd>
+<dt>Center</dt><dd><p>Show face center points in solid shading modes. (They’re always shown in wireframe shading mode.)</p>
+<p>Only affects face selection mode.</p>
+</dd>
+<dt>Creases</dt><dd><p>Display edges marked with a crease
+for the <a href="../../../modeling/modifiers/generate/subdivision_surface.html">Subdivision Surface Modifier</a>.</p>
+</dd>
+<dt>Sharp</dt><dd><p>Display sharp edges, used with the <a href="../../../modeling/modifiers/generate/edge_split.html">Edge Split modifier</a>.</p>
+</dd>
+<dt>Bevel</dt><dd><p>Display weights created for the <a href="../../../modeling/modifiers/generate/bevel.html">Bevel Modifier</a>.</p>
+</dd>
+<dt>Seams</dt><dd><p>Display the <a href="../../../modeling/meshes/uv/unwrapping/seams.html">UV unwrapping seams</a>.</p>
+</dd>
+</dl>
+<section id="shading">
+<h3>Shading</h3>
+<dl id="bpy-types-view3doverlay-show-retopology">
+<dt>Retopology</dt><dd><p>Hide the solid mesh and offset the overlay towards the view.
+Selection is occluded by inactive geometry, unless X-Ray is enabled</p>
+<dl id="bpy-types-view3doverlay-retopology-offset">
+<dt>Offset</dt><dd><p>Amount to offset edit mesh in front of other geometry.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-view3doverlay-show-weight">
+<dt>Vertex Groups Weights</dt><dd><p>Display weights in Edit Mode.</p>
+<dl id="bpy-types-toolsettings-vertex-group-user">
+<dt>Zero Weights</dt><dd><p>Display unreferenced and zero-weighted areas in black.
+This helps to identify areas with very low weights that have been painted onto.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Vertices are displayed in the usual way.</p>
+</dd>
+<dt>Active:</dt>
+<dd><p>Vertices are shown in black if they have no weight in the active vertex group.</p>
+</dd>
+<dt>All:</dt>
+<dd><p>Vertices are shown in black if they have no weight in any vertex group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="mesh-analysis">
+<h3>Mesh Analysis</h3>
+<p>Show the <a href="../../../modeling/meshes/mesh_analysis.html#modeling-mesh-analysis">Mesh Analysis</a> overlay.</p>
+</section>
+<section id="measurement">
+<h3>Measurement</h3>
+<p>Show numerical measures of the selected elements.
+The <a href="../../../scene_layout/scene/properties.html#bpy-types-unitsettings">Units</a> can be set in the Scene properties.</p>
+<dl>
+<dt>Edge Length</dt><dd><p>Show the length of selected edges.</p>
+</dd>
+<dt>Edge Angle</dt><dd><p>Show the angle of selected edges between two faces.</p>
+</dd>
+<dt>Face Area</dt><dd><p>Show the area of selected faces.</p>
+</dd>
+<dt>Face Angle</dt><dd><p>Show the angle of selected face corners.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Geometry connected to the selection is shown while transforming,
+allowing you to move a vertex and see the connected edge lengths for example.</p>
+</div>
+<div>
+<p>Note</p>
+<p>These values respect the <a href="../../../modeling/meshes/editing/mesh/transform/basic.html#modeling-mesh-transform-panel">Transform Space</a>
+in the Sidebar. Use <em>Global</em> if you want the object’s scale to be applied to the measurements.</p>
+</div>
+<div>
+<p>See also</p>
+<p>The <a href="../toolbar/measure.html">Measure</a> tool for measuring
+arbitrary distances and angles.</p>
+</div>
+</section>
+<section id="normals">
+<h3>Normals</h3>
+<ul>
+<li><p>Display vertex normals</p></li>
+<li><p>Display face normals at vertices (split normals)</p></li>
+<li><p>Display face normals</p></li>
+</ul>
+<dl>
+<dt>Size</dt><dd><p>The size to show the selected normals.</p>
+<dl id="bpy-types-view3doverlay-use-normals-constant-screen-size">
+<dt>Constant Screen Size Normals</dt><dd><p>Keep the size of normals constant in relation to the zoom level.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="developer">
+<h3>Developer</h3>
+<p>These overlays are only available if <em>Developer Extras</em> is enabled
+in the <a href="../../preferences/interface.html">Interface Preferences</a>.</p>
+<dl>
+<dt>Indices</dt><dd><p>Display the indices of selected vertices, edges, and faces.</p>
+</dd>
+</dl>
+</section>
+<section id="freestyle">
+<h3>Freestyle</h3>
+<p>These settings apply to the <a href="../../../render/freestyle/introduction.html">Freestyle</a>
+line art renderer.</p>
+<dl>
+<dt>Edge Marks</dt><dd><p>Display Freestyle edge marks.</p>
+</dd>
+<dt>Face Marks</dt><dd><p>Display Freestyle face marks.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="sculpt-mode">
+<h2>Sculpt Mode</h2>
+<dl>
+<dt>Mask</dt><dd><p>Show <a href="../../../sculpt_paint/sculpting/editing/mask.html#sculpt-mask-menu">Masks</a> as overlays on an object. The opacity of the overlay can be adjusted.</p>
+</dd>
+<dt>Face Sets</dt><dd><p>Show <a href="../../../sculpt_paint/sculpting/editing/face_sets.html#sculpting-editing-facesets">Face Sets</a> as overlays on an object.
+The opacity of the overlay can be adjusted.</p>
+</dd>
+</dl>
+</section>
+<section id="vertex-paint">
+<h2>Vertex Paint</h2>
+<dl id="bpy-types-view3doverlay-vertex-paint-mode-opacity">
+<dt>Stencil Mask Opacity</dt><dd><p>Does nothing. (Stencil masks are only available for texture painting.)</p>
+</dd>
+<dt>Show Wire</dt><dd><p>Display mesh edges in white (unlike the <em>Wireframe</em> overlay which shows them in black).</p>
+</dd>
+</dl>
+</section>
+<section id="weight-paint">
+<h2>Weight Paint</h2>
+<dl>
+<dt>Opacity</dt><dd><p>The opacity of the overlay.</p>
+</dd>
+<dt>Zero Weights</dt><dd><p>Display unreferenced and zero-weighted areas in black.
+This helps to identify areas with very low weights that have been painted onto.</p>
+<dl>
+<dt>None</dt><dd><p>Vertices are displayed in the usual way.</p>
+</dd>
+<dt>Active</dt><dd><p>Vertices are shown in black if they have no weight in the active vertex group.</p>
+</dd>
+<dt>All</dt><dd><p>Vertices are shown in black if they have no weight in any vertex group.</p>
+</dd>
+</dl>
+</dd>
+<dt>Show Weight Contours</dt><dd><p>Show contour lines formed by points with the same interpolated weight.</p>
+<p>This visualizes weight variations too small to be seen from colors and can be useful for judging
+the smoothness and consistency of gradients, e.g. when using smoothing tools and brushes.</p>
+</dd>
+<dt>Show Wire</dt><dd><p>Display mesh edges in white (unlike the <em>Wireframe</em> overlay which shows them in black).</p>
+</dd>
+</dl>
+</section>
+<section id="texture-paint">
+<h2>Texture Paint</h2>
+<dl id="bpy-types-view3doverlay-texture-paint-mode-opacity">
+<dt>Stencil Mask Opacity</dt><dd><p>Opacity of the <a href="../../../sculpt_paint/texture_paint/tool_settings/mask.html">stencil mask</a> overlay.</p>
+</dd>
+</dl>
+</section>
+<section id="bones">
+<h2>Bones</h2>
+<dl>
+<dt>Fade Geometry</dt><dd><p>Show the bones on top and face other geometry to the back.
+The opacity can be controlled with the slider.
+Only available in Pose Mode.</p>
+</dd>
+<dt>Bone Wireframe Opacity</dt><dd><p>The maximum opacity used for bones drawn in the <em>Wireframe</em>
+<a href="shading.html">shading mode</a>
+(or in <em>Solid</em> shading mode with X-Ray active).
+This is helpful when it is necessary to reduce clutter and focus on
+the mesh rather than bones.</p>
+</dd>
+</dl>
+</section>
+<section id="grease-pencil">
+<h2>Grease Pencil</h2>
+<dl>
+<dt>Onion Skin</dt><dd><p>Show ghosts of the keyframes before and after the current frame.
+If <a href="../../../grease_pencil/multiframe.html">Multiframe</a> is enabled,
+ghosts of the selected keyframes are shown instead.
+See <a href="../../../grease_pencil/properties/onion_skinning.html">Onion Skinning</a>.</p>
+</dd>
+<dt>Canvas</dt><dd><p>Display a grid over the Grease Pencil drawing plane.
+The opacity of the grid can be controlled with the slider.
+When using the <em>Canvas X-Ray</em> option, objects are drawn behind the canvas grid.</p>
+</dd>
+<dt>Fade Inactive Layers</dt><dd><p>Decrease the opacity of all the layers in the object other than the active one.
+The opacity factor can be controlled with the slider.</p>
+</dd>
+<dt>Fade Inactive Objects</dt><dd><p>Cover all of the viewport except the active Grease Pencil object with a full color layer to improve visibility
+while drawing over complex scenes.</p>
+<dl>
+<dt>Fade Grease Pencil Objects</dt><dd><p>Include or exclude Grease Pencil objects.</p>
+</dd>
+</dl>
+</dd>
+<dt>Edit Lines</dt><dd><p>Show edit lines in Edit Mode.</p>
+</dd>
+<dt>Only in Multiframe</dt><dd><p>When Multiframe is enabled and keyframes other than the current frame are selected,
+strokes on those keyframes are displayed as just their edit lines – the strokes themselves are hidden.
+Note that this does not affect Onion Skinning.</p>
+</dd>
+<dt>Stroke Direction</dt><dd><p>Toggle the display of the selected strokes’ start points (green) and end points (red) to visualize their direction.</p>
+</dd>
+<dt>Material Name</dt><dd><p>Show material name next to the selected strokes.</p>
+</dd>
+<dt>Vertex Opacity</dt><dd><p>Opacity for vertices (points) and edit lines in Edit and Sculpt Mode.</p>
+</dd>
+<dt>Vertex Paint Opacity</dt><dd><p>The opacity of the vertex color overlay in Vertex Paint Mode and Draw Mode.
+Note that in Draw Mode, vertex paint is only visible in the <em>Material Preview</em>
+and <em>Rendered</em> shading modes by default. To see it in <em>Solid</em> mode, you either
+need to use Vertex Paint Mode, or set the <a href="../../../render/workbench/color.html">Color</a>
+shading setting to <em>Attribute</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-view3doverlay-display-handle">
+<dt>Handles</dt><dd><p>When <a href="../../../grease_pencil/modes/edit/curve_editing.html">Curve Editing</a> is active,
+this option controls how curves are displayed in the 3D Viewport.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>No handles are displayed, only the control points.</p>
+</dd>
+<dt>Selected:</dt>
+<dd><p>Only handles for selected control points are displayed.</p>
+</dd>
+<dt>All:</dt>
+<dd><p>All the handles are displayed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

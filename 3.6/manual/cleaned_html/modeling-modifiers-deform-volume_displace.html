@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Volume Displace</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Volume Displace Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="volume-displace-modifier">
+<h1>Volume Displace Modifier</h1>
+<div id="id1">
+<p>Reference</p>
+<p>This modifier is only available for <a href="../../volumes/index.html">Volume Objects</a>.</p>
+</div>
+<p>The <em>Volume Displace</em> modifier displaces existing volume grids based on a 3D texture.
+It uses the RGB color channels of the texture to displace the volume into the X, Y and Z direction.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id2">
+<figcaption>
+<p>The Volume Displace modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Texture</dt><dd><p>The texture that is evaluated at every voxel to determine how far and in what direction to displace.</p>
+<div>
+<p>Note</p>
+<p>Grayscale textures lead to stretching along one axis.
+It’s best to use a color texture.</p>
+</div>
+</dd>
+<dt>Strength</dt><dd><p>Controls how far voxels are displaced.</p>
+</dd>
+<dt>Sample Radius</dt><dd><p>Smaller values result in better performance, but might cut off the volume outside.</p>
+</dd>
+<dt>Mid Level</dt><dd><p>This should be modified if the texture offsets the entire volume in one direction and you want to center it again.
+For performance reasons, the displaced volume should stay close to its original position.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id3">
+<figcaption>
+<p>A volume displaced with various strengths.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

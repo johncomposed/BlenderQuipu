@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Limits</title></head>
+<body><ul>
+<li><a href="index.html">Advanced</a></li>
+<li>Working Limits</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="working-limits">
+<h1>Working Limits</h1>
+<section id="space">
+<h2>Space</h2>
+<p>While object positions, vertex locations are not clamped, larger values become increasingly imprecise.
+To get an idea of the precision you can work with using different scales.
+Here’s a table of scales and their associated accuracy:</p>
+<dl>
+<dt>10:</dt>
+<dd><p>1/1,048,576<sup>th</sup></p>
+</dd>
+<dt>100:</dt>
+<dd><p>1/131,072<sup>th</sup></p>
+</dd>
+<dt>1,000:</dt>
+<dd><p>1/16,384<sup>th</sup></p>
+</dd>
+<dt>10,000:</dt>
+<dd><p>1/1,024<sup>th</sup></p>
+</dd>
+<dt>100,000:</dt>
+<dd><p>1/128<sup>th</sup></p>
+</dd>
+<dt>1,000,000:</dt>
+<dd><p>1/16<sup>th</sup></p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>For a rough rule of thumb, values within -5,000/+5,000 are typically reliable (range of 10,000).
+Internally <em>single precision</em> floating-point calculations are used.</p>
+</div>
+</section>
+<section id="time">
+<h2>Time</h2>
+<p>The maximum number of frames for each scene is currently 1,048,574, and allows for continuous shots for durations of:</p>
+<dl>
+<dt>24 fps:</dt>
+<dd><p>12 hours, 8 minutes.</p>
+</dd>
+<dt>25 fps:</dt>
+<dd><p>11 hours, 39 minutes.</p>
+</dd>
+<dt>30 fps:</dt>
+<dd><p>9 hours, 42 minutes.</p>
+</dd>
+<dt>60 fps:</dt>
+<dd><p>4 hours, 51 minutes.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>In practice, a finished work is typically composed of output from many scenes.
+So this limit does not prevent you from creating longer works.</p>
+</div>
+</section>
+<section id="text-fields">
+<h2>Text Fields</h2>
+<p>Fixed strings are used internally, and while it is not useful to list all limits, here are some common limits.
+<em>Used for data-block names, modifiers, vertex groups, UV layers…</em></p>
+<dl>
+<dt>directory:</dt>
+<dd><p>767</p>
+</dd>
+<dt>file-name:</dt>
+<dd><p>255</p>
+</dd>
+<dt>file-path:</dt>
+<dd><p>1023</p>
+</dd>
+<dt>identifier:</dt>
+<dd><p>63</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Multi-byte encoding means some Unicode characters use more than a single ASCII character.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

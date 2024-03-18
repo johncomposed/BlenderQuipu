@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Uv &gt; Editing</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">UVs</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<p>After unwrap, you will likely need to arrange the UV maps,
+so that they can be used in texturing or painting. Your goals for editing are:</p>
+<ul>
+<li><p>Stitch pieces (of UV maps) back together.</p></li>
+<li><p>Minimize wasted space in the image.</p></li>
+<li><p>Enlarge the faces where you want more detail.</p></li>
+<li><p>Re-size/enlarge the faces that are stretched.</p></li>
+<li><p>Shrink the faces that are too grainy and have too much detail.</p></li>
+</ul>
+<p>With a minimum of dead space,
+the most pixels can be dedicated to giving the maximum detail and fineness to the UV texture.
+A UV face can be as small as a pixel (the little dots that make up an image)
+or as large as an entire image. You probably want to make major adjustments first,
+and then tweak the layout.</p>
+<section id="transform">
+<h2>Transform</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Move, Rotate, Scale, Transform</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<ul>
+<li><p>Move <kbd>G</kbd></p></li>
+<li><p>Rotate <kbd>R</kbd></p></li>
+<li><p>Scale <kbd>S</kbd></p></li>
+<li><p>Shear <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>S</kbd></kbd></p></li>
+</ul>
+<section id="axis-locking">
+<h3>Axis Locking</h3>
+<p>Transformations can be locked to an axis by pressing <kbd>X</kbd> or <kbd>Y</kbd> after one of the transform tools.
+Also, holding the <kbd>MMB</kbd> will constrain movement to the X or Y axis.</p>
+</section>
+</section>
+<section id="randomize">
+<h2>Randomize</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Transform ‣ Randomize</p>
+</dd>
+</dl>
+</div>
+<p>Randomize the scale, rotation and offset of selected UV islands.
+The <em>Randomize Transform</em> tool in the UV editor works
+similar to <em>Randomize Transform</em> tool in the 3d view.</p>
+<dl>
+<dt>Random Seed</dt><dd><p>Changes the random <a href="../../../glossary/index.html#term-Seed">seed</a> used by the pseudo-random number generator,
+producing a different transform result for each seed value.</p>
+</dd>
+<dt>Location</dt><dd><p>Amount to randomize location.</p>
+</dd>
+<dt>Rotation</dt><dd><p>Amount to randomize rotation.</p>
+</dd>
+<dt>Scale Even</dt><dd><p>Apply the same scale to the U coordinate and V coordinate.</p>
+</dd>
+<dt>Scale</dt><dd><p>Amount to randomize scale in U and V coordinates.</p>
+</dd>
+</dl>
+</section>
+<section id="mirror">
+<h2>Mirror</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Mirror</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>UVs can be mirrored on the Y axis or the X axis:</p>
+<ul>
+<li><p>Mirror X</p></li>
+<li><p>Mirror Y</p></li>
+</ul>
+<p>You can also use the hotkeys <kbd>X</kbd> or <kbd>Y</kbd>,
+or hold the <kbd>MMB</kbd> and drag in the mirror direction.</p>
+<section id="copy-mirrored-uv-coordinates">
+<h3>Copy Mirrored UV Coordinates</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Copy Mirrored UV Coordinates</p>
+</dd>
+</dl>
+</div>
+<p>Copies UVs from one side of the mirrored mesh to the other.
+Affects only selected vertices (on both sides).</p>
+<dl>
+<dt>Axis Direction</dt><dd><p>Positive/Negative</p>
+</dd>
+<dt>Precision</dt><dd><p>Tolerance for finding vertex duplicates.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="snap">
+<h2>Snap</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Snap</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Snapping in the UV Editor is similar to
+<a href="../../../editors/3dview/controls/snapping.html">Snapping in 3D</a>.
+For the snap to pixel options to work an image has to be loaded.</p>
+<dl>
+<dt>Selected to Pixels</dt><dd><p>Moves selection to nearest pixel. See also <em>Round to Pixels</em> below.</p>
+</dd>
+<dt>Selected to Cursor</dt><dd><p>Moves selection to 2D cursor location.</p>
+</dd>
+<dt>Selected to Cursor (Offset)</dt><dd><p>Moves selection center to 2D cursor location, while preserving the offset of the vertices from the center.</p>
+</dd>
+<dt>Selected to Adjacent Unselected</dt><dd><p>Moves selection to adjacent unselected element.</p>
+</dd>
+<dt>Cursor to Pixels</dt><dd><p>Snaps the cursor to the nearest pixels.</p>
+</dd>
+<dt>Cursor to Selected</dt><dd><p>Moves the Cursor to the center of the selection.</p>
+</dd>
+<dt>Cursor to Origin</dt><dd><p>Places the cursor to the location (0, 0, 0).</p>
+</dd>
+</dl>
+</section>
+<section id="merge">
+<h2>Merge</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Merge</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>M</kbd></p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>At Center</dt><dd><p>Moves selected UVs to their average position.</p>
+</dd>
+<dt>At Cursor</dt><dd><p>Moves selection UVs to 2D cursor location.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-uv-remove-doubles">
+<dt>By Distance</dt><dd><p>Merges selected UVs within the specified <em>Merge Distance</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="split">
+<h2>Split</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Split</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Selection <kbd>Y</kbd></dt><dd><p>Splits (disconnects) the selection from the rest of the UV.
+The border edge to any non-selected elements are duplicated.</p>
+<p>Note that the “copy” is left exactly at the same position as the original,
+so you must move it to see it clearly.</p>
+</dd>
+</dl>
+</section>
+<section id="unwrap">
+<h2>Unwrap</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Unwrap</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>U</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Blender offers several ways of mapping UVs.
+The simpler projection methods use formulas that map 3D space onto 2D space,
+by interpolating the position of points toward a point, axis or plane through a surface.
+The more advanced methods can be used with more complex models, and have more specific uses.</p>
+<ul>
+<li><p><a href="../editing/uv.html#bpy-ops-uv-unwrap">Unwrap</a></p></li>
+<li><p><a href="../editing/uv.html#bpy-ops-uv-smart-project">Smart UV Project</a></p></li>
+<li><p><a href="../editing/uv.html#bpy-ops-uv-lightmap-pack">Lightmap Pack</a></p></li>
+<li><p><a href="../editing/uv.html#bpy-ops-uv-follow-active-quads">Follow Active Quads</a></p></li>
+<li><p><a href="../editing/uv.html#bpy-ops-uv-cube-project">Cube Projection</a></p></li>
+<li><p><a href="../editing/uv.html#bpy-ops-uv-cylinder-project">Cylinder Projection</a></p></li>
+<li><p><a href="../editing/uv.html#bpy-ops-uv-sphere-project">Sphere Projection</a></p></li>
+</ul>
+</section>
+<section id="pin-unpin">
+<h2>Pin &amp; Unpin</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Pin/Unpin</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>P</kbd>, <kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can pin UVs so they do not move between multiple unwrap operations.
+When Unwrapping a model it is sometimes useful to “Lock” certain UVs,
+so that parts of a UV layout stay the same shape, and/or in the same place.
+Pinning is done by selecting a UV, then selecting <em>Pin</em> from the <em>UVs</em> menu,
+or the shortcut <kbd>P</kbd>. You can <em>Unpin a UV</em> with the shortcut <kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd>.</p>
+<p>Pinning is most effective when using the Unwrap method of UV mapping, for organic objects.
+An example is when you are modeling a symmetrical object using
+the <a href="../../modifiers/generate/mirror.html">Mirror Modifier</a>.
+Some of the UVs on the mirror axis may be shared across the mirrored counterparts.
+You could pin the UVs that correspond to the midline, then align them on the X axis,
+and they will stay in that location.</p>
+<p>The sculpting tools, <em>Pinch</em> and <em>Relax</em>, will not move any pinned UVs. This allows
+you to pin the borders, or around interior holes, and gives even more control to the
+sculpt tools.</p>
+<p>Pinning also works great with the <em>Live Unwrap</em> tool. If you pin two or more UVs,
+with <em>Live Unwrap</em> on, moving or scaling the pinned UVs will interactively unwrap the model.
+You can even use the <em>Grab</em> sculpting tool to move the pinned UVs.
+This helps with fitting a UV island to a certain shape or region.</p>
+</section>
+<section id="mark-clear-seams">
+<h2>Mark/Clear Seams</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Mark/Clear Seam</p>
+</dd>
+</dl>
+</div>
+<p>See <a href="unwrapping/seams.html">Seams</a>.</p>
+</section>
+<section id="seams-from-islands">
+<h2>Seams from Islands</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>View mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Seams from Islands</p>
+</dd>
+</dl>
+</div>
+<p>Adds seams at the boundaries of existing UV islands.
+This is useful when modifying the UVs of already unwrapped meshes.</p>
+</section>
+<section id="pack-islands">
+<h2>Pack Islands</h2>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Pack Islands</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Pack Islands</em> tool can be used to optimize the UV layout by adjusting existing islands
+to efficiently fill the <a href="../../../glossary/index.html#term-Texture-Space">Texture Space</a>. Based on the options selected,
+the tool will scale, translate and rotate the islands,
+ensuring a specified margin exists between them to maximize the usage of the UV space.
+Pinned islands can have additional restrictions applied to customize the packing process even further.</p>
+<dl>
+<dt>Shape Method</dt><dd><p>The method to use when considering the shape of each island.</p>
+<dl>
+<dt>Exact Shape (Concave):</dt>
+<dd><p>Use the complete shape of the island, including filling any holes or concave regions around the island.</p>
+</dd>
+<dt>Boundary Shape (Convex):</dt>
+<dd><p>Takes into account the boundary (Convex Hull) of the island.
+This method will not place islands inside holes.</p>
+</dd>
+<dt>Bounding Box:</dt>
+<dd><p>Uses the simple bounding box of the island.</p>
+</dd>
+</dl>
+</dd>
+<dt>Scale</dt><dd><p>Scale the islands to fill the unit square, or pack islands towards the lower left corner.</p>
+</dd>
+<dt>Rotate</dt><dd><p>Allows the rotation of islands, as well as translation and scaling, to optimize texture usage.</p>
+</dd>
+<dt>Rotation Method</dt><dd><p>The allowable rotations to use for each each island.</p>
+<dl>
+<dt>Any:</dt>
+<dd><p>Any rotation which improves the packing is allowed.</p>
+</dd>
+<dt>Axis-aligned:</dt>
+<dd><p>The island will first be rotated into a smallest rectangle. Additional rotation will only be in 90-degree turns.</p>
+</dd>
+<dt>Cardinal:</dt>
+<dd><p>Like the four cardinal directions on a compass, North, South, East and West, only 90-degree turns will be allowed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Margin Method</dt><dd><p>The method to use when calculating the empty space between islands.</p>
+<dl>
+<dt>Scaled:</dt>
+<dd><p>Use scale of existing UVs to multiply margin. (The default from Blender 3.3 and later.)</p>
+</dd>
+<dt>Add:</dt>
+<dd><p>Simple method, just add the margin. (This is the default margin scale from Blender 2.8 and earlier.)</p>
+</dd>
+<dt>Fraction:</dt>
+<dd><p>Precisely specify the fraction of the UV unit square for margin. (Slower than other two methods.)</p>
+</dd>
+</dl>
+</dd>
+<dt>Margin</dt><dd><p>The scale for the empty space between islands.</p>
+</dd>
+<dt>Lock Pinned Islands</dt><dd><p>An island which has any of its UVs pinned is considered a <em>Pinned Island</em>.
+With this option, <em>Pinned Islands</em> will be unable to move. The other islands will pack around them.</p>
+</dd>
+<dt>Lock Method</dt><dd><p>Change the way <em>Pinned Islands</em> are packed</p>
+<dl>
+<dt>Scale:</dt>
+<dd><p>The scale of the <em>Pinned Islands</em> will not change.</p>
+</dd>
+<dt>Rotation:</dt>
+<dd><p><em>Pinned Islands</em> will not rotate.</p>
+</dd>
+<dt>Rotation and Scale:</dt>
+<dd><p><em>Pinned Islands</em> can translate, but not scale nor rotate.</p>
+</dd>
+</dl>
+</dd>
+<dt>Merge Overlapping</dt><dd><p>Before the main packing operation, overlapping islands are detected and temporarily combined.
+During packing, the relative rotation and position of the merged islands are preserved.</p>
+</dd>
+<dt>Pack To</dt><dd><p>Determines the final placement of UV islands after completing the packing operation.</p>
+<dl>
+<dt>Closest UDIM:</dt>
+<dd><p>Pack islands to the <a href="workflows/udims.html">UDIM</a> grid
+nearest to the center of the selection.</p>
+</dd>
+<dt>Active UDIM:</dt>
+<dd><p>Pack islands to the active UDIM image tile or, if no image is available,
+the UDIM grid tile where the 2D cursor is located.</p>
+</dd>
+<dt>Original bounding box:</dt>
+<dd><p>Find the original bounding box of the selection,
+packs the islands, and then moves them back inside the original box.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The performance of the <em>Pack Islands</em> operator is heavily affected by the options selected,
+and sometimes the options can combine in different ways to produce unexpectedly slower results.</p>
+<p>The fastest results can be obtained by using the “Bounding Box” shape method and the “Add” margin method.</p>
+<p>Although enabling the “Rotate” option slightly impacts performance, it will often enhance efficiency,
+making it a good choice to always keep enabled.</p>
+<p>However the “Fraction” margin method requires significantly more computation to find the exact scale.
+For certain layouts, it may even take up to 10 times longer to complete then using the simpler
+“Add” or “Scaled” methods.</p>
+<p>Similarly, the “Exact shape” and “Boundary shape” methods are much slower than the simple “Bounding Box” method.</p>
+</div>
+</section>
+<section id="average-island-scale">
+<h2>Average Island Scale</h2>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Average Island Scale</p>
+</dd>
+</dl>
+</div>
+<p>Using the <em>Average Island Scale</em> tool, will scale each
+UV island so that they are all approximately the same scale.</p>
+<dl>
+<dt>Non-Uniform</dt><dd><p>Reduces average texture stretching within islands by scaling the U and V axes independently.</p>
+</dd>
+<dt>Shear</dt><dd><p>Reduces average texture shearing within islands by shearing the U axis.</p>
+</dd>
+</dl>
+</section>
+<section id="minimize-stretch">
+<h2>Minimize Stretch</h2>
+<div id="id14">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Minimize Stretch</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Minimize Stretch</em> tool, reduces UV stretch by minimizing the difference between
+the angles in 3D and the angles in UV space.
+This tool is similar to the Relax brush sculpt tool with the <em>Geometry Relaxation Method</em>,
+but uses a different algorithm.</p>
+<dl>
+<dt>Fill Holes</dt><dd><p>Just during <em>minimize stretch</em>, internal holes will be filled with temporary polygons
+to prevent stretching and overlaps of the surrounding UVs.</p>
+</dd>
+<dt>Blend</dt><dd><p>The fraction between 0 and 1 of the original UVs to blend in once the stretch is minimized.
+A blend of 0 is the fully minimized stretch. Blend of 0.5 is halfway between the original UVs
+and the minimize stretch UVs.</p>
+</dd>
+<dt>Iterations</dt><dd><p>More iterations result in smoother UVs, but take longer to process.</p>
+</dd>
+</dl>
+</section>
+<section id="stitch">
+<h2>Stitch</h2>
+<div id="id15">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Stitch</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>V</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Stitch</em> tool, will join selected UVs that share vertices.
+You set the tool to limit stitching by distance in the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel,
+by activating <em>Use Limit</em> and adjusting the <em>Limit Distance</em>.</p>
+</section>
+<section id="align">
+<h2>Align</h2>
+<div id="id16">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Align</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>W</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Align</em> tool will move the selected UVs to a line, where that line is specified in different ways by <em>Axis</em>.</p>
+<p>The <em>Straighten</em> option will calculate a line segment between two endpoints and move all selected UVs onto that line.</p>
+<p>The <em>Align X</em> and <em>Align Y</em> options will axis-align all selected UVs to the midpoint of the current selection.</p>
+<dl>
+<dt>Axis</dt><dd><dl>
+<dt>Straighten:</dt>
+<dd><p>Move UV to closest point on line segment.</p>
+</dd>
+<dt>Straighten X:</dt>
+<dd><p>Move <em>U</em> co-ordinates onto the line.</p>
+</dd>
+<dt>Straighten Y:</dt>
+<dd><p>Move <em>V</em> co-ordinates onto the line.</p>
+</dd>
+<dt>Align X:</dt>
+<dd><p>Move <em>U</em> co-ordinates to the midpoint of the selection.</p>
+</dd>
+<dt>Align Y:</dt>
+<dd><p>Move <em>V</em> co-ordinates to the midpoint of the selection.</p>
+</dd>
+<dt>Align Auto:</dt>
+<dd><p>Choose between <em>Align X</em> or <em>Align Y</em> automatically.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="align-rotation">
+<h2>Align Rotation</h2>
+<div id="id17">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Align Rotation</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Align Rotation</em> tool aligns entire islands to either the U or V axis.</p>
+<p>The tool has three different methods of operation.
+The different methods specify the source for the alignment,
+and also whether to align with both the U and V axes,
+or just the V axis alone.</p>
+<p>When using the <em>Auto</em> method, islands are aligned so that UV edges are aligned
+to either the U axis or the V axis. This method works best with quads
+and meshes representing organic subjects.</p>
+<p>When using the <em>Edge</em> method, only the selected edges are considered,
+and the islands will be aligned such that the selected edges are aligned
+with the V axis. This method works with the selection, so it works best
+when a particular edge, or edge loop, needs to be aligned in UV coordinates.</p>
+<p>When using the <em>Geometry</em> method, the geometry is taken into consideration.
+Either the <em>X</em> axis, the <em>Y</em> axis, or the <em>Z</em> axis can be used. Suppose
+the <em>X</em> axis is chosen. Using this method, edges which have a positive extent
+in the <em>X</em> axis will be rotated in the UV map so that the edge
+extends upwards in the <em>V</em> axis.
+This method works best to align multiple islands which share some common
+geometric property, either in the X, Y or Z axis.</p>
+<p>Note that in the <em>Auto</em> method, edges can end up aligned either up or down or left or right
+depending on the orientation of the island prior to activating the tool.
+In the <em>Edge</em> method, the alignment of selected edges can be either up
+or down in the V axis, whatever is closest to the current orientation of the UV island.
+By comparison, in the <em>Geometry</em> method, the alignment will always be pointing up in the V axis,
+ignoring any previous orientation.</p>
+</section>
+<section id="copy-uvs">
+<h2>Copy UVs</h2>
+<div id="id18">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Copy UVs</p>
+</dd>
+</dl>
+</div>
+<p>For each selected UV island, the <em>Copy UVs</em> tool will copy it’s topology and UV coordinates into a temporary clipboard
+for later use with the <em>Paste UVs</em> tool.</p>
+<div>
+<p>Note</p>
+<p>The <em>Copy UVs</em> tool currently uses an internal clipboard which is not shared between instances of blender.</p>
+</div>
+</section>
+<section id="paste-uvs">
+<h2>Paste UVs</h2>
+<div id="id19">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Paste UVs</p>
+</dd>
+</dl>
+</div>
+<p>For each selected UV island, the <em>Paste UVs</em> tool will attempt to match the topology of an island stored in the
+internal clipboard. If a match is found, the UVs stored in the clipboard for the original island will be pasted
+onto the currently selected island.</p>
+<p>For example, if a triangle attached to a quad attached to a quad is in the clipboard, then a different triangle
+&lt;=&gt; quad &lt;=&gt; quad is selected, then the topologies match, and the UVs will be pasted over the current selection.</p>
+<p>For best results, you may want to use the Rip tool, or UV &gt; Split &gt; Selection, prior to using
+<em>Paste UVs</em>.</p>
+</section>
+<section id="show-hide-faces">
+<h2>Show/Hide Faces</h2>
+<div id="id20">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Show/Hide Faces</p>
+</dd>
+</dl>
+</div>
+<ul>
+<li><p>Reveal Hidden <kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd></p></li>
+<li><p>Hide Selected <kbd>H</kbd></p></li>
+<li><p>Hide Unselected <kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd></p></li>
+</ul>
+</section>
+<section id="export-uv-layout">
+<h2>Export UV Layout</h2>
+<div id="id21">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Export UV Layout</p>
+</dd>
+</dl>
+</div>
+<p>If you are using an external application, you need to know where on the mesh you are painting.</p>
+<div>
+<p>Note</p>
+<p>This is an <a href="../../../addons/import_export/mesh_uv_layout.html">add-on</a> activated by default.</p>
+</div>
+</section>
+<section id="proportional-editing">
+<h2>Proportional Editing</h2>
+<div id="id22">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p>Proportional Editing</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV ‣ Proportional Editing</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>O</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Proportional Editing is available in UV editing. The controls are the same as in the 3D Viewport.
+See <a href="../../../editors/3dview/controls/proportional_editing.html">Proportional Editing in 3D</a>
+for a full reference.</p>
+</section>
+<section id="uv-options">
+<h2>UV Options</h2>
+<div id="id23">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UVs</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-spaceuveditor-use-live-unwrap">
+<dt>Live Unwrap</dt><dd><p>Continuously unwraps the selected UV islands while transforming pinned vertices.
+Note, this is different than the <a href="../tools/tool_settings.html#bpy-types-toolsettings-use-edge-path-live-unwrap">Live Unwrap</a>
+option in the 3D Viewport.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-pixel-round-mode">
+<dt>Round to Pixels</dt><dd><p>During UV transforms, you can use Round to Pixels to help with matching features in the image
+or ensure your UVs have precise horizontal, vertical or diagonal alignment.</p>
+<p>Note that Round to Pixels is applied after any snapping modes.</p>
+<dl>
+<dt>Disabled:</dt>
+<dd><p>UVs will not be rounded.</p>
+</dd>
+<dt>Corner:</dt>
+<dd><p>Will force the UVs to round to the corner of the nearest pixel of an image if loaded.</p>
+</dd>
+<dt>Center:</dt>
+<dd><p>Will force the UVs to round to the center of the nearest pixel of an image if loaded.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-lock-bounds">
+<dt>Constraining to Image Bounds</dt><dd><p>For standard textures, this option prevents UVs from being moved outside the 0 to 1 UV range.
+For <a href="workflows/udims.html">UDIMs</a> textures,
+this option prevents UVs from being moved outside the nearest UDIM tile.</p>
+</dd>
+</dl>
+</section>
+<section id="d-viewport">
+<h2>3D Viewport</h2>
+<section id="rotate-uvs">
+<h3>Rotate UVs</h3>
+<div id="id24">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>3D Viewport</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face ‣ Face Data ‣ Rotate UVs</p>
+</dd>
+</dl>
+</div>
+<p>The orientation of the UV texture is defined by each face.
+If the image is, for example, upside down or laying on its side,
+use the Face ‣ Rotate UVs (in the 3D Viewport in Face Select mode)
+menu to rotate the UVs per face in 90-degree turns.</p>
+</section>
+<section id="reverse-uvs">
+<h3>Reverse UVs</h3>
+<div id="id25">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>3D Viewport</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face ‣ Face Data ‣ Reverse UVs</p>
+</dd>
+</dl>
+</div>
+<p>The Face ‣ Reverse UVs tool mirrors the UVs per face,
+which flips the image over, showing you the image reversed.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

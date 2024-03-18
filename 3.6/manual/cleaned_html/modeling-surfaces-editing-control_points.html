@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Surfaces &gt; Editing &gt; Control Points</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Surfaces</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Control Points</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="control-points">
+<h1>Control Points</h1>
+<section id="extrude-curve-and-move">
+<h2>Extrude Curve and Move</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Extrude Curve and Move</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>E</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Unlike meshes or curves, you cannot generally directly add new control points to a surface,
+as you can only extend a surface by adding a whole U or V row at once.
+The only exception is when working on a NURBS surface curve, i.e.
+a surface with only one control point on each U or V row. In this special case,
+all works exactly as with <a href="../../curves/editing/control_points.html#modeling-curves-extrude">curves</a>.</p>
+<p>Most of the time, only extrusion is available. As usual, once the tool is activated
+the extrusion happens immediately and you are placed into <em>select mode</em>,
+ready to drag the new extruded surface to its destination.</p>
+<p>There are two things very important to understand:</p>
+<ol>
+<li><p>Surfaces are <em>2D</em> objects. So you cannot extrude anything <em>inside</em> a surface
+(e.g. “inner” row); it would not make any sense!</p></li>
+<li><p>The control “grid” <em>must</em> remain “squarish”,
+which means that you can only extrude a whole row, not parts of rows here and there…</p></li>
+</ol>
+<p>To summarize, the <em>Extrude</em> tool will only work, when one and only one whole border
+row is selected, otherwise nothing happens.</p>
+<div>
+<p>Note</p>
+<p>As for curves, you cannot create a new surface in your object out of nowhere.
+However, unlike for curves, there is no “cut” option allowing you to separate a surface into several parts,
+so you only can create a new surface by <a href="surface.html#modeling-surface-editing-duplicating">Duplicating</a>
+an existing one, or adding a new one with the <em>Add</em> menu.</p>
+</div>
+<section id="examples">
+<h3>Examples</h3>
+<p>Images Fig. <a href="#fig-surface-edit-select-point">Selecting control point.</a> to Fig. <a href="#fig-surface-edit-extruding">Extruding.</a>
+show a typical extrusion along the side of a surface.</p>
+<p>In Fig. <a href="#fig-surface-edit-select-point">Selecting control point.</a> and <a href="#fig-surface-edit-select-row">Select Control Point Row.</a>,
+a border row of control points were highlighted by selecting a single control point,
+and then using <a href="../selecting.html#bpy-ops-curve-select-row">Select Control Point Row</a> to select the rest of the control points.</p>
+<table>
+<tbody>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Selecting control point.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Select Control Point Row.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The edge is then extruded as shown in Fig. <a href="#fig-surface-edit-extruding">Extruding.</a>.
+Notice how the mesh has bunched up next to the highlighted edge.
+That is because the <em>new</em> extruded surface section is bunched up there as well.</p>
+<figure id="id9">
+<figcaption>
+<p>Extruding.</p>
+</figcaption>
+</figure>
+<p>By moving the new section away from the area, the surface begins to “unbunch”.</p>
+<p>You can continue this process of extruding or adding new surface sections
+until you have reached the final shape for your model.</p>
+</section>
+</section>
+<section id="make-segment">
+<h2>Make Segment</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Make Segment</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>F</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Just like <a href="../../curves/editing/control_points.html#modeling-curves-make-segment">curves</a>,
+merging two surfaces requires that a single edge, a border row of control points,
+from two separate surfaces is selected. This means that the surfaces must be part of the same object.
+For example, you cannot join two surfaces while in <em>Object Mode</em> – but you can of course,
+as with any objects of the same type, <a href="../../../scene_layout/object/editing/join.html#bpy-ops-object-join">join</a>
+two or more <em>Surface</em> objects – they just will not be “linked” or merged in a single one.</p>
+<p>This tool is equivalent to creating edges or faces for meshes (hence its shortcut).
+The selection must contain only border rows of the same resolution
+(with the same number of control points),
+else Blender will try to do its best to guess what to merge with what,
+or the merge will fail (either silently, or stating that <code>Resolution does not match</code>
+if rows with different number of points are selected, or that there is <code>Too few selections to merge</code>
+if you only selected points in one surface…). To select control points of different surfaces,
+in the same object, you must use either box select or circle select; <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> will not work.</p>
+<p>So to avoid problems, you should always only select border rows with the same number of
+points… Note that you can join a border U row of one surface with a border V row of another
+one, Blender will automatically “invert” the axis of one surface for them to match correctly.</p>
+<p>NURBS surface curves are often used to create objects like hulls,
+as they define cross sections all along the object,
+and you just have to “skin” them as described above to get a nice, smooth and harmonious shape.</p>
+<section id="id3">
+<h3>Examples</h3>
+<p>Fig. <a href="#fig-surface-edit-join-ready">Joining ready.</a> is an example of two NURBS surface curves,
+<strong>not</strong> NURBS curves, in <em>Edit Mode</em>, ready to be joined.
+Fig. <a href="#fig-surface-edit-join-complete">Joining complete.</a> is the result of joining the two curves.</p>
+<table>
+<tbody>
+<tr><td><figure id="id10">
+<figcaption>
+<p>Joining ready.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Joining complete.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="smooth">
+<h2>Smooth</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Control Points ‣ Smooth</p>
+</dd>
+</dl>
+</div>
+<p>Iteratively smooths the selected control points
+by reducing the distance between neighboring control points.</p>
+</section>
+<section id="hooks">
+<h2>Hooks</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Control Points ‣ Hooks</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>H</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p><a href="../../modifiers/deform/hooks.html">Hooks</a> can be added to control one or more points with other objects.</p>
+</section>
+<section id="make-vertex-parent">
+<h2>Make Vertex Parent</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Control Points ‣ Make Vertex Parent</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can make other selected objects <a href="../../../scene_layout/object/editing/parent.html#object-parenting">children</a>
+of one or three control points, as with mesh objects.</p>
+<p>To select a mesh (that is in view) while editing a surface, <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> click on it.
+Select either one or three control points,
+then <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> the object and use <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> to make a vertex parent.
+Selecting three control points will make the child follow
+the median point between the three vertices. An alternative would be to use
+a <a href="../../../animation/constraints/relationship/child_of.html">Child Of constraint</a>.
+See also the <a href="../../modifiers/deform/curve.html">Curve modifier</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

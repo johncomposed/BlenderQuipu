@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Fluid &gt; Type &gt; Domain &gt; Gas &gt; Noise</head>
+<body><ul>
+<li><a href="../../../../index.html">Physics</a></li>
+<li><a href="../../../index.html">Fluid</a></li>
+<li><a href="../../index.html">Type</a></li>
+<li><a href="../index.html">Domain</a></li>
+<li><a href="index.html">Gas Settings</a></li>
+<li>Noise</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="noise">
+<h1>Noise</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Domain</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Fluid ‣ Noise</p>
+</dd>
+</dl>
+</div>
+<p>Adding noise to the gas simulation creates a finer detailed looking simulation on top of the base.
+This makes it possible to add more details to gases (i.e. fire or smoke or both) without changing
+the overall fluid motion.</p>
+<div>
+<p>See also</p>
+<p>Fluid noise is an implementation of <a href="http://www.cs.cornell.edu/~tedkim/WTURB/">Wavelet Turbulence for Fluid Simulation</a>.</p>
+</div>
+<p>Besides enabling parts of the interface, checking <em>Noise</em> lets the cache know
+which simulation data to read. If, for example, <em>Noise</em> is enabled but
+there is no noise simulation data to read it will show an empty domain.
+The checkbox does not reset the cache and can be used to switch
+the view between base resolution and noise view.</p>
+<dl id="bpy-types-fluiddomainsettings-noise-scale">
+<dt>Upres Factor</dt><dd><p>Factor by which to enhance the resolution of the noise. The scaling factor is coupled
+to the <a href="../settings.html#bpy-types-fluiddomainsettings-resolution-max">Resolution Divisions</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-noise-strength">
+<dt>Strength</dt><dd><p>Strength of the noise. Higher values result in more turbulent vortices.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-noise-pos-scale">
+<dt>Scale</dt><dd><p>Scale of the noise. Greater values result in larger vortices.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-noise-time-anim">
+<dt>Time</dt><dd><p>Animation time of the noise. This value has an influence on where the noise field is evaluated.
+It can be used as a seed to give wavelet noise a slightly different look in two domains that are
+otherwise the same.</p>
+<table id="id2">
+<caption>Smoke plume with varying animation time. While the fluid motion of all four smoke
+plumes are alike each example has a unique look.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Animation Time: 0.1</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Animation Time: 1.0</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Animation Time: 2.5</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Animation Time: 10.0</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>Note</p>
+<p><em>Resolution Divisions</em> and <em>Upres Factor</em> are not equivalent.
+By using different combinations of these resolution settings,
+you can obtain a variety of different styles of smoke.</p>
+</div>
+<table id="id7">
+<caption>Comparison of fire simulations with and without noise at the same grid
+resolution.</caption>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Resolution Division: 200, without noise</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Resolution Divisions: 100, Noise scale: 2.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Low division simulations with lots of <em>Upres Factor</em> divisions generally appear smaller in
+real-world scale and can be used to achieve pyroclastic plumes such as in the following image:</p>
+</dd>
+</dl>
+<dl id="bpy-ops-fluid-free-noise">
+<dt>Bake Noise, Free Noise</dt><dd><p>This option is only available when using the <a href="../cache.html#bpy-types-fluiddomainsettings-cache-type">Modular</a> cache type.</p>
+<p>The progress will be displayed in the status bar. Pressing <kbd>Esc</kbd> will pause the simulation.</p>
+<p>Once the simulation has been baked, the cache can be deleted by pressing <em>Free Noise</em>.
+It is possible to pause or resume a <em>Bake Noise</em> process.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

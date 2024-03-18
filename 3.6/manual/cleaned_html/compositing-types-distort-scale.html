@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Distort &gt; Scale</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Distort Nodes</a></li>
+<li>Scale Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="scale-node">
+<h1>Scale Node</h1>
+<p>This node scales the size of an image.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>X, Y</dt><dd><p>Scale in the axis directions, only available if <em>Space</em> is set to <em>Relative</em> or <em>Absolute</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Space</dt><dd><p>Coordinate Space to scale relative to.</p>
+<dl>
+<dt>Relative</dt><dd><p>Percentage values relative to the dimensions of the image input.</p>
+</dd>
+<dt>Absolute</dt><dd><p>Size of an image by using absolute pixel values.</p>
+</dd>
+<dt>Scene Size</dt><dd><p>Sizes an image to the size of the final render resolution for the scene.
+For example, rendering a scene at the standard 1080p resolution but setting the render percentage at 50%,
+will produce a 1080p image with the scene scaled down 50% and leaving the rest of the image as alpha.</p>
+</dd>
+<dt>Render Size</dt><dd><p>Image dimensions set in the Render panel.</p>
+<dl>
+<dt>Stretch, Fit, Crop</dt><dd><p>Stretch distorts the image so that it fits into the render size.
+Fit scales the image until the bigger axis “fits” into the render size.
+Crop cuts the image so that it is the same aspect ratio as the render size.</p>
+</dd>
+<dt>X, Y</dt><dd><p>Offset factor for the final scaled image.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>For instance X: 0.5 and Y: 0.5 would produce an image which width and
+height would be half of what they used to be.</p>
+<p>Use this node to match image sizes.
+Most nodes produce an image that is the same size as the image input into their top image socket.
+To uniformly combine two images of different size,
+the second image has to be scaled up to match the resolution of the first.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

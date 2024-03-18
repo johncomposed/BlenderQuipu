@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Weight Paint &gt; Tool Settings &gt; Options</title></head>
+<body><ul>
+<li><a href="../../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Weight Paint Mode</a></li>
+<li><a href="index.html">Tool Settings</a></li>
+<li>Options</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="options">
+<h1>Options</h1>
+<dl>
+<dt>Auto Normalize</dt><dd><p>Ensures that all deforming vertex groups add up to one while painting.
+When this option is turned off, then all weights of a point can have any value between 0 and 1.
+However, when vertex groups are used as deform groups for character animation
+then Blender always interprets the weight values relative to each other.
+That is, Blender always does a normalization over all deform bones.
+Hence in practice it is not necessary to maintain a strict normalization and
+further normalizing weights should not affect animation at all.</p>
+<p>This option works most intuitively when used to maintain normalization while
+painting on top of weights that are already normalized with another tool.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

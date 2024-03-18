@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Copy Transforms</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Copy Transforms Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="copy-transforms-constraint">
+<h1>Copy Transforms Constraint</h1>
+<p>The <em>Copy Transforms</em> constraint forces its owner to have the same transforms as its target.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Copy Transforms panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraints target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Remove Target Shear</dt><dd><p>Removes shearing from the target transformation after the target space conversion,
+ensuring it consists purely of translation, rotation and scale.
+Note that <a href="copy_rotation.html">Copy Rotation</a> always does this.</p>
+</dd>
+<dt>Mix</dt><dd><p>Specifies how the copied transformation is combined with the existing transformation.</p>
+<dl>
+<dt>Replace</dt><dd><p>The new transformation replaces the existing transformation.</p>
+</dd>
+<dt>Before/After Original (Full)</dt><dd><p>The new transformation is added before/after the existing transformation, as if it was
+applied to an imaginary parent/child of the constraint owner. Scale is handled like in
+the most basic <a href="../../armatures/bones/properties/relations.html#bpy-types-editbone-inherit-scale">Full Inherit Scale</a> mode of bones,
+so combining non-uniform scale and rotation will create shear.</p>
+</dd>
+<dt>Before/After Original (Aligned)</dt><dd><p>The new transformation is added before/after the existing transformation, as if it was
+applied to an imaginary parent/child of the constraint owner. Scale is handled like in
+the <a href="../../armatures/bones/properties/relations.html#bpy-types-editbone-inherit-scale">Aligned Inherit Scale</a> mode of bones to
+avoid creating shear.</p>
+<p>This is equivalent to using the <em>Split Channels</em> option, but replacing the location component with
+the result of <em>Full</em>. If only uniform scale is used, the result is identical to <em>Full</em>.</p>
+</dd>
+<dt>Before/After Original (Split Channels)</dt><dd><p>Combines location, rotation and scale components of the transformation separately, similar
+to a sequence of three <a href="copy_location.html">Copy Location</a>,
+<a href="copy_rotation.html">Copy Rotation</a> and
+<a href="copy_scale.html">Copy Scale</a> (with Offset)
+constraints bundled together in one operation; the result may be slightly different
+in case of sheared inputs.</p>
+<p>Unlike <em>Aligned</em>, in this mode location channels are simply added together, so rotation
+and scale components of the input transformations cannot affect the resulting location.</p>
+</dd>
+</dl>
+</dd>
+<dt>Target/Owner</dt><dd><p>Standard conversion between spaces.
+See <a href="../interface/common.html#rigging-constraints-interface-common-space">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>This video shows the difference between the mix modes. The right input is mixed after the left one:</p>
+<p>A general demonstration of the constraint:</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

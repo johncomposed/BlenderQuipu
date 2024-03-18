@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Simulation &gt; Simulation Zone</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li>Simulation Zone</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="simulation-zone">
+<h1>Simulation Zone</h1>
+<p>Simulation zones allow the result of one frame to influence the next one.
+That way even a set of simple rules can lead to complex results, with the passing of time.
+The most common type of them is physics simulation, with specific solvers for physical phenomena.</p>
+<figure id="id1">
+<figcaption>
+<p>Initial simulation nodes and simulation zone.</p>
+</figcaption>
+</figure>
+<p>When adding a simulation, two nodes are added, defining between them a “Simulation Zone”.</p>
+<p>The inputs that are connected to the Simulation Input node are evaluated only once,
+at the beginning of the simulation, passed to the next simulation state and eventually outputted.
+Other nodes can be linked inside the simulation region from the outside.
+Those are re-evaluated every step based on their value at the given frame.</p>
+<p>It is not possible to have any link going towards outside.
+The result of the simulation can only be accessed via the Simulation Output node.
+This also allows sub-frame interpolation for motion blur.</p>
+<section id="clock">
+<h2>Clock</h2>
+<p>The simulation is tied to the animation system, with support for sub-steps.
+It will only be evaluated while the animation frame changes, and is cached like
+the existing physics simulations in Blender.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>In the Node Editor the inputs can be renamed, shuffled and removed.
+This is also the place where sub-steps can be defined for a simulation.</p>
+</section>
+<section id="baking">
+<h2>Baking</h2>
+<p>The simulation is automatically cached during playback.
+The valid cache can be seen as a strong yellow line in the timeline editor.
+This allows for animators to quickly inspect all the previous frames of a simulation.</p>
+<figure id="id2">
+<figcaption>
+<p>Cached frames in the Timeline.</p>
+</figcaption>
+</figure>
+<p>For the cases where the current frame is the only one relevant, users can opt-out of “Cache” to save memory.</p>
+<p>When the result is ready to be sent to a render-farm, it can be baked to disk.
+This allows for the simulation to be rendered in a non-sequential order.</p>
+<figure id="id3">
+<figcaption>
+<p>Simulation and Physics, Simulation Nodes user interface.</p>
+</figcaption>
+</figure>
+<div>
+<p>Note</p>
+<p>Baking the simulation will bake all the simulations in all modifiers for the selected objects.</p>
+</div>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Combined with the <a href="../geometry/sample/index_of_nearest.html">Index of Nearest</a>,
+this can be used for a number of sphere-based simulations.</p>
+<figure id="id4">
+<figcaption>
+<p>Index of Nearest sample file CC-BY Sean Christofferson.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

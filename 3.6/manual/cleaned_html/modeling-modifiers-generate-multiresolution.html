@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Multiresolution</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Multiresolution Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="multiresolution-modifier">
+<h1>Multiresolution Modifier</h1>
+<p>The <em>Multiresolution</em> modifier (often shortened to “Multires”)
+gives you the ability to subdivide a mesh similarly
+to the <a href="subdivision_surface.html">Subdivision Surface</a> modifier,
+but also allows you to edit the new subdivision levels in
+<a href="../../../sculpt_paint/sculpting/introduction/adaptive.html">Sculpt Mode</a>.</p>
+<div>
+<p>Note</p>
+<p><em>Multiresolution</em> is the only modifier that cannot be repositioned in the stack after any modifier that will
+change geometry or other object data (i.e. all <em>Generate</em>, some <em>Modify</em> and some <em>Simulate</em> modifiers
+cannot come before the <em>Multiresolution</em>).</p>
+</div>
+<p>Deform modifiers will be applied onto the Multires subdivision levels instead of the base mesh,
+if they come after the Multires.</p>
+<div>
+<p>Tip</p>
+<p>This is especially useful for re-projecting details from another sculpt
+with a <a href="../deform/shrinkwrap.html">Shrinkwrap modifier</a>. For the best result make sure to set the
+wrap method to <em>Project</em>, snap mode to <em>Above Surface</em> and enable <em>Negative</em>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Multiresolution modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Levels Viewport</dt><dd><p>Set the level of subdivisions to show in the viewport.</p>
+</dd>
+<dt>Sculpt</dt><dd><p>Set the level of subdivisions to use specifically in Sculpt Mode.</p>
+</dd>
+<dt>Render</dt><dd><p>Set the level of subdivisions to show when rendering.</p>
+</dd>
+<dt>Sculpt Base Mesh</dt><dd><p>Deform the unsubdivided base mesh instead of the higher levels.
+Meanwhile the set level will be previewed. This allows you to
+make much broader changes in visual context to higher sculpted details
+without creating surface noise and artifacts.</p>
+</dd>
+<dt>Optimal Display</dt><dd><p>Only display the edges of the original geometry.
+So when rendering the wireframe of this object, the wires of the subdivided edges will be skipped.</p>
+</dd>
+</dl>
+<section id="subdivisions">
+<h3>Subdivisions</h3>
+<dl id="bpy-ops-object-multires-subdivide">
+<dt>Subdivide</dt><dd><p>Creates a smooth level of subdivision
+(using the default Catmull-Clark algorithm).</p>
+</dd>
+<dt>Simple</dt><dd><p>Creates a level of subdivision with un-smoothed base mesh edges
+(using a simple interpolation by subdividing edges without any smoothing).</p>
+</dd>
+<dt>Linear</dt><dd><p>Creates a completely un-smoothed level of subdivision
+(using linear interpolation of the current sculpted displacement).</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-multires-unsubdivide">
+<dt>Unsubdivide</dt><dd><p>Rebuild a lower subdivision level of the current base mesh.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-multires-higher-levels-delete">
+<dt>Delete Higher</dt><dd><p>Deletes all subdivision levels that are higher than the current one.</p>
+</dd>
+</dl>
+</section>
+<section id="shape">
+<h3>Shape</h3>
+<dl id="bpy-ops-object-multires-reshape">
+<dt>Reshape</dt><dd><p>Copy the shape of another object onto the multires levels by copying its vertex coordinates.</p>
+<p>To use it, first select a different mesh object with matching topology and vertex indices,
+then <kbd>Shift</kbd> select the object you wish to copy vertex coordinates to, and click <em>Reshape</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-multires-base-apply">
+<dt>Apply Base</dt><dd><p>Modifies the original unsubdivided mesh to match the form of the subdivided mesh.</p>
+</dd>
+</dl>
+</section>
+<section id="generate">
+<h3>Generate</h3>
+<dl id="bpy-ops-object-multires-rebuild-subdiv">
+<dt>Rebuild Subdivisions</dt><dd><p>Rebuilds all possible subdivisions levels to generate a lower resolution base mesh.
+This is used to create an optimized multiresolution version of a preexisting sculpt.
+This option is only available when no subdivision level have been created through the modifier.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-multires-external-save">
+<dt>Save External</dt><dd><p>Saves displacements to an external <code>.btx</code> file.</p>
+</dd>
+</dl>
+</section>
+<section id="advanced">
+<h3>Advanced</h3>
+<dl>
+<dt>Quality</dt><dd><p>How precisely the vertices are positioned (relatively to their theoretical position),
+can be lowered to get a better performance when working on high-poly meshes.</p>
+</dd>
+<dt>UV Smooth</dt><dd><p>How to handle UVs during subdivision.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>UVs remain unchanged.</p>
+</dd>
+<dt>Keep Corners:</dt>
+<dd><p>UV islands are smoothed, but their boundary remain unchanged.</p>
+</dd>
+<dt>Keep Corners, Junctions:</dt>
+<dd><p>UVs are smoothed, corners on discontinuous boundary and junctions of three or more regions are kept sharp.</p>
+</dd>
+<dt>Keep Corners, Junctions, Concave:</dt>
+<dd><p>UVs are smoothed, corners on discontinuous boundary,
+junctions of three or more regions and darts and concave corners are kept sharp.</p>
+</dd>
+<dt>Keep Boundaries:</dt>
+<dd><p>UVs are smoothed, boundaries are kept sharp.</p>
+</dd>
+<dt>All:</dt>
+<dd><p>UVs and their boundaries are smoothed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Boundary Smooth</dt><dd><p>Controls how open boundaries (and corners) are smoothed.</p>
+<dl>
+<dt>All:</dt>
+<dd><p>Smooth boundaries, including corners.</p>
+</dd>
+<dt>Keep Corners:</dt>
+<dd><p>Smooth boundaries, but corners are kept sharp.</p>
+</dd>
+</dl>
+</dd>
+<dt>Use Creases</dt><dd><p>Use the <a href="subdivision_surface.html#modifiers-generate-subsurf-creases">Weighted Edge Creases</a> values stored in edges to control how smooth they are made.</p>
+</dd>
+<dt>Use Custom Normals</dt><dd><p>Interpolates existing <a href="../../meshes/structure.html#modeling-meshes-normals-custom">Custom Split Normals</a> of the resulting mesh.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Render Settings &gt; Hair</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Curves</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curves">
+<h1>Curves</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Curves</p>
+</dd>
+</dl>
+</div>
+<p>These are global settings that apply to all instances of particle hair systems.
+The resolution of the strands is controlled by the step values in particle settings.
+Each hair system uses the material identified in the particle settings.</p>
+<dl id="bpy-types-cyclescurverendersettings-shape">
+<dt>Shape</dt><dd><dl>
+<dt>Rounded Ribbons:</dt>
+<dd><p>Render curves as flat ribbon with rounded normals, for fast rendering.
+Curves are subdivided with a fixed number of specified subdivisions.</p>
+<dl id="bpy-types-cyclescurverendersettings-subdivisions">
+<dt>Curve Subdivisions</dt><dd><p>Number of subdivisions used in cardinal curve intersection (power of 2).</p>
+</dd>
+</dl>
+</dd>
+<dt>3D Curves:</dt>
+<dd><p>Render curves as circular 3D geometry, for accurate results when viewing curves close up.
+Curves are automatically subdivided until the curve is smooth.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="viewport-display">
+<h2>Viewport Display</h2>
+<p>These settings control the curve rendering settings used when the 3D viewport is set to
+<a href="../../../editors/3dview/display/shading.html#dview-material-preview">Material Preview</a></p>
+<dl>
+<dt>Shape</dt><dd><dl>
+<dt>Strand:</dt>
+<dd><p>Render curves as a thin strand roughly a pixel wide.
+Curve diameter parameters are ignored with this setting.</p>
+</dd>
+<dt>Strip:</dt>
+<dd><p>Render curves as a flat ribbon with rounded normals.</p>
+</dd>
+</dl>
+</dd>
+<dt>Additional Subdivisions</dt><dd><p>Additional subdivisions to be applied on top of the curve resolution set in the
+hair system settings. Increasing this value will smooth out the curves of the strands.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Cryptomatte Legacy</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Cryptomatte Node (Legacy)</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cryptomatte-node-legacy">
+<h1>Cryptomatte Node (Legacy)</h1>
+<p>CPU Compositor Only</p>
+<p>The Cryptomatte node uses the Cryptomatte standard to efficiently create mattes for compositing.
+Cycles and Eevee output the required render passes, which can then be used in the Compositor
+or another compositor with Cryptomatte support to create masks for specified objects.</p>
+<p>Unlike the Material and Object Index passes, the objects to isolate are selected in compositing,
+and mattes will be anti-aliased and take into account effects like motion blur and transparency.</p>
+<div>
+<p>Important</p>
+<p>The Cryptomatte Legacy node is deprecated and replaced by
+<a href="cryptomatte.html">Cryptomatte Node</a>.
+The legacy node will be removed in a future Blender release.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Crypto Passes</dt><dd><p>Each crypto layer will be given its own render pass;
+each of these render passes must be connected to one of these crypto layer inputs.
+By default there are only four layers, see <a href="#adding-removing-layers">Adding/Removing Layers</a> to add more.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Add/Remove</dt><dd><p>Adds/Removes an object or material from matte, by picking a color from the <em>Pick</em> output.</p>
+</dd>
+<dt>Matte ID</dt><dd><p>List of object and material crypto IDs to include in matte.
+This can be used for example to quickly clear all mattes by deleting the text
+or used to copy-and-paste crypto IDs from other software.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>A colored output of the input image with the matte applied to only include selected layers.</p>
+</dd>
+<dt>Matte</dt><dd><p>A black-and-white alpha mask of the all the selected crypto layers.</p>
+</dd>
+<dt>Pick</dt><dd><p>A colored representation of the Cryptomatte pass which can be used
+with a Viewer node to select which crypto passes are used to create the matte image.</p>
+</dd>
+</dl>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<ol>
+<li><p>Enable Cryptomatte Object render pass in the Passes panel, and render.</p></li>
+<li><p>In the compositing nodes, create a Cryptomatte node and
+link the Render Layer matching Image and Cryptomatte passes to it.</p></li>
+<li><p>Attach a Viewer node to the Pick output of the Cryptomatte node.</p></li>
+<li><p>Use the Cryptomatte Add/Remove button to sample objects in the Pick Viewer node.</p></li>
+<li><p>Use the Matte output of the Cryptomatte node to get the alpha mask.</p></li>
+</ol>
+<section id="adding-removing-layers">
+<h3>Adding/Removing Layers</h3>
+<p>By default there are only four crypto layers available as inputs to the Cryptomatte node.
+You can add or remove layer inputs through
+Sidebar ‣ Item ‣ Properties ‣ Add/Remove Crypto Layer.
+These operators will add/remove layers from the bottom of the pass inputs.</p>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>In the example below, you can see the pass output on the right side.
+On the left side you can see a couple of objects that were selected through the <em>Cryptomatte</em> node.
+Notice how the cube on the left has a sphere-shaped cut-out from a sphere that was not selected in the node.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Simulation Nodes</head>
+<body><ul>
+<li><a href="index.html">Physics</a></li>
+<li>Simulation Nodes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="simulation-nodes">
+<h1>Simulation Nodes</h1>
+<p>Through the use of <a href="../modeling/geometry_nodes/simulation/simulation_zone.html">Simulation Zones</a>,
+<a href="../modeling/geometry_nodes/index.html">Geometry Nodes</a> can be used to create custom physic simulations through nodes.
+Simulation zones allow the result of one frame to influence the next one.
+That way even a set of simple rules can lead to complex results, with the passing of time.
+The most common type of them is physics simulation, with specific solvers for physical phenomena.</p>
+<div>
+<p>See also</p>
+<p>Read more about <a href="../modeling/geometry_nodes/simulation/simulation_zone.html">Simulation Zones</a></p>
+</div>
+<section id="baking">
+<h2>Baking</h2>
+<p>The simulation is automatically cached during playback.
+The valid cache can be seen as a strong yellow line in the timeline editor.
+This allows for animators to quickly inspect all the previous frames of a simulation.</p>
+<figure id="id1">
+<figcaption>
+<p>Cached frames in the Timeline.</p>
+</figcaption>
+</figure>
+<p>When the result is ready to be sent to a render-farm, it can be baked to disk.
+This allows for the simulation to be rendered in a non-sequential order.</p>
+<figure id="id2">
+<figcaption>
+<p>Simulation and Physics, Geometry Nodes user interface.</p>
+</figcaption>
+</figure>
+<div>
+<p>Note</p>
+<p>Baking the simulation will bake all the simulations in all modifiers for the selected objects.</p>
+</div>
+<dl id="bpy-ops-object-simulation-nodes-cache-calculate-to-frame">
+<dt>Calculate to Frame</dt><dd><p>Calculate simulations in geometry nodes modifiers from the start to current frame.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-simulation-nodes-cache-bake">
+<dt>Bake</dt><dd><p>Bake simulations in geometry nodes modifiers.
+In order to bake the simulation, the blend-file must be saved to your computer.
+The location the file is saved determines where the baked data is also saved.
+The directory the baked data is saved to can be changed per modifier in the
+<a href="../modeling/modifiers/generate/geometry_nodes.html#bpy-types-nodesmodifier-simulation-bake-directory">Internal Dependencies</a>.</p>
+<dl id="bpy-ops-object-simulation-nodes-cache-delete">
+<dt>Delete Cached Simulation</dt><dd><p>Delete cached/baked simulations in geometry nodes modifiers</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-object-use-simulation-cache">
+<dt>Cache</dt><dd><p>For the cases where the current frame is the only one relevant, users can opt-out of caching the results to save memory.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Combined with the <a href="../modeling/geometry_nodes/geometry/sample/index_of_nearest.html">Index of Nearest</a>,
+this can be used for a number of sphere-based simulations.</p>
+<figure id="id3">
+<figcaption>
+<p>Index of Nearest sample file CC-BY Sean Christofferson.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

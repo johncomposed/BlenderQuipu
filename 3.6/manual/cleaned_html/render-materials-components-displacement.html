@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Materials &gt; Components &gt; Displacement</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Materials</a></li>
+<li><a href="index.html">Components</a></li>
+<li>Displacement</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="displacement">
+<h1>Displacement</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Material ‣ Settings ‣ Displacement</p>
+</dd>
+</dl>
+</div>
+<p>Detail can be added to the shape of a surface with displacement shaders.</p>
+<p>To create displacement, connect a <a href="../../shader_nodes/vector/displacement.html">Displacement</a>
+or <a href="../../shader_nodes/vector/vector_displacement.html">Vector Displacement</a> node
+to the displacement input of the Material Output node. Procedural, painted or baked textures can
+then be connected to these nodes.</p>
+<figure id="id2">
+<figcaption>
+<p>Typical displacement node setup.</p>
+</figcaption>
+</figure>
+<p>Three displacement methods exist, with varying accuracy, performance and memory usage.</p>
+<figure id="id3">
+<figcaption>
+<p>Bump only, displacement only and displacement and bump combined.</p>
+</figcaption>
+</figure>
+<section id="bump-only">
+<h2>Bump Only</h2>
+<p>The least accurate but most memory efficient method is bump mapping.
+This method does not actually alter the mesh surface, but merely changes the shading to make it seem so.</p>
+<p>Bump maps are often used to add smaller details on a model, for example pores or wrinkles on skin.</p>
+<p>For baked bump maps, 8-bit images are commonly used. However, 16 or 32-bit float maps can provide
+better looking results. When using image textures use Cubic interpolation to avoid stepping artifacts,
+these are more visible for bump maps than other types of textures.</p>
+<div>
+<p>Important</p>
+<p>Because bump mapping is a fake effect, it can cause artifacts if the actual shape of the geometry
+is too different from the bump mapped shape. If this happens the strength of bump mapping should
+be reduced or actual displacement should be used.</p>
+</div>
+</section>
+<section id="displacement-only">
+<h2>Displacement Only</h2>
+<p>Cycles Only</p>
+<p>The most accurate and memory intensive displacement method is to apply true displacement to
+the mesh surface.</p>
+<p>It requires the mesh to be finely subdivided, which can be memory intensive.
+<a href="../../cycles/object_settings/adaptive_subdiv.html">Adaptive Subdivision</a> is the best way
+to subdivide the mesh, so that exactly the right amount of subdivision is used depending on
+the distance of the object to the camera.</p>
+<p>For baked displacement maps, best results are achieved with 16 or 32-bit float maps,
+as 8-bit images often can not represent all the necessary detail.</p>
+<div>
+<p>See also</p>
+<p>The <a href="../../../modeling/modifiers/deform/displace.html">Displace Modifier</a> can also be used to displace a mesh.</p>
+</div>
+</section>
+<section id="displacement-and-bump">
+<h2>Displacement and Bump</h2>
+<p>Cycles Only</p>
+<p>Both methods can be combined to use actual displacement for the bigger displacement and
+bump for the finer details. This can provide a good balance to reduce memory usage.</p>
+<p>Once you subdivide the mesh very finely, it is better to use only actual displacement.
+Keeping bump maps will then only increase memory usage and slow down renders.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

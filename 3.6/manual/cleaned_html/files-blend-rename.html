@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Blend &gt; Rename</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="index.html">Blender File</a></li>
+<li>Rename</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="rename">
+<h1>Rename</h1>
+<section id="rename-active-item">
+<h2>Rename Active Item</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Edit ‣ Rename Active Item</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>F2</kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Rename Active Item</em> operator renames the active
+<a href="../../animation/armatures/bones/index.html">Bone</a>,
+<a href="../../interface/controls/nodes/index.html">Node</a>,
+<a href="../../scene_layout/object/index.html">Object</a> and
+<a href="../../video_editing/edit/montage/strips/index.html">Sequence Strip</a>.</p>
+<p>When the operator is executed, a pop-up dialog appears.
+The text field shows the name of the current item and can be overwritten to rename the item.
+<kbd>Return</kbd> confirms the name while <kbd>Esc</kbd> cancels the operator.</p>
+</section>
+<section id="batch-rename">
+<h2>Batch Rename</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Edit ‣ Batch Rename</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>F2</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Batch Rename</em> operator can rename many data-block names at once.
+This uses a pop-up dialog with operations and their options to change the name.
+These actions are applied in order, from first to last.</p>
+<dl>
+<dt>Data Source</dt><dd><p>Where to look for the data-blocks that are intended to be renamed.</p>
+<dl>
+<dt>Selected:</dt>
+<dd><p>Operates on the currently selected objects.</p>
+</dd>
+<dt>All:</dt>
+<dd><p>Operates on all data in the blend file.</p>
+</dd>
+</dl>
+</dd>
+<dt>Data Type</dt><dd><p>The <a href="../data_blocks.html#data-system-datablock-types">data-block type</a> to perform the batch rename operations on.</p>
+</dd>
+</dl>
+<section id="operations">
+<h3>Operations</h3>
+<p>The <em>Batch Rename</em> has several sub Operations to change the data names.
+The default operation is <em>Find/Replace</em> however, other operations can be added
+to change the data names further.
+Below all the operations gives a message in the status bar on how many data-blocks were renamed.</p>
+<section id="find-replace">
+<h4>Find/Replace</h4>
+<p><em>Find/Replace</em> searches for a particular text in the names and optionally replaces it with a new text.
+<a href="https://en.wikipedia.org/wiki/Regular_expression">Regular Expressions</a>
+can be used as a powerful way to tailor the <em>Find</em>/<em>Replace</em> texts
+and can be enabled using the icon to the right of the text fields.</p>
+<dl>
+<dt>Find</dt><dd><p>The text to search for in names.</p>
+</dd>
+<dt>Replace</dt><dd><p>The text to replace for in matching names found from the <em>Find</em> text.</p>
+</dd>
+<dt>Case Sensitive</dt><dd><p>Search results must exactly match the case of the <em>Find</em> text.</p>
+</dd>
+</dl>
+</section>
+<section id="set-name">
+<h4>Set Name</h4>
+<p><em>Set Name</em> works the most similar to <a href="#rename-active-item">Rename Active Item</a>
+by renaming the current data-block without having to do a find and replace operation.</p>
+<dl>
+<dt>Method</dt><dd><dl>
+<dt>New:</dt>
+<dd><p>Disregards the current name replacing it with the “new” name.</p>
+</dd>
+<dt>Prefix:</dt>
+<dd><p>Adds text to the beginning of the current name.
+This is useful for tools that look for special text in the prefix of a data-block name.</p>
+</dd>
+<dt>Suffix:</dt>
+<dd><p>Adds text to the end of the current name.
+This is useful for tools that look for special text in the suffix of a data-block name.</p>
+</dd>
+</dl>
+</dd>
+<dt>Name</dt><dd><p>Defines the new name or the text to add as a prefix/suffix.</p>
+</dd>
+</dl>
+</section>
+<section id="strip-characters">
+<h4>Strip Characters</h4>
+<p><em>Strip Characters</em> cleans up names by removing certain
+character types from either the beginning or the end of the name.</p>
+<dl>
+<dt>Characters</dt><dd><dl>
+<dt>Spaces:</dt>
+<dd><p>Strips any space characters from the name, e.g. “Living Room   ” becomes “Living Room”.</p>
+</dd>
+<dt>Digits:</dt>
+<dd><p>Strips any numerical characters from the name, e.g. <code>cube.001</code> becomes <code>cube.</code>.</p>
+</dd>
+<dt>Punctuation:</dt>
+<dd><p>Strips any punctuation characters (<code>,.?!:;</code> etc.) from the name, e.g. <code>cube?</code> becomes <code>cube</code>.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Multiple character types can be removed at once by <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> on the types.</p>
+</div>
+</dd>
+<dt>Strip From</dt><dd><dl>
+<dt>Start:</dt>
+<dd><p>Strips any leading characters in the name.</p>
+</dd>
+<dt>End:</dt>
+<dd><p>Strips any trailing characters in the name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="change-case">
+<h4>Change Case</h4>
+<p><em>Change Case</em> modifies the case of names to be one of the following:</p>
+<dl>
+<dt>Convert To</dt><dd><dl>
+<dt>Upper Case</dt><dd><p>Changes all text to be in upper case, e.g. <code>cube.001</code> becomes <code>CUBE.001</code>.</p>
+</dd>
+<dt>Lower Case</dt><dd><p>Changes all text to be in lower case, e.g. <code>CUBE.001</code> becomes <code>cube.001</code>.</p>
+</dd>
+<dt>Title Caps</dt><dd><p>Changes all text to be in title case, e.g. <code>living room</code> becomes <code>Living Room</code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

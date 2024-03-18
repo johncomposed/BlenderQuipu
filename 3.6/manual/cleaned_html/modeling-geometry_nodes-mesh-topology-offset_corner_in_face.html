@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Topology &gt; Offset Corner In Face</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Topology Nodes</a></li>
+<li>Offset Corner in Face Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="offset-corner-in-face-node">
+<h1>Offset Corner in Face Node</h1>
+<p>The <em>Offset Corner in Face</em> node retrieves other corners in the same face as
+the input face corner. This is like “rotating” the input corner around in its face.</p>
+<p>Conceptually the operation is similar to the
+<a href="../../curve/topology/offset_point_in_curve.html">Offset Point in Curve Node</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Corner Index</dt><dd><p>The index of the input face corner</p>
+<div>
+<p>Note</p>
+<p>By default this uses the <a href="../../geometry/read/input_index.html">index</a>
+from the field context, which makes it important that the node is evaluated on
+the face corner domain.</p>
+</div>
+</dd>
+<dt>Offset</dt><dd><p>The number of corners to move around the face before finding the result,
+circling around the start of the face if necessary</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Corner Index</dt><dd><p>The index of the offset face corner.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

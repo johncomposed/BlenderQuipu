@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Distort &gt; Map Uv</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Distort Nodes</a></li>
+<li>Map UV Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="map-uv-node">
+<h1>Map UV Node</h1>
+<p>With this node objects can be “re-textured” after they have been rendered.</p>
+<p>To apply a texture to individual enumerated objects
+the <a href="../converter/id_mask.html">ID Mask Node</a> could be used.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>The new 2D texture.</p>
+</dd>
+<dt>UV</dt><dd><p>The input for UV render pass.
+See <a href="../../../render/layers/passes.html">Cycles render passes</a>.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>To store the UV pass a multi-layer OpenEXR format could be used.</p>
+</div>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Alpha</dt><dd><p>Alpha threshold is used to fade out pixels on boundaries.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>The resulting image is the input image texture distorted to match the UV coordinates.
+That image can then be overlay mixed with the original image to paint
+the texture on top of the original. Adjust alpha and the mix factor to control
+how much the new texture overlays the old.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>When painting the new texture,
+it helps to have the UV maps for the original objects in the scene,
+it is recommended to keep those UV texture outlines around even, when shooting is done.</p>
+</div>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>In the example below,
+we have overlaid a grid pattern on top of the two heads after they have been rendered.
+During rendering, we enabled the UV layer in the Properties
+Render Layer ‣ Passes. Using a Mix node (“Overlay” in figure),
+we mix that new UV texture over the original face.
+We can use this grid texture to help in any motion tracking that we need to do.</p>
+<figure id="id1">
+<figcaption>
+<p>Adding a grid UV textures for motion tracking.</p>
+</figcaption>
+</figure>
+<p>In the next example, we overlay a logo on top of a mesh composed of two intersecting cubes,
+and we ensure that we Enable the Alpha premultiply button on the Mix node.
+The logo is used as additional UV texture on top of the existing texture. Other examples include
+the possibility that there was used an unauthorized product box during the initial animation,
+and it is needed to substitute in a different product sponsor after rendering.</p>
+<div>
+<p>Hint</p>
+<p>Due to limits of this node, it is not recommended to rush pre-production rendering under
+the guise of “fixing it later”.</p>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Adding UV textures in post-production.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

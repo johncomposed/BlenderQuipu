@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Selecting</title></head>
+<body><ul>
+<li><a href="index.html">Grease Pencil</a></li>
+<li>Selecting</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="selecting">
+<h1>Selecting</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>3D Viewport Header ‣ Select Mode</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd></p>
+</dd>
+</dl>
+</div>
+<figure id="id9">
+<figcaption>
+<p>Edit Mode selection buttons.</p>
+</figcaption>
+</figure>
+<p>In Edit Mode there are three different selection modes.
+You can enter the different modes by selecting one of the three buttons in the header.</p>
+<dl>
+<dt>Points</dt><dd><p>To select individual points.</p>
+</dd>
+<dt>Strokes</dt><dd><p>To select an entire stroke.</p>
+</dd>
+<dt>Points in Between</dt><dd><p>To select all points that are between other strokes.</p>
+</dd>
+</dl>
+<figure id="id10">
+<figcaption>
+<p>Points, stroke and in between stroke selection sample.</p>
+</figcaption>
+</figure>
+<section id="select-menu">
+<h2>Select Menu</h2>
+<dl>
+<dt>Box/Circle/All/None/Invert Select</dt><dd><p>All these options have the same meaning and behavior as in
+<a href="../scene_layout/object/selecting.html">Object Mode</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="select-linked">
+<h2>Select Linked</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Linked</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>L</kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p><kbd>L</kbd> (or <kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd> for all) will add to the selection the cursor’s nearest control point,
+and all the linked ones, i.e. all points belonging to the same stroke.</p>
+</section>
+<section id="select-alternated">
+<h2>Select Alternated</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Alternated</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>L</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Selects alternate points in the selected strokes.</p>
+</section>
+<section id="select-random">
+<h2>Select Random</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Random</p>
+</dd>
+</dl>
+</div>
+<p>Randomly selects unselected points or strokes.</p>
+<dl>
+<dt>Ratio</dt><dd><p>The likelihood of an unselected elements being selected.
+Note that, this is not the percentage amount of elements that will be selected.</p>
+</dd>
+<dt>Random Seed</dt><dd><p><a href="../glossary/index.html#term-Seed">Seed</a> used by the pseudo-random number generator.</p>
+</dd>
+<dt>Action</dt><dd><p>Selection or deselection of elements.</p>
+</dd>
+<dt>Unselect Ends</dt><dd><p>Excludes the selection of stroke end points.</p>
+</dd>
+</dl>
+</section>
+<section id="select-grouped">
+<h2>Select Grouped</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Grouped</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Layer</dt><dd><p>Selects all the points/strokes on the same layer.</p>
+</dd>
+<dt>Material</dt><dd><p>Selects all the points/strokes that share the same material.</p>
+</dd>
+</dl>
+</section>
+<section id="select-color-attribute">
+<h2>Select Color Attribute</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Vertex Paint Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Color Attribute</p>
+</dd>
+</dl>
+</div>
+<p>Selects all points with a similar Color Attribute as the current selection.</p>
+<dl>
+<dt>Tolerance</dt><dd><p>How similar colors are allowed to be; higher values select a wider range of colors.</p>
+</dd>
+</dl>
+</section>
+<section id="select-first-last">
+<h2>Select First/Last</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ First/Last</p>
+</dd>
+</dl>
+</div>
+<p>These operators will toggle the selection of the first or last point(s) of the stroke(s) in the object.
+This is useful to quickly find the start of a stroke.</p>
+</section>
+<section id="select-more-less">
+<h2>Select More/Less</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ More/Less</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>NumpadPlus</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>NumpadMinus</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The purpose of these tools is to reduce or enlarge the current selection within a stroke
+(i.e. they will never “go outside” of a stroke or “jump” to another stroke in the same object).</p>
+<dl>
+<dt>More</dt><dd><p>For each selected point, select <em>all</em> its linked points (i.e. one or two…).</p>
+</dd>
+<dt>Less</dt><dd><p>For each selected point, if <em>all</em> points linked to this point are selected, keep this one selected.
+Otherwise, deselect it.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>When <em>all</em> points of a stroke are selected, nothing will happen
+(as for <em>Less</em>, all linked points are always selected, and of course, <em>More</em> cannot add any).
+Conversely, the same goes when no points are selected.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

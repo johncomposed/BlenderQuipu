@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Image &gt; Sidebar</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Image Editor</a></li>
+<li>Sidebar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sidebar">
+<h1>Sidebar</h1>
+<section id="tool">
+<h2>Tool</h2>
+<p>Displays the settings of the active tool.</p>
+</section>
+<section id="image">
+<h2>Image</h2>
+<section id="id1">
+<h3>Image</h3>
+<p>Tools for working with images. See <a href="image_settings.html">Image Settings</a>.</p>
+</section>
+<section id="metadata">
+<h3>Metadata</h3>
+<p>Lists image metadata.</p>
+</section>
+</section>
+<section id="view">
+<h2>View</h2>
+<section id="display">
+<h3>Display</h3>
+<p>You can set the editor’s display options in this panel.</p>
+<figure id="id2">
+<figcaption>
+<p>Display panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Aspect Ratio</dt><dd><p>Display aspect for this image. Does not affect rendering.</p>
+</dd>
+<dt>Repeat Image</dt><dd><p>Tile the image so it completely fills the editor.</p>
+</dd>
+</dl>
+</section>
+<section id="annotations">
+<h3>Annotations</h3>
+<p>Options for the annotation tool. See <a href="../../interface/annotate_tool.html">Annotations</a>.</p>
+</section>
+</section>
+<section id="scopes">
+<h2>Scopes</h2>
+<figure id="id3">
+<figcaption>
+<p>Scopes in the Image Editor.</p>
+</figcaption>
+</figure>
+<p>Displays different kinds of statistical information about the colors in the image.</p>
+<p>Note that the Scopes tab is not shown if the active object is in Edit Mode
+or Texture Paint Mode.</p>
+<section id="histogram">
+<h3>Histogram</h3>
+<p>Displays a graph of the color distribution in the image. For each color value
+(such as Luminance) on the X axis, it shows the number of pixels with that value
+on the Y axis.
+A predominantly dark image would have the highest values toward the left side of the graph.</p>
+<p>Use this mode to balance out the tonal range in an image.
+A well-balanced image should have a nice smooth distribution of color values.</p>
+<p>You can drag <kbd>LMB</kbd> in the histogram to adjust its vertical zoom.</p>
+<dl>
+<dt>Luma</dt><dd><p>Shows a luminosity histogram.</p>
+</dd>
+<dt>RGB</dt><dd><p>Shows the <abbr title="Red, Green, Blue">RGB</abbr> channels stacked on top of each other.</p>
+</dd>
+<dt>R/G/B/A</dt><dd><p>Shows a single color channel.</p>
+</dd>
+<dt>Show Line</dt><dd><p>Displays lines rather than filled shapes.</p>
+</dd>
+</dl>
+</section>
+<section id="waveform">
+<h3>Waveform</h3>
+<p>Plots the color distribution for each vertical line of pixels in the image.
+The X axis of the Waveform corresponds to the X axis of the image, while the Y axis
+represents the range of a color component such as Luminance. The brighter
+a specific point is, the more pixels in that vertical line have that color value.</p>
+<dl>
+<dt>Waveform Opacity</dt><dd><p>Opacity of the points.</p>
+</dd>
+<dt>Waveform Mode</dt><dd><dl>
+<dt>Luma</dt><dd><p>Show a single Waveform plotting the luminosity distribution.</p>
+</dd>
+<dt>YCbCr</dt><dd><p>Show the Y, Cb and Cr Waveforms side by side.</p>
+</dd>
+<dt>Parade</dt><dd><p>Show the R, G and B Waveforms side by side.</p>
+</dd>
+<dt>Red Green Blue</dt><dd><p>Show the R, G and B Waveforms overlaid on top of each other.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="vectorscope">
+<h3>Vectorscope</h3>
+<p>Shows the color distribution in a radial fashion. The angle represents the hue,
+while the distance from the center represents the saturation.</p>
+<dl>
+<dt>Vectorscope Opacity</dt><dd><p>Opacity of the points.</p>
+</dd>
+</dl>
+</section>
+<section id="sample-line">
+<h3>Sample Line</h3>
+<p>The <em>Sample Line</em> scope is the same as the <a href="#histogram">Histogram</a>
+but allows you to get the sample data from a line.</p>
+<dl>
+<dt>Sample Line</dt><dd><p>Used to draw a line to read the sample data from.</p>
+</dd>
+</dl>
+</section>
+<section id="samples">
+<h3>Samples</h3>
+<dl>
+<dt>Full Sample</dt><dd><p>Sample every pixel.</p>
+</dd>
+<dt>Accuracy</dt><dd><p>Proportion of image pixels to sample if <em>Full Sample</em> is disabled.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

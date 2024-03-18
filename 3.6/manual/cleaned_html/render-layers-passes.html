@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Layers &gt; Passes</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Layers &amp; Passes</a></li>
+<li>Passes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="passes">
+<h1>Passes</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Scene ‣ View Layers ‣ Passes</p>
+</dd>
+</dl>
+</div>
+<p>Passes can be used to split rendered images into colors, direct and indirect light to edit them individually,
+and also to extract data such as depth or normals.</p>
+<section id="data">
+<h2>Data</h2>
+<section id="cycles">
+<h3>Cycles</h3>
+<dl>
+<dt>Include</dt><dd><dl>
+<dt>Combined</dt><dd><p>The final combination of render passes with everything included.</p>
+</dd>
+<dt>Z</dt><dd><p>Distance to any visible surfaces.</p>
+<div>
+<p>Note</p>
+<p>The Z pass only uses one sample.
+When depth values need to be blended in case of motion blur or <a href="../../glossary/index.html#term-Depth-of-Field">Depth of Field</a>, use the mist pass.</p>
+</div>
+</dd>
+<dt>Mist</dt><dd><p>Distance to visible surfaces, mapped to the 0.0 - 1.0 range.
+When enabled, settings are in <a href="../cycles/world_settings.html#bpy-types-worldmistsettings">World tab</a>.
+This pass can be used in compositing to fade out objects that are farther away.</p>
+</dd>
+<dt>Position</dt><dd><p>World position of objects in the scene.</p>
+</dd>
+<dt>Normal</dt><dd><p>Surface normal used for shading.</p>
+</dd>
+<dt>Vector</dt><dd><p>Motion vectors for the Vector Blur node. The four components consist of 2D vectors
+giving the motion towards the next and previous frame position in pixel space.</p>
+</dd>
+<dt>UV</dt><dd><p>Mapped UV coordinates, used to represent where on a mesh a texture gets mapped too.
+This is represented through the red and green channels of the image.
+The blue channel is encoded with a constant value of 1 but does not hold any information.</p>
+</dd>
+<dt>Denoising Data</dt><dd><p>Includes <em>Denoising Albedo</em>, <em>Denoising Normal</em>, and a render pass of the original combined
+pass before denoising.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The Z, Position, Object Index, and Material Index passes are not anti-aliased.</p>
+</div>
+</dd>
+<dt>Indexes</dt><dd><dl>
+<dt>Object Index</dt><dd><p>Creates a mask of the object that can be later read by
+the <a href="../../compositing/types/converter/id_mask.html">ID Mask Node</a> in the Compositor.</p>
+</dd>
+<dt>Material Index</dt><dd><p>Creates a mask of the material that can be later read by
+the <a href="../../compositing/types/converter/id_mask.html">ID Mask Node</a> in the Compositor.</p>
+</dd>
+</dl>
+</dd>
+<dt>Debug</dt><dd><dl>
+<dt>Sample Count</dt><dd><p>Number of samples/camera rays per pixel, to analyze adaptive sampling.</p>
+</dd>
+</dl>
+</dd>
+<dt>Alpha Threshold</dt><dd><p>Z, Index, normal, UV and vector passes are
+only affected by surfaces with alpha transparency equal to or higher than this threshold.
+With value 0.0 the first surface hit will always write to these passes, regardless of transparency.
+With higher values surfaces that are mostly transparent can be skipped until an opaque surface is encountered.</p>
+</dd>
+</dl>
+</section>
+<section id="eevee">
+<h3>Eevee</h3>
+<dl>
+<dt>Include</dt><dd><dl>
+<dt>Combined</dt><dd><p>The final combination of render passes with everything included.</p>
+</dd>
+<dt>Z</dt><dd><p>Distance to any visible surfaces.</p>
+</dd>
+<dt>Mist</dt><dd><p>Distance to visible surfaces, mapped to the 0.0 - 1.0 range.</p>
+</dd>
+<dt>Normal</dt><dd><p>Surface normal used for shading.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="light">
+<h2>Light</h2>
+<section id="id2">
+<h3>Cycles</h3>
+<dl>
+<dt>Diffuse</dt><dd><dl>
+<dt>Direct</dt><dd><p>Direct lighting from diffuse and subsurface BSDFs.
+We define direct lighting as coming from lights, emitting surfaces,
+the background, or ambient occlusion after a single reflection or transmission off a surface.
+BSDF color is not included in this pass.</p>
+</dd>
+<dt>Indirect</dt><dd><p>Indirect lighting from diffuse and subsurface BSDFs. We define indirect lighting as coming from lights,
+emitting surfaces or the background after more than one reflection or transmission off a surface.
+BSDF color is not included in this pass.</p>
+</dd>
+<dt>Color</dt><dd><p>Color weights of diffuse and subsurface BSDFs.
+These weights are the color input socket for BSDF nodes, modified by any Mix and Add Shader nodes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Glossy</dt><dd><dl>
+<dt>Direct, Indirect, Color</dt><dd><p>Same as above, but for glossy BSDFs.</p>
+</dd>
+</dl>
+</dd>
+<dt>Transmission</dt><dd><dl>
+<dt>Direct, Indirect, Color</dt><dd><p>Same as above, but for transmission BSDFs.</p>
+</dd>
+</dl>
+</dd>
+<dt>Volume</dt><dd><dl>
+<dt>Direct, Indirect</dt><dd><p>Same as above, but for volumetric BSDFs.</p>
+</dd>
+</dl>
+</dd>
+<dt>Other</dt><dd><dl>
+<dt>Emission</dt><dd><p>Emission from directly visible surfaces.</p>
+</dd>
+<dt>Environment</dt><dd><p>Emission from the directly visible background. When the film is set to transparent,
+this can be used to get the environment color and composite it back in.</p>
+</dd>
+<dt>Ambient Occlusion</dt><dd><p>Ambient occlusion from directly visible surfaces. BSDF color or AO factor is not included; i.e.
+it gives a ‘normalized’ value between 0 and 1.</p>
+</dd>
+<dt>Shadow Catcher</dt><dd><p>Extra indirect light information collected by objects with
+the <a href="../cycles/object_settings/object_data.html#render-cycles-object-settings-visibility">Shadow Catcher</a> option enabled.
+Multiply this pass with existing footage using the <a href="../../compositing/types/color/mix.html">Mix Node</a>
+in the <a href="../../editors/compositor.html">Compositor</a> to add the indirect lighting
+information to the footage.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p><a href="../cycles/render_settings/light_paths.html">Transparent BSDFs are given special treatment</a>.
+A fully transparent surface is treated as if there is no surface there at all;
+a partially transparent surface is treated as if only part of the light rays can pass through.
+This means it is not included in the Transmission passes;
+for that a glass BSDF with index of refraction 1.0 can be used.</p>
+</div>
+</section>
+<section id="id3">
+<h3>Eevee</h3>
+<dl>
+<dt>Diffuse</dt><dd><dl>
+<dt>Light</dt><dd><p>Direct lighting from diffuse BSDFs. We define lighting as coming from lights,
+the background, or ambient occlusion off a surface.
+BSDF color is not included in this pass.</p>
+</dd>
+<dt>Color</dt><dd><p>Color weights of diffuse BSDFs. These weights are the color input socket for BSDF nodes,
+modified by any Mix and Add Shader nodes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Specular</dt><dd><dl>
+<dt>Light, Color</dt><dd><p>Same as above, but for specular BSDFs.</p>
+</dd>
+</dl>
+</dd>
+<dt>Volume</dt><dd><dl>
+<dt>Light</dt><dd><p>The scattering pass from volume objects or world.</p>
+</dd>
+</dl>
+</dd>
+<dt>Other</dt><dd><dl>
+<dt>Emission</dt><dd><p>Emission from directly visible surfaces.</p>
+</dd>
+<dt>Environment</dt><dd><p>Emission from the directly visible background. When the film is set to transparent,
+this can be used to get the environment color and composite it back in.</p>
+</dd>
+<dt>Shadow</dt><dd><p>Shadows from light objects. Mostly useful for compositing objects with shadow into existing footage.</p>
+</dd>
+<dt>Ambient Occlusion</dt><dd><p>Ambient occlusion from directly visible surfaces. BSDF color or AO factor is not included; i.e.
+it gives a ‘normalized’ value between 0 and 1.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="effects">
+<h2>Effects</h2>
+<p>Eevee only</p>
+<dl id="bpy-types-viewlayereevee-use-pass-bloom">
+<dt>Bloom</dt><dd><p>The influence of the Bloom effect.</p>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayereevee-use-pass-transparent">
+<dt>Transparency</dt><dd><p>Contain <a href="../eevee/materials/settings.html#bpy-types-material-blend-method">Alpha Blended</a> surfaces,
+so they can be adjusted in the compositor and later mixed with opaque passes.</p>
+<p>This pass only supports monochromatic opacity.
+Colored opacity will show differently than in combined pass.</p>
+</dd>
+</dl>
+</section>
+<section id="cryptomatte">
+<h2>Cryptomatte</h2>
+<p>Cryptomatte is a standard to efficiently create mattes for compositing.
+Cycles outputs the required render passes, which can then be used in the Blender Compositor
+or another compositor with Cryptomatte support to create masks for specified objects.</p>
+<p>Unlike the Material and Object Index passes, the objects to isolate are selected in compositing.
+The mattes will be anti-aliased and take into account effects like motion blur and transparency.</p>
+<dl id="bpy-types-viewlayer-use-pass-cryptomatte-object">
+<dt>Object</dt><dd><p>Render cryptomatte object pass, for isolating objects in compositing.</p>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayer-use-pass-cryptomatte-material">
+<dt>Material</dt><dd><p>Render cryptomatte material pass, for isolating materials in compositing.</p>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayer-use-pass-cryptomatte-asset">
+<dt>Asset</dt><dd><p>Render cryptomatte asset pass, for isolating groups of objects with
+the same <a href="../../scene_layout/object/editing/parent.html">parent</a> in compositing.</p>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayer-pass-cryptomatte-depth">
+<dt>Levels</dt><dd><p>Sets how many unique objects can be distinguished per pixel.</p>
+</dd>
+</dl>
+<section id="typical-workflow">
+<h3>Typical Workflow</h3>
+<ol>
+<li><p>Enable Cryptomatte Object render pass in the Passes panel, and render.</p></li>
+<li><p>In the compositing nodes, create a Cryptomatte node and
+link the Render Layer matching Image and Cryptomatte passes to it.</p></li>
+<li><p>Attach a Viewer node to the Pick output of the Cryptomatte node.</p></li>
+<li><p>Use the Cryptomatte Add/Remove button to sample objects in the Pick Viewer node.</p></li>
+<li><p>Use the Matte output of the Cryptomatte node to get the alpha mask.</p></li>
+</ol>
+<div>
+<p>See also</p>
+<p><a href="../../compositing/types/matte/cryptomatte.html">Cryptomatte Node</a>.</p>
+</div>
+</section>
+</section>
+<section id="shader-aov">
+<h2>Shader AOV</h2>
+<p>Shader AOVs (Arbitrary Output Variables) provide custom render passes for any shader node components.
+As an artist this can be a good way to fix or tweak fine details of a scene in post-processing.
+To use Shader AOVs create the pass in the <em>Shader AOV</em> panel then reference this pass with
+the <a href="../shader_nodes/output/aov.html">AOV Output</a> shading node.
+Shader AOVs can be added or removed in the <em>Shader AOV</em> panel.
+In this panel is a list of all AOV passes; each AOV in the list consists of a <em>Name</em> and <em>Data Type</em>.</p>
+<dl id="bpy-types-viewlayer-active-aov-index">
+<dt>Active AOV Index</dt><dd><p>The name of the render pass; this is the <em>Name</em> that is referenced in the <em>AOV Output</em> node.
+Any names can be used for these passes,
+as long as they do not conflict with built-in passes that are enabled.</p>
+</dd>
+</dl>
+<dl id="bpy-types-aov-type">
+<dt>Data Type</dt><dd><p>Shader AOVs can either express a <em>Color</em> or a <em>Value</em> output.
+The <em>Color</em> type as the name suggest can be used for a color but also for normals.
+A <em>Value</em> type can be used for any single numerical value.</p>
+</dd>
+</dl>
+</section>
+<section id="light-groups">
+<h2>Light Groups</h2>
+<p>Cycles only</p>
+<p>Light Groups provide render passes that only contains information from the lights within that group.
+Light Groups can be used to easily tweak the lighting color and intensity of specific lights without
+having to re-render the scene.</p>
+<dl id="bpy-types-viewlayer-active-lightgroup-index">
+<dt>Active Light Group Index</dt><dd><p>The name of the render pass. This is the name that is used when adding
+<a href="../cycles/world_settings.html#bpy-types-world-lightgroup">World Shaders</a>, <a href="../cycles/object_settings/object_data.html#bpy-types-object-lightgroup">Lights and Objects</a>
+to <em>Light Groups</em>.</p>
+</dd>
+</dl>
+<section id="lightgroup-sync">
+<h3>Lightgroup Sync</h3>
+<p>These operators are available in the menu to the right of the Light Group list.</p>
+<dl id="bpy-ops-scene-view-layer-add-used-lightgroups">
+<dt>Add Used Lightgroups</dt><dd><p>Adds all Light Groups  to the View Layer that have been created
+elsewhere and have lights assigned to them.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-scene-view-layer-remove-unused-lightgroups">
+<dt>Remove Unused Lightgroups</dt><dd><p>Deletes all Light Groups that do not have any lights assigned to them.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="combining">
+<h2>Combining</h2>
+<section id="id4">
+<h3>Cycles</h3>
+<p>All these lighting passes can be combined to produce the final image as follows:</p>
+</section>
+<section id="id5">
+<h3>Eevee</h3>
+<p>The passes can be combined to produce the final image as follows:</p>
+</section>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<ul>
+<li><p>Alpha blended materials are not rendered in render passes except the combined pass.
+Use the <em>Alpha Clip</em> or <em>Alpha Hashed</em> as <a href="../eevee/materials/settings.html#bpy-types-material-blend-method">Blending Mode</a>
+to render transparent materials in render passes.</p></li>
+<li><p>Depth of field is not rendered in render passes except the combined pass.
+It is possible to add the depth of field back in the Compositor using
+the <a href="../../compositing/types/filter/defocus.html#bpy-types-compositornodedefocus">Defocus node</a>.</p></li>
+<li><p>Eevee render passes exclude parts of the BSDF equation.
+<a href="../shader_nodes/converter/shader_to_rgb.html">Shader to RGB</a> is not supported as it needs
+the full BSDF equation.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

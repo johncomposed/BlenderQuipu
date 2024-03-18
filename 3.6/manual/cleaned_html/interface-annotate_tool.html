@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Annotate Tool</title></head>
+<body><ul>
+<li><a href="index.html">User Interface</a></li>
+<li>Annotations</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="annotations">
+<h1>Annotations</h1>
+<p>The annotation tool is available in multiple editors.
+It can be used to add notes to e.g. 3D objects or node setups.
+The arrow in the screenshot below is an annotation.</p>
+<figure id="id1">
+<figcaption>
+<p>Annotations tool in a node editor.</p>
+</figcaption>
+</figure>
+<section id="annotation-tools">
+<h2>Annotation Tools</h2>
+<p>The annotation tool can be activated in the Toolbar and has the following sub-tools:</p>
+<dl id="tool-annotate-freehand">
+<dt>Annotate</dt><dd><p>Draw free-hand strokes in the main area.</p>
+</dd>
+</dl>
+<dl id="tool-annotate-line">
+<dt>Annotate Line</dt><dd><p>Click and drag to create a line.
+Optionally, you can select the arrow style for the start and end of the line.</p>
+</dd>
+</dl>
+<dl id="tool-annotate-polygon">
+<dt>Annotate Polygon</dt><dd><p>Click multiple times to create multiple connected lines, then press <kbd>RMB</kbd>,
+<kbd>Return</kbd> or <kbd>Esc</kbd> to confirm.</p>
+</dd>
+</dl>
+<dl id="tool-annotate-eraser">
+<dt>Annotate Eraser</dt><dd><p>Click and drag to remove lines.
+The eraser has a <em>Radius</em> setting found in Tool Settings.</p>
+</dd>
+</dl>
+</section>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<section id="common">
+<h3>Common</h3>
+<dl>
+<dt>Color</dt><dd><p>Adjust the color of existing and new strokes.</p>
+</dd>
+<dt>Annotation Layer</dt><dd><p>A pop-over menu, showing the name of the current layer, to access the <a href="#annotation-layers">Annotation Layers</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-annotation-stroke-placement-view2d">
+<dt>Placement</dt><dd><p>Determines where the annotations are drawn.</p>
+<dl>
+<dt>3D Cursor:</dt>
+<dd><p>Only available in the 3D Viewport. The new annotations become part of the 3D scene;
+they’re drawn on an imaginary plane that goes through the <a href="../editors/3dview/3d_cursor.html">3D Cursor</a>
+and is aligned to your view.</p>
+</dd>
+<dt>Surface:</dt>
+<dd><p>Only available in the 3D Viewport. The new annotations become part of the 3D scene;
+they’re drawn onto the surface of the object under the mouse. If there is no surface,
+you get the same behavior as <em>3D Cursor</em>.</p>
+</dd>
+<dt>Image:</dt>
+<dd><p>Only available in 2D editors such as the <a href="../editors/image/introduction.html">Image Editor</a>.
+The annotations become part of the 2D space, meaning their position and size change as you
+pan and zoom in the editor.</p>
+</dd>
+<dt>View:</dt>
+<dd><p>The new annotations are 2D and get stuck to the screen. They keep the same position,
+rotation and size no matter how you pan, orbit or zoom in the editor.</p>
+</dd>
+</dl>
+</dd>
+<dt>Stabilize Stroke</dt><dd><p>Helps to reduce jitter of the strokes while drawing by delaying and correcting the location of points.</p>
+<dl>
+<dt>Radius</dt><dd><p>Minimum distance from the last point before the stroke continues.</p>
+</dd>
+<dt>Factor</dt><dd><p>A smooth factor, where higher values result in smoother strokes
+but the drawing sensation feels like as if you were pulling the stroke.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="annotate-line">
+<h3>Annotate Line</h3>
+<dl>
+<dt>Style Start, End</dt><dd><p>The decoration to use at the beginning or end of the line segment.
+This can be used for example to create arrows to point out specific details in a scene.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="annotation-layers">
+<h2>Annotation Layers</h2>
+<p>When the annotation tool is enabled, the settings for managing multiple layers
+can be found in the Sidebar ‣ View ‣ Annotations panel.</p>
+<dl id="bpy-types-gpencillayer-annotation-opacity">
+<dt>Opacity</dt><dd><p>Adjusts the opacity of existing and new strokes.</p>
+</dd>
+<dt>Thickness</dt><dd><p>Adjusts the thickness of existing and new strokes.</p>
+</dd>
+</dl>
+<section id="onion-skin">
+<h3>Onion Skin</h3>
+<p>Shows a ghosted image of strokes made in frames before and after the current frame.
+Onion skinning only works in the 3D Viewport and Sequencer.
+See the Grease Pencil documentation for an explanation of
+<a href="../grease_pencil/properties/onion_skinning.html">Onion Skinning</a>.</p>
+<dl id="bpy-types-gpencillayer-annotation-onion-after-range">
+<dt>Before/After</dt><dd><p>Color to use before and after the current frame on ghost frames.
+The number defines how many frames to show before and after the current frame.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

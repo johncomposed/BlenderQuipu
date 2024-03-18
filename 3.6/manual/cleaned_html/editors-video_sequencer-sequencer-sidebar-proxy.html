@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Sequencer &gt; Sidebar &gt; Proxy</title></head>
+<body><ul>
+<li><a href="../../../index.html">Editors</a></li>
+<li><a href="../../index.html">Video Sequencer</a></li>
+<li><a href="../index.html">Sequencer</a></li>
+<li><a href="index.html">Sidebar</a></li>
+<li>Proxy</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="proxy">
+<h1>Proxy</h1>
+<section id="proxy-settings">
+<h2>Proxy Settings</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Proxy &amp; Timecode ‣ Proxy Settings</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Storage</dt><dd><p>Defines whether the proxies are for individual strips or the entire sequence.</p>
+<dl>
+<dt>Per Strip</dt><dd><p>Proxies are stored in the directory of the input.</p>
+</dd>
+<dt>Project</dt><dd><p>All proxies are stored in one directory.</p>
+<dl>
+<dt>Proxy Directory</dt><dd><p>The location to store the proxies for the project.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Set Selected Strip Proxies</dt><dd><p>Set proxy size and overwrite flag for all selected strips.</p>
+</dd>
+<dt>Rebuild Proxy and Timecode Indices</dt><dd><p>Generates Proxies and Timecodes for all selected strips,
+same as doing Strip ‣ Rebuild Proxy and Timecode Indices.</p>
+</dd>
+</dl>
+</section>
+<section id="strip-proxy-timecode">
+<h2>Strip Proxy &amp; Timecode</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Proxy &amp; Timecode ‣ Strip Proxy &amp; Timecode</p>
+</dd>
+</dl>
+</div>
+<p>Once you have chosen the <a href="../../../../glossary/index.html#term-Proxy">Proxy</a>/<a href="../../../../glossary/index.html#term-Timecode">Timecode</a> options,
+you need to select all strips for which you want proxies to be built.
+Then use Strip ‣ Rebuild Proxy and Timecode Indices, or button in <a href="#proxy-settings">Proxy Settings</a> panel.
+Once all proxies are built, they will be ready to use.</p>
+<p>In order to use proxies, you have to select matching
+<a href="../../preview/sidebar.html#bpy-types-spacesequenceeditor-proxy-render-size">Proxy Render Size</a> in
+the Sequencer preview Sidebar panel.</p>
+<dl>
+<dt>Custom Proxy</dt><dd><dl>
+<dt>Directory</dt><dd><p>By default, all generated proxy images are storing to
+the <code>&lt;path of original footage&gt;/BL_proxy/&lt;clip name&gt;</code> folder,
+but this location can be set by hand using this option.</p>
+</dd>
+<dt>File</dt><dd><p>Allows you to use preexisting proxies.</p>
+</dd>
+</dl>
+</dd>
+<dt>Resolutions</dt><dd><p>Buttons to control how big the proxies are.
+The available options are 25%, 50%, 75%, 100 percent of original strip size.</p>
+</dd>
+<dt>Overwrite</dt><dd><p>Saves over any existing proxies in the proxy storage directory.</p>
+</dd>
+<dt>Quality</dt><dd><p>Defines the quality of the images used for proxies.</p>
+</dd>
+<dt>Timecode Index</dt><dd><p>When you are working with footage directly copied from a camera without preprocessing it,
+there might be bunch of artifacts, mostly due to seeking a given frame in sequence.
+This happens because such footage usually does not have correct frame rate values in their headers.
+This issue can still arise when the source clip has the same frame rate as the scene settings.
+In order for Blender to correctly calculate frames and frame rate there are two possible solutions:</p>
+<ol>
+<li><p>Preprocess your video with e.g. MEncoder to repair the file header and insert the correct keyframes.</p></li>
+<li><p>Use Proxy/Timecode option in Blender.</p></li>
+</ol>
+<dl>
+<dt>None:</dt>
+<dd><p>Do not use any timecode.</p>
+</dd>
+<dt>Record Run:</dt>
+<dd><p>Use images in the order they are recorded.</p>
+</dd>
+<dt>Free Run:</dt>
+<dd><p>Use global timestamp written by recording device.</p>
+</dd>
+<dt>Free Run (Rec Date):</dt>
+<dd><p>Interpolate a global timestamp using the record date and time written by recording device.</p>
+</dd>
+<dt>Record Run No Gaps:</dt>
+<dd><p>Record run, but ignore timecode, changes in frame rate or dropouts.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Record Run is the timecode which usually is best to use, but if the source file is totally damaged,
+<em>Record Run No Gaps</em> will be the only chance of getting acceptable result.</p>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

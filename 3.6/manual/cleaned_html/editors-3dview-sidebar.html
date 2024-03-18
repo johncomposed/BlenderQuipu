@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Sidebar</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">3D Viewport</a></li>
+<li>Sidebar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sidebar">
+<h1>Sidebar</h1>
+<section id="item">
+<h2>Item</h2>
+<p>Shows <a href="../../scene_layout/object/editing/transform/introduction.html">Transform</a> settings
+of the active object.</p>
+</section>
+<section id="tool">
+<h2>Tool</h2>
+<p>Shows settings of the active tool and Workspace.</p>
+</section>
+<section id="view">
+<h2>View</h2>
+<section id="view-panel">
+<h3>View Panel</h3>
+<p>The <em>View</em> panel lets you change other settings regarding the 3D Viewport.</p>
+<dl id="bpy-types-spaceview3d-lens">
+<dt>Focal Length</dt><dd><p>Control the focal length of the 3D Viewport camera.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceview3d-clip-end">
+<dt>Clip Start/End</dt><dd><p>Adjust the minimum and maximum distances for geometry to be visible.
+Geometry closer than <em>Start</em> or further away than <em>End</em> will not be shown.</p>
+<div>
+<p>Note</p>
+<p>In Orthographic view, the viewport uses negative <em>End</em> instead of <em>Start</em>.</p>
+</div>
+<div>
+<p>Warning</p>
+<p>A large clipping range will allow you to see both near and far objects,
+but reduces the depth precision resulting in artifacts.</p>
+<p>In some cases, a very large range may cause operations that depend on the depth buffer to become unreliable,
+although this depends on the graphics card and drivers.</p>
+<p>See <a href="../../troubleshooting/3d_view.html#troubleshooting-depth">Troubleshooting Depth Buffer Glitches</a> for more information.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-spaceview3d-camera">
+<dt>Local Camera</dt><dd><p>Allow this 3D Viewport to have its own <a href="navigate/camera_view.html">active camera</a>,
+separate from the global active camera that’s defined in the scene.
+The selector next to the checkbox lets you choose this camera.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceview3d-use-render-border">
+<dt>Render Region</dt><dd><p>Use the <a href="navigate/regions.html#editors-3dview-navigate-render-region">Render Region</a>.
+Defining the region with <kbd><kbd>Ctrl</kbd>-<kbd>B</kbd></kbd> will automatically enable this option.</p>
+<p>Note that if you’re viewing the scene through the active camera, this option has no effect –
+in this case, you instead need to use the checkbox Output Properties ‣ Format ‣ Render Region
+in the Properties editor. This will affect not just the viewport, but also the final render.</p>
+</dd>
+</dl>
+<section id="view-lock">
+<h4>View Lock</h4>
+<dl id="bpy-types-spaceview3d-lock-object">
+<dt>Lock to Object</dt><dd><p>Lets you select an object to become the point of interest of the viewpoint.
+The view will then orbit around, and zoom towards, that object.
+This option is not available when viewing the scene through the active camera.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceview3d-lock-cursor">
+<dt>Lock: To 3D Cursor</dt><dd><p>Makes the 3D Cursor the point of interest of the viewpoint.
+This option is only available when <em>Lock to Object</em> is not active.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceview3d-lock-camera">
+<dt>Lock: Camera to View</dt><dd><p>When looking through a camera, the camera becomes “glued” to the view
+and will follow it around as you navigate.
+The camera frame will be outlined with a red dashed line.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>If the camera is parented to an object, you can choose to enable
+<a href="../../scene_layout/object/properties/relations.html#bpy-types-object-use-camera-lock-parent">Camera Parent Lock</a>
+in the camera’s properties. This will cause viewport navigation to transform
+the camera’s root parent rather than the camera itself.</p>
+</div>
+</section>
+</section>
+<section id="d-cursor">
+<h3>3D Cursor</h3>
+<dl>
+<dt>Location</dt><dd><p>The location of the 3D Cursor.</p>
+</dd>
+<dt>Rotation</dt><dd><p>The rotation of the 3D Cursor.</p>
+</dd>
+<dt>Rotation Mode</dt><dd><p>The rotation mode of the 3D Cursor.</p>
+</dd>
+</dl>
+</section>
+<section id="collections">
+<h3>Collections</h3>
+<p>The <em>Collections</em> panel shows a list of <a href="../../scene_layout/collections/index.html">collections</a>
+and can be used to control their visibility.
+If a collection contains objects, there is a circle to the left of its name.</p>
+<dl>
+<dt>Local Collections</dt><dd><p>Allows setting collection visibility per viewport rather than globally.</p>
+</dd>
+<dt>Hide in Viewport (eye icon)</dt><dd><p>Shows or hides the collection.</p>
+</dd>
+</dl>
+<p>You can also “isolate” a collection by clicking its name. This will show the collection
+as well as its ancestors and descendants, and hide all other collections.</p>
+</section>
+<section id="annotations">
+<h3>Annotations</h3>
+<p>See <a href="../../interface/annotate_tool.html">Annotations</a> for more information.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

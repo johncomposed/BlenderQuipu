@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Properties &gt; Line Art</title></head>
+<body><ul>
+<li><a href="../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../index.html">Objects</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Line Art</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="line-art">
+<h1>Line Art</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Properties ‣ Line Art</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Line Art</em> panel is used to enable extra display options for customizing
+line art rendering for a specific object.</p>
+<figure id="id2">
+<figcaption>
+<p>Line Art panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-objectlineart-usage">
+<dt>Usage</dt><dd><p>How the object is loaded into line art.
+This property overrides the parent collection’s <a href="../../collections/collections.html#scene-layout-collections-line-art">Line Art</a> usage.</p>
+<dl>
+<dt>Inherit:</dt>
+<dd><p>No special loading strategy for line art.
+Loading of the object is controlled by parent collection’s line art settings.</p>
+</dd>
+<dt>Include:</dt>
+<dd><p>Force include the object into line art calculation
+even if its parent collection specifies otherwise.</p>
+</dd>
+<dt>Intersection Only:</dt>
+<dd><p>The object will only produce intersection lines in the scene and its own geometry stays invisible.</p>
+</dd>
+<dt>Occlusion Only:</dt>
+<dd><p>The object will only cause occlusion to existing feature lines and its geometry stays invisible.</p>
+</dd>
+<dt>Exclude:</dt>
+<dd><p>The object will not be loaded into line art at all.</p>
+</dd>
+<dt>No Intersection:</dt>
+<dd><p>The object will not generate intersection lines on itself or with other objects in scene.</p>
+</dd>
+<dt>Force Intersection:</dt>
+<dd><p>Generate intersection lines even with objects that disabled intersection.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-objectlineart-use-crease-override">
+<dt>Override Crease</dt><dd><p>Allows the object to have a different crease value than the global one set in the line art modifier.</p>
+<dl id="bpy-types-objectlineart-crease-threshold">
+<dt>Crease</dt><dd><p>Override crease value for the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-objectlineart-intersection-priority">
+<dt>Intersection Priority</dt><dd><p>Assigns an intersection priority value for this object.
+The intersection line will be included into the object with the higher intersection priority value.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

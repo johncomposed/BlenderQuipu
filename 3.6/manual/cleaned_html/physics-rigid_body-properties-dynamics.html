@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Rigid Body &gt; Properties &gt; Dynamics</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Rigid Body</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Dynamics</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="dynamics">
+<h1>Dynamics</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Rigid Body ‣ Dynamics</p>
+</dd>
+</dl>
+</div>
+<p>Used to control the physics of the rigid body simulation.
+This panel is available only for <em>Active</em> type of rigid bodies.</p>
+<dl>
+<dt>Damping Translation</dt><dd><p>Amount of linear velocity that is lost over time.</p>
+</dd>
+<dt>Rotation</dt><dd><p>Amount of angular velocity that is lost over time.</p>
+</dd>
+</dl>
+<section id="deactivation">
+<h2>Deactivation</h2>
+<p>Enable deactivation of resting rigid bodies. Allows the object to be deactivated during the simulation
+(improves the performance and stability, but can cause glitches).</p>
+<dl>
+<dt>Start Deactivated</dt><dd><p>The rigid body starts deactivated. It will be activated when in proximity of
+moving active rigid body objects. The proximity check uses the object’s
+bounding box to determine if a moving object is close enough to activate it.</p>
+</dd>
+<dt>Linear Velocity</dt><dd><p>Specifies the linear deactivation velocity below which the rigid body
+is deactivated and the simulation stops simulating the object.</p>
+</dd>
+<dt>Angular Velocity</dt><dd><p>Specifies the angular deactivation velocity below which the rigid body
+is deactivated and the simulation stops simulating the object.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

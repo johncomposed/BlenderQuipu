@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Rigging &gt; Rigify &gt; Rig Types &gt; Skin</title></head>
+<body><ul>
+<li><a href="../../../index.html">Add-ons</a></li>
+<li><a href="../../index.html">Rigging</a></li>
+<li><a href="../index.html">Rigify</a></li>
+<li><a href="index.html">Rig Types</a></li>
+<li>Skin</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="skin">
+<h1>Skin</h1>
+<p>These rigs implement a flexible system for rigging skin using multiple interacting B-Bone chains.
+This is developed as the base for a new modular Rigify face rig.
+These are the main ideas of the system:</p>
+<dl>
+<dt>Generic B-Bone Chain</dt><dd><p>One core idea of the system is that most of the deformation should be implemented
+using a standard powerful B-Bone chain rig. These chains support advanced behavior by
+interacting with other rig components. This is in contrast to having multiple domain-specific rigs
+that each generate their own deform chains.</p>
+<p>The implementation provides two versions of the chain rig: <a href="#skin-basic-chain">skin.basic_chain</a> merely
+attaches B-Bones to the controls with no automation added to the controls themselves.
+The <a href="#skin-stretchy-chain">skin.stretchy_chain</a> rig in addition interpolates motion of the end (and an optional middle)
+controls to the other controls of the chain.</p>
+</dd>
+<dt>Automatic Control Merging</dt><dd><p>The deformation part of the system consists of chains of one or more B-Bones connecting
+control points (nodes). Whenever controls for two chains would completely overlap,
+they are automatically merged.</p>
+<p>For each merged control, one of the chains is selected as the owner, based on heuristic factors
+like parent depth from root, presence of <code>.T</code>/<code>.B</code> <code>.L</code>/<code>.R</code> symmetry markers,
+and even alphabetical order as the last resort. This can be overridden by an explicit priority setting
+in cases when it guesses wrong.</p>
+<p>The owner and its parents determine additional automation that is placed on the control.
+As a special case, if a control is merged with its <code>.T</code>/<code>.B</code> <code>.L</code>/<code>.R</code> symmetry counterparts
+(detected purely by naming), the automation from all of the symmetry siblings
+of the owner is averaged.</p>
+</dd>
+</dl>
+<dl id="rigify-rigs-skin-skin-parents">
+<dt>Parent Controllers</dt><dd><p>Rather than simply using the parent meta-rig bone (ORG) as parent for controls and chain mechanisms,
+the new system includes an interface for parent rigs. It explicitly provide parent bones and generate control
+parent automation mechanisms for their child chain controls by inheriting from the appropriate base
+and overriding methods.</p>
+<p>This allows implementing rigs that integrate and manage their child chains in intelligent ways in order
+to add extra automation specific to certain areas. The base skin system includes one simple example
+<a href="#skin-transform-basic">skin.transform.basic</a> rig, which translates its child control points according to
+its control bone transformation.</p>
+</dd>
+<dt>Custom Rigging</dt><dd><p>Finally, the new system provides ways to integrate with custom automation directly included in the meta-rig
+via two extra rig components.</p>
+<p>The <a href="#skin-anchor">skin.anchor</a> rig generates a single control with inherited constraints etc., similar to
+<a href="basic.html#rigify-rigs-basic-super-copy">basic.super_copy</a>. However, it also integrates into the skin system
+as a zero length chain with highest priority. This allows overriding the normal behavior by providing
+a control point under full control of the user, which other chains would automatically attach to.</p>
+<p>The <a href="#skin-glue">skin.glue</a> rig on the other hand will attach itself to the control that is generated at
+its position (it is an error if there is none). It can be used to read the position of the control
+from custom rigging in the meta-rig, or inject constraints into the control bone. It is possible to
+also detect the control at the tail of the glue bone and use it as target in the constraints,
+thus copying transformation between the controls.</p>
+</dd>
+</dl>
+<section id="skin-basic-chain">
+<h2><code>skin.basic_chain</code></h2>
+<p>This is the basic chain rig, which bridges controls with B-Bones but does not add
+any automation to the controls themselves.</p>
+<p>When controls are merely moved, the chains behave as if using standard
+automatic handles, but rotating and optionally scaling the controls will adjust the result.</p>
+<dl>
+<dt>B-Bone Segments</dt><dd><p>Specifies the number of segments to use. Setting this to 1 disables
+all advanced behavior and merely bridges the points with a Stretch To bone.</p>
+</dd>
+<dt>Merge Parent Rotation and Scale</dt><dd><p>This can be enabled to let the chain respond to rotation and scale induced by parents of
+controls owned by other chains that this chain’s control merged into.</p>
+</dd>
+<dt>Use Handle Scale</dt><dd><p>Enables using control scale to drive scale and/or easing of the B-Bone.</p>
+</dd>
+<dt>Connect With Mirror</dt><dd><p>Specifies whether the ends of the chain should smoothly connect when merging controls
+with its <code>.T</code>/<code>.B</code> <code>.L</code>/<code>.R</code> symmetry counterpart. The relevant option must be enabled
+on both chains to work.</p>
+</dd>
+<dt>Connect Matching Ends</dt><dd><p>Specifies whether the end of the chain should connect to the opposite end of a different chain
+when merging controls. Thus forming a continuous smooth chain in the same direction.
+The relevant options must be enabled on both chains.</p>
+</dd>
+<dt>Sharpen Corner</dt><dd><p>Specifies whether the rig should generate a mechanism to form a sharp corner at
+the relevant connected end, depending on the angle formed by adjacent control locations.
+When the control angle becomes sharper than the specified value, ease starts reducing from 1 to 0.</p>
+</dd>
+<dt>Orientation</dt><dd><p>Specifies that the controls should be oriented the same as the selected bone, rather than being
+aligned to the chain.</p>
+<dl>
+<dt>Copy To Selected</dt><dd><p>Copy to selected rigs that have the same option. Thus allowing to indiscriminately selecting bones
+without assigning unnecessary values.</p>
+</dd>
+</dl>
+</dd>
+<dt>Chain Priority</dt><dd><p>Allows overriding the heuristic used to select the primary owner when merging controls.</p>
+</dd>
+</dl>
+</section>
+<section id="skin-stretchy-chain">
+<h2><code>skin.stretchy_chain</code></h2>
+<p>This rig extends the basic chain with automation that propagates movement of the start and end,
+and an optional middle control, to other controls. This results in stretching the whole chain
+when moving one of the ends, rather than just the immediately adjacent B-Bones.</p>
+<dl>
+<dt>Middle Control Position</dt><dd><p>Specifies the position of the middle control within the chain; disabled when zero.</p>
+</dd>
+<dt>Falloff</dt><dd><p>Specifies the influence falloff curves of the start, middle and end controls.
+Zero results in linear falloff, increasing widens the influence, and -10 disables
+the influence propagation from that control completely.</p>
+</dd>
+<dt>Spherical Falloff</dt><dd><p>Toggle buttons to change the shape of the falloff curve from a power curve that at falloff 1 forms a parabola
+\(1 - x^{2^f}\) to a curve forming a circle \((1 - x^{2^f})^{2^{-f}}\).</p>
+</dd>
+<dt>Falloff Along Chain Curve</dt><dd><p>Computes the falloff curve along the length of the chain, instead of projecting on the straight
+line connecting its start and end points.</p>
+</dd>
+<dt>Propagate Twist</dt><dd><p>Specifies whether twist of the chain should be propagated to control points between main controls.</p>
+</dd>
+<dt>Propagate Scale</dt><dd><p>Specifies whether perpendicular scaling of the chain should be propagated to control points between main controls.</p>
+</dd>
+<dt>Propagate to Controls</dt><dd><p>Allows other chains to see propagated twist and scale via <em>Merge Parent Rotation and Scale</em> when their
+controls are merged into this chain, instead of it being completely local to this chain.</p>
+</dd>
+<dt>Primary Control Layers</dt><dd><p>Optionally specifies layers for the end controls.</p>
+</dd>
+<dt>Secondary Control Layers</dt><dd><p>Optionally specifies layers for the middle control, falling back to <em>Primary Control Layers</em> if not set.</p>
+</dd>
+</dl>
+<p>The main controls with active falloff have the effect of <em>Merge Parent Rotation and Scale</em>
+automatically enabled just for them.</p>
+</section>
+<section id="skin-anchor">
+<h2><code>skin.anchor</code></h2>
+<p>This rig effectively acts as a zero-length chain with highest priority,
+ensuring that it becomes the owner when merging controls with other chains.
+And also allowing one to input custom automation influence into the skin system.</p>
+<p>All constraints on the meta-rig bone are moved to the created control.</p>
+<dl>
+<dt>Generate Deform Bone</dt><dd><p>Creates a deformation bone parented to the control.</p>
+</dd>
+<dt>Suppress Control</dt><dd><p>Makes the control a hidden mechanism bone to hide it from the user.</p>
+</dd>
+<dt>Widget Type</dt><dd><p>Selects which widget to generate for the control.</p>
+</dd>
+<dt>Relink Constraints</dt><dd><p>Operates the same as in <a href="basic.html#rigify-rigs-basic-raw-copy">basic.raw_copy</a>,
+except all constraints are moved from ORG to the control bone.</p>
+</dd>
+<dt>Orientation</dt><dd><p>Specifies the bone used to orient the control, like for other chains.</p>
+</dd>
+</dl>
+</section>
+<section id="skin-glue">
+<h2><code>skin.glue</code></h2>
+<p>This rig is in concept similar to <code>skin.anchor</code>, but instead of overriding controls,
+it is used to read or adjust the state of controls generated by other rigs.
+The head of the bone must overlap a control of another skin rig.</p>
+<p>The rig sets up its ORG bone to read the state of the control,
+while moving all constraints that were originally on the bone to the control.</p>
+<dl>
+<dt>Glue Mode</dt><dd><p>Specifies how the ORG bone is connected to the skin control.</p>
+<dl>
+<dt>Child Of Control</dt><dd><p>Makes the ORG bone a child of the control bone.</p>
+</dd>
+<dt>Mirror Of Control</dt><dd><p>Makes the ORG bone a sibling of the control with a Copy Transforms constraint from the control.
+The resulting local space transformation is the same as control’s local space.</p>
+</dd>
+<dt>Mirror With Parents</dt><dd><p>Parents the ORG bone to the parent automation a control owned by
+the glue rig would have had, while making it follow the actual control.
+This includes both direct and parent-induced motion of the control into
+the local space transformation of the bone.</p>
+</dd>
+<dt>Deformation Bridge</dt><dd><p>Other than adding glue constraints to the control, the rig acts as a one segment basic deform chain.
+This is convenient when a pair of controls need to be bridged both with glue and a deform bone.</p>
+</dd>
+</dl>
+</dd>
+<dt>Relink Constraints</dt><dd><p>Operates the same as in <a href="basic.html#rigify-rigs-basic-raw-copy">basic.raw_copy</a>,
+except all constraints are moved from ORG to the control bone.</p>
+</dd>
+<dt>Use Tail Target</dt><dd><p>Relinks <code>TARGET</code> or any constraints with an empty target bone and no relink specification
+to reference the control located at the tail of the glue bone.</p>
+</dd>
+<dt>Target Local With Parents</dt><dd><p>Switches the tail target to operate similarly to <em>Mirror With Parents</em>.</p>
+</dd>
+<dt>Add Constraint</dt><dd><p>Allows to add a typical glue constraints with specific <em>Influence</em>, as if it were at
+the start of the ORG bone constraint stack.</p>
+</dd>
+</dl>
+</section>
+<section id="skin-transform-basic">
+<h2><code>skin.transform.basic</code></h2>
+<p>This rig provides a simplistic <a href="#rigify-rigs-skin-skin-parents">parent controller</a>, which uses regular
+translation, rotation, or scale to modify locations but not orientations or scale of its child chain controls.</p>
+<dl>
+<dt>Generate Control</dt><dd><p>Specifies whether to generate a visible control, or use the transformation of the ORG bone
+as a part of more complex and specific rig setup.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

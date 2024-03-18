@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Posing &gt; Bone Constraints &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Posing</a></li>
+<li><a href="index.html">Bone Constraints</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<figure id="id1">
+<figcaption>
+<p>The Bone Constraints Properties in Pose Mode,
+with an Inverse Kinematics constraint added to the active bone.</p>
+</figcaption>
+</figure>
+<p>As bones behave like objects in <em>Pose Mode</em>, they can also be constrained.
+This is why the <em>Constraints</em> tab is shown in both <em>Object Mode</em> and <em>Edit Mode</em>.
+This panel contains the constraints <em>of the active bone</em>
+(its name is displayed at the top of the panel, in the <em>To Bone:…</em> static text field).</p>
+<p>Constraining bones can be used to control their degree of freedom
+in their pose transformations, using e.g. the <em>Limit</em> constraints.
+You can also use constraints to make a bone track another object/bone
+(inside the same object, or in another armature), etc.
+And the <a href="index.html#bone-constraints-inverse-kinematics">inverse kinematics feature</a>
+is also mainly available through the <em>IK Solver</em> constraint, which is specific to bones.</p>
+<p>For example, a human elbow cannot rotate backward (unless the character has broken their arm),
+nor to the sides, and its forward and roll rotations are limited in a given range.
+(E.g. depending on the rest position of your elbow, it may be from (0 to 160) or from (-45 to 135).)</p>
+<p>So you should apply a <em>Limit Rotation</em> constraint to the forearm bone
+(as the elbow movement is the result of rotating the forearm bone around its root).</p>
+<p>Using bones in constraints, either as owners or as targets, is discussed in detail
+in the <a href="../../../constraints/index.html">constraints pages</a>.</p>
+</section>
+</div>
+</div></body>
+</html>

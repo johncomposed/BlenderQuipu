@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Import Export &gt; Ply</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="../import_export.html">Importing &amp; Exporting Files</a></li>
+<li>Stanford PLY</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="stanford-ply">
+<h1>Stanford PLY</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import/Export ‣ Stanford (.ply)</p>
+</dd>
+</dl>
+</div>
+<p>Use the operator to import ASCII or binary PLY-files, you can select multiple files at once.
+For exporting, you can choose to enable or disable the modifiers during the export
+and you can choose which data you want to export (UV textures, Color Attributes, …).</p>
+<section id="import">
+<h2>Import</h2>
+<dl>
+<dt>Scale</dt><dd><p>Value by which to scale the imported objects in relation to the world’s origin.</p>
+</dd>
+<dt>Scene Unit</dt><dd><p>Apply current scene’s unit (as defined by unit scale) to imported data.</p>
+</dd>
+<dt>Forward Axis, Up Axis</dt><dd><p>Since many applications use a different axis for ‘Up’, these are axis conversion for these settings,
+Forward and Up axes – By mapping these to different axes you can convert rotations
+between applications default up and forward axes.</p>
+<p>Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
+For example, it’s common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
+</dd>
+<dt>Merge Vertices</dt><dd><p>Attempts to combine co-located vertices where possible.</p>
+</dd>
+<dt>Import Vertex Colors</dt><dd><p>The color space that the color data in the ply-file was saved in.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Does not import vertex color data.</p>
+</dd>
+<dt>sRGB:</dt>
+<dd><p>Vertex colors in the file are in sRGB <a href="../../glossary/index.html#term-Color-Space">Color Space</a></p>
+</dd>
+<dt>Linear:</dt>
+<dd><p>Vertex colors in the file are in Linear <a href="../../glossary/index.html#term-Color-Space">Color Space</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="export">
+<h2>Export</h2>
+<dl>
+<dt>Format: ASCII</dt><dd><p>Formats the file using the simple a ASCII format.
+This option might be helpful if the program that
+will later import the file does not support the binary file format.</p>
+</dd>
+<dt>Limit to: Selected Only</dt><dd><p>Only selected objects are exported.
+Instanced objects, for example collections that are instanced in the scene,
+are considered ‘selected’ when their instancer is selected.</p>
+</dd>
+<dt>Scale</dt><dd><p>Value by which to scale the exported objects in relation to the world’s origin.</p>
+</dd>
+<dt>Forward Axis, Up Axis</dt><dd><p>Since many applications use a different axis for ‘Up’, these are axis conversion for these settings,
+Forward and Up axes – By mapping these to different axes you can convert rotations
+between applications default up and forward axes.</p>
+<p>Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
+For example, it’s common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
+</dd>
+<dt>Objects: Apply Modifiers</dt><dd><p>Export objects using the evaluated mesh, meaning the resulting mesh after all
+<a href="../../modeling/modifiers/index.html">Modifiers</a> have been calculated.</p>
+</dd>
+<dt>Geometry: UV Coordinates</dt><dd><p>Write out the active UV layers coordinates from Blender.</p>
+</dd>
+<dt>Geometry: Normals</dt><dd><p>Write out Blender’s face and vertex normals (depending on the faces smooth setting).</p>
+<p>Mostly this isn’t needed since most applications will calculate their
+own normals but to match Blender’s normal map textures you will need to write these too.</p>
+</dd>
+<dt>Import Vertex Colors</dt><dd><p>The color space that the color data in the ply-file was saved in.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Does not import vertex color data.</p>
+</dd>
+<dt>sRGB:</dt>
+<dd><p>Vertex colors in the file are in sRGB <a href="../../glossary/index.html#term-Color-Space">Color Space</a></p>
+</dd>
+<dt>Linear:</dt>
+<dd><p>Vertex colors in the file are in Linear <a href="../../glossary/index.html#term-Color-Space">Color Space</a></p>
+</dd>
+</dl>
+</dd>
+<dt>Triangulated Mesh</dt><dd><p>All <a href="../../glossary/index.html#term-N-gon">N-gons</a> with four or more vertices will be triangulated.
+Meshes in the scene will not be affected.
+Behaves like <a href="../../modeling/modifiers/generate/triangulate.html">Triangulate Modifier</a> with the following settings:</p>
+<ul>
+<li><p>N-gon-method: “Beauty”</p></li>
+<li><p>Quad-method: “Shortest Diagonal”</p></li>
+<li><p>Min vertices: 4</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Add Curve &gt; Assign Shape Keys</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Add Curve</a></li>
+<li>Assign Shape Keys</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="assign-shape-keys">
+<h1>Assign Shape Keys</h1>
+<p>This add-on lets you assign one or more Bézier curve(s) as shape keys to other curve.
+Useful for morphing curves and curve based text objects.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Add Curve then Assign Shape Keys to enable the script.</p></li>
+</ul>
+</section>
+<section id="interface">
+<h2>Interface</h2>
+<p>Located in the 3D Viewport ‣ Sidebar ‣ Edit tab.</p>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<ol>
+<li><p>Select the target and shape key Bézier curve objects.</p></li>
+<li><p>Make sure the target is the active object; you can do this by
+<kbd><kbd>Shift</kbd>-<kbd>RMB</kbd></kbd>-clicking the target curve after the other selections are made.</p></li>
+<li><p>Go to the <em>Curve Shape Keys</em> tab and click <em>Assign Shape Keys</em> button.</p></li>
+<li><p>Now a copy of the active object curve will be created, which will have the other selected curves as its target.</p></li>
+</ol>
+<p>If the <em>Remove Shape Key Objects</em> option is checked, the selected curve objects will be deleted
+and only the target is kept.</p>
+<p>There are some options to align the closed (cyclic spline) target and the shape-key curves.
+Also it’s possible to match individual parts from a multipart (multiple splines) of target
+and shape key curves (e.g. a text object converted into a curve) based on various criteria.</p>
+<p>For smoother transition, you can subdivide the segments of one of the curves in the selection group.</p>
+<section id="manual-alignment-of-starting-vertices">
+<h3>Manual Alignment of Starting Vertices</h3>
+<p>In Edit Mode the <em>Assign Shape Keys</em> panel shows a single button – <em>Mark Starting Vertices</em>.
+When clicked, all the starting vertices of the closed splines (disconnected parts) of
+the selected curves are indicated by a marking point. Now if you select any vertex,
+the marker moves to this selected vertex, indicating the new starting vertex.
+You need to confirm the new positions by pressing <kbd>Return</kbd>.
+Pressing <kbd>Esc</kbd>, reverts the positions to the earlier order.</p>
+</section>
+</section>
+<section id="tutorial">
+<h2>Tutorial</h2>
+<p>See this <a href="https://www.youtube.com/watch?v=Ly64vezt0Go">tutorial video</a>
+on how to activate the add-on along with basic usage.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Add Curve</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Assigns one or more Bézier curves as a shape key for another Bézier curve.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Sidebar ‣ Edit tab</p>
+</dd>
+<dt>File:</dt>
+<dd><p>curve_assign_shapekey.py</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Shrinivas Kulkarni</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>Shrinivas Kulkarni</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

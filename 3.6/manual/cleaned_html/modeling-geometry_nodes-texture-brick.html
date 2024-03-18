@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Texture &gt; Brick</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Texture Nodes</a></li>
+<li>Brick Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="brick-texture-node">
+<h1>Brick Texture Node</h1>
+<div>
+<p>Note</p>
+<p>This node is ported from shader nodes. The manual and images are
+referencing the shader version of the node.
+This node accepts field inputs and outputs.
+When not connected the Vector input has an implicit <code>position</code> attribute value.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Texture nodes can produce details at a higher frequency
+than geometry can show. This may cause artifacts such
+as Moiré type patterns or a lack of detail due to
+insufficient sampling points.</p>
+</div>
+<p>The <em>Brick Texture</em> is used to add a procedural texture producing bricks.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color 1/2</dt><dd><p>Color of the bricks.</p>
+</dd>
+<dt>Mortar</dt><dd><p>The color of the area between bricks.</p>
+</dd>
+<dt>Scale</dt><dd><p>Overall texture scale.</p>
+</dd>
+<dt>Mortar Size</dt><dd><p>The size of the filling between the bricks known as “mortar”; 0 means no mortar.</p>
+</dd>
+<dt>Mortar Smooth</dt><dd><p>Blurs/softens the edge between the mortar and the bricks.
+This can be useful with a texture and displacement textures.</p>
+</dd>
+<dt>Bias</dt><dd><p>The color variation between <em>Color 1/2</em>.
+Values of -1 and 1 only use one of the two colors; values in between mix the colors.</p>
+</dd>
+<dt>Brick Width</dt><dd><p>The width of the bricks.</p>
+</dd>
+<dt>Row Height</dt><dd><p>The height of the brick rows.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Offset</dt><dd><p>Determines the brick offset of the various rows.</p>
+</dd>
+<dt>Frequency</dt><dd><p>Determines the offset frequency. A value of 2 gives an even/uneven pattern of rows.</p>
+</dd>
+<dt>Squash</dt><dd><p>Amount of brick squashing.</p>
+</dd>
+<dt>Frequency</dt><dd><p>Brick squashing frequency.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Texture color output.</p>
+</dd>
+<dt>Factor</dt><dd><p>Mortar mask (1 = mortar).</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Brick texture: Colors changed, Squash 0.62, Squash Frequency 3.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

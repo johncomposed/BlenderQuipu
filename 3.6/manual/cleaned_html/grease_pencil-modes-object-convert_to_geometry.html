@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Object &gt; Convert To Geometry</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Object Mode</a></li>
+<li>Convert to Geometry</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="convert-to-geometry">
+<h1>Convert to Geometry</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Convert ‣ Path, Bézier Curve, Polygon Curve</p>
+</dd>
+</dl>
+</div>
+<p>In the 3D Viewport, sketches on the active layer can be converted to geometry,
+based on the current view settings, by transforming the points recorded when drawing
+(which make up the strokes) into 3D space. Currently, all points will be used,
+so it may be necessary to simplify or subdivide parts of the created geometry for standard use.
+Sketches can currently be converted into curves in Object Mode.</p>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Type</dt><dd><p>The type of object to convert to.</p>
+<dl>
+<dt>Path</dt><dd><p>Create NURBS 3D curves of order 2 (i.e. behaving like polylines).</p>
+</dd>
+<dt>Bézier Curve</dt><dd><p>Create Bézier curves, with free “aligned” handles (i.e. also behaving like polylines).</p>
+</dd>
+<dt>Polygon Curve</dt><dd><p>Bézier curve with straight line segments (auto handles).</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Converting to Mesh</p>
+<p>If you want to convert your sketch to a mesh,
+simply choose <em>NURBS</em> first, and then convert the created curve to a mesh.</p>
+</div>
+</dd>
+<dt>Bevel Depth</dt><dd><p>The <a href="../../../modeling/curves/properties/geometry.html#bpy-types-curve-bevel-depth">Bevel Depth</a> to use for the converted curve object.</p>
+</dd>
+<dt>Bevel Resolution</dt><dd><p>The <a href="../../../modeling/curves/properties/geometry.html#bpy-types-curve-bevel-resolution">Bevel Resolution</a> to use for the converted curve object.</p>
+</dd>
+<dt>Normalize Weight</dt><dd><p>Will scale weights value so that they fit into the (0.0 to 1.0) range.</p>
+</dd>
+<dt>Radius Factor</dt><dd><p>Multiplier for the points’ radii (set from the stroke’s width).</p>
+</dd>
+<dt>Link Strokes</dt><dd><p>Will create a single spline, i.e. curve element, from all strokes in active Grease Pencil layer.
+This is especially useful if you want to use the curve as a path.
+All the strokes are linked in the curve by “zero weights/radii” sections.</p>
+</dd>
+</dl>
+<section id="timing">
+<h3>Timing</h3>
+<p>Grease Pencil stores “dynamic” data, i.e. how fast strokes are drawn.
+When converting to curve, this data can be used to create an <em>Evaluate Time</em> F-Curve
+(in other words, a path animation), that can be used
+e.g. to control another object’s position along that curve
+(<em>Follow Path</em> constraint, or, through a driver, <em>Curve</em> modifier).
+So this allows you to reproduce your drawing movements.</p>
+<p><em>Link Strokes</em> has to be enabled for all timing options.</p>
+<dl>
+<dt>Timing Mode</dt><dd><p>This control lets you choose how timing data is used.</p>
+<dl>
+<dt>No Timing</dt><dd><p>Just create the curve, without any animation data (hence all following options will be hidden).</p>
+</dd>
+<dt>Linear</dt><dd><p>The path animation will be a linear one.</p>
+</dd>
+<dt>Original</dt><dd><p>The path animation will reflect to original timing, including for the “gaps”
+(i.e. time between strokes drawing).</p>
+</dd>
+<dt>Custom Gaps</dt><dd><p>The path animation will reflect to original timing, but the “gaps” will get custom values.
+This is especially useful if you want to shorten large pauses between some strokes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Frame Range</dt><dd><p>The “length” of the created path animation, in frames. In other words, the highest value of <em>Evaluation Time</em>.</p>
+</dd>
+<dt>Start Frame</dt><dd><p>The starting frame of the path animation.</p>
+</dd>
+<dt>Realtime</dt><dd><p>When enabled, the path animation will last exactly the same duration it has taken you to draw the strokes.</p>
+</dd>
+<dt>End Frame</dt><dd><p>When <em>Realtime</em> is disabled, this defines the end frame of the path animation.
+This means that the drawing timing will be adjusted to fit into the specified range.</p>
+</dd>
+<dt>Gap Duration</dt><dd><p><em>Custom Gaps</em> only. The average duration (in frames) of each gap between strokes.
+Please note that, the value will only be exact if <em>Realtime</em> is enabled,
+otherwise it will be scaled, exactly as the strokes’ timing is.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>Here is a simple <a href="https://www.youtube.com/watch?v=VwWEXrnQAFI">“hand writing” video</a>
+created with curves converted from sketch data.</p>
+<p>The blend-file from the above example can be found
+<a href="https://archive.blender.org/wiki/index.php/File:ManGreasePencilConvertToCurveDynamicExample.blend">here</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

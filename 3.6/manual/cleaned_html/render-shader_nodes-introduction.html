@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Shader Nodes</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Materials, lights and backgrounds are all defined using a network of shading nodes.
+These nodes output values, vectors, colors and shaders.</p>
+<section id="shaders">
+<h2>Shaders</h2>
+<p>An important concept to understand when building node setups is
+that of the <em>shader socket</em>. The output of all surface and
+volume shaders is a shader, describing lighting interaction at the surface or of the volume,
+rather than the color of the surface.</p>
+<p>There are a few types of shaders available as nodes:</p>
+<dl>
+<dt><abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr> shader</dt><dd><p>Describe light reflection, refraction and absorption at an object surface.</p>
+</dd>
+<dt>Emission shader</dt><dd><p>Describe light emission at an object surface or in a volume.</p>
+</dd>
+<dt>Volume shader</dt><dd><p>Describe light scattering inside a volume.</p>
+</dd>
+<dt>Background shader</dt><dd><p>Describe light emission from the environment.</p>
+</dd>
+</dl>
+<p>Each shader node has a color input, and outputs a shader.
+These can then be mixed and added together using Mix and Add Shader nodes.
+No other operations are permitted.
+The resulting output can then be used by the renderer to compute all light interactions,
+for direct lighting or global illumination.</p>
+<div>
+<p>See also</p>
+<p><a href="shader/index.html">Shaders</a></p>
+</div>
+</section>
+<section id="textures">
+<h2>Textures</h2>
+<p>Blender has various built in procedural texture nodes,
+with texture coordinates and various parameters as input, and a color or value as output.
+No texture data-blocks are needed; instead node groups can be used for reusing texture setups.</p>
+<p>For UV mapping and texture painting in the 3D Viewport, the Image Texture node must be used.
+When setting such a node as active, it will be displayed in the 3D Viewport
+while using <a href="../workbench/color.html">Texture color</a> mode.
+This method can be used to preview painted textures while texture painting.</p>
+<p>The default texture coordinates for all nodes are Generated coordinates,
+except for Image textures that use UV coordinates by default.
+Each node includes some options to modify the texture mapping and resulting color,
+and these can be edited in the texture properties.</p>
+<div>
+<p>See also</p>
+<p><a href="textures/index.html">Textures</a></p>
+</div>
+</section>
+<section id="more">
+<h2>More</h2>
+<p>Nodes for geometric data, texture coordinates,
+layering shaders and non-physically-based tricks can be found in:</p>
+<ul>
+<li><p><a href="vector/index.html">Vector Nodes</a></p></li>
+<li><p><a href="color/index.html">Color Nodes</a></p></li>
+<li><p><a href="converter/index.html">Converter Nodes</a></p></li>
+</ul>
+</section>
+<section id="open-shading-language">
+<h2>Open Shading Language</h2>
+<p>In Cycles, custom nodes can be written using the Open Shading Language.</p>
+<div>
+<p>See also</p>
+<p><a href="osl.html">Open Shading Language</a></p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

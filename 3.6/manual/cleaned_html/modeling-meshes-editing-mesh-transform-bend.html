@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Transform &gt; Bend</title></head>
+<body><ul>
+<li><a href="../../../../index.html">Modeling</a></li>
+<li><a href="../../../index.html">Meshes</a></li>
+<li><a href="../../index.html">Editing</a></li>
+<li><a href="../index.html">Mesh Tools</a></li>
+<li><a href="index.html">Transformation</a></li>
+<li>Bend</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bend">
+<h1>Bend</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object and Edit Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object/Mesh/Curve/Surface ‣ Transform ‣ Bend</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>W</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<table id="id2">
+<caption>Bend Transform with Clamp on and off.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Clamp on.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Clamp off.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This tool rotates a line of selected elements forming an arc between the mouse cursor and the 3D cursor.</p>
+<section id="usage">
+<h2>Usage</h2>
+<p>The <em>Bend</em> tool can be used in any case where you might want to bend a shape in two
+with a gradual transition between both sides.</p>
+<p>This may take a little getting used to, the basics are listed below controls are noted here:</p>
+<ul>
+<li><p>The initial position of the cursors define the axis to bend on.</p></li>
+<li><p>The distance of the mouse cursor to the 3D cursor controls how sharp the bend will be.</p></li>
+<li><p>The relative angle of the mouse cursor to the initial axis defines the bend angle.</p></li>
+</ul>
+<p>If this seems overly complicated, it’s probably best to try the tool
+where it becomes quickly apparent how the tool reacts to your input.</p>
+<dl>
+<dt>Bend Angle</dt><dd><p>The amount of rotation.</p>
+</dd>
+<dt>Radius</dt><dd><p>The sharpness of the bend.</p>
+</dd>
+<dt>Clamp</dt><dd><p>Normally the arc turns through a clamped rotation angle with the selected elements extended along
+a tangent line beyond that (see above left).
+When the clamp is deactivated, the arc continues around aligning the selected elements into a circle (right).</p>
+<p>When off <kbd>Alt</kbd> all selected elements follow a circle,
+even when outside the segment between the 3D cursor and the mouse.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Unlike most other transform modes, <em>Bend</em> is not effected by <em>Pivot Point</em> or <em>Transform Orientation</em>,
+always using the View Plane instead.</p>
+</div>
+<div>
+<p>Hint</p>
+<p>You can turn the bend angle through multiple rotations potentially forming a spiral shape.</p>
+</div>
+<figure id="id6">
+<figcaption>
+<p>Bend Transform example.</p>
+</figcaption>
+</figure>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<section id="adjust-last-operation-unsupported">
+<h3>Adjust Last Operation Unsupported</h3>
+<p>Since the bend tool relies on cursor input, it does not support adjusting the last bend operation.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

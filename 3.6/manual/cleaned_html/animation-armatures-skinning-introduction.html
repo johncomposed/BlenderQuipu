@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Skinning &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Armatures</a></li>
+<li><a href="index.html">Skinning</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>We have seen in <a href="../index.html">previous pages</a> how to design an armature,
+create chains of bones, etc.
+Now, having a good rig is not the final goal, unless you want to produce a “Dance Macabre” animation,
+you will likely want to put some flesh on your skeletons!
+Surprisingly, “linking” an armature to the object(s)
+it should transform and/or deform is called the “skinning” process…</p>
+<figure id="id1">
+<figcaption>
+<p>The human mesh skinned on its armature.</p>
+</figcaption>
+</figure>
+<p>In Blender, you have two main skinning types:</p>
+<ol>
+<li><p>You can <a href="../../../scene_layout/object/editing/parent.html">Parent/Constrain Objects to Bones</a> –
+then, when you transform the bones in <em>Pose Mode</em>, their “children” objects are also transformed,
+exactly as with a standard parent/children relationship…
+The “children” are <strong>never</strong> deformed when using this method.</p></li>
+<li><p>You can <a href="parenting.html">Use the Armature Modifier on entire Mesh</a>,
+and then, some parts of this object to some bones inside this armature.
+This is the more complex and powerful method,
+and the only way to really deform the geometry of the object,
+i.e. to modify its vertices/control points relative positions.</p></li>
+</ol>
+<div>
+<p>Hint</p>
+<p>Retargeting</p>
+<p>Retargeting, which is a way to apply motion-capture data (acquired from real world) to a rig, is available through
+add-ons and importers.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

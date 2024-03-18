@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Render Settings &gt; Sampling</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Sampling</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sampling">
+<h1>Sampling</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Sampling</p>
+</dd>
+</dl>
+</div>
+<p>The integrator is the rendering algorithm used to compute the lighting.
+Cycles currently supports a path tracing integrator with direct light sampling.
+It works well for various lighting setups,
+but is not as suitable for caustics and some other complex lighting situations.</p>
+<p>Rays are traced from the camera into the scene,
+bouncing around until they find a light source such as a light, an object emitting light,
+or the world background. To find lights and surfaces emitting light,
+both indirect light sampling (letting the ray follow the surface BSDF)
+and direct light sampling (picking a light source and tracing a ray towards it) are used.</p>
+<dl id="bpy-types-cyclesrendersettings-preview-samples">
+<dt>Viewport Samples</dt><dd><p>Number of samples for viewport rendering. Setting this value to zero
+enables indefinite sampling of the viewport.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-samples">
+<dt>Render Samples</dt><dd><p>Number of paths to trace for each pixel in the final render. As more samples are taken,
+the solution becomes less noisy and more accurate.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-time-limit">
+<dt>Time Limit</dt><dd><p>Renders scene until time limit or sample count is reached. When the time is set to 0,
+the sample count is used to determine when the render stops.</p>
+<div>
+<p>Note</p>
+<p>The time limit does not include pre-render processing time, only render time.</p>
+</div>
+</dd>
+</dl>
+<section id="adaptive-sampling">
+<h2>Adaptive Sampling</h2>
+<p>With adaptive sampling Cycles automatically reduces the number of samples in areas that have little noise,
+for faster rendering and more even noise distribution.
+For example hair on a character may need many samples, but the background may need very few.</p>
+<p>With adaptive sampling it is also possible to render images with a target amount of noise.
+This is done by settings the <em>Noise Threshold</em>, typical values are in the range from 0.1 to 0.001.
+Then render samples can then be set to a high value,
+and the renderer will automatically choose the appropriate amount of samples.</p>
+<dl id="bpy-types-cyclesrendersettings-preview-adaptive-threshold">
+<dt>Noise Threshold</dt><dd><p>The error threshold to decide whether to continue sampling a pixel or not.
+Typical values are in the range from 0.1 to 0.001, with lower values meaning less noise.
+Setting it to exactly 0 lets Cycles guess an automatic value for it based on the total sample count.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-preview-adaptive-min-samples">
+<dt>Min Samples</dt><dd><p>The minimum number of samples a pixel receives before adaptive sampling is applied.
+When set to 0 (default), it is automatically set to a value determined by the <em>Noise Threshold</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="denoising">
+<h2>Denoising</h2>
+<p>Denoising removes noise while previewing scenes in <em>Rendered</em> mode in the 3D Viewport or for final renders.</p>
+<dl id="bpy-types-cyclesrendersettings-denoiser">
+<dt>Render</dt><dd><p>Denoising for the final render can be enabled or disabled with the checkbox.
+For denoising the image after rendering with the <a href="../../../compositing/types/filter/denoise.html">Denoising node</a>,
+the <a href="../../layers/passes.html#render-layers-passes-data">Data Render Passes</a> also adapt to the selected denoiser.</p>
+<dl>
+<dt>Open Image Denoise:</dt>
+<dd><p>Uses Intel’s <a href="https://www.openimagedenoise.org/">Open Image Denoise</a>,
+an AI denoiser which runs on the CPU.</p>
+</dd>
+<dt>OptiX:</dt>
+<dd><p>Uses an artificial intelligence algorithm to remove noise from renders.
+It is based on the <a href="../gpu_rendering.html#render-cycles-gpu-optix">OptiX – NVIDIA</a> acceleration engine
+and therefore has the same GPU requirements as rendering with Optix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-preview-denoiser">
+<dt>Viewport</dt><dd><p>Denoising for the <em>Rendered</em> mode in the 3D Viewport can be enabled or disabled for with the checkbox.</p>
+<dl>
+<dt>Automatic:</dt>
+<dd><p>Uses the faster available denoiser for 3D Viewport rendering
+(<em>OptiX</em> if available, otherwise <em>OpenImageDenoise</em>).</p>
+</dd>
+<dt>OpenImageDenoise:</dt>
+<dd><p>Uses Intel’s <a href="https://www.openimagedenoise.org/">Open Image Denoise</a>,
+an AI denoiser which runs on the CPU.</p>
+</dd>
+<dt>OptiX:</dt>
+<dd><p>Uses an artificial intelligence algorithm to remove noise from renders.
+It is based on the <a href="../gpu_rendering.html#render-cycles-gpu-optix">OptiX – NVIDIA</a> acceleration engine
+and therefore has the same GPU requirements as rendering with Optix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-preview-denoising-start-sample">
+<dt>Start Sample</dt><dd><p>Sample to start <a href="#render-cycles-settings-viewport-denoising">denoising</a> in the 3D Viewport.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-denoising-input-passes">
+<dt>Input Passes</dt><dd><p>Controls which <a href="../../layers/passes.html">Render Pass</a> the denoiser should use as input,
+which can have different effects on the denoised image.
+Generally, the more passes the denoiser has to denoise the better the result.
+It is recommended to at least use <em>Albedo</em> as <em>None</em> can blur out details,
+especially at lower sample counts.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Denoises the image using color data.</p>
+</dd>
+<dt>Albedo:</dt>
+<dd><p>Denoises the image using color and albedo data.</p>
+</dd>
+<dt>Albedo + Normal:</dt>
+<dd><p>Denoises the image using color, albedo, and normal pass data.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-denoising-prefilter">
+<dt>Prefilter</dt><dd><p>Controls whether or not prefiltering is applied to <em>Input Passes</em> for use when denoising.
+Visible only when using <em>OpenImageDenoise</em>.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Does not apply any prefiltering to the input passes. This option retains the most detail and
+is the fastest, but assumes the input passes are noise free which may require a high sample count.
+If the input passes aren’t noise free, then noise will remain in the image after denoising.</p>
+</dd>
+<dt>Fast:</dt>
+<dd><p>Assumes the input passes are not noise free, yet does not apply prefiltering to the input passes.
+This option is faster than <em>Accurate</em> but produces a blurrier result.</p>
+</dd>
+<dt>Accurate:</dt>
+<dd><p>Prefilters the input passes before denoising to reduce noise. This option usually produces
+more detailed results than <em>Fast</em> with increased processing time.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="path-guiding">
+<h2>Path Guiding</h2>
+<p>Path guiding helps reduce noise in scenes where finding a path to light is difficult for
+regular path tracing, for example when a room is lit through a small door opening.
+Important light directions are learned over time, improving as more samples are taken.
+Guiding is supported for surfaces with diffuse BSDFs and volumes with isotropic
+and anisotropic scattering.</p>
+<div>
+<p>Note</p>
+<ul>
+<li><p>Path guiding is only available when rendering on a CPU.</p></li>
+<li><p>While path guiding helps render caustics in some scenes, it is not designed for complex caustics
+as they are harder to learn and guide.</p></li>
+</ul>
+</div>
+<dl id="bpy-types-cyclesrendersettings-guiding-training-samples">
+<dt>Training Samples</dt><dd><p>The maximum number of samples to use for training. A value of 0 will keep training until
+the end of the render. Usually 128 to 256 training samples is enough for accurate guiding.
+Higher values can lead to a minor increases in guiding quality but with increased render times.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-use-surface-guiding">
+<dt>Surface</dt><dd><p>Enable path guiding for the diffuse component of surfaces.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-use-volume-guiding">
+<dt>Volume</dt><dd><p>Enable path guiding inside volumes.</p>
+</dd>
+</dl>
+</section>
+<section id="lights">
+<h2>Lights</h2>
+<dl id="bpy-types-cyclesrendersettings-use-light-tree">
+<dt>Light Tree</dt><dd><p>Use a light tree to more effectively sample lights in the scene, taking into account
+distance and estimated intensity.
+This can significantly reduce noise, at the cost of a somewhat longer render time per sample.</p>
+<p>Certain lighting properties are not accounted for in the light tree. This include custom
+falloff, ray visibility, and complex shader node setups including textures.
+This can result in an increase in noise in some scenes that make use of these features.</p>
+<p>Note, this feature is currently disabled for AMD GPUs on macOS.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-light-sampling-threshold">
+<dt>Light Threshold</dt><dd><p>Probabilistically terminates light samples when the light contribution
+is below this threshold (more noise but faster rendering).
+Zero disables the test and never ignores lights.
+This is useful because in large scenes with many light sources,
+some lights might only contribute a small amount to the final image,
+and increase render times. Using this setting can decrease the render times
+needed to calculate the rays which in the end have very little effect on the image.</p>
+</dd>
+</dl>
+</section>
+<section id="advanced">
+<h2>Advanced</h2>
+<dl id="bpy-types-cyclesrendersettings-seed">
+<dt>Seed</dt><dd><p>Seed value for integrator to get different noise patterns.</p>
+<dl id="bpy-types-cyclesrendersettings-use-animated-seed">
+<dt>Use Animated Seed (clock icon)</dt><dd><p>Changes the seed for each frame. It is a good idea to enable this
+when rendering animations because a varying noise pattern is less noticeable.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-sample-offset">
+<dt>Sample Offset</dt><dd><p>The number of samples to skip when starting render.
+This can be used to distribute a render across multiple computers
+then combine the images with <cite>bpy.ops.cycles.merge_images</cite></p>
+</dd>
+</dl>
+<p>Scrambling Distance</p>
+<blockquote>
+<div><dl id="bpy-types-cyclesrendersettings-adaptive-scrambling-distance">
+<dt>Automatic</dt><dd><p>Uses a formula to adapt the scrambling distance strength based on the sample count.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-preview-scrambling-distance">
+<dt>Viewport</dt><dd><p>Uses the <em>Scrambling Distance</em> value for the viewport rendering.
+This will make the rendering faster but may cause flickering.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-scrambling-distance">
+<dt>Multiplier</dt><dd><p>Lower values Reduce randomization between pixels to improve GPU rendering performance,
+at the cost of possible rendering artifacts if set too low.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl id="bpy-types-cyclesrendersettings-min-light-bounces">
+<dt>Min Light Bounces</dt><dd><p>Minimum number of light bounces for each path,
+after which the integrator uses Russian Roulette to terminate paths that contribute less to the image.
+Setting this higher gives less noise, but may also increase render time considerably. For a low number of bounces,
+it is strongly recommended to set this equal to the maximum number of bounces.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-min-transparent-bounces">
+<dt>Min Transparent Bounces</dt><dd><p>Minimum number of transparent bounces. Setting this higher reduces noise in the first bounces,
+but can also be less efficient for more complex geometry like hair and volumes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-use-layer-samples">
+<dt>Layer Samples</dt><dd><p>When render layers have per layer number of samples set, this option specifies how to use them.</p>
+<dl>
+<dt>Use:</dt>
+<dd><p>The render layer samples will override the set scene samples.</p>
+</dd>
+<dt>Bounded:</dt>
+<dd><p>Bound render layer samples by scene samples.</p>
+</dd>
+<dt>Ignore:</dt>
+<dd><p>Ignore render layer sample settings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

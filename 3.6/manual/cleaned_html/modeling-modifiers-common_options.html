@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Common Options</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Modifiers</a></li>
+<li>Common Modifier Options</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="common-modifier-options">
+<h1>Common Modifier Options</h1>
+<p>Some options are commonly used by many modifiers, and share the same behavior across all of those.
+In particular, many offer ways to precisely mask and weight their effect on a vertex basis
+(using either vertex groups and/or textures).</p>
+<section id="vertex-group">
+<h2>Vertex Group</h2>
+<figure id="id1">
+<figcaption>
+<p>Typical modifier Vertex Group options.</p>
+</figcaption>
+</figure>
+<p><a href="../meshes/properties/vertex_groups/introduction.html">Vertex Groups</a> are an easy way to control
+which vertices are affected by a modifier, and to which extent (using their weights).
+They are available when modifying meshes or lattices.</p>
+<div>
+<p>Tip</p>
+<p>Vertex groups can also be edited and even animated using
+the <a href="modify/weight_edit.html#bpy-types-vertexweighteditmodifier">Vertex Weight modifiers</a>.</p>
+</div>
+<dl>
+<dt>Vertex Group</dt><dd><p>The vertex group name.</p>
+<div>
+<p>Warning</p>
+<p>The group is referenced by its name. That means that if you rename it, the link to the renamed vertex group
+will be lost by all modifiers using it (their field will turn red),
+and you’ll have to select the proper group again in all of them.</p>
+</div>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.
+Only available in some modifiers.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="texture">
+<h2>Texture</h2>
+<figure id="id2">
+<figcaption>
+<p>Typical modifier Texture options.</p>
+</figcaption>
+</figure>
+<p>Those options allow to use any kind of image (including parametric ones) to control the modifier’s effect.
+Most of the time, only the value (grayscale) of the texture is used,
+but in some cases (like with some modes of the <a href="deform/displace.html#bpy-types-displacemodifier">Displace modifier</a>),
+the whole RGB color components might be exploited.</p>
+<div>
+<p>Tip</p>
+<p>Textures can be animated (either using videos, or by animating the mapping coordinates…).</p>
+</div>
+<dl>
+<dt>Texture</dt><dd><p>The <a href="../../render/materials/legacy_textures/introduction.html">texture data-block</a> to use.</p>
+<div>
+<p>Tip</p>
+<p>By clicking on the right-most button of this field (with the settings icon),
+you can go directly to the selected texture’s settings in the <em>Texture Properties</em> tab.</p>
+</div>
+</dd>
+<dt>Texture Coordinates</dt><dd><p>The texture’s coordinates to get each vertex’ value:</p>
+<dl>
+<dt>UV</dt><dd><p>Take texture coordinates from face UV coordinates.</p>
+<dl>
+<dt>UV Map</dt><dd><p>The <a href="../../glossary/index.html#term-UV-Map">UV Map</a> from which to take texture coordinates. If the object has no
+UV coordinates, it falls back to the <em>Local</em> coordinate system. If this field is blank,
+but there is a UV map available (e.g. just after adding the first UV map to the mesh),
+the currently active UV map will be used.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Since UV coordinates are specified per face, the UV texture coordinate system currently determines the UV
+coordinate for each vertex from the first face encountered which uses that vertex.
+Any other faces using that vertex are ignored.</p>
+<p>This may lead to artifacts if the mesh has non-contiguous UV coordinates.</p>
+</div>
+</dd>
+<dt>Object</dt><dd><p>Take the texture coordinates from another object’s coordinate system.</p>
+<dl>
+<dt>Object</dt><dd><p>The object from which to take texture coordinates.
+Moving the object will therefore alter the coordinates of the texture mapping.</p>
+<p>If this field is blank, it falls back to the <em>Local</em> coordinate system.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Moving the original object will <strong>also</strong> result in a texture coordinate update.
+As such, if you need to maintain a displacement coordinate system while moving the modified object,
+consider <a href="../../scene_layout/object/editing/parent.html#bpy-ops-object-parent-set">parenting</a> the coordinate object to the modified object.</p>
+</div>
+</dd>
+<dt>Global</dt><dd><p>Take the texture coordinates from the global coordinate system.</p>
+</dd>
+<dt>Local</dt><dd><p>Take the texture coordinates from the object’s local coordinate system.</p>
+</dd>
+</dl>
+</dd>
+<dt>Use Channel</dt><dd><p>Which channel to use as value source
+(only available with a few modifiers currently, others follow the <em>Intensity</em> behavior,
+unless otherwise specified).</p>
+<dl>
+<dt>Intensity</dt><dd><p>The average of the RGB channels (if RGB(1.0, 0.0, 0.0) value is 0.33).</p>
+</dd>
+<dt>Red/Green/Blue/Alpha</dt><dd><p>One of the color channels’ values.</p>
+</dd>
+<dt>Hue</dt><dd><p>The hue from the HSV color model
+(i.e; the color in the standard wheel, e.g. blue has a higher hue value than yellow).</p>
+</dd>
+<dt>Saturation</dt><dd><p>The saturation from the HSV color model (e.g. the value for pure red is 1.0, for gray is 0.0).</p>
+</dd>
+<dt>Value</dt><dd><p>The value from the HSV color model.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>All of the channels above are gamma corrected, except for <em>Intensity</em>.</p>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

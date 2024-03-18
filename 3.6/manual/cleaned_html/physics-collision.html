@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Collision</head>
+<body><ul>
+<li><a href="index.html">Physics</a></li>
+<li>Collision</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="collision">
+<h1>Collision</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Collision</p>
+</dd>
+</dl>
+</div>
+<p><a href="particles/index.html">Particles</a>, <a href="soft_body/index.html">Soft Bodies</a>
+and <a href="cloth/index.html">Cloth objects</a> may collide with mesh objects.
+<a href="particles/emitter/physics/boids.html">Boids</a> try to avoid <em>Collision</em> objects.</p>
+<ul>
+<li><p>You may limit the effect on particles to a group of objects
+(in the <a href="particles/emitter/force_field.html">Field Weights panel</a>).</p></li>
+<li><p><em>Deflection</em> for soft body objects is difficult, they often penetrate the colliding objects.</p></li>
+<li><p>Hair particles ignore deflecting objects
+(but you can animate them as soft bodies which take deflection into account).</p></li>
+</ul>
+<p>If you change the deflection settings for an object you have to recalculate the particle,
+soft body or cloth system by <em>Delete Bake</em>, this is not done automatically.</p>
+<p>A collider object can be temporarily disabled via an animatable toggle to
+the right of the button that permanently activates or deactivates it.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id3">
+<figcaption>
+<p>Collision panel.</p>
+</figcaption>
+</figure>
+<section id="id2">
+<h3>Collision</h3>
+<dl>
+<dt>Field Absorption</dt><dd><p>A deflector can also deflect effectors. You can specify some collision/deflector objects which deflect
+a specific portion of the effector force using the <em>Field Absorption</em> value. 100% absorption results in no force
+getting through the collision/deflector object at all. If you have three collision object behind each other with
+e.g. 10%, 43% and 3%, the absorption ends up at around 50% \(100 × (1 - 0.1) × (1 - 0.43) × (1 - 0.03)\).</p>
+</dd>
+</dl>
+</section>
+<section id="particle">
+<h3>Particle</h3>
+<dl>
+<dt>Permeability</dt><dd><p>Fraction of particles passing through the mesh.</p>
+</dd>
+<dt>Stickiness</dt><dd><p>How much particles stick to the object.</p>
+</dd>
+<dt>Kill Particles</dt><dd><p>Deletes Particles upon impact.</p>
+</dd>
+<dt>Damping</dt><dd><p>Damping during a collision (independent of the velocity of the particles).</p>
+<dl>
+<dt>Randomize</dt><dd><p>Random variation of damping.</p>
+</dd>
+</dl>
+</dd>
+<dt>Friction</dt><dd><p>Friction during movements along the surface.</p>
+<dl>
+<dt>Randomize</dt><dd><p>Random variation of friction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="soft-body-and-cloth">
+<h3>Soft Body and Cloth</h3>
+<p>It is also important to note that this collision panel is used to tell
+all simulations that this object is to participate in colliding/deflecting other objects
+on a shared layer (particles, soft bodies, and cloth).</p>
+<div>
+<p>Note</p>
+<p>The object’s shape deforms the cloth,
+so the cloth simulation must be inputted the “true” shape of that mesh object at that frame.
+This true shape is the basis shape as modified by shape keys or armatures. Therefore,
+the Collision Modifier must be <strong>after</strong> any of those.
+The image to the right shows the <em>Modifiers</em> panel for the Character mesh object
+(not the cloth object).</p>
+</div>
+<dl>
+<dt>Damping</dt><dd><p>Damping during a collision.
+The amount of bounce that the surfaces will have.</p>
+<ul>
+<li><p>0.0 - No damping, soft bodies will have a maximum bounciness.</p></li>
+<li><p>1.0 - Maximum damping, soft bodies will not bounce at all.</p></li>
+</ul>
+</dd>
+<dt>Thickness</dt><dd><p>A padding distance is added to the inside and outside of each face, to help to prevent intersections.
+The soft body will come to rest at this distance away from the face of the colliding object.
+Outside and inside is defined by the face normal, depicted as blue arrow in Fig. <a href="#fig-collision-soft-plane">A soft body vertex colliding with a plane.</a>.</p>
+<dl>
+<dt>Outer</dt><dd><p>Size of the outer collision zone.</p>
+</dd>
+<dt>Inner</dt><dd><p>Size of the inner collision zone (padding distance).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<figure id="id4">
+<figcaption>
+<p>A soft body vertex colliding with a plane.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Friction</dt><dd><p>A coefficient for how slippery the cloth is when it collides with itself.
+For example, silk has a lower coefficient of friction than cotton.</p>
+</dd>
+<dt>Single Sided</dt><dd><p>When enabled, the collider is considered to represent the boundary of a solid object
+rather than a thin surface, and ejects intersecting cloth in the direction of its normal.</p>
+</dd>
+<dt>Override Normals</dt><dd><p>When enabled, cloth collision impulses act in the direction of the collider normals.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p><em>Soft body</em> collisions are difficult to get perfect.
+If one of the objects move too fast, the soft body will penetrate the mesh.
+See also the section about <a href="soft_body/index.html">Soft Bodies</a>.</p>
+</div>
+</section>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id5">
+<figcaption>
+<p>Deflected particles.</p>
+</figcaption>
+</figure>
+<p>Here is a <em>Meta</em> object, using Instancing Vertices to a particle system emitting downwards,
+and deflected by a mesh cube.</p>
+</section>
+<section id="hints">
+<h2>Hints</h2>
+<ul>
+<li><p>Make sure that the normals of the mesh surface are facing towards the particles/points
+for correct deflection. Negative scales on the object can have a similar effect.
+Make sure to recalculate the normals after applying the scale.</p></li>
+<li><p>Hair particles react directly to force fields,
+so if you use a force field with a short range you do not need necessarily collision.</p></li>
+<li><p>Hair particles avoid their emitting mesh if you edit them in <em>Particle Edit Mode</em>.
+So you can at least model the hair with collision.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

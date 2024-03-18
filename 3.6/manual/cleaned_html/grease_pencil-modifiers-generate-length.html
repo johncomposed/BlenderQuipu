@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modifiers &gt; Generate &gt; Length</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li><a href="index.html">Generate</a></li>
+<li>Length Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="length-modifier">
+<h1>Length Modifier</h1>
+<p>The <em>Length</em> modifier can shrink or extend strokes.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Length modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mode</dt><dd><dl>
+<dt>Absolute:</dt>
+<dd><p>Length is in geometry space.</p>
+</dd>
+<dt>Relative:</dt>
+<dd><p>Length is in ratio to the stroke’s length.</p>
+</dd>
+</dl>
+</dd>
+<dt>Start</dt><dd><p>Added length to the start of the stroke. Negative value will shrink the stroke.</p>
+</dd>
+<dt>End</dt><dd><p>Added length to the end of the stroke. Negative value will shrink the stroke.</p>
+</dd>
+<dt>Used Length</dt><dd><p>Define what portion of the stroke is used to calculate the direction of the extension.</p>
+</dd>
+</dl>
+<section id="curvature">
+<h3>Curvature</h3>
+<p>When enabled, the extension will follow the curvature of the stroke.</p>
+<dl>
+<dt>Point Density</dt><dd><p>Multiplied by Start/End for the total point count.</p>
+</dd>
+<dt>Segment Influence</dt><dd><p>Factor to determine how much the length of the individual segments
+should influence the final computed curvature. Higher factors makes
+small segments influence the overall curvature less.</p>
+</dd>
+<dt>Filter Angle</dt><dd><p>Ignore points on the stroke that deviate from their neighbors by more
+than this angle when determining the extrapolation shape.</p>
+</dd>
+<dt>Invert</dt><dd><p>Invert the curvature of the stroke’s extension.</p>
+</dd>
+</dl>
+</section>
+<section id="random-offsets">
+<h3>Random Offsets</h3>
+<dl>
+<dt>Random Offset Start/End</dt><dd><p>Size of random length added to the start/end of each stroke.</p>
+</dd>
+<dt>Random Noise Offset</dt><dd><p>Smoothly offset each stroke’s random value.</p>
+</dd>
+<dt>Seed</dt><dd><p>Number used to generate different noise patterns.</p>
+</dd>
+</dl>
+<section id="randomize">
+<h4>Randomize</h4>
+<p>Re-randomizes values over time.</p>
+<dl>
+<dt>Step</dt><dd><p>Number of frames before recalculate random values again.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="influence-filters">
+<h3>Influence Filters</h3>
+<p>See <a href="../introduction.html#grease-pencil-modifier-influence-filters">Influence Filters</a>.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

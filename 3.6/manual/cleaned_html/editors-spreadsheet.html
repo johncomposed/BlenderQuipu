@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Spreadsheet</title></head>
+<body><ul>
+<li><a href="index.html">Editors</a></li>
+<li>Spreadsheet</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="spreadsheet">
+<h1>Spreadsheet</h1>
+<p>The Spreadsheet editor is used to inspect geometry attributes.</p>
+<figure id="id1">
+<figcaption>
+<p>The Spreadsheet editor.</p>
+</figcaption>
+</figure>
+<section id="header">
+<h2>Header</h2>
+<dl id="bpy-types-spacespreadsheet-object-eval-state">
+<dt>Object Evaluation State</dt><dd><p>Display the data of an object at different states of its evaluation.</p>
+<dl>
+<dt>Evaluated:</dt>
+<dd><p>Display data from the object with all modifiers applied.</p>
+</dd>
+<dt>Original:</dt>
+<dd><p>Display data from the original object without any modifiers applied.</p>
+</dd>
+<dt>Viewer Node:</dt>
+<dd><p>Display data from the active Viewer node of the active object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spacespreadsheet-display-context-path-collapsed">
+<dt>Breadcrumbs</dt><dd><p>The breadcrumbs show three key parts of the path the evaluated object
+takes before showing the information in the <a href="#main-region">Main Region</a>.
+In the order from left to right, the first item displayed is the <a href="../glossary/index.html#term-Active">Active</a> object.
+The next two items are displayed when the <em>Viewer</em> node evaluation state is chosen.
+The first of these next items is the name of the Geometry Nodes modifier,
+the last item shown is the name of the active Viewer node.</p>
+<p>Clicking the arrow between items hides the name of the active modifier.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-spreadsheet-toggle-pin">
+<dt>Toggle Pin</dt><dd><p>Usually, the editor displays data from the active object.
+When an object is pinned, its data remains visible, even if another object becomes active.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacespreadsheet-show-only-selected">
+<dt>Selected Only</dt><dd><p>This option is only available if the object is in Edit Mode.
+When checked, only data for the selected mesh elements is shown.</p>
+</dd>
+</dl>
+</section>
+<section id="main-region">
+<h2>Main Region</h2>
+<p>The main view allows you to view the actual spreadsheet.
+Row indices and column names remain visible when scrolling down or to the side.</p>
+<div>
+<p>Note</p>
+<p>Byte color attributes are displayed as scene linear floats.
+The actual byte values are displayed in a tooltip when hovering over the float values.</p>
+</div>
+</section>
+<section id="data-set-region">
+<h2>Data Set Region</h2>
+<p>With the Data Set region on the left you can choose which geometry component and geometry domain to view.
+For each attribute domain its size is displayed, for example the number of faces.</p>
+<dl>
+<dt>Mesh</dt><dd><p>Mesh component containing point, corner, face and edge data.</p>
+<dl>
+<dt>Vertex:</dt>
+<dd><p>Display attributes that are stored per vertex.</p>
+</dd>
+<dt>Edge:</dt>
+<dd><p>Display attributes that are stored per edge.</p>
+</dd>
+<dt>Face:</dt>
+<dd><p>Display attributes that are stored per face.</p>
+</dd>
+<dt>Face Corner:</dt>
+<dd><p>Display attributes that are stored per face corner.</p>
+</dd>
+</dl>
+</dd>
+<dt>Curve</dt><dd><p>Display curve data which are the attributes on splines and control points.</p>
+<dl>
+<dt>Control Point:</dt>
+<dd><p>Display attributes that are stored per control point.</p>
+</dd>
+<dt>Spline:</dt>
+<dd><p>Display attributes that are stored per spline.</p>
+</dd>
+</dl>
+</dd>
+<dt>Point Cloud</dt><dd><p>Point cloud component containing only point data.</p>
+<dl>
+<dt>Point:</dt>
+<dd><p>Display attributes that are stored per point.</p>
+</dd>
+</dl>
+</dd>
+<dt>Volume Grids</dt><dd><p>Display OpenVDB volume grid data, each grid will be represented
+with the <em>Grid Name</em>, the <em>Data Type</em>, and the <em>Class</em>.
+The class can be either of: Fog Volume, Level Set, or Unknown.</p>
+</dd>
+<dt>Instances</dt><dd><p>Display which objects and collections are instanced and their transforms.</p>
+</dd>
+</dl>
+</section>
+<section id="sidebar">
+<h2>Sidebar</h2>
+<p id="bpy-ops-spreadsheet-add-row-filter-rule">The Sidebar contains row filters, which allow not including rows based on their value.
+The <em>Add Row Filter</em> button adds a new row filter.</p>
+<dl id="bpy-types-spacespreadsheetrowfilter-enabled">
+<dt>Enabled</dt><dd><p>Each row filter can be enabled or disabled. Disabled row filters are grayed out, and aren’t used for filtering.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacespreadsheetrowfilter-column-name">
+<dt>Column</dt><dd><p>Row filters hide rows based on the values of the selected column.
+The choice of name in the Column field determine which column is chosen.
+If the column is not currently available, the row filter will be grayed out.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacespreadsheetrowfilter-operation">
+<dt>Operation</dt><dd><p>For spreadsheet column types besides Boolean columns and name or “string” columns,
+it is possible to choose which operation to filter with.</p>
+<dl>
+<dt>Equal To:</dt>
+<dd><p>Display the row when data values are within the provided threshold from the row filter’s value.</p>
+</dd>
+<dt>Greater Than:</dt>
+<dd><p>Display the row when data values are greater than the row filter’s value.</p>
+</dd>
+<dt>Less Than:</dt>
+<dd><p>Display the row when data values are less than the row filter’s value.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spacespreadsheetrowfilter-threshold">
+<dt>Threshold</dt><dd><p>The distance from the row filter’s value for the equality operation.</p>
+</dd>
+</dl>
+</section>
+<section id="status-bar">
+<h2>Status Bar</h2>
+<p>The status bar shows how many rows and columns there are and how many have been filtered out.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

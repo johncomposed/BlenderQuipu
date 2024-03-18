@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Soft Body &gt; Examples</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Soft Body</a></li>
+<li>Examples</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="examples">
+<h1>Examples</h1>
+<p>Here are some simple examples showing the power of soft body physics.</p>
+<section id="a-bouncing-cube">
+<h2>A Bouncing Cube</h2>
+<section id="the-process">
+<h3>The Process</h3>
+<p>First, change your start and end frames to 1 and 150.</p>
+<p>Then, add a plane, and scale it five times. Next, go to the physics tab, and add a collision.
+The default settings are fine for this example.</p>
+<p>Now add a cube, or use the default cube, then enter <em>Edit Mode</em> to subdivide it three times.
+Add a Bevel Modifier to it to smoothen the edges and then to add a little more,
+press <kbd>R</kbd> twice, and move your cursor a bit.</p>
+<p>When finished, your scene should look like this:</p>
+<figure id="id1">
+<figcaption>
+<p>The scene, ready for soft body physics.</p>
+</figcaption>
+</figure>
+<p>Everything is ready to add the soft body physics.
+Go to Properties ‣ Physics and choose <em>Soft Body</em>.
+Uncheck the <em>Soft Body Goal</em>, and check <em>Soft Body Self Collision</em>.
+Also, under <em>Soft Body Edges</em>, increase the Bending to 10.</p>
+<p>Playing the animation will now give a slow animation of a bouncing cube.
+To speed things up, we need to bake the soft body physics.</p>
+<p>Under <em>Soft Body Cache</em> change the values of your start and end frames. In this case 1 and 150.
+Now, to test if everything is working, you can take a cache step of 5 or 10,
+but for the final animation it is better to reduce it to 1, to cache everything.</p>
+<p>You can now bake the simulation, give the cube materials and textures and render the animation.</p>
+</section>
+<section id="the-result">
+<h3>The Result</h3>
+<p><a href="https://www.youtube.com/watch?v=3PzgB9jw9iA">The rendered bouncing cube</a></p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

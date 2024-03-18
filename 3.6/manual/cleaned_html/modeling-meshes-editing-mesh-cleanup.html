@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Cleanup</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Clean Up</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="clean-up">
+<h1>Clean Up</h1>
+<p>These tools are to help cleanup degenerate geometry and fill in missing areas of a mesh.</p>
+<section id="decimate-geometry">
+<h2>Decimate Geometry</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Clean up ‣ Decimate Geometry</p>
+</dd>
+</dl>
+</div>
+<p>The Decimate Geometry tool allows you to reduce
+the vertex/face count of a mesh with minimal shape changes.</p>
+<dl>
+<dt>Ratio</dt><dd><p>Ratio of triangles to reduce to.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>Use the active vertex group as an influence.</p>
+<dl>
+<dt>Weight</dt><dd><p>Strength of the vertex group.</p>
+</dd>
+<dt>Invert</dt><dd><p>Inverts the vertex group.</p>
+</dd>
+</dl>
+</dd>
+<dt>Symmetry</dt><dd><p>Maintain symmetry on either the <em>X</em>, <em>Y</em>, or <em>Z</em> axis.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>This tool works similar to the <a href="../../../modifiers/generate/decimate.html">Decimate Modifier</a>.</p>
+</div>
+</section>
+<section id="fill-holes">
+<h2>Fill Holes</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Clean up ‣ Fill Holes</p>
+</dd>
+</dl>
+</div>
+<p>This tool can take a large selection and detect the holes in the mesh, filling them in.</p>
+<p>This is different from the face creation operator in three important respects:</p>
+<ol>
+<li><p>Holes are detected, so there is no need to manually find and select the edges around the holes.</p></li>
+<li><p>Holes can have a limit for the number of sides (so only quads or tris are filled in for example).</p></li>
+<li><p>Mesh data is copied from surrounding geometry (UVs, Color Attributes, multi-res, all layers),
+since manually creating this data is very time-consuming.</p></li>
+</ol>
+</section>
+<section id="make-planar-faces">
+<h2>Make Planar Faces</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Clean up ‣ Make Planar Faces</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Make Planar Faces</em> iteratively flattens faces.
+This can happen with faces over three vertices and
+it is a common convention that faces should be kept planar.</p>
+<dl>
+<dt>Factor</dt><dd><p>Distance to move the vertices each iteration.</p>
+</dd>
+<dt>Iterations</dt><dd><p>Number of times to repeat the operation.</p>
+</dd>
+</dl>
+</section>
+<section id="split-non-planar-faces">
+<h2>Split Non-Planar Faces</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Clean up ‣ Split Non-Planar Faces</p>
+</dd>
+</dl>
+</div>
+<p>This tool avoids ambiguous areas of geometry by splitting non-flat faces when they are bent beyond
+a given limit.</p>
+</section>
+<section id="split-concave-faces">
+<h2>Split Concave Faces</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Clean up ‣ Split Concave Faces</p>
+</dd>
+</dl>
+</div>
+<p>This tool can be used to convert any <a href="../../../../glossary/index.html#term-Concave-Face">Concave Face</a> to convex
+by splitting the concave into two or more convex faces.</p>
+</section>
+<section id="delete-loose">
+<h2>Delete Loose</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Clean up ‣ Delete Loose</p>
+</dd>
+</dl>
+</div>
+<p>This tool removes disconnected vertices and edges (optionally faces).</p>
+</section>
+<section id="degenerate-dissolve">
+<h2>Degenerate Dissolve</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Clean up ‣ Degenerate Dissolve</p>
+</dd>
+</dl>
+</div>
+<p>This tool collapses / removes geometry which you typically will not want.</p>
+<ul>
+<li><p>Edges with no length.</p></li>
+<li><p>Faces with no areas (faces on a point or thin faces).</p></li>
+<li><p>Face corners with no area.</p></li>
+</ul>
+</section>
+<section id="merge-by-distance">
+<h2>Merge by Distance</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Vertex ‣ Merge by Distance,
+Context Menu ‣ Merge by Distance</p>
+</dd>
+</dl>
+</div>
+<p>Merge by Distance is a useful tool to simplify a mesh by merging the selected vertices that
+are closer than a specified distance to each other.
+An alternative way to simplify a mesh is to use the <a href="../../../modifiers/generate/decimate.html">Decimate Modifier</a>.</p>
+<dl>
+<dt>Merge Distance</dt><dd><p>Sets the distance threshold for merging vertices.</p>
+</dd>
+<dt>Unselected</dt><dd><p>Allows vertices in the selection to be merged with unselected vertices.
+When disabled, selected vertices will only be merged with other selected ones.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

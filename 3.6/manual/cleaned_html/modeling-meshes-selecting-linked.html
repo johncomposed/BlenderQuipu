@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Selecting &gt; Linked</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Selecting</a></li>
+<li>Select Linked</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="select-linked">
+<h1>Select Linked</h1>
+<section id="linked">
+<h2>Linked</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Linked ‣ Linked</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Select geometry connected to already selected elements.
+This is often useful when a mesh has disconnected, overlapping parts,
+where isolating it any other way would be tedious.
+To give more control, you can also enable delimiters in the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel,
+so the selection is constrained by seams, sharp edges, materials or UV islands.</p>
+<p>With <em>Pick Linked</em> you can also select connected geometry directly under the cursor,
+using the <kbd>L</kbd> shortcut to select or <kbd><kbd>Shift</kbd>-<kbd>L</kbd></kbd> to deselect linked.
+This works differently in that it uses the geometry under the cursor instead of the existing selection.</p>
+</section>
+<section id="shortest-path">
+<h2>Shortest Path</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Linked ‣ Shortest Path</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<figure id="id4">
+<figcaption>
+<p>Select a face or vertex path with Ctrl-LMB.</p>
+</figcaption>
+</figure>
+<p>Selects all geometry along the shortest path from
+the active vertex, edge, or face to the one which was selected.</p>
+<dl>
+<dt>Edge Tag (in Edge select mode only)</dt><dd><p>This select button indicates what should be done when selecting a vertex path with <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd>:</p>
+<dl>
+<dt>Select</dt><dd><p>Just selects all the edges in the path.</p>
+</dd>
+<dt>Tag Seam</dt><dd><p>Marks all edges in the path as seams for UV unwrapping.</p>
+</dd>
+<dt>Tag Sharp</dt><dd><p>Marks all edges in the path as sharp for the Edge Split Modifier.</p>
+</dd>
+<dt>Tag Crease</dt><dd><p>Marks all edges in the path as creases for the Subdivision Surface Modifier, with weight 1.0.</p>
+</dd>
+<dt>Tag Bevel</dt><dd><p>Gives bevel weight 1.0 (for the Bevel Modifier) to all edges in the path.</p>
+</dd>
+<dt>Tag Freestyle Edge Mark</dt><dd><p>Marks all edges in the path as Freestyle edges.</p>
+</dd>
+</dl>
+</dd>
+<dt>Face Stepping</dt><dd><p>Supports diagonal paths for vertices and faces, and
+selects edge rings with edges.</p>
+</dd>
+<dt>Topological Distance</dt><dd><p>Only takes into account the number of edges of the path and
+not the length of the edges to calculate the distances.</p>
+</dd>
+<dt>Fill Region <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd></dt><dd><p>Selects all elements in the shortest paths from the active selection to the clicked area.</p>
+</dd>
+<dt>Checker Deselect Options</dt><dd><p>Allows to quickly select alternate elements in a path.</p>
+<dl>
+<dt>Deselected</dt><dd><p>The number of deselected elements in the repetitive sequence.</p>
+</dd>
+<dt>Selected</dt><dd><p>The number of selected elements in the repetitive sequence.</p>
+</dd>
+<dt>Offset</dt><dd><p>Offset from the starting point.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="linked-flat-faces">
+<h2>Linked Flat Faces</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Linked ‣ Linked Flat Faces</p>
+</dd>
+</dl>
+</div>
+<p>Selects all connected faces with a similar angle.</p>
+<dl>
+<dt>Sharpness</dt><dd><p>Select connected faces with a reference angle less than the value specified.</p>
+</dd>
+</dl>
+<p>Looking at the image above, when at least one face is selected (as seen on the left),
+<em>Linked Flat Faces</em> will select all connecting faces that lie
+on the same or similar plane (as shown in the middle image).
+If the corners are smoothed, those faces are no longer lined up with the selected faces.
+At this point, increasing the <em>Sharpness</em> value in the tool options could include the smoothed faces.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Color &gt; Color Correction</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Color Nodes</a></li>
+<li>Color Correction Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="color-correction-node">
+<h1>Color Correction Node</h1>
+<p>The Color Correction node can adjust the color of an image, separately in several tonal ranges
+(highlights, midtones and shadows) and only affect the necessary RGB channels.</p>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Red, Green, Blue</dt><dd><p>Specifies which RGB channels will be affected by the correction.</p>
+</dd>
+</dl>
+<section id="correction-tools-columns">
+<h3>Correction Tools (Columns)</h3>
+<dl>
+<dt>Saturation</dt><dd><p>Adjusts the image’s saturation.</p>
+</dd>
+<dt>Contrast</dt><dd><p>Adjust image contrast.</p>
+</dd>
+<dt>Gamma</dt><dd><p>Exponential gamma correction, affecting the midtones of the image. (Works like Power in the Color Balance node.)</p>
+</dd>
+<dt>Gain</dt><dd><p>Multiplier, stronger influence on the highlights. (Works like Slope in the Color Balance node.)</p>
+</dd>
+<dt>Lift</dt><dd><p>This value (can be negative) will be added (+), linear lightens or darkens the image.
+(Works like <em>Offset</em> in the Color Balance node.)</p>
+</dd>
+</dl>
+</section>
+<section id="tonal-ranges-rows">
+<h3>Tonal Ranges (Rows)</h3>
+<dl>
+<dt>Master</dt><dd><p>These sliders affect the entire tonal range.</p>
+</dd>
+<dt>Highlights</dt><dd><p>These sliders only affect the highlights.</p>
+</dd>
+<dt>Midtones</dt><dd><p>These sliders only affect the midtones.</p>
+</dd>
+<dt>Shadows</dt><dd><p>Affects the dark tones of an image often affecting the shadows.</p>
+</dd>
+<dt>Midtones Start, Midtones End</dt><dd><p>Defines the start and the end of midtones range, i.e.
+values where the whole tonal range is divided into the highlights, midtones and shadows
+(there is also a smooth transition between the ranges of width 0.2 units).</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Mask</dt><dd><p>Controls the amount of influence the node exerts on the output image.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

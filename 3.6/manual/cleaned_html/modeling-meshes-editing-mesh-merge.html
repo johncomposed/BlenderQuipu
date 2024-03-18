@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Merge</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Merge</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="merge">
+<h1>Merge</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Merge,
+Context Menu ‣ Merge</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>M</kbd></p>
+</dd>
+</dl>
+</div>
+<p>This tool allows you to merge all selected vertices to a unique one, dissolving all others.
+You can choose the location of the remaining vertex in the menu this tool pops up before executing:</p>
+<dl>
+<dt>At Center</dt><dd><p>It will place the remaining vertex at the center of the selection.
+Available in all select modes.</p>
+</dd>
+<dt>At Cursor</dt><dd><p>It will place the remaining vertex at the 3D Cursor.
+Available in all select modes.</p>
+</dd>
+<dt>Collapse</dt><dd><p>Every island of selected vertices (connected by selected edges) will merge on its own median center,
+leaving one vertex per island.</p>
+</dd>
+<dt>At First</dt><dd><p>It will place the remaining vertex at the location of the first one selected.
+Only available in <em>Vertex</em> select mode.</p>
+</dd>
+<dt>At Last</dt><dd><p>It will place the remaining vertex at the location of the last one selected (the active one).
+Only available in <em>Vertex</em> select mode.</p>
+</dd>
+</dl>
+<p>Merging vertices of course also deletes some edges and faces. But Blender will do everything
+it can to preserve edges and faces only partly involved in the reunion.</p>
+<div>
+<p>Note</p>
+<p><em>At First</em> and <em>At Last</em> depend on that the selection order is saved:
+the order is lost, for instance, after changing selection mode.</p>
+</div>
+<dl>
+<dt>UVs</dt><dd><p>If <em>UVs</em> is ticked in the <a href="../../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel,
+the UV mapping coordinates, if existing, will be corrected to avoid image distortion.</p>
+</dd>
+</dl>
+<section id="by-distance">
+<h2>By Distance</h2>
+<p>Todo.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

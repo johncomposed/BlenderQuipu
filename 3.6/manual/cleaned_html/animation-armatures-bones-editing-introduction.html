@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Editing &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>As with any other object, you edit your armature in <em>Edit Mode</em> <kbd>Tab</kbd>.</p>
+<p>The set of bone editing tools is quite similar to the one for
+<a href="../../../../modeling/meshes/editing/introduction.html">mesh</a> editing.</p>
+<div>
+<p>Important</p>
+<p>One important thing to understand about armature editing is that you
+edit the <em>rest position</em> of your armature, i.e. its “default state”.
+An armature in its <em>rest position</em> has all bones with <em>no</em> rotation and scaled to 1.0 in their own local space.</p>
+</div>
+<p>The different <a href="../../posing/index.html">poses</a>
+you might create afterwards are based on this rest position.
+So if you modify it in <em>Edit Mode</em>, all the poses already existing will also be modified.
+Thus you should in general be sure that your armature is definitive before starting to
+<a href="../../skinning/index.html">skin</a> and <a href="../../posing/index.html">pose</a> it!</p>
+<div>
+<p>Note</p>
+<p>Please note that some tools work on bones’ joints, while others work on bones themselves.
+Be careful not to get confused.</p>
+</div>
+<section id="add-menu">
+<h2>Add Menu</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Add</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>In the 3D Viewport, <kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd> to add a new bone to your armature.</p>
+<p>This bone will be:</p>
+<ul>
+<li><p>Of one unit of length.</p></li>
+<li><p>Oriented towards the global Z axis.</p></li>
+<li><p>With its root placed at the 3D cursor position.</p></li>
+<li><p>With no relationship with any other bone of the armature.</p></li>
+</ul>
+</section>
+<section id="locking-bones">
+<h2>Locking Bones</h2>
+<p>You can prevent a bone from being transformed in <em>Edit Mode</em> in several ways:</p>
+<ul>
+<li><p>All bones can be locked clicking on the <em>Lock</em> checkbox
+of their Transform panel in the <em>Bones</em> tab;</p></li>
+<li><p>Press <kbd><kbd>Shift</kbd>-<kbd>W</kbd></kbd> Toggle Bone Options ‣ Locked</p></li>
+<li><p>Select Armature ‣ Bone Settings ‣ Toggle a Setting.</p></li>
+</ul>
+<p><em>If the root of a locked bone is connected to the tip of an unlocked bone, it will not be locked</em>,
+i.e. you will be able to move it to your liking.
+This means that in a chain of connected bones, when you lock one bone,
+you only really lock its tip. With unconnected bones, the locking is effective on both joints of the bone.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

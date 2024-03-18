@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Keyframes &gt; Keying Sets</title></head>
+<body><ul>
+<li><a href="../index.html">Animation &amp; Rigging</a></li>
+<li><a href="index.html">Keyframes</a></li>
+<li>Keying Sets</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="keying-sets">
+<h1>Keying Sets</h1>
+<figure id="id5">
+<figcaption>
+<p>The Active Keying Sets data ID in the Timeline.</p>
+</figcaption>
+</figure>
+<p>Keying sets are a collection of animated properties that are used to animate
+and keyframe multiple properties at the same time.
+For example, using keying sets you can press <kbd>I</kbd> in the 3D Viewport,
+Blender will add keyframes for all the properties in the active keying set.
+There are some built-in keying sets and,
+also custom keying sets called <em>Absolute Keying Sets</em>.
+To select and use a keying set, set the <em>Active Keying Set</em>
+in the <a href="../../editors/timeline.html#timeline-keying">Keying popover</a> in the Timeline header,
+or the Keying Set panel, or press <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>I</kbd></kbd> in the 3D Viewport.</p>
+<section id="keying-set-panel">
+<h2>Keying Set Panel</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Properties</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Scene ‣ Keying Set</p>
+</dd>
+</dl>
+</div>
+<p>This panel is used to add, select, manage <em>Absolute Keying Sets</em>.</p>
+<figure id="id6">
+<figcaption>
+<p>The Keying Set panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Active Keying Set</dt><dd><p>The <a href="../../interface/controls/templates/list_view.html#ui-list-view">List View</a> of keying sets in the active scene.</p>
+<dl>
+<dt>Add <code>+</code></dt><dd><p>Adds an empty keying set.</p>
+</dd>
+</dl>
+</dd>
+<dt>Description</dt><dd><p>A short description of the keying set.</p>
+</dd>
+<dt>Export to File</dt><dd><p>Export keying set to a Python script <code>File.py</code>.
+To re-add the keying set from the <code>File.py</code>, open then run the <code>File.py</code> from the Text Editor.</p>
+</dd>
+</dl>
+<section id="keyframing-settings">
+<h3>Keyframing Settings</h3>
+<dl>
+<dt>General Override</dt><dd><p>These options control all properties in the keying set.
+Note that the same settings in <em>Preferences</em> override these settings if enabled.</p>
+</dd>
+<dt>Active Set Override</dt><dd><p>These options control individual properties in the keying set.</p>
+</dd>
+<dt>Common Settings</dt><dd><dl>
+<dt>Only Needed</dt><dd><p>Only insert keyframes where they are needed in the relevant F-Curves.</p>
+</dd>
+<dt>Visual Keying</dt><dd><p>Insert keyframes based on the visual transformation.</p>
+</dd>
+<dt>XYZ to RGB</dt><dd><p>For new F-Curves, set the colors to RGB for the property set, Location XYZ for example.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="active-keying-set-panel">
+<h2>Active Keying Set Panel</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Properties</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Scene ‣ Active Keying Set</p>
+</dd>
+</dl>
+</div>
+<p>This panel is used to add properties to the active keying set.</p>
+<figure id="id7">
+<figcaption>
+<p>The Active Keying Set panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Paths</dt><dd><p>A collection of paths in a <a href="../../interface/controls/templates/list_view.html#ui-list-view">List View</a> each with a <em>Data Path</em> to a property
+to add to the active keying set.</p>
+<dl>
+<dt>Add <code>+</code></dt><dd><p>Adds an empty path.</p>
+</dd>
+</dl>
+</dd>
+<dt>Target ID-Block</dt><dd><p>Set the ID Type and the <em>Object IDs</em> data path for the property.</p>
+</dd>
+<dt>Data Path</dt><dd><p>Set the rest of the Data Path for the property.</p>
+</dd>
+<dt>Array All Items</dt><dd><p>Use <em>All Items</em> from the Data Path or select the array index for a specific property.</p>
+</dd>
+<dt>F-Curve Grouping</dt><dd><p>This controls what group to add the channels to.</p>
+<p>Keying Set Name, None, Named Group</p>
+</dd>
+</dl>
+</section>
+<section id="adding-properties">
+<h2>Adding Properties</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Context menu ‣ Add All/Single to Keying Set</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>K</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Some ways to add properties to keying sets.</p>
+<p><kbd>RMB</kbd> the property in the <em>User Interface</em>, then select <em>Add Single to Keying Set</em> or <em>Add All to Keying Set</em>.
+This will add the properties to the active keying set, or to a new keying set if none exist.</p>
+<p>Hover the mouse over the properties, then press <kbd>K</kbd>, to add <em>Add All to Keying Set</em>.</p>
+</section>
+<section id="whole-character-keying-set">
+<h2>Whole Character Keying Set</h2>
+<p>The built-in <em>Whole Character</em> keying set is made to keyframe all properties
+that are likely to get animated in a character rig. It was also implicitly used by
+the <a href="../armatures/posing/editing/pose_library.html#pose-library-old">Old Pose Library system</a>.</p>
+<p>In order to determine which bones to add keys for, and which bones to skip,
+the keying set uses the bone names. The following bone name prefixes will be skipped:</p>
+<p>“COR”, “DEF”, “GEO”, “MCH”, “ORG”, “VIS”</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

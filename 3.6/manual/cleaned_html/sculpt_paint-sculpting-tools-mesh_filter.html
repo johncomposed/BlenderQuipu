@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Mesh Filter</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Mesh Filter</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh-filter">
+<h1>Mesh Filter</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Mesh Filter</p>
+</dd>
+</dl>
+</div>
+<p>Applies a deformation to all vertices in the mesh at the same time.
+Masking, auto-masking and visibility will be taken into account.</p>
+<p>To use this tool, click and drag away from left to right
+or from right to left for a negative effect.</p>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<dl>
+<dt>Filter Type</dt><dd><p>These are all of the available filter deformations.</p>
+<dl>
+<dt>Smooth:</dt>
+<dd><p>Smooths the positions of the vertices to either polish surfaces or remove volume from larger shapes.
+Especially useful to fix most of the artifacts of the voxel remesher.
+This filter works similar to the <a href="smooth.html">Smooth</a> brush.</p>
+</dd>
+<dt>Scale:</dt>
+<dd><p>Increases the size of the mesh.
+This filter works similar to the <a href="../../../scene_layout/object/editing/transform/scale.html#bpy-ops-transform-resize">Scale Transform</a>.</p>
+</dd>
+<dt>Inflate:</dt>
+<dd><p>Displaces vertices uniformly along their normal.
+This filter works similar to the <a href="inflate.html">Inflate</a> brush.</p>
+</dd>
+<dt>Sphere:</dt>
+<dd><p>Morphs the mesh progressively into a sphere.
+This filter works similar to the <a href="../../../modeling/meshes/editing/mesh/transform/to_sphere.html#bpy-ops-transform-tosphere">To Sphere Transform</a>.</p>
+</dd>
+<dt>Random:</dt>
+<dd><p>Randomly moves vertices along the vertex normal.
+This filter works similar to the <a href="../../../scene_layout/object/editing/transform/randomize.html#bpy-ops-object-randomize-transform">Randomize Transform</a>.</p>
+</dd>
+<dt>Relax:</dt>
+<dd><p>Tries to create an even distribution of quads without deforming the volume of the mesh.
+This filter works the same as holding <kbd>Shift</kbd> with the
+<a href="slide_relax.html">Slide Relax</a> brush.</p>
+</dd>
+<dt>Relax Face Sets:</dt>
+<dd><p>This will remove the jagged lines visible after drawing or creating a face set.
+This filter works the same as holding <kbd>Shift</kbd> with the
+<a href="draw_facesets.html">Draw Face Set</a> brush.</p>
+</dd>
+<dt>Surface Smooth:</dt>
+<dd><p>Eliminates irregularities of the mesh by making the positions
+of the vertices more uniform while preserving the volume of the object.
+This filter works similar to the <em>Surface</em> deformation type of the
+<a href="smooth.html">Smooth</a> brush.</p>
+<dl>
+<dt>Shape Preservation</dt><dd><p>How much of the original shape is preserved when smoothing.</p>
+</dd>
+<dt>Per-Vertex Displacement</dt><dd><p>How much the position of each individual vertex influences the final result.</p>
+</dd>
+</dl>
+</dd>
+<dt>Sharpen:</dt>
+<dd><p>Sharpens and smooths the mesh based on its curvature,
+resulting in pinching hard edges and polishing flat surfaces.
+Especially useful when sculpting hard surfaces and stylized models
+with creasing and flattening brushes.</p>
+<dl>
+<dt>Smooth Ratio</dt><dd><p>How much smoothing is applied to polished surfaces.</p>
+</dd>
+<dt>Intensify Details</dt><dd><p>Increases the high frequency surface details of the mesh
+by intensifying the difference between creases and valleys.</p>
+</dd>
+<dt>Curvature Smooth Iterations</dt><dd><p>The number of times the smoothing operation is applied per brush step.
+Controls how much smooth the resulting shape is, ignoring high-frequency details.</p>
+</dd>
+</dl>
+</dd>
+<dt>Enhance Details:</dt>
+<dd><p>Increases the high frequency surface details of the mesh
+by intensifying the difference between creases and valleys.
+This filter works similar to the inverted direction of the
+<a href="smooth.html">Smooth</a> brush.</p>
+</dd>
+<dt>Erase Displacement:</dt>
+<dd><p>Deletes displacement information of
+the <a href="../../../modeling/modifiers/generate/multiresolution.html">Multires Modifier</a>,
+resetting the mesh to a regular subdivision surface result.
+This can be used to reset parts of the sculpt or to fix reprojection artifacts
+after applying a <a href="../../../modeling/modifiers/deform/shrinkwrap.html">Shrinkwrap Modifier</a>.</p>
+<p>Negative strokes will intensify the displacement details,
+this method works similar to <em>Enhance Details</em> and can give better results in some circumstances.</p>
+</dd>
+</dl>
+</dd>
+<dt>Strength</dt><dd><p>The amount of effect the filter has on the mesh.
+At certain object scales it can be useful to change this value.</p>
+</dd>
+<dt>Deformation Axis</dt><dd><p>Apply the deformation only on the selected axis.</p>
+</dd>
+<dt>Orientation</dt><dd><p><a href="../../../editors/3dview/controls/orientation.html">Orientation</a> of the axis to limit the filter displacement.</p>
+<dl>
+<dt>Local:</dt>
+<dd><p>Use the local axis to limit the displacement.</p>
+</dd>
+<dt>World:</dt>
+<dd><p>Use the global axis to limit the displacement.</p>
+</dd>
+<dt>View:</dt>
+<dd><p>Use the view axis to limit the displacement.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

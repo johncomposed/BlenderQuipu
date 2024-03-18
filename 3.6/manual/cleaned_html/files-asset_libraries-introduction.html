@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Asset Libraries &gt; Introduction</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="index.html">Asset Libraries</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>This section describes Blender’s asset library system. It was introduced in Blender 3.0,
+and will be improved and expanded over multiple upcoming releases.</p>
+<div>
+<p>See also</p>
+<dl>
+<dt><a href="../../editors/asset_browser.html">Asset Browser</a></dt><dd><p>The main interface for organizing and using assets.</p>
+</dd>
+<dt><a href="catalogs.html">Asset Catalogs</a></dt><dd><p>For organizing assets.</p>
+</dd>
+<dt><a href="../../animation/armatures/posing/editing/pose_library.html">Pose Library</a></dt><dd><p>Build on top of the Asset Browser.</p>
+</dd>
+</dl>
+<p>The following blog posts were written during the design and development of the Asset Browser.
+They are linked here for historical reasons, and to give some more context to the current design.</p>
+<ul>
+<li><p><a href="https://code.blender.org/2020/03/asset-manager/">2020-03: Asset Manager</a></p></li>
+<li><p><a href="https://code.blender.org/2021/06/asset-browser-project-update/">2021-06: Asset Browser Project Update</a></p></li>
+<li><p><a href="https://code.blender.org/2021/06/asset-browser-workshop-outcomes/">2021-06: Asset Browser Workshop Outcomes</a></p></li>
+</ul>
+</div>
+<section id="what-is-an-asset">
+<h2>What is an Asset?</h2>
+<p><strong>An asset is a data-block with meaning</strong>.</p>
+<p>A blend-file is a database with multiple <a href="../data_blocks.html">Data-Blocks</a>: objects, textures, materials,
+etc. When planning to re-use or share these, the data needs a meaning. What is this? What is this for?
+<strong>Assets are curated data-blocks that are meant for easy reuse</strong>.</p>
+<div>
+<p>Note</p>
+<p>The general term “asset” often also refers to other file types, such as images, sounds, video files, etc.
+These are currently not supported as asset in Blender.</p>
+<p>For more info, see <a href="#asset-libraries-future-development">Future Development</a>.</p>
+</div>
+</section>
+<section id="what-is-an-asset-library">
+<h2>What is an Asset Library?</h2>
+<p>An asset library is a directory on your drive that is registered in the Preferences as an asset library.
+Registering it means that you give the library a name (like “Sprite Fright”)
+and the location on drive (like <code>/home/sybren/projects/sprite-fright/assets</code>).</p>
+<figure id="id3">
+<figcaption>
+<p>Name and Location of asset libraries in the Preferences.</p>
+</figcaption>
+</figure>
+<p>Once registered, you can select the asset library in the Asset Browser.
+All the blend-files in the asset library will be scanned for assets,
+and all those assets will be shown in the Asset Browser.</p>
+<div>
+<p>Note</p>
+<p>Loading an asset library for the first time may take a while, but the next time it is loaded should be
+significantly faster. Blender generates an index of all assets contained inside an asset library,
+and keeps it up-to-date as files are modified within it. The indices are stored in the <a href="../../advanced/blender_directory_layout.html#local-cache-dir">Local Cache Directory</a>.</p>
+</div>
+<p>The blend-files can be directly in the top-level directory of the asset library, or in any subdirectory.
+The on-drive organization of asset libraries is all up to you. Regardless of which blend-file contains the assets,
+each asset can be assigned a <strong>catalog</strong>. For more info about how to organize your assets
+this way, see <a href="catalogs.html">Asset Catalogs</a>.</p>
+</section>
+<section id="asset-types">
+<h2>Asset Types</h2>
+<p>Assets can be broadly divided into two types: <strong>primitive</strong> and <strong>preset</strong> assets.
+Which is which depends on the <a href="../data_blocks.html">Data-Blocks</a> type.</p>
+<p>Primitive assets are data-blocks that are either <strong>linked or appended</strong> to the current file.
+Examples are objects, materials, and worlds. These can be dragged from the Asset Browser into
+the scene (objects and worlds), or onto existing objects (materials).</p>
+<p>Preset assets are data-blocks that are loaded and then <strong>applied</strong> to something.
+An example is a pose asset. When applying the pose, the data-block is loaded
+from its blend-file, and then the pose is applied to the active armature.</p>
+<p>In the future, the asset type definition will be expanded;
+see <a href="#asset-libraries-future-development">Future Development</a> for more info.</p>
+</section>
+<section id="the-current-file-asset-library">
+<h2>The Current File Asset Library</h2>
+<p>To help with the management of assets in the current blend-file, you can set the Asset Browser
+to show the <strong>Current File asset library</strong>. This always shows the assets in the current file,
+even when the current file is not saved in an asset library.
+This also makes it possible to create assets and use them in the same file,
+for small single-file projects.</p>
+<p>When the current blend-file is part of an asset library, you can also see its assets in that library, of course.
+The assets that are in the current file are marked with an icon; only those are editable.</p>
+</section>
+<section id="life-cycle-of-an-asset">
+<h2>Life Cycle of an Asset</h2>
+<p>This section describes how to create, edit, share, and use assets.</p>
+<section id="creating-an-asset">
+<h3>Creating an Asset</h3>
+<p>To create an asset, first create the thing you want to turn into an asset.
+That is, create the object, material, world, or pose your character.
+The next step depends on the type of asset (see <a href="#asset-types">Asset Types</a> above).</p>
+<p>For primitive assets, use the <strong>Mark as Asset</strong> operator. It can be found in
+the data-block selector, in the Outliner, and for objects in the 3D Viewport Object menu.
+When using <em>Mark as Asset</em>, an automatic preview is generated.
+If you want, you can also change or replace this with an image of your own choosing;
+use the folder button next to the preview image in the Asset Details region of the Asset Browser.</p>
+<p>For preset assets, there will be a dedicated button for the different asset types.
+Currently poses are the only preset assets; use the <strong>Create Pose Asset</strong> button in the Action editor.
+This will copy the pose of the selected bones into a new Action, mark it as asset,
+and put it into the currently active asset catalog if there is an Asset Browser open.</p>
+<p>After creating the asset, make sure the current blend-file is saved in your asset library.
+Blender does not copy the asset into the asset library for you.</p>
+</section>
+<section id="editing-assets">
+<h3>Editing Assets</h3>
+<p>Since assets are regular data-blocks, with just a little bit of metadata attached,
+they can be edited like any other Blender data.
+Just open the file and edit the object, material, world, etc.</p>
+<p>For poses assets, this is also possible. With the pose library file open,
+just click the <strong>Assign Action</strong> button to assign the pose action to the currently selected armature.
+Then you can use all of the animation tooling to edit the pose, remove or add keys, etc.</p>
+<p>Editing asset metadata can be done via the <a href="../../editors/asset_browser.html#editing-asset-metadata">Asset Browser</a>.</p>
+</section>
+<section id="sharing-assets">
+<h3>Sharing Assets</h3>
+<p>Because assets are simply stored in blend-files, they can be shared by sharing their blend-file.
+Be sure to include the <a href="catalogs.html#asset-catalog-definition-file">Asset Catalog Definition File</a> as well.</p>
+<p>There is currently no functionality to extract selected assets and save them
+(together with their catalog definitions) into a different blend-file.
+This could be implemented as an add-on.</p>
+</section>
+<section id="using-assets">
+<h3>Using Assets</h3>
+<p>Assets can be used from the <a href="../../editors/asset_browser.html">Asset Browser</a>.</p>
+<p>The pose library extends this, and adds an Asset View to the 3D Viewport.
+See <a href="../../animation/armatures/posing/editing/pose_library.html#pose-library-from-viewport">Use from 3D Viewport</a>.</p>
+</section>
+<section id="removing-assets">
+<h3>Removing Assets</h3>
+<p>Asset metadata can be erased by the <em>Clear Asset</em> operator.
+This operator is available in data-block selectors, the Asset Browser,
+and for objects in the 3D Viewport menu.</p>
+<figure id="id4">
+<figcaption>
+<p>Clear Asset in the Asset Browser.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Clear Asset</dt><dd><p>Removes the asset metadata (catalog, description, author, tags), effectively turning an asset into
+a regular data-block. As such, the same removal rules apply as with other data-blocks. For example,
+if a mesh object is still placed in the scene, <em>Clear Asset</em> will not remove it from the scene.
+See <a href="../data_blocks.html#data-system-datablock-life-time">Life Time</a>. The preview will be kept inside the data-block
+and not be removed.</p>
+</dd>
+<dt>Clear Asset (Set Fake User)</dt><dd><p>Performs the same operation as <em>Clear Asset</em>, and then marks the data-block
+as <a href="../data_blocks.html#data-system-datablock-fake-user">protected</a>.
+This makes it possible to no longer have the data-block marked as asset,
+and still be sure it is not lost when saving the blend-file.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="bundled-assets">
+<h2>Bundled Assets</h2>
+<p>Blender includes many assets out of the box, these are contained in the “Essentials” library.
+This library contains a catalog of hair node groups for use with geometry nodes.
+Read more about these node groups in the <a href="../../modeling/geometry_nodes/hair/index.html">Geometry Nodes</a> section.</p>
+</section>
+<section id="design-limitations">
+<h2>Design Limitations</h2>
+<p>Blender is <strong>not allowed to write to other blend-files</strong> than the one you have currently open.
+This means that to edit an asset, you have to open its blend-file.
+Fortunately this is only a single click away, both in the Source List region of the Asset Browser
+and in the asset context menu.</p>
+<p>This also means that <strong>Blender does not copy assets into the asset library</strong> for you.
+You are responsible for placing the blend-file with the asset in an asset library directory,
+and marking the asset as such. See <a href="#asset-pushing">Asset Pushing</a> for more on this topic.</p>
+</section>
+<section id="future-development">
+<h2>Future Development</h2>
+<p>This section describes interesting avenues for further development.
+Even though it is not an exhaustive list, it might help to better understand
+the current functionality of Blender’s Asset Browser.</p>
+<section id="non-data-block-assets">
+<h3>Non-Data-Block Assets</h3>
+<p>Non-Blender assets, such as image or audio files, will likely be supported in a future version.
+For such files, asset metadata is then stored in XMP sidecar files, similar to what other software is also doing.
+Importers (USD, glTF, FBX, …) could add support for their file types as assets this way too.
+Furthermore, it should become possible to enrich an asset with a Python script,
+which can then provide code to be run when the asset is used.</p>
+</section>
+<section id="cross-blend-file-editing">
+<h3>Cross Blend-File Editing</h3>
+<p>As described above, Blender itself is not allowed to write to other blend-files
+than the currently open one. This rule helps to limit complexities; for example,
+it is hard to reliably implement an undo system when manipulating other files.
+The rule does get in the way of mass-updating assets when they are stored in various blend-files.</p>
+<p>Since there is already tooling that can manipulate blend-files outside of Blender itself
+(see <a href="https://projects.blender.org/blender/blender-asset-tracer">Blender Asset Tracer</a>),
+it’s possible to also create an external tool for doing such edits across blend-files.
+Such a tool might even be implemented via Blender’s application templates system,
+or as an add-on; the rule above applies to Blender itself, not to its add-ons.</p>
+</section>
+<section id="asset-pushing">
+<h3>Asset Pushing</h3>
+<p>Asset <strong>pushing</strong> is a way of getting assets into the asset library, where you are working on a file
+and want to copy the asset from that file into the library. This is a concept that appears deceptively simple.
+In certain cases it is actually simple, but often enough it gets quite complex. For example,
+when you want to push an object into an external asset library, should that also copy the materials?
+What about the texture images referenced by those materials?
+What about objects referenced by custom properties, constraints, or modifiers?
+And in which files would they have to go?
+Do they all go into one big <code>assets.blend</code>, individual blend-files,
+or into a directory per asset type? Blender should not be making such decisions for you.</p>
+<p>For specific cases, these things are all solvable. For this reason the pose library has been created as
+an add-on which is enabled by default. Studios with specific needs can disable the add-on
+and implement their own functionality; the building blocks are all in Blender’s core,
+and thus do not need to be copied for this. Furthermore, add-ons can write to other blend-files,
+so they could make the decisions for users.</p>
+<p>Asset pushing is desirable. Because of the questions above, it is unknown how to
+implement this well, in a way that still allows artists control over their assets.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

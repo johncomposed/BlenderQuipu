@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Fresnel</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Fresnel Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="fresnel-node">
+<h1>Fresnel Node</h1>
+<p>The <em>Fresnel</em> or <em>Dielectric Fresnel</em> node computes how much light is reflected off a layer,
+where the rest will be refracted through the layer.
+The resulting weight can be used for layering shaders with the <em>Mix Shader</em> node.
+It is dependent on the angle between the surface normal and the viewing direction.</p>
+<p>The most common use is to mix between two BSDFs using it as a blending factor in a Mix Shader node.
+For a simple glass material you would mix between a glossy refraction and glossy reflection.
+At grazing angles more light will be reflected than refracted as happens in reality.</p>
+<p>For a two-layered material with a diffuse base and a glossy coating,
+you can use the same setup, mixing between a diffuse and glossy BSDF. By using the Fresnel as
+the blending factor you are specifying that any light which is refracted through the glossy
+coating layer would hit the diffuse base and be reflected off that.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>IOR</dt><dd><p>Index of refraction (<a href="../../../glossary/index.html#term-IOR">IOR</a>) of the material being entered.</p>
+</dd>
+<dt>Normal</dt><dd><p>Input meant for plugging in bump or normal maps which will affect the output.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>Fresnel weight, indicating the probability with which light
+will reflect off the layer rather than passing through.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Textures &gt; Noise</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Texture</a></li>
+<li>Noise Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="noise-texture-node">
+<h1>Noise Texture Node</h1>
+<p>The <em>Noise Texture</em> node evaluates a fractal Perlin noise at the input texture coordinates.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>The inputs are dynamic, they become available if needed depending on the node properties.</p>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate to evaluate the noise at;
+defaults to <em>Generated</em> texture coordinates if the socket is left unconnected.</p>
+</dd>
+<dt>W</dt><dd><p>Texture coordinate to evaluate the noise at.</p>
+</dd>
+<dt>Scale</dt><dd><p>Scale of the base noise octave.</p>
+</dd>
+<dt>Detail</dt><dd><p>Number of noise octaves.
+The fractional part of the input is multiplied by the magnitude of the highest octave.
+Higher number of octaves corresponds to a higher render time.</p>
+</dd>
+<dt>Roughness</dt><dd><p>Blend between a smoother noise pattern, and rougher with sharper peaks.</p>
+</dd>
+<dt>Distortion</dt><dd><p>Amount of distortion.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Dimensions</dt><dd><p>The dimensions of the space to evaluate the noise in.</p>
+<dl>
+<dt>1D:</dt>
+<dd><p>Evaluate the noise in 1D space at the input <em>W</em>.</p>
+</dd>
+<dt>2D:</dt>
+<dd><p>Evaluate the noise in 2D space at the input <em>Vector</em>. The Z component is ignored.</p>
+</dd>
+<dt>3D:</dt>
+<dd><p>Evaluate the noise in 3D space at the input <em>Vector</em>.</p>
+</dd>
+<dt>4D:</dt>
+<dd><p>Evaluate the noise in 4D space at the input <em>Vector</em> and the input <em>W</em> as the fourth dimension.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Higher dimensions corresponds to higher render time,
+so lower dimensions should be used unless higher dimensions are necessary.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>Value of fractal noise.</p>
+</dd>
+<dt>Color</dt><dd><p>Color with different fractal noise in each component.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Noise Texture with high detail.</p>
+</figcaption>
+</figure>
+</section>
+<section id="notes">
+<h2>Notes</h2>
+<p>While the noise is random in nature, it follows a certain pattern that might not evaluate to
+random values in some configurations. For instance, consider the following configuration
+where a grid of objects have a material that evaluates a noise texture at their locations.
+One might expect the objects to have random values since they have different locations,
+but this is not the case.</p>
+<figure id="id2">
+<figcaption>
+<p>An example configuration where the noise evaluates to a constant value.</p>
+</figcaption>
+</figure>
+<p>It seems all objects have a value of 0.5. To understand why this happens, let us
+look at the following plot of a 1D noise texture.</p>
+<figure id="id3">
+<figcaption>
+<p>A plot of a 1D noise with zero details and zero distortion.</p>
+</figcaption>
+</figure>
+<p>The horizontal line denotes a value of 0.5 and the vertical lines denotes whole numbers assuming
+a noise scale of 1. As can be seen, the noise always intersects the 0.5 line at whole numbers.
+Since the aforementioned objects were distributed on a grid and have whole number locations,
+they all evaluate to 0.5. Which explains the issue at hand.</p>
+<p>Generally, any discrete evaluation of noise at integer multiples of the reciprocal of
+the noise scale will always evaluate to 0.5. It also follows that evaluations closer to
+that will have values close to 0.5. In such cases, it is almost always preferred to use
+the White Noise Texture.</p>
+<p>Regardless, one can mitigate this issue in a number of ways:</p>
+<ul>
+<li><p>Adjust the scale of the noise to avoid aligning the noise with the evaluation domain.</p></li>
+<li><p>Add an arbitrary offset to the texture coordinates to break the alignment with the evaluation domain.</p></li>
+<li><p>Evaluate the noise at a higher dimension and adjust the extra dimension
+until a satisfactory result is achieved.</p></li>
+</ul>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Constant value issue.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Mitigating the issue by adjusting the scale.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Mitigating the issue by adding an arbitrary offset.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Mitigating the issue by evaluating at a higher dimension.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Similarly, in other configurations, one might experience some banding patterns in the noise,
+where there are bands of high contrast areas followed by banding of low contrast areas.
+For instance, planar surfaces that are slightly tilted along one of the axis
+will have such a banding pattern.</p>
+<figure id="id8">
+<figcaption>
+<p>An example configuration where the noise have a banding pattern.</p>
+</figcaption>
+</figure>
+<p>This happens because the slight tilt along one of the axis causes values along
+the perpendicular axis to change very slowly making the grid structure of
+the noise more apparent. The easiest way to mitigate this issue to rotate
+the coordinates by an arbitrary amount.</p>
+<figure id="id9">
+<figcaption>
+<p>Mitigating the issue by rotating the coordinates by an arbitrary amount.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

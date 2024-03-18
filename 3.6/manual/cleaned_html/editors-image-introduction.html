@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Image &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Image Editor</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>The Image Editor lets you create, view, and edit images,
+as well as see render results and intermediate
+<a href="../../compositing/introduction.html">Compositor</a> output.</p>
+<figure id="id1">
+<figcaption>
+<p>Image Editor with a test grid texture.</p>
+</figcaption>
+</figure>
+<section id="toolbar">
+<h2>Toolbar</h2>
+<dl>
+<dt>Sample</dt><dd><p>Used to sample the color of one or more pixels in the image.
+As long as you hold <kbd>LMB</kbd>, the footer will show the following:</p>
+<ul>
+<li><p>X and Y coordinates of the mouse cursor.</p></li>
+<li><p>Color in RGBA.</p></li>
+<li><p>Color in RGB after <a href="../../render/color_management.html">Color Management</a>.</p></li>
+<li><p>Color in HSV.</p></li>
+<li><p>Luminance.</p></li>
+</ul>
+<dl>
+<dt>Sample Size</dt><dd><p>The dimensions of the square used to sample underlying pixels.
+If larger than 1, the resulting sample is an average of all underlying pixels.</p>
+</dd>
+</dl>
+</dd>
+<dt>Annotate</dt><dd><p>See <a href="../../interface/annotate_tool.html">Annotations</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="header">
+<h2>Header</h2>
+<dl>
+<dt>Mode</dt><dd><dl>
+<dt>View:</dt>
+<dd><p>Displays images.</p>
+</dd>
+<dt>Paint:</dt>
+<dd><p><a href="../../sculpt_paint/texture_paint/index.html">Texture Paint</a>.</p>
+</dd>
+<dt>Mask:</dt>
+<dd><p><a href="../../movie_clip/masking/index.html">Masking</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>View</dt><dd><p>Tools for controlling how the content is displayed in the editor.
+See <a href="navigating.html">Navigating</a>.</p>
+</dd>
+<dt>Image</dt><dd><p>Tools for opening and manipulating images. Shows an asterisk if the image
+has unsaved changes. See <a href="editing.html">Editing</a>.</p>
+</dd>
+<dt>Image</dt><dd><p>A <a href="../../interface/controls/templates/data_block.html#ui-data-block">data-block menu</a> used for selecting images.
+Once an image is selected, the <a href="image_settings.html">Image tab</a>
+appears in the Sidebar region.</p>
+<p>Apart from loading existing images, you can also create new ones:</p>
+<figure id="id2">
+<figcaption>
+<p>The pop-over that’s displayed when clicking “New Image” in the header.</p>
+</figcaption>
+</figure>
+<p>The <em>Tiled</em> option creates an image with support for
+<a href="../../modeling/meshes/uv/workflows/udims.html">UDIMs</a>. For the other options, see
+<a href="image_settings.html#image-generated">Generated Images</a>.</p>
+<p>In addition to images, the data-block selector includes the following items:</p>
+<ul>
+<li><p>Render Result: displays renders. When this item is selected, the <em>Slot</em>,
+<em>View Layer</em>, and <em>Render Pass</em> selectors become available (see below).</p></li>
+<li><p>Viewer Node: displays the image that’s fed into the
+<a href="../../compositing/types/output/viewer.html">Viewer Node</a> in the Compositor.</p></li>
+</ul>
+</dd>
+<dt>Image Pin</dt><dd><p>Prevents the Image Editor from automatically switching to the texture of
+the selected object. (This switching only happens if the 3D Viewport is
+in <a href="../../sculpt_paint/texture_paint/introduction.html">Texture Paint</a> mode).</p>
+</dd>
+<dt>Slot</dt><dd><p>The render slot to view (and render to). You can create new renders without
+losing previous ones by selecting an empty slot before rendering. Afterwards,
+you compare them by pressing <kbd>J</kbd> and <kbd><kbd>Alt</kbd>-<kbd>J</kbd></kbd> to cycle forwards and backwards.
+Alternatively, you can use the number keys <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd> etc.
+to select the slot with the corresponding number.</p>
+<p>Slots can be renamed by double clicking their name in the Image panel in the Sidebar.</p>
+</dd>
+<dt>View Layer</dt><dd><p>The <a href="../../render/layers/introduction.html">View Layer</a> to display.</p>
+</dd>
+<dt>Render Pass</dt><dd><p>The <a href="../../render/layers/passes.html">Render Pass</a> to display.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceimageeditor-show-gizmo">
+<dt>Viewport Gizmos</dt><dd><p>Lets you show/hide all gizmos using the toggle button, or specific gizmos using
+the drop-down arrow.</p>
+<dl id="bpy-types-spaceimageeditor-show-gizmo-navigate">
+<dt>Navigate</dt><dd><p>Enable/disable the gizmos used to pan or zoom the 2D viewport.
+See <a href="navigating.html#editors-image-navigate-gizmos">Navigation Gizmos</a> for more information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spaceimageeditor-display-channels">
+<dt>Display Channels</dt><dd><p>Select which color channels are displayed.</p>
+<dl>
+<dt>Color &amp; Alpha:</dt>
+<dd><p>Enables transparency and shows a checkerboard behind the image.</p>
+</dd>
+<dt>Color:</dt>
+<dd><p>Disables transparency.</p>
+</dd>
+<dt>Alpha:</dt>
+<dd><p>Displays the alpha channel as a grayscale image. White areas are opaque,
+black areas are transparent.</p>
+</dd>
+<dt>Z-Buffer:</dt>
+<dd><p>Displays the depth from the camera, from Clip Start to Clip End,
+as specified in the <a href="../../render/cameras.html">Camera settings</a>.</p>
+</dd>
+<dt>Red, Green, Blue:</dt>
+<dd><p>Single color channel visualized as a grayscale image.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="main-view">
+<h2>Main View</h2>
+<p>Holding <kbd>RMB</kbd> will sample the image just like the Sample tool,
+except it will always sample only one pixel.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

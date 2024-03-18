@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Cloth &gt; Settings &gt; Cache</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Cloth</a></li>
+<li><a href="index.html">Settings</a></li>
+<li>Cache</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cache">
+<h1>Cache</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Cloth Cache</p>
+</dd>
+</dl>
+</div>
+<p>After you have set up the deflection mesh for the frame range you intend to run the simulation
+(including animating that mesh <em>via</em> armatures),
+you can now tell the cloth simulation to compute (and avoid) collisions.
+Select the cloth object and in the <em>Object</em> tab,
+<em>Physics</em> tab, set the <em>Start</em> and <em>End</em> settings for
+the simulation frames you wish to compute, and click the <em>Bake</em> button.</p>
+<p>Cache settings for cloth are the same as with other dynamic systems.
+See <a href="../../particles/emitter/cache.html">Particle Cache</a> for details.</p>
+<div>
+<p>Note</p>
+<p>If you move or edit the cloth object <strong>after</strong> you have already run the simulations,
+you must clear the cache; otherwise, Blender will use the position of
+the current/cached mesh’s vertices when trying to represent where they are.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Subdivision Surface Modifier</p>
+<p>A bake/cache is done for every subdivision level so please use
+the <strong>equal</strong> subdivision level for render and preview.</p>
+</div>
+<div>
+<p>Note</p>
+<p>You cannot change <em>Start</em> or <em>End</em> without clearing the bake simulation.
+When the simulation has finished, you will notice you have the option to free
+the bake, edit the bake and re-bake</p>
+</div>
+<section id="editing-the-cached-simulation">
+<h2>Editing the Cached Simulation</h2>
+<p>The cache contains the shape of the mesh at each frame. You can edit the cached simulation,
+after you have baked the simulation and pressed the <em>Bake Editing</em> button.
+Just go to the frame you want to fix and <kbd>Tab</kbd> into <em>Edit Mode</em>.
+There you can move your vertices using all of Blender’s mesh shaping tools. When you exit,
+the shape of the mesh will be recorded for that frame of the animation.
+If you want Blender to resume the simulation using the new shape going forward,
+select <em>Rebake from next Frame</em> and play the animation.
+Blender will then pick up with that shape and resume the simulation.</p>
+<p>Edit the mesh to correct minor tears and
+places where the colliding object has punctured the cloth.</p>
+<p>If you add, delete, or extrude vertices in the mesh, Blender will take the new mesh as
+the starting shape of the mesh back to the <em>first frame</em> of the animation,
+replacing the original shape you started with,
+up to the frame you were on when you edited the mesh. Therefore,
+if you change the content of a mesh, when you press <kbd>Tab</kbd> out of <em>Edit Mode</em>,
+you should unprotect and clear the cache so that Blender will make a consistent simulation.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

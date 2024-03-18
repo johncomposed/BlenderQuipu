@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Transform Cache</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Transform Cache Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="transform-cache-constraint">
+<h1>Transform Cache Constraint</h1>
+<p>The <em>Transform Cache Constraint</em> is used to stream animations from
+<a href="../../../files/import_export/alembic.html">Alembic</a> or <a href="../../../files/import_export/usd.html">USD</a>
+made at the transformation matrix level (for example rigid bodies, or camera movements).</p>
+<p>When importing an <a href="../../../files/import_export/alembic.html">Alembic</a> or
+<a href="../../../files/import_export/usd.html">USD</a> file,
+Transform Cache constraints are automatically added to objects with animated transforms.
+For time-varying meshes (so deforming animations),
+the <a href="../../../modeling/modifiers/modify/mesh_sequence_cache.html">Mesh Sequence Cache modifier</a> is used.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Transform Cache Constraint.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Cache File</dt><dd><p>Data-block menu to select the Alembic or USD file.</p>
+</dd>
+<dt>File Path</dt><dd><p>Path to the Alembic or USD file.</p>
+</dd>
+<dt>Sequence</dt><dd><p>Whether or not the cache is separated in a series of files.</p>
+</dd>
+<dt>Override Frame</dt><dd><p>Whether to use a custom frame for looking up data in the cache file,
+instead of using the current scene frame.</p>
+<p>The <em>Frame</em> value is the time to use for looking up the data in the cache file,
+or to determine which to use in a file sequence.</p>
+</dd>
+<dt>Frame Offset</dt><dd><p>Subtracted from the current frame to use for looking up the data in the cache file,
+or to determine which file to use in a file sequence.</p>
+</dd>
+<dt>Manual Scale</dt><dd><p>Value by which to enlarge or shrink the object with respect to the world’s origin.</p>
+</dd>
+<dt>Velocity Attribute</dt><dd><p>The name of the Alembic attribute used for generating motion blur data;
+by default, this is <code>.velocities</code> which is standard for most Alembic files.</p>
+<div>
+<p>Note</p>
+<p>The <em>Velocity Attribute</em> option is currently for Alembic files only.</p>
+</div>
+</dd>
+<dt>Velocity Unit</dt><dd><p>Defines how the velocity vectors are interpreted with regard to time.</p>
+<dl>
+<dt>Frame</dt><dd><p>The velocity unit was encoded in frames and does not need to be scaled by scene FPS.</p>
+</dd>
+<dt>Second</dt><dd><p>The velocity unit was encoded in seconds and needs to be scaled by the scene FPS (1 / FPS).</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The <em>Velocity Unit</em> option is currently for Alembic files only.</p>
+</div>
+</dd>
+<dt>Object Path</dt><dd><p>The path to the Alembic or USD object inside the archive or stage.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

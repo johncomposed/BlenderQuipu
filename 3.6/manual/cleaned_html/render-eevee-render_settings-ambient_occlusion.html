@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Render Settings &gt; Ambient Occlusion</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Ambient Occlusion</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="ambient-occlusion">
+<h1>Ambient Occlusion</h1>
+<p>Ambient occlusion is computed using <abbr title="Ground Truth Ambient Occlusion">GTAO</abbr> and applied to indirect lighting.
+The bent normal option will make the diffuse lighting come from only the least occluded direction.</p>
+<p>Ambient occlusion can be rendered as a separate pass in the Render Layers panel.</p>
+<div>
+<p>Note</p>
+<p>This effect needs to be enabled for the <a href="../../shader_nodes/input/ao.html">Ambient Occlusion</a> node to work.</p>
+</div>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Ambient Occlusion</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Distance</dt><dd><p>Distance of object that contributes to the ambient occlusion effect.</p>
+</dd>
+<dt>Factor</dt><dd><p>Blend factor for the ambient occlusion effect.</p>
+</dd>
+<dt>Trace Precision</dt><dd><p>Increases precision of the effect but introduces more noise and lowers the maximum trace distance.
+Increased precision also increases the performance cost.
+Lower precision will also miss occluders and lead to undershadowing.</p>
+</dd>
+<dt>Bent Normals</dt><dd><p>Compute the least occluded direction.
+This direction can be used to sample the diffuse irradiance in a more realistic way.</p>
+</dd>
+<dt>Bounce Approximation</dt><dd><p>An approximation to simulate light bounces giving less occlusion on brighter objects.
+It only takes into account the surface color and not its surroundings.
+This is not applied to the ambient occlusion pass.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p><a href="../limitations.html#eevee-limitations-ao">Limitations</a>.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

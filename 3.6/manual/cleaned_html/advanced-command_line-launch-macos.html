@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Command Line &gt; Launch &gt; Macos</title></head>
+<body><ul>
+<li><a href="../../index.html">Advanced</a></li>
+<li><a href="../index.html">Command Line</a></li>
+<li><a href="index.html">Launching from the Command Line</a></li>
+<li>macOS</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="macos">
+<h1>macOS</h1>
+<section id="quick-start">
+<h2>Quick Start</h2>
+<p>Open the terminal application,
+and run the executable within the app bundle, with commands like this:</p>
+<div><div><pre>cd /Applications/Blender.app/Contents/MacOS
+./Blender
+</pre></div>
+</div>
+<p>If you need to do this often, you can add this directory to your <code>PATH</code>.</p>
+<p>For that you can run the following procedure:</p>
+<ol>
+<li><p>Open up a Terminal.</p></li>
+<li><p>Run the following command: <code>sudo nano /etc/paths</code>.</p></li>
+<li><p>Enter your password, when prompted.</p></li>
+<li><p>Go to the bottom of the file, and enter <code>/Applications/Blender.app/Contents/MacOS</code>.</p></li>
+<li><p>Enter <kbd><kbd>Ctrl</kbd>-<kbd>X</kbd></kbd> to quit.</p></li>
+<li><p>Enter <kbd>Y</kbd> to save the modified buffer.</p></li>
+</ol>
+<p>If you then open a new terminal, the following command will work:</p>
+<div><div><pre>Blender
+</pre></div>
+</div>
+</section>
+<section id="details">
+<h2>Details</h2>
+<p>macOS uses “files” with the <code>.app</code> extension called <em>applications</em>.
+These files are actually folders that appear as files in Finder.
+In order to run Blender you will have to specify that path to the Blender executable inside this folder,
+to get all output printed to the terminal.
+You can start a terminal from Applications ‣ Utilities.
+The path to the executable in the <code>.app</code> folder is <code>./Blender.app/Contents/MacOS/Blender</code>.</p>
+<p>If you have Blender installed in the Applications folder, the following command can be used:</p>
+<div><div><pre>/Applications/Blender.app/Contents/MacOS/Blender
+</pre></div>
+</div>
+<figure id="id1">
+<figcaption>
+<p>Starting Blender from a macOS console window.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

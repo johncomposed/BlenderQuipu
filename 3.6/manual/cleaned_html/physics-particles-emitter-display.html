@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Emitter &gt; Display</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Particle System</a></li>
+<li><a href="index.html">Emitter</a></li>
+<li>Viewport Display</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewport-display">
+<h1>Viewport Display</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Viewport Display</p>
+</dd>
+</dl>
+</div>
+<p>The Display Panel controls how particles are displayed in the 3D Viewport.
+This does not necessarily determine how they will appear when rendered.</p>
+<dl>
+<dt>Display As</dt><dd><dl>
+<dt>None</dt><dd><p>The particles are not shown in the 3D Viewport and are not rendered.
+The emitter may be rendered though.</p>
+</dd>
+<dt>Rendered</dt><dd><p>Particles are displayed the way they are rendered.</p>
+</dd>
+<dt>Point</dt><dd><p>Particles are displayed as square points.
+Their size is independent of the distance from the camera.</p>
+</dd>
+<dt>Circle</dt><dd><p>Particles are displayed as circles that face the view.
+Their size is independent of the distance from the camera.</p>
+</dd>
+<dt>Cross</dt><dd><p>Particles are displayed as 6-point crosses that align to the rotation of the particles.
+Their size is independent of the distance from the camera.</p>
+</dd>
+<dt>Axis</dt><dd><p>Particles are displayed as 3-point axes.
+This is useful if you want to see the orientation and rotation of particles in the viewport.
+Increase the <em>Display Size</em> until you can clearly distinguish the axis.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Particles visualized like Point, Circle, Cross and Axis do not have any special options,
+but can be very useful when you have multiple particle systems at play,
+if you do not want to confuse particles of one system from another
+(e.g. in simulations using <em>Boids</em> physics).</p>
+</div>
+</dd>
+<dt>Color</dt><dd><p>The Color Menu allows you to display particle’s color according to certain particle properties.</p>
+<dl>
+<dt>None</dt><dd><p>Particles are black.</p>
+</dd>
+<dt>Material</dt><dd><p>Particles are colored according to the material they are given.</p>
+</dd>
+<dt>Velocity</dt><dd><p>Color particles according to their speed.
+The color is a ramp from blue to green to red, Blue being the slowest,
+and Red being velocities approaching the value of <em>Max</em> or above.
+Increasing <em>Max</em> allows for a wider range of particle velocities.</p>
+</dd>
+<dt>Acceleration</dt><dd><p>Color particles according to their acceleration.</p>
+</dd>
+</dl>
+</dd>
+<dt>Amount</dt><dd><p>Specifies the percentage of all particles to show in the viewport (all particles are still rendered).</p>
+</dd>
+<dt>Show Emitter</dt><dd><p>Make instancer visible in viewport.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

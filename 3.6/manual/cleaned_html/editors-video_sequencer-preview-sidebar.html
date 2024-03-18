@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Preview &gt; Sidebar</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Video Sequencer</a></li>
+<li><a href="index.html">Preview</a></li>
+<li>Sidebar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sidebar">
+<h1>Sidebar</h1>
+<p>The sidebar of the Preview can be toggled with the menu:
+View ‣ Sidebar or with the shortcut <kbd>N</kbd>.</p>
+<p><a href="#fig-editors-vse-preview-sidebar-overview">Video Sequence Editor with two sidebars: Preview and Sequencer.</a> shows the sidebar of the Preview,
+but also the sidebar of the sequencer. In the Preview sidebar,
+the View tab is active and all panels are expanded.
+Safe Areas are enabled and an Annotation is added.</p>
+<figure id="id9">
+<figcaption>
+<p>Video Sequence Editor with two sidebars: Preview and Sequencer.</p>
+</figcaption>
+</figure>
+<section id="tool">
+<h2>Tool</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Video Sequencer</p>
+</dd>
+<dt>View Type:</dt>
+<dd><p>Preview</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Tool tab</p>
+</dd>
+</dl>
+</div>
+<p>Displays information about the active <a href="toolbar.html">tool</a>.</p>
+</section>
+<section id="view">
+<h2>View</h2>
+<section id="view-settings">
+<h3>View Settings</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Video Sequencer</p>
+</dd>
+<dt>View Type:</dt>
+<dd><p>Preview</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ View tab ‣ View Settings</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-spacesequenceeditor-proxy-render-size">
+<dt>Proxy Render Size</dt><dd><p>Size to display proxies at in the preview region.
+Using a smaller preview size will increase speed.</p>
+<dl>
+<dt>No Display:</dt>
+<dd><p>Disables the preview.</p>
+</dd>
+<dt>Scene Size:</dt>
+<dd><p>Matches proxy size to the final render <a href="../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-y">resolution</a>.</p>
+</dd>
+<dt>25%, 50%, 75%, 100%:</dt>
+<dd><p>Proxies are sized to be the selected percent of the original input.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spacesequenceeditor-use-proxies">
+<dt>Use Proxies</dt><dd><p>Use optimized files for faster scrubbing when available.
+Proxies limit the visual accuracy of the preview by reducing
+the preview resolution and using compressed copies of the input.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequenceeditor-use-prefetch">
+<dt>Prefetch Frames</dt><dd><p>Automatically fill the cache with frames after the current frame in the background.
+Use this to achieve a more consistent playback speed.
+This feature currently doesn’t support rendering Scene strips.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacesequenceeditor-display-channel">
+<dt>Channel</dt><dd><p>Selects the channel to show in the preview.</p>
+<p>Channel 0 is the compositing result of all strips.
+Channel 1 is the current frame’s image from the strip in channel 1 only
+(channel 1 is at the bottom of the stack). The display of these modes is either the composite
+(channel 0) or the frame from the strip (channels 1 through n).</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacesequenceeditor-show-overexposed">
+<dt>Show Overexposed</dt><dd><p>Shows overexposed (bright white) areas using a zebra pattern.
+The threshold can be adjust with the slider.</p>
+</dd>
+</dl>
+</section>
+<section id="d-cursor">
+<h3>2D Cursor</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Video Sequencer</p>
+</dd>
+<dt>View Type:</dt>
+<dd><p>Preview</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ View tab ‣ 2D Cursor</p>
+</dd>
+</dl>
+</div>
+<p>The 2D cursor is the white-red circle with a cross-hair that is shown in the main region.
+It can be used by setting the <a href="controls/pivot_point.html#bpy-types-sequencertoolsettings-pivot-point">Pivot Point</a>
+to <em>2D Cursor</em> to transform all strips in relation to the location of the 2D cursor.</p>
+<p>The visibility of the 2D cursor can be controlled with the
+<a href="display/overlays.html#bpy-types-sequencerpreviewoverlay-show-cursor">2D Cursor</a> overlay option.</p>
+<dl id="bpy-types-spacesequenceeditor-cursor-location">
+<dt>Location X, Y</dt><dd><p>The location of the 2D cursor relative to the center of the main region.
+The edge of the image will be 0.5 away, so (0.5, 0.5) will be the top right corner.</p>
+<p>The 2D cursor’s location can also be set with Cursor tool or by <kbd><kbd>Shift</kbd>-<kbd>RMB</kbd></kbd>.</p>
+</dd>
+</dl>
+</section>
+<section id="frame-overlay">
+<h3>Frame Overlay</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Video Sequencer</p>
+</dd>
+<dt>View Type:</dt>
+<dd><p>Preview</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ View tab ‣ Frame Overlay</p>
+</dd>
+</dl>
+</div>
+<p>Option to enable the overlay.
+It can be used for comparing the current frame to a reference frame.</p>
+<dl id="bpy-ops-sequencer-view-ghost-border">
+<dt>Set Overlay Region</dt><dd><p>Selects the rectangular bounds for the overlay region.
+This area can be defined by pressing <kbd>O</kbd> key over the preview.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequenceeditor-overlay-frame">
+<dt>Frame Offset</dt><dd><p>The slider controls the offset of the reference frame relative to current frame.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacesequenceeditor-overlay-frame-type">
+<dt>Overlay Type</dt><dd><p>It describes the way the reference frame should be displayed.</p>
+<dl>
+<dt>Rectangle:</dt>
+<dd><p>Which means the rectangle area of reference frame will be displayed on top of current frame.</p>
+</dd>
+<dt>Reference:</dt>
+<dd><p>Only the reference frame is displayed in the preview region.</p>
+</dd>
+<dt>Current:</dt>
+<dd><p>Only the current frame is displayed in the preview region.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>It is possible to have several Sequence Editors opened and they can use different overlay types.
+So it is possible to have current and reference frames displayed in different editor spaces.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-sequenceeditor-use-overlay-frame-lock">
+<dt>Overlay Lock</dt><dd><p>It’s still possible to lock the reference frame to its current position.</p>
+</dd>
+</dl>
+</section>
+<section id="safe-areas">
+<h3>Safe Areas</h3>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Video Sequencer</p>
+</dd>
+<dt>View Type:</dt>
+<dd><p>Preview</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ View tab ‣ Safe Areas</p>
+</dd>
+</dl>
+</div>
+<p>Shows guides used to position elements to ensure that
+the most important parts of the video can be seen across all screens.</p>
+<div>
+<p>See also</p>
+<p><a href="../../../render/cameras.html#bpy-types-displaysafeareas">Camera Safe Areas</a>.</p>
+</div>
+</section>
+<section id="scene-strip-display">
+<h3>Scene Strip Display</h3>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Video Sequencer</p>
+</dd>
+<dt>View Type:</dt>
+<dd><p>Preview</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ View tab ‣ Scene Strip Display</p>
+</dd>
+</dl>
+</div>
+<p>It allows you to control how the images of <a href="../../../video_editing/edit/montage/strips/scene.html">Scene Strips</a>
+are displayed in the preview.</p>
+<dl id="bpy-types-rendersettings-sequencer-gl-preview">
+<dt>Shading</dt><dd><p>Method for rendering the viewport.
+See the 3D Viewport’s <a href="../../3dview/display/shading.html#view3d-viewport-shading">Viewport Shading</a> options.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-use-sequencer-override-scene-strip">
+<dt>Override Scene Settings</dt><dd><p>Use the <a href="../../../render/workbench/index.html">Workbench render settings</a> from the sequencer scene,
+<em>not</em> the Workbench render settings from the source scene.
+This option is only available, if <em>Solid</em> shading is activate.</p>
+</dd>
+</dl>
+</section>
+<section id="annotations">
+<h3>Annotations</h3>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Video Sequencer</p>
+</dd>
+<dt>View Type:</dt>
+<dd><p>Preview</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ View tab ‣ Annotations</p>
+</dd>
+</dl>
+</div>
+<p>Allows you to use <a href="../../../interface/annotate_tool.html">Annotations</a> in the Sequencer.</p>
+</section>
+</section>
+<section id="metadata">
+<h2>Metadata</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Video Sequencer</p>
+</dd>
+<dt>View Type:</dt>
+<dd><p>Preview</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Metadata tab</p>
+</dd>
+</dl>
+</div>
+<p>Lists information that has been encoded in the currently displayed movie or image strip;
+note that this is the strip under the playhead, <em>not</em> the active (selected) strip.
+Note, this metadata is readonly and cannot be edited in Blender.
+Metadata can include the filename, the date created, the camera model etc.
+The metadata from saved from a Blender render is also displayed in the appropriate fields (camera, time, etc…;
+see <a href="../../../render/output/properties/metadata.html">Rendered Output</a> for a full list.
+Some other graphic program also store some metadata, however,
+only the text stored in the header field “Comments” can be read</p>
+<p>Some of this metadata can also be made visible in the Preview with the
+<a href="display/overlays.html#bpy-types-sequencerpreviewoverlay-show-metadata">Metadata</a> overlay.</p>
+<div>
+<p>Tip</p>
+<p>To edit a files metadata you can use an external program such as exiftool.
+For example, the command to change the “Comments” field is:</p>
+<div><div><pre>exiftool --comments="My new comment" name-of-file.png
+</pre></div>
+</div>
+</div>
+<div>
+<p>Note</p>
+<p>The metadata will only be displayed for the image/ movie strip and not from strips processed by any effect strip.
+For example, adding an effect strip (eg. Glow) will hide the metadata from view.
+Of course, the metadata isn’t removed from the file. Hiding the effect strip will display it again.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

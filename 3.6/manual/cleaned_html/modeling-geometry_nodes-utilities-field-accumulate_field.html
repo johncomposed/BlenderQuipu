@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Utilities &gt; Field &gt; Accumulate Field</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Utilities Nodes</a></li>
+<li><a href="index.html">Field Utility Nodes</a></li>
+<li>Accumulate Field Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="accumulate-field-node">
+<h1>Accumulate Field Node</h1>
+<p>The <em>Accumulate Field</em> node counts a running total of its input values, in the order defined
+by the geometry’s <a href="../../geometry/read/input_index.html">indices</a>. The node’s essential
+operation is just addition, but instead of only outputting the final total, it outputs the current
+value at every element.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Value</dt><dd><p>The values to be accumulated.</p>
+<div>
+<p>Warning</p>
+<p>When accumulating integer values, be careful to make sure that there are not
+too many large values. The maximum integer that Blender stores internally is
+around 2 billion. After that, values may wrap around and become negative.
+See <a href="https://en.wikipedia.org/wiki/Integer_%28computer_science%29">wikipedia</a>
+for more information.</p>
+</div>
+</dd>
+<dt>Group Index</dt><dd><p>An index used to group values together for multiple separate accumulations.
+This can be thought of as a choice of the “bin” in which to place each value.
+This input has no effect when it is only a single value.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><dl>
+<dt>Float:</dt>
+<dd><p>The node will accumulate a <em>Float</em> field.</p>
+</dd>
+<dt>Integer:</dt>
+<dd><p>The node will accumulate an <em>Integer</em> field.</p>
+</dd>
+<dt>Vector:</dt>
+<dd><p>The node will accumulate a <em>Vector</em> field.</p>
+</dd>
+</dl>
+</dd>
+<dt>Domain</dt><dd><p>The <a href="../../attributes_reference.html#attribute-domains">attribute domain</a> used for accumulation
+and for evaluation of the <em>Value</em> input.</p>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Leading</dt><dd><p>The running total of values in the corresponding group, starting at the first value.</p>
+</dd>
+<dt>Trailing</dt><dd><p>The running total of values in the corresponding group, starting at zero.</p>
+</dd>
+<dt>Total</dt><dd><p>The total of all of the values in the corresponding group</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<section id="table">
+<h3>Table</h3>
+<table>
+<thead>
+<tr><th><p>Value</p></th>
+<th><p>Group Index</p></th>
+<th><p>Leading</p></th>
+<th><p>Trailing</p></th>
+<th><p>Total</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>6</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>7</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>7</p></td>
+<td><p>6</p></td>
+<td><p>4</p></td>
+<td><p>6</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+<p>A few examples of input values and the node’s results. One important take-away from this table
+is that the specific values for the <em>Group Input</em> does not matter; it only matters that the
+values are shared between elements.</p>
+</section>
+<section id="stacking-boxes">
+<h3>Stacking Boxes</h3>
+<p>Here, the node is used in combination with the <a href="../random_value.html">Random Value Node</a>
+to create a stack of randomly scaled boxes. The <em>Group Index</em> input is not used, because all boxes
+are meant to be in the same stack.</p>
+<p>A slightly more complicated version of the previous example,
+using the <em>Group Index</em> input to create three separate stacks.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

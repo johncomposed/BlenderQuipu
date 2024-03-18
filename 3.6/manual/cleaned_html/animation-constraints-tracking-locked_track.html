@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Tracking &gt; Locked Track</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Locked Track Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="locked-track-constraint">
+<h1>Locked Track Constraint</h1>
+<p>The <em>Locked Track</em> constraint is a bit tricky to explain, both graphically and textual.
+Basically, it is a <a href="track_to.html">Track To constraint</a>,
+but with a locked axis, i.e.
+an axis that cannot rotate (change its orientation). Hence,
+the owner can only track its target by rotating around this axis,
+and unless the target is in the plane perpendicular to the locked axis, and crossing the owner,
+this owner cannot really point at its target.</p>
+<p>Let us take the best real-world equivalent: a compass.
+It can rotate to point in the general direction of its target
+(the magnetic North, or a neighbor magnet), but it cannot point <em>directly at it</em>,
+because it spins like a wheel on an axle.
+If a compass is sitting on a table and there is a magnet directly above it,
+the compass cannot point to it. If we move the magnet more to one side of the compass,
+it still cannot point <em>at</em> the target,
+but it can point in the general direction of the target,
+and still obey its restrictions of the axle.</p>
+<p>When using a <em>Locked Track</em> constraint, you can think of the target as a magnet,
+and the owner as a compass.
+The <em>Lock</em> axis will function as the axle around which the owner spins,
+and the <em>To</em> axis will function as the compass’ needle.
+Which axis does what is up to you!</p>
+<p>If you have trouble understanding the buttons of this constraint, read the tooltips,
+they are pretty good. If you do not know where your object’s axes are,
+enable <em>Axis</em> in Properties ‣ Armature ‣ Viewport Display.
+Or, if you are working with bones, turn on the <em>Axes</em> in the armature’s <em>Viewport Display</em> panel.</p>
+<p>This constraint was designed to work cooperatively with the <em>Track To</em> constraint.
+If you set the axes buttons right for these two constraints,
+<em>Track To</em> can be used to point the axle at a primary target,
+and <em>Locked Track</em> can spin the owner around that axle to a secondary target.</p>
+<p>This constraint also works very well for 2D billboarding.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Locked track panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraints target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Track Axis</dt><dd><p>The tracking local axis, i.e. the owner’s axis to point at the target.
+The negative options force the relevant axis to point away from the target.</p>
+</dd>
+<dt>Locked Axis</dt><dd><p>The locked local axis, i.e. the owner’s axis which cannot be re-oriented to track the target.</p>
+</dd>
+</dl>
+<div>
+<p>Important</p>
+<p>If you choose the same axis for <em>Tracking Axis</em> and <em>Locked Axis</em>,
+the constraint will no longer be functional (red state).</p>
+</div>
+<dl>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

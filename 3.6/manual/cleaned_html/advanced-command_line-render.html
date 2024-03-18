@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Command Line &gt; Render</title></head>
+<body><ul>
+<li><a href="../index.html">Advanced</a></li>
+<li><a href="index.html">Command Line</a></li>
+<li>Command Line Rendering</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="command-line-rendering">
+<h1>Command Line Rendering</h1>
+<p>In some situations we want to increase the render speed,
+access Blender remotely to render something or build scripts that use the command line.</p>
+<p>One advantage of using the command line is that we do not need a graphical display
+(no need for X server on Linux for example)
+and consequently we can render via a remote shell (typically SSH).</p>
+<ul>
+<li><p>See <a href="arguments.html">Command Line Arguments</a>
+for a full list of arguments
+(for example to specify which scene to render, the end frame number, etc.), or simply run:</p></li>
+<li><p>See <a href="launch/index.html#command-line-launch-index">Command Line Launching</a>
+for specific instructions on launching Blender from the command line.</p></li>
+</ul>
+<div><div><pre>blender --help
+</pre></div>
+</div>
+<div>
+<p>Note</p>
+<p>Arguments are executed in the order they are given!</p>
+<p>The following command will not work, since the output and extension are set after Blender is told to render:</p>
+<div><div><pre>blender -b file.blend -a -x 1 -o //render
+</pre></div>
+</div>
+<p>The following command will behave as expected:</p>
+<div><div><pre>blender -b file.blend -x 1 -o //render -a
+</pre></div>
+</div>
+<p><strong>Always</strong> position <code>-f</code> or <code>-a</code> as the last arguments.</p>
+</div>
+<section id="single-image">
+<h2>Single Image</h2>
+<div><div><pre>blender -b file.blend -f 10
+</pre></div>
+</div>
+<dl>
+<dt><code>-b</code></dt><dd><p>Render in the background (without UI).</p>
+</dd>
+<dt><code>file.blend</code></dt><dd><p>Path to the blend-file to render.</p>
+</dd>
+<dt><code>-f 10</code></dt><dd><p>Render only the 10th frame.</p>
+</dd>
+</dl>
+<div><div><pre>blender -b file.blend -o /project/renders/frame_##### -F OPEN_EXR -f -2
+</pre></div>
+</div>
+<dl>
+<dt><code>-o /project/renders/frame_#####</code></dt><dd><p>Path of where to save the rendered image, using five padded zeros for the frame number.</p>
+</dd>
+<dt><code>-F OPEN_EXR</code></dt><dd><p>Override the image format specified in the blend-file and save to an OpenEXR image.</p>
+</dd>
+<dt><code>-f -2</code></dt><dd><p>Render only the second last frame.</p>
+</dd>
+</dl>
+<div>
+<p>Warning</p>
+<p>Arguments are case sensitive! <code>-F</code> and <code>-f</code> are not the same.</p>
+</div>
+</section>
+<section id="animation">
+<h2>Animation</h2>
+<div><div><pre>blender -b file.blend -a
+</pre></div>
+</div>
+<dl>
+<dt><code>-a</code></dt><dd><p>Render the whole animation using all the settings saved in the blend-file.</p>
+</dd>
+</dl>
+<div><div><pre>blender -b file.blend -E CYCLES -s 10 -e 500 -t 2 -a
+</pre></div>
+</div>
+<dl>
+<dt><code>-E CYCLES</code></dt><dd><p>Use the “Cycles Render” engine.
+For a list of available render engines, run <code>blender -E help</code>.</p>
+</dd>
+<dt><code>-s 10 -e 500</code></dt><dd><p>Set the start frame to <code>10</code> and the end frame to <code>500</code>.</p>
+</dd>
+<dt><code>-t 2</code></dt><dd><p>Use only two threads.</p>
+</dd>
+</dl>
+</section>
+<section id="cycles">
+<h2>Cycles</h2>
+<p>In addition to the options above, which apply to all render engines,
+Cycles has additional options to further control its behavior.</p>
+<div><div><pre>blender -b file.blend -f 20 -- --cycles-device CPU
+</pre></div>
+</div>
+<div>
+<p>Note</p>
+<p>Unlike the generic options, the Cycles-specific ones must be passed on
+the end of the command line, following a double dash.</p>
+</div>
+<dl>
+<dt><code>--cycles-device CPU</code></dt><dd><p>Override the device that is used to render frames.
+Currently supported options are <code>CPU</code>, <code>CUDA</code>, <code>OPTIX</code>, <code>HIP</code>, <code>ONEAPI</code>, and <code>METAL</code>.
+Additionally, you can append <code>+CPU</code> to any GPU type for hybrid rendering.</p>
+</dd>
+<dt><code>--cycles-print-stats</code></dt><dd><p>Show detailed statistics about memory and time usage for Cycles renders on the console.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

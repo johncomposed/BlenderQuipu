@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Editing &gt; Mask</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Mask</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mask">
+<h1>Mask</h1>
+<p>This page details the mask related shortcut operators and menu operators in sculpt mode.
+Other related information to masks can also be found at the bottom of the page.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>A</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Masks can be edited across all visible faces.
+Using <kbd>A</kbd> opens a pie menu to choose the most common operations.</p>
+<section id="invert-mask">
+<h2>Invert Mask</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Invert Mask</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>A</kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>I</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Inverts the visible mask.
+This is often useful when the masked vertices are the surfaces you want to sculpt/paint.
+In that case create a mask and then invert it.</p>
+</section>
+<section id="fill-mask">
+<h2>Fill Mask</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Fill Mask</p>
+</dd>
+</dl>
+</div>
+<p>Fully masks the visible geometry.
+Alternatively it is common to clear and then invert a mask via <kbd>A</kbd>
+to achieve the same effect.</p>
+</section>
+<section id="clear-mask">
+<h2>Clear Mask</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Clear Mask</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>A</kbd>, <kbd><kbd>Alt</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Removes the mask on all visible vertices.
+To completely remove the mask data, see <a href="#clear-sculpt-mask-data">Clear Sculpt-Mask Data</a>.</p>
+</section>
+<section id="box-mask">
+<h2>Box Mask</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Box Mask</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>B</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Works like the <a href="../tools/box_mask.html">Box Mask</a> tool,
+it creates a rectangular mask region.
+Hold <kbd>Shift</kbd> or press <kbd>MMB</kbd> to clear the mask of the selected region.</p>
+</section>
+<section id="lasso-mask">
+<h2>Lasso Mask</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Lasso Mask</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Can be used to create a free-form mask, similar to the
+<a href="../tools/box_mask.html">Lasso Mask</a> tool.
+This is very commonly used.</p>
+<div>
+<p>Tip</p>
+<p>To clear the mask of areas with the <em>Lasso Mask</em>, first invert the mask,
+use <em>Lasso Mask</em>, and then invert the mask back.</p>
+</div>
+</section>
+<section id="mask-filters">
+<h2>Mask Filters</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Smooth/Sharpen Mask, Grow/Shrink Mask, Increase/Decrease Contrast</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>A</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Similarly to other <a href="../introduction/filters.html">Filter Tools</a>,
+mask filters are operations that are applied to the whole mask.</p>
+<dl>
+<dt>Type</dt><dd><dl>
+<dt>Smooth/Sharpen Mask</dt><dd><p>Changes the sharpness of the mask edge.
+Using this can be faster and more consistent than smoothing the mask
+with the <a href="../tools/mask.html">Mask</a> brush.</p>
+</dd>
+<dt>Grow/Shrink Mask</dt><dd><p>Further grow or shrink the mask along the surface of the mesh.</p>
+</dd>
+<dt>Increase/Decrease Contrast</dt><dd><p>Changes the contrast of the mask.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>In the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel there are further options
+to add iterations for a stronger effect.</p>
+<dl>
+<dt>Iterations</dt><dd><p>The number of times the filter is applied.</p>
+</dd>
+<dt>Auto Iteration Count</dt><dd><p>Use an automatic number of iterations based on the number of vertices of the sculpt.
+Disable this option to set the Iterations manually.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>An alternative to Iterations is to use <a href="../../../interface/undo_redo.html#bpy-ops-screen-repeat-last">Repeat Last</a>
+via the shortcut <kbd><kbd>Shift</kbd>-<kbd>R</kbd></kbd>.</p>
+</div>
+</section>
+<section id="expand-mask">
+<h2>Expand Mask</h2>
+<div>
+<p>Note</p>
+<p>More info on Mask Expand along Topology at the <a href="expand.html#bpy-ops-sculpt-expand">Expand page</a>.</p>
+</div>
+</section>
+<section id="mask-extract">
+<h2>Mask Extract</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Mask Extract</p>
+</dd>
+</dl>
+</div>
+<p>Creates a duplicate mesh object based on masked geometry.
+The extracted geometry is also further processed by default for a cleaner result.</p>
+<dl>
+<dt>Threshold</dt><dd><p>Minimum mask value to consider the vertex valid to extract a face from the original mesh.</p>
+</dd>
+<dt>Add Boundary Loop</dt><dd><p>Creates and extra boundary loop on the edges of the geometry,
+making it easier smooth the boundaries and apply additional modifiers.</p>
+</dd>
+<dt>Smooth Iterations</dt><dd><p>Smooth iterations applied to the extracted mesh.</p>
+</dd>
+<dt>Project to Sculpt</dt><dd><p>Project the extracted mesh on to the original sculpt object.</p>
+</dd>
+<dt>Extract as Solid</dt><dd><p>Adds a <a href="../../../modeling/modifiers/generate/solidify.html">Solidify Modifier</a> to the newly created mesh object.</p>
+</dd>
+</dl>
+</section>
+<section id="mask-slice">
+<h2>Mask Slice</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Mask Slice</p>
+</dd>
+</dl>
+</div>
+<p>Removes the masked vertices from the mesh.</p>
+<dl>
+<dt>Threshold</dt><dd><p>Minimum mask value to consider the vertex valid to extract a face from the original mesh.</p>
+</dd>
+<dt>Fill Holes</dt><dd><p>Fills concave holes with geometry that might have resulted from the <em>Mask Slice</em> operation.</p>
+<div>
+<p>Tip</p>
+<p>If nothing is masked, this operation can be used to just fill all holes.
+Especially when using <a href="../tools/lasso_trim.html">Trim</a>
+tools and the <a href="../tool_settings/remesh.html">Voxel Remesher</a></p>
+</div>
+</dd>
+<dt>Slice to New Object</dt><dd><p>Create a new object from the masked geometry.</p>
+</dd>
+</dl>
+</section>
+<section id="mask-from-cavity">
+<h2>Mask From Cavity</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Mask from Cavity</p>
+</dd>
+</dl>
+</div>
+<p>Generates a mask based on the cavity of the surface. The settings of the operation can be changed
+in the <a href="../../../interface/undo_redo.html">Adjust Last Operation</a> panel.</p>
+<dl>
+<dt>Mode</dt><dd><p>Choose how the newly created mask is mixed with the existing one. By default it will replace the old mask via
+“Mix”.</p>
+</dd>
+<dt>Mix Factor</dt><dd><p>The factor of the mix effect. Choose how strong the new mask is applied on the existing one.</p>
+</dd>
+<dt>Automask Settings</dt><dd><p>The same settings as the <a href="../controls.html">Auto-Masking</a> settings are applied.</p>
+</dd>
+<dt>Factor</dt><dd><p>Same as <a href="../controls.html">Auto-Masking</a>.</p>
+</dd>
+<dt>Blur</dt><dd><p>Same as <a href="../controls.html">Auto-Masking</a>.</p>
+</dd>
+<dt>Invert</dt><dd><p>Same as <a href="../controls.html">Auto-Masking</a>.</p>
+</dd>
+<dt>Custom Curve</dt><dd><p>Same as <a href="../controls.html">Auto-Masking</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="random-mask">
+<h2>Random Mask</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Random Mask</p>
+</dd>
+</dl>
+</div>
+<p>Generates a mask with random values for the entire object based on different mesh data.</p>
+<dl>
+<dt>Per Vertex</dt><dd><p>Assigns a random mask value for each vertex.</p>
+</dd>
+<dt>Per Face Set</dt><dd><p>Assigns a random mask value for each <a href="face_sets.html">Face Set</a>.</p>
+</dd>
+<dt>Per Loose Mask</dt><dd><p>Assigns a random mask value for each disjoint part of the mesh.</p>
+</dd>
+</dl>
+</section>
+<section id="display-settings">
+<h2>Display Settings</h2>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Popover:</dt>
+<dd><p>Viewport Overlays – Sculpt ‣ Mask</p>
+</dd>
+</dl>
+</div>
+<p>The mask display can be toggled as a <a href="../../../editors/3dview/display/overlays.html">viewport overlay</a>.
+In the overlay popover, the opacity of the mask overlay can be adjusted to make it more or less visible on the mesh.</p>
+</section>
+<section id="clear-sculpt-mask-data">
+<h2>Clear Sculpt-Mask Data</h2>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object/Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Properties ‣ Object Data ‣ Geometry Data ‣ Clear Sculpt-Mask Data</p>
+</dd>
+</dl>
+</div>
+<p>Completely frees the mask data layer from the mesh. While not a huge benefit,
+this can speed-up sculpting if the mask is no longer being used.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

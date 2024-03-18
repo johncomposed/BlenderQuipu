@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Draw</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Draw</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="draw">
+<h1>Draw</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Draw</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Moves vertices inward or outward, based the average vertex normals within the brush radius.
+This is a very default behavior for sculpting and can be used in most cases.</p>
+<p>It is common to use this particular brush with heavy customization for creating many custom brushes.</p>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<div>
+<p>Note</p>
+<p>More info at <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-general">General</a> brush settings
+and on <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-advanced">Advanced</a> brush settings.</p>
+</div>
+</section>
+<section id="vdm-displacement">
+<h2>VDM Displacement</h2>
+<p><em>Vector Displacement Maps</em> are supported for the <em>Draw</em> brush to insert complex &amp; overhanging shapes.
+Unlike regular displacement, this uses all 3 color channels of the image
+to displace geometry in three directions instead of just one.</p>
+<figure id="id2">
+<figcaption>
+<p>An example of various VDM brushes used on a smooth head from the offical demo file.</p>
+</figcaption>
+</figure>
+<p>For easy creation of VDM brushes, enable the <a href="../../../addons/baking/vdm_brush_baker.html">VDM Brush Baker</a> addon.
+<a href="https://www.blender.org/download/demo-files/#sculpting">Download the demo file</a>
+for more information and to try the feature out.</p>
+<p>To use this feature, enable <a href="../../brush/texture.html#bpy-types-brush-use-color-as-displacement">Vector Displacement</a> in the texture
+panel. All <a href="../../brush/stroke.html#bpy-types-brush-stroke-method">stroke methods</a> are supported, but the recommended behavior is
+<em>Anchored</em>.</p>
+<p>Ideal images for vector displacement are open EXR files
+with <a href="../../../render/materials/legacy_textures/colors.html">color clamping</a> disabled.</p>
+<div>
+<p>Note</p>
+<p>This feature is only supported with Area Plane mapping.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

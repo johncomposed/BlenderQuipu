@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Output &gt; Levels</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Output Nodes</a></li>
+<li>Levels Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="levels-node">
+<h1>Levels Node</h1>
+<p>The Levels Node read the input color channels and outputs analytical values.
+The output is one-dimensional meaning the visualization will be a uniform gray color.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Channel</dt><dd><p>Selects which color values are used to calculate analytics.</p>
+<dl>
+<dt>Combined:</dt>
+<dd><p>Calculate values based on the red, green, and blue channels.</p>
+</dd>
+<dt>Red:</dt>
+<dd><p>Calculate values based on the red channel.</p>
+</dd>
+<dt>Green:</dt>
+<dd><p>Calculate values based on the green channel.</p>
+</dd>
+<dt>Blue:</dt>
+<dd><p>Calculate values based on the blue channel.</p>
+</dd>
+<dt>Luminance:</dt>
+<dd><p>Calculate values based on the <a href="../../../glossary/index.html#term-Luminance">Luminance</a> of the image.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mean</dt><dd><p>The mean is the average value of all image pixels in specified channel.
+It represents the overall brightness of the image and can be used as such
+for setups that depend on how “bright” or “dark” the input is.</p>
+</dd>
+<dt>Standard Deviation</dt><dd><p>How much pixel values differ from the mean.
+A low standard deviation indicates that the pixel values tend to be very close to the mean.
+A high standard deviation indicates that the values are spread out over a large range of values.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

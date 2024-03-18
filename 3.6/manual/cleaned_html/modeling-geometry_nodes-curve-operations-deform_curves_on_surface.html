@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Operations &gt; Deform Curves On Surface</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Operation Nodes</a></li>
+<li>Deform Curves on Surface Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="deform-curves-on-surface-node">
+<h1>Deform Curves on Surface Node</h1>
+<p>The <em>Deform Curves on Surface</em> node translates and rotates each curve based on the
+difference in its root position. The root position is defined by UV coordinates stored
+on each curve and the <a href="../../../../glossary/index.html#term-UV-Map">UV Map</a> selected for the purpose in the
+<a href="../../../curves/primitives.html#bpy-types-curves-surface">Curves surface settings</a>.</p>
+<p>The transformation is calculated based on the difference of the original mesh
+(before shape keys and modifiers are evaluated), and the final mesh.</p>
+<p>Unlike other geometry nodes, this node has quite a few implicit inputs:</p>
+<ul>
+<li><p>The original and evaluated mesh are retrieved from the modifier object’s <a href="../../../curves/primitives.html#bpy-types-curves-surface">surface</a>
+property. This means the node only works for curves objects.</p></li>
+<li><p>The original and evaluated UV map are also retrieved from the object’s surface property.</p></li>
+<li><p>A 3D vector attribute named <code>rest_position</code>, used for calculating tangents for rotating
+curves that are consistent with the tangents calculated on the original mesh (the rotation
+needs to be calculated from the normal and tangent of the original and evaluated meshes).</p></li>
+<li><p>A 2D vector attribute on the curve domain named <code>surface_uv_coordinate</code> to store the
+location of the root positions on the surface mesh’s UV map.</p></li>
+</ul>
+<p>In future development, this node will be generalized so the setup is more flexible.</p>
+<p>Parts of the internal operation are similar to the <a href="../../mesh/sample/sample_uv_surface.html">Sample UV Surface Node</a>.</p>
+<div>
+<p>Warning</p>
+<p>In order to achieve consistent deformation after the <a href="../../../modifiers/generate/subdivision_surface.html">Subdivision Surface Modifier</a>,
+the <em>UV Smooth</em> option of the modifier should be set to <em>None</em>. Otherwise the surface UV map will
+be subdivided in a way that may invalidate the curve UV attachement points stored in the
+<code>surface_uv_coordinate</code> attribute.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curves</dt><dd><p>Standard curves input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curves</dt><dd><p>Standard curves output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

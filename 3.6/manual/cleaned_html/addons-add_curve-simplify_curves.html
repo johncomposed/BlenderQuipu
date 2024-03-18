@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Add Curve &gt; Simplify Curves</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Add Curve</a></li>
+<li>Simplify Curves</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="simplify-curves">
+<h1>Simplify Curves</h1>
+<p>The Simplify Curves tool works on a single selected curve object.
+It generates a new curve based on the original one.
+The higher the <em>Distance Error</em> threshold is set the more control points are removed.</p>
+<p>The Simplify F-Curves tool works the same way, but on selected F-Curves.</p>
+<p><em>Merge by Distance</em> tool glues nearby points on a single Bézier curve.
+In fact it is an analog of the usual <em>Merge by Distance</em> on a mesh, but for curves.
+Unlike the mesh one, it does not connect the points from different parts of the curves,
+even if they are on the ends of the two curves.
+To glue such points, you must first connect them with <em>Make Segment</em>.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Add Curve then Simplify Curves to enable the script.</p></li>
+</ul>
+</section>
+<section id="interface">
+<h2>Interface</h2>
+<p>The <em>Merge By Distance</em> and <em>Curve Simplify</em> buttons are located in
+the 3D Viewport ‣ Curve Context Menu in curve Edit Mode.</p>
+<p>The <em>Simplify F-Curves</em> tool can be accessed by enabling <a href="../../editors/preferences/interface.html#prefs-interface-dev-extras">Developer Extras</a>
+and using the <a href="../../interface/controls/templates/operator_search.html#bpy-ops-wm-search-menu">Menu Search</a> to search for “Simplify F-Curves” in the Dope Sheet or Graph Editor.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Add Curve</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Simplify curves in the 3D Viewport, and Dope Sheet, merge by distance in 3D Viewport.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport ‣ Add ‣ Curve ‣ Curve Simplify,
+Dope Sheet and Graph editors ‣ Channel ‣ Simplify F-Curves</p>
+</dd>
+<dt>File:</dt>
+<dd><p>curve_simplify.py</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>testscreenings, Michael Soluyanov</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>To Do</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

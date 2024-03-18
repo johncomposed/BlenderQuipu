@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Vertex &gt; Make Face Edge</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Vertex Tools</a></li>
+<li>New Edge/Face from Vertices</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="new-edge-face-from-vertices">
+<h1>New Edge/Face from Vertices</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Vertex ‣ New Edge/Face from Vertices</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>F</kbd></p>
+</dd>
+</dl>
+</div>
+<p>This is a context-sensitive tool which creates geometry by filling in the selection.
+When only two vertices are selected it will create an edge, otherwise it will create faces.</p>
+<p>The typical use case is to select vertices and press <kbd>F</kbd>,
+yet Blender also supports creating faces from different selections to help to
+quickly build up geometry.</p>
+<section id="methods">
+<h2>Methods</h2>
+<p>The following methods are used automatically depending on the context.</p>
+<section id="isolated-vertices">
+<h3>Isolated Vertices</h3>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>After.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="isolated-edges">
+<h3>Isolated Edges</h3>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>After.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="n-gon-from-edges">
+<h3>N-gon from Edges</h3>
+<p>When there are many edges Blender will make an n-gon.
+Note that, this does not support holes,
+to support holes you need to use the <a href="../face/fill.html#modeling-meshes-editing-fill">Fill</a> Faces tool.</p>
+<table>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>After.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mixed-vertices-edges">
+<h3>Mixed Vertices/Edges</h3>
+<p>Existing edges are used to make the face as well as an extra vertex.</p>
+<table>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>After.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="edge-net">
+<h3>Edge-Net</h3>
+<p>Sometimes you may have many connected edges without interior faces.</p>
+<table>
+<tbody>
+<tr><td><figure id="id10">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>After.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="point-cloud">
+<h3>Point Cloud</h3>
+<p>When there are many isolated vertices,
+Blender will calculate the edges for an n-gon.</p>
+<table>
+<tbody>
+<tr><td><figure id="id12">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id13">
+<figcaption>
+<p>After.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="single-vertex-selection">
+<h3>Single Vertex Selection</h3>
+<p>With a single vertex selected on a boundary,
+the face will be created along the boundary,
+this saves manually selecting the other two vertices.
+Notice this tool can run multiple times to continue creating faces.</p>
+<div>
+<p>See also</p>
+<p>For other ways to create faces see:</p>
+<ul>
+<li><p><a href="../face/fill.html#modeling-meshes-editing-fill">Fill</a></p></li>
+<li><p><a href="../face/grid_fill.html#modeling-meshes-editing-grid-fill">Grid Fill</a></p></li>
+<li><p><a href="../edge/bridge_edge_loops.html#modeling-meshes-editing-bridge-edge-loops">Bridge Edge Loops</a></p></li>
+</ul>
+</div>
+</section>
+<section id="dissolve-existing-faces">
+<h3>Dissolve Existing Faces</h3>
+<p>When you have a region of existing faces, creating a face on this selection
+will remove the shared vertices and edges, creating a single face.</p>
+<p>This is simply a convenience for accessing <a href="../mesh/delete.html#bpy-ops-mesh-dissolve-faces">Dissolve Faces</a>.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

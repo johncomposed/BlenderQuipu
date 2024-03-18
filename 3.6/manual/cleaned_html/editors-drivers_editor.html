@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Drivers Editor</title></head>
+<body><ul>
+<li><a href="index.html">Editors</a></li>
+<li>Drivers Editor</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="drivers-editor">
+<h1>Drivers Editor</h1>
+<p>The Drivers Editor allows users to drive one property with another.
+See <a href="../animation/drivers/index.html">Drivers</a> and <a href="graph_editor/fcurves/introduction.html">F-Curves</a>.</p>
+<figure id="id1">
+<figcaption>
+<p>The Drivers Editor.</p>
+</figcaption>
+</figure>
+<section id="main-region">
+<h2>Main Region</h2>
+<p>The main view allows you to view and edit Driver F-Curves.
+An F-Curve has several key parts:</p>
+<dl>
+<dt>Axes</dt><dd><p>The curve defines the relationship between two properties:
+The current (driven) property (Y axis) and the driver (X axis).</p>
+<p>See <a href="graph_editor/fcurves/index.html">F-Curves</a>.</p>
+</dd>
+<dt>Handles</dt><dd><p>Each point on the driver curve has a handle that helps determine the relationship between the two values.
+They can be selected and modified to change the shape of the curve.</p>
+<p>See <a href="graph_editor/fcurves/properties.html#editors-graph-fcurves-settings-handles">F-Curve Handles</a> for more information.</p>
+</dd>
+</dl>
+<figure id="id2">
+<figcaption>
+<p>A simple driver.</p>
+</figcaption>
+</figure>
+<div>
+<p>See also</p>
+<p>See <a href="graph_editor/fcurves/introduction.html">F-Curves</a> for more info.</p>
+</div>
+<section id="navigation">
+<h3>Navigation</h3>
+<p>As with most editors, you can:</p>
+<dl>
+<dt>Pan <kbd>MMB</kbd></dt><dd><p>Pan the view vertically (values) or horizontally (time) with click and drag <kbd>MMB</kbd>.</p>
+</dd>
+<dt>Zoom <kbd>Wheel</kbd></dt><dd><p>Zoom in and out with the mouse wheel.</p>
+</dd>
+<dt>Scale View <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd></dt><dd><p>Scale the view vertically or horizontally.</p>
+</dd>
+<dt>Frame All <kbd>Home</kbd></dt><dd><p>Fit the curve in the available space.</p>
+</dd>
+</dl>
+<p>In addition, you can also use the scrollbars to pan and zoom the view.</p>
+</section>
+</section>
+<section id="header">
+<h2>Header</h2>
+<section id="view-controls">
+<h3>View Controls</h3>
+<figure id="id3">
+<figcaption>
+<p>View controls.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Normalize</dt><dd><p>Normalize curves so the maximum and minimum points equal 1.0 and -1.0 respectively.</p>
+<dl>
+<dt>Auto</dt><dd><p>Automatically recalculate curve normalization on every curve edit.
+Disabling this setting may be useful to prevent curves from jumping after tweaking.</p>
+</dd>
+</dl>
+</dd>
+<dt>Show Only Selected (mouse cursor icon)</dt><dd><p>Only include curves related to the selected objects and data.</p>
+</dd>
+<dt>Show Hidden (dashed object icon)</dt><dd><p>Include curves from objects/bones that are not visible.</p>
+</dd>
+<dt>Show Only Errors (warning triangle icon)</dt><dd><p>Only include curves and drivers that are disabled or have errors.
+Useful for debugging.</p>
+</dd>
+<dt>Create Ghost Curves (square with curve icon)</dt><dd><p>Makes a visual indication in the background of the editor
+with a snapshot of the current state of the selected curves.
+This is useful to have a base for comparison on top of which to make edits.</p>
+</dd>
+<dt>Filter (funnel icon)</dt><dd><dl>
+<dt>Type Filter</dt><dd><p>Filter curves by property type.</p>
+</dd>
+<dt>Sort Data-Blocks (az icon)</dt><dd><p>Object data-blocks appear in alphabetical order, so that it is easier to find where they occur
+(as well as helping to keep the animation of related objects together).</p>
+<p>This option may affect the playback speed for heavy scenes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="curve-controls">
+<h3>Curve Controls</h3>
+<figure id="id4">
+<figcaption>
+<p>Curve controls.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Pivot Point</dt><dd><p>Pivot point for rotation.</p>
+<dl>
+<dt>Bounding Box Center</dt><dd><p>Center of the selected curve handles.</p>
+</dd>
+<dt>2D Cursor</dt><dd><p>Center of the <em>2D Cursor</em>. <em>Playhead</em> + <em>Cursor</em>.</p>
+</dd>
+<dt>Individual Centers</dt><dd><p>Rotate the selected curve handles.</p>
+</dd>
+</dl>
+</dd>
+<dt>Auto Snap</dt><dd><p>Auto snap the curve handles when editing.</p>
+<ul>
+<li><p>No Auto-Snap</p></li>
+<li><p>Frame Step</p></li>
+<li><p>Second Step</p></li>
+<li><p>Nearest Frame</p></li>
+<li><p>Nearest Second</p></li>
+<li><p>Nearest Marker</p></li>
+</ul>
+</dd>
+<dt>Proportional Editing <kbd>O</kbd></dt><dd><p>See <a href="3dview/controls/proportional_editing.html">Proportional Editing</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="sidebar-region">
+<h2>Sidebar Region</h2>
+<section id="drivers-tab">
+<h3>Drivers Tab</h3>
+<p>See <a href="../animation/drivers/drivers_panel.html">Drivers Panel</a>.</p>
+</section>
+<section id="modifiers-tab">
+<h3>Modifiers Tab</h3>
+<p>See <a href="graph_editor/fcurves/modifiers.html">F-Curve Modifiers</a>.</p>
+</section>
+<section id="view-properties-panel">
+<h3>View Properties Panel</h3>
+<figure id="id5">
+<figcaption>
+<p>View Properties panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Show Cursor</dt><dd><p>Show the vertical <em>Cursor</em>.</p>
+</dd>
+<dt>Cursor from Selection</dt><dd><p>Set the <em>2D cursor</em> to the center of the selected curve handles.</p>
+</dd>
+<dt>Cursor X</dt><dd><p><em>Time Cursor</em> X position.</p>
+</dd>
+<dt>Cursor Y</dt><dd><p>Vertical <em>Cursor</em> Y position.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

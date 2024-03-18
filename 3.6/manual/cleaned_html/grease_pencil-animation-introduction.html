@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Animation &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Animation</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<section id="animating-with-grease-pencil">
+<h2>Animating with Grease Pencil</h2>
+<p>The main goal of Grease Pencil is to offer a 2D animation tool full immersed in a 3D environment.</p>
+<figure id="id1">
+<figcaption>
+<p>Sample animation showing Grease Pencil object keyframes in the Dope Sheet with onion skinning enabled.</p>
+</figcaption>
+</figure>
+<p>In Blender, Grease Pencil objects can be animated in many ways:</p>
+<dl>
+<dt>Moving as a whole object</dt><dd><p>Changing their position, orientation or size in time;</p>
+</dd>
+<dt>Drawing frame by frame</dt><dd><p>Drawing one frame at a time (traditional animation).</p>
+</dd>
+<dt>Deforming them</dt><dd><p>Animating their points;</p>
+</dd>
+<dt>Inherited animation</dt><dd><p>Causing the object to move based on the movement of another object
+(e.g. its parent, hook, armature, etc.). Useful for cut-out animation for example.</p>
+</dd>
+</dl>
+<p>For a complete overview of animation in Blender please refer to
+the <a href="../../animation/index.html">Animation &amp; Rigging</a> chapter.</p>
+</section>
+<section id="d-traditional-animation">
+<h2>2D Traditional Animation</h2>
+<section id="keyframes">
+<h3>Keyframes</h3>
+<p>Traditional animation in Grease Pencil is achieved with the use of
+<a href="../../animation/keyframes/introduction.html">keyframes</a>
+that hold the strokes information at a particular frame or frame range.</p>
+<p>With <a href="../../editors/timeline.html#bpy-types-toolsettings-use-keyframe-insert-auto">Auto keyframe</a> activated,
+every time you create a stroke in Grease Pencil object Draw Mode
+a new keyframe is added at the current frame on the active channel.
+With Auto keyframe deactivated, you will have to add manually
+a new keyframe or your new strokes will be added on the active keyframe.</p>
+<p>See <a href="../../animation/keyframes/editing.html">Keyframe Editing</a> for more information.</p>
+<div>
+<p>Note</p>
+<p>The channels in the Dope Sheet correspond to the active 2D layer of the Grease Pencil object.</p>
+</div>
+<p>Grease Pencil has its own mode in the Dope Sheet to work with keyframes.
+See Grease Pencil mode in the <a href="../../editors/dope_sheet/grease_pencil.html">Dope Sheet</a>
+section for more information.
+There are also several tools on the Stroke menu to work with keyframes and strokes.
+See <a href="tools.html">Animation tools</a> for more information.</p>
+</section>
+<section id="onion-skinning">
+<h3>Onion Skinning</h3>
+<p>One key element in traditional animation is the use of onion skinning.
+Grease Pencil offer a lot of flexibility and options for this tool.
+See <a href="../properties/onion_skinning.html">Onion Skinning</a> for more information.</p>
+</section>
+</section>
+<section id="animation-options">
+<h2>Animation Options</h2>
+<section id="draw-mode">
+<h3>Draw Mode</h3>
+<p>In Draw Mode there are three options related to the animation workflow that you can use.</p>
+<figure id="id2">
+<figcaption>
+<p>General drawing/animation options.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Add Weight Data</dt><dd><p>When enabled, new strokes weight data is added according to the current vertex group and weights.
+If there is no vertex group selected, no weight data is added.</p>
+<p>This is useful for example in cut-out animation for adding new drawing
+on the same vertex group without the need to creating it afterwards.</p>
+<p>See <a href="../modes/weight_paint/introduction.html">Weight Paint Mode</a> for more information.</p>
+</dd>
+<dt>Additive Drawing</dt><dd><p>When creating new frames, the strokes from the previous/active frame are include as a basis for the new one.</p>
+</dd>
+<dt>Multiframe</dt><dd><p>If you need to add new strokes to your animation on several frames you can use multiframe drawing.</p>
+<p>You can activate multiframe drawing with the Multiframe button next to the modes selector (faded lines icon).
+See <a href="../multiframe.html">Multiframe</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="edit-mode">
+<h3>Edit Mode</h3>
+<p>In Edit Mode there is an option related to the animation workflow that you can use.</p>
+<figure id="id3">
+<figcaption>
+<p>Multiframe edition.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Multiframe</dt><dd><p>Sometimes you may need to modify several frames at the same time with edit tools,
+for example to repositioning drawings in an animation.</p>
+<p>You can activate multiframe edition with the Multiframe button next to the modes selector (faded lines icon).
+See <a href="../multiframe.html">Multiframe</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<section id="traditional-animation">
+<h3>Traditional Animation</h3>
+<p>This example shows you how to animate a bouncing ball
+with a traditional 2D animation technique and Grease Pencil.</p>
+<p>First, go to menu File ‣ New ‣ 2D Animation to start with a new 2D animation template.
+The template is ready to quick start your animation with a Grease Pencil object already created,
+Onion Skinning activated, Auto Keyframe enabled and in camera view.</p>
+<ol>
+<li><p>Set the range of the animation in the Timeline from 1 to 24.</p></li>
+<li><p>In the 3D Viewport draw a ball on the upper left corner with the Draw Tool (extreme).</p></li>
+<li><p>Move to frame 12 and draw a squashed ball in the bottom center (breakdown).</p></li>
+<li><p>Move to frame 24 and draw a ball in the top right corner of the 3D Viewport (extreme).</p></li>
+<li><p>Keep drawing all the in-between frames you want using the onion skinning ghost as a reference.</p></li>
+</ol>
+<p>To test the animation, press <kbd>Spacebar</kbd> to play.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

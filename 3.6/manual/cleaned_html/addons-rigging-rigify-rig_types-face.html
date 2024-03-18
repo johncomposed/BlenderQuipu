@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Rigging &gt; Rigify &gt; Rig Types &gt; Face</title></head>
+<body><ul>
+<li><a href="../../../index.html">Add-ons</a></li>
+<li><a href="../../index.html">Rigging</a></li>
+<li><a href="../index.html">Rigify</a></li>
+<li><a href="index.html">Rig Types</a></li>
+<li>Face</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="face">
+<h1>Face</h1>
+<p>These rig types implement components of a modular face.</p>
+<section id="face-basic-tongue">
+<h2><code>face.basic_tongue</code></h2>
+<p>Generates a simple tongue, extracted from the original PitchiPoy <code>super_face</code> rig.</p>
+<dl>
+<dt>B-Bone Segments (integer)</dt><dd><p>Defines the number of b-bone segments each tweak control will be split into.</p>
+</dd>
+<dt>Primary Control Layers</dt><dd><p>Optionally specifies layers for the main control.</p>
+</dd>
+</dl>
+</section>
+<section id="face-skin-eye">
+<h2><code>face.skin_eye</code></h2>
+<p>Implements a skin system <a href="skin.html#rigify-rigs-skin-skin-parents">parent controller</a> that manages
+two skin chains for the top and bottom eyelids in addition to generating the eye rotation mechanism.</p>
+<p>The rig must have two child skin chains with names tagged with <code>.T</code> and <code>.B</code> symmetry
+to mark the top and bottom eyelid, which are connected at their ends forming eye corners.
+The chains are rigged to follow the surface of the eye and twist to its normal.</p>
+<p>In addition, it creates target controls for aiming the eye, including a master control shared by
+all eyes under the same parent rig. The eyelids are rigged to follow the movement of the eyeball
+with adjustable influence.</p>
+<dl>
+<dt>Eyeball and Iris Deforms</dt><dd><p>Generates deform bones for the eyeball and the iris, the latter copying XZ scale from
+the eye target control. The iris is located at the tail of the ORG bone.</p>
+</dd>
+<dt>Eyelid Detach Option</dt><dd><p>Generates a slider to disable the mechanism that keeps eyelid controls stuck to the surface of the eye.</p>
+</dd>
+<dt>Split Eyelid Follow Slider</dt><dd><p>Generates two separate sliders for controlling the influence of the eye rotation on X and Z eyelid motion.</p>
+</dd>
+<dt>Eyelids Follow Default</dt><dd><p>Depending on <em>Split Eyelid Follow Slider</em>, specifies the default values for the split follow sliders,
+or fixed factors to be multiplied with the single common follow influence slider value.</p>
+</dd>
+</dl>
+</section>
+<section id="face-skin-jaw">
+<h2><code>face.skin_jaw</code></h2>
+<p>Implements a skin system <a href="skin.html#rigify-rigs-skin-skin-parents">parent controller</a> that manages
+one or more loops of mouth skin chains in response to the movement of jaw and mouth controls.</p>
+<p>The rig must have one or more child chain loops, each formed by four skin chains tagged
+with <code>.T</code>/<code>.B</code> and <code>.L</code>/<code>.R</code> symmetrical names.</p>
+<p>The lip loops are sorted into layers based on the distance from corners to the common
+center and rigged with blended influence of the jaw and the master mouth control.
+Other child rigs become children of the jaw.</p>
+<dl>
+<dt>Bottom Lip Influence</dt><dd><p>Specifies the influence of the jaw on the inner bottom lip with mouth lock disabled.</p>
+</dd>
+<dt>Locked Influence</dt><dd><p>Specifies the influence of the jaw on both lips of locked mouth.</p>
+</dd>
+<dt>Secondary Influence Falloff</dt><dd><p>Specifies the factor by which influence fades away with each successive lip loop
+(for bottom lip loops the blend moves away from inner bottom lip to full jaw influence).</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

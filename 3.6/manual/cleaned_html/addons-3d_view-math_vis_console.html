@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Math Vis Console</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">3D View</a></li>
+<li>Math Vis Console</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="math-vis-console">
+<h1>Math Vis Console</h1>
+<p>Sometimes when writing Python scripts you stumble on complicated
+matrix transformations, ray intersections, rotation conversions, mesh modifications, etc.
+where its useful to view lines, points and matrices in the viewport to better understand the problem.</p>
+<p>Creating mesh data for this purpose isn’t difficult but is cumbersome.
+The purpose of this add-on is to make it as quick and easy as possible.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click 3D View then Math Vis (Console) to enable the script.</p></li>
+</ul>
+</section>
+<section id="instructions">
+<h2>Instructions</h2>
+<p>Math Vis works by displaying Python Console defined mathutils typed variables in the 3D Viewport.</p>
+<p>The following types are supported:</p>
+<ul>
+<li><p>Point: <code>Vector(...)</code></p></li>
+<li><p>Line: <code>[Vector(...), Vector(...), ...]</code></p></li>
+<li><p>Transformation: <code>Matrix(...)</code></p></li>
+<li><p>Transformations (without translation): <code>Quaternion(...)</code>/ <code>Euler(...)</code></p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>Create a Python Console editor.
+In the Python Console define a mathutils variable:</p>
+<div><div><pre>hello_world = Vector((1, 2, 3))
+</pre></div>
+</div>
+<p>You should now be able to see this point in the 3D Viewport!</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>3D View</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Display console defined mathutils variables in the 3D Viewport.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Properties ‣ Scene ‣ Python Console Menu</p>
+</dd>
+<dt>File:</dt>
+<dd><p>space_view3d_math_vis.py</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Campbell Barton</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>Campbell Barton</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Official</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

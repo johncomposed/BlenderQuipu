@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Subdivision Surface</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Subdivision Surface Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="subdivision-surface-modifier">
+<h1>Subdivision Surface Modifier</h1>
+<p>The <em>Subdivision Surface</em> modifier (often shorten to “Subdiv”)
+is used to split the faces of a mesh into smaller faces, giving it a smooth appearance.
+It enables you to create complex smooth surfaces while modeling simple, low-vertex meshes.
+It avoids the need to save and maintain huge amounts of data,
+and gives a smooth “organic” look to the object.</p>
+<p>As with any modifier, order of execution (position in the <a href="../introduction.html#modifier-stack">modifier stack</a>)
+has an important bearing on the results.</p>
+<p>Keep in mind that this is a different operation than its companion,
+<a href="../../meshes/editing/mesh/shading.html#modeling-meshes-editing-normals-shading">Smooth Shading</a>.
+You can see the difference between the two in the grid image below.</p>
+<figure id="id1">
+<figcaption>
+<p>Subdivision levels 0 to 3, without and with Smooth Shading.</p>
+</figcaption>
+</figure>
+<div>
+<p>Tip</p>
+<p>The <em>Subdivision Surface</em> modifier does not allow you to edit the new subdivided geometry without applying it,
+but the <a href="multiresolution.html">Multiresolution</a> modifier does (in Sculpt Mode).</p>
+</div>
+<div>
+<p>Note</p>
+<p>This modifier uses
+the <a href="https://graphics.pixar.com/opensubdiv/docs/intro.html">OpenSubdiv library</a> as a backend.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id2">
+<figcaption>
+<p>The Subdivision Surface modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Catmull-Clark</dt><dd><p>Subdivides and smooths the surfaces to create a more pleasant looking mesh.
+According to its <a href="https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface">Wikipedia page</a>,
+the “arbitrary-looking formula was chosen by Catmull and Clark based on the aesthetic appearance of
+the resulting surfaces rather than on a mathematical derivation.”</p>
+</dd>
+<dt>Simple</dt><dd><p>Only subdivides the surfaces, this often does not provide any smoothing
+unless the surface is <a href="../../../glossary/index.html#term-Coplanar">non-coplanar</a>
+(the same as the <a href="../../meshes/editing/edge/subdivide.html#bpy-ops-mesh-subdivide">Subdivide</a> operator, in Edit Mode).
+To work around this behavior for non-coplanar geometry,
+<a href="triangulate.html">triangulate</a> to ensure all geometry is coplanar.</p>
+<p>Simple mode can be used, for example, to increase the base mesh resolution when using displacement maps.</p>
+</dd>
+<dt>Levels Viewport, Render</dt><dd><p>The number of subdivision levels shown in the 3D Viewport or the final render.</p>
+<div>
+<p>Warning</p>
+<p>Higher levels of subdivisions results in more vertices, which means higher memory consumption
+(both system RAM, and video memory for display).
+This can cause Blender to hang or crash if not enough memory is available.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>The right combination of these settings will allow you to keep a fast and lightweight approximation of
+your model when interacting with it in the 3D Viewport, but use a higher quality version when rendering.</p>
+<p>Be careful not to set the <em>Viewport</em> subdivisions higher than the <em>Render</em> subdivisions,
+this would mean that the quality in the 3D Viewport will be higher than the rendered.</p>
+</div>
+</dd>
+<dt>Optimal Display</dt><dd><p>When rendering the wireframe of this object, the wires of the new subdivided edges will be skipped
+(only displays the edges of the original geometry).</p>
+</dd>
+</dl>
+<section id="advanced">
+<h3>Advanced</h3>
+<dl>
+<dt>Use Limit Surface</dt><dd><p>Places vertices at the surface that would be produced with infinite
+levels of subdivision (smoothest possible shape).</p>
+</dd>
+<dt>Quality</dt><dd><p>When <em>Use Limit Surface</em> is enabled this property controls
+how precisely vertices are positioned on the limit surface
+(relatively to their theoretical position of an infinitely subdivided mesh).
+It can be lowered to get a better performance.</p>
+<p>Using higher values does not necessarily mean real improvement in quality,
+ideal results might be reached well before the maximum <em>Quality</em> value.</p>
+<div>
+<p>Note</p>
+<p>This value can affect the accuracy of <a href="#modifiers-generate-subsurf-creases">Edge Creases</a>;
+using a higher <em>Quality</em> value will allow for a wider range of crease values to work accurately.</p>
+</div>
+</dd>
+<dt>UV Smooth</dt><dd><p>Controls how subdivision smoothing is applied to UVs.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>UVs remain unchanged.</p>
+</dd>
+<dt>Keep Corners:</dt>
+<dd><p>UV islands are smoothed, but their boundary remain unchanged.</p>
+</dd>
+<dt>Keep Corners, Junctions:</dt>
+<dd><p>UVs are smoothed, corners on discontinuous boundary and junctions of three or more regions are kept sharp.</p>
+</dd>
+<dt>Keep Corners, Junctions, Concave:</dt>
+<dd><p>UVs are smoothed, corners on discontinuous boundary,
+junctions of three or more regions and darts and concave corners are kept sharp.</p>
+</dd>
+<dt>Keep Boundaries:</dt>
+<dd><p>UVs are smoothed, boundaries are kept sharp.</p>
+</dd>
+<dt>All:</dt>
+<dd><p>UVs and their boundaries are smoothed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Boundary Smooth</dt><dd><p>Controls how open boundaries (and corners) are smoothed.</p>
+<dl>
+<dt>All:</dt>
+<dd><p>Smooth boundaries, including corners.</p>
+</dd>
+<dt>Keep Corners:</dt>
+<dd><p>Smooth boundaries, but corners are kept sharp.</p>
+</dd>
+</dl>
+</dd>
+<dt>Use Creases</dt><dd><p>Use the <a href="#modifiers-generate-subsurf-creases">Weighted Edge Creases</a> values stored in edges to control how smooth they are made.</p>
+</dd>
+<dt>Use Custom Normals</dt><dd><p>Interpolates existing <a href="../../meshes/structure.html#modeling-meshes-normals-custom">Custom Split Normals</a> of the resulting mesh.
+Otherwise, new faces will have the overall normal orientation of that original face.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="keyboard-shortcuts">
+<h2>Keyboard Shortcuts</h2>
+<p>To quickly add a <em>Subdivision Surface</em> modifier to one or more objects, select the object(s) and press <kbd><kbd>Ctrl</kbd>-<kbd>1</kbd></kbd>.
+That will add a Subdivision Surface modifier with <em>Viewport</em> subdivisions set to 1.
+You can use other numbers too, such as <kbd><kbd>Ctrl</kbd>-<kbd>2</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>3</kbd></kbd>, etc,
+to add a modifier with that number of subdivisions.
+Adding a <em>Subdivision Surface</em> modifier in this fashion will not modify the <em>Render</em> subdivisions.</p>
+<p>If an object already has a <em>Subdivision Surface</em> modifier,
+doing this will simply change its subdivision level instead of adding another modifier.</p>
+</section>
+<section id="control">
+<h2>Control</h2>
+<p>Catmull-Clark subdivision rounds off edges, and often this is not what you want.
+There are several solutions that allow you to control the subdivision.</p>
+<section id="weighted-edge-creases">
+<h3>Weighted Edge Creases</h3>
+<p>Weighted edge creases for subdivision surfaces allows you to change the way
+the <em>Subdivision Surface</em> modifier subdivides the geometry to give the edges a smooth or sharp appearance.</p>
+<figure id="id3">
+<figcaption>
+<p>A subdivided cube with creased edges.</p>
+</figcaption>
+</figure>
+<p>The crease weight of selected edges can be changed in the <em>Transform</em> panel, Sidebar of the 3D Viewport.
+The scale-like dedicated tool <kbd><kbd>Shift</kbd>-<kbd>E</kbd></kbd> can also be used to adjust the crease weight.
+A higher value makes the edge “stronger” and more resistant to the smoothing effect of subdivision surfaces.</p>
+</section>
+<section id="edge-loops">
+<h3>Edge Loops</h3>
+<figure id="id4">
+<figcaption>
+<p>Subdivision Level 2 cube, the same with an extra Edge Loop, and the same with six extra Edge Loops.</p>
+</figcaption>
+</figure>
+<p>The <em>Subdivision Surface</em> modifier demonstrates why good, clean topology is so important.
+As you can see in the figure, it has a drastic effect on a default cube.
+Until you add in additional loops (with e.g. <a href="../../meshes/editing/edge/loopcut_slide.html#bpy-ops-mesh-loopcut-slide">Loop Cut and Slide</a>),
+the shape is almost unrecognizable as a cube.</p>
+<p>A mesh with deliberate topology has good placement of edge loops, which allow the placement of more loops
+(or their removal) to control the sharpness/smoothness of the resultant mesh.</p>
+</section>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<section id="non-contiguous-normals">
+<h3>Non-Contiguous Normals</h3>
+<p>Abrupt normal changes will prevent portions of the mesh from producing a smooth subdivision.
+Instead, these portions with non-contiguous normals will be subdivided using the “Simple” subdivision method.</p>
+<table>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Comparison of good normals and bad normals.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Side view of image on the left.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A quick way to fix this is to <a href="../../meshes/editing/mesh/normals.html">Recalculate Normals</a>.
+If this does not work you may have to <a href="../../meshes/editing/mesh/normals.html">manually flip the normals</a>.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

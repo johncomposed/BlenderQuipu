@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Operations &gt; Fillet Curve</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Operation Nodes</a></li>
+<li>Fillet Curve Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="fillet-curve-node">
+<h1>Fillet Curve Node</h1>
+<p>The <em>Fillet Curve</em> rounds corners on curve control points, similar to the effect of
+the <a href="../../../modifiers/generate/bevel.html">Bevel Modifier</a> on a 2D mesh.
+However, a key difference is that the rounded portions created by the Fillet Curve node
+are always portions of a circle.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry input with a curve component.</p>
+</dd>
+<dt>Radius</dt><dd><p>The radius of the circle portion generated at each fillet.</p>
+</dd>
+<dt>Count</dt><dd><p>Only in <em>Poly</em> mode, the number of control points to add for each fillet.</p>
+</dd>
+<dt>Limit Radius</dt><dd><p>Whether to limit the maximum value of the radius in order to avoid overlapping fillets.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Method</dt><dd><dl>
+<dt>Bézier:</dt>
+<dd><p>Only two control points will be generated for every filleted control point. The shape generated
+by the aligned handles on the generated control points on either side of the fillet is used to
+create the circle portion shape, meaning that the number of segments in the fillet shape depends on
+the <a href="../read/spline_resolution.html">spline’s resolution value</a>.</p>
+</dd>
+<dt>Poly:</dt>
+<dd><p>The number of control points generated for each field
+input is controlled directly with an integer field input.
+This mode works better for poly and NURBS splines.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry input with a curve component.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>The node can be used to round the corners of simple 3D poly splines.</p>
+</figcaption>
+</figure>
+<figure id="id2">
+<figcaption>
+<p>The node can be combined with the curve primitive nodes to make more interesting shapes.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

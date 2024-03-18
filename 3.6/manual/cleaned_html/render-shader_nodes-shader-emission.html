@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Emission</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Emission</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="emission">
+<h1>Emission</h1>
+<p>The <em>Emission</em> node is used to add Lambertian emission shader.
+This can for example, be used for material and light surface outputs.</p>
+<p>Light strength for point, spot and area lights is specified in Watts.</p>
+<p>Sun lights are specified in Watts/m<sup>2</sup>, which require much smaller values like 1 W/m<sup>2</sup>.
+This can be confusing, but specifying strength in Watts would not have been convenient;
+the real sun for example has strength 384.6×10<sup>24</sup>W.
+Emission shaders on meshes are also in Watts/m<sup>2</sup>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the emitted light.</p>
+</dd>
+<dt>Strength</dt><dd><p>Strength of the emitted light. For point and area lights, the unit is Watts.
+For materials, a value of 1.0 will ensure that the object in the image has
+the exact same color as the Color input, i.e. make it ‘shadeless’.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Emission</dt><dd><p>The Emission shader output can both be plugged into the <em>Surface Input</em> as well as
+the <em>Volume Input</em> of the <a href="../output/material.html">Material Output</a> node.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Emission shader, with strength at 1.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Emission shader, with strength at 3.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

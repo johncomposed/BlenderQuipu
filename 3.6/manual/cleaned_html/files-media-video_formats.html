@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Media &gt; Video Formats</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="index.html">Media Formats</a></li>
+<li>Supported Video &amp; Audio Formats</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="supported-video-audio-formats">
+<h1>Supported Video &amp; Audio Formats</h1>
+<section id="video-formats">
+<h2>Video Formats</h2>
+<p>These formats are primarily used for compressing rendered sequences into a playable movie
+(they can also be used to make plain audio files).</p>
+<p>A codec is a little routine that compresses the video so that it will fit on a Blu-ray,
+or be able to be streamed out over the Internet, over a cable, or just be a reasonable file size.
+Codecs compress the channels of a video down to save space and enable continuous playback.
+<em>Lossy</em> codecs make smaller files at the expense of image quality,
+while <em>lossless</em> codecs compress as much as possible the video, but without losing any existing data.</p>
+<p>Some codecs, like H.264, are great for larger images. Codecs are used to encode and decode the movie,
+and so must be present on both the encoding machine (Blender) and the target machine.
+The results of the encoding are stored in a container file.</p>
+<p>There are dozens, if not hundreds, of codecs, including Xvid, H.264, DivX, Microsoft,
+and so on. Each has advantages and disadvantages, and compatibility with different players on
+different operating systems.</p>
+<div>
+<p>Note</p>
+<p>Most codecs can only compress the RGB or YUV colors,
+but some support the Alpha channel as well. Codecs that support RGBA include:</p>
+<ul>
+<li><p><a href="https://en.wikipedia.org/wiki/FFV1">FFmpeg video codec #1</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a></p></li>
+<li><p>QuickTime</p></li>
+<li><p>PNG TIFF Pixlet is not lossless, and may be only available on macOS.</p></li>
+<li><p>WebM/VP9 (although Blender will not import the alpha channel due to
+a <a href="https://trac.ffmpeg.org/ticket/8344">limitation of FFmpeg</a>).</p></li>
+</ul>
+</div>
+<p>Blender offers three ways to export videos, in the <em>File Format</em> selector of the <em>Output</em> properties:</p>
+<dl>
+<dt>AVI JPEG</dt><dd><p>AVI but with JPEG compression.
+Lossy, smaller files but not as small as you can get with a Codec compression algorithm.
+JPEG compression is also the one used in the DV format used in digital camcorders.</p>
+</dd>
+<dt>AVI Raw</dt><dd><p>Audio-Video Interlaced (AVI) uncompressed frames.</p>
+</dd>
+<dt>FFmpeg Video</dt><dd><p>Video encoding via the FFmpeg library. Which codecs are available
+depends on the operating system and FFmpeg version. This options allows
+for a lot of different encodings, some presets are available
+(to the right of the <em>Encoding</em> subpanel) to help with getting started.
+This option is also the only one allowing to export audio.</p>
+</dd>
+</dl>
+</section>
+<section id="ffmpeg-containers">
+<h2>FFmpeg Containers</h2>
+<dl>
+<dt><a href="https://en.wikipedia.org/wiki/MPEG-1">MPEG-1</a>: <code>.mpg</code>, <code>.mpeg</code></dt><dd><p>A standard for lossy compression of video and audio.
+It is designed to compress VHS-quality raw digital video and CD audio down to 1.5 Mbit/s.
+This container enforces the video codec, you can only define quality parameters, and the audio codec.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/MPEG-2">MPEG-2</a>: <code>.dvd</code>, <code>.vob</code>, <code>.mpg</code>, <code>.mpeg</code></dt><dd><p>A standard for “the generic coding of moving pictures and associated audio information”.
+It describes a combination of lossy video compression and lossy audio data compression
+methods which permit storage and transmission of movies using
+currently available storage media (notably DVDs) and transmission bandwidth.
+This container enforces the video codec, you can only define quality parameters, and the audio codec.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/MPEG-4">MPEG-4</a>: <code>.mp4</code>, <code>.mpg</code>, <code>.mpeg</code></dt><dd><p>While being a <a href="#files-video-codecs">video codec</a>, it is also a real container,
+in which you can store video and audio streams using various codecs.
+It is widely supported by many modern software and hardware players.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Audio_Video_Interleave">AVI</a>: <code>.avi</code></dt><dd><p>A derivative of the Resource Interchange File Format (RIFF).
+One of the first and most widely used video container format.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/.mov">QuickTime</a>: <code>.mov</code></dt><dd><p>A multi-tracks format. QuickTime and MP4 container formats can use the same codecs.
+They are mostly interchangeable in a QuickTime-only environment.
+MP4, being an international standard, has more support.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/DV">DV</a>: <code>.dv</code></dt><dd><p>An intra-frame video compression scheme, used by many digital camcorders back in the days.
+It uses the discrete cosine transform (DCT, similar algorithm to JPEG)
+to compress video on a frame-by-frame basis.
+Audio is stored uncompressed.
+This container enforces the video codec, you can only define quality parameters.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Ogg">Ogg</a>: <code>.ogg</code>, <code>.ogv</code></dt><dd><p>A free open-standard container format, that can hold an unlimited number of video,
+audio, picture or subtitle tracks in one file.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Matroska">Matroska</a>: <code>.mkv</code></dt><dd><p>A free open-standard container format, a file format that can hold an unlimited number of video,
+audio, picture or subtitle tracks in one file.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Flash_Video">Flash</a>: <code>.flv</code></dt><dd><p>A container file format used to deliver video over the Internet using Adobe Flash Player.
+This container enforces the video codec, you can only define quality parameters.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/WebM">WebM</a>: <code>.webm</code></dt><dd><p>A free open-standard container format, designed to be used for internet streaming.
+Note that this container can only hold a VP9 video codec, and Vorbis or Opus audio codecs.</p>
+</dd>
+</dl>
+</section>
+<section id="ffmpeg-video-codecs">
+<h2>FFmpeg Video Codecs</h2>
+<p>These options are not available with all <a href="#files-video-containers">Containers</a>.</p>
+<dl>
+<dt>No Video</dt><dd><p>For audio-only encoding.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Avid_DNxHD">DNxHD</a></dt><dd><p>Intended to be usable as both an intermediate format suitable for use while editing,
+and as a presentation format. It can be either lossless or lossy.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/DV">DV</a></dt><dd><p>See <a href="#files-video-containers">Containers</a>.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/FFV1">FFmpeg video codec #1</a></dt><dd><p>FFV1 is a lossless intra-frame video codec.
+It can use either variable length coding or arithmetic coding for entropy coding.
+The encoder and decoder are part of the free, open-source library libavcodec in FFmpeg.
+Supports an alpha channel.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Flash_Video">Flash Video</a></dt><dd><p>See <a href="#files-video-containers">Containers</a>.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/H.264">H.264</a></dt><dd><p>A modern variation of the MPEG-4 family, this lossy codec is very commonly used.
+It offers a very good compression/quality ratio.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Huffyuv">HuffYUV</a></dt><dd><p>Lossless video codec created by Ben Rudiak-Gould which is
+meant to replace uncompressed YCbCr as a video capture format.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/MPEG-1">MPEG-1</a></dt><dd><p>See <a href="#files-video-containers">Containers</a>.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/MPEG-2">MPEG-2</a></dt><dd><p>See <a href="#files-video-containers">Containers</a>.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/MPEG-4">MPEG-4(DivX)</a></dt><dd><p>Inherits many of the features of MPEG-1, MPEG-2 and other related standards, but also adds new features.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a></dt><dd><p>Lossless, this stores each frame as an independent image in the video stream.
+Compression will be poor, but as every frame is fully self-contained, scrubbing and editing can be simpler.
+Supports an alpha channel.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/QuickTime_Animation">QT rle / QT Animation</a></dt><dd><p>Original format of QuickTime videos. Supports an alpha channel.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Theora">Theora</a></dt><dd><p>A free open-standard lossy codec designed together with the <a href="#files-video-containers">Ogg container</a>.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/VP9">WEBM / VP9</a></dt><dd><p>A free open-standard lossy video compression format.
+One of the most recent codecs, it is widely used for internet streaming.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/AV1">AV1</a></dt><dd><p>A free open-standard lossy video compression format, designed as a successor to <em>VP9</em>.
+AV1 offers great compression rates and visual quality,
+<em>AV1</em> produces video files that are about 30% more space efficient than <em>VP9</em></p>
+</dd>
+</dl>
+</section>
+<section id="ffmpeg-audio-codecs">
+<h2>FFmpeg Audio Codecs</h2>
+<dl>
+<dt>No Audio</dt><dd><p>For video-only encoding.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a></dt><dd><p>Advanced Audio Codec, a standardized, lossy compression and encoding scheme for digital audio.
+AAC generally achieves better sound quality than MP3 at similar bit rates.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Dolby_Digital">AC3</a></dt><dd><p>Audio Codec 3, an audio compression technology developed by Dolby Laboratories.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/FLAC">FLAC</a></dt><dd><p>Free Lossless Audio Codec.
+Digital audio compressed by FLAC’s algorithm can typically be reduced to 50-60% of its original size.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_II">MP2</a></dt><dd><p>A lossy audio compression format.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/MP3">MP3</a></dt><dd><p>A lossy audio compression format, widely used as final audio format.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a></dt><dd><p>A lossy audio compression format, designed to encode speech or general audio
+and is intended to replace the <em>Vorbis</em> codec.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/PCM">PCM</a></dt><dd><p>Pulse Code Modulation, a method used to digitally represent sampled analog signals.
+It is the standard form for digital audio in computers and various Blu-ray,
+Compact Disc and DVD formats, as well as other uses such as digital telephone systems.</p>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a></dt><dd><p>An open-standard, highly-compressed format comparable to MP3 or AAC.
+Vorbis generally achieves better sound quality than MP3 at similar bit rates.</p>
+</dd>
+</dl>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<section id="video-output-size">
+<h3>Video Output Size</h3>
+<p>Some codecs impose limitations on output size,
+<code>H.264</code>, for example requires both the height and width to be divisible by 2.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

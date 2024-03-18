@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Import Export &gt; Node Shaders Info</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Import-Export</a></li>
+<li>Import &amp; Export of Node Shaders</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="import-export-of-node-shaders">
+<h1>Import &amp; Export of Node Shaders</h1>
+<p>While Blender now only supports the advanced node-based shading model for its materials,
+most <abbr title="Input/Output">IO</abbr> formats only support a basic shading model,
+similar to the legacy fixed pipeline of old GPUs.</p>
+<p>Blender features a way to convert between those, which any add-on can use, but it is currently pretty basic still.
+Especially for exporting from Blender materials, the node system must follow some strict requirements.</p>
+<div>
+<p>Note</p>
+<p>Currently, only the <a href="scene_obj.html">OBJ</a> and
+<a href="scene_fbx.html">FBX</a> IO add-ons uses that method.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>The <a href="scene_gltf2.html">glTF</a> format
+uses a more detailed conversion to and from shader nodes.</p>
+</div>
+<div>
+<p>Note</p>
+<p>The wrapper is designed to be as symmetrical as possible
+(i.e. it is expected to give reproducible results across several import/export cycles).</p>
+</div>
+<figure id="id1">
+<figcaption>
+<p>A typical setup of shader nodes that can be exported.</p>
+</figcaption>
+</figure>
+<section id="supported-node-setup">
+<h2>Supported Node Setup</h2>
+<p>This is especially important for exporting, importing will simply re-generate a similar setup.</p>
+<p>Note that the features listed below are those supported by the wrapper.
+Each add-on may have its own way to adapt them to its material system, some may not be handled by it, etc.</p>
+<dl>
+<dt>Principled BSDF</dt><dd><p>The main shader must be a <a href="../../render/shader_nodes/shader/principled.html">Principled BSDF</a>.
+Only parameters defined there, and textures linked to it, will be exported.</p>
+<p>Currently handled parameters:</p>
+<ul>
+<li><p>Base color</p></li>
+<li><p>Specular intensity</p></li>
+<li><p>Specular tint <em>(no texture support)</em></p></li>
+<li><p>Roughness</p></li>
+<li><p>Metallic</p></li>
+<li><p>IOR</p></li>
+<li><p>Transmission</p></li>
+<li><p>Alpha</p></li>
+</ul>
+</dd>
+<dt>Normal Map</dt><dd><p>If linked to the Normal input of the Principled BSDF node,
+the <a href="../../render/shader_nodes/vector/normal_map.html">Normal Map</a> node is also supported
+(including its texture obviously).</p>
+</dd>
+<dt>Textures</dt><dd><p>Only <a href="../../render/shader_nodes/textures/image.html">Image</a> textures using a UV mapping are supported.
+You may also use a <a href="../../render/shader_nodes/vector/mapping.html">Mapping</a> node to move/rotate/scale it.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

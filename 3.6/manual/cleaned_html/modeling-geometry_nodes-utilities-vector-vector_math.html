@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Utilities &gt; Vector &gt; Vector Math</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Utilities Nodes</a></li>
+<li><a href="index.html">Vector Utility Nodes</a></li>
+<li>Vector Math Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="vector-math-node">
+<h1>Vector Math Node</h1>
+<p>The <em>Vector Math</em> node performs the selected math operation on the input vectors.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>The inputs of the node are dynamic. Some inputs are only available in certain operations.
+For instance, the <em>Scale</em> input is only available in the <em>Scale</em> operator.</p>
+<dl>
+<dt>Vector</dt><dd><p>Input vector \(A = \begin{pmatrix} A_x \\ A_y \\ A_z \end{pmatrix}\).</p>
+</dd>
+<dt>Vector</dt><dd><p>Input vector \(B = \begin{pmatrix} B_x \\ B_y \\ B_z \end{pmatrix}\).</p>
+</dd>
+<dt>Scale</dt><dd><p>Input Scale \(s\).</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Operation</dt><dd><p>The vector math operator to be applied on the input vectors.</p>
+<dl>
+<dt>Add:</dt>
+<dd><p>The sum of A and B.
+\(\begin{pmatrix} A_x + B_x \\ A_y + B_y \\ A_z + B_z \end{pmatrix}\)</p>
+</dd>
+<dt>Subtract:</dt>
+<dd><p>The difference between A and B.
+\(\begin{pmatrix} A_x - B_x \\ A_y - B_y \\ A_z - B_z \end{pmatrix}\)</p>
+</dd>
+<dt>Multiply:</dt>
+<dd><p>The entrywise product of A and B.
+\(\begin{pmatrix} A_x \cdot B_x \\ A_y \cdot B_y \\ A_z \cdot B_z \end{pmatrix}\)</p>
+</dd>
+<dt>Divide:</dt>
+<dd><p>The entrywise division of A by B. Division by zero results in zero.
+\(\begin{pmatrix} A_x / B_x \\ A_y / B_y \\ A_z / B_z \end{pmatrix}\)</p>
+</dd>
+<dt>Multiply Add:</dt>
+<dd><p>The entrywise combination of the multiply and addition operations.
+\(A * B + C\)</p>
+</dd>
+<dt>Cross Product:</dt>
+<dd><p>The cross product of A and B.
+\(\begin{pmatrix} A_y \cdot B_z - A_z \cdot B_y \\ A_z \cdot B_x - A_x \cdot B_z
+\\ A_x \cdot B_y - A_y \cdot B_x \end{pmatrix}\)</p>
+</dd>
+<dt>Project:</dt>
+<dd><p>The projection of A onto B.</p>
+</dd>
+<dt>Reflect:</dt>
+<dd><p>The reflection of A around the normal B. B need not be normalized.</p>
+</dd>
+<dt>Refract:</dt>
+<dd><p>For a given incident vector A, surface normal B and ratio of indices of refraction (IOR),
+refract outputs the refraction vector R.</p>
+</dd>
+<dt>Faceforward:</dt>
+<dd><p>Orients a vector A to point away from a surface B as defined by its normal C.
+Computes \((dot(B, C) &lt; 0) ? A : -A\).</p>
+</dd>
+<dt>Dot Product:</dt>
+<dd><p>The dot product of A and B.
+\(A_x \cdot B_x + A_y \cdot B_y + A_z \cdot B_z\)</p>
+</dd>
+<dt>Distance:</dt>
+<dd><p>The distance between A and B.</p>
+</dd>
+<dt>Length:</dt>
+<dd><p>The length of A.
+\(\sqrt{A_x^2 + A_y^2 + A_z^2}\)</p>
+</dd>
+<dt>Scale:</dt>
+<dd><p>The result of multiplying A by the scalar input <em>Scale</em>.
+\(\begin{pmatrix} s \cdot A_x \\ s \cdot A_y \\ s \cdot A_z \end{pmatrix}\)</p>
+</dd>
+<dt>Normalize:</dt>
+<dd><p>The result of normalizing A. The result vector points to the same direction as A and
+has a length of 1. If A is (0, 0, 0), the result is (0, 0, 0) as well.</p>
+</dd>
+<dt>Wrap:</dt>
+<dd><p>The entrywise output of a value between Min and Max based on the absolute difference
+between the input value and the nearest integer multiple of Max less than the value.</p>
+</dd>
+<dt>Snap:</dt>
+<dd><p>The result of rounding A to the largest integer multiple of B less than or equal A.</p>
+</dd>
+<dt>Floor:</dt>
+<dd><p>Rounds the input value entrywise down to the nearest integer.</p>
+</dd>
+<dt>Ceil:</dt>
+<dd><p>Rounds the input value entrywise up to the nearest integer.</p>
+</dd>
+<dt>Modulo:</dt>
+<dd><p>The entrywise modulo of A by B.</p>
+</dd>
+<dt>Fraction:</dt>
+<dd><p>Returns the fractional part of the <em>value</em> entrywise.</p>
+</dd>
+<dt>Absolute:</dt>
+<dd><p>The entrywise absolute value of A.</p>
+</dd>
+<dt>Minimum:</dt>
+<dd><p>The entrywise minimum value from A and B.</p>
+</dd>
+<dt>Maximum:</dt>
+<dd><p>The entrywise maximum value from A and B.</p>
+</dd>
+<dt>Sine:</dt>
+<dd><p>The entrywise <a href="https://en.wikipedia.org/wiki/Sine">Sine</a> of A.</p>
+</dd>
+<dt>Cosine:</dt>
+<dd><p>The entrywise <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">Cosine</a> of A.</p>
+</dd>
+<dt>Tangent:</dt>
+<dd><p>The entrywise <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">Tangent</a> of A.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p>The output of the node is dynamic. It is either a vector or a scalar depending on the operator.
+For instance, the <em>Length</em> operator has a scalar output while the <em>Add</em> operator has a vector output.</p>
+<dl>
+<dt>Vector</dt><dd><p>Output vector.</p>
+</dd>
+<dt>Value</dt><dd><p>Output value.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Properties &gt; Active Spline</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Curves</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Active Spline</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="active-spline">
+<h1>Active Spline</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Properties ‣ Curve ‣ Active Spline</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Active Spline</em> panel is used in Edit Mode to control properties of the currently selected spline.</p>
+<p id="bpy-types-spline-use-smooth">Common Options</p>
+<dl>
+<dt>Cyclic U</dt><dd><p>Closes the active spline.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Default NURBS curve.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>A NURBS curve with Cyclic applied.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Resolution U</dt><dd><p>Alters the <a href="shape.html#bpy-types-curve-resolution-u">resolution</a>
+of each segment by changing the number of subdivisions.</p>
+</dd>
+<dt>Smooth</dt><dd><p>Use <a href="../../meshes/editing/mesh/shading.html#modeling-meshes-editing-normals-shading">Smooth Shading</a> for any 3D geometry.</p>
+</dd>
+</dl>
+<section id="poly">
+<h2>Poly</h2>
+<figure id="id4">
+<figcaption>
+<p>Active Spline panel: Poly Spline.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Cyclic U</dt><dd><p>See <a href="#spline-common-options">Common Options</a>.</p>
+</dd>
+<dt>Smooth</dt><dd><p>See <a href="#spline-common-options">Common Options</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="bezier">
+<h2>Bézier</h2>
+<figure id="id5">
+<figcaption>
+<p>Active Spline panel: Bézier Spline.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Cyclic U</dt><dd><p>See <a href="#spline-common-options">Common Options</a>.</p>
+</dd>
+<dt>Resolution U</dt><dd><p>See <a href="#spline-common-options">Common Options</a>.</p>
+</dd>
+<dt>Interpolation Tilt</dt><dd><p>Alters how the tilt of a segment is calculated.</p>
+</dd>
+<dt>Radius</dt><dd><p>Alters how the radius of a beveled curve is calculated.
+The effects are easier to see after <a href="../editing/curve.html#modeling-curve-radius">increasing the radius</a>.</p>
+</dd>
+<dt>Smooth</dt><dd><p>See <a href="#spline-common-options">Common Options</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="nurbs">
+<h2>NURBS</h2>
+<p>One of the characteristics of a NURBS object is the <em>knot vector</em>.
+This is a sequence of numbers used to determine the influence of the control points on the curve.
+While you cannot edit the knot vectors directly,
+you can influence them through the <em>Endpoint</em> and <em>Bézier</em> options in the Active Spline panel.
+Note that, the <em>Endpoint</em> and <em>Bézier</em> settings only apply to open NURBS curves.</p>
+<figure id="id6">
+<figcaption>
+<p>Active Spline: NURBS Spline.</p>
+</figcaption>
+</figure>
+<dl id="modeling-curve-knot">
+<dt>Cyclic U</dt><dd><p>See <a href="#spline-common-options">Common Options</a>.</p>
+</dd>
+<dt>Bézier U</dt><dd><p>Makes the NURBS curve act like a Bézier curve.
+The NURBS control points act like <em>Free</em> handles of Bézier curve.</p>
+</dd>
+<dt>Endpoint U</dt><dd><p>Makes the curve contact the end control points.</p>
+<table>
+<tbody>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Default NURBS curve.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>A NURBS curve with Endpoint enabled.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="modeling-curve-order">
+<dt>Order U</dt><dd><p>The order of the NURBS curve determines the area of influence of the control points over the curve.
+Higher order values means that a single control point has a greater
+influence over a greater relative proportion of the curve.
+The valid range of <em>Order</em> values is 2-6 depending on the number of control points present in the curve.</p>
+<table>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>NURBS curves with orders of 4.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>NURBS curves with orders of 2.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Resolution U</dt><dd><p>See <a href="#spline-common-options">Common Options</a>.</p>
+</dd>
+<dt>Smooth</dt><dd><p>See <a href="#spline-common-options">Common Options</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

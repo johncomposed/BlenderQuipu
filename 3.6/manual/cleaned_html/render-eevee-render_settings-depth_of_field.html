@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Render Settings &gt; Depth Of Field</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Depth of Field</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="depth-of-field">
+<h1>Depth of Field</h1>
+<p>To render a scene, Eevee uses a pinhole camera model which produces
+a perfectly focused image of the scene. For an enhanced realism, Eevee can simulate
+the optical <a href="../../../glossary/index.html#term-Depth-of-Field">Depth of Field</a> using a post-process filter, and a sample-based method.
+The optical settings are located in the <a href="../../cameras.html">camera settings</a> properties.
+Whereas the quality of the effect can be controlled by the settings found in the present section.</p>
+<div>
+<p>Note</p>
+<p>In the 3D Viewport, depth of field only works while in Camera View.</p>
+</div>
+<p>The post-process method is computed in two passes.
+The first pass is using a blur that fails to produce quality bokeh for highlights but works for the general case.
+Followed by a second pass which is sprite-based and improves only the quality of very bright highlights.
+That is because it is too slow to be applied on every part of the image.
+So it just includes very bright isolated parts of the image such that are different from their surroundings.
+Which pixels are being processed by second pass can be control with
+the <em>Sprite Threshold</em> and <em>Neighbor Rejection</em> options.</p>
+<p>Secondly the sample-based method works by randomizing the camera position for every sample.
+It is more accurate but needs many samples to achieve a smooth result.
+Accordingly the post-process blurring radius is scaled down to remove undersampling.
+Yet some scenes might still need more post-process blur in order to remove the noticeable sample pattern.
+This is exactly what the <em>Overblur</em> option does, but it will also reduce the bokeh shape sharpness.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Depth of Field</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Max Size</dt><dd><p>Maximum size in pixels of the depth of field post-process effect (lower is faster).
+A value of 0 will disable the post-process effect but not the sample-based method.</p>
+</dd>
+<dt>Sprite Threshold</dt><dd><p>Minimum brightness a pixel needs to have to be considered by the sprite-based depth of field.
+Higher values will improve the performance but will also reduce the quality of highlights.
+Brightness is in the scene’s referred color space.</p>
+</dd>
+<dt>Neighbor Rejection</dt><dd><p>Maximum intensity to consider when doing sprite neighborhood rejection.
+This should be set to a brightness value above which there is
+small visual differences to be noticeable after color management.
+Lower values will improve the performance but will also reduce the quality of highlights.
+Brightness is in the scene’s referred color space.</p>
+</dd>
+<dt>Denoise Amount</dt><dd><p>This will reduce the flickering by clamping the color of
+each pixels to their neighborhood’s average instead of their maximum.
+Higher values gives more stable results but may darken the scene.</p>
+</dd>
+<dt>High Quality Slight Defocus</dt><dd><p>Increase the quality of almost in-focus regions.</p>
+</dd>
+<dt>Jitter Camera</dt><dd><p>Randomize the camera position for every scene render sample to increase precision.
+Enabling this option can change the scene’s actual sample count.</p>
+<div>
+<p>Note</p>
+<p>Be aware that the actual sample count can grow quite rapidly.</p>
+</div>
+<div>
+<p>Hint</p>
+<p>The actual number of samples is computed by the following formula:</p>
+<div>
+\[sample\_count = (ring\_count^{2} + ring\_count) * 3 + 1\]</div>
+<p>where \(ring\_count\) is the number of ring in the hexaweb pattern.
+The \(ring\_count\) is chosen so that the entire pattern contains at least the number of
+samples set in the <a href="sampling.html">Render Settings</a>.</p>
+</div>
+</dd>
+<dt>Overblur</dt><dd><p>Scales the post-process depth of field radius to reduce artifacts. Higher values will soften the bokeh shape.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p><a href="../limitations.html#eevee-limitations-dof">Limitations</a>.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

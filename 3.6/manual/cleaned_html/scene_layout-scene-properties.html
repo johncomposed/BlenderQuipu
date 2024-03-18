@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Scene &gt; Properties</title></head>
+<body><ul>
+<li><a href="../index.html">Scenes &amp; Objects</a></li>
+<li><a href="index.html">Scenes</a></li>
+<li>Scene Properties</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="scene-properties">
+<h1>Scene Properties</h1>
+<section id="scene">
+<h2>Scene</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Scene ‣ Scene</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-scene-camera">
+<dt>Camera</dt><dd><p>Used to select which camera is used as the active camera.
+You can also set the active camera in the 3D Viewport with <kbd><kbd>Ctrl</kbd>-<kbd>Numpad0</kbd></kbd>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-scene-background-set">
+<dt>Background Scene</dt><dd><p>Allows you to use a scene as a background,
+this is typically useful when you want to focus on animating the foreground for example,
+without background elements getting in the way.</p>
+<p>This scene can have its own animation, physics simulations, etc,
+but you will have to select it from the <em>Scene</em> data-block menu, if you want to edit any of its contents.</p>
+<p>Background Scenes can themselves have a Background Scene (they’re recursively included).
+So you can always make additions to existing scenes by using them as a background
+to a newly created scene where your additions are made.</p>
+<div>
+<p>Tip</p>
+<p>This can also be used in combination with <a href="../object/editing/link_transfer/link_scene.html#bpy-ops-object-make-links-scene">Linking to a Scene</a>,
+where one blend-file contains the environment, which can be reused in many places.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-scene-active-clip">
+<dt>Active Clip</dt><dd><p>Selects a <a href="../../movie_clip/introduction.html">Movie Clip</a> that can be used by
+<a href="../../animation/constraints/index.html#constraints-motion-tracking">Motion Tracking</a> Constraints or a camera’s <a href="../../render/cameras.html#bpy-types-camerabackgroundimage">Background Images</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="units">
+<h2>Units</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Scene ‣ Units</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-unitsettings-system">
+<dt>Unit System</dt><dd><p>The unit system to use for user interface controls.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Use units that have with no relation to the real world,
+practically this is the same as <em>Metric</em> just without unit names.</p>
+</dd>
+<dt>Metric:</dt>
+<dd><p>Use the metric unit system in this scene.</p>
+</dd>
+<dt>Imperial:</dt>
+<dd><p>Use the imperial unit system in this scene.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-unitsettings-scale-length">
+<dt>Unit Scale</dt><dd><p>Scale factor to use when converting between internal units and values displayed in the user interface.
+This can be changed when modeling at microscopic or astronomical scales.</p>
+<div>
+<p>Note</p>
+<p>This only influences the values displayed in the user interface
+and not how things behave internally. For example, physics simulations
+don’t take the unit scale into account.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-unitsettings-use-separate">
+<dt>Separate Units</dt><dd><p>When using <em>Metric</em> or <em>Imperial</em>, display properties as multiple values.
+For example, <code>2.285m</code> will become <code>2m 28.5cm</code>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-unitsettings-system-rotation">
+<dt>Rotation</dt><dd><p>Unit to use for displaying/editing rotation values.</p>
+<dl>
+<dt>Degrees:</dt>
+<dd><p>Use degrees for angles in the user interface.</p>
+</dd>
+<dt>Radians:</dt>
+<dd><p>Use radians for angles in the user interface.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-unitsettings-length-unit">
+<dt>Length</dt><dd><p>Unit that will be used to display length values.</p>
+<dl>
+<dt>Adaptive:</dt>
+<dd><p>The unit used for a specific value depends on the magnitude of the value.
+For example, some values might be displayed as <code>23cm</code> while others are
+displayed as <code>10km</code>.</p>
+</dd>
+<dt>Meters/Centimeters/Feet:</dt>
+<dd><p>A fixed unit that will be used for all lengths in the user interface.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-unitsettings-mass-unit">
+<dt>Mass</dt><dd><p>See <em>Length</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-unitsettings-time-unit">
+<dt>Time</dt><dd><p>See <em>Length</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-unitsettings-temperature-unit">
+<dt>Temperature</dt><dd><p>See <em>Length</em>.</p>
+</dd>
+</dl>
+<table id="id7">
+<caption>Imperial Length Units</caption>
+<thead>
+<tr><th><p>Full Name</p></th>
+<th><p>Short Name(s)</p></th>
+<th><p>Scale of a Meter</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><th><p>thou</p></th>
+<td><p><code>mil</code></p></td>
+<td><p>0.0000254</p></td>
+</tr>
+<tr><th><p>inch</p></th>
+<td><p><code>"</code>, <code>in</code></p></td>
+<td><p>0.0254</p></td>
+</tr>
+<tr><th><p>foot, feet</p></th>
+<td><p><code>'</code>, <code>ft</code></p></td>
+<td><p>0.3048</p></td>
+</tr>
+<tr><th><p>yard</p></th>
+<td><p><code>yd</code></p></td>
+<td><p>0.9144</p></td>
+</tr>
+<tr><th><p>chain</p></th>
+<td><p><code>ch</code></p></td>
+<td><p>20.1168</p></td>
+</tr>
+<tr><th><p>furlong</p></th>
+<td><p><code>fur</code></p></td>
+<td><p>201.168</p></td>
+</tr>
+<tr><th><p>mile</p></th>
+<td><p><code>mi</code>, <code>m</code></p></td>
+<td><p>1609.344</p></td>
+</tr>
+</tbody>
+</table>
+<table id="id8">
+<caption>Metric Length Units</caption>
+<thead>
+<tr><th><p>Full Name</p></th>
+<th><p>Short Name(s)</p></th>
+<th><p>Scale of a Meter</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><th><p>micrometer</p></th>
+<td><p><code>um</code></p></td>
+<td><p>0.000001</p></td>
+</tr>
+<tr><th><p>millimeter</p></th>
+<td><p><code>mm</code></p></td>
+<td><p>0.001</p></td>
+</tr>
+<tr><th><p>centimeter</p></th>
+<td><p><code>cm</code></p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr><th><p>decimeter</p></th>
+<td><p><code>dm</code></p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr><th><p>meter</p></th>
+<td><p><code>m</code></p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr><th><p>dekameter</p></th>
+<td><p><code>dam</code></p></td>
+<td><p>10.0</p></td>
+</tr>
+<tr><th><p>hectometer</p></th>
+<td><p><code>hm</code></p></td>
+<td><p>100.0</p></td>
+</tr>
+<tr><th><p>kilometer</p></th>
+<td><p><code>km</code></p></td>
+<td><p>1000.0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gravity">
+<h2>Gravity</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Scene ‣ Gravity</p>
+</dd>
+</dl>
+</div>
+<p>Options to control global gravity used for physics effects.</p>
+<p>See the <a href="../../physics/forces/gravity.html">Physics chapter</a> for more information.</p>
+</section>
+<section id="keying-sets">
+<h2>Keying Sets</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Scene ‣ Keying Sets</p>
+</dd>
+</dl>
+</div>
+<p>See <a href="../../animation/keyframes/keying_sets.html">Keying Sets</a>.</p>
+</section>
+<section id="audio">
+<h2>Audio</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Scene ‣ Audio</p>
+</dd>
+</dl>
+</div>
+<p>Options to control global audio settings.
+To control how sounds is played back from within Blender, see the audio settings
+in the <a href="../../editors/preferences/system.html#prefs-system-sound">Preferences</a>.</p>
+<dl id="bpy-types-scene-audio-volume">
+<dt>Volume</dt><dd><p>Volume for the scene.</p>
+</dd>
+</dl>
+<dl id="bpy-types-scene-audio-distance-model">
+<dt>Distance Model</dt><dd><p>Changes how the sound attenuation is calculated based on the distance.
+Most physically correct is the <em>Inverse</em> model,
+but it’s also possible to choose a linear and an exponential falloff.
+The clamped modes limit the volume to be lower than 100% (1.0),
+that means if the distance is smaller than the reference distance, the volume is always 100%.
+For an exact description of each option
+see the <a href="https://www.openal.org/documentation/">OpenAL documentation</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-scene-audio-doppler-speed">
+<dt>Doppler Speed</dt><dd><p>Speed of the sound for the Doppler effect calculations.
+The typical value is 343.3 m/s in air, in water for example this value is around 1560 m/s.</p>
+</dd>
+</dl>
+<dl id="bpy-types-scene-audio-doppler-factor">
+<dt>Doppler Factor</dt><dd><p>Controls how strong the Doppler effect is.
+You can exaggerate or attenuate the change of pitch, but physically correct is a factor of 1.0.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sound-bake-animation">
+<dt>Update Animation Cache</dt><dd><p>Updates the audio animation cache. This is useful if you start noticing artifact in the audio.</p>
+</dd>
+</dl>
+</section>
+<section id="rigid-body-world">
+<h2>Rigid Body World</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Scene ‣ Rigid Body World</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Rigid Body World</em> is a group of rigid body objects,
+which holds settings that apply to all rigid bodies in this simulation.</p>
+<p>See <a href="../../physics/rigid_body/world.html">Rigid Body World</a> for more information.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

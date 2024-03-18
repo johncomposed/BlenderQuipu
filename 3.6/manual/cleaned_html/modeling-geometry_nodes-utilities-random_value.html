@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Utilities &gt; Random Value</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Utilities Nodes</a></li>
+<li>Random Value Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="random-value-node">
+<h1>Random Value Node</h1>
+<p>The <em>Random Value</em> node outputs a white noise like value as a <em>Float</em>, <em>Integer</em>, <em>Vector</em>, or <em>Boolean</em> field.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Min</dt><dd><p>The minimum value of the range where random values are sampled from.
+This input is only available for <em>Float</em>, <em>Integer</em>, and <em>Vector</em> types.</p>
+</dd>
+<dt>Max</dt><dd><p>The maximum value of the range where random values are sampled from.
+This input is only available for <em>Float</em>, <em>Integer</em>, and <em>Vector</em> types.</p>
+</dd>
+<dt>Probability</dt><dd><p>The probability ratio for the random <em>Boolean</em> output to be <em>True</em>.
+This input is only available for <em>Boolean</em> types.</p>
+</dd>
+<dt>ID</dt><dd><p>An ID to drive the random number generator seed. By default, this input uses the same value
+as of the <a href="../geometry/read/id.html">ID Node</a>, which is the <code>id</code> attribute of the context
+geometry if it exists, and otherwise the <a href="../geometry/read/input_index.html">index</a>.</p>
+<div>
+<p>Tip</p>
+<p>Single Random Value</p>
+<p>By default, the random value node generates a value for each unique index.
+If a single random value is desired, connect a single value
+(such as an <a href="../input/constant/integer.html">Integer Node</a> ) to the ID input.</p>
+</div>
+</dd>
+<dt>Seed</dt><dd><p>A field to <a href="../../../glossary/index.html#term-Seed">Seed</a> the random number generator. This can be used to generate
+a different set of random values, even for two nodes with the same <em>ID</em> input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><dl>
+<dt>Float:</dt>
+<dd><p>The output will be a <em>Float</em> field.</p>
+</dd>
+<dt>Integer:</dt>
+<dd><p>The output will be an <em>Integer</em> field.</p>
+</dd>
+<dt>Vector:</dt>
+<dd><p>The output will be a <em>Vector</em> field.</p>
+</dd>
+<dt>Boolean:</dt>
+<dd><p>The output will be a <em>Boolean</em> field.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>Random values as a field.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

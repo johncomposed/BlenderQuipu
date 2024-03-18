@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Rigid Body &gt; Constraints &gt; Introduction</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Rigid Body</a></li>
+<li><a href="index.html">Rigid Body Constraints</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p><a href="../../../glossary/index.html#term-Constraint">Constraints</a> (also known as joints) for rigid bodies connect two rigid bodies.
+The physics constraints are meant to be attached to an <a href="../../../glossary/index.html#term-Empty">Empty</a> object.
+The constraint then has fields which can be pointed at the two physics-enabled object
+which will be bound by the constraint.
+The empty object provides a location and axis for the constraint distinct from the two constrained objects.
+The location of the entity hosting the physics constraint marks a location and
+set of axes on each of the two constrained objects.
+These two anchor points are calculated at the beginning of the animation and their position and
+orientation remain fixed in the <em>local</em> coordinate system of the object for the duration of the animation.
+The objects can move far from the constraint object, but the constraint anchor moves with the object.
+If this feature seems limiting, consider using multiple objects with a non-physics <em>Child of</em> constraint and
+animate the relative location of the child.</p>
+<section id="connect">
+<h2>Connect</h2>
+<p>The quickest way to constrain two objects is to select both and
+click the <em>Connect</em> button in Object ‣ Rigid Body.
+This creates a new empty object (named “Constraint”) with a physics constraint
+already attached and pointing at the two selected objects.</p>
+</section>
+<section id="physics-menu">
+<h2>Physics Menu</h2>
+<p>Also you can create <em>Rigid Body Constraint</em> on one of the two constrained objects with
+<em>Rigid Body Constraint</em> button of the <em>Physics</em> tab in the Properties.
+This constraint is dependent on the object location and rotation on which it was created.
+This way, there are no empty object created for the constraint.
+The role of the empty object is put on this object.
+The constrained object can be then be set as a <em>Passive</em> type for better driving of the constraint.</p>
+<p>Additional parameters appear in the <em>Rigid Body Constraint</em> panel of the <em>Physics</em> tab in the Properties
+for the selected empty object or the one of the two constrained objects with the created constraint.</p>
+</section>
+<section id="common-options">
+<h2>Common Options</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Rigid Body Constraint</p>
+</dd>
+</dl>
+</div>
+<section id="settings">
+<h3>Settings</h3>
+<dl id="bpy-types-rigidbodyconstraint-enabled">
+<dt>Enabled</dt><dd><p>Specifies whether the constraint is active during the simulation.</p>
+</dd>
+</dl>
+<dl id="rigidbodyconstraint-disable-collisions">
+<dt>Disable Collisions</dt><dd><p>Allows constrained objects to pass through one another.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rigidbodyconstraint-rigidbodyconstraint-use-breaking">
+<dt>Breakable</dt><dd><p>Allows constraint to break during simulation. Disabled for the <em>Motor</em> constraint.
+This can be used to simulate destruction.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rigidbodyconstraint-breaking-threshold">
+<dt>Threshold</dt><dd><p>Impulse strength that needs to be reached before the constraint breaks.</p>
+</dd>
+</dl>
+</section>
+<section id="limits">
+<h3>Limits</h3>
+<p>By using limits you can constrain objects even more by specifying a translation/rotation range on/around
+respectively one axis (see below for each one individually). To lock one axis, set both limits to 0.</p>
+</section>
+<section id="objects">
+<h3>Objects</h3>
+<dl>
+<dt>First</dt><dd><p>First object to be constrained.</p>
+</dd>
+<dt>Second</dt><dd><p>Second object to be constrained.</p>
+</dd>
+</dl>
+</section>
+<section id="override-iterations">
+<h3>Override Iterations</h3>
+<p>Allows making constraints stronger (more iterations) or weaker (less iterations)
+than specified in the rigid body world.</p>
+<dl>
+<dt>Iterations</dt><dd><p>Number of constraint solver iterations made per simulation step for this constraint.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

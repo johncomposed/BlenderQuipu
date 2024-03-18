@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Hair &gt; Guides &gt; Braid Hair Curves</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Hair Nodes</a></li>
+<li><a href="index.html">Hair Guides Nodes</a></li>
+<li>Braid Hair Curves</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="braid-hair-curves">
+<h1>Braid Hair Curves</h1>
+<p>Deforms existing hair curves into braids using guide curves.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p><strong>Geometry</strong></p>
+<dl>
+<dt>Guide Index</dt><dd><p>Guide index map witch describes which curve to use as the center of each braid group.
+If this input is provided, it priority over an existing map in the <code>guide_curve_index</code>
+attribute, and the <em>Guide Distance</em> and <em>Guide Mask</em> attribute will be unused.</p>
+</dd>
+<dt>Guide Distance</dt><dd><p>Minimum distance between two guides for new guide map.</p>
+</dd>
+<dt>Guide Mask</dt><dd><p>Mask for which curve are eligible to be selected as guides.</p>
+</dd>
+<dt>Existing Guide Map</dt><dd><p>Use the existing guide map attribute if available. If this is false, and the <em>Guide Index</em>
+input isn’t provided, the <em>Guide Distance</em> and <em>Guide Mask</em> input will be used to generate
+a new <a href="create_guide_index_map.html">guide map</a> for this node.
+Creating the guide map in a separate node or modifier gives more complete control over its creation.</p>
+</dd>
+<dt>Factor</dt><dd><p>Factor to blend overall effect.</p>
+</dd>
+<dt>Subdivision</dt><dd><p>Subdivision level applied before deformation.</p>
+</dd>
+<dt>Braid Start</dt><dd><p>Percentage along each curve to blend deformation from the root.</p>
+</dd>
+<dt>Radius</dt><dd><p>Overall radius of the braids.</p>
+</dd>
+<dt>Shape</dt><dd><p>Shape of the braid radius along each curve.</p>
+</dd>
+<dt>Factor Min</dt><dd><p>Factor of the minimum radius of the braids.</p>
+</dd>
+<dt>Factor Max</dt><dd><p>Factor of the maximum radius of the braids.</p>
+</dd>
+<dt>Frequency</dt><dd><p>Frequency factor of the braids.
+This input can vary for different points of the same curve.</p>
+</dd>
+<dt>Thickness</dt><dd><p>Thickness of each strand of hair.</p>
+</dd>
+<dt>Thickness Shape</dt><dd><p>Shape adjustment of the strand thickness for the braids.</p>
+</dd>
+<dt>Shape Asymmetry</dt><dd><p>Asymmetry of the shape adjustment of the strand thickness.</p>
+</dd>
+<dt>Flare Length</dt><dd><p>Length of the flare at the end of the braid.</p>
+</dd>
+<dt>Flare Opening</dt><dd><p>Opening radius of the flare at the tip of the braid.</p>
+</dd>
+<dt>Hair Tie</dt><dd><p>Geometry used for the hair tie instance (priority).</p>
+</dd>
+<dt>Hair Tie</dt><dd><p>Object used for the hair tie instance.</p>
+</dd>
+<dt>Hair Tie Scale</dt><dd><p>Scale of the hair tie instance.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p><strong>Geometry</strong></p>
+<dl>
+<dt>Guide Index</dt><dd><p>Guide index map that was used for the operation.
+If a new guide map is created by this node, it will be stored for
+this output.</p>
+</dd>
+<dt>Flare Parameter</dt><dd><p>Parameter from 0 to 1 along the flare.</p>
+</dd>
+<dt>Strand Index</dt><dd><p>Index of the group of hair in the braid that each hair curve belongs to.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

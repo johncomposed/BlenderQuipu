@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Nodes &gt; Editing</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li><a href="index.html">Nodes</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<section id="transform">
+<h2>Transform</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Move, Rotate, Resize</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>G</kbd>, <kbd>R</kbd>, <kbd>S</kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can move the selected node(s) by simply clicking and dragging any empty part on them.
+Alternatively, you can press <kbd>G</kbd>, move the mouse, and click <kbd>LMB</kbd> to confirm.</p>
+<p>Dragging a node on top of an existing link will intelligently insert the selected node into the link path.
+This generally works by using the first socket that matches the link type.
+The automatic node attachment feature can be toggled with <kbd>Alt</kbd>.
+When a node is automatically attached the surrounding nodes
+will be shifted to the right or left depending on the <kbd>T</kbd> toggle;
+see <a href="arranging.html#editors-nodes-usage-auto-offset">Auto-Offset</a> for more information on this feature.</p>
+<p>In general it is recommended to arrange your nodes within the view
+such that the data flows from left to right, top to bottom.</p>
+<p>The width of a node can be changed by dragging its left or right border.</p>
+<p>Rotating (<kbd>R</kbd>) and scaling (<kbd>S</kbd>) only apply when you have multiple nodes selected
+and only affect the nodes’ positions.</p>
+</section>
+<section id="connecting-sockets">
+<h2>Connecting Sockets</h2>
+<p><kbd>LMB</kbd>-click on a socket and drag. You will see a line coming out of it: this is called a <em>link</em>.
+Keep dragging and connect the link to an input socket of another node, then release the <kbd>LMB</kbd>.</p>
+<p>While multiple links can route out of an output socket, typically a single link can be attached to an input socket,
+that is unless the input is a multi-socket input with looks like a pill shaped socket.</p>
+<p>To swap multiple links of a similar type, press and hold <kbd>Alt</kbd> while moving a link.
+This feature also works when adding a new link into a pre-existing socket.</p>
+<p>To reposition the outgoing links of a node, rather than adding a new one,
+hold <kbd>Ctrl</kbd> while dragging from an output socket.
+This works for single as well as for multiple outgoing links.</p>
+<p>Nodes that have no connections can be inserted on a link
+by just move the node over the link and release when the link is highlighted.</p>
+<dl id="bpy-ops-node-link-make">
+<dt>Make Links <kbd>F</kbd></dt><dd><p>Select multiple nodes with open sockets, then use the Make Links to create links between them.
+Use Make Links again if there are other nodes which can be connected.</p>
+</dd>
+<dt>Make and Replace Links <kbd><kbd>Shift</kbd>-<kbd>F</kbd></kbd></dt><dd><p><em>Make and Replace Links</em> works similarly to <em>Make Links</em>, but it will replace existing links if any exist.</p>
+</dd>
+</dl>
+</section>
+<section id="disconnecting-sockets">
+<h2>Disconnecting Sockets</h2>
+<section id="interactively">
+<h3>Interactively</h3>
+<p>Drag the link away from its input socket and let it go, keeping it unconnected.</p>
+</section>
+<section id="mute-links">
+<h3>Mute Links</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Mute Links</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>RMB</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Activate the menu item or hold the key combination,
+then draw a line across one or more links to mute/unmute them.
+A muted link acts as though it’s no longer there; this also means the input fields
+for specifying fixed values become visible again.</p>
+<p>When muting links on the input side of a <a href="reroute.html">reroute node</a>,
+the links on its output side will be muted too.</p>
+</section>
+<section id="cut-links">
+<h3>Cut Links</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Cut Links</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>RMB</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Activate the menu item or hold the key combination,
+then draw a line across one or more links to delete them.</p>
+<div>
+<p>Note</p>
+<p>The key combination is normally reserved for <a href="../../selecting.html">Lasso Select</a>.
+In node editors, lasso selection is instead performed with <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd>.</p>
+</div>
+<dl id="bpy-ops-node-move-detach-links">
+<dt>Detach Links <kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> drag</dt><dd><p>Use Detach Links to cut all the links attached to the selected nodes
+and move the nodes to a new location.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="duplicate">
+<h2>Duplicate</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Duplicate</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Select one or more nodes, activate the menu item or press the key combination,
+then move the mouse to a new location and click <kbd>LMB</kbd> (or press <kbd>Return</kbd>)
+to place the duplicated node(s).</p>
+<div>
+<p>Note</p>
+<p>When you duplicate a node, the new node will be positioned <em>exactly</em> on top of the node that was duplicated.
+If you leave it there (and it is quite easy to do so),
+you can <strong>not</strong> easily tell that there are <em>two</em> nodes there!
+When in doubt, select a node and move it slightly to see if something is hidden underneath.</p>
+</div>
+</section>
+<section id="duplicate-linked">
+<h2>Duplicate Linked</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Duplicate Linked</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Duplicate selected nodes, but not their node trees (in the case of group nodes), and move them.</p>
+</section>
+<section id="copy-paste">
+<h2>Copy/Paste</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Copy, Node ‣ Paste</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Not only the selected nodes but also the connections between them are copied to the clipboard.</p>
+<div>
+<p>Note</p>
+<p>The pasted node will be placed in the <em>same</em> position as when it was copied.
+Use the same cautions as when duplicating.</p>
+</div>
+</section>
+<section id="delete">
+<h2>Delete</h2>
+<dl>
+<dt>Delete <kbd>X</kbd>, <kbd>Delete</kbd></dt><dd><p>Deletes the selected node(s).</p>
+</dd>
+</dl>
+<dl id="bpy-ops-node-delete-reconnect">
+<dt>Delete with Reconnect <kbd><kbd>Ctrl</kbd>-<kbd>X</kbd></kbd></dt><dd><p>Deletes the selected node(s), then creates new links connecting their former input nodes
+to their former output nodes.</p>
+</dd>
+</dl>
+</section>
+<section id="mute">
+<h2>Mute</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Toggle Node Mute</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>M</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Muting a node removes its contribution to the node tree,
+and makes all links pass through it without change.
+Links will appear red as an indicator of passing through the muted node.</p>
+<div>
+<p>Tip</p>
+<p>Individual node links can be muted with <a href="#bpy-ops-node-links-mute">Mute Links</a>.</p>
+</div>
+</section>
+<section id="show-hide">
+<h2>Show/Hide</h2>
+<dl id="bpy-ops-node-hide-toggle">
+<dt>Hide <kbd>H</kbd></dt><dd><p>Collapses the node so only the node header is visible.
+This can also be toggled by clicking the triangle on the left of the node header.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-node-preview-toggle">
+<dt>Toggle Node Preview <kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Shows/Hides a preview region on the node that displays the frame
+after that node’s operation has been applied. This can also be toggled
+by clicking the material ball icon in the node header.</p>
+<div>
+<p>Note</p>
+<p>This operator are only available in the <a href="../../../compositing/index.html">Compositor</a>.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-ops-node-hide-socket-toggle">
+<dt>Toggle Hidden Node Sockets <kbd><kbd>Ctrl</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Collapses/Expands any input or output sockets that have no other nodes connected to them.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-node-options-toggle">
+<dt>Toggle Node Options</dt><dd><p>Shows/Hides all node properties.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-node-collapse-hide-unused-toggle">
+<dt>Collapse and Hide Unused Sockets</dt><dd><p>Applies both the <em>Toggle Hidden Node Sockets</em> and <em>Hide</em> operations.</p>
+</dd>
+</dl>
+</section>
+<section id="layers">
+<h2>Layers</h2>
+<dl>
+<dt>Read Render Layers <kbd><kbd>Ctrl</kbd>-<kbd>R</kbd></kbd></dt><dd><p>Reads all the current scene’s render layers from cache, as needed.
+This can be used to save RAM while rendering because the render layers do not have to be saved in RAM.
+And also for recovering some information from a failed render.
+For this to work, <a href="../../../render/output/properties/output.html#bpy-types-rendersettings-use-render-cache">Cache Result</a> must be enabled.</p>
+<div>
+<p>Note</p>
+<p>This operator are only available in the <a href="../../../compositing/index.html">Compositor</a>.</p>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

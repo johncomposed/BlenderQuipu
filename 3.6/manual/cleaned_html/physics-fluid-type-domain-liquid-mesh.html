@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Fluid &gt; Type &gt; Domain &gt; Liquid &gt; Mesh</head>
+<body><ul>
+<li><a href="../../../../index.html">Physics</a></li>
+<li><a href="../../../index.html">Fluid</a></li>
+<li><a href="../../index.html">Type</a></li>
+<li><a href="../index.html">Domain</a></li>
+<li><a href="index.html">Liquid Settings</a></li>
+<li>Mesh</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh">
+<h1>Mesh</h1>
+<p>The liquid mesh is, besides the liquid particles, another way to visualize the liquid simulation.
+It is generated directly from the liquid particles and often uses a higher resolution than
+the base <a href="../settings.html#bpy-types-fluiddomainsettings-resolution-max">Resolution Divisions</a>.</p>
+<p>Besides enabling parts of the interface, checking <em>Mesh</em> lets the cache know
+which simulation data to read. If, for example, <em>Mesh</em> is enabled but
+there is no mesh simulation data to read it will show the original domain.
+The checkbox does not reset the cache and can be used to switch the view between
+the original domain and the baked liquid mesh.</p>
+<p>It is important to keep in mind that the shape of the mesh depends on a combination of <em>all</em> these
+parameters. E.g. changing the <a href="../settings.html#bpy-types-fluiddomainsettings-resolution-max">Particle Radius</a>
+will lead to a different interpretation of the concavity values.</p>
+<dl id="bpy-types-fluiddomainsettings-mesh-scale">
+<dt>Upres Factor</dt><dd><p>Factor by which to enhance the resolution of the mesh. The scaling factor is coupled to
+the <a href="../settings.html#bpy-types-fluiddomainsettings-resolution-max">Resolution Divisions</a>
+(i.e. the mesh is this times bigger than the base simulation).</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-mesh-particle-radius">
+<dt>Particle Radius</dt><dd><p>The radius of one liquid particle in grid cells units. This value describes how much area is covered
+by a particle and thus determines how much area around it can be considered as liquid.
+A greater radius will let particles cover more area. This will result in meshes covering more
+volume around liquid particles.</p>
+<p>This property refers to the same <a href="../settings.html#bpy-types-fluiddomainsettings-particle-radius">Particle Radius</a>
+described in the liquid domain settings. Yet for the mesh, it is useful to interpret
+the particle radius on its own. For one, the mesh can have a resolution different from the base
+resolution through the <a href="#bpy-types-fluiddomainsettings-mesh-scale">Upres Factor</a>. For another,
+it is often desirable to be able to control the mesh size around a single liquid particle.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-use-speed-vectors">
+<dt>Use Speed Vectors</dt><dd><p>If this checkbox is enabled, speed vectors (mesh vertex velocities) are generated and stored on
+drive. They can be used to compute image-based motion blur with the compositing nodes.</p>
+<table id="id1">
+<caption>Comparison of a liquid splash with and without motion blur (rendered with Cycles).</caption>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Motion blur enabled.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Motion blur disabled.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-mesh-generator">
+<dt>Mesh Generator</dt><dd><p>The mesh generator method determines the accuracy of the mesh. The <em>Final</em> option produces a higher
+quality mesh and provides more configuration option than the <em>Preview</em> option which in turn is
+faster but not as smooth.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-mesh-smoothen-pos">
+<dt>Smoothing Positive</dt><dd><p>Positive mesh smoothing iterations. Higher values will make the mesh outline increasingly smooth.
+Yet higher values can prevent small details (e.g. smaller liquid drops) from getting meshed.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-mesh-smoothen-neg">
+<dt>Smoothing Negative</dt><dd><p>Negative mesh smoothing iterations. Higher values will make the mesh outline sharper.
+High values will preserve details, however, the mesh outline will become more ragged
+(e.g. a single mesh particle will become less rounded and have more flat sides).</p>
+<figure id="id4">
+<figcaption>
+<p>Comparison of a liquid drop hitting a surface (viewed from top) with varying smoothing values.
+Left: 1, 1 (Smoothing Positive, Smoothing Negative). Middle: 10, 1. Right: 1, 10.
+Note the slightly sharper corners in the right splash (compared to the left one).</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-mesh-concave-upper">
+<dt>Concavity Upper</dt><dd><p>Upper mesh concavity bound. High values tend to smoothen and fill out concave regions.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-mesh-concave-lower">
+<dt>Concavity Lower</dt><dd><p>Lower mesh concavity bound. High values tend to smoothen and fill out concave regions.</p>
+<p>Using a lower concavity which is greater the upper concavity can result in distorted, non-manifold meshes.
+Unless the artist sees value in this kind of mesh, such concavity value combinations should be avoided.</p>
+<table id="id5">
+<caption>Crown splash with varying upper and lower concavity settings. Note that setting
+the concavity values to the same value produces a very granular mesh.</caption>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Upper: 1.0, Lower: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Upper: 1.0, Lower: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Upper: 1.0, Lower: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id9">
+<figcaption>
+<p>Upper: 1.5, Lower: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Upper: 1.5, Lower: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Upper: 1.5, Lower: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id12">
+<figcaption>
+<p>Upper: 2.0, Lower: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id13">
+<figcaption>
+<p>Upper: 2.0, Lower: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id14">
+<figcaption>
+<p>Upper: 2.0, Lower: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-ops-fluid-free-mesh">
+<dt>Bake Mesh, Free Mesh</dt><dd><p>This option is only available when using the <a href="../cache.html#bpy-types-fluiddomainsettings-cache-type">Modular</a>
+cache type.</p>
+<p>The progress will be displayed in the status bar. Pressing <kbd>Esc</kbd> will abort the simulation.</p>
+<p>Once the simulation has been baked, the cache can be deleted by pressing <em>Free Mesh</em>.
+It is possible to pause or resume a <em>Bake Mesh</em> process.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

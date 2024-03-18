@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Modify &gt; Mesh Sequence Cache</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Mesh Sequence Cache Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh-sequence-cache-modifier">
+<h1>Mesh Sequence Cache Modifier</h1>
+<p>The Mesh Sequence Cache modifier loads data from <a href="../../../files/import_export/alembic.html">Alembic</a>
+and <a href="../../../files/import_export/usd.html">USD</a> files.
+It supports static meshes, but is mostly used to load animated meshes.
+Despite its name, this modifier also supports curves. It also handles file sequences,
+as well as meshes and curves with varying topology (like the result of fluid simulations).</p>
+<p>When importing an <a href="../../../files/import_export/alembic.html">Alembic</a> or
+<a href="../../../files/import_export/usd.html">USD</a> file,
+Mesh Sequence Cache modifiers are automatically added to time-varying meshes.
+For time-varying object transforms (so animation of rotation, location, or scale),
+the <a href="../../../animation/constraints/transform/transform_cache.html#bpy-types-transformcacheconstraint">Transform Cache Constraint</a> is used.
+Files other than Alembic or USD, like MDD and PC2 files, can be loaded using
+the <a href="mesh_cache.html">Mesh Cache modifier</a>.</p>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Cache File</dt><dd><p>Data-block menu to select the Alembic or USD file.</p>
+</dd>
+<dt>File Path</dt><dd><p>Path to Alembic or USD file.</p>
+</dd>
+<dt>Object Path</dt><dd><p>The path to the Alembic or USD object inside the archive or stage.</p>
+</dd>
+<dt>Read Data</dt><dd><p>Type of data to read for a mesh object, respectively: vertices,
+polygons, UV maps, and Color Attributes.</p>
+<p>Vertices, Faces, UV, Color</p>
+</dd>
+</dl>
+<section id="time">
+<h3>Time</h3>
+<dl>
+<dt>Sequence</dt><dd><p>Whether or not the cache is separated in a series of files.</p>
+</dd>
+<dt>Override Frame</dt><dd><p>Whether to use a custom frame for looking up data in the cache file,
+instead of using the current scene frame.</p>
+<p>The <em>Frame</em> value is the time to use for looking up the data in the cache file,
+or to determine which to use in a file sequence.</p>
+</dd>
+<dt>Frame Offset</dt><dd><p>Subtracted from the current frame to use for looking up the data in the cache file,
+or to determine which file to use in a file sequence.</p>
+</dd>
+</dl>
+</section>
+<section id="velocity">
+<h3>Velocity</h3>
+<dl>
+<dt>Velocity Attribute</dt><dd><p>The name of the Alembic attribute used for generating motion blur data;
+by default, this is <code>.velocities</code> which is standard for most Alembic files.</p>
+<div>
+<p>Note</p>
+<p>The <em>Velocity Attribute</em> option is currently for Alembic files only.</p>
+</div>
+</dd>
+<dt>Velocity Unit</dt><dd><p>Defines how the velocity vectors are interpreted with regard to time.</p>
+<dl>
+<dt>Frame:</dt>
+<dd><p>The velocity unit was encoded in frames and does not need to be scale by scene FPS.</p>
+</dd>
+<dt>Second:</dt>
+<dd><p>The velocity unit was encoded in seconds and needs to be scaled by the scene FPS (1 / FPS).</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The <em>Velocity Unit</em> option is currently for Alembic files only.</p>
+</div>
+</dd>
+<dt>Velocity Scale</dt><dd><p>Multiplier used to control the magnitude of the velocity vector for time effects such as motion blur.</p>
+<div>
+<p>Note</p>
+<p>The <em>Velocity Scale</em> option is currently for Alembic files only.</p>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

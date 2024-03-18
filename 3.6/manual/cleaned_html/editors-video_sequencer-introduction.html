@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Video Sequencer</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Blender is a versatile software used for modeling, sculpting, 2D drawing, animation, and video editing.
+Most of the work is done in so-called editors:
+tools for viewing and modifying your work through a specific part of Blender.</p>
+<p>There are a couple of editors that can manage video:
+the <a href="../compositor.html">Compositor</a>, the <a href="../clip/index.html">Movie Clip Editor</a>,
+the <a href="../image/index.html">Image Editor</a> (only for still images), and the Video Sequencer.</p>
+<p>This section describes only the interface of the Video Sequencer,
+to read more about usage of the Video Sequencer read the <a href="../../video_editing/index.html">Video Editing</a> section.</p>
+<section id="editor-layout">
+<h2>Editor Layout</h2>
+<p>The Video Sequencer is composed of multiple regions (see figure 1).
+They are described in more detail in the next sections.
+Figure 1 shows the combined <em>Sequencer &amp; Preview</em> view type.
+This view can be broken up into the following regions:</p>
+<figure id="id1">
+<figcaption>
+<p>Figure 1: Sequence Editor shown in the Sequencer &amp; Preview view type.</p>
+<div>
+<p>Header (red), Preview (yellow), Sequencer (blue), Properties (gray),
+Panels &amp; Tabs (yellow), Toolbar (purple).</p>
+</div>
+</figcaption>
+</figure>
+<dl>
+<dt>Header</dt><dd><p>This region displays menus and buttons for interacting with the editor.
+The header changes slightly depending on the selected view type (see below).</p>
+</dd>
+<dt>Preview</dt><dd><p>This region shows the output of the Sequencer at the time of the Playhead.</p>
+</dd>
+<dt>Sequencer</dt><dd><p>This region shows timeline for managing the montage of strips.</p>
+</dd>
+<dt>Properties</dt><dd><p>This region shows the properties of the active strip.
+Is divided into panels and tabs. Toggle on or off with <kbd>N</kbd> key.</p>
+</dd>
+<dt>Toolbar</dt><dd><p>This region shows a list of icons, clicking on a icon will changes the active tool.
+Toggle on or off with <kbd>T</kbd> key.</p>
+</dd>
+</dl>
+</section>
+<section id="view-types">
+<h2>View Types</h2>
+<p>The Video Sequencer has three view types which can be
+changed with the View Type menu (see figure 1; top left).</p>
+<figure id="id2">
+<figcaption>
+<p>Figure 2: Three view types for the Video Sequence Editor</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Sequencer</dt><dd><p>View timeline and strip properties.</p>
+</dd>
+<dt>Preview</dt><dd><p>View preview window and preview properties.</p>
+</dd>
+<dt>Sequencer &amp; Preview</dt><dd><p>Combined view of preview and timeline and properties of both.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>It is possible to create multiple instances of any view type in single workspace.</p>
+</div>
+</section>
+<section id="performance">
+<h2>Performance</h2>
+<p>Playback performance can be improved through several ways.
+The biggest impact on performance is to allow the Video Sequencer to cache the playback.
+There are two levels of cache, the first is a RAM cache,
+this is enabled by default but can be increased based on the amount of RAM available.
+The next level of cache is a disk cache which stores cached strips on disk.
+A disk cache can generally cache more than a RAM cache, but it can be slower.
+Both of these cache options can be configured in the <a href="../preferences/system.html#prefs-system-sound">Preferences</a>.</p>
+<p>Another way to improve performance is by using <a href="sequencer/sidebar/proxy.html#bpy-types-sequenceproxy">Strip Proxies</a>.
+These are used to cache images or movies in a file that is easier to playback
+by reducing the image quality by either decreasing the resolution and/or compressing the image.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

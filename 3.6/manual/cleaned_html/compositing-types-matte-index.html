@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Index</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li>Matte Nodes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="matte-nodes">
+<h1>Matte Nodes</h1>
+<p>These nodes give you the essential tools for creating a <a href="../../../glossary/index.html#term-Matte">Matte</a> for images
+that do not already have their own <a href="../../../glossary/index.html#term-Alpha-Channel">Alpha Channel</a>.
+One usage scenario is blue-screen or green-screen footage,
+where live action is shot in front of a blue or green backdrop for replacement by
+a matte painting or virtual background.</p>
+<p>In general, hook up these nodes to a viewer, set your Image Editor to show the Viewer node,
+and play with the sliders in real-time using a sample image from the footage,
+to get the settings right. In some cases,
+small adjustments can eliminate artifacts or foreground image degradation.
+Taking out too much green can result in foreground actors looking flat or bluish/purplish.</p>
+<p>You can and should chain these nodes together,
+improving your masking and color correction in successive refinements,
+using each node’s strengths to operate on the previous node’s output.
+<a href="keying.html">Keying Node</a> is the closest to a “does-it-all” node
+for green screens, but the best results stem from a combination of techniques.</p>
+<div>
+<p>Note</p>
+<p>Garbage Matte is not a node, but a technique selecting what to
+exclude from an image. It is a <a href="../../../glossary/index.html#term-Mask">Mask</a> used to identify content to be
+removed from an image that cannot be removed by an automatic process like
+chroma keying. It is used either to select specific content to be removed, or
+it is the inverse of a rough selection of the subject; removing everything else.</p>
+<p>Some nodes accept a garbage matte directly. For those that don’t, you can
+still apply one by subtracting the garbage matte from the matte generated
+by the node.</p>
+<p>Simple garbage mattes can be created with
+the <a href="box_mask.html">Box Mask</a> or
+the <a href="ellipse_mask.html">Ellipse Mask</a>.
+More complicated matte shapes using
+a <a href="double_edge_mask.html">Double Edge Mask</a> or
+using a <a href="../input/mask.html">Mask</a>.</p>
+</div>
+<div>
+<ul>
+<li><a href="box_mask.html">Box Mask Node</a></li>
+<li><a href="channel_key.html">Channel Key Node</a></li>
+<li><a href="chroma_key.html">Chroma Key Node</a></li>
+<li><a href="color_key.html">Color Key Node</a></li>
+<li><a href="color_spill.html">Color Spill Node</a></li>
+<li><a href="cryptomatte.html">Cryptomatte Node</a></li>
+<li><a href="cryptomatte_legacy.html">Cryptomatte Node (Legacy)</a></li>
+<li><a href="difference_key.html">Difference Key Node</a></li>
+<li><a href="distance_key.html">Distance Key Node</a></li>
+<li><a href="double_edge_mask.html">Double Edge Mask Node</a></li>
+<li><a href="ellipse_mask.html">Ellipse Mask Node</a></li>
+<li><a href="keying.html">Keying Node</a></li>
+<li><a href="keying_screen.html">Keying Screen Node</a></li>
+<li><a href="luminance_key.html">Luminance Key Node</a></li>
+</ul>
+</div>
+</section>
+</div>
+</div></body>
+</html>

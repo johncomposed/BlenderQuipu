@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Face &gt; Grid Fill</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Face Tools</a></li>
+<li>Grid Fill</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="grid-fill">
+<h1>Grid Fill</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face ‣ Grid Fill</p>
+</dd>
+</dl>
+</div>
+<p><em>Grid Fill</em> uses a pair of connected edge loops or a single, closed edge loop to fill in a grid
+that follows the surrounding geometry.</p>
+<p>The best predictable result can be achieved if you select two opposite edge loops
+with an equal number of vertices. When a single, closed edge loop is selected,
+the Span/Offset options allows you to adjust the way two opposite edge loops
+are detected from one closed edge loop.</p>
+<dl>
+<dt>Span</dt><dd><p>Specifies the number of columns in the grid.</p>
+</dd>
+<dt>Offset</dt><dd><p>Defines the vertex that is considered to be the corner of the grid,
+by default, it’s the active vertex. The Offset allows you to rotate the grid lines.</p>
+</dd>
+<dt>Simple Blending</dt><dd><p>Use a simple interpolation algorithm to generate grid vertices from boundary loops,
+which does not tries to maintain the shape,
+useful for flat surfaces or times when keeping the shape gives odd results.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Input.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Grid Fill result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div></body>
+</html>

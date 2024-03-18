@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Object Info</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Object Info Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="object-info-node">
+<h1>Object Info Node</h1>
+<p>The <em>Object Info</em> node gives information about the object instance.
+This can be useful to give some variation to a single material assigned to multiple instances,
+either manually controlled through the object index, based on the object location,
+or randomized for each instance. For example a Noise texture can give random colors or a Color
+Ramp can give a range of colors to be randomly picked from.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Location</dt><dd><p>Location of the object in world space.</p>
+</dd>
+<dt>Color</dt><dd><p>Object color, same as <em>Color</em> in the Properties ‣ Object Properties ‣ Viewport Display.</p>
+</dd>
+<dt>Alpha</dt><dd><p>The <a href="../../../glossary/index.html#term-Alpha-Channel">Alpha Channel</a> component of the object’s viewport display color (see the <em>Color</em> output for
+more details).</p>
+</dd>
+<dt>Object Index</dt><dd><p>Object pass index, same as <em>Pass Index</em>
+in the Properties ‣ Object Properties ‣ Relations.</p>
+</dd>
+<dt>Material Index</dt><dd><p>Material pass index, same as <em>Pass Index</em>
+in the Properties ‣ Material ‣ Settings.</p>
+</dd>
+<dt>Random</dt><dd><p>Random number unique to a single object instance.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Note that this node only works for material shading nodes;
+it does nothing for light and world shading nodes.</p>
+</div>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id1">
+<figcaption>
+<p>Example blend-file.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

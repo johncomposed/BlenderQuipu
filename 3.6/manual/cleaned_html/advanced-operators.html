@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Operators</title></head>
+<body><ul>
+<li><a href="index.html">Advanced</a></li>
+<li>Operators</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="operators">
+<h1>Operators</h1>
+<section id="operator-cheat-sheet">
+<h2>Operator Cheat Sheet</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Help ‣ Operator Cheat Sheet</p>
+</dd>
+<dt>Context:</dt>
+<dd><p>Enable <a href="../editors/preferences/interface.html#prefs-interface-dev-extras">Developer Extras</a></p>
+</dd>
+</dl>
+</div>
+<p>Creates a text file in the Text Editor that gives a list of all operators
+and their default values in Python syntax, along with the generated docs.
+This is a good way to get an overview of all Blender’s operators.</p>
+<div>
+<p>See also</p>
+<p><a href="https://docs.blender.org/api/current/">Blender’s API documentation</a></p>
+</div>
+</section>
+<section id="system-operators">
+<h2>System Operators</h2>
+<section id="reload-scripts">
+<h3>Reload Scripts</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Topbar ‣ Blender ‣ System ‣ Reload Scripts</p>
+</dd>
+</dl>
+</div>
+<p>Reloads all scripts found in the scripts data folder;
+any changes that have been made in the Text Editor will be lost!</p>
+</section>
+<section id="memory-statistics">
+<h3>Memory Statistics</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p><code>--debug-memory</code></p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Topbar ‣ Blender ‣ System ‣ Memory Statistics</p>
+</dd>
+</dl>
+</div>
+<p>This operator which can be found by searching “Memory Statistics”
+with the <a href="../interface/controls/templates/operator_search.html">Operator Search</a>
+will print useful information about memory objects, their size and user count.</p>
+<div>
+<p>Important</p>
+<p>To fully use this operator run Blender from the console with <code>--debug-memory</code>.</p>
+</div>
+</section>
+<section id="debug-menu">
+<h3>Debug Menu</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Topbar ‣ Blender ‣ System ‣ Debug Menu</p>
+</dd>
+</dl>
+</div>
+<p>This operator brings up a menu to set Blender into a certain debug mode.</p>
+<p>See the
+<a href="https://projects.blender.org/blender/blender/src/branch/main/source/blender/blenkernel/BKE_global.h">source code</a>
+for a description of what each value does.</p>
+<div>
+<p>Tip</p>
+<p>Developers can search the code for <code>G.debug_value</code> to find other possible uses for this operator.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Additional debug options are available by launching Blender in debug mode or setting <code>bpy.app.debug = True</code>.</p>
+</div>
+</section>
+<section id="redraw-timer">
+<h3>Redraw Timer</h3>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Topbar ‣ Blender ‣ System ‣ Redraw Timer</p>
+</dd>
+</dl>
+</div>
+<p>This operator brings up a menu with a list of tests
+to benchmark UI render times along with undo/redo functions.</p>
+</section>
+<section id="clean-up-space-data">
+<h3>Clean Up Space-Data</h3>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Topbar ‣ Blender ‣ System ‣ Clean Up Space-data</p>
+</dd>
+</dl>
+</div>
+<p>Removes unused settings for invisible editors.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

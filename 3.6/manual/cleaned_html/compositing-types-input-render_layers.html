@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Input &gt; Render Layers</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Input Nodes</a></li>
+<li>Render Layers Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="render-layers-node">
+<h1>Render Layers Node</h1>
+<p>This node is the starting place for getting a picture of your scene into the compositing node tree.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no input sockets.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Scene</dt><dd><p>Select the scene within your blend-file. The scene information taken is the raw footage
+(pre-compositing and pre-sequencing).</p>
+<div>
+<p>Hint</p>
+<p>To use composited footage from another scene, it has to be rendered into a multi-layer frameset
+(e.g. <code>OpenEXR</code>) as an intermediate file store and then imported with Image input node again.</p>
+</div>
+</dd>
+<dt>Render Layer</dt><dd><p>A list of available <a href="../../../render/layers/index.html">Render Layers</a>.
+The render button is a shorthand to re-render the active scene.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Rendered image.</p>
+</dd>
+<dt>Alpha</dt><dd><p>Alpha channel.</p>
+</dd>
+</dl>
+<p>Render Passes Sockets</p>
+<p>Depending on the Render passes that are enabled, other sockets are available.
+See <a href="../../../render/layers/passes.html">render passes</a>.</p>
+<div>
+<p>Note</p>
+<p>In the viewport compositor, only the Image and Alpha outputs are supported, where the Image output
+is the viewport pass and the Alpha output is the alpha channel of the viewport pass. The rest of
+the passes return a zero value, a zero vector, or a transparent color depending on their type.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

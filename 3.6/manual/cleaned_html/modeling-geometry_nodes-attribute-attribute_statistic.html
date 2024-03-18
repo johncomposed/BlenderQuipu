@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Attribute &gt; Attribute Statistic</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Attribute Nodes</a></li>
+<li>Attribute Statistic Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="attribute-statistic-node">
+<h1>Attribute Statistic Node</h1>
+<p>The <em>Attribute Statistic</em> node evaluates a field on a geometry and outputs a statistic about the entire data set.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>A boolean field input for each element indicating whether to include its value in the statistics result
+If the boolean is false, the corresponding value from the <em>Attribute</em> input will be ignored.</p>
+</dd>
+<dt>Attribute</dt><dd><p>The attribute field to query a statistic from.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><dl>
+<dt>Float:</dt>
+<dd><p>The output will be a single floating-point value.</p>
+</dd>
+<dt>Vector:</dt>
+<dd><p>The output will be a vector of three floating-point values.
+All calculations are elementwise.</p>
+</dd>
+</dl>
+</dd>
+<dt>Domain</dt><dd><p>The <a href="../attributes_reference.html#attribute-domains">attribute domain</a> used for the statistics
+and to evaluate the input <em>Attribute</em> field on.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mean</dt><dd><p>The average value of all data.</p>
+</dd>
+<dt>Median</dt><dd><p>The median value of all data.</p>
+</dd>
+<dt>Sum</dt><dd><p>The sum value of all data.</p>
+</dd>
+<dt>Min</dt><dd><p>The min value of all data.</p>
+</dd>
+<dt>Max</dt><dd><p>The max value of all data.</p>
+</dd>
+<dt>Range</dt><dd><p>The difference between the max and min value.</p>
+</dd>
+<dt>Standard Deviation</dt><dd><p>How much values differ from the mean.
+A low standard deviation indicates that the values are grouped tightly together at the mean.
+A high standard deviation indicates that the values are spread out over a large range.</p>
+</dd>
+<dt>Variance</dt><dd><p>The variance of all data, defined as the square of the standard deviation.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

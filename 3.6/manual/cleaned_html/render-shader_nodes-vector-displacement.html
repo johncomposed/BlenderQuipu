@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Vector &gt; Displacement</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Vector</a></li>
+<li>Displacement Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="displacement-node">
+<h1>Displacement Node</h1>
+<p>The <em>Displacement</em> node is used to displace the surface along the surface normal,
+to add more detail to the geometry. Both procedural textures and baked displacement maps
+can be used.</p>
+<p>For best results the mesh must be subdivided finely to bring out the detail
+in the displacement texture.</p>
+<p>It is also possible to use the displacement as bump mapping only by changing the material
+settings, so that no high resolution mesh is needed.</p>
+<div>
+<p>See also</p>
+<p><a href="../../materials/components/displacement.html">Material Displacement</a>
+for more details on displacement workflows.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Height</dt><dd><p>Distance to displace the surface along the normal.
+This is where a texture node can be connected.</p>
+</dd>
+<dt>Midlevel</dt><dd><p>Neutral displacement value that causes no displacement.
+With the default 0.5, any lower values will cause the surfaces to be pushed inwards,
+and any higher values will push them outwards.</p>
+</dd>
+<dt>Scale</dt><dd><p>Increase or decrease the amount of displacement.</p>
+</dd>
+<dt>Normal</dt><dd><p>Standard normal input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Space</dt><dd><p>Object Space means the displacement scales along with the object.
+When using World Space the object scale is ignored.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Displacement</dt><dd><p>Displacement offset to be connected into the Material Output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Bump only, displacement only, and displacement and bump combined.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

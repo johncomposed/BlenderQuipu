@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Physics &gt; Particle System</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Particle System Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="particle-system-modifier">
+<h1>Particle System Modifier</h1>
+<p>The Particle System modifier is a container for <a href="../../../physics/particles/index.html">Particle Systems</a>.</p>
+<div>
+<p>Note</p>
+<p>By default the Particle System modifier does not take into account the <a href="../introduction.html#modifier-stack">modifier stack</a>.
+Make sure to enable <a href="../../../physics/particles/emitter/emission.html#bpy-types-particlesettings-use-modifier-stack">Use Modifier Stack</a>
+in the Particle properties if you want Particle System modifier to take other modifiers into account.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<p>As the modifier is only a container its actual options are configured in the <em>Particle Properties</em> tab.
+See the <a href="../../../physics/particles/index.html">Particle Systems Properties</a> for more information.</p>
+</section>
+<section id="converting-particle-systems">
+<h2>Converting Particle Systems</h2>
+<dl>
+<dt>Make Instances Real</dt><dd><p>Creates a new object of each instanced <a href="../../../physics/particles/emitter/render.html#particle-object">object</a> or <a href="../../../physics/particles/emitter/render.html#particle-collection">collection</a>.
+See <a href="../../../scene_layout/object/editing/apply.html#bpy-ops-object-duplicates-make-real">Make Instances Real</a> for more information.</p>
+</dd>
+<dt>Convert to Mesh</dt><dd><p>Converts <a href="../../../physics/particles/emitter/render.html#particle-path">path</a> particles to mesh objects.
+See <a href="../../../scene_layout/object/editing/convert.html#bpy-ops-object-convert">Convert</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id1">
+<figcaption>
+<p>Fur made from particles.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

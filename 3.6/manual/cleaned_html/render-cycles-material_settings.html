@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Material Settings</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Cycles</a></li>
+<li>Material Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="material-settings">
+<h1>Material Settings</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Material ‣ Settings and Shader Editor ‣ Sidebar ‣ Settings</p>
+</dd>
+</dl>
+</div>
+<section id="surface">
+<h2>Surface</h2>
+<dl id="bpy-types-cyclesmaterialsettings-displacement">
+<dt>Displacement Method</dt><dd><p>Method used to perform <a href="../materials/components/displacement.html">Displacement</a> on materials.</p>
+<dl>
+<dt>Displacement Only:</dt>
+<dd><p>Mesh vertices will be displaced before rendering, modifying the actual mesh.
+This gives the best quality results, if the mesh is finely subdivided.
+As a result, this method is also the most memory intensive.</p>
+</dd>
+<dt>Bump Only:</dt>
+<dd><p>When executing the surface shader, a modified surface normal is used instead of the true normal.
+This is a less memory intensive alternative to actual displacement, but only an approximation.
+Surface silhouettes will not be accurate and there will be no self-shadowing of the displacement.</p>
+</dd>
+<dt>Displacement and Bump:</dt>
+<dd><p>Both methods can be combined, to do displacement on a coarser mesh,
+and use bump mapping for the final detail.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesmaterialsettings-emission-sampling">
+<dt>Emission Sampling</dt><dd><p>The method used for sampling the emissive component of the material.
+This option will only have an influence if the material contains an emissive material node,
+otherwise it will be ignored.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Do not use this surface as a light for sampling.</p>
+</dd>
+<dt>Auto:</dt>
+<dd><p>Automatically determine if the surface should be treated as a light for sampling based on
+emission intensity.</p>
+</dd>
+<dt>Front:</dt>
+<dd><p>Treat only the front side of the surface as a light, useful for closed meshes whose interior
+is not visible.</p>
+</dd>
+<dt>Back:</dt>
+<dd><p>Treat only the back side of the surface as a light for sampling.</p>
+</dd>
+<dt>Front and Back:</dt>
+<dd><p>Treat surface as a light for sampling, emitting from both the front and back side.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesmaterialsettings-use-transparent-shadow">
+<dt>Transparent Shadows</dt><dd><p>Use transparent shadows if it contains a <a href="../shader_nodes/shader/transparent.html">Transparent BSDF</a>,
+disabling will render faster but will not give accurate shadows.</p>
+</dd>
+</dl>
+</section>
+<section id="volume">
+<h2>Volume</h2>
+<dl id="bpy-types-cyclesmaterialsettings-volume-sampling">
+<dt>Sampling Method</dt><dd><dl>
+<dt>Distance:</dt>
+<dd><p>For dense volumes lit from far away <em>Distance</em> sampling is usually more efficient.</p>
+</dd>
+<dt>Equiangular:</dt>
+<dd><p>If you have got a light inside or near the volume then <em>equiangular</em> sampling is better.</p>
+</dd>
+<dt>Multiple Importance:</dt>
+<dd><p>If you have a combination of both, then the multiple importance sampling will be better.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesmaterialsettings-volume-interpolation">
+<dt>Interpolation</dt><dd><p>Interpolation method to use for the volume objects and smoke simulation grids.</p>
+<dl>
+<dt>Linear:</dt>
+<dd><p>Simple interpolation which gives good results for thin volumes.</p>
+</dd>
+<dt>Cubic:</dt>
+<dd><p>Smoothed high-quality interpolation needed for more dense volumes, but slower.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesmaterialsettings-homogeneous-volume">
+<dt>Homogeneous</dt><dd><p>Assume volume has the same density everywhere (not using any textures), for faster rendering.
+For example absorption in a glass object would typically not have any textures,
+and so the renderer can be set to avoid taking small steps to sample the volume shader.
+Usually this is automatically determined by the renderer.
+This setting provides a manual control for cases where it is not detected.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesmaterialsettings-volume-step-rate">
+<dt>Step Rate</dt><dd><p>Adjust distance between volume shader samples for volume shaders.
+This is typically used to reduce the step size for procedural shaders that add more detail
+with procedural textures, when it is not captured by the default step size.
+See <a href="render_settings/volumes.html">Volume Render Settings</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

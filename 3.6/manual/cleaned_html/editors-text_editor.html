@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Text Editor</title></head>
+<body><ul>
+<li><a href="index.html">Editors</a></li>
+<li>Text Editor</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="text-editor">
+<h1>Text Editor</h1>
+<p>Blender has a <em>Text Editor</em> among its editor types,
+accessible via the <em>Editor type</em> menu, or the shortcut <kbd><kbd>Shift</kbd>-<kbd>F11</kbd></kbd>.</p>
+<section id="header">
+<h2>Header</h2>
+<p>The newly opened Text editor is empty, with a very simple header.
+More options become available when a text file is created or opened.</p>
+<figure id="id1">
+<figcaption>
+<p>Text header.</p>
+</figcaption>
+</figure>
+<figure id="id2">
+<figcaption>
+<p>Text header with a text loaded.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Editor Type</dt><dd><p>The standard editor selection button.</p>
+</dd>
+<dt>Menus</dt><dd><p>Editor’s menus.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-text-resolve-conflict">
+<dt>Resolve Conflict</dt><dd><p>Resolves modified file conflicts when an external text file is updated from another program.</p>
+<dl>
+<dt>Reload from Disk</dt><dd><p>Opens the file from drive again, overriding any local changes.</p>
+</dd>
+<dt>Make Text Internal</dt><dd><p>Converts the external text data-block into an internal one.</p>
+</dd>
+<dt>Ignore</dt><dd><p>Hides the warning message until the external text file is modified externally again.</p>
+</dd>
+</dl>
+</dd>
+<dt>Text</dt><dd><p>A <a href="../interface/controls/templates/data_block.html#ui-data-block">data-block menu</a> to select a text or to create a new one.
+After that the header will change.</p>
+</dd>
+</dl>
+<dl id="editors-text-run-script">
+<dt>Run Script (play icon)</dt><dd><p>Executes the text as a Python script <kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd>. See <a href="#template-menu">Template Menu</a>.</p>
+</dd>
+<dt>Show</dt><dd><p>Toggle display options.</p>
+<p>Line Numbers, Word Wrap, Syntax Highlighting</p>
+</dd>
+<dt>Script Node Update (refresh icon)</dt><dd><p>When an <a href="https://github.com/AcademySoftwareFoundation/OpenShadingLanguage">OSL-file</a>
+is opened, this updates the <a href="../render/shader_nodes/osl.html#bpy-types-shadernodescript">Shader Script</a> node
+with new options and sockets from the script.</p>
+</dd>
+</dl>
+<section id="view-menu">
+<h3>View Menu</h3>
+<dl>
+<dt>Sidebar <kbd><kbd>Ctrl</kbd>-<kbd>T</kbd></kbd></dt><dd><p>Show or hide the <a href="../interface/window_system/regions.html#ui-region-sidebar">Sidebar</a>.</p>
+</dd>
+<dt>Line Numbers</dt><dd><p>Displays the text file’s line numbers on the left of the <a href="#main-view">Main View</a>.</p>
+</dd>
+<dt>Word Wrap</dt><dd><p>Wraps words that are too long to fit into the horizontal space by pushing them to a new “pseudo line”.</p>
+</dd>
+<dt>Syntax Highlight</dt><dd><p>Colors special words, in the <a href="#main-view">Main View</a>, that are used in the Python programming language.</p>
+</dd>
+<dt>Highlight Line</dt><dd><p>Emphasizes the active line by altering the color of the background.</p>
+</dd>
+<dt>Navigation</dt><dd><dl>
+<dt>Top <kbd><kbd>Ctrl</kbd>-<kbd>Home</kbd></kbd></dt><dd><p>Moves the view and cursor to the start of the text file.</p>
+</dd>
+<dt>Bottom <kbd><kbd>Ctrl</kbd>-<kbd>End</kbd></kbd></dt><dd><p>Moves the view and cursor to the end of the text file.</p>
+</dd>
+<dt>Line Begin <kbd>Home</kbd></dt><dd><p>Moves the cursor to the start of the current line.</p>
+</dd>
+<dt>Line End <kbd>End</kbd></dt><dd><p>Moves the cursor to the end of the current line.</p>
+</dd>
+<dt>Previous Line <kbd>Up</kbd></dt><dd><p>Moves the cursor to the same position in the line above the current line.</p>
+</dd>
+<dt>Next Line <kbd>Down</kbd></dt><dd><p>Moves the cursor to the same position in the line below the current line.</p>
+</dd>
+<dt>Previous Word <kbd><kbd>Ctrl</kbd>-<kbd>Left</kbd></kbd></dt><dd><p>Moves the cursor to the beginning of the previous word.
+If the cursor is in the middle of a word, the cursor is moved to the beginning of the current word.</p>
+</dd>
+<dt>Next Word <kbd><kbd>Ctrl</kbd>-<kbd>Right</kbd></kbd></dt><dd><p>Moves the cursor to the end of the next word.
+If the cursor is in the middle of a word, the cursor is moved to the end of the current word.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="text-menu">
+<h3>Text Menu</h3>
+<dl>
+<dt>New <kbd><kbd>Alt</kbd>-<kbd>N</kbd></kbd></dt><dd><p>Creates a new text Data Block.</p>
+</dd>
+<dt>Open Text Block <kbd><kbd>Alt</kbd>-<kbd>O</kbd></kbd>.</dt><dd><p>Loads an external text file that is selected via the <a href="file_browser.html">File Browser</a>.</p>
+</dd>
+<dt>Reload <kbd><kbd>Alt</kbd>-<kbd>R</kbd></kbd></dt><dd><p>Reopens (reloads) the current buffer (all non-saved modifications are lost).</p>
+</dd>
+<dt>Save <kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></dt><dd><p>Saves an already open file.</p>
+</dd>
+<dt>Save As <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>S</kbd></kbd>.</dt><dd><p>Saves text as a new text file,
+a <a href="file_browser.html">File Browser</a> is opened to select the directory
+to save the file along with giving the file a name and file extension.</p>
+</dd>
+<dt>Register</dt><dd><p>Run the text data-block as a Python script on loading the blend-file.
+Read more about the registration of Python modules in
+<a href="https://docs.blender.org/api/current/info_overview.html#registration">API documentation</a>.</p>
+</dd>
+<dt>Live Edit</dt><dd><p>Todo.</p>
+</dd>
+<dt>Run Script <kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd></dt><dd><p>Executes the text as a Python script, see <a href="#running-scripts">Running Scripts</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="edit-menu">
+<h3>Edit Menu</h3>
+<dl>
+<dt>Undo/Redo</dt><dd><p>See <a href="../interface/undo_redo.html">Undo &amp; Redo</a>.</p>
+</dd>
+<dt>Cut <kbd><kbd>Ctrl</kbd>-<kbd>X</kbd></kbd></dt><dd><p>Cuts out the marked text into the text clipboard.</p>
+</dd>
+<dt>Copy <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd></dt><dd><p>Copies the marked text into the text clipboard.</p>
+</dd>
+<dt>Paste <kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd></dt><dd><p>Pastes the text from the clipboard at the cursor location in the Text editor.</p>
+</dd>
+<dt>Duplicate Line <kbd><kbd>Ctrl</kbd>-<kbd>D</kbd></kbd></dt><dd><p>Duplicates the current line.</p>
+</dd>
+<dt>Move Line(s) Up <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Up</kbd></kbd></dt><dd><p>Swaps the current/selected line(s) with the above.</p>
+</dd>
+<dt>Move Line(s) Down <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Down</kbd></kbd></dt><dd><p>Swaps the current/selected line(s) with the below.</p>
+</dd>
+<dt>Find &amp; Replace <kbd><kbd>Ctrl</kbd>-<kbd>F</kbd></kbd></dt><dd><p>Shows the <em>Find &amp; Replace</em> panel in the Sidebar.</p>
+</dd>
+<dt>Find &amp; Set Selection <kbd><kbd>Ctrl</kbd>-<kbd>G</kbd></kbd></dt><dd><p>Finds the next instance of the selected text.</p>
+</dd>
+<dt>Jump To <kbd><kbd>Ctrl</kbd>-<kbd>J</kbd></kbd></dt><dd><p>Shows a pop-up, which lets you select a line number where to move the cursor to.</p>
+</dd>
+<dt>Text Auto Complete <kbd>Tab</kbd></dt><dd><p>Shows a selectable list of words already used in the text.</p>
+</dd>
+<dt>Text to 3D Object</dt><dd><p>Converts the text file to a <a href="../modeling/texts/index.html">Text Object</a>
+either as <em>One Object</em> or <em>One Object Per Line</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="select-menu">
+<h3>Select Menu</h3>
+<dl>
+<dt>All <kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></dt><dd><p>Selects the entire text file.</p>
+</dd>
+<dt>Line <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></dt><dd><p>Selects the entire current line.</p>
+</dd>
+<dt>Word double-click <kbd>LMB</kbd></dt><dd><p>Selects the entire current word.</p>
+</dd>
+<dt>Top <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Home</kbd></kbd></dt><dd><p>Selects everything above the cursor.</p>
+</dd>
+<dt>Bottom <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>End</kbd></kbd></dt><dd><p>Selects everything below the cursor.</p>
+</dd>
+<dt>Line Begin <kbd><kbd>Shift</kbd>-<kbd>Home</kbd></kbd></dt><dd><p>Selects everything between the beginning of the current line and the cursor.</p>
+</dd>
+<dt>Line End <kbd><kbd>Shift</kbd>-<kbd>End</kbd></kbd></dt><dd><p>Selects everything between the cursor and the end of the current line.</p>
+</dd>
+<dt>Previous Line <kbd><kbd>Shift</kbd>-<kbd>Up</kbd></kbd></dt><dd><p>Selects everything between the cursor and the position of the cursor one line above.</p>
+</dd>
+<dt>Next Line <kbd><kbd>Shift</kbd>-<kbd>Down</kbd></kbd></dt><dd><p>Selects everything between the cursor and the position of the cursor one line below.</p>
+</dd>
+<dt>Previous Word <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Left</kbd></kbd></dt><dd><p>Selects everything between the cursor and the beginning of the previous word.
+If the cursor is in the middle of a word, select everything to the beginning of the current word.</p>
+</dd>
+<dt>Next Word <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Right</kbd></kbd></dt><dd><p>Selects everything between the cursor and the end of the next word.
+If the cursor is in the middle of a word, select everything to the end of the current word.</p>
+</dd>
+</dl>
+</section>
+<section id="format-menu">
+<h3>Format Menu</h3>
+<dl>
+<dt>Indent <kbd>Tab</kbd></dt><dd><p>Inserts a tab character at the cursor.</p>
+</dd>
+<dt>Unindent <kbd><kbd>Shift</kbd>-<kbd>Tab</kbd></kbd>.</dt><dd><p>Unindents the selection.</p>
+</dd>
+<dt>Toggle Comments <kbd><kbd>Ctrl</kbd>-<kbd>Slash</kbd></kbd>.</dt><dd><p>Toggles whether the selected line(s) are a Python comment.
+If no lines are selected the current line is toggled.</p>
+</dd>
+<dt>Convert Whitespace</dt><dd><p>Converts indentation characters <em>To Spaces</em> or <em>To Tabs</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="template-menu">
+<h3>Template Menu</h3>
+<p>The <em>Text Editor</em> has some dedicated Python scripts,
+which are useful for writing tools, like a class/function/variable browser, completion…</p>
+<p>Python, OpenShading Language</p>
+</section>
+</section>
+<section id="main-view">
+<h2>Main View</h2>
+<p>Typing on the keyboard produces text in the text buffer.</p>
+<p>As usual, pressing, dragging and releasing <kbd>LMB</kbd> selects text.
+Pressing <kbd>RMB</kbd> opens the context menu.</p>
+<div>
+<p>Tip</p>
+<p>Usages for the Text editor</p>
+<p>The Text editor is handy also when you want to share your blend-files with others.
+The Text editor can be used to write in a <code>README</code> text explaining the contents of your blend-file.
+Be sure to keep it visible when saving!</p>
+</div>
+</section>
+<section id="sidebar">
+<h2>Sidebar</h2>
+<section id="find-replace">
+<h3>Find &amp; Replace</h3>
+<dl id="bpy-ops-text-find">
+<dt>Find Text <kbd><kbd>Ctrl</kbd>-<kbd>F</kbd></kbd></dt><dd><p>Searches for instances of a text that occur after the cursor.
+Using the eyedropper icon will search for the currently selected text
+and sets the selection to the match.
+<em>Find Next</em> searches for the next instance of the text.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-text-replace">
+<dt>Replace Text <kbd><kbd>Ctrl</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Searches for the text specified in <em>Find Text</em> and replaces it with the new text.
+Using the eyedropper icon will set the currently selected text as the replace text.
+<em>Replace</em> searches for the next match and replaces it.
+<em>Replace All</em> searches for the match and replaces all occurrences of the match with the new text.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacetexteditor-use-find-all">
+<dt>Case</dt><dd><p>Search is sensitive to upper-case and lower-case letters.</p>
+</dd>
+<dt>Wrap</dt><dd><p>Search again from the start of the file when reaching the end.</p>
+</dd>
+<dt>All</dt><dd><p>Search in all text data-blocks instead of only the active one.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h3>Properties</h3>
+<dl id="bpy-types-spacetexteditor-margin-column">
+<dt>Margin</dt><dd><p>Shows a right margin to help keep line length at a reasonable length when scripting.
+The width of the margin is specified in <em>Margin Column</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacetexteditor-font-size">
+<dt>Font Size <kbd><kbd>Ctrl</kbd>-<kbd>WheelUp</kbd></kbd></dt><dd><p>The size of the font used to display text.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacetexteditor-tab-width">
+<dt>Tab Width</dt><dd><p>The number of character spaces to display tab characters with.</p>
+</dd>
+</dl>
+<dl id="bpy-types-text-indentation">
+<dt>Indentation</dt><dd><p>Use <em>Tabs</em> or <em>Spaces</em> for indentations.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="footer">
+<h2>Footer</h2>
+<p>The Text editor footer displays if the text is saved internal or external and
+if there are unsaved changes to an external file.
+For external files, this region also displays the file path to the text file.</p>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<section id="running-scripts">
+<h3>Running Scripts</h3>
+<p>The most notable keystroke is <kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd> which makes the content of the buffer
+being parsed by the internal Python interpreter built into Blender.
+Before going on it is worth noticing that Blender comes with a fully functional Python interpreter built-in,
+and with a lots of Blender-specific modules,
+as described in the <a href="../advanced/scripting/index.html">Scripting &amp; Extending Blender</a> section.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Tools &gt; Tool Settings</title></head>
+<body><ul>
+<li><a href="../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../index.html">Objects</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Tool Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="tool-settings">
+<h1>Tool Settings</h1>
+<section id="options">
+<h2>Options</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Pose Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p>Sidebar ‣ Tool ‣ Options</p>
+</dd>
+</dl>
+</div>
+<section id="transform">
+<h3>Transform</h3>
+<dl id="bpy-types-toolsettings-use-transform-pivot-point-align">
+<dt>Affect Only</dt><dd><dl>
+<dt>Origins <kbd><kbd>Ctrl</kbd>-<kbd>Period</kbd></kbd></dt><dd><p>Directly transforms the object’s <a href="../origin.html">origin</a>.
+This only works for objects with data which can be transformed;
+i.e. it will not work on object lights.</p>
+<p>When enabled, the object axes are displayed.</p>
+<p>Take care using this option since it transforms the object-data which may cause linked
+duplicates to be moved unintentionally.</p>
+<div>
+<p>Hint</p>
+<p>Changing the object location and the object-data may impact
+modifiers, constraints and keyframe animation.</p>
+<p>If you are only temporarily setting the pivot point,
+use the <a href="../../../editors/3dview/3d_cursor.html#editors-3dview-3d-cursor">3D cursor</a> instead.</p>
+</div>
+</dd>
+<dt>Locations</dt><dd><p>Changes the position of the object’s origin relative to another point during transformation.
+In other words, the pivot point and the origin cannot share the same location.
+This will not affect the object local transforms, just its position in world space.</p>
+<p>In the examples below, a comparison of the scaling and rotation of objects,
+when <em>Location</em> is enabled (middle) and disabled (right).</p>
+<figure id="id2">
+<figcaption>
+<p>Rotation example.</p>
+</figcaption>
+</figure>
+<figure id="id3">
+<figcaption>
+<p>Scaling example.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Parents</dt><dd><p>Transforms <a href="../editing/parent.html">Parent Objects</a>
+while leaving their children objects unaffected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

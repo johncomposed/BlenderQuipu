@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Edit Face Set</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Edit Face Set</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="edit-face-set">
+<h1>Edit Face Set</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Edit Face Set</p>
+</dd>
+<dt>Operator:</dt>
+<dd><p><a href="../editing/face_sets.html#bpy-ops-sculpt-face-set-edit">Grow/Shrink Face Sets</a></p>
+</dd>
+</dl>
+</div>
+<p>Edits the <a href="../editing/face_sets.html">Face Set</a> under the cursor.</p>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<dl>
+<dt>Mode</dt><dd><p>The operation to apply to the face set.</p>
+<dl>
+<dt>Grow Face Set:</dt>
+<dd><p>Grows the face sets boundary by one face based on mesh topology.
+This is also available as a <a href="../editing/face_sets.html#bpy-ops-sculpt-face-set-edit">shortcut operator</a>
+via <kbd><kbd>Ctrl</kbd>-<kbd>W</kbd></kbd>.</p>
+</dd>
+<dt>Shrink Face Set:</dt>
+<dd><p>Shrinks the face sets boundary by one face based on mesh topology.
+This is also available as a <a href="../editing/face_sets.html#bpy-ops-sculpt-face-set-edit">shortcut operator</a>
+via <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>W</kbd></kbd>.</p>
+</dd>
+<dt>Delete Geometry:</dt>
+<dd><p>Deletes the faces that are assigned to the face set.</p>
+</dd>
+<dt>Fair Positions:</dt>
+<dd><p>Creates a perfectly flat and smooth geometry patch from the face set.
+This is the ideal way to trim parts of your mesh
+if the vertex count is too high for other operations,
+or the vertex IDs must not be altered
+(Like when using <a href="../../../modeling/modifiers/generate/multiresolution.html">Multires</a> sculpting).</p>
+</dd>
+<dt>Fair Tangency:</dt>
+<dd><p>Creates a smooth as possible geometry patch from the face set
+by minimizing changes in vertex <a href="../../../glossary/index.html#term-Tangent">tangents</a>.
+This is ideal for creating smooth curved surfaces on complex topology,
+where just using the smooth brush will not lead to desired results</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Before fairing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>After using Fair Positions.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>After using Fair Tangency.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Strength</dt><dd><p>The amount of effect the filter has on the mesh.
+This setting is only available for the fairing operations.</p>
+</dd>
+<dt>Modify Hidden</dt><dd><p>Apply the edit operation to hidden face sets.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

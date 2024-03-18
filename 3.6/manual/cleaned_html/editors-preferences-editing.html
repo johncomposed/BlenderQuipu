@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Preferences &gt; Editing</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Preferences</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<p>These preferences control how several tools will interact with your input.</p>
+<section id="objects">
+<h2>Objects</h2>
+<section id="new-objects">
+<h3>New Objects</h3>
+<dl>
+<dt>Link Materials to</dt><dd><p>To understand this option properly, you need to understand how Blender works with Objects.
+Almost everything in Blender is organized in a hierarchy of data-blocks.
+A data-block can be thought of as containers for certain pieces of information. For example,
+the Object data-block contains information about the Object’s location, rotation, and scale
+while the associated linked Object Data data-block contains information about the mesh.</p>
+<figure id="id1">
+<figcaption>
+<p>Example for a mesh.</p>
+</figcaption>
+</figure>
+<p>A material may be linked in two different ways:</p>
+<dl>
+<dt>Object Data</dt><dd><p>Any created material will be created as part of the Object Data data-block.</p>
+</dd>
+<dt>Object</dt><dd><p>Any created material will be created as part of the Object data-block.</p>
+</dd>
+</dl>
+<figure id="id2">
+<figcaption>
+<p>A material linked to Object Data (left) and Object (right).</p>
+</figcaption>
+</figure>
+<div>
+<p>See also</p>
+<p><a href="../../files/index.html">Read more about Blender’s Data System</a>.</p>
+</div>
+</dd>
+<dt>Align to</dt><dd><dl>
+<dt>World</dt><dd><p>New objects align with world coordinates.</p>
+</dd>
+<dt>View</dt><dd><p>New object align with view coordinates.</p>
+</dd>
+<dt>3D Cursor</dt><dd><p>New objects align to the 3D cursor’s orientation.</p>
+</dd>
+</dl>
+</dd>
+<dt>Enter Edit Mode</dt><dd><p>If selected, Edit Mode is automatically activated when you create a new object.</p>
+</dd>
+<dt>Instance Empty Size</dt><dd><p>The display size for empties when
+a new <a href="../../scene_layout/object/properties/instancing/collection.html">collection instance</a> is created.</p>
+</dd>
+</dl>
+</section>
+<section id="duplicate-data">
+<h3>Duplicate Data</h3>
+<p>The <em>Duplicate Data</em> checkboxes define what data is copied with a duplicated object and
+what data remains linked. Any boxes that are checked will have their data copied along with
+the duplication of the object. Any boxes that are not checked will instead have their data linked
+from the source object that was duplicated.</p>
+<p>For example, if you have <em>Mesh</em> checked,
+then a full copy of the mesh data is created with the new object,
+and each mesh will behave independently of the duplicate.
+If you leave the mesh box unchecked then when you change the mesh of one object,
+the change will be mirrored in the duplicate object.</p>
+<p>The same rules apply to each of the checkboxes in the <em>Duplicate Data</em> list.</p>
+</section>
+</section>
+<section id="d-cursor">
+<h2>3D Cursor</h2>
+<dl>
+<dt>Cursor Surface Project</dt><dd><p>When placing the cursor by clicking,
+the cursor is projected onto the surface under the cursor.</p>
+</dd>
+<dt>Cursor Lock Adjust</dt><dd><p>When the viewport is locked to the cursor,
+moving the cursor avoids the view <em>jumping</em> based on the new offset.</p>
+</dd>
+</dl>
+</section>
+<section id="annotations">
+<h2>Annotations</h2>
+<dl>
+<dt>Default Color</dt><dd><p>The default color for new Annotate layers.</p>
+</dd>
+<dt>Eraser Radius</dt><dd><p>The size of the eraser used with the Annotate Tool.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p><a href="../../interface/annotate_tool.html">Read more about Annotations</a>.</p>
+</div>
+</section>
+<section id="weight-paint">
+<h2>Weight Paint</h2>
+<p><em>Mesh skin weighting</em> is used to control how much a bone deforms the mesh of a character.
+To visualize and paint these weights, Blender uses a color ramp (from blue to green, and from yellow to red).
+Enabling the checkbox will enable an alternate map using a ramp starting with an empty range.
+Now you can create your custom map using the common color ramp options.
+For detailed information see the <a href="../../interface/controls/templates/color_ramp.html">Color ramps</a> page.</p>
+</section>
+<section id="grease-pencil">
+<h2>Grease Pencil</h2>
+<dl>
+<dt>Distance</dt><dd><dl>
+<dt>Manhattan</dt><dd><p>The minimum number of pixels the mouse should have moved either
+horizontally or vertically before the movement is recorded.
+Decreasing this should work better for curvy lines.</p>
+</dd>
+<dt>Euclidean</dt><dd><p>The minimum distance that mouse has to travel before movement is recorded.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p><a href="../../grease_pencil/index.html">Read more about Grease Pencil</a>.</p>
+</div>
+</section>
+<section id="text-editor">
+<h2>Text Editor</h2>
+<dl>
+<dt>Auto Close Character Pairs</dt><dd><p>Automatically insert the corresponding character to close an expression
+when typing characters such as quotes, brackets, braces, or parentheses.</p>
+</dd>
+</dl>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous</h2>
+<dl>
+<dt>Sculpt Overlay Color</dt><dd><p>Defines a color to be used in the inner part of
+the brushes circle when in Sculpt Mode, and it is placed as an overlay to the brush,
+representing the focal point of the brush influence.
+The overlay color is visible only when the overlay visibility is selected
+(clicking at the <em>eye</em> to set its visibility), and the transparency of the overlay is
+controlled by the alpha slider located at the Tool tab ‣ Display panel in the Sidebar.</p>
+</dd>
+<dt>Node Auto-offset Margin</dt><dd><p>Margin to use for <a href="../../interface/controls/nodes/arranging.html#editors-nodes-usage-auto-offset">offsetting nodes</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

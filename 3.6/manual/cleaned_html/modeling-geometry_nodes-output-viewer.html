@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Output &gt; Viewer</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Output Nodes</a></li>
+<li>Viewer Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewer-node">
+<h1>Viewer Node</h1>
+<p>The <em>Viewer</em> node allows viewing data from inside a geometry node group in the
+<a href="../../../editors/spreadsheet.html">Spreadsheet Editor</a> and the 3D Viewport.</p>
+<p>Any geometry connected can be visualized in the viewport and its attribute values
+can be read in the spreadsheet.</p>
+<section id="usage">
+<h2>Usage</h2>
+<section id="activation-and-deactivation">
+<h3>Activation and Deactivation</h3>
+<p>Using <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> on any node or socket connects it to the viewer and makes it active.
+Using the same shortcut on empty space in the node editor makes deactivates the active viewer.
+When the active viewer is not visible anymore (e.g. another object is selected, or the current
+node group is exited), it is deactivated. The icon in the viewer node header can also be used
+to activate and deactivate it.</p>
+<p id="bpy-types-spaceview3d-show-viewer">In the viewport, the <em>Show Viewer</em> option can turn off the viewer node visualization completely
+in order to see the final output of the object’s evaluation instead.</p>
+</section>
+<section id="attribute-visualization">
+<h3>Attribute Visualization</h3>
+<p>When the viewer has a geometry and a separate value input connected, the values can be visualized
+with a <a href="../../../editors/3dview/display/overlays.html">viewport overlays</a>. When possible, the
+<a href="../attributes_reference.html#attribute-domains">attribute domain</a> used to visualize the data is determined automatically.
+Otherwise, the viewer node falls back to the face corner domain on meshes and the point domain
+on curves. When necessary, the domain can be chosen manually.</p>
+<p id="bpy-types-view3doverlay-viewer-attribute-opacity">The attribute overlay opacity can be controlled with the <em>Viewer Node</em> setting in the overlays popover.</p>
+<p>The spreadsheet now only shows the “Viewer” column for the domain that is selected in the Viewer node.</p>
+</section>
+<section id="pinning">
+<h3>Pinning</h3>
+<p>It can be helpful to pin a specific viewer node in the spreadsheet. When pinned, the spreadsheet
+still references the viewer node even when it becomes inactive.</p>
+</section>
+</section>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Geometry that will be displayed in the Spreadsheet.</p>
+</dd>
+<dt>Value</dt><dd><p>Field to be evaluated on the geometry.
+The type for this value is chosen automatically when the keyboard shortcut to link
+an output is pressed. However, if the type must be adjusted manually,
+it is available in the node editor Sidebar.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>The data type used to evaluate the <em>Value</em> input, visible in the node side-bar.</p>
+</dd>
+<dt>Domain</dt><dd><p>The <a href="../attributes_reference.html#attribute-domains">attribute domain</a> used to evaluate the <em>Value</em> input.
+The <em>Auto</em> option chooses the domain automatically based on the connected nodes.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p>This node has no outputs.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

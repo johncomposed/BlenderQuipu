@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Import Export &gt; Usd</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="../import_export.html">Importing &amp; Exporting Files</a></li>
+<li>Universal Scene Description</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="universal-scene-description">
+<h1>Universal Scene Description</h1>
+<section id="exporting-to-usd-files">
+<h2>Exporting to USD Files</h2>
+<p>Universal Scene Description (USD) files can contain complex layering, overriding, and references to other files.
+Blender’s USD Exporter takes a much simpler approach. When exporting, all visible, supported objects in
+the scene are exported, optionally limited by their selection state. Blender does not (yet) support exporting
+invisible objects, USD layers, variants, skeletal animation, etc.</p>
+<p>The following objects can be exported to USD:</p>
+<ul>
+<li><p>Meshes (of different kinds, see below).</p></li>
+<li><p>Cameras (perspective cameras only at the moment, not orthogonal ones).</p></li>
+<li><p>Light (all types except area lights).</p></li>
+<li><p>Hair (exported as curves, and limited to parent strands).</p></li>
+<li><p>Volume (both static and animated volumes).</p></li>
+</ul>
+<p>When exporting an animation, the final, evaluated mesh is written to USD.
+This means that the following meshes can be exported:</p>
+<ul>
+<li><p>Static meshes.</p></li>
+<li><p>Deforming meshes; here the topology of the mesh does not change,
+but the locations of the vertices change over time. Examples are animated characters or
+bouncing (but not cracking) objects.</p></li>
+<li><p>Arbitrarily animated meshes; here the topology does change.
+An example is the result of a fluid simulation, where splashes of fluid can break off the main body.</p></li>
+<li><p>Metaballs are exported as animated meshes.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>To export the Blender scene as a <a href="https://openusd.org/release/spec_usdz.html">USDZ archive</a>, set
+the file extension of the output file to <strong>.usdz</strong>.  The exported USDZ package will be a zip archive
+containing the USD and its texture file dependencies.</p>
+</div>
+<figure id="id3">
+<figcaption>
+<p>Shot from Spring exported to USD and opened in USDView.</p>
+</figcaption>
+</figure>
+</section>
+<section id="export-options">
+<h2>Export Options</h2>
+<p>The following options are available when exporting to USD:</p>
+<dl>
+<dt>Selection Only</dt><dd><p>When checked, only selected objects are exported.
+Instanced objects, for example collections that are instanced in the scene,
+are considered ‘selected’ when their instancer is selected.</p>
+</dd>
+<dt>Visible Only</dt><dd><p>Only exports objects that are not <a href="../../scene_layout/object/editing/show_hide.html">hidden</a>.
+Invisible parents of exported objects are exported as empty transforms.</p>
+</dd>
+<dt>Animation</dt><dd><p>When checked, the entire scene frame range is exported.
+When unchecked, only the current scene frame is exported.</p>
+</dd>
+<dt>Hair</dt><dd><p>When checked, parent hair strands are exported as a curve system.
+Hair strand colors are not exported.</p>
+</dd>
+<dt>UV Maps</dt><dd><p>When checked, includes UV coordinates for exported meshes.
+The name of the UV map in USD is the same as the name in Blender.
+In USD the default name is <code>st</code> whereas in Blender the default name is <code>UVMap</code>.
+To export to the standard UV map name <code>st</code>, rename the UV map in Blender to <code>st</code>.</p>
+</dd>
+<dt>Normals</dt><dd><p>When checked, includes normals for exported meshes. This includes custom loop normals.</p>
+</dd>
+<dt>Materials</dt><dd><p>Exports material information of the object.
+By default the exporter approximates the <a href="../../render/shader_nodes/shader/principled.html">Principled BSDF</a>
+node tree by converting it to USD’s Preview Surface format.
+If <em>To USD Preview Surface</em> is disabled, the material is set to the viewport materials of meshes.</p>
+<p>Additional material properties are set in the <em>Material</em> grouping of options.</p>
+<p>When a mesh has multiple materials assigned, a geometry subset is created for each material.
+The first material (if any) is always applied to the mesh itself as well
+(regardless of the existence of geometry subsets),
+because the Hydra viewport does not support materials on subsets.
+See <a href="https://github.com/PixarAnimationStudios/USD/issues/542">USD issue #542</a>
+for more information.</p>
+</dd>
+<dt>Root Prim</dt><dd><p>If set, add a transform primitive with the given path to the stage as the parent of all exported data.</p>
+</dd>
+<dt>Use Settings for</dt><dd><p>Determines the whether to use <em>Viewport</em> or <em>Render</em> visibility of collection, modifiers,
+or any other property that can be set for both the <em>Viewport</em> and <em>Render</em>.</p>
+</dd>
+</dl>
+<section id="materials">
+<h3>Materials</h3>
+<p>Additional options when <em>Materials</em> are enabled for export.</p>
+<dl>
+<dt>To USD Preview Surface</dt><dd><p>When exporting materials, approximate a <a href="../../render/shader_nodes/shader/principled.html">Principled BSDF</a>
+node tree to by converting it to USD’s Preview Surface format.
+If disabled, the material is set to the viewport materials of meshes.</p>
+<div>
+<p>Warning</p>
+<p>Not all nodes are supported; currently only Diffuse,
+Principle, Image Textures, and UVMap nodes are support.</p>
+</div>
+</dd>
+<dt>Export Textures</dt><dd><p>Export textures referenced by shader nodes to a “textures”
+folder which in the same directory as the USD file.</p>
+</dd>
+<dt>Overwrite Textures</dt><dd><p>Allow overwriting existing texture files when exporting textures.</p>
+</dd>
+</dl>
+</section>
+<section id="file-references">
+<h3>File References</h3>
+<dl>
+<dt>Relative Paths</dt><dd><p>Use relative paths to reference external files (i.e. textures, volumes) in the exported USD file,
+otherwise use absolute paths.</p>
+</dd>
+</dl>
+</section>
+<section id="experimental">
+<h3>Experimental</h3>
+<dl>
+<dt>Instancing</dt><dd><p>As this is an experimental option. When unchecked,
+duplicated objects are exported as real objects, so a particle system with
+100 particles that is displayed with 100 meshes will have 100 individual meshes
+in the exported file. When checked, duplicated objects are exported as
+a reference to the original object. If the original object is not part of the export,
+the first duplicate is exported as real object and used as reference.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="exporter-limitations">
+<h2>Exporter Limitations</h2>
+<dl>
+<dt>Single-sided and Double-sided Meshes</dt><dd><p>USD seems to support neither per-material nor per-face-group double-sidedness,
+so Blender uses the flag from the first material to mark the entire mesh as single/double-sided.
+If there is no material it defaults to double-sided.</p>
+</dd>
+<dt>Mesh Normals</dt><dd><p>The mesh subdivision scheme in USD is ‘Catmull-Clark’ by default,
+but Blender uses ‘None’ instead, indicating that a polygonal mesh is exported.
+This is necessary for USD to understand the custom normals;
+otherwise the mesh is always rendered smooth.</p>
+</dd>
+<dt>Vertex Velocities</dt><dd><p>Currently only fluid simulations (not meshes in general) have explicit vertex velocities.
+This is the most important case for exporting velocities, though,
+as the baked mesh changes topology all the time, and
+thus computing the velocities at import time in a post-processing step is hard.</p>
+</dd>
+<dt>Coordinate System Orientation</dt><dd><p>Blender uses the Z axis as up axis. Since USD supports both Y up and Z up,
+the USD files written by Blender always use Z up.</p>
+</dd>
+<dt>Materials</dt><dd><p>Very simple versions of the materials are exported, using only
+the <a href="../../render/materials/settings.html#render-materials-settings-viewport-display">Viewport Display</a> color, metallic, and roughness.</p>
+<p>When there are multiple materials, the mesh faces are stored as geometry subset
+and each material is assigned to the appropriate subset.
+If there is only one material this is skipped. Note that the geometry subsets are not time-sampled,
+so it may break when an animated mesh changes topology.</p>
+</dd>
+<dt>Hair</dt><dd><p>Only the parent strands are exported, and only with a constant color.
+No UV coordinates, and no information about the normals.</p>
+</dd>
+<dt>Camera</dt><dd><p>Only perspective cameras are exported.</p>
+</dd>
+<dt>Lights</dt><dd><p>USD does not directly support spot lights, so those are not exported.</p>
+</dd>
+<dt>Particles</dt><dd><p>Particles are only written when they are alive, which means that they are always visible.
+There is currently no code that deals with marking them as invisible outside their lifespan.</p>
+<p>Objects instanced by particle system are exported by suffixing the object name with
+the particle’s persistent ID, giving each particle transform a unique name.</p>
+</dd>
+<dt>Instancing/Referencing</dt><dd><p>This is still an experimental feature that can be enabled when exporting to USD.
+When enabled, instanced object meshes are written to USD as references to the original mesh.
+The first copy of the mesh is written for real, and the following copies are referencing the first.
+Which mesh is considered ‘the first’ is chosen more or less arbitrarily.</p>
+</dd>
+<dt>USDZ</dt><dd><p>Due to a current limitation in the USD library, UDIM textures cannot be include in the USDZ archive.
+This limitation will likely be addressed in a future version of USD.
+(See <a href="https://github.com/PixarAnimationStudios/USD/pull/2133">USD pull request #2133</a>.)</p>
+</dd>
+</dl>
+</section>
+<section id="importing-usd-files">
+<h2>Importing USD Files</h2>
+<p><a href="https://graphics.pixar.com/usd/release/index.html">USD</a> files typically represent the scene as
+a hierarchy of primitives, or <a href="https://graphics.pixar.com/usd/release/glossary.html#USDGlossary-Prim">prims</a>.
+Individual prims contain data to describe scene entities, such as geometry, lights, cameras and transform hierarchies.
+Blender’s USD importer converts USD prims to a hierarchy of Blender objects. Like the USD exporter,
+the importer does not yet handle more advanced USD concepts, such as layers and references.</p>
+<p>The following USD data types can be imported as Blender objects:</p>
+<ul>
+<li><p>Cameras</p></li>
+<li><p>Curves</p></li>
+<li><p>Lights</p></li>
+<li><p>Materials</p></li>
+<li><p>Meshes</p></li>
+<li><p>Primitive Shapes</p></li>
+<li><p>Volume</p></li>
+</ul>
+<p>For more information on how the various data types are handled,
+see the following descriptions of the <a href="#import-options">Import Options</a>.</p>
+<div>
+<p>Note</p>
+<p>When importing a <a href="https://openusd.org/release/spec_usdz.html">USDZ archive</a>, it is
+important to carefully consider the <a href="#usd-import-textures">Import Textures</a> option to determine
+whether and how to copy texture files from the zip archive.</p>
+</div>
+<section id="xform-and-scope-primitives">
+<h3>Xform and Scope Primitives</h3>
+<p>USD provides an <code>Xform</code> prim type, containing transform data, which can be
+used to represent transform hierarchies and to organize the scene.
+Such <code>Xform</code> prims are imported as Blender empty objects.</p>
+<p>USD also supports <code>Scope</code> primitives, which are entities
+that do not contain transform data, but which serve to group other element of the scene.
+Blender doesn’t have an exact counterpart to the concept of a scope,
+so such primitives are imported as Blender empties located at the origin.
+This is an imperfect representation, because empty objects have a transform and <code>Scopes</code> do not,
+but this approach nonetheless helps preserve the structure of the scene hierarchy.</p>
+</section>
+<section id="animations">
+<h3>Animations</h3>
+<p>The importer supports two types of animation:</p>
+<ul>
+<li><p><strong>Animating transforms</strong>: If a USD primitive has time-varying transform data,
+a <a href="../../animation/constraints/transform/transform_cache.html">Transform Cache</a> constraint
+will be added to the imported Blender object.</p></li>
+<li><p><strong>Animating geometry</strong>: Animating mesh and curve geometry is supported by adding
+a <a href="../../modeling/modifiers/modify/mesh_sequence_cache.html">Mesh Sequence Cache</a> modifier to the imported data.
+Geometry attribute (<a href="https://graphics.pixar.com/usd/release/glossary.html#USDGlossary-Primvar">USD Primvar</a>)
+animation is currently supported only for Color Attributes and UVs.
+Note that USD file sequences (i.e. a unique file per frame) are not yet supported.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Materials</h3>
+<p>If a USD mesh or geometry subset has a bound material, the importer will assign to
+the Blender object a material with the same name as the USD material.
+If a Blender material with the same name already exists in the scene, the existing material may be used,
+depending on the <a href="#usd-material-name-collision">Material Name Collision</a> option.
+Otherwise, a new material will be created.</p>
+<p>If the USD material has
+a <a href="https://graphics.pixar.com/usd/release/spec_usdpreviewsurface.html">USD Preview Surface</a> shader source,
+the <a href="../../render/materials/settings.html#render-materials-settings-viewport-display">Viewport Display</a> color, metallic, and roughness are set to
+the corresponding USD Preview Surface input values.</p>
+<p>There is also an <em>Import USD Preview</em> option to convert USD Preview Surface shaders
+to Blender <a href="../../render/shader_nodes/shader/principled.html">Principled BSDF</a> shader nodes.
+This option can be lossy, as it does not yet handle converting all shader settings and types,
+but it can generate approximate visualizations of the materials.</p>
+</section>
+<section id="coordinate-system-orientation">
+<h3>Coordinate System Orientation</h3>
+<p>If the imported USD is Y up, a rotation will be automatically applied to
+root objects to convert to Blender’s Z up orientation.</p>
+</section>
+</section>
+<section id="import-options">
+<h2>Import Options</h2>
+<p>The following options are available when importing from USD:</p>
+<dl>
+<dt>Cameras</dt><dd><p>Import cameras (perspective and orthographic).</p>
+</dd>
+<dt>Curves</dt><dd><p>Import curve primitives, including USD basis and NURBS curves.
+(Note that support for Bézier basis is not yet fully implemented.)</p>
+</dd>
+<dt>Lights</dt><dd><p>Import lights. Does not currently include USD dome, cylinder or geometry lights.</p>
+</dd>
+<dt>Materials</dt><dd><p>Import materials.</p>
+</dd>
+<dt>Meshes</dt><dd><p>Import meshes.</p>
+</dd>
+<dt>Volumes</dt><dd><p>Import USD OpenVDB field assets.</p>
+</dd>
+<dt>Primitives</dt><dd><p>Imports USD primitive shapes (cubes, spheres, cones, ect) as Blender meshes.</p>
+</dd>
+<dt>Path Mask</dt><dd><p>Import only the subset of the USD scene rooted at the given primitive.</p>
+</dd>
+<dt>Scale</dt><dd><p>Value by which to scale the imported objects in relation to the world’s origin.</p>
+</dd>
+<dt>UV Coordinates</dt><dd><p>Read mesh UV coordinates.</p>
+</dd>
+<dt>Color Attributes</dt><dd><p>Convert the USD mesh <code>displayColor</code> values to Blender’s Color Attributes.</p>
+</dd>
+<dt>Subdivision</dt><dd><p>Create Subdivision Surface modifiers based on the USD <code>SubdivisionScheme</code> attribute.</p>
+</dd>
+<dt>Import Instance Proxies</dt><dd><p>Create unique Blender objects for USD instances.</p>
+</dd>
+<dt>Visible Primitives Only</dt><dd><p>Do not import invisible USD primitives. Only applies to primitives with a non-animated
+<a href="https://graphics.pixar.com/usd/release/glossary.html#USDGlossary-Visibility">visibility</a> attribute.
+Primitives with animated visibility will always be imported.</p>
+</dd>
+<dt>Guide</dt><dd><p>Include primitives with
+<a href="https://graphics.pixar.com/usd/release/glossary.html#USDGlossary-Purpose">purpose</a> <code>guide</code>.</p>
+</dd>
+<dt>Proxy</dt><dd><p>Include primitives with purpose <code>proxy</code>.</p>
+</dd>
+<dt>Render</dt><dd><p>Include primitives with purpose <code>render</code>.</p>
+</dd>
+<dt>Set Frame Range</dt><dd><p>Update the scene’s start and end frame to match those of the USD stage.</p>
+</dd>
+<dt>Relative Path</dt><dd><p>Select the file relative to the blend-file.</p>
+</dd>
+<dt>Create Collection</dt><dd><p>Add all imported objects to a new collection.</p>
+</dd>
+<dt>Light Intensity Scale</dt><dd><p>Scale for the intensity of imported lights.</p>
+</dd>
+</dl>
+<section id="id2">
+<h3>Materials</h3>
+<dl>
+<dt>Import All Materials</dt><dd><p>Also import materials that are not used by any geometry.
+Note, when this option is false, materials referenced by geometry will still be imported.</p>
+</dd>
+<dt>Import USD Preview</dt><dd><p>Convert USD Preview Surface shaders to Principled BSDF shader networks.</p>
+</dd>
+<dt>Set Material Blend</dt><dd><p>If the <em>Import USD Preview</em> option is enabled, the material blend method will automatically be set based on
+the <code>opacity</code> and <code>opacityThreshold</code> shader inputs, allowing for visualization of transparent objects.</p>
+</dd>
+</dl>
+<dl id="usd-material-name-collision">
+<dt>Material Name Collision</dt><dd><p>Behavior when the name of an imported material conflicts with an existing material.</p>
+<dl>
+<dt>Make Unique:</dt>
+<dd><p>Import each USD material as a unique Blender material.</p>
+</dd>
+<dt>Reference Existing:</dt>
+<dd><p>If a material with the same name already exists, reference that instead of importing.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="textures">
+<h3>Textures</h3>
+<p>When importing a USDZ package, the following options specify whether and how texture asset dependencies
+of the USD should be copied from the zip archive so they can be loaded into Blender.</p>
+<dl id="usd-import-textures">
+<dt>Import Textures</dt><dd><p>Behavior when importing textures from a USDZ archive.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Don’t import textures. Note that, with this option, material textures may fail to be resolved in Blender.</p>
+</dd>
+<dt>Packed:</dt>
+<dd><p>Import textures as packed data in the Blender file.</p>
+</dd>
+<dt>Copy:</dt>
+<dd><p>Copy files to the directory specified in the <cite>Textures Directory</cite> option.</p>
+</dd>
+</dl>
+</dd>
+<dt>Textures Directory</dt><dd><p>Path to the directory where imported textures will be copied, when the <cite>Import Textures</cite> mode is <cite>Copy</cite>.</p>
+<p>Note that the default textures directory is the relative path <cite>//textures</cite>, which requires the
+Blender file to have been saved before importing, so the relative path can be resolved.</p>
+</dd>
+<dt>File Name Collision</dt><dd><p>Behavior when the name of an imported texture file conflicts with an existing file.</p>
+<dl>
+<dt>Use Existing:</dt>
+<dd><p>If a file with the same name already exists, use that instead of copying.</p>
+</dd>
+<dt>Overwrite:</dt>
+<dd><p>Overwrite existing files.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

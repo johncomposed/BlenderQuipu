@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Outliner &gt; Interface</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Outliner</a></li>
+<li>Interface</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="interface">
+<h1>Interface</h1>
+<section id="header">
+<h2>Header</h2>
+<section id="display-mode">
+<h3>Display Mode</h3>
+<p>The editors header has a select menu that let you filter what the Outliner should show.
+It helps to narrow the list of objects so that you can find things quickly and easily.</p>
+<dl>
+<dt>Scenes</dt><dd><p>Shows <em>everything</em> the <em>Outliner</em> can display (in all scenes, all view layers, etc.).</p>
+</dd>
+<dt>View Layer</dt><dd><p>Shows all the collections and objects in the current view layer.</p>
+</dd>
+<dt>Video Sequencer</dt><dd><p>Lists data, images and videos, that are used by the <a href="../../video_editing/index.html">Video Sequencer</a>.</p>
+</dd>
+<dt>Blender File</dt><dd><p>Lists all data in the current blend-file.</p>
+</dd>
+<dt>Data API</dt><dd><p>Lists every <a href="../../files/data_blocks.html">data-block</a> along with any properties that they might have.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-lib-override-view-mode">
+<dt>Library Overrides</dt><dd><p>Display library override data in the current blend-file. Separated further into two view modes:</p>
+<dl>
+<dt>Properties:</dt>
+<dd><p>Display data-blocks with overridden properties. The overridden properties are listed together with widgets to
+modify the value of the properties.</p>
+</dd>
+<dt>Hierarchies:</dt>
+<dd><p>Visualize the hierarchical dependencies between data-blocks with library overrides. For example, to create a
+library override of a mesh used by an object inside of a linked collection, Blender automatically creates
+(disabled) library overrides for the object and the collection, resulting in a collection &gt; object &gt; mesh
+library override hierarchy.</p>
+<p id="bpy-ops-ed-lib-id-override-editable-toggle">This library override view mode has a column on the right side
+of the editor to toggle if the library is editable or not.</p>
+</dd>
+</dl>
+</dd>
+<dt>Orphan Data</dt><dd><p>Lists <a href="../../files/data_blocks.html">data-blocks</a>
+which are unused and/or will be lost when the file is reloaded.
+It includes data-blocks which have only a fake user. You can add/remove Fake User
+by clicking on cross/tick icon in the right side of the Outliner editor.</p>
+</dd>
+</dl>
+</section>
+<section id="display-filter">
+<h3>Display Filter</h3>
+<p>You can search the view for data-blocks,
+by using Search field in the header of the <em>Outliner</em>,</p>
+</section>
+<section id="filter">
+<h3>Filter</h3>
+<dl id="bpy-types-spaceoutliner-show-restrict-column">
+<dt>Restriction Toggles</dt><dd><p>Set which <a href="#restriction-columns">Restriction Columns</a> should be visible.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-sort-alpha">
+<dt>Sort Alphabetically</dt><dd><p>Sort the entries alphabetically.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-sync-select">
+<dt>Sync Selection</dt><dd><p>Sync Outliner selection to and from the <a href="../3dview/index.html">3D Viewport</a> and
+<a href="../../video_editing/index.html">Video Sequencer</a> editors. Disable to manage collections,
+object relations, and scene data without changing the selection state.
+Selection syncing is only available in Scenes, View Layer, and Video Sequencer display modes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-show-mode-column">
+<dt>Show Mode Column</dt><dd><p>Show the object mode toggling column in View Layer and Scenes display modes.</p>
+</dd>
+</dl>
+<p>Search</p>
+<dl id="bpy-types-spaceoutliner-use-filter-complete">
+<dt>Exact Match</dt><dd><p>The results of <a href="#bpy-types-spaceoutliner-filter-text">Display Filter</a> must match the full text and not just a part of it.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-filter-case-sensitive">
+<dt>Case Sensitive</dt><dd><p>The results of <a href="#bpy-types-spaceoutliner-filter-text">Display Filter</a> are case sensitive.</p>
+</dd>
+</dl>
+<p>Filter</p>
+<p>Some options will only show if compatible with the active <a href="#display-mode">Display Mode</a>.</p>
+<dl id="bpy-types-spaceoutliner-use-filter-view-layers">
+<dt>All View Layers</dt><dd><p>Toggle between only the active or all the <a href="../../scene_layout/view_layers/index.html">view layers</a> of the scene.
+Combined with disabling the <em>Objects</em> filter it gives a compact overview of all the collections in relation
+to the view layers.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-filter-collection">
+<dt>Collections</dt><dd><p>List the objects and collections under
+the <a href="../../scene_layout/collections/index.html">collection hierarchy</a> of the scene.
+Objects may appear in more than one collection.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-filter-object">
+<dt>Objects</dt><dd><p>List of all the objects, respecting the other filter options.
+Disabled only if you need an overview of the collections without the objects.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-filter-state">
+<dt>Object State</dt><dd><p>List the objects based on their state or restrictions.
+The results can be inverted using the <em>Invert</em> button.</p>
+<dl>
+<dt>All:</dt>
+<dd><p>The default option, no restrictions.</p>
+</dd>
+<dt>Visible:</dt>
+<dd><p>List only the objects visible in the viewports.
+The global and temporary visibility settings are taken into consideration.</p>
+</dd>
+<dt>Invisible:</dt>
+<dd><p>List only the objects not visible in the viewports.</p>
+</dd>
+<dt>Selected:</dt>
+<dd><p>Lists the object(s) that are currently selected in the 3D Viewport.
+See <a href="../../scene_layout/object/selecting.html">selecting in the 3D Viewport</a> for more information.</p>
+</dd>
+<dt>Active:</dt>
+<dd><p>Lists only the active (often last selected) object.</p>
+</dd>
+<dt>Selectable:</dt>
+<dd><p>List all objects whose <a href="#bpy-types-collection-hide-select">Selectability</a> option is enabled.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-filter-object-content">
+<dt>Object Contents</dt><dd><p>List materials, modifiers, mesh data, …</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-filter-children">
+<dt>Object Children</dt><dd><p>List the object children. If the <em>Collections</em> option is enabled,
+you will see the object children even if the children are not in the collection.
+Yet the Outliner shows them as a dashed line.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-filter-object-others">
+<dt>Data-Block</dt><dd><p>Allows you to filter out certain data-blocks currently present in the scene.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceoutliner-use-filter-lib-override-system">
+<dt>System Overrides</dt><dd><p>Shows the data-block properties that are defined/controlled automatically (e.g. to make users of an overridden
+data-block point to the override data, not the original linked data). Only available in the <em>Library Overrides</em>
+<a href="#display-mode">Display Mode</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="miscellaneous">
+<h3>Miscellaneous</h3>
+<p>Some options in the header will only show if compatible with the active <a href="#display-mode">Display Mode</a>.</p>
+<dl>
+<dt>New Collection (View Layer)</dt><dd><p>Add a new collection inside selected collection.</p>
+</dd>
+<dt>Filter by Type (Orphan Data, Blender File)</dt><dd><p>Restrict the type of the data-blocks shown in the Outliner.</p>
+</dd>
+<dt>Keying Sets (Data API)</dt><dd><p>Add/Remove selected data to the active <a href="../../animation/keyframes/keying_sets.html">Keying Set</a>.</p>
+</dd>
+<dt>Drivers</dt><dd><p>Add/Remove <a href="../../animation/drivers/index.html">Drivers</a> to the selected item.</p>
+</dd>
+<dt>Purge (Orphan Data)</dt><dd><p>Recursively remove all unused data-blocks from the file (cannot be undone).</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="main-region">
+<h2>Main Region</h2>
+<section id="object-mode">
+<h3>Object Mode</h3>
+<p>The far left of the Outliner contains a region to toggle the current <a href="../3dview/modes.html">Object Mode</a>.
+When an object is in a mode other than Object Mode, the mode icon will be displayed in this region.
+Any other objects that are valid to be added or swapped into the current mode display a dot.
+Clicking the dot icon will swap that object with the current active object.
+For modes that support <a href="../3dview/modes.html#dview-multi-object-mode">Multi-Object Editing</a>,
+<kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> on the dot icon will add that object to the current mode.
+Clicking the mode icon next to the active object removes it or all other objects
+from the current mode depending if multiple object are in the same mode.</p>
+</section>
+<section id="restriction-columns">
+<h3>Restriction Columns</h3>
+<p>The following toggles, in the right side of the <em>Outliner</em> editor,
+are available for collections, objects, bones, modifiers and constraints.</p>
+<p>By default only the temporary viewport visibility is enabled.
+The other options can be enabled in the <em>Restriction Toggles</em> option in the Outliner <a href="#filter">filter</a>.</p>
+<ul>
+<li><p>Holding <kbd>Shift</kbd> sets or unsets the value to all its child collections or objects.</p></li>
+<li><p>Holding <kbd>Ctrl</kbd> isolates the object or collection, so they are the only ones with its value set.</p></li>
+</ul>
+<dl id="bpy-types-layercollection-exclude">
+<dt>Enable Collection (checkbox, collection only)</dt><dd><p>Exclude the collection from the view layer.</p>
+</dd>
+<dt>Visibility (eye icon)</dt><dd><p>Toggles the visibility of the object or collection in the 3D Viewport.
+This is a file-local setting, and does not get imported when this data-block
+is linked into another blend-file. Objects hidden this way are still part of
+the <a href="../../scene_layout/view_layers/index.html">View Layer</a> and evaluated,
+so they still affect playback performance.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The following options are hidden by default and need to be enabled in
+the Outliner Filter before they can be used.</p>
+</div>
+<dl id="bpy-types-collection-hide-select">
+<dt>Selectability (mouse cursor icon)</dt><dd><p>Toggles the ability to select the objects from the 3D Viewport.
+This is useful for if you have placed something in the scene
+and do not want to accidentally select it when working on something else.</p>
+</dd>
+</dl>
+<dl id="bpy-types-layercollection-hide-viewport">
+<dt>Global Viewport Visibility (screen icon)</dt><dd><p>This will still render the object/collection, but it will be ignored by all the viewports.
+Often used for collections with high-poly objects that need to be instanced in other files.
+Objects hidden this way are no longer part of the <a href="../../scene_layout/view_layers/index.html">View Layer</a>,
+are not evaluated, and such do not negatively affect playback performance.</p>
+</dd>
+<dt>Rendering (camera icon)</dt><dd><p>This will still keep the object visible in the scene, but it will be ignored by the renderer.
+Usually used by support objects that help modeling and animation yet do not belong in the final images.</p>
+</dd>
+</dl>
+<dl id="bpy-types-layercollection-holdout">
+<dt>Holdout (collection only)</dt><dd><p>Mask out objects in collection from view layer.</p>
+</dd>
+</dl>
+<dl id="bpy-types-layercollection-indirect-only">
+<dt>Indirect Only (collection only)</dt><dd><p>Objects in these collections only contribute to indirect light – <em>Cycles only</em>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

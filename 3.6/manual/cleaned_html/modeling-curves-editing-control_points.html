@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Editing &gt; Control Points</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Curves</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Control Points</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="control-points">
+<h1>Control Points</h1>
+<section id="extrude-curve-and-move">
+<h2>Extrude Curve and Move</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Extrude Curve and Move</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>E</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Extrudes points by duplicating the selected points, which then can be moved,
+and connecting those points back to the original curve creating a continuous curve.</p>
+</section>
+<section id="make-segment">
+<h2>Make Segment</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Make Segment</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>F</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Connects two disconnected control points.
+The selection must be loose points, or the first/last point of a curve, then press <kbd>F</kbd>.
+If the points belong to different curves, these are joined by a segment to become a single curve.</p>
+<table>
+<tbody>
+<tr><td><figure id="id13">
+<figcaption>
+<p>Two curves before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id14">
+<figcaption>
+<p>Curve after joining.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note that you can only join curves of the same type (i.e. Bézier with Bézier, NURBS with NURBS).
+Additionally, you can close a curve by toggling cyclic.</p>
+</section>
+<section id="tilt">
+<h2>Tilt</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Tilt</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Tilt</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>T</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>This setting controls how the normals (visualized as arrows)
+twist around each control point – so it is only relevant with 3D curves!
+The tilt will be interpolated from point to point (you can check it with the normals).</p>
+<figure id="id15">
+<figcaption>
+<p>30 degree Mean Tilt of all control points.</p>
+</figcaption>
+</figure>
+</section>
+<section id="clear-tilt">
+<h2>Clear Tilt</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Clear Tilt</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>T</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can also reset the tilt to its default value (i.e. perpendicular to the original curve plane).
+With NURBS, the tilt is always smoothly interpolated. However, with Bézier,
+you can choose the <a href="../properties/active_spline.html#bpy-types-spline-tilt-interpolation">interpolation algorithm</a>.</p>
+</section>
+<section id="set-handle-type">
+<h2>Set Handle Type</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Set Handle Type</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>V</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Handle types are a property of <a href="../structure.html#curve-bezier">Bézier curves</a> and
+can be used to alter features of the curve.
+For example, switching to <em>Vector handles</em> can be used to create curves with sharp corners.
+Read the <a href="../structure.html#curve-bezier-handle-type">Bézier curves</a> page for more details.</p>
+<dl>
+<dt>Toggle Free/Align</dt><dd><p>Additionally, this operator can be used to toggle between Free and Aligned handle types.</p>
+</dd>
+</dl>
+</section>
+<section id="recalculate-handles">
+<h2>Recalculate Handles</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Recalculate Handles</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>N</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Recalculate Handles</em> operator rotates the selected control point’s handle to be tangential to the curve.
+This can be used to make curves smoother and more consistent looking.</p>
+<dl>
+<dt>Length</dt><dd><p>Recalculates the length of the handles so they are all the same length.</p>
+</dd>
+</dl>
+</section>
+<section id="smooth">
+<h2>Smooth</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Smooth</p>
+</dd>
+</dl>
+</div>
+<p>For Bézier curves, this smoothing operation reduces the distance between
+the selected control point(s) and their neighbors,
+while keeping the neighbors anchored. Does not effect control point tangents.</p>
+<figure id="id16">
+<figcaption>
+<p>Original, unsmoothed Curve.</p>
+</figcaption>
+</figure>
+<figure id="id17">
+<figcaption>
+<p>Entire curve smoothed over 20 times by holding Shift-R to repeat last step.</p>
+</figcaption>
+</figure>
+<figure id="id18">
+<figcaption>
+<p>Only three control points in the center smoothed over 20 times.</p>
+</figcaption>
+</figure>
+</section>
+<section id="smooth-curve-tilt">
+<h2>Smooth Curve Tilt</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Smooth Curve Tilt</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Smooth Curve Tilt</em> operator interpolates the <em>Tilt</em> value for the selected control points.
+This will reduce sharp changes in the curve’s <em>Tilt</em> and give a smooth transition between points.</p>
+</section>
+<section id="smooth-curve-radius">
+<h2>Smooth Curve Radius</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Smooth Curve Radius</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Smooth Curve Radius</em> operator interpolates the <em>Radius</em> value for the selected control points.
+This will reduce sharp changes in the curve’s <em>Radius</em> and give a smooth transition between points.</p>
+</section>
+<section id="smooth-curve-weight">
+<h2>Smooth Curve Weight</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Smooth Curve Weight</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Smooth Curve Weight</em> operator interpolates the <em>Weight</em> value for the selected control points.
+This will reduce sharp changes in the curve’s <em>Weight</em> and give a smooth transition between points.</p>
+</section>
+<section id="hooks">
+<h2>Hooks</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Hooks</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>H</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p><a href="../../modifiers/deform/hooks.html">Hooks</a> can be added to control one or more points with other objects.</p>
+</section>
+<section id="make-vertex-parent">
+<h2>Make Vertex Parent</h2>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Control Points ‣ Make Vertex Parent</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can make other selected objects <a href="../../../scene_layout/object/editing/parent.html#object-parenting">children</a>
+of one or three control points, as with mesh objects.</p>
+<p>To select a mesh (that is in view) while editing a curve, <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> click on it.
+Select either one or three control points,
+then <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> the object and use <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> to make a vertex parent.
+Selecting three control points will make the child follow
+the median point between the three vertices. An alternative would be to use
+a <a href="../../../animation/constraints/relationship/child_of.html">Child Of constraint</a>.
+See also the <a href="../../modifiers/deform/curve.html">Curve modifier</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Properties &gt; Instancing &gt; Faces</title></head>
+<body><ul>
+<li><a href="../../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../../index.html">Objects</a></li>
+<li><a href="../index.html">Properties</a></li>
+<li><a href="index.html">Instancing</a></li>
+<li>Faces</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="faces">
+<h1>Faces</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Properties ‣ Instancing</p>
+</dd>
+</dl>
+</div>
+<p><em>Instancing Faces</em> is the capability to replicate an object on each face of a parent object.
+One of the best ways to explain this is through an example illustration.</p>
+<dl>
+<dt>Scale</dt><dd><p>Scales each instance according to the size of its corresponding face.</p>
+<dl>
+<dt>Inherit Scale</dt><dd><p>Scale the instance faces objects.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><em>Make Instance Face</em> tool converts linked objects (that share mesh data) into instanced faces.
+This tool creates the parent object (instancer) with faces where the objects were,
+then it uses <em>Instancing Faces</em> to put instances at the location of every created face.</p>
+<p>You can go back from <em>Instancing Faces</em> to multiple linked objects using
+<a href="../../editing/apply.html#bpy-ops-object-duplicates-make-real">Make Instances Real</a>.</p>
+<div>
+<p>See also</p>
+<p>Example blend-file</p>
+<p>Download the blend-file used for the examples on this page
+<a href="https://archive.blender.org/wiki/index.php/File:Manual-2.5-Duplifaces-Example01.blend">here</a>.</p>
+</div>
+<section id="basic-usage">
+<h2>Basic Usage</h2>
+<p>In this example we will use a UV sphere with an extruded “north pole” as our base object and
+a cube as our parent mesh. To parent the sphere to the cube, in <em>Object Mode</em>,
+first <kbd>LMB</kbd> select the sphere, then <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> select the cube
+(order is very important here), and finally <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> to parent.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>A cube and a sphere.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Instancing Faces applied to the cube.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Next, in the Properties ‣ Object Properties ‣ Instancing,
+select <em>Faces</em>. The sphere is instanced, one for each face of the cube.</p>
+<div>
+<p>Note</p>
+<p>Inherited properties</p>
+<p>The location, orientation, and scale of the instanced child(ren) matches that of the faces of the parent.
+So, if several objects are parented to the cube, they will all be instanced once for each face on the cube.
+If the cube is subdivided, every child will be instanced for each face on the cube.</p>
+</div>
+<p>Both the parent object and original are displayed as editable “templates” in 3D Viewport,
+but neither is rendered.</p>
+</section>
+<section id="scale">
+<h2>Scale</h2>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Scale enabled.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Top face of cube scaled down.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>By enabling <em>Scale</em> for the parent object,
+the scale of the child objects will be adapted to the size of each face in the parent object.</p>
+<p>Thus, by rescaling the face of the parent object,
+the size of the instanced object will change accordingly.</p>
+</section>
+<section id="limitations-considerations">
+<h2>Limitations/Considerations</h2>
+<p>The positioning of the instanced geometry relative to the face is dependent upon the position
+of the child objects relative to the instancer’s origin. This can lead to some visual artifacts
+in the 3D Viewport as the geometry of the original objects overlaps or intersects with
+the instanced geometry.
+One workaround is to move the origin of the instancer mesh off of the plane of the faces.</p>
+<p>If the geometry of the children is not symmetrical then the orientation of the face
+(as determined by the order of its vertices) could matter. As of 2.70 Blender does not have
+tools which allow you to adjust the ordering of the vertices on a face.</p>
+<p>However, there is a workflow that lets you control for this. Make a single square and
+enable the <em>Instancing Faces</em> so you can see the instanced geometry in the 3D Viewport.
+If the orientation is not what you want, rotate the face until it is how you want.
+Typically you want to do the rotation in Edit Mode, not Object Mode,
+but this is not a hard rule.</p>
+<p>Once you have the orientation correct,
+Duplicate the face and move the duplicate where you want it.
+Repeat this process until you have enough faces.
+Since it is common for these faces to butt up against one another,
+your geometry will have lots of duplicate vertices.
+Use the <em>Merge by Distance</em> button in the Tools panel.</p>
+<p>Demo Video</p>
+<p><a href="https://www.youtube.com/watch?v=diI8xJ9oo_8">A short video illustrating this workflow</a></p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

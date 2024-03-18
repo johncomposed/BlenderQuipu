@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Vertex &gt; Connect Vertex Path</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Vertex Tools</a></li>
+<li>Connect Vertex Path</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="connect-vertex-path">
+<h1>Connect Vertex Path</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Vertex ‣ Connect Vertex Path</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>J</kbd></p>
+</dd>
+</dl>
+</div>
+<p>This tool connects vertices in the order they are selected, splitting the faces between them.
+When there are only two vertices selected, a cut will be made across unselected faces,
+a bit like the Knife tool; but this is limited to straight cuts across connected faces.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Two disconnected vertices.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Result of connecting.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Running a second time will connect the first/last endpoints.
+When many vertices are selected, faces will be split by their selected vertices.</p>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>After.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Vertices not connected to any faces will create edges,
+so this can be used as a way to quickly connect isolated vertices too.</p>
+</section>
+</div>
+</div></body>
+</html>

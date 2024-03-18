@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Sidebar</title></head>
+<body><ul>
+<li><a href="index.html">Compositing</a></li>
+<li>Sidebar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sidebar">
+<h1>Sidebar</h1>
+<section id="view">
+<h2>View</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ View</p>
+</dd>
+</dl>
+</div>
+<section id="backdrop">
+<h3>Backdrop</h3>
+<figure id="id3">
+<figcaption>
+<p>Backdrop panel.</p>
+</figcaption>
+</figure>
+<p>The backdrop is the output of a Viewer node in the background of the Compositor.
+For example, when <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> on an Image node, it displays a preview of the image,
+or on a Mix node, will show the result of the mixing.
+You can toggle the backdrop by clicking the checkbox in the <em>Backdrop</em> panel title
+or by clicking on the <em>Backdrop</em> button in the header.</p>
+<dl>
+<dt>Channels</dt><dd><p>The color channels to display of the backdrop image.</p>
+</dd>
+<dt>Zoom <kbd><kbd>Alt</kbd>-<kbd>V</kbd></kbd> <kbd>V</kbd></dt><dd><p>Sets the size of the backdrop image.</p>
+</dd>
+<dt>Offset</dt><dd><p>Change the screen space position of the backdrop.</p>
+</dd>
+<dt>Move <kbd><kbd>Alt</kbd>-<kbd>MMB</kbd></kbd></dt><dd><p>Changes the position of the backdrop.</p>
+</dd>
+<dt>Fit</dt><dd><p>Scales the backdrop to fit the size of the Compositor.</p>
+</dd>
+<dt>Reset Backdrop</dt><dd><p>Sets back to the default values of Zoom to 1 and Offset to 0.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="options">
+<h2>Options</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Options</p>
+</dd>
+</dl>
+</div>
+<section id="performance">
+<h3>Performance</h3>
+<figure id="id4">
+<figcaption>
+<p>Performance panel.</p>
+</figcaption>
+</figure>
+<p>This panel helps you tweak the performance of the Compositor.</p>
+<dl>
+<dt>Render</dt><dd><p>Sets the quality when doing the final render.</p>
+</dd>
+<dt>Edit</dt><dd><p>Sets the quality when making edits.</p>
+</dd>
+<dt>Chunk Size</dt><dd><p>Max size of a tile (smaller values give a better distribution of multiple threads, but more overhead).</p>
+</dd>
+<dt>OpenCL</dt><dd><p>This allows the use of an OpenCL platform to aid in rendering.
+Generally, this should be enabled unless your hardware does not have good OpenCL support.</p>
+</dd>
+<dt>Buffer Groups</dt><dd><p>Enables buffering of group nodes to increase the speed at the cost of more memory.</p>
+</dd>
+<dt>Two Pass</dt><dd><p>Use two pass execution during editing: the first pass calculates fast nodes, the second pass calculates all nodes.</p>
+</dd>
+<dt>Viewer Region</dt><dd><p>This allows to set an area of interest for the backdrop.
+Press <kbd><kbd>Ctrl</kbd>-<kbd>B</kbd></kbd> and select a rectangular area in the preview
+which will become the next preview in the backdrop.
+<kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>B</kbd></kbd> discards the region back to a full preview.
+This is only a preview option, final compositing during a render ignores this region.</p>
+</dd>
+<dt>Auto Render</dt><dd><p>Re-render and composite changed layer when edits to the 3D scene are made.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Hair &gt; Generation &gt; Generate Hair Curves</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Hair Nodes</a></li>
+<li><a href="index.html">Hair Generation Nodes</a></li>
+<li>Generate Hair Curves</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="generate-hair-curves">
+<h1>Generate Hair Curves</h1>
+<p>Generates new hair curves on a surface mesh.
+The curves are generated from scratch at point locations; if creating curves that depend on
+existing curves is desired, the <a href="interpolate_hair_curves.html">Interpolate Hair Curves</a>
+is a better choice.</p>
+<div>
+<p>Note</p>
+<p>This node/modifier will not function without the <em>Surface</em> geometry/object and <em>Surface UV Map</em> inputs.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Surface</dt><dd><p>Surface geometry for generation. This input takes priority over the corresponding object input if both are
+provided.</p>
+</dd>
+<dt>Surface</dt><dd><p>Surface object for generation (The transforms of this object must match the modifier object).</p>
+</dd>
+<dt>Surface UV Map</dt><dd><p>Surface UV map stored on the mesh used for finding curve attachment locations.</p>
+</dd>
+<dt>Surface Rest Position</dt><dd><p>Set the surface mesh into its rest position before attachment.</p>
+<div>
+<p>Tip</p>
+<p>In a typical hair generation setup, this node or modifier will be
+combined with the <a href="../../curve/operations/deform_curves_on_surface.html">Deform Curves on Surface Node</a>.
+If that operation comes after this one, it makes sense to turn this option on so the
+position used is the pre-deformed position consistent with the expectations for the
+deformation’s input.</p>
+</div>
+</dd>
+<dt>Hair Length</dt><dd><p>Length of the generated hair curves.</p>
+</dd>
+<dt>Hair Material</dt><dd><p>Material of the generated hair curves.</p>
+</dd>
+<dt>Control Points</dt><dd><p>Amount of control points of the generated hair curves.</p>
+</dd>
+<dt>Poisson Disk Distribution</dt><dd><p>Use poisson disk distribution method to keep a minimum distance.
+See the <a href="../../point/distribute_points_on_faces.html">Distribute Points on Faces</a> for more information.</p>
+</dd>
+<dt>Density</dt><dd><p>Surface density of generated hair curves.</p>
+</dd>
+<dt>Density Mask</dt><dd><p>Factor applied on the density for curve distribution.</p>
+</dd>
+<dt>Mask Texture</dt><dd><p>Discard points based on an mask texture after distribution.
+The image is sampled with the <em>Surface UV Map</em> input.</p>
+<div>
+<p>Tip</p>
+<p>The accuracy of sampling the image doesn’t depend on the density of the surface mesh’s vertices
+because it is sampled after the curve root points are generated, the accuracy . However, using
+the <em>Density Mask</em> input instead can give better performance. Using them in combination can
+give the benefits of both methods.</p>
+</div>
+</dd>
+<dt>Viewport Amount</dt><dd><p>Factor applied on the density for the viewport.</p>
+</dd>
+<dt>Seed</dt><dd><p>Random seed for the operation.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p><strong>Geometry</strong></p>
+<p><strong>Curves</strong></p>
+<dl>
+<dt>Surface Normal</dt><dd><p>Normal direction of the surface mesh at the attachment point.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Hair &gt; Guides &gt; Clump Hair Curves</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Hair Nodes</a></li>
+<li><a href="index.html">Hair Guides Nodes</a></li>
+<li>Clump Hair Curves</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="clump-hair-curves">
+<h1>Clump Hair Curves</h1>
+<p>Clumps together existing hair curves using guide curves.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Input Geometry (only curves will be affected).</p>
+</dd>
+<dt>Guide Index</dt><dd><p>Guide index map witch describes which curve to use as the center of each braid group.
+If this input is provided, it priority over an existing map in the <code>guide_curve_index</code>
+attribute, and the <em>Guide Distance</em> and <em>Guide Mask</em> attribute will be unused.</p>
+</dd>
+<dt>Guide Distance</dt><dd><p>Minimum distance between two guides for new guide map.</p>
+</dd>
+<dt>Guide Mask</dt><dd><p>Mask for which curve are eligible to be selected as guides.</p>
+</dd>
+<dt>Existing Guide Map</dt><dd><p>Use the existing guide map attribute if available. If this is false, and the <em>Guide Index</em>
+input isn’t provided, the <em>Guide Distance</em> and <em>Guide Mask</em> input will be used to generate
+a new <a href="create_guide_index_map.html">guide map</a> for this node.
+Creating the guide map in a separate node or modifier gives more complete control over its creation.</p>
+</dd>
+<dt>Factor</dt><dd><p>Factor to blend overall effect.</p>
+</dd>
+<dt>Shape</dt><dd><p>Shape of the influence along curves (0=constant, 0.5=linear).</p>
+</dd>
+<dt>Tip Spread</dt><dd><p>Distance of random spread at the curve tips.</p>
+</dd>
+<dt>Clump Offset</dt><dd><p>Offset of each clump in a random direction.</p>
+</dd>
+<dt>Distance Falloff</dt><dd><p>Falloff distance for the clumping effect (0 means no falloff).</p>
+</dd>
+<dt>Distance Threshold</dt><dd><p>Distance threshold for the falloff around the guide.</p>
+</dd>
+<dt>Seed</dt><dd><p>Random seed for the operation.</p>
+</dd>
+<dt>Preserve Length</dt><dd><p>Preserve each curve’s length during deformation.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p><strong>Geometry</strong></p>
+<dl>
+<dt>Guide Index</dt><dd><p>Guide index map that was used for the operation.
+If a new guide map is created by this node, it will be stored for
+this output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

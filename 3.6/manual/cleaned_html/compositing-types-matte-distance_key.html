@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Distance Key</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Distance Key Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="distance-key-node">
+<h1>Distance Key Node</h1>
+<p>The Distance Key node determines a pixel’s alpha value based on the three-dimensional
+distance between the image pixel color and the key color in a 3D color space.</p>
+<p>This key works well when trying to single out a specific color in a background
+(not necessarily green).</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Key Color</dt><dd><p>The color that is to be keyed.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Tolerance</dt><dd><p>A threshold what the node considers a match between the key color and the foreground pixel.
+The tolerance affects how close a pixel needs to be to the background pixel
+to be considered an absolute match.</p>
+</dd>
+<dt>Falloff</dt><dd><p>When the Falloff value is high, pixels that are close to the Key Color are more
+transparent than pixels that are not as close to the Key Color
+(but still considered close enough to be keyed).
+When the Falloff value is low, it does not matter how close
+the pixel color (Image) is to the Key Color, it is transparent.</p>
+</dd>
+<dt>Color Space</dt><dd><p>It is also possible to work with YCbCr color space,
+but only the Cb and Cr channels are taken into consideration
+for determining the distance between the foreground and background pixels.</p>
+<p>RGB, YCC</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>The image with an alpha channel adjusted for the keyed selection.</p>
+</dd>
+<dt>Matte</dt><dd><p>A black-and-white alpha mask of the key.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

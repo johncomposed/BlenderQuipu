@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Glossy</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Glossy BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="glossy-bsdf">
+<h1>Glossy BSDF</h1>
+<p>The <em>Glossy</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+node is used to add reflection with microfacet distribution, used for materials such as metal or mirrors.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the surface, or physically speaking, the probability that light is reflected for each wavelength.</p>
+</dd>
+<dt>Roughness</dt><dd><p>Input for the surface roughness resulting in sharp to blurry reflections.</p>
+</dd>
+<dt>Normal</dt><dd><p>Normal used for shading.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Distribution</dt><dd><p>Microfacet distribution to use.</p>
+<dl>
+<dt>Sharp:</dt>
+<dd><p>Results in perfectly sharp reflections like a mirror. The <em>Roughness</em> value is not used.</p>
+</dd>
+<dt>GGX:</dt>
+<dd><p>GGX microfacet distribution.</p>
+</dd>
+<dt>Multiple-scattering GGX:</dt>
+<dd><p>Cycles Only
+Takes multiple bounce (scattering) events between microfacets into account.
+This gives a more energy conserving results, which would otherwise be visible as excessive darkening.</p>
+</dd>
+<dt>Beckmann:</dt>
+<dd><p>Cycles Only
+Beckmann microfacet distribution.</p>
+</dd>
+<dt>Ashikhmin-Shirley:</dt>
+<dd><p>Cycles Only
+Ashikhmin-Shirley microfacet distribution.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Sharp Glossy example.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Sharp Glossy behavior.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Rough Glossy example.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Rough Glossy behavior.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

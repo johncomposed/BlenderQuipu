@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Hair &gt; Dynamics</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Particle System</a></li>
+<li><a href="index.html">Hair</a></li>
+<li>Hair Dynamics</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="hair-dynamics">
+<h1>Hair Dynamics</h1>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Hair Dynamics</p>
+</dd>
+</dl>
+</div>
+<p>Hair particles can have dynamic properties using physics.
+To enable hair physics, click the checkbox beside <em>Hair Dynamics</em>.</p>
+<dl>
+<dt>Quality Steps</dt><dd><p>Quality of the simulation in steps per frame (higher is better quality but slower).</p>
+</dd>
+<dt>Pin Goal Strength</dt><dd><p>Spring stiffness of the vertex target position.</p>
+</dd>
+</dl>
+<div>
+<p>Warning</p>
+<p>If you use motion blur in your animation,
+you will need to bake one extra frame past the last frame which you will be rendering.</p>
+</div>
+<section id="collisions">
+<h2>Collisions</h2>
+<dl>
+<dt>Quality</dt><dd><p>A general setting for how fine and good a simulation you wish.
+Higher numbers take more time but ensure less tears and penetrations through the hair.</p>
+</dd>
+<dt>Distance</dt><dd><p>The distance another object must get to the hair for
+the simulation to repel the hair out of the way.
+Smaller values might cause errors but provide some speed-up while
+larger will give unrealistic results if too large and can be slow.
+It is best to find a good in between value.</p>
+</dd>
+<dt>Impulse Clamping</dt><dd><p>Prevents explosions in tight and complicated collision situations
+by restricting the amount of movement after a collision.</p>
+</dd>
+<dt>Collision Collection</dt><dd><p>Only objects that are a part of this <a href="../../../scene_layout/collections/index.html">Collection</a>
+can collide with the hair. Note that these objects must also have Collision physics enabled.</p>
+</dd>
+</dl>
+</section>
+<section id="structure">
+<h2>Structure</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Hair Dynamics ‣ Structure</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Vertex Mass</dt><dd><p>Value for the mass of the hair.</p>
+</dd>
+<dt>Stiffness</dt><dd><p>Controls the bending stiffness of the hair strands.</p>
+<dl>
+<dt>Random</dt><dd><p>Random stiffness of hair.</p>
+</dd>
+</dl>
+</dd>
+<dt>Damping</dt><dd><p>Damping of bending motion.</p>
+</dd>
+</dl>
+</section>
+<section id="volume">
+<h2>Volume</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Hair Dynamics ‣ Volume</p>
+</dd>
+</dl>
+</div>
+<p>Some phenomena of real-world hair can be simulated more efficiently using a volumetric model instead
+of the basic geometric strand model. This means constructing a regular grid such as those used in
+fluid simulations and interpolating hair properties between the grid cells.</p>
+<dl>
+<dt>Air Drag</dt><dd><p>Controls how thick the air is around the hair causing the hair to flow slower.</p>
+</dd>
+<dt>Internal Friction</dt><dd><p>Amount of friction between individual hairs.</p>
+</dd>
+<dt>Voxel Grid Cell Size</dt><dd><p>Size of the voxel grid cells for interaction effects.</p>
+</dd>
+<dt>Density Target</dt><dd><p>Maximum density if the hair.</p>
+</dd>
+<dt>Density Strength</dt><dd><p>The influence that the <em>Density Target</em> has on the simulation.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

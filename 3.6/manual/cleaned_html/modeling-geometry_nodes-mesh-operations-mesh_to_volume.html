@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Operations &gt; Mesh To Volume</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Operation Nodes</a></li>
+<li>Mesh to Volume Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh-to-volume-node">
+<h1>Mesh to Volume Node</h1>
+<p>The <em>Mesh to Volume</em> node creates a fog volumes based on the shape of a mesh.
+The volume is created with a grid of the name <cite>“density”</cite>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard Mesh input.</p>
+</dd>
+<dt>Density</dt><dd><p>Value of voxels inside the generated fog volume.</p>
+</dd>
+<dt>Voxel Amount</dt><dd><p>Specify the approximate number of voxels along the diagonal.</p>
+</dd>
+<dt>Voxel Size</dt><dd><p>Specify the voxel side length.</p>
+</dd>
+<dt>Exterior Band Width</dt><dd><p>The maximum distance of the included voxels to the surface on the outside of the mesh.</p>
+</dd>
+<dt>Interior Band Width</dt><dd><p>The maximum distance of the included voxels to the surface on the inside of the mesh.</p>
+</dd>
+<dt>Fill Volume</dt><dd><p>The entire enclosed volume or otherwise only the voxels close to the surface
+will get a density greater than zero.
+This setting is only used when the mesh object is <a href="../../../../glossary/index.html#term-Manifold">Manifold</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Resolution</dt><dd><p>How the voxel size is specified.</p>
+<dl>
+<dt>Amount:</dt>
+<dd><p>Specify the approximate number of voxels along the diagonal.</p>
+</dd>
+<dt>Size:</dt>
+<dd><p>Specify the voxel side length. It is recommended to be careful when tweaking this value,
+because small changes can have a large effect on the processing time.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Volume</dt><dd><p>The generated volume grid.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

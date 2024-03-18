@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Baking</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Cycles</a></li>
+<li>Render Baking</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="render-baking">
+<h1>Render Baking</h1>
+<p>Cycles shaders and lighting can be baked to image textures.
+This has a few different purposes, most commonly:</p>
+<ul>
+<li><p>Baking textures like base color or normal maps for export to game engines.</p></li>
+<li><p>Baking ambient occlusion or procedural textures,
+as a base for texture painting or further edits.</p></li>
+<li><p>Creating light maps to provide global illumination or speed up rendering in games.</p></li>
+</ul>
+<section id="setup">
+<h2>Setup</h2>
+<p>Baking requires a mesh to have a UV map, and either a Color Attribute
+or an Image Texture node with an image to be baked to.
+The <a href="../../glossary/index.html#term-Active">Active</a> <a href="../shader_nodes/textures/image.html">Image Texture</a>
+node or <a href="../../sculpt_paint/vertex_paint/index.html">Color Attribute</a> is used as the baking target.</p>
+<p>Use Render Bake in intensive light/shadow solutions,
+such as AO or soft shadows from area lights. If you bake AO for the main objects,
+you will not have to enable it for the full render, saving render time.
+Cycles uses the render settings (samples, bounces, …) for baking.
+This way the quality of the baked textures should match the result you get from the rendered scene.</p>
+</section>
+<section id="settings">
+<h2>Settings</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Bake</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-ops-object-bake">
+<dt>Bake</dt><dd><p>Perform the baking operation.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-use-bake-multires">
+<dt>Bake from Multires</dt><dd><p>Bake directly from multires object.</p>
+</dd>
+<dt>Bake Type</dt><dd><p>Type of pass to bake.</p>
+<dl>
+<dt>Combined:</dt>
+<dd><p>Bakes all materials, textures, and lighting except specularity.
+The passes that contribute to the combined pass can be toggled individually to form the final map.</p>
+</dd>
+<dt>Ambient Occlusion:</dt>
+<dd><p>Bakes ambient occlusion as specified in the World panels. Ignores all lights in the scene.</p>
+</dd>
+<dt>Shadow:</dt>
+<dd><p>Bakes shadows and lighting.</p>
+</dd>
+<dt>Normal:</dt>
+<dd><p>Bakes normals to an RGB image.</p>
+</dd>
+<dt>UV:</dt>
+<dd><p>Mapped UV coordinates, used to represent where on a mesh a texture gets mapped too.
+This is represented through the red and green channels of the image,
+the blue channel is encoded with a constant value of 1 but does not hold any information.</p>
+</dd>
+<dt>Roughness:</dt>
+<dd><p>Bakes the roughness pass of a material.</p>
+</dd>
+<dt>Emit:</dt>
+<dd><p>Bakes Emission, or the Glow color of a material.</p>
+</dd>
+<dt>Environment:</dt>
+<dd><p>Bakes the environment (i.e. the world surface shader defined for the scene) onto
+the selected object(s) as seen by rays cast from the world origin.</p>
+</dd>
+<dt>Diffuse:</dt>
+<dd><p>Bakes the diffuse pass of a material.</p>
+</dd>
+<dt>Glossy:</dt>
+<dd><p>Bakes the glossiness pass of a material.</p>
+</dd>
+<dt>Transmission:</dt>
+<dd><p>Bakes the transmission pass of a material.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-view-from">
+<dt>View From</dt><dd><p>Source of reflection ray directions.</p>
+<dl>
+<dt>Above Surface:</dt>
+<dd><p>Cast rays from above the surface.</p>
+</dd>
+<dt>Active Camera:</dt>
+<dd><p>Use the active camera’s position to cast rays.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="influence">
+<h3>Influence</h3>
+<p>Combined</p>
+<dl id="bpy-types-bakesettings-use-pass-direct">
+<dt>Lighting</dt><dd><dl>
+<dt>Direct</dt><dd><p>Add direct lighting contribution.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-use-pass-indirect">
+<dt>Indirect</dt><dd><p>Add indirect lighting contribution.</p>
+</dd>
+</dl>
+</dd>
+<dt>Contributions</dt><dd><dl id="py-types-bakesettings-use-pass-diffuse">
+<dt>Diffuse</dt><dd><p>Add diffuse contribution.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-use-pass-glossy">
+<dt>Glossy</dt><dd><p>Add glossy contribution.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-use-pass-transmission">
+<dt>Transmission</dt><dd><p>Add transmission contribution.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-use-pass-ambient-occlusion">
+<dt>Ambient Occlusion</dt><dd><p>Add ambient occlusion contribution.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-use-pass-emit">
+<dt>Emit</dt><dd><p>Add emission contribution.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Diffuse, Glossy, Transmission</p>
+<dl>
+<dt>Contributions</dt><dd><dl>
+<dt>Direct</dt><dd><p>See <a href="#bpy-types-bakesettings-use-pass-direct">above</a>.</p>
+</dd>
+<dt>Indirect</dt><dd><p>See <a href="#bpy-types-bakesettings-use-pass-indirect">above</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-use-pass-color">
+<dt>Color</dt><dd><p>Colorize the pass.</p>
+<ul>
+<li><p>If only <em>Color</em> is selected you get the pass color,
+which is a property of the surface and independent of sampling refinement.</p></li>
+<li><p>If <em>Color</em> is not selected, you get the direct and/or indirect contributions in gray-scale.</p></li>
+<li><p>If <em>Color</em> and either <em>Direct</em> or <em>Indirect</em> are selected,
+you get the direct and/or indirect contributions colored.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Normal</p>
+<dl id="bpy-types-bakesettings-normal-space">
+<dt>Space</dt><dd><p>Normals can be baked in different spaces:</p>
+<p>For materials, the same spaces can be chosen in the image texture options
+next to the existing <em>Normal Map</em> setting. For correct results,
+the setting here should match the setting used for baking.</p>
+<dl>
+<dt>Object:</dt>
+<dd><p>Normals in object coordinates, independent of object transformation, but dependent on deformation.</p>
+</dd>
+<dt>Tangent:</dt>
+<dd><p>Normals in tangent space coordinates, independent of object transformation and deformation.
+This is the default, and the right choice in most cases, since then the normal map can be used for
+animated objects too.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-normal-b">
+<dt>Swizzle R, G, B</dt><dd><p>Axis to bake into the red, green and blue channel.</p>
+</dd>
+</dl>
+</section>
+<section id="selected-to-active">
+<h3>Selected to Active</h3>
+<p>Bake shading on the surface of selected objects to the active object.
+The rays are cast from the low-poly object inwards towards the high-poly object.
+If the high-poly object is not entirely involved by the low-poly object, you can tweak the rays start point with
+<em>Max Ray Distance</em> or <em>Extrusion</em> (depending on whether or not you are using cage).
+For even more control you can use a <em>Cage Object</em>.</p>
+<div>
+<p>Note</p>
+<p>There is a CPU fixed memory footprint for every object used to bake from.
+In order to avoid crashes due to lack of memory, the high-poly objects can be joined before the baking process.</p>
+</div>
+<dl id="bpy-types-bakesettings-use-cage">
+<dt>Cage</dt><dd><p>Cast rays to active object from a cage.
+A cage is a ballooned-out version of the low-poly mesh created either automatically
+(by adjusting the ray distance) or manually (by specifying an object to use).
+When not using a cage the rays will conform to the mesh normals. This produces glitches on the edges,
+but it is a preferable method when baking into planes to avoid the need of adding extra loops around the edges.</p>
+<dl id="bpy-types-bakesettings-cage-object">
+<dt>Cage Object</dt><dd><p>Object to use as cage instead of calculating the cage from the active object with the <em>Cage Extrusion</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-cage-extrusion">
+<dt>Cage Extrusion</dt><dd><p>Distance to use for the inward ray cast when using <em>Selected to Active</em> and <em>Cage</em>.
+The inward rays are cast from a version of the active object with disabled Edge Split Modifiers.
+Hard splits (e.g. when the Edge Split Modifier is applied) should be avoided because they will lead to non-smooth
+normals around the edges.</p>
+<div>
+<p>Note</p>
+<p>When the base mesh extruded does not give good results,
+you can create a copy of the base mesh and modify it to use as a <em>Cage</em>.
+Both meshes need to have the same <a href="../../glossary/index.html#term-Topology">Topology</a> (number of faces and face order).</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-max-ray-distance">
+<dt>Max Ray Distance</dt><dd><p>Distance to use for the inward ray cast when using <em>Selected to Active</em>.
+Ray distance is only available when not using <em>Cage</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h3>Output</h3>
+<dl id="bpy-types-bakesettings-target">
+<dt>Target</dt><dd><p>Where to output the baked map.</p>
+<dl>
+<dt>Image Textures:</dt>
+<dd><p>Bake to the image data-block associated with the <a href="../../glossary/index.html#term-Active">Active</a>
+<a href="../shader_nodes/textures/image.html">Image Texture</a> node.</p>
+<dl id="bpy-types-bakesettings-use-clear">
+<dt>Clear Image</dt><dd><p>If selected, clears the image before baking render.</p>
+</dd>
+</dl>
+</dd>
+<dt>Color Attributes:</dt>
+<dd><p>Bake to the <a href="../../glossary/index.html#term-Active">Active</a> <a href="../../sculpt_paint/vertex_paint/index.html">Color Attributes</a> layer on the active mesh.
+Note, the active object must be a mesh as other object types do not have Color Attributes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="margin">
+<h3>Margin</h3>
+<p>When baking to images, by default a margin is generated around UV “islands”.
+This is important to avoid discontinuities at UV seams, due to texture filtering and mip-mapping.</p>
+<dl id="bpy-types-bakesettings-margin-type">
+<dt>Type</dt><dd><p>Method to generate the margin.</p>
+<dl>
+<dt>Extend:</dt>
+<dd><p>Extend border pixels outwards.</p>
+</dd>
+<dt>Adjacent Faces:</dt>
+<dd><p>Fill margin using pixels from adjacent faces across UV seams.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-bakesettings-margin">
+<dt>Size</dt><dd><p>Size of the margin in pixels.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

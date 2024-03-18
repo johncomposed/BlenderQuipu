@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Posing &gt; Tool Settings</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Armatures</a></li>
+<li><a href="index.html">Posing</a></li>
+<li>Tool Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="tool-settings">
+<h1>Tool Settings</h1>
+<section id="pose-options">
+<h2>Pose Options</h2>
+<section id="auto-ik">
+<h3>Auto IK</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Tool ‣ Pose Options ‣ Auto IK</p>
+</dd>
+</dl>
+</div>
+<p>Automatic IK is a tool for quick posing, when enabled, translating a bone will activate
+inverse kinematics and rotate the parent bone, and the parent’s parent, and so on, to
+follow the selected bone. The IK chain can only extend from a child to a parent bone
+if the child is <em>connected</em> to it.</p>
+<p>While moving bones, the length of the chain (the number of affected bones)
+can be increased or decreased using keyboard hotkeys.
+Pressing <kbd>PageUp</kbd> will increase in chain length by one
+and <kbd>PageDown</kbd> decreases the length by one.
+The chain length can also be controlled with <kbd>WheelUp</kbd> or <kbd>WheelDown</kbd>.</p>
+<p>The initial chain length is 0, which effectively means follow
+the connections to parent bones as far as possible, with no length limit.
+So pressing increasing the chain length the first time sets the length to 1 (move only the selected bone),
+and at this point, decreasing the length point sets it back to 0 (unlimited) again.
+Thus, you have to increase the chain length <em>more than once</em> from the initial state
+to set a finite chain length greater than 1.</p>
+<p>This is a more limited feature than using an IK constraint,
+which can be configured, but it can be useful for quick posing.</p>
+</section>
+<section id="x-axis-mirror">
+<h3>X-Axis Mirror</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit and Pose Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Tool ‣ Options ‣ X-Axis Mirror</p>
+</dd>
+</dl>
+</div>
+<p>This option enables automatic mirroring of editing actions along the X axis.
+You can enable this option in the Tool tab ‣ Options panel,
+while the armature is selected in <em>Edit Mode</em>.
+When you have pairs of bones of the same name with just a different “side suffix”
+(e.g. “.R”/”.L”, or “_right”/”_left” …), once this option is enabled,
+each time you transform (move, rotate, scale…) a bone,
+its “other side” counterpart will be transformed accordingly,
+through a symmetry along the armature local X axis.
+As most rigs have at least one axis of symmetry (animals, humans, …),
+it is an easy way to keep the model symmetrical.</p>
+</section>
+<section id="relative-mirror">
+<h3>Relative Mirror</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit and Pose Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Tool ‣ Options ‣ Relative Mirror</p>
+</dd>
+</dl>
+</div>
+<p>Accounts for any relative transformations when using <em>X-Axis Mirror</em>.</p>
+<div>
+<p>See also</p>
+<p><a href="../bones/editing/naming.html#armature-editing-naming-bones">Naming bones</a>.</p>
+</div>
+</section>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<p>Relative Mirror is not supported with <a href="#auto-ik">Auto IK</a> enabled.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

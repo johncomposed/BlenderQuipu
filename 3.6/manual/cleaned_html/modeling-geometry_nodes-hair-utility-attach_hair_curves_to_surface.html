@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Hair &gt; Utility &gt; Attach Hair Curves To Surface</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Hair Nodes</a></li>
+<li><a href="index.html">Hair Utility Nodes</a></li>
+<li>Attach Hair Curves to Surface</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="attach-hair-curves-to-surface">
+<h1>Attach Hair Curves to Surface</h1>
+<p>Attaches hair curves to a surface mesh.</p>
+<div>
+<p>Note</p>
+<p>This node/modifier will not function without the <em>Surface</em> geometry/object and <em>Surface UV Map</em> inputs.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Input Geometry (only curves will be affected).</p>
+</dd>
+<dt>Surface</dt><dd><p>Surface Geometry to attach hair curves to. This input takes priority over the corresponding object input, if used.</p>
+</dd>
+<dt>Surface</dt><dd><p>Surface Object to attach to (needs to have matching transforms).</p>
+</dd>
+<dt>Surface UV Map</dt><dd><p>Surface UV map stored on the mesh used for finding curve attachment locations.</p>
+</dd>
+<dt>Surface Rest Position</dt><dd><p>Set the surface mesh into its rest position before attachment.</p>
+<div>
+<p>Tip</p>
+<p>In a typical hair generation setup, this node or modifier will be
+combined with the <a href="../../curve/operations/deform_curves_on_surface.html">Deform Curves on Surface Node</a>.
+If that operation comes after this one, it makes sense to turn this option on so the
+position used is the pre-deformed position consistent with the expectations for the
+deformation’s input.</p>
+</div>
+</dd>
+<dt>Sample Attachment UV</dt><dd><p>Sample the surface UV map at the attachment point.</p>
+</dd>
+<dt>Snap to Surface</dt><dd><p>Snap the root of each curve to the closest surface point.</p>
+</dd>
+<dt>Align to Surface Normal</dt><dd><p>Align the curve to the surface normal (need guide as reference).</p>
+</dd>
+<dt>Blend along Curve</dt><dd><p>Blend deformation along each curve from the root.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p><strong>Geometry</strong></p>
+<dl>
+<dt>Surface UV Coordinate</dt><dd><p>Surface UV coordinate at the attachment point.</p>
+</dd>
+<dt>Surface Normal</dt><dd><p>Surface normal at the attachment point.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

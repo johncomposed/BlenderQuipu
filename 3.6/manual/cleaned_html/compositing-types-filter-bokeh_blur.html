@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Filter &gt; Bokeh Blur</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Filter Nodes</a></li>
+<li>Bokeh Blur Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bokeh-blur-node">
+<h1>Bokeh Blur Node</h1>
+<p>The Bokeh Blur node generates a bokeh type blur similar to Defocus.
+Unlike defocus an in-focus region is defined in the Compositor.
+There is also more flexibility in the type of blur applied through
+the <a href="../input/bokeh_image.html">Bokeh Image</a> node.</p>
+<p>Several performance optimizations are also available such as OpenCL support,
+calculation area restriction and masking.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Bokeh</dt><dd><p>This is an input for the <a href="../input/bokeh_image.html">Bokeh Image</a> node.</p>
+</dd>
+<dt>Size</dt><dd><p>Size controls the amount of blur. Size can either be a single value across the entire image or a variable value
+controlled by an input image. In order to use the latter, the Variable Size option must be selected.
+See the examples section below for more on how to use this.</p>
+</dd>
+<dt>Bounding Box</dt><dd><p>This can be used with a <a href="../matte/box_mask.html">Box Mask</a>
+matte node or with a <a href="../input/mask.html">Mask</a>
+input node to restrict the area of the image the blur is applied to. This could be helpful, for example,
+when developing a node system by allowing only a small area of the image to be filtered
+thus saving composite time each time adjustments are made.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Variable Size</dt><dd><p>Allows a variable blur radius, if the Size input is an image.</p>
+</dd>
+<dt>Max Blur</dt><dd><p>Max Blur is intended to act as an optimization tool by
+limiting the number of pixels across which the blur is calculated.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Three examples of how the size input may be used follow.</p>
+<p>An <a href="../converter/id_mask.html">ID masked</a>
+alpha image can be used so that a background is blurred while foreground objects remain in focus.
+To prevent strange edges the <a href="dilate_erode.html">Dilate Node</a> should be used.</p>
+<p>The Z pass can be visualized using a <a href="../vector/map_value.html">Map Value</a> node
+and a <a href="../converter/color_ramp.html">Color Ramp</a> node
+as described in <a href="../input/render_layers.html">Render Layers</a>.
+A <em>multiply</em> <a href="../converter/math.html">Math</a> node can be used following the color ramp
+so that a blur value greater than one is used for objects outside the focal range.</p>
+<figure id="id1">
+<figcaption>
+<p>Z pass used.</p>
+</figcaption>
+</figure>
+<p>A manually created grayscale image can be used to define the sharp and blurry areas of a preexisting image.
+Again, a Multiply Node can be used so that a blur value greater than one is used.</p>
+<figure id="id2">
+<figcaption>
+<p>Image used.</p>
+</figcaption>
+</figure>
+<table>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Z pass used.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Image used.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

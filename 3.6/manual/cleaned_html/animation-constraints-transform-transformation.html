@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Transformation</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Transformation Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="transformation-constraint">
+<h1>Transformation Constraint</h1>
+<p>This constraint is more complex and versatile than the other “transform” constraints.
+It allows you to map one type of transform properties (i.e. location, rotation or scale)
+of the target, to the same or another type of transform properties of the owner,
+within a given range of values (which might be different for each target and owner property).
+You can also switch between axes, and use the range values not as limits,
+but rather as “markers” to define a mapping between input (target) and output (owner) values.</p>
+<p>So, e.g. you can use the position of the target along the X axis to control the rotation of
+the owner around the Z axis, stating that 1 unit along the target X axis corresponds
+to 10 units around the owner Z axis. Typical uses for this include gears (see note below),
+and rotation based on location setups.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Transformation panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraints target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Extrapolate</dt><dd><p>By default, the <em>Min</em> and <em>Max</em> values bound the input and output values;
+all values outside these ranges are clipped to them.
+When you enable this button, the <em>Min</em> and <em>Max</em> values are no longer strict limits,
+but rather “markers” defining a proportional (linear) mapping between input and corresponding output values.
+Let us illustrate that with two graphs Fig. <a href="#fig-constraints-transformation-extrapolate">The Extrapolate principles.</a>.
+In these pictures, the input range (in abscissa) is set to (1.0 to 4.0),
+and its corresponding output range (in ordinate), to (1.0 to 2.0).
+The yellow curve represents the mapping between input and output.</p>
+<table id="id2">
+<caption>The Extrapolate principles.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Extrapolate disabled: the output values are bounded inside the (1.0 to 2.0) range.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Extrapolate enabled: the output values are “free” to proportionally follow the input ones.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Target/Owner</dt><dd><p>Standard conversion between spaces.
+See <a href="../interface/common.html#rigging-constraints-interface-common-space">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+<section id="map-from">
+<h3>Map From</h3>
+<p>It contains the input (from target) settings.</p>
+<dl>
+<dt>Location, Rotation, Scale</dt><dd><p>The radio buttons allow you to select which type of property to use.</p>
+</dd>
+<dt>Mode (Rotation)</dt><dd><p>Allows specifying the type of rotation input to use, including different <a href="../../../glossary/index.html#term-Euler">Euler</a> orders,
+<a href="../../../glossary/index.html#term-Quaternion">Quaternion</a>, and other <a href="../../drivers/drivers_panel.html#drivers-variables-rotation-modes">Rotation Channel Modes</a>.
+Defaults to using the <a href="../../../glossary/index.html#term-Euler">Euler</a> order of the constraint owner.</p>
+<p>In the <em>Quaternion</em> mode the channels are converted to weighted angles in the same way as
+the swing angles of the <a href="../../drivers/drivers_panel.html#drivers-variables-rotation-modes">Swing and X/Y/Z Twist</a> modes.</p>
+</dd>
+<dt>X/Y/Z Min, Max</dt><dd><p>Independently for each axis (X, Y, and Z) the min and max number fields control
+the lower and upper bounds of the input value range.
+Note that if a min value is higher than its corresponding max value,
+the constraint behaves as if it had the same value as the max one.</p>
+</dd>
+</dl>
+</section>
+<section id="map-to">
+<h3>Map To</h3>
+<p>It contains the output (to owner) settings.</p>
+<dl>
+<dt>Location, Rotation, Scale</dt><dd><p>The three radio buttons allow you to select which type of property to control.</p>
+</dd>
+<dt>Order (Rotation)</dt><dd><p>For rotation, allows specifying which <a href="../../../glossary/index.html#term-Euler">Euler</a> order to use during evaluation
+of the constraint. Defaults to using the order of the constraint owner.</p>
+</dd>
+<dt>X/Y/Z Source Axis</dt><dd><p>The three axis selectors allow you to select which input axis to map to,
+respectively (from top to bottom), the X, Y and Z output (owner) axes.</p>
+</dd>
+<dt>Min, Max</dt><dd><p>The <em>Min</em> and <em>Max</em> number fields control the lower and upper bounds of the output value range,
+independently for each mapped axis.
+Note that if a min value is higher than its corresponding max value,
+the constraint behaves as if it had the same value as the max one.</p>
+</dd>
+<dt>Mix</dt><dd><p>Specifies how the result of the constraint is combined with the existing transformation.
+The set of available choices varies based on the type of transformation.</p>
+<dl>
+<dt>Replace</dt><dd><p>The result of the constraint replaces the existing transformation.</p>
+</dd>
+<dt>Multiply (Scale)</dt><dd><p>The new values are multiplied with the existing axis values.</p>
+</dd>
+<dt>Add (Location, Rotation)</dt><dd><p>The new values are added to the existing axis values.</p>
+</dd>
+<dt>Before Original (Rotation)</dt><dd><p>The new rotation is added before the existing rotation, as if it was applied to
+a parent of the constraint owner.</p>
+</dd>
+<dt>After Original (Rotation)</dt><dd><p>The new rotation is added after the existing rotation, as if it was applied to
+a child of the constraint owner.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<ul>
+<li><p>For historical reasons, the <em>Mix</em> mode defaults to <em>Add</em> for location and rotation,
+and <em>Replace</em> for scale.</p></li>
+<li><p>When using the rotation transform properties of the target as input,
+whatever the real values are, the constraint will always “take them back” into the (-180 to 180) range.
+E.g. if the target has a rotation of 420 degrees around its X axis,
+the values used as <em>X</em> input by the constraint will be:</p>
+<p>\(((420 + 180) modulo 360) - 180 = 60 - ...\)</p>
+<p>This is why this constraint is not really suited for gears!</p>
+</li>
+<li><p>Similarly, when using the scale transform properties of the target as input,
+whatever the real values are, the constraint will always take their absolute values (i.e. invert negative ones).</p></li>
+<li><p>When a <em>min</em> value is higher than its corresponding <em>max</em> one,
+both are considered equal to the <em>max</em> one. This implies you cannot create “reversed” mappings…</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

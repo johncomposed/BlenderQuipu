@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Mask</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Mask Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mask-modifier">
+<h1>Mask Modifier</h1>
+<p>The <em>Mask</em> modifier allows vertices of an object to be hidden dynamically based on vertex groups.</p>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Mode</dt><dd><p>The Mask Modifier can hide parts of a mesh based on two different modes, selectable from this select menu.</p>
+<dl>
+<dt>Vertex Group</dt><dd><p>Hides all vertices not included in the chosen vertex group.</p>
+<table id="id1">
+<caption>The Mask modifier in Vertex Group mode.</caption>
+</table>
+</dd>
+<dt>Armature</dt><dd><p>When in Pose Mode,
+vertices belonging to the vertex group associated with the active bone (same names) will be visible.
+Vertices not in that group will be hidden.</p>
+<table id="id2">
+<caption>The Mask modifier in Armature mode.</caption>
+</table>
+</dd>
+</dl>
+</dd>
+<dt>Smooth</dt><dd><p>When using Vertex Group <em>Mode</em>, use weights to cut faces at the weight contour.
+This option will result in a mask that has smoother removing the sharp edges along the mask edges.</p>
+</dd>
+<dt>Invert</dt><dd><p>Normally, vertices belonging to the selected vertex group (or group associated with the active pose bone)
+will be shown. The <em>Invert</em> toggle allows you to reverse this behavior, instead only showing vertices
+which do not belong to the vertex group.</p>
+</dd>
+<dt>Threshold</dt><dd><p>Hides vertices with weights less than or equal to this value.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

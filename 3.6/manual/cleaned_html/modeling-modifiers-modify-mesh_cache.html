@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Modify &gt; Mesh Cache</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Mesh Cache Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh-cache-modifier">
+<h1>Mesh Cache Modifier</h1>
+<p>The Mesh Cache modifier main use is for animated mesh data to be applied to a mesh and
+played back, deforming the mesh.</p>
+<p>This works in a similar way to <a href="../../../animation/shape_keys/introduction.html">shape keys</a>,
+but is aimed at playing back external files and is often used for interchange between applications.</p>
+<div>
+<p>Tip</p>
+<p>Both MDD and PC2 depend on the vertex order on the mesh remaining unchanged.
+This is a limitation of this method, so take care not to add, remove or reorder vertices
+once this modifier is used.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Mesh Cache Modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Format</dt><dd><p>The input file format (currently <code>.mdd</code> and <code>.pc2</code> are supported).</p>
+</dd>
+<dt>File Path</dt><dd><p>Path to the cache file.</p>
+</dd>
+<dt>Influence</dt><dd><p>Factor to adjust the influence of the modifier’s deformation, useful for blending in/out from the cache data.</p>
+</dd>
+<dt>Deform Mode</dt><dd><p>This setting defaults to <em>Overwrite</em> which will replace the vertex locations with those in the cache file.
+However, you may want to use shape keys, for example, and mix them with the mesh cache.
+In this case you can select the <em>Deform</em> option which integrates deformations with the mesh cache result.</p>
+<div>
+<p>Note</p>
+<p>This feature is limited to making smaller, isolated edits and
+will not work for larger changes such as re-posing limbs.</p>
+</div>
+</dd>
+<dt>Interpolation</dt><dd><p><em>None</em>, or <em>Linear</em>, which will blend between frames.
+Use linear when the frames in the cache file do not match up exactly with the frames in the blend-file.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>If set, restrict the effect to the only vertices in that vertex group.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="time-remapping">
+<h3>Time Remapping</h3>
+<dl>
+<dt>Time Mode</dt><dd><p>Select how time is calculated.</p>
+<dl>
+<dt>Frame:</dt>
+<dd><p>Allows you to control the frames,
+which will ignore timing data in the file but is often useful since it gives simple control.</p>
+</dd>
+<dt>Time:</dt>
+<dd><p>Evaluates time in seconds,
+taking into account timing information from the file (offset and frame-times).</p>
+</dd>
+<dt>Factor:</dt>
+<dd><p>Evaluates the entire animation as a value in the [0, 1] range.</p>
+</dd>
+</dl>
+</dd>
+<dt>Play Mode</dt><dd><p>Select how playback operates.</p>
+<dl>
+<dt>Scene:</dt>
+<dd><p>Use the current frame from the scene to control playback.</p>
+<dl>
+<dt>Frame Start</dt><dd><p>Play the cache starting from this frame.</p>
+</dd>
+<dt>Frame Scale</dt><dd><p>Scale time by this factor (applied after the start value).</p>
+</dd>
+</dl>
+</dd>
+<dt>Custom:</dt>
+<dd><p>Control animation timing manually.</p>
+<dl>
+<dt>Evaluation Value</dt><dd><p>Property used for animation time,
+this gives more control of timing (typically this value will be animated).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="axis-mapping">
+<h3>Axis Mapping</h3>
+<dl>
+<dt>Forward/Up Axis</dt><dd><p>The axis for forward and up used in the source file.</p>
+</dd>
+<dt>Flip Axis</dt><dd><p>In rare cases you may also need to flip the coordinates on an axis.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

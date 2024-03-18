@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Grab</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Grab</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="grab">
+<h1>Grab</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Grab</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>G</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Drag geometry across the screen, following the cursor.
+<em>Grab</em> only moves the vertices that are under the brush radius at the start of the stroke.
+This is an essential sculpting brush to be used frequently to build shapes and adjust proportions.</p>
+<div>
+<p>Note</p>
+<p>The effect is similar to moving geometry in Edit Mode with Proportional Editing enabled,
+except that <em>Grab</em> can make use of other Sculpt Mode options and brush settings.</p>
+</div>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<section id="general">
+<h3>General</h3>
+<dl>
+<dt>Radius</dt><dd><p>Pressure Sensitivity is not supported for this brush type. More info at <a href="../../brush/brush_settings.html#bpy-types-brush-size">Radius</a>.</p>
+</dd>
+<dt>Strength</dt><dd><p>Pressure Sensitivity is not supported for this brush type. More info at <a href="../../brush/brush_settings.html#bpy-types-brush-strength">Strength</a>.</p>
+</dd>
+<dt>Normal Radius</dt><dd><p>For this brush, this setting is a purely visual change.
+It does not alter the brush behavior. More info at <a href="../../brush/brush_settings.html#bpy-types-brush-normal-radius-factor">Normal Radius</a>.</p>
+</dd>
+<dt>Auto-Smooth</dt><dd><p>This setting is not supported. More info at <a href="../../brush/brush_settings.html#bpy-types-brush-auto-smooth-factor">Auto-Smooth</a>.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>More info at <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-general">General</a> brush settings
+and on <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-advanced">Advanced</a> brush settings.</p>
+</div>
+</section>
+<section id="unique">
+<h3>Unique</h3>
+<dl id="bpy-types-brush-use-grab-active-vertex">
+<dt>Grab Active Vertex</dt><dd><p>Applies the maximum strength of the brush to the highlighted active vertex,
+making it easier to manipulate low-poly models or meshes with modifiers.</p>
+<p>Enabling this option also enables a white wireframe overlay within the brush radius.
+This helps to visualize the real base geometry that is being manipulated
+while sculpting with <a href="../../../modeling/modifiers/index.html">Modifiers</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-grab-silhouette">
+<dt>Grab Silhouette</dt><dd><p>Preserves the object’s silhouette shape by only grabbing vertices on one side of the mesh curvature.
+The shape of the silhouette is determined by the orientation of the 3D Viewport and the start of the stroke.</p>
+</dd>
+</dl>
+<p>Note how in the image only the bottom side of the leg is pulled down, despite the size of the brush.</p>
+<div>
+<p>Tip</p>
+<p>This setting is also useful for grabbing a single side of a crease
+and pushing it further inwards, creating a more pinched crease.</p>
+</div>
+</section>
+</section>
+<section id="additional-workflows">
+<h2>Additional Workflows</h2>
+<dl>
+<dt>2D Grab Brush</dt><dd><p>If the <a href="../../brush/falloff.html#bpy-types-brush-falloff-shape">Falloff Shape</a> is set to <em>Projected</em>,
+the brush can grab infinitely deep into the viewport.
+This is especially useful for much broader changes to a sculpt.</p>
+<p>The stroke can also be started outside of the mesh (like in empty 3D space)
+and grab the vertices within the brush radius.
+This can be useful for sculpting flat and tube-like meshes.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Import Export &gt; Obj</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="../import_export.html">Importing &amp; Exporting Files</a></li>
+<li>Wavefront OBJ</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="wavefront-obj">
+<h1>Wavefront OBJ</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import/Export ‣ Wavefront (.obj)</p>
+</dd>
+</dl>
+</div>
+<p>OBJ format is a popular plain text format, however, it has only basic geometry and material support.</p>
+<div>
+<p>Note</p>
+<p>There is no support for armatures, lights, cameras, empty objects, parenting, or transformations.
+See <a href="#compatibility">Compatibility</a> for more information.</p>
+</div>
+<section id="exporting">
+<h2>Exporting</h2>
+<p>Export geometry and curves to the OBJ format.</p>
+<section id="properties">
+<h3>Properties</h3>
+<section id="object-properties">
+<h4>Object Properties</h4>
+<dl>
+<dt>Limit to: Selected Only</dt><dd><p>Only export the selected objects. Otherwise export all objects in the scene.</p>
+</dd>
+<dt>Scale</dt><dd><p>Global scale to use on export.</p>
+</dd>
+<dt>Forward Axis, Up Axis</dt><dd><p>Since many applications use a different axis for ‘Up’, there are axis conversion settings,
+Forward and Up axis – By mapping these to different axis you can convert rotations
+between applications default up and forward axis.</p>
+<p>Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
+For example, its common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
+</dd>
+<dt>Objects: Apply Modifiers</dt><dd><p>Export objects using the evaluated mesh, meaning the resulting mesh after all
+<a href="../../modeling/modifiers/index.html">Modifiers</a> have been calculated.</p>
+</dd>
+<dt>Properties</dt><dd><p>For properties that have different settings for the viewport/final render pick which is used for output.
+One example where this is important is the <a href="../../modeling/modifiers/generate/subdivision_surface.html">Subdivision Surface Modifier</a>.</p>
+<dl>
+<dt>Viewport:</dt>
+<dd><p>Use viewport properties.</p>
+</dd>
+<dt>Render:</dt>
+<dd><p>Use final render properties.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="geometry-properties">
+<h4>Geometry Properties</h4>
+<dl>
+<dt>UV Coordinates</dt><dd><p>Write out the active UV layers coordinates from Blender.</p>
+</dd>
+<dt>Normals</dt><dd><p>Write out Blender’s face and vertex normals (depending on the faces smooth setting).</p>
+<p>Mostly this isn’t needed since most applications will calculate their
+own normals but to match Blender’s normal map textures you will need to write these too.</p>
+</dd>
+<dt>Colors</dt><dd><p>Write out the active vertex colors attribute layer, if present. Colors are exported in
+“xyzrgb” OBJ extension format.</p>
+</dd>
+<dt>Triangulated Mesh</dt><dd><p>Write out quads as two triangles. Some programs only have very basic OBJ support and only support triangles.</p>
+</dd>
+<dt>Curves as NURBS</dt><dd><p>Write out NURBS curves as OBJ NURBS rather than converting to geometry.</p>
+</dd>
+</dl>
+</section>
+<section id="material-properties">
+<h4>Material Properties</h4>
+<dl>
+<dt>Export</dt><dd><p>Write out the MTL-file along with the OBJ. Most importers that support OBJ will also read the MTL-file.</p>
+</dd>
+<dt>PBR Extensions</dt><dd><p>Export MTL library using PBR extensions (roughness, metallic, sheen, clearcoat, anisotropy, transmission).</p>
+</dd>
+<dt>Path Mode</dt><dd><p>When referencing paths in exported files you may want some control as to the method used since absolute paths
+may only be correct on your own system. Relative paths, on the other hand, are more portable
+but mean that you have to keep your files grouped when moving about on your local file system.
+In some cases, the path doesn’t matter since the target application will search
+a set of predefined paths anyway so you have the option to strip the path too.</p>
+<dl>
+<dt>Auto:</dt>
+<dd><p>Uses relative paths for files which are in a subdirectory of the exported location,
+absolute for any directories outside that.</p>
+</dd>
+<dt>Absolute:</dt>
+<dd><p>Uses full paths.</p>
+</dd>
+<dt>Relative:</dt>
+<dd><p>Uses relative paths in every case (except when on a different drive on Windows).</p>
+</dd>
+<dt>Match:</dt>
+<dd><p>Uses relative / absolute paths based on the paths used in Blender.</p>
+</dd>
+<dt>Strip Path:</dt>
+<dd><p>Only write the filename and omit the path component.</p>
+</dd>
+<dt>Copy:</dt>
+<dd><p>Copy the file on exporting and reference it with a relative path.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="grouping-properties">
+<h4>Grouping Properties</h4>
+<dl>
+<dt>Object Groups</dt><dd><p>Write out each Blender object as an OBJ object.</p>
+<div>
+<p>Note</p>
+<p>Note that as far as Blender is concerned there is no difference between OBJ Groups and Objects,
+this option is only included for applications that treat them differently.</p>
+</div>
+</dd>
+<dt>Material Groups</dt><dd><p>Generate an OBJ group for each part of a geometry using a different material.</p>
+</dd>
+<dt>Vertex Groups</dt><dd><p>Export the name of the vertex group of a face.
+It is approximated by choosing the vertex group with the most members among the vertices of a face.</p>
+</dd>
+<dt>Smooth Groups</dt><dd><p>Write Blender’s sharp edges as smooth groups.</p>
+</dd>
+<dt>Smooth Group Bitflags</dt><dd><p>Generate Bitflags for smooth Groups.</p>
+</dd>
+</dl>
+</section>
+<section id="animation">
+<h4>Animation</h4>
+<dl>
+<dt>Animation</dt><dd><p>Exports a numbered OBJ for each frame from the start to the end frame.
+Please be aware that this can take quite a long time.</p>
+</dd>
+<dt>Frame Start, End</dt><dd><p>The first and last frame to export, used to determine the range of exported frames.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="compatibility">
+<h3>Compatibility</h3>
+<p>NURBS surfaces, text3D and metaballs are converted to meshes at export time.</p>
+</section>
+</section>
+<section id="importing">
+<h2>Importing</h2>
+<p>Import geometry and curves to the OBJ format.</p>
+<p>If there is a matching <code>.MTL</code> for the OBJ then its materials will be imported too.</p>
+<section id="id2">
+<h3>Properties</h3>
+<section id="transform">
+<h4>Transform</h4>
+<dl>
+<dt>Scale</dt><dd><p>Value by which to scale the imported objects in relation to the world’s origin.</p>
+</dd>
+<dt>Clamp Bounding Box</dt><dd><p>OBJ-files often vary greatly in scale, this setting clamps the imported file to a fixed size.</p>
+</dd>
+<dt>Forward Axis, Up Axis</dt><dd><p>Since many applications use a different axis for ‘Up’, these are axis conversion for these settings,
+Forward and Up axes – By mapping these to different axes you can convert rotations
+between applications default up and forward axes.</p>
+<p>Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
+For example, it’s common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
+</dd>
+</dl>
+</section>
+<section id="options">
+<h4>Options</h4>
+<dl>
+<dt>Split By Object</dt><dd><p>Import each OBJ “object name” group (<code>o</code>) as a separate object.</p>
+</dd>
+<dt>Split By Group</dt><dd><p>Import each OBJ “object name” group (<code>g</code>) as a separate object.</p>
+</dd>
+<dt>Vertex Groups</dt><dd><p>Import OBJ groups as vertex groups.</p>
+</dd>
+<dt>Validate Meshes</dt><dd><p>Checks the imported mesh data for errors and corrects them if needed.
+This slows down the importing process but can fix glitches in the imported mesh.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

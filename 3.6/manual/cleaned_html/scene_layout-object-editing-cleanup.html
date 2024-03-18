@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Cleanup</title></head>
+<body><ul>
+<li><a href="../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../index.html">Objects</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Clean Up</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="clean-up">
+<h1>Clean Up</h1>
+<section id="clean-vertex-group-weights">
+<h2>Clean Vertex Group Weights</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Clean Up ‣ Clean Vertex Group Weights</p>
+</dd>
+</dl>
+</div>
+<p>Clean Vertex Group Weights unassigns vertices from
+<a href="../../../modeling/meshes/properties/vertex_groups/index.html">Vertex Groups</a>
+whose weights are below the <em>Limit</em>. Removes weights below a given threshold.
+This tool is useful for clearing your weight groups of very low (or zero) weights.</p>
+<p>In the example shown, a cutoff value of 0.2 is used (see operator options below)
+so all blue parts are cleaned out.</p>
+<p>Note, the images use the <em>Show Zero weights</em> Active option
+so that unreferenced Weights are shown in Black.</p>
+<figure id="id4">
+<figcaption>
+<p>Clean example.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Subset</dt><dd><p>Restrict the tool to a subset.
+See above <a href="../../../sculpt_paint/weight_paint/editing.html#sculpt-paint-weight-paint-editing-subset">The Subset Option</a> for how subsets are defined.</p>
+</dd>
+<dt>Limit</dt><dd><p>This is the minimum weight value that will be kept in the group.
+Weights below this value will be removed from the group.</p>
+</dd>
+<dt>Keep Single</dt><dd><p>Ensure that the <em>Clean Vertex Group Weights</em> tool will not create completely unreferenced vertices
+(which are vertices that are not assigned to any vertex group), so each vertex will
+keep at least one weight, even if it is below the limit value!</p>
+</dd>
+</dl>
+</section>
+<section id="limit-total-vertex-groups">
+<h2>Limit Total Vertex Groups</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Clean Up ‣ Limit Total Vertex Groups</p>
+</dd>
+</dl>
+</div>
+<p>Reduce the number of weight groups per vertex to the specified Limit.
+The tool removes lowest weights first until the limit is reached.</p>
+<div>
+<p>Hint</p>
+<p>The tool can only work reasonably when more than one weight group is selected.</p>
+</div>
+<dl>
+<dt>Subset</dt><dd><p>Restrict the tool to a subset.
+See above <a href="../../../sculpt_paint/weight_paint/editing.html#sculpt-paint-weight-paint-editing-subset">The Subset Option</a> for how subsets are defined.</p>
+</dd>
+<dt>Limit</dt><dd><p>Maximum number of weights allowed on each vertex.</p>
+</dd>
+</dl>
+</section>
+<section id="remove-unused-material-slots">
+<h2>Remove Unused Material Slots</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Clean Up ‣ Remove Unused Material Slots</p>
+</dd>
+</dl>
+</div>
+<p>Removes unused <a href="../../../render/materials/assignment.html#bpy-types-materialslot">material slots</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

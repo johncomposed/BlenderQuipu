@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Dynamic Paint &gt; Canvas</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Dynamic Paint</a></li>
+<li>Canvas</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="canvas">
+<h1>Canvas</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Canvas</p>
+</dd>
+</dl>
+</div>
+<p>The Canvas type makes object receive paint from Dynamic Paint brushes.</p>
+<section id="settings">
+<h2>Settings</h2>
+<figure id="id7">
+<figcaption>
+<p>Canvas main panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Paint Surface</dt><dd><p>A <a href="../../interface/controls/templates/list_view.html#ui-list-view">list</a> of Dynamic Paint surfaces.
+These surfaces are basically layers of paint, that work independently from each other.
+You can define individual settings for them and bake them separately.</p>
+<dl>
+<dt>Is Active</dt><dd><p>The checkbox toggles whether surface is active at all.
+If not selected no calculations are done.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Below you can set surface type and adjust quality and timing settings.</p>
+<dl>
+<dt>Format</dt><dd><p>Each surface has a certain format and type.
+Format determines how data is stored and outputted.</p>
+<dl>
+<dt>Vertex:</dt>
+<dd><p>Dynamic Paint operates directly on mesh vertex data.
+Results are stored by point cache and can be displayed in viewports.
+However, using vertex level also requires a highly subdivided mesh to work.</p>
+</dd>
+<dt>Image Sequences:</dt>
+<dd><p>Dynamic Paint generates UV wrapped image files of defined resolution as output.</p>
+<dl>
+<dt>Resolution</dt><dd><p>You can adjust the output image dimensions for the <em>Image Sequences</em> surface type.
+For example using 256 will lead to 256×256 image output.
+Doubling the resolution will likely quadruple the baking time and vice versa.</p>
+</dd>
+<dt>Anti-Aliasing</dt><dd><p><a href="../../glossary/index.html#term-Anti-Aliasing">Anti-Aliasing</a> to smooth paint edges using a 5× multisampling method.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Frame Start, End</dt><dd><p>Defines surface processing start and end frame.</p>
+</dd>
+<dt>Sub-Steps</dt><dd><p>Extra samples between frames. They are usually required when there is a very fast brush.</p>
+</dd>
+</dl>
+</section>
+<section id="surface">
+<h2>Surface</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Canvas</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint ‣ Surface</p>
+</dd>
+</dl>
+</div>
+<p>From <em>Surface</em> panel you can adjust surface type and related settings.</p>
+<section id="surface-type">
+<h3>Surface Type</h3>
+<p>Each surface has a “type” that defines what surface is used for.</p>
+<section id="paint">
+<h4>Paint</h4>
+<figure id="id8">
+<figcaption>
+<p>Paint Surface.</p>
+</figcaption>
+</figure>
+<p>Paint is the basic surface type that outputs color and wetness values.
+In case of vertex surfaces, results are outputted as Color Attributes.</p>
+<p>A wetmap is a black-and-white output that visualizes paint wetness. White being maximum wetness,
+black being completely dry. It is usually used as mask for rendering.
+Some “paint effects” affect wet paint only.</p>
+<dl>
+<dt>Dry</dt><dd><p>Completely disable drying is useful for indefinitely spreading paint.</p>
+<dl>
+<dt>Color Dry</dt><dd><p>It can be used to define wetness level when paint colors start to shift to surface “background”.
+Lower values can be useful to prevent spreading paint from becoming transparent as it dries,
+while higher values give better results in general.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="displace">
+<h4>Displace</h4>
+<figure id="id9">
+<figcaption>
+<p>Displace Surface.</p>
+</figcaption>
+</figure>
+<p>This type of surface outputs intersection depth from brush objects.</p>
+<dl>
+<dt>Incremental</dt><dd><p>A new displace is added cumulatively on top of an existing displace.</p>
+</dd>
+<dt>Max Displace</dt><dd><p>The maximum level of intersection depth, larger values will be clamped to this value.</p>
+</dd>
+<dt>Displace Factor</dt><dd><p>The multiplier for the intersection depth.
+You can use it to adjust final displace strength or use negative values to paint bumps.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>If the displace output seems too rough it usually helps to add
+a Smooth Modifier after Dynamic Paint in the modifier stack.</p>
+</div>
+</section>
+<section id="waves">
+<h4>Waves</h4>
+<figure id="id10">
+<figcaption>
+<p>Waves Surface.</p>
+</figcaption>
+</figure>
+<p>This surface type produces simulated wave motion. Like displace,
+wave surface also uses brush intersection depth to define brush strength.</p>
+<dl>
+<dt>Open Borders</dt><dd><p>Allows waves to pass through mesh “edges” instead of reflecting from them.</p>
+</dd>
+<dt>Timescale</dt><dd><p>Directly adjusts simulation speed without affecting simulation outcome.
+Lower values make simulation go slower and otherwise.</p>
+</dd>
+<dt>Speed</dt><dd><p>Affects how fast waves travel on the surface.
+This setting is also corresponds to the size of the simulation.
+Half the speed equals surface double as large.</p>
+</dd>
+<dt>Damping</dt><dd><p>Reduces the wave strength over time. Basically adjusts how fast wave disappears.</p>
+</dd>
+<dt>Spring</dt><dd><p>Adjusts the force that pulls water back to “zero level”.</p>
+</dd>
+<dt>Smoothness</dt><dd><p>Limits the maximum steepness of the wave slope between simulation points.
+This greatly helps getting rid of the “noise” that occurs
+when using objects with sharp edges (like cubes) as a brush.
+The default value should be enough to only get rid of the sharpest spikes,
+in order to get even smoother waves use higher values at the expense of reduced detail.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>In some cases the wave motion gets very unstable around brush.
+It usually helps to reduce wave speed, brush “wave factor” or even the resolution of mesh/surface.</p>
+</div>
+</section>
+<section id="weight">
+<h4>Weight</h4>
+<figure id="id11">
+<figcaption>
+<p>Weight Surface.</p>
+</figcaption>
+</figure>
+<p>This is a special surface type only available for vertex format.
+It outputs vertex weight groups that can be used by other Blender modifiers and tools.</p>
+<div>
+<p>Tip</p>
+<p>It is usually preferred to use “proximity” based brushes for
+weight surfaces to allow smooth falloff between weight values.</p>
+</div>
+</section>
+</section>
+<section id="common-options">
+<h3>Common Options</h3>
+<p>For each surface type there are special settings to adjust.
+Most types have the settings <em>Dissolve</em> and <em>Brush</em>:</p>
+<dl>
+<dt>Dissolve</dt><dd><p>Used to make the surface smoothly return to its original state during a defined <em>Time</em> period.</p>
+</dd>
+<dt>Brush Collection</dt><dd><p>Used to define a specific collection to pick brush objects from.</p>
+</dd>
+<dt>Influence Scale, Radius Scale</dt><dd><p>For tweaking brush settings individually for each surface.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="cache">
+<h2>Cache</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Canvas</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint ‣ Cache</p>
+</dd>
+</dl>
+</div>
+<p>This panel is currently only visible for <em>Vertex</em> format surfaces.
+You can use it to adjust and bake point cache.</p>
+</section>
+<section id="effects">
+<h2>Effects</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Canvas</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint ‣ Effects</p>
+</dd>
+</dl>
+</div>
+<p>This is a special feature for “Paint” type surface.
+It generates animated movement on canvas surface.</p>
+<dl>
+<dt>Effects</dt><dd><dl>
+<dt>Spread</dt><dd><p>Paint slowly spreads to surrounding points eventually filling all connected areas.</p>
+</dd>
+<dt>Drip</dt><dd><p>Paint moves in specific direction specified by Blender force fields,
+gravity and velocity with user-defined influences.</p>
+</dd>
+<dt>Shrink</dt><dd><p>Painted area slowly shrinks until disappears completely.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>For spread and drip effects, only “wet paint” is affected, so as the paint dries,
+movement becomes slower until it stops.</p>
+</section>
+<section id="initial-color">
+<h2>Initial Color</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Canvas</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint ‣ Initial Color</p>
+</dd>
+</dl>
+</div>
+<p>Allows you to define the initial color of the canvas. (Todo 2.62)</p>
+<ul>
+<li><p>None</p></li>
+<li><p>Color</p></li>
+<li><p>UV Texture</p></li>
+<li><p>Vertex Color</p></li>
+</ul>
+</section>
+<section id="output">
+<h2>Output</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Canvas</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint ‣ Output</p>
+</dd>
+</dl>
+</div>
+<p>From Output panel you can adjust how surface outputs its results.</p>
+<section id="vertex">
+<h3>Vertex</h3>
+<p>For <em>Vertex</em> format surfaces, you can select a mesh data layer
+(color/weight depending on surface type) to generate results to.
+You can use the “+”/”-” icons to add/remove a data layers of given name.
+If layer with given name is not found, it is shown as red.</p>
+</section>
+<section id="image-sequence">
+<h3>Image Sequence</h3>
+<p>For <em>Image Sequence</em> surfaces,
+you can define used UV maps and output file saving directory, filenames and image format.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

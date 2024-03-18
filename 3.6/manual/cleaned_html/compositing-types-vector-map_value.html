@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Vector &gt; Map Value</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Vector Nodes</a></li>
+<li>Map Value Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="map-value-node">
+<h1>Map Value Node</h1>
+<p>Map Value node is used to scale, offset and clamp values.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Value</dt><dd><p>Standard Value input. (Value refers to each vector in the set.)</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Offset</dt><dd><p>Factor added to the input value.</p>
+</dd>
+<dt>Size</dt><dd><p>Scales (multiply) the input value.</p>
+</dd>
+<dt>Use Minimum, Maximum</dt><dd><p>Enable this to activate their related operation.</p>
+</dd>
+<dt>Min, Max</dt><dd><p>Defines a range between minimum and maximum to <a href="../../../glossary/index.html#term-Clamp">Clamp</a> the input value to.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>Standard value output.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<section id="z-depth-map">
+<h3>Z-Depth Map</h3>
+<p>This is particularly useful in achieving a depth of field effect,
+where the Map Value node is used to map a Z value
+(which can be 20 or 30 or even 500 depending on the scene) to the range between (0 to 1),
+suitable for connecting to a Blur node.</p>
+</section>
+<section id="multiplying-values">
+<h3>Multiplying Values</h3>
+<p>The Map Value node can also be used to multiply values to achieve a desired output value.
+In the mini-map to the right, the Time node outputs a value between 0.0 and 1.0 evenly scaled over 30 frames.
+The <em>first</em> Map Value node multiplies the input by 2,
+resulting in an output value that scales from 0.0 to 2.0 over 30 frames.
+The <em>second</em> Map Value node subtracts 1 from the input,
+giving working values between (-1.00 to 1.0), and multiplies that by 150,
+resulting in an output value between (-150 to 150) over a 30-frame sequence.</p>
+<figure id="id1">
+<figcaption>
+<p>Using Map Value to multiply.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

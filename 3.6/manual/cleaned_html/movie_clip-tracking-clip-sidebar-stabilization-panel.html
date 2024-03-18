@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Tracking &gt; Clip &gt; Sidebar &gt; Stabilization &gt; Panel</head>
+<body><ul>
+<li><a href="../../../../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="../../../index.html">Motion Tracking</a></li>
+<li><a href="../../index.html">Clip View</a></li>
+<li><a href="../index.html">Sidebar</a></li>
+<li><a href="index.html">2D Stabilization</a></li>
+<li>2D Stabilization Panel</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="d-stabilization-panel">
+<h1>2D Stabilization Panel</h1>
+<p>The purpose of 2D stabilization is to smooth out jerky camera handling on existing real-world footage.
+To activate the 2D stabilizer, you need to set the toggle in the panel, and additionally you need to enable
+<em>Show Stable</em> in the Clip Display pop-over.
+Then you’ll need to set up some tracking points to detect the image movements.</p>
+<p>The 2D Stabilization panel is used to define the data used for 2D stabilization of the shot.
+Several options are available in this panel: you may add a list of tracks to determine lateral image shifts
+and another list of tracks to determine tilting and zooming movements.
+Based on the average contribution of these tracks,
+a compensating movement is calculated and applied to each frame.</p>
+<p>When the footage includes panning and traveling movements,
+the stabilizer tends to push the image out of the visible area.
+This can be compensated by animating the parameters for the intentional,
+“expected” camera movement.</p>
+<div>
+<p>Note</p>
+<p>To <em>activate</em> the 2D stabilizer, you need to set the toggle in the panel,
+and additionally you need to enable <em>Show Stable</em> in the <em>Clip Display</em> pop-over.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>2D Stabilization panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Anchor Frame</dt><dd><p>Reference point to anchor stabilization:
+other frames will be adjusted relative to this frame’s position, orientation and scale.
+You might want to select a frame number where your main subject is featured in an optimal way.</p>
+</dd>
+<dt>Stabilization Type</dt><dd><dl>
+<dt>Rotation</dt><dd><p>In addition to location, stabilizes detected rotation around the <em>rotation pivot point</em>,
+which is the weighted average of all location tracking points.</p>
+</dd>
+<dt>Scale</dt><dd><p>Compensates any scale changes relative to center of rotation.</p>
+</dd>
+</dl>
+</dd>
+<dt>Tracks for Stabilization</dt><dd><dl>
+<dt>Location</dt><dd><p>List of tracks to be used to compensate for camera jumps, or location movement.</p>
+</dd>
+<dt>Rotation/Scale</dt><dd><p>List of tracks to be used to compensate for camera tilts and scale changes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Autoscale</dt><dd><p>Finds smallest scale factor which, when applied to the footage,
+would eliminate all empty black borders near the image boundaries.</p>
+<dl>
+<dt>Max</dt><dd><p>Limits the amount of automatic scaling.</p>
+</dd>
+</dl>
+</dd>
+<dt>Expected Position X/Y</dt><dd><p>Known relative offset of original shot, will be subtracted, e.g. for panning shots.</p>
+</dd>
+<dt>Expected Rotation</dt><dd><p>Rotation present on original shot, will be compensated, e.g. for deliberate tilting.</p>
+</dd>
+<dt>Expected Zoom</dt><dd><p>Explicitly scale resulting frame to compensate zoom of original shot.</p>
+</dd>
+<dt>Influence</dt><dd><p>The amount of transformation applied to the footage can be controlled.
+In some cases it is not necessary to fully compensate camera jumps.
+The amount of stabilization applied to the footage can be controlled.
+In some cases you may not want to fully compensate some of the camera’s jumps.
+Please note that these “* <em>Influence</em>” parameters do control only the <em>compensation movements</em>
+calculated by the stabilizer, not the deliberate movements added through the “<em>Expected</em> *”-parameters.</p>
+</dd>
+<dt>Interpolate</dt><dd><p>The stabilizer calculates compensation movements with sub-pixel accuracy.
+Consequently, a resulting image pixel needs to be derived from several adjacent source footage pixels.
+Unfortunately, any interpolation causes some minor degree of softening and loss of image quality.</p>
+<dl>
+<dt>Nearest</dt><dd><p>No interpolation, uses nearest neighboring pixel.
+This setting basically retains the original image’s sharpness.
+The downside is we also retain residual movement below the size of one pixel,
+and compensation movements are done in 1 pixel steps, which might be noticeable as irregular jumps.</p>
+</dd>
+<dt>Bilinear</dt><dd><p>Simple linear interpolation between adjacent pixels.</p>
+</dd>
+<dt>Bicubic</dt><dd><p>Highest quality interpolation, most expensive to calculate.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

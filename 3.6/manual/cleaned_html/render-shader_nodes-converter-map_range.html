@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Converter &gt; Map Range</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Converter</a></li>
+<li>Map Range Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="map-range-node">
+<h1>Map Range Node</h1>
+<p>The <em>Map Range</em> node remaps a value from a range to a target range.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Value/Vector</dt><dd><p>The input value or vector to be remapped.</p>
+</dd>
+<dt>From Min</dt><dd><p>The lower bound of the range to remap from.</p>
+</dd>
+<dt>From Max</dt><dd><p>The higher bound of the range to remap from.</p>
+</dd>
+<dt>To Min</dt><dd><p>The lower bound of the target range.</p>
+</dd>
+<dt>To Max</dt><dd><p>The higher bound of the target range.</p>
+</dd>
+<dt>Steps</dt><dd><p>The number of values allowed between <em>To Min</em> and <em>To Max</em> when using <em>Stepped Linear</em> interpolation.
+A higher value will give a smoother interpolation while lower values will progressively quantize the input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>Map Range supports both Float and Vector data types. Changing the data type will
+also update the sockets to reflect the data type chosen.</p>
+</dd>
+<dt>Interpolation Type</dt><dd><p>The mathematical method used to transition between gaps in the numerical inputs.</p>
+<dl>
+<dt>Linear:</dt>
+<dd><p>Linear interpolation between From Min and From Max values.</p>
+</dd>
+<dt>Stepped Linear:</dt>
+<dd><p>Stepped linear interpolation between From Min and From Max values.</p>
+</dd>
+<dt>Smooth Step:</dt>
+<dd><p>Smooth Hermite edge interpolation between From Min and From Max values.</p>
+</dd>
+<dt>Smoother Step:</dt>
+<dd><p>Smoother Hermite edge interpolation between From Min and From Max values.</p>
+</dd>
+</dl>
+</dd>
+<dt>Clamp</dt><dd><p>If enabled, the output is clamped to the target range.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Result/Vector</dt><dd><p>The input value after remapping.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>The <em>Noise Texture</em> node outputs a value in the range [0, 1].
+We can use the <em>Map Range</em> node to remap this value into the range [-1, 1].</p>
+<figure id="id1">
+<figcaption>
+<p>Example of Map Range node.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

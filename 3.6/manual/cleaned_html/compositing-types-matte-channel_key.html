@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Channel Key</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Channel Key Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="channel-key-node">
+<h1>Channel Key Node</h1>
+<p>The <em>Channel Key</em> node determines background objects from foreground objects by
+the difference in the selected channel’s levels.</p>
+<p>For example in the YUV <a href="../../../glossary/index.html#term-Color-Model">Color Model</a>,
+this node is useful when compositing stock footage of explosions (very bright)
+which are normally shot against a solid, dark background.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Color Space</dt><dd><p>This button selects what color model the channels will represent.</p>
+<p>RGB, HSV, YUV, YCbCr</p>
+</dd>
+<dt>Key Channel</dt><dd><p>This button selects the channel, defined by the <em>Color Space</em>, to use to determine the matte.</p>
+</dd>
+<dt>Algorithm</dt><dd><p>Method to calculate the difference between levels.</p>
+<dl>
+<dt>Max:</dt>
+<dd><p>Limit by the maximum of the other two channels other than the <em>Key Channel</em>.</p>
+</dd>
+<dt>Single:</dt>
+<dd><p>Limit by the maximum of the selected <em>Limiting Channel</em>.</p>
+<dl>
+<dt>Limiting Channel</dt><dd><p>The channel to use when computing the maximum, the options are defined by the <em>Color Space</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>High</dt><dd><p>Determines the lowest values that are considered foreground.
+(Which is supposed to be – relatively – high values: from this value to 1.0.)</p>
+</dd>
+<dt>Low</dt><dd><p>Determines the highest values that are considered to be background objects.
+(Which is supposed to be – relatively – low values: from 0.0 to this value.)</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>It is possible to have a separation between the <em>High</em> and <em>Low</em> values to allow
+for a gradient of transparency between foreground and background objects.</p>
+</div>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Image with an alpha channel adjusted for the keyed selection.</p>
+</dd>
+<dt>Matte</dt><dd><p>A black-and-white alpha mask of the key.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Navigate &gt; Camera View</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">3D Viewport</a></li>
+<li><a href="index.html">Navigating</a></li>
+<li>Camera View</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="camera-view">
+<h1>Camera View</h1>
+<figure id="id6">
+<figcaption>
+<p>Demonstration of camera view.</p>
+</figcaption>
+</figure>
+<p>The Camera view shows the current scene from the active camera’s viewpoint.</p>
+<p>The Camera view can be used to virtually compose shots and preview how the scene will look when rendered.
+The rendered image will contain everything within the dashed frame.</p>
+<div>
+<p>See also</p>
+<p><a href="../../../render/cameras.html">Camera Settings</a> for details on how camera settings are used for display and rendering.</p>
+</div>
+<div>
+<p>Hint</p>
+<p>While in camera view, you can select the camera by clicking the dashed frame
+(assuming the camera object isn’t hidden).</p>
+</div>
+<section id="viewing-the-active-camera">
+<h2>Viewing the Active Camera</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>View ‣ Cameras ‣ Active Camera, View ‣ Viewpoint ‣ Camera</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Numpad0</kbd></p>
+</dd>
+</dl>
+</div>
+<p>This switches the view to the active camera.</p>
+</section>
+<section id="setting-the-active-camera">
+<h2>Setting the Active Camera</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>View ‣ Cameras ‣ Set Active Object as Camera</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Numpad0</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<figure id="id7">
+<figcaption>
+<p>Active camera (left) displayed with a solid triangle above it.</p>
+</figcaption>
+</figure>
+<p>This sets the current active object as the active camera and switches to the camera view.</p>
+<p>The active camera is the one that will be used for rendering,
+and which you’ll look through when choosing camera view.</p>
+<p>Another way of setting the active camera is through the <em>Scene</em> tab of the
+<a href="../../properties_editor.html">Properties</a>.</p>
+<div>
+<p>Note</p>
+<p>The active camera is normally defined on the scene level, so that it’s the same
+across all 3D Viewports. However, it’s also possible to make a camera
+the active one within one Viewport only.
+See <a href="../sidebar.html#bpy-types-spaceview3d-use-local-camera">Local Camera</a>.</p>
+</div>
+<section id="animated-camera-switching">
+<h3>Animated Camera Switching</h3>
+<p>While a scene contains only one camera by default, it’s possible to have multiple.
+You can then bind the cameras to specific time points in your animation
+to create jump cuts showing different viewpoints.
+See <a href="../../../animation/markers.html#bpy-ops-marker-camera-bind">Animating Cameras</a>.</p>
+</section>
+</section>
+<section id="frame-camera-bounds">
+<h2>Frame Camera Bounds</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>View ‣ Cameras ‣ Frame Camera Bounds</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Home</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Centers the camera view inside the 3D Viewport’s screen area
+and resizes the view to fit within the area’s bounds.</p>
+</section>
+<section id="zoom-camera-1-1">
+<h2>Zoom Camera 1:1</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>View ‣ Navigation ‣ Zoom Camera 1:1</p>
+</dd>
+</dl>
+</div>
+<p>Zooms the view so that the camera frame has the exact same size
+as the output resolution. This allows you to preview exactly how large
+objects will be in the rendered image/animation.</p>
+</section>
+<section id="camera-positioning">
+<h2>Camera Positioning</h2>
+<p>There are several different ways to position the camera in your scene.
+Some of them are explained below.</p>
+<div>
+<p>Hint</p>
+<p>The active “camera” might be any kind of object,
+meaning these actions can also be used to position and aim a light for example.</p>
+</div>
+<section id="align-active-camera-to-view">
+<h3>Align Active Camera to View</h3>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>View ‣ Align View ‣ Align Active Camera to View</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>Numpad0</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Moves and rotates the camera so it perfectly matches your current viewport view.</p>
+</section>
+<section id="camera-navigation">
+<h3>Camera Navigation</h3>
+<p>By enabling <a href="../sidebar.html#bpy-types-spaceview3d-lock-camera">Lock Camera to View</a> in
+Sidebar ‣ View and switching to camera view,
+the camera will become “glued” to the view and follow it around as you navigate.</p>
+<div>
+<p>See also</p>
+<p><a href="walk_fly.html#dview-fly-walk">Fly/Walk Navigation</a> for first person navigation that moves the active camera too.</p>
+</div>
+</section>
+<section id="roll-pan-dolly-and-track">
+<h3>Roll, Pan, Dolly, and Track</h3>
+<p>To perform these camera moves, the camera must first be selected so transform operations apply to it.
+The following actions also assume that you are in camera view.
+Having done so, you can now manipulate the camera using the same tools that are used to transform any object:</p>
+<dl>
+<dt>Roll</dt><dd><p>Press <kbd>R</kbd> to enter object rotation mode. The default will be to rotate the camera along its local Z axis
+(the axis orthogonal to the camera view), which is the definition of a camera “roll”.</p>
+</dd>
+<dt>Vertical Pan or Pitch</dt><dd><p>This is just a rotation along the local X axis. Press <kbd>R</kbd> to enter object rotation mode,
+then <kbd>X</kbd> twice. (The first press selects the <em>global</em> axis, the second the <em>local</em> axis.
+This works with any axis; see <a href="../../../scene_layout/object/editing/transform/control/axis_locking.html">Axis Locking</a>).</p>
+</dd>
+<dt>Horizontal Pan or Yaw</dt><dd><p>This corresponds to a rotation around the camera’s local Y axis.
+Press <kbd>R</kbd>, then <kbd>Y</kbd> twice.</p>
+</dd>
+<dt>Dolly</dt><dd><p>To dolly the camera, press <kbd>G</kbd> then <kbd>MMB</kbd> (or <kbd>Z</kbd> twice).</p>
+</dd>
+<dt>Sideways Tracking</dt><dd><p>Press <kbd>G</kbd> and move the mouse (you can use <kbd>X</kbd> or <kbd>Y</kbd> twice
+to get purely horizontal or vertical tracking).</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

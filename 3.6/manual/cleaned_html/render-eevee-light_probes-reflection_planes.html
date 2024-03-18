@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Light Probes &gt; Reflection Planes</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Light Probes</a></li>
+<li>Reflection Planes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="reflection-planes">
+<h1>Reflection Planes</h1>
+<p>These special types of Probe object are suited to smooth planar surfaces.
+They basically capture the whole scene with a flipped camera.</p>
+<p>Using reflection planes is really heavy on the render time
+because the scene needs to be rendered as many times as there is Reflection Planes in the view.</p>
+<p>Unless Screen Space Reflection is enabled,
+Reflection Planes only work on specular surfaces that have their roughness around 0.</p>
+<p>If Screen Space Reflection is enabled, Reflection Planes will serve as support buffers.
+This accelerates the tracing process and completes the missing data from the view space.
+This also make reflection more correct for the affected surfaces that have medium roughness and
+disturbed normals (i.e. normal maps).</p>
+<div>
+<p>Note</p>
+<p>Subsurface Scattering, Screen Space Reflections and
+Volumetrics are not supported inside Reflection Plane’s reflection.</p>
+</div>
+<section id="placement">
+<h2>Placement</h2>
+<p>If Backface Culling is not enabled, snapping the Reflection Plane to the planar surface
+will effectively capture the underside of the surface.</p>
+<p>You can manually move the Reflection Plane above the surface enough for it to not appear in the capture.
+Alternatively you can put a floor object inside a collection and
+use this collection as a Visibility Collection (inverted) inside the Reflection Plane’s probe settings.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Object Data ‣ Probe</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Distance</dt><dd><p>A probe object only influences the lighting of nearby surfaces.
+This influence zone is defined by the Distance parameter and object scaling.
+The influence distance varies is a bit, depending on the probe type.</p>
+<p>For Reflection Planes the influence distance is the distance from the plane.
+Only surfaces whose normals are aligned with the Reflection Plane will receive the captured reflection.</p>
+</dd>
+<dt>Falloff</dt><dd><p>Percentage of the influence distance during which the influence of a probe fades linearly.
+Also defines how much shading normals needs to be aligned with the plane to receive reflections.</p>
+</dd>
+<dt>Clipping Offset</dt><dd><p>Define how much below the plane the near clip is when capturing the scene.
+Increasing this can fix reflection contact problems.</p>
+</dd>
+<dt>Visibility Collection</dt><dd><p>In some cases, it is useful to limit which objects appear in the light probe’s captured lighting.
+For instance, an object that is too close to a capture point might be better excluded.
+This is what the visibility collection does.
+Only objects that are in this collection will be visible when this probe will capture the scene.</p>
+<p>There is also an option to invert this behavior and effectively hide the objects inside this collection.</p>
+<div>
+<p>Note</p>
+<p>This is only a filtering option.
+That means that if an object is not visible at render time it won’t be visible during the probe render.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Due to a limitation, dupli-objects cannot be hidden by using this option.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="viewport-display">
+<h2>Viewport Display</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Object Data ‣ Viewport Display</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Influence</dt><dd><p>Show the influence bounds in the 3D Viewport.</p>
+</dd>
+<dt>Arrow Size</dt><dd><p>Size of the arrow showing the reflection plane normal.</p>
+</dd>
+<dt>Show Preview Plane</dt><dd><p>Show the captured reflected image onto a fully reflective plane in the 3D Viewport.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

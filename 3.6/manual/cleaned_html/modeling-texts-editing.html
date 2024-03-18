@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Texts &gt; Editing</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Text</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<p>Editing text is quite different from other object types in Blender, and happens mainly in two areas.
+                  First, the 3D Viewport, where you type your text, and have a few shortcuts, e.g. for applying
+                  styles (see <a href="properties.html#modeling-text-character">Font</a>) – note however, that most Blender shortcuts you know
+                  in Edit Mode do not exist for texts. The second place is the Properties, especially the <em>Font</em>
+                  tab.</p>
+<section id="text">
+<h2>Text</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd>
+<p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd>
+<p>3D Viewport ‣ Text</p>
+</dd>
+</dl>
+</div>
+<p>Editing text objects is similar to using a standard text editor but is not as
+                    full-featured and has some differences.
+                    The menu of the 3D Viewport header offers few options. You have no transform nor mirror tools, and
+                    so on.
+                    To leave Edit Mode use <kbd>Tab</kbd> as it does not insert
+                    a tab character in the text,
+                    but rather enters and exits Edit Mode, as with other object types.</p>
+<dl>
+<dt>Cut <kbd><kbd>Ctrl</kbd>-<kbd>X</kbd></kbd></dt>
+<dd>
+<p>To cut and copy text to the buffer, use the shortcut or the matching entry in the <em>Edit</em>
+                        menu.</p>
+</dd>
+<dt>Copy <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd></dt>
+<dd>
+<p>To copy text to the buffer, use the shortcut or the matching entry in the <em>Edit</em> menu.
+                      </p>
+</dd>
+<dt>Paste <kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd></dt>
+<dd>
+<p>To paste text from the buffer, use the shortcut or the matching entry in the <em>Edit</em>
+                        menu.</p>
+</dd>
+<dt>Paste File</dt>
+<dd>
+<p>Inserts text from and external text file.
+                        This will bring up a <a href="../../editors/file_browser.html">File Browser</a> for navigating to a valid UTF-8 file.
+                        As usual, be careful that the file does not have too many characters,
+                        as interactive response will slow down.</p>
+</dd>
+<dt>To Uppercase</dt>
+<dd>
+<p>Changes the case of the selected text to uppercase.</p>
+</dd>
+<dt>To Lowercase</dt>
+<dd>
+<p>Changes the case of the selected text to lowercase.</p>
+</dd>
+<dt>Special Characters</dt>
+<dd>
+<p>This is a limited character map to insert characters which aren’t available from the keyboard.
+                        Many other special characters can be “composed”, see <a href="#accent-characters">Accent Characters</a>.
+                        If you need others, you will have to copy-paste them from an external editor or character map
+                        program.</p>
+<div>
+<p>Note</p>
+<p>The text buffer is in sync with the desktop clipboard.
+                          But if it is used within Blender the text formatting will be copied as well.
+                          For other ways of inserting a text, see <a href="#inserting-text">Inserting Text</a>.</p>
+</div>
+</dd>
+<dt>Toggle Bold, Italics, Underline, Small Caps</dt>
+<dd>
+<p>To apply the <em>Bold</em>, <em>Italics</em>, <em>Underline</em> or <em>Small Caps</em>
+                        attribute to a set of characters,
+                        you either turn on the related setting prior to typing characters,
+                        or select existing text, and then toggle desired style from the menu.</p>
+<div>
+<p>Warning</p>
+<p>Blender’s <em>Bold</em> and <em>Italic</em> buttons do not work the same way as in other
+                          applications,
+                          as they also serve as placeholders for you to load up other fonts manually.</p>
+</div>
+</dd>
+<dt>Kerning</dt>
+<dd>
+<p>Font kerning is the space between individual characters.</p>
+<dl>
+<dt>Decrease Kerning <kbd><kbd>Alt</kbd>-<kbd>Left</kbd></kbd></dt>
+<dd>
+<p>Decreases the spacing between the characters on either side of the cursor.</p>
+</dd>
+<dt>Increase Kerning <kbd><kbd>Alt</kbd>-<kbd>Right</kbd></kbd></dt>
+<dd>
+<p>Increase the spacing between the characters on either side of the cursor.</p>
+</dd>
+<dt>Reset Kerning</dt>
+<dd>
+<p>Sets the spacing between the characters on either side of the cursor to their initial
+                            value.</p>
+</dd>
+</dl>
+</dd>
+<dt>Delete</dt>
+<dd>
+<dl>
+<dt>Previous/Next Character</dt>
+<dd>
+<p>Deletes the character before or after the cursor.</p>
+</dd>
+<dt>Previous/Next Word</dt>
+<dd>
+<p>Deletes the word before or after the cursor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="inserting-text">
+<h2>Inserting Text
+</h2>
+<p>You can insert text in two ways: from the internal text buffer
+                    (as described above), or from a text file.</p>
+<p>Using an existing text data-block, you can convert it to an object from the Text editor’s header,
+                    select Edit ‣ Text to 3D Object,
+                    <em>One Object</em> or <em>One Object per Line</em> depending on your needs.</p>
+<p>It is also possible to paste from the clipboard or a file from the <em>Edit</em> menu, while
+                    editing 3D text.</p>
+<section id="accent-characters">
+<h3>Accent Characters</h3>
+<p>Many special characters (such as accented chars, which are not directly available on your
+                      keyboard)
+                      can be “composed” using a combination of two other characters. To do so,
+                      type the main char, press <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>,
+                      and then press the desired “modifier” to produce the special character.
+                      Some examples are given below:</p>
+<table>
+<tr>
+<td>
+<ul>
+<li>
+<p>ã: <code>A</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>~</code></p>
+</li>
+<li>
+<p>á: <code>A</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>'</code></p>
+</li>
+<li>
+<p>à: <code>A</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>\</code></p>
+</li>
+<li>
+<p>â: <code>A</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>^</code></p>
+</li>
+<li>
+<p>å: <code>A</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>O</code></p>
+</li>
+<li>
+<p>æ: <code>A</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>E</code></p>
+</li>
+<li>
+<p>ª: <code>A</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>-</code></p>
+</li>
+<li>
+<p>ë: <code>E</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>"</code></p>
+</li>
+<li>
+<p>ç: <code>C</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>,</code></p>
+</li>
+<li>
+<p>¢: <code>C</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>|</code></p>
+</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p>ø: <code>O</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>/</code></p>
+</li>
+<li>
+<p>§: <code>S</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>S</code></p>
+</li>
+<li>
+<p>†: <code>|</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>-</code></p>
+</li>
+<li>
+<p>‡: <code>|</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>=</code></p>
+</li>
+<li>
+<p>©: <code>O</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>C</code></p>
+</li>
+<li>
+<p>®: <code>O</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>R</code></p>
+</li>
+<li>
+<p>™: <code>T</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>M</code></p>
+</li>
+<li>
+<p>½: <code>1</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>2</code></p>
+</li>
+<li>
+<p>÷: <code>-</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>:</code></p>
+</li>
+<li>
+<p>±: <code>-</code>, <kbd><kbd>Alt</kbd>-<kbd>Backspace</kbd></kbd>, <code>+</code></p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</section>
+</section>
+<section id="converting-to-a-mesh-or-curve">
+<h2>Converting to a Mesh or Curve</h2>
+<p>In Object Mode, it is possible to convert a text object to a mesh or curve one, see <a href="../../scene_layout/object/editing/convert.html#object-convert-to">Convert</a>.</p>
+<div>
+<p>Tip</p>
+<p>The topology of the result is usually a bit messy,
+                      so it may be useful to use a <em>Limited Dissolve</em> deletion,
+                      or apply a <a href="../modifiers/generate/remesh.html">Remesh modifier</a>
+                      at a low threshold, to clean up your mesh.</p>
+</div>
+</section>
+<section id="assigning-materials">
+<h2>Assigning Materials</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd>
+<p>Edit</p>
+</dd>
+<dt>Panel:</dt>
+<dd>
+<p>Properties ‣ Materials</p>
+</dd>
+</dl>
+</div>
+<p>Each character can have a different <em>Material index</em> in order to have different materials
+                    on different characters.</p>
+<p>You can assign indices either as you type, or after by selecting blocks of text and
+                    clicking on the <em>Assign</em> button in the <em>Materials</em> panel.</p>
+<figure id="id3">
+<figcaption>
+<p>Red Green Blue text example.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

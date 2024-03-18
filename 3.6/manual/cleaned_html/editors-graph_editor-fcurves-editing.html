@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Graph Editor &gt; Fcurves &gt; Editing</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Graph Editor</a></li>
+<li><a href="index.html">F-Curves</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<section id="transform">
+<h2>Transform</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<p>An F-Curve can be edited by transforming the locations of the keyframes.</p>
+<dl>
+<dt>Move, Rotate, Scale</dt><dd><p>Like other elements in Blender, keyframes can be
+moved, rotated, or scaled as described in
+<a href="../../../scene_layout/object/editing/transform/introduction.html">Basic Transformations</a>.</p>
+</dd>
+<dt>Extend</dt><dd><p>Moves keyframes relative to the current frame.
+If the mouse is to the left of the Playhead,
+this operator only affects the selected keyframes that are to the left of the Playhead.
+On the contrary, if the mouse is to the right of the Playhead,
+this operator only affects the selected keyframes that are to the right of the Playhead.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>For precise control of the keyframe position and value,
+you can set values in the <em>Active Keyframe</em> of the Sidebar region.</p>
+</div>
+</section>
+<section id="snap">
+<h2>Snap</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Snap</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Keyframes can be snapped to different properties by using the <em>Snap Keys</em> tool.</p>
+<dl>
+<dt>Selection to Current Frame</dt><dd><p>Snap the selected keyframes to the current frame.</p>
+</dd>
+<dt>Selection to Cursor Value</dt><dd><p>Snap the selected keyframes to the <em>2D Cursor</em>.</p>
+</dd>
+<dt>Selection to Nearest Frame</dt><dd><p>Snap the selected keyframes to their nearest frame individually.</p>
+</dd>
+<dt>Selection to Nearest Second</dt><dd><p>Snap the selected keyframes to their nearest second individually, based on the <em>FPS</em> of the scene.</p>
+</dd>
+<dt>Selection to Nearest Marker</dt><dd><p>Snap the selected keyframes to their nearest marker individually.</p>
+</dd>
+<dt>Flatten Handles</dt><dd><p>Flatten the <em>Bézier</em> handles for the selected keyframes.</p>
+<table id="id21">
+<caption>Flatten Handles snapping example.</caption>
+<tbody>
+<tr><td><figure id="id22">
+<figcaption>
+<p>Before Flatten Handles.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id23">
+<figcaption>
+<p>After Flatten Handles.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-ops-graph-equalize-handles">
+<dt>Equalize Handles</dt><dd><p>Ensure selected keyframes’ handles have equal length.</p>
+<dl>
+<dt>Side</dt><dd><p>Side of the keyframes’ Bézier handles to affect</p>
+<dl>
+<dt>Left:</dt>
+<dd><p>Equalize selected keyframes’ left handles.</p>
+</dd>
+<dt>Right:</dt>
+<dd><p>Equalize selected keyframes’ right handles.</p>
+</dd>
+<dt>Both:</dt>
+<dd><p>Equalize both of a keyframe’s handles.</p>
+</dd>
+</dl>
+</dd>
+<dt>Handle Length</dt><dd><p>Length to make selected keyframes’ Bézier handles.</p>
+</dd>
+<dt>Flatten</dt><dd><p>Make the values of the selected keyframes’ handles the same as their respective keyframes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Cursor to Selected <kbd><kbd>Ctrl</kbd>-<kbd>G</kbd></kbd></dt><dd><p>Places the cursor at the midpoint between selected keyframes.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-graph-snap-cursor-value">
+<dt>Cursor Value to Selection</dt><dd><p>Places the cursor value on the average value of selected keyframes.</p>
+</dd>
+</dl>
+</section>
+<section id="mirror">
+<h2>Mirror</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Mirror</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Selected keyframes can be mirrored over different properties using the <em>Mirror Keys</em> tool.</p>
+<dl>
+<dt>By Times over Current Frame</dt><dd><p>Mirror horizontally over the current frame.</p>
+</dd>
+<dt>By Values over Cursor Value</dt><dd><p>Mirror vertically over the 2D cursor.</p>
+</dd>
+<dt>By Times over Time 0</dt><dd><p>Mirror horizontally over frame 0.</p>
+</dd>
+<dt>By Values over Value 0</dt><dd><p>Mirror vertically over value 0.</p>
+</dd>
+<dt>By Times over First Selected Marker</dt><dd><p>Mirror horizontally over the first selected marker.</p>
+</dd>
+</dl>
+</section>
+<section id="jump-to-selected">
+<h2>Jump to Selected</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Jump to Selected</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Places the 2D cursor at the center of the selected keyframes.</p>
+</section>
+<section id="insert">
+<h2>Insert</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Insert</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>I</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Inserts a keyframe to the active F-Curve at the mouse position.
+The newly added keyframes will be selected, making it easier to quickly tweak the newly added keyframes.
+All previously selected keyframes are kept selected by using <kbd>I</kbd>.</p>
+<dl>
+<dt>Type</dt><dd><dl>
+<dt>All Channels:</dt>
+<dd><p>Insert a keyframe on all visible and editable F-Curves using each curve’s current value.</p>
+</dd>
+<dt>Only Selected Channels:</dt>
+<dd><p>Insert a keyframe on selected F-Curves using each curve’s current value.</p>
+</dd>
+<dt>Only Active F-Curve:</dt>
+<dd><p>Insert a keyframe on the active F-Curve using the curve’s current value.</p>
+</dd>
+<dt>Active Channels at Cursor:</dt>
+<dd><p>Insert a keyframe for the active F-Curve at the cursor point.</p>
+</dd>
+<dt>Selected Channels at Cursor:</dt>
+<dd><p>Insert a keyframe for selected F-Curves at the cursor point.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="copy-paste">
+<h2>Copy/Paste</h2>
+<div>
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Copy Keyframes, Key ‣ Paste Keyframes</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Use <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> to copy selected keyframes and <kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd> to paste the previously copied keyframes.
+During the paste action, the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel provides some options in
+how the paste is applied.</p>
+<dl>
+<dt>Offset</dt><dd><dl>
+<dt>No Offset:</dt>
+<dd><p>Pastes the keyframes in the location they were copied from.</p>
+</dd>
+<dt>Frame Relative:</dt>
+<dd><p>Pastes the keyframe relative to the current frame based on the locations of
+the keyframes relative to the current frame when they were copied.</p>
+</dd>
+<dt>Frame Start:</dt>
+<dd><p>Pastes the keyframes with the first keyframe of the copied set placed at the current frame.</p>
+</dd>
+<dt>Frame End:</dt>
+<dd><p>Pastes the keyframes with the last keyframe of the copied set placed at the current frame.</p>
+</dd>
+</dl>
+</dd>
+<dt>Type</dt><dd><dl>
+<dt>Mix:</dt>
+<dd><p>Integrates the pasted keyframes in with existing keyframes only overwriting keyframes that share a frame.</p>
+</dd>
+<dt>Overwrite All:</dt>
+<dd><p>Removes all previous keyframes and replaces them with the pasted keyframes.</p>
+</dd>
+<dt>Overwrite Range:</dt>
+<dd><p>Overwrite keys in pasted range.</p>
+</dd>
+<dt>Overwrite Entire Range:</dt>
+<dd><p>Overwrite keys in pasted range, using the range of all copied keys.</p>
+</dd>
+</dl>
+</dd>
+<dt>Flipped</dt><dd><p>Paste keyframes from mirrored bones if they exist.</p>
+</dd>
+</dl>
+</section>
+<section id="duplicate">
+<h2>Duplicate</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Duplicate</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Duplicates the selected keyframes. You can reposition them by moving the mouse.</p>
+</section>
+<section id="delete">
+<h2>Delete</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Delete</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd>, <kbd>Delete</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Pressing <kbd>X</kbd> or <kbd>Delete</kbd> opens a pop-up menu from where you can delete the selected keyframes.</p>
+</section>
+<section id="handle-type">
+<h2>Handle Type</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Handle Type</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>V</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Sets the <a href="properties.html#editors-graph-fcurves-settings-handles">handle type</a> of the selected keyframes.</p>
+</section>
+<section id="interpolation-mode">
+<h2>Interpolation Mode</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Interpolation Mode</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>T</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Sets the <a href="properties.html#editors-graph-fcurves-settings-interpolation">interpolation mode</a> between the selected keyframes.</p>
+</section>
+<section id="easing-type">
+<h2>Easing Type</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Easing Type</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>E</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Sets the <a href="properties.html#editors-graph-fcurves-settings-easing">easing mode</a> of the selected keyframes.</p>
+</section>
+<section id="density">
+<h2>Density</h2>
+<section id="decimate">
+<h3>Decimate</h3>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Density ‣ Decimate (Ratio)</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Density ‣ Decimate (Allowed Change)</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Decimate</em> tool simplifies an F-Curve by removing
+keyframes that influence the curve shape the least.</p>
+<dl>
+<dt>Mode</dt><dd><p>Controls which method is used pick the number of keyframes to use.</p>
+<dl>
+<dt>Ratio:</dt>
+<dd><p>Deletes a defined percentage of keyframes,
+the amount of keyframes to delete is define by the <em>Remove</em> property.</p>
+</dd>
+<dt>Error Margin:</dt>
+<dd><p>Deletes keyframes which only allowing the F-Curve to change by a defined amount.
+The amount of change is controlled by the <em>Max Error Margin</em>
+which controls how much the new decimated curve is allowed to deviate from the original.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="sample-keyframes">
+<h3>Sample Keyframes</h3>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Density ‣ Sample Keyframes</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>O</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Sampling a set of keyframes replaces interpolated values with a new keyframe for each frame.</p>
+<table>
+<tbody>
+<tr><td><figure id="id24">
+<figcaption>
+<p>F-Curve before sampling.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id25">
+<figcaption>
+<p>F-Curve after sampling.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="clean-keyframes">
+<h3>Clean Keyframes</h3>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Density ‣ Clean Keyframes</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd></p>
+</dd>
+</dl>
+</div>
+<p><em>Clean Keyframes</em> resets the keyframe tangents on selected keyframes
+to their auto-clamped shape, if they have been modified.</p>
+<div>
+<p>Tip</p>
+<p>The modified curve left after the <em>Clean</em> tool is run is not the same as the original,
+so this tool is better used before doing custom editing of F-Curves and after initial keyframe insertion,
+to get rid of any unwanted keyframes inserted while doing mass keyframe insertion
+(by selecting all bones and pressing <kbd>I</kbd> for instance).</p>
+</div>
+<dl>
+<dt>Channels</dt><dd><p>Deletes the channel itself if it is only left with
+a single keyframe containing the default property value and
+it’s not being used by any generative F-Curve modifiers or drivers.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id26">
+<figcaption>
+<p>F-Curve before cleaning.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id27">
+<figcaption>
+<p>F-Curve after cleaning.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="blend">
+<h2>Blend</h2>
+<div id="id14">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Blend</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<section id="breakdown">
+<h3>Breakdown</h3>
+<div id="id15">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Blend ‣ Breakdown</p>
+</dd>
+</dl>
+</div>
+<p>Moves the selected keyframes to an in between position relative to the adjacent keyframes.
+To use this operator, drag the mouse left or right to adjust the operator’s <em>Factor</em> property.</p>
+<dl>
+<dt>Factor</dt><dd><p>The amount to favor either the left or the right key. Values less than 0.5 favor the left keyframe,
+values greater than 0.5 favor the right keyframe, a value of 0.5 results in no change.</p>
+</dd>
+</dl>
+</section>
+<section id="blend-to-neighbor">
+<h3>Blend to Neighbor</h3>
+<div id="id16">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Blend ‣ Blend to Neighbor</p>
+</dd>
+</dl>
+</div>
+<p>Transitions the current keyframe with the neighboring keyframes in the timeline.
+In order for this operator to work, there must be a keyframe before and after the current frame.
+To use this operator, drag the mouse left or right to adjust the operator’s <em>Blend</em> property.</p>
+<dl>
+<dt>Blend</dt><dd><p>The amount to favor either the left or the right key. Values less than 0.5 favor the left keyframe,
+values greater than 0.5 favor the right keyframe, a value of 0.5 results in no change.</p>
+</dd>
+</dl>
+</section>
+<section id="blend-to-default-value">
+<h3>Blend to Default Value</h3>
+<div id="id17">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Blend ‣ Blend to Neighbor</p>
+</dd>
+</dl>
+</div>
+<p>Transitions the current keyframe towards the property’s default value.
+To use this operator, drag the mouse left or right to adjust the operator’s <em>Blend</em> property.</p>
+<dl>
+<dt>Blend</dt><dd><p>The amount to favor either the current key or the default value.
+A value of 0 represents the current key, a value of 1 represents the default value.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>The <a href="../../../interface/controls/buttons/menus.html#bpy-ops-ui-reset-default-button">Reset to Default</a> operator resets
+any property to its default value without the need of keyframing.</p>
+</div>
+</section>
+<section id="ease">
+<h3>Ease</h3>
+<div id="id18">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Blend ‣ Ease</p>
+</dd>
+</dl>
+</div>
+<p>Aligns selected keyframes to follow an exponential path between the first and last keyframes.
+To use this operator, drag the mouse left or right to adjust the operator’s <em>Blend</em> property.</p>
+<dl>
+<dt>Blend</dt><dd><p>Changes the concavity of the curve. Values less than 0.5 cause keyframes to concave up,
+values greater than 0.5 cause keyframes to concave down, a value of 0.5 results in a straight line.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="smooth">
+<h2>Smooth</h2>
+<div id="id19">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Smooth</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<section id="smooth-legacy">
+<h3>Smooth (Legacy)</h3>
+<div id="id20">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Key ‣ Smooth ‣ Smooth (Legacy)</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>O</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>There is also an option to smooth the selected curves, but beware: its algorithm seems to be
+to divide by two the distance between each keyframe and the average linear value of the curve,
+without any setting, which gives quite a strong smoothing! Note that the first and last keys
+seem to be never modified by this tool.</p>
+<table>
+<tbody>
+<tr><td><figure id="id28">
+<figcaption>
+<p>F-Curve before smoothing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id29">
+<figcaption>
+<p>F-Curve after smoothing.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

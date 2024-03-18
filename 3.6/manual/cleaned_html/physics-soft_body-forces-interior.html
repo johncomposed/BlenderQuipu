@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Soft Body &gt; Forces &gt; Interior</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Soft Body</a></li>
+<li><a href="index.html">Forces</a></li>
+<li>Interior</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="interior">
+<h1>Interior</h1>
+<p>In between each neighboring vertex of a mesh, you typically create edges to connect them.
+Imagine each edge as a spring. Any mechanical spring is able to stretch under tension,
+and to squeeze under pressure. All springs have an ideal length,
+and a stiffness that limits how far you can stretch or squeeze the spring.</p>
+<p>In Blender’s case, the ideal length is the original edge length which you designed as a part of your mesh,
+even before you enable the Soft Body system. Until you add the Soft Body physics,
+all springs are assumed to be perfectly stiff: no stretch and no squeeze.</p>
+<p>You can adjust the stiffness of all those edge springs, allowing your mesh to sag, to bend,
+to flutter in the breeze, or to puddle up on the ground.</p>
+<p>To create a connection between the vertices of a soft body object there have to be forces
+that hold the vertices together. These forces are effective along the edges in a mesh,
+the connections between the vertices. The forces act like a spring.
+Fig. <a href="#fig-softbody-force-interior-connection">Vertices and forces along their connection edges.</a> illustrates how a 3×3 grid of vertices
+(a mesh plane in Blender) are connected in a soft body simulation.</p>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Vertices and forces along their connection edges.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Additional forces with Stiff Quads enabled.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>But two vertices could freely rotate if you do not create additional edges between them.
+The logical method to keep a body from collapsing would be to create additional edges between the vertices.
+This works pretty well, but would change your mesh topology drastically.</p>
+<p>Luckily, Blender allows to define additional <em>virtual</em> connections.
+On one hand you can define virtual connections between the diagonal edges of a quad face
+(<em>Stiff Quads</em> Fig. <a href="#fig-softbody-force-interior-stiff">Additional forces with Stiff Quads enabled.</a>),
+on the other hand you can define virtual connections between a vertex and any vertices connected
+to its neighbors’ <em>Bending Stiffness</em>. In other words, the amount of bend that is allowed between
+a vertex and any other vertex that is separated by two edge connections.</p>
+<section id="settings">
+<h2>Settings</h2>
+<p>The characteristics of edges are set with the <em>Springs</em> and <em>Stiff Quads</em> properties in the <em>Soft Body Edges</em> panel.
+See the <a href="../settings/edges.html">Soft Body Edges settings</a> for details.</p>
+</section>
+<section id="tips-preventing-collapse">
+<h2>Tips: Preventing Collapse</h2>
+<section id="stiff-quads">
+<h3>Stiff Quads</h3>
+<p>To show the effect of the different edge settings we will use two cubes
+(blue: only quads, red: only tris) and let them fall without any goal onto a plane
+(how to set up collision is shown on the page <a href="../collision.html">Collisions</a>).</p>
+<table id="id3">
+<caption>Without Stiff Quads.</caption>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Frame 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Frame 36.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Frame 401.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Fig. <a href="#fig-softbody-force-interior-without">Without Stiff Quads.</a>, the default settings are used (without <em>Stiff Quads</em>).
+The “quad only” cube will collapse completely, the cube composed of tris keeps its shape,
+though it will deform temporarily because of the forces created during collision.</p>
+<table id="id7">
+<caption>With Stiff Quads.</caption>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Frame 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Frame 36.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Frame 401.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Fig. <a href="#fig-softbody-force-interior-with">With Stiff Quads.</a>, <em>Stiff Quads</em> is activated (for both cubes).
+Both cubes keep their shape, there is no difference for the red cube,
+because it has no quads anyway.</p>
+</section>
+<section id="bending-stiffness">
+<h3>Bending Stiffness</h3>
+<p>The second method to stop an object from collapsing is to change its <em>Bending</em> stiffness.
+This includes the diagonal edges (damping also applies to these connections).</p>
+<table id="id11">
+<caption>Bending Stiffness.</caption>
+<tbody>
+<tr><td><figure id="id12">
+<figcaption>
+<p>Frame 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id13">
+<figcaption>
+<p>Frame 36.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id14">
+<figcaption>
+<p>Frame 401.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Fig. <a href="#fig-softbody-force-interior-bending">Bending Stiffness.</a>, <em>Bending</em> is activated with a strength setting of 1.
+Now both cubes are more rigid.</p>
+<table>
+<tbody>
+<tr><td><figure id="id15">
+<figcaption>
+<p>Two planes going to collide.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id16">
+<figcaption>
+<p>No bending stiffness.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id17">
+<figcaption>
+<p>High bending stiffness (10).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Bending stiffness can also be used if you want to make a subdivided plane more plank like.
+Without <em>Bending</em> the faces can freely rotate against each other like hinges
+Fig. <a href="#fig-softbody-force-interior-no-bending">No bending stiffness.</a>.
+There would be no change in the simulation if you activated <em>Stiff Quads</em>,
+because the faces are not deformed at all in this example.</p>
+<p>Bending stiffness is the strength needed for the plane to be deformed.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

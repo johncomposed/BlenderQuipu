@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Masking &gt; Sidebar</head>
+<body><ul>
+<li><a href="../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="index.html">Masking</a></li>
+<li>Sidebar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sidebar">
+<h1>Sidebar</h1>
+<section id="mask-settings">
+<h2>Mask Settings</h2>
+<dl id="bpy-types-mask-frame-end">
+<dt>Start Frame, End Frame</dt><dd><p>Set the frame range of the mask for <em>Sequencer</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="mask-layers">
+<h2>Mask Layers</h2>
+<figure id="id1">
+<figcaption>
+<p>Mask Layer panel.</p>
+</figcaption>
+</figure>
+<p>Mask layers consists of one or several splines and used to “grouped” operation on splines.
+Layers can be used to create complex shapes and to define how the splines interact with each other.
+Splines belonging to the same layer can be animated together, for example by an item
+from motion tracker footage.
+Example of such tools might be parenting the whole set of splines to single motion tracking data or
+simple to transform all of them together.</p>
+<dl>
+<dt>Opacity</dt><dd><p>Used to set the opacity of the mask layer.</p>
+</dd>
+<dt>Invert (black/white icon)</dt><dd><p>Inverts the values (colors) in the mask layer.</p>
+</dd>
+<dt>Blend</dt><dd><p>The layer blending operation to perform. See <a href="../../glossary/index.html#term-Color-Blend-Modes">Color Blend Modes</a>.</p>
+<p>Modes <em>Merge Add</em> and <em>Merge Subtract</em>
+give better results when using a <em>Feather</em> on overlapping masks
+than straightforward mathematical addition and subtraction.</p>
+</dd>
+<dt>Falloff</dt><dd><p>Type of the <em>Feather</em> falloff, controls the shape of the transition between black and white.</p>
+</dd>
+<dt>Overlap</dt><dd><p>Fills the self-intersecting areas.</p>
+</dd>
+<dt>Holes</dt><dd><p>Overlapping splines from the same layer will generate holes in the mask.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>The Overlap option example.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>The Holes option example.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="example">
+<h3>Example</h3>
+<p>The purpose of mask layers can be explained with an example.
+Suppose there are two unwanted people in the footage, and one of them goes from left to right, and
+the other in the opposite direction. Two mask layers can then be used to mask them separately by
+using a single mask data-block. At the point of intersection of these shapes they will be added together rather than
+creating a hole, as would happen if they were on the same layer. If the motion is simple enough,
+a single motion tracked point can be used to drive the location of the entire mask layer.</p>
+</section>
+</section>
+<section id="active-spline">
+<h2>Active Spline</h2>
+<figure id="id4">
+<figcaption>
+<p>Active Spline panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Feather Offset</dt><dd><p>The method used for calculating the offset of the mask spline feather.</p>
+<dl>
+<dt>Even:</dt>
+<dd><p>Preserves the thickness of the feather, but can give undesirable loops of the feather curve.</p>
+</dd>
+<dt>Smooth:</dt>
+<dd><p>Gives a nicer and smoother shape,
+but can also give an undesirable sharp feather when a curve segment forms an S-shape.</p>
+</dd>
+</dl>
+</dd>
+<dt>Weight Interpolation</dt><dd><p>The type of weight (thickness of feather) interpolation between points.
+<em>Linear</em> or <em>Ease</em> (i.e. changes occur slowly at the beginning and at the end).</p>
+</dd>
+<dt>Cyclic</dt><dd><p>If the spline is closed or not.</p>
+</dd>
+<dt>Fill</dt><dd><p>Creates splines with filled areas.
+If disabled, Blender will create curves with a thickness to mask out thin objects such as wires or hair.</p>
+</dd>
+<dt>Self Intersection Check</dt><dd><p>Prevent the feather (not the curve itself) from intersecting with itself.</p>
+</dd>
+</dl>
+</section>
+<section id="active-point">
+<h2>Active Point</h2>
+<figure id="id5">
+<figcaption>
+<p>Active Point panel.</p>
+</figcaption>
+</figure>
+<p>This panel is shown when both a tracking marker and mask is selected.</p>
+<section id="parent">
+<h3>Parent</h3>
+<p>In the <em>Movie Clip Editor</em> it is possible to link the whole mask or its points to motion tracks.
+This way the mask or points will follow the tracks.</p>
+<dl>
+<dt>Parent</dt><dd><p><a href="../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> to which the mask or spline is parented to
+in case of parenting to movie tracking data set to Movie Clip data-block.</p>
+</dd>
+<dt>Parent Type</dt><dd><p>Point Track, Plane Track</p>
+</dd>
+<dt>Object</dt><dd><p><a href="../tracking/clip/sidebar/track/objects.html#movie-clip-tracking-properties-object">Object</a> to parent to.</p>
+</dd>
+<dt>Track</dt><dd><p>Name of individual tracks.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

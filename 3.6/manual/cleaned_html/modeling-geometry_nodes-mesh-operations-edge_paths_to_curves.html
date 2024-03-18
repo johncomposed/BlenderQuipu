@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Operations &gt; Edge Paths To Curves</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Operation Nodes</a></li>
+<li>Edge Paths to Curves Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="edge-paths-to-curves-node">
+<h1>Edge Paths to Curves Node</h1>
+<p>The <em>Edge Paths to Curves</em> node output curves that follow paths across mesh edges.</p>
+<div>
+<p>See also</p>
+<p>This node is meant to use the output of the <a href="../read/shortest_edge_paths.html">Shortest Edge Paths Node</a>.
+It is similar to the <a href="edge_paths_to_selection.html">Edge Paths to Selection Node</a>, but it creates
+a curve that follow each path, rather than a selection of every visited edge.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard mesh input.</p>
+</dd>
+<dt>Start Vertices</dt><dd><p>A selection of the vertices to start at when traveling along the next vertex indices.</p>
+</dd>
+<dt>Next Vertex Index</dt><dd><p>Describes the path to follow at every vertex.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard curves output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

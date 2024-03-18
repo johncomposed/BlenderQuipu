@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Properties &gt; Custom Data</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Geometry Data</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="geometry-data">
+<h1>Geometry Data</h1>
+<p>This panel is used to manage any generic data attributes that a mesh could have.</p>
+<div>
+<p>Warning</p>
+<p>Clearing any data will result in the data loss of these values.</p>
+</div>
+<dl id="bpy-ops-mesh-customdata-mask-clear">
+<dt>Clear Sculpt-Mask Data</dt><dd><p>Completely removes the mask data from the mesh. While not a huge benefit,
+this can speed-up sculpting if the mask is no longer being used.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-mesh-customdata-skin-add">
+<dt>Add/Clear Skin Data</dt><dd><p>Used to manage the skin data which is used by the <a href="../../modifiers/generate/skin.html">Skin Modifier</a>.
+This operator can be needed in case a Skin modifier is created but no skin data exist.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-mesh-customdata-custom-splitnormals-add">
+<dt>Add/Clear Custom Split Normals Data</dt><dd><p>Adds <a href="../structure.html#modeling-meshes-normals-custom">Custom Split Normals</a> data, if none exists yet.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-mesh-customdata-bevel-weight-edge-clear">
+<dt>Add/Clear Edge Bevel Weight</dt><dd><p>Adds a zero <a href="../editing/mesh/transform/basic.html#modeling-edges-bevel-weight">Edge Bevel Weight</a> value to all edges of the mesh.
+If edge bevel data does exist, this operator will delete all that data.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-mesh-customdata-bevel-weight-vertex-clear">
+<dt>Add/Clear Vertex Bevel Weight</dt><dd><p>Adds a zero <a href="../editing/mesh/transform/basic.html#modeling-vertex-bevel-weight">Vertex Bevel Weight</a> value to all vertices of the mesh.
+If vertex bevel data does exist, this operator will delete all that data.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-mesh-customdata-crease-edge-clear">
+<dt>Add/Clear Edge Crease</dt><dd><p>Adds a zero <a href="../editing/mesh/transform/basic.html#modeling-edges-crease-subdivision">Edge Crease</a> value to all edges of the mesh.
+If edge crease data does exist, this operator will delete all that data.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-mesh-customdata-crease-vertex-clear">
+<dt>Add/Clear Vertex Crease</dt><dd><p>Adds a zero <a href="../editing/mesh/transform/basic.html#modeling-vertex-crease-subdivision">Vertex Crease</a> value to all vertices of the mesh.
+If vertex crease data does exist, this operator will delete all that data.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

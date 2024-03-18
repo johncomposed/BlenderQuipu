@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Lighting &gt; Sun Position</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Lighting</a></li>
+<li>Sun Position</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sun-position">
+<h1>Sun Position</h1>
+<p>Sun Position allows positioning and animating the Sun (to a certain degree of accuracy),
+to simulate real-world natural lighting. It uses physical characteristics to position the Sun in the scene:
+geographic location, time and date. It is based on the Earth System Research Laboratory’s
+<a href="https://gml.noaa.gov/grad/solcalc/">online calculator</a>.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Lighting then Sun Position to enable the script.</p></li>
+</ul>
+</section>
+<section id="interface">
+<h2>Interface</h2>
+<p>Located in the Properties ‣ World ‣ Sun Position panel.</p>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>This add-on has two distinct modes of operation: the <a href="#normal-mode">Normal Mode</a> allows you to
+animate the Sun realistically, while the <a href="#sun-hdri-texture-mode">Sun + HDRI Texture Mode</a> is useful for
+synchronizing a sun light to an HDRI texture.</p>
+<p>The usage mode can be selected from the top of the Sun Position panel.</p>
+<section id="normal-mode">
+<h3>Normal Mode</h3>
+<p>This is the mode by default. After selecting the time and place, you can set up a sun light,
+a sky texture, and a collection to serve as visualization.</p>
+<section id="use-object">
+<h4>Use Object</h4>
+<p>Select the sun object which will be placed according to the chosen time and place.
+Its position will be updated every time you change the location or time,
+and you can thus create animations by setting keyframes on them.</p>
+</section>
+<section id="use-collection">
+<h4>Use Collection</h4>
+<p>Select a collection of objects to be placed around the scene for visualization. Two options are available:
+<a href="#analemma">analemma</a> and <a href="#diurnal">diurnal</a>.</p>
+<div>
+<p>Note</p>
+<p>It is recommended to create a collection in the scene,
+and to move the objects into this collection. If you wish to create several visualizations,
+create as many collections as needed, select them in turn and choose the right settings.
+Once deselected, a collection will stay in place.</p>
+</div>
+<section id="analemma">
+<h5>Analemma</h5>
+<p>The <a href="https://en.wikipedia.org/wiki/Analemma">analemma</a> is a visualization of
+the position of the Sun in the sky around the year for a given time of the day.
+In other words, it is like a time lapse picture of the sky over a year,
+with the Sun appearing multiple times at the same time of the day.</p>
+<figure id="id2">
+<figcaption>
+<p>The analemma was used here to match
+this picture.</p>
+</figcaption>
+</figure>
+</section>
+<section id="diurnal">
+<h5>Diurnal</h5>
+<p>This option allows you to visualize the trajectory of the Sun in the sky during a single day.</p>
+</section>
+</section>
+<section id="sky-texture">
+<h4>Sky Texture</h4>
+<p>Select a Sky Texture node in the World shading node tree.
+It will be set up to match the sun animation.
+This is useful if you want to have a simple sky texture matching a sun light’s position.</p>
+</section>
+<section id="location">
+<h4>Location</h4>
+<p>In order for the Sun to be placed correctly, you need to choose a place on Earth where the scene is located.
+This place is represented by two coordinates, <em>Longitude</em> (East / West) and <em>Latitude</em> (North / South).
+They are expressed in degrees, from -180° to +180° for the longitude, and from -90° to 90° for the latitude.
+The coordinates match those found on such databases as OpenStreetMap or Google Maps.
+You may enter and animate them manually, or paste them in.</p>
+<section id="entering-coordinates">
+<h5>Entering Coordinates</h5>
+<p>In the <em>Location</em> panel, enter <em>Latitude</em> and <em>Longitude</em> coordinates corresponding to
+the location you wish to simulate. A simpler way is to go to an online map such as OpenStreetMap,
+copy the coordinates from there, and paste them into the <em>Enter Coordinates</em> field.
+They will be parsed automatically.</p>
+<p>Another source is Wikipedia. Suppose you want to render
+the <a href="https://en.wikipedia.org/wiki/Barcelona_Pavilion">Barcelona Pavilion</a> by Mies van der Rohe.
+You can copy the coordinates from the article and paste them into Blender.</p>
+<table id="id3">
+<caption>Using coordinates from Wikipedia.</caption>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Copy the coordinates from Wikipedia.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>And paste them into Blender to have them parsed.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="north-offset">
+<h5>North Offset</h5>
+<p>By default, the North points to the Y axis in the scene (to the top of the screen in top view).
+But sometimes, you may have modeled it in another orientation. In that case,
+you may enter a <em>North Offset</em>, to change the orientation of the scene.
+<em>Show North</em> toggles a dashed line pointing to the North in the 3D Viewport,
+to help you visualize the cardinal directions.</p>
+</section>
+</section>
+<section id="setting-the-time">
+<h4>Setting the Time</h4>
+<p>After selecting the location on Earth, select or animate the date and time.
+This is fairly straightforward, but care must be taken to match
+the <em>Time</em> zone and <em>Daylight Saving</em> to the moment you wish to simulate.
+Time entered is the local time, but the global, UTC time may be displayed below as well.</p>
+<div>
+<p>Note</p>
+<p>Time is stored in decimal format instead of <code>hour:minute:second</code>.
+To match a time in that format, look at the label <em>Local</em>.</p>
+</div>
+</section>
+</section>
+<section id="sun-hdri-texture-mode">
+<h3>Sun + HDRI Texture Mode</h3>
+<p>Instead of simulating the position of the Sun for a real location and time, this mode simply locks
+an environment texture with a sun light object. It is useful if you want to increase the contrast in
+a texture, by using an additional sun.</p>
+<section id="synchronizing-the-sun-object-to-the-hdri-texture">
+<h4>Synchronizing the Sun Object to the HDRI Texture</h4>
+<p>Start by selecting the sun object and Environment Texture node. You can then synchronize them by
+enabling <em>Sync Sun to Texture</em>. Hovering any 3D Viewport will display the environment texture.
+Use the <kbd>MMB</kbd> to pan, scroll wheel to zoom, and <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd> to set the exposure.
+Zoom and click the center of the sun in the texture. After that, the sun object will be locked to it.</p>
+<p>You can now rotate both the texture and the light by using the <em>Rotation</em> slider.</p>
+<figure id="id6">
+<figcaption>
+<p>Click the sun in the environment texture in the 3D Viewport to lock it to the sun light object.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<section id="preferences">
+<h2>Preferences</h2>
+<p>The preferences for the add-on make some features optional, so you can hide those you don’t use.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Lighting</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Show Sun position with objects and/or sky texture.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Properties ‣ World ‣ Sun Position panel</p>
+</dd>
+<dt>File:</dt>
+<dd><p>sun_position folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Michael Martin (xaire)</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>Damien Picard (pioverfour)</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

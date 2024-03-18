@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Nodes &gt; Groups</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li><a href="index.html">Nodes</a></li>
+<li>Node Groups</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="node-groups">
+<h1>Node Groups</h1>
+<figure id="id7">
+<figcaption>
+<p>Example of a node group.</p>
+</figcaption>
+</figure>
+<p>Grouping nodes can simplify a node tree by hiding away complexity and reusing repetitive parts.</p>
+<p>Conceptually, node groups allow you to treat a <em>set</em> of nodes as though it were just one node.
+They’re similar to functions in programming:
+they can be reused (even in different node trees) and can be customized by changing their “parameters.”</p>
+<p>As an example, say you created a “Wood” material that you would like to have in different colors.
+One way of doing this would be to duplicate the entire material for every color, but if you did that,
+you’d have to go over all those copies again if you later wanted to change the density of the grain lines.
+Instead, it would be better to move the nodes that define the wood look into a node group.
+Each material can then reuse this node group and just supply it with a color.
+If you then later want to change the grain line density, you only have to do it once inside the node group,
+rather than for every material.</p>
+<p>Node groups can be nested (that is, node groups can contain other node groups).</p>
+<div>
+<p>Note</p>
+<p>Recursive node groups are prohibited for all the current node systems to prevent infinite recursion.
+A node group can never contain itself (or another group that contains it).</p>
+</div>
+<section id="interface">
+<h2>Interface</h2>
+<p>When a node group is created, new <em>Group Input</em> and <em>Group Output</em> nodes are generated
+to represent the data flow into and out of the group. Furthermore connections to input sockets coming
+from unselected nodes will become attached to new sockets on the <em>Group Input</em> node.
+Similarly, outgoing connections to input sockets of unselected nodes will become attached to
+the new <em>Group Output</em> node.</p>
+<p>If you want to pass an additional parameter into the group,
+a socket must be added to the <em>Group Input</em> node.
+To do this, drag a connection from the hollow socket on the right side of the <em>Group Input</em> node
+to the desired input socket on the node requiring an input.
+The process is similar for the <em>Group Output</em> regarding data
+you want to be made available outside the group.</p>
+<section id="sidebar">
+<h3>Sidebar</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Group ‣ Inputs, Sidebar ‣ Group ‣ Outputs</p>
+</dd>
+</dl>
+</div>
+<figure id="id8">
+<figcaption>
+<p>The interface panel for editing groups.</p>
+</figcaption>
+</figure>
+<p>The Sidebar lets you add, remove, reorder, and edit the sockets of the group’s input and output nodes.</p>
+<dl id="bpy-types-nodesocketinterface-name">
+<dt>Name</dt><dd><p>The name of the socket to display in the node’s interface.</p>
+</dd>
+</dl>
+<dl id="bpy-types-nodesocketinterface-description">
+<dt>Tooltip</dt><dd><p>The message displayed when hovering over socket properties.
+Currently only supported for <a href="../../../editors/geometry_node.html">Geometry Node Editor</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-nodesocketinterface-default-value">
+<dt>Default</dt><dd><p>The value to use when nothing is connected to the socket.</p>
+</dd>
+</dl>
+<dl id="bpy-types-nodesocketinterface-max-value">
+<dt>Min, Max</dt><dd><p>The minimum and maximum value for the UI button shown in the node interface.
+Note, this is not a minimum or maximum for the data that can pass through the node.
+If a socket passes a higher value than the maximum, it will still pass into the node unchanged.</p>
+</dd>
+</dl>
+<dl id="bpy-types-nodesocketinterface-hide-value">
+<dt>Hide Value</dt><dd><p>Hide the socket value even when the socket is not connected.</p>
+</dd>
+</dl>
+<dl id="bpy-types-nodesocketinterface-hide-in-modifier">
+<dt>Hide in Modifier</dt><dd><p>Don’t show the input value in the geometry nodes modifier interface.
+This allows the input to be used in the context of a node group but not as a modifier input.</p>
+<p>This option is only available for geometry nodes and only for input sockets.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="edit-group">
+<h2>Edit Group</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Edit Group</p>
+</dd>
+<dt>Header:</dt>
+<dd><p>Go to Parent Node Tree</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Tab</kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>With a node group selected, press <kbd>Tab</kbd> to move into it and see its content.
+Press <kbd>Tab</kbd> again (or <kbd><kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd>) to leave the group and go back to
+its parent, which could be the top-level node tree or another node group.
+You can refer to the breadcrumbs in the top left corner of the node editor
+to see where you are in the hierarchy.</p>
+<figure id="id9">
+<figcaption>
+<p>Example of an expanded node group.</p>
+</figcaption>
+</figure>
+</section>
+<section id="make-group">
+<h2>Make Group</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Make Group</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>To create a node group, select the nodes you want to include, then
+press <kbd><kbd>Ctrl</kbd>-<kbd>G</kbd></kbd> or click Group ‣ Make Group.
+A node group will have a green title bar. All selected nodes will now be contained within the node group.
+Default naming for the node group is “NodeGroup”, “NodeGroup.001” etc.
+There is a name field in the node group you can click into to change the name of the group.
+Change the name of the node group to something meaningful.</p>
+<p>When appending node groups from one blend-file to another,
+Blender does not make a distinction between material node groups or composite node groups.
+So it is recommended to use some naming convention that will allow you to distinguish between the two types.</p>
+<div>
+<p>Tip</p>
+<p>The “Add” menu of each node editor contains an “Output” category with node types such as “Material Output.”
+These node types should not be confused with the “Group Output” node found in node groups,
+and should not be used in node groups either (only in the top-level node tree).</p>
+</div>
+</section>
+<section id="ungroup">
+<h2>Ungroup</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Ungroup</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Removes the group and places the individual nodes into your editor workspace.
+No internal connections are lost, and now you can link internal nodes to other nodes in your workspace.</p>
+<dl>
+<dt>Separate <kbd>P</kbd></dt><dd><p>Separate selected nodes from the node group.</p>
+<dl>
+<dt>Copy</dt><dd><p>Copy to parent node tree, keep group intact.</p>
+</dd>
+<dt>Move</dt><dd><p>Move to parent node tree, remove from group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="group-insert">
+<h2>Group Insert</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Node ‣ Group Insert</p>
+</dd>
+</dl>
+</div>
+<p>Selecting a set of nodes, ending with the destination group node,
+and pressing Node ‣ Group Insert will move those nodes into that group.
+The moved nodes are collected into a group of their own to preserve their connection context,
+having their own group input and output nodes.
+The group’s existing input and output nodes are updated with new sockets, if any, from the new nodes.
+The node group must be edited to contain a single <em>Group Input</em> and a single <em>Group Output</em> node.</p>
+</section>
+<section id="reusing-node-groups">
+<h2>Reusing Node Groups</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Group</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Existing node groups can be placed again after they’re initially defined, be it in the same
+node tree or a different one. It’s also possible to import node groups from a different blend-file
+using File ‣ Link/Append.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

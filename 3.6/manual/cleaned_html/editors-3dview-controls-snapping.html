@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Controls &gt; Snapping</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">3D Viewport</a></li>
+<li><a href="index.html">Controls</a></li>
+<li>Snapping</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="snapping">
+<h1>Snapping</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object, Edit, and Pose Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p>Snap</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Tab</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Snapping lets you easily align objects and mesh elements to others.
+It can be toggled by clicking the magnet icon in the 3D Viewport’s header,
+or more temporarily by holding <kbd>Ctrl</kbd>.</p>
+<figure id="id4">
+<figcaption>
+<p>Magnet icon in the 3D Viewport header (blue when enabled).</p>
+</figcaption>
+</figure>
+<figure id="id5">
+<figcaption>
+<p>Snap menu.</p>
+</figcaption>
+</figure>
+<section id="snap-to">
+<h2>Snap To</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object, Edit, and Pose Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p>Snapping ‣ Snap To</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Determines the target which the selection will be snapped to.</p>
+<dl>
+<dt>Increment</dt><dd><p>Snaps to grid points. When in Orthographic view, the snapping increment changes depending on the zoom level.</p>
+<div>
+<p>Note</p>
+<p>By default, this option won’t snap to the grid that’s displayed in the viewport,
+but an imaginary grid with the same resolution that starts at the selection’s
+original location. In other words, it lets you move the selection in “increments” of the
+grid cell size.</p>
+<p>If you want to snap to the viewport grid instead, you can enable <em>Absolute Grid Snap</em>
+(see below).</p>
+</div>
+</dd>
+<dt>Vertex</dt><dd><p>Snaps to the vertex that’s closest to the mouse cursor.</p>
+</dd>
+<dt>Edge</dt><dd><p>Snaps to the edge that’s closest to the mouse cursor.</p>
+</dd>
+<dt>Face Project</dt><dd><p>Snaps to the face that’s under the mouse cursor.</p>
+</dd>
+<dt>Face Nearest</dt><dd><p>Individually snaps each object (in Object Mode) or vertex (in Edit Mode) to the face that’s closest
+to its new location. This makes it possible to snap to occluded geometry.</p>
+</dd>
+<dt>Volume</dt><dd><p>Snaps the selection to a depth that’s centered <em>inside</em> the object under the cursor.
+This is useful for positioning an <a href="../../../animation/armatures/introduction.html">Armature</a>
+bone so it’s centered inside a character’s arm, for example; the other snapping options
+would place it on the arm’s surface instead.</p>
+<p>While Blender also has <a href="../../../modeling/volumes/introduction.html">Volume objects</a>, this option
+is not related to those.</p>
+</dd>
+<dt>Edge Center</dt><dd><p>Snaps to the centerpoint of the edge that’s closest to the mouse cursor.</p>
+</dd>
+<dt>Edge Perpendicular</dt><dd><p>Snaps to a specific point on the edge so that the line from the selection’s original location
+(indicated by a white cross) to its new location is perpendicular to that edge.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Multiple snapping modes can be enabled at once using <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd>.</p>
+</div>
+</section>
+<section id="snap-with">
+<h2>Snap With</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object, Edit, and Pose Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p>Snapping ‣ Snap with</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Determines what part of the selection will coincide with the target.
+(The rest of the selection will follow along.)</p>
+<dl>
+<dt>Active</dt><dd><p>Snaps using the origin (in Object Mode) or center (in Edit Mode) of the active element.</p>
+</dd>
+<dt>Median</dt><dd><p>Snaps using the median of the selection.</p>
+</dd>
+<dt>Center</dt><dd><p>Snaps using the current transformation center
+(another word for the <a href="pivot_point/index.html">pivot point</a>).
+This option is especially useful in combination with the
+<a href="../3d_cursor.html">3D Cursor</a> for choosing the snapping
+point completely manually.</p>
+</dd>
+<dt>Closest</dt><dd><p>Snaps using the vertex that’s closest to the target.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Closest.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Active.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Median.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="target-selection">
+<h2>Target Selection</h2>
+<p>Sets more detailed snapping options. The available options depend on the mode
+(Object/Edit) as well as the Snap To selection.</p>
+<dl id="bpy-types-toolsettings-use-snap-self">
+<dt>Include Active Edit Mode</dt><dd><p>Snap to other mesh elements of the active object.</p>
+<p>This checkbox is ignored if
+<a href="proportional_editing.html">Proportional Editing</a>
+is enabled.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-edit">
+<dt>Include Edited Edit Mode</dt><dd><p>Snap to other objects that are also in Edit Mode.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-nonedit">
+<dt>Include Non-Edited Edit Mode</dt><dd><p>Snap to other objects that are not in Edit Mode.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-selectable">
+<dt>Exclude Non-Selectable</dt><dd><p>Snap only to objects that are selectable.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-grid-absolute">
+<dt>Absolute Grid Snap Increment</dt><dd><p>Snaps to the grid, instead of snapping in increments relative to the current location.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-backface-culling">
+<dt>Backface Culling</dt><dd><p>Exclude back-facing geometry from snapping.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-align-rotation">
+<dt>Align Rotation to Target</dt><dd><p>Rotates the selection so that its Z axis gets aligned to the normal of the target.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-project">
+<dt>Project Individual Elements Face Project</dt><dd><p>Rather than the default behavior where only the “Snap With” point gets snapped
+to the target and the rest of the selection follows along (maintaining the
+original shape), this option makes each object (in Object Mode) or vertex
+(in Edit Mode) snap to a target independently of the others, which
+may cause the selection’s shape to change.</p>
+<p>This can be used for bending a flat sheet so it snugly fits against a curved
+surface, for example.</p>
+<div>
+<p>See also</p>
+<p><a href="../../../modeling/modifiers/deform/shrinkwrap.html">Shrinkwrap Modifier</a></p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-to-same-target">
+<dt>Snap to Same Target Face Nearest</dt><dd><p>Snap only to the object which the selection was nearest to before starting
+the transformation.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-snap-face-nearest-steps">
+<dt>Face Nearest Steps Face Nearest Edit Mode</dt><dd><p>Breaks the overall transformation into multiple steps, performing a snap each time.
+This can give better results in certain cases.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-snap-peel-object">
+<dt>Snap Peel Object Volume</dt><dd><p>If the target object is composed of several disconnected mesh islands that
+intersect each other, “Snap To Volume” will normally snap to the island which the
+mouse is hovering over, ignoring the other islands. By enabling “Snap Peel Object,”
+you can instead treat the target object as one connected whole.</p>
+</dd>
+</dl>
+</section>
+<section id="affect">
+<h2>Affect</h2>
+<p>Specifies which transformations are affected by snapping.
+By default, snapping only happens while moving something,
+but you can also enable it for rotating and scaling.</p>
+<section id="multiple-snap-targets">
+<h3>Multiple Snap Targets</h3>
+<p>While you’re transforming a selection with snapping enabled,
+you can press <kbd>A</kbd> whenever there’s a highlighted snap target to
+mark it. With multiple such targets marked, the selection will
+then be snapped to their average location.</p>
+<p>Marking a target more than once will give it more weight.</p>
+<figure id="id9">
+<figcaption>
+<p>Multiple snapping targets.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Draw &gt; Tools &gt; Erase</title></head>
+<body><ul>
+<li><a href="../../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Draw Mode</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Erase Tool</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="erase-tool">
+<h1>Erase Tool</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Draw Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Erase</p>
+</dd>
+</dl>
+</div>
+<p>The Erase tool erase already drawn strokes.</p>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<dl>
+<dt>Radius</dt><dd><p>The radius of the brush in pixels.</p>
+<p><kbd>F</kbd> allows you to change the brush size interactively by dragging the pointer or
+by typing a number then confirm.</p>
+<dl>
+<dt>Use Pressure (pressure sensitivity icon)</dt><dd><p>Uses stylus pressure to control how strong the effect is.</p>
+</dd>
+<dt>Occlude Eraser (overlapping squares icon)</dt><dd><p>Erase only strokes visible and not occluded by geometry.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-use-default-eraser">
+<dt>Default Eraser</dt><dd><p>Use this brush when enabling the eraser tool with the fast switch key (<kbd>Ctrl</kbd>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-eraser-mode">
+<dt>Mode</dt><dd><p>Determines how the erase tool behaves.</p>
+<dl>
+<dt>Dissolve:</dt>
+<dd><p>To simulate a raster type eraser, this eraser type
+affects the strength and thickness of the strokes before actually delete a point.</p>
+</dd>
+<dt>Point:</dt>
+<dd><p>Delete one point at a time.</p>
+</dd>
+<dt>Stroke:</dt>
+<dd><p>Delete an entire stroke.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-pen-strength">
+<dt>Strength</dt><dd><p>Control how much will affect the eraser has on the stroke transparency (alpha).</p>
+<p>You can change the brush strength interactively by pressing <kbd><kbd>Shift</kbd>-<kbd>F</kbd></kbd>
+in the 3D Viewport and then moving the pointer and then <kbd>LMB</kbd>.
+You can also enter the size numerically.</p>
+<dl id="bpy-types-brushgpencilsettings-use-strength-pressure">
+<dt>Use Pressure (pressure sensitivity icon)</dt><dd><p>Uses stylus pressure to control how strong the effect is.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-eraser-strength-factor">
+<dt>Affect Stroke Strength</dt><dd><p>The amount of deletion of the stroke strength (alpha) while erasing.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-eraser-thickness-factor">
+<dt>Affect Stroke Thickness</dt><dd><p>The amount of deletion of the stroke thickness while erasing.</p>
+</dd>
+</dl>
+<section id="cursor">
+<h3>Cursor</h3>
+<p>The cursor can be disabled by toggling the checkbox in the <em>Cursor</em> header.</p>
+</section>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<section id="selecting-a-brush">
+<h3>Selecting a Brush</h3>
+<p>In the Tool Settings select the brush to use with the tool.
+The Erase tool uses <a href="../tool_settings/brushes.html#grease-pencil-draw-brushes-erase">Erase Brush</a> types (soft, point and stroke).</p>
+</section>
+<section id="dissolve-erasing">
+<h3>Dissolve Erasing</h3>
+<ul>
+<li><p>Select an erase brush of type Soft/Hard.</p></li>
+<li><p>Adjust brush settings.</p></li>
+<li><p>Click and hold <kbd>LMB</kbd> or use the <kbd>Pen</kbd> tip to delete strokes on the viewport.</p></li>
+</ul>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Original drawing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>The eraser affect the transparency of the strokes.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Final result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="point-erasing">
+<h3>Point Erasing</h3>
+<ul>
+<li><p>Select an erase brush of type Point.</p></li>
+<li><p>Adjust brush settings.</p></li>
+<li><p>Click and hold <kbd>LMB</kbd> or use the <kbd>Pen</kbd> tip to delete strokes on the viewport.</p></li>
+</ul>
+<table>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Original drawing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>The eraser delete one point at a time.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Final result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stroke-erasing">
+<h3>Stroke Erasing</h3>
+<ul>
+<li><p>Select an erase brush of type Stroke.</p></li>
+<li><p>Adjust brush settings.</p></li>
+<li><p>Click and hold <kbd>LMB</kbd> or use the <kbd>Pen</kbd> tip to delete strokes on the viewport.</p></li>
+</ul>
+<table>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Original drawing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>The eraser delete one stroke at a time.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Final result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

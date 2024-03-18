@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Operations &gt; Separate Components</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Geometry Operation Nodes</a></li>
+<li>Separate Components Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="separate-components-node">
+<h1>Separate Components Node</h1>
+<p>The <em>Separate Components</em> node splits a geometry into a separate output
+for each type of data in the geometry.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Mesh component of the input geometry.</p>
+</dd>
+<dt>Curve</dt><dd><p>Curve component of the input geometry.</p>
+</dd>
+<dt>Point Cloud</dt><dd><p>Point cloud component of the input geometry.</p>
+</dd>
+<dt>Volume</dt><dd><p>Volume component of the input geometry.</p>
+</dd>
+<dt>Instances</dt><dd><p>Instances component of the input geometry. Even if the instances contain geometry data with
+one of the other types, all instances will be added to this output.
+A <a href="../../instances/realize_instances.html">Realize Instances Node</a> can be added to move the data from
+geometry instances to their corresponding outputs.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

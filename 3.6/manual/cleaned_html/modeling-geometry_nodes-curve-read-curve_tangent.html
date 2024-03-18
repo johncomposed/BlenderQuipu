@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Read &gt; Curve Tangent</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Read Curve Nodes</a></li>
+<li>Curve Tangent Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve-tangent-node">
+<h1>Curve Tangent Node</h1>
+<p>The <em>Curve Tangent</em> node outputs the direction that a curve points in at each control point,
+depending on the direction of the curve (which can be controlled with
+the <a href="../operations/reverse_curve.html">Reverse Curve Node</a>). The output values are normalized vectors.</p>
+<div>
+<p>Warning</p>
+<p>For NURBS and Bézier spline curves, keep in mind that the value retrieved from this node is
+the value at every control point, which may not correspond to the visible <em>evaluated</em> points.
+For example, a Bézier spline might have 48 evaluated points, but only four control points,
+if its resolution is 12. For NURBS splines the difference may be even more pronounced and the result
+may not be as expected. A <a href="../operations/resample_curve.html">Resample Curve Node</a> can be used to
+create a poly spline, where there is a control point for every evaluated point.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Tangent</dt><dd><p>The direction of the curve at every control point.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

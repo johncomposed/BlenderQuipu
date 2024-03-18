@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Wave</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Wave Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="wave-modifier">
+<h1>Wave Modifier</h1>
+<p>The <em>Wave</em> modifier adds a ripple-like motion to an object’s geometry.</p>
+<p>This modifier is available for meshes, lattices, curves, surfaces and texts.</p>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Circular wave front.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Linear wave front.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Motion enabled for X,
+Normals enabled for Y.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="options">
+<h2>Options</h2>
+<figure id="id4">
+<figcaption>
+<p>The Wave modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Motion</dt><dd><p>The wave effect deforms vertices/control points in the Z direction,
+originating from the given starting point and propagating along the object with circular wave fronts
+(if both X and Y are enabled),
+or with rectilinear wave fronts (if only one axis is enabled),
+then parallel to the axis corresponding to the X or Y button activated.</p>
+</dd>
+<dt>Cyclic</dt><dd><p>Repeats the waves cyclically, rather than a single pulse.</p>
+</dd>
+<dt>Along Normals</dt><dd><p>For meshes only. Displaces the mesh along the surface normals (instead of the object’s Z axis).</p>
+<dl>
+<dt>X/Y/Z</dt><dd><p>Restrict displacement along normals to the selected local axes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Falloff</dt><dd><p>Controls how fast the waves fade out as they travel away from the coordinates above
+(or those of the <em>Start Position Object</em>).</p>
+</dd>
+<dt>Height</dt><dd><p>The height or amplitude of the ripple.</p>
+</dd>
+<dt>Width</dt><dd><p>Half of the width between the tops of two subsequent ripples (if <em>Cyclic</em> is enabled).
+This has an indirect effect on the ripple amplitude. If the pulses are too near to each other,
+the wave may not reach the zero Z position, so in this case Blender actually lowers the whole wave
+so that the minimum is zero and, consequently, the maximum is lower than the expected amplitude.
+See <a href="#technical-details-and-hints">Technical Details and Hints</a> for more information.</p>
+</dd>
+<dt>Narrowness</dt><dd><p>The actual width of each pulse: the higher the value the narrower the pulse.
+The actual width of the area in which the single pulse is apparent is given by <code>4 / Narrowness</code>.
+That is, if <em>Narrowness</em> is 1 the <em>pulse</em> is 4 units wide, and if <em>Narrowness</em>
+is 4 the <em>pulse</em> is 1 unit wide.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>The name of a vertex group which is used to control the influence of the modifier.
+If left empty, the modifier affects all vertices equally.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Important</p>
+<p>All the values described above are in local object space,
+i.e. they must be multiplied with the corresponding <em>Scale</em> values of
+the object to get the real dimensions.</p>
+</div>
+<section id="start-position">
+<h3>Start Position</h3>
+<dl>
+<dt>Object</dt><dd><p>Use another object as the reference for the starting position of the wave.
+Note that you then can animate this object’s position, to change the wave’s origin across time.</p>
+</dd>
+<dt>Start Position X/Y</dt><dd><p>Coordinates of the center of the waves, in the object’s local space.</p>
+</dd>
+</dl>
+</section>
+<section id="time">
+<h3>Time</h3>
+<p>Settings to control the animation.</p>
+<dl>
+<dt>Offset</dt><dd><p>Time offset in frames. The frame at which the wave begins (if <em>Speed</em> is positive),
+or ends (if <em>Speed</em> is negative). Use a negative frame number to prime and pre-start the waves.</p>
+</dd>
+<dt>Life</dt><dd><p>Duration of animation in frames. When set to zero, loops the animation forever.</p>
+</dd>
+<dt>Damping</dt><dd><p>An additional number of frames in which the wave slowly damps from the <em>Height</em> value
+to zero after <em>Life</em> is reached.
+The dampening occurs for all the ripples and begins in the first frame after the <em>Life</em> is over.
+Ripples disappear over <em>Damping</em> frames.</p>
+</dd>
+<dt>Speed</dt><dd><p>The speed per frame, of the ripple.</p>
+</dd>
+</dl>
+</section>
+<section id="texture">
+<h3>Texture</h3>
+<p>You can finely control which vertices are affected by the wave,
+and to what extent, using a texture.</p>
+<p>See <a href="../common_options.html#modifiers-common-options-masking">common masking options</a> for a complete reference.</p>
+</section>
+</section>
+<section id="technical-details-and-hints">
+<h2>Technical Details and Hints</h2>
+<p>The relationship of the above values is described here:</p>
+<figure id="id5">
+<figcaption>
+<p>Wave front characteristics.</p>
+</figcaption>
+</figure>
+<p>To obtain a nice wave effect similar to sea waves and close to a sinusoidal wave,
+make the distance between following ripples and the ripple width equal. That is,
+the <em>Narrowness</em> value must be equal to <code>2 / Width</code>.
+E.g. for <em>Width</em> to be 1, set <em>Narrow</em> to 2.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

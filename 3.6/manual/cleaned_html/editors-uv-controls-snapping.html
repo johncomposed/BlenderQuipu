@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Uv &gt; Controls &gt; Snapping</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">UV Editor</a></li>
+<li>Snapping</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="snapping">
+<h1>Snapping</h1>
+<p>Snapping lets you easily align UV elements to others.
+It can be toggled by clicking the magnet icon in the UV Editor’s header,
+or more temporarily by holding <kbd>Ctrl</kbd>.</p>
+<p>This page is about the Snap header button; for the Snap menu,
+see <a href="../../../modeling/meshes/uv/editing.html#bpy-ops-uv-snap-selected">UV Editing</a>.</p>
+<section id="snap-to">
+<h2>Snap To</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Header:</dt>
+<dd><p>Snapping ‣ Snap To</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Increment</dt><dd><p>Snaps to grid points.</p>
+<div>
+<p>Note</p>
+<p>By default, this option won’t snap to the grid that’s displayed in the editor,
+but an imaginary grid with the same resolution that starts at the selection’s
+original location. In other words, it lets you move the selection in “increments” of the
+grid cell size.</p>
+<p>If you want to snap to the viewport grid instead, you can enable <em>Absolute Grid Snap</em>
+(see below).</p>
+</div>
+</dd>
+<dt>Vertex</dt><dd><p>Snaps to the vertex that’s closest to the mouse cursor.</p>
+</dd>
+</dl>
+</section>
+<section id="additional-options">
+<h2>Additional Options</h2>
+<dl id="bpy-types-toolsettings-use-snap-uv-grid-absolute">
+<dt>Absolute Grid Snap Increment</dt><dd><p>Snaps to the grid, instead of snapping in increments relative to the current location.</p>
+</dd>
+<dt>Target Vertex</dt><dd><p>See <a href="../../3dview/controls/snapping.html#bpy-types-toolsettings-snap-target">3D Viewport Snapping</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="affect">
+<h2>Affect</h2>
+<p>Specifies which transformations are affected by snapping.
+By default, snapping only happens while moving something,
+but you can also enable it for rotating and scaling.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Tools &gt; Spin</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Spin</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="spin">
+<h1>Spin</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Spin</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Spin</em> tool extrudes (or duplicates it if the selection is manifold) the selected elements,
+rotating around a specific point and axis.</p>
+<p>Use the tool to create the sort of objects that you would produce on a lathe
+(this tool is often called “lathe” tool or “sweep” tool in the literature, for this reason).
+In fact, it does a sort of circular extrusion of your selected elements,
+centered on the 3D cursor, and around the axis perpendicular to the working view…</p>
+<ul>
+<li><p>The point of view will determine around which axis the extrusion spins…</p></li>
+<li><p>The position of the 3D cursor will be the center of the rotation.</p></li>
+</ul>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<dl>
+<dt>Steps</dt><dd><p>Specifies how many copies will be extruded along the “sweep”.</p>
+</dd>
+<dt>Axis</dt><dd><p>Specifies the axis to use as the pivot of the spin operation.</p>
+</dd>
+</dl>
+</section>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Steps</dt><dd><p>Specifies how many copies will be extruded along the “sweep”.</p>
+</dd>
+<dt>Use Duplicates</dt><dd><p>When enabled, will keep the original selected elements as separated islands in the mesh
+(i.e. unlinked to the result of the spin extrusion).</p>
+</dd>
+<dt>Angle</dt><dd><p>Specifies the angle “swept” by this tool, in degrees (e.g. set it to 180 for half a turn).</p>
+</dd>
+<dt>Auto Merge</dt><dd><p>Automatically merges the first a last duplicates,
+if they make a full revolution which results in overlapping geometry.</p>
+</dd>
+<dt>Flip Normals</dt><dd><p>Reverses the <a href="../../../glossary/index.html#term-Normal">Normal’s</a> direction for any resulting geometry.</p>
+</dd>
+<dt>Center X, Y, Z</dt><dd><p>Specifies the center of the spin. By default it uses the cursor position.</p>
+</dd>
+<dt>Axis X, Y, Z</dt><dd><p>Specify the spin axis as a vector. By default it uses the view axis (viewport).</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id2">
+<figcaption>
+<p>Glass profile.</p>
+</figcaption>
+</figure>
+<p>First, create a mesh representing the profile of your object.
+If you are modeling a hollow object, it is a good idea to thicken the outline.
+Fig. <a href="#fig-mesh-spin-glass">Glass profile.</a> shows the profile for a wine glass we will model as a demonstration.</p>
+<p>We will be rotating the object around the cursor in the top view,
+so switch to the top view with <kbd>Numpad7</kbd>.</p>
+<figure id="id3">
+<figcaption>
+<p>Glass profile, top view in Edit Mode, just before spinning.</p>
+</figcaption>
+</figure>
+<p>Place the cursor along the center of the profile by entering Edit Mode
+and selecting one of the vertices along the center, and snapping the 3D cursor to
+that location with Mesh ‣ Snap ‣ Cursor to Selection.
+(Fig. <a href="#fig-mesh-spin-glass-top">Glass profile, top view in Edit Mode, just before spinning.</a>) shows the wine glass profile from
+top view, with the cursor correctly positioned.</p>
+<p>Select all the vertices with <kbd>A</kbd> and select the <em>Spin</em> tool from the Toolbar
+and use the Gizmo to spin the vertices. Fig. <a href="#fig-mesh-spin-profile">Spun profile.</a> shows the result of a successful spin.</p>
+<section id="angle">
+<h3>Angle</h3>
+<table id="id4">
+<caption>Spun profile.</caption>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Spun profile using an angle of 360.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Spun profile using an angle of 120.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="duplicate">
+<h3>Duplicate</h3>
+<table>
+<tbody>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Result of spin operation.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Result of Duplicate enabled.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="merge-duplicates">
+<h3>Merge Duplicates</h3>
+<figure id="id9">
+<figcaption>
+<p>Duplicate vertices.</p>
+</figcaption>
+</figure>
+<p>The spin operation leaves duplicate vertices along the profile.
+You can select all vertices at the seam with Box select <kbd>B</kbd>
+(shown in Fig. <a href="#fig-mesh-screw-duplicate">Duplicate vertices.</a>) and perform a <em>Merge by Distance</em> operation.</p>
+<p>Notice the selected vertex count before and after the <em>Merge by Distance</em> operation
+<code>Vertex count after removing doubles</code>. If all goes well, the final vertex count
+(38 in this example) should match the number of the original profile noted in
+Mesh data ‣ Vertex and face numbers.
+If not, some vertices were missed and you will need to weld them manually.
+Or, worse, too many vertices will have been merged.</p>
+<div>
+<p>Note</p>
+<p>Merging Two Vertices into One</p>
+<p>To merge (weld) two vertices together, select both of them by <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd>
+clicking on them. Press <kbd>S</kbd> to start scaling and hold down <kbd>Ctrl</kbd>
+while scaling to scale the points down to 0 units in the X, Y and Z axis. <kbd>LMB</kbd>
+to complete the scaling operation and click Mesh ‣ Merge ‣ By Distance
+to merge the vertices. Alternatively, you can use Context Menu ‣ Merge Vertices (or <kbd>M</kbd>).
+Then, in the new pop-up menu, choose to merge <em>By Distance</em>.</p>
+</div>
+</section>
+<section id="recalculate-normals">
+<h3>Recalculate Normals</h3>
+<p>All that remains now is to recalculate the normals to the outside by selecting all vertices,
+pressing <kbd><kbd>Alt</kbd>-<kbd>N</kbd></kbd> and validating <em>Recalculate Normals Outside</em> in the pop-up menu.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

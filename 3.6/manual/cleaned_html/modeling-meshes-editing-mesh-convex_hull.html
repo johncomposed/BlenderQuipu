@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Convex Hull</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Convex Hull</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="convex-hull">
+<h1>Convex Hull</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Convex Hull</p>
+</dd>
+</dl>
+</div>
+<p>The Convex Hull operator takes a point cloud as input and outputs a convex hull surrounding those vertices.
+If the input contains edges or faces that lie on the convex hull, they can be used in the output as well.
+This operator can be used as a bridge tool as well.</p>
+<figure id="id2">
+<figcaption>
+<p>Input mesh, point cloud, and Convex Hull result.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Delete Unused</dt><dd><p>Removes vertices, edges, and faces that were selected, but not used as part of the hull.
+Note that vertices and edges that are used
+by other edges and faces not part of the selection will not be deleted.</p>
+</dd>
+<dt>Use Existing Faces</dt><dd><p>Where possible, use existing input faces that lie on the hull.
+This allows the convex hull output to contain n-gons rather than triangles
+(or quads if the <em>Join Triangles</em> option is enabled).</p>
+</dd>
+<dt>Make Holes</dt><dd><p>Delete edges and faces in the hull that were part of the input too.
+Useful in cases like bridging to delete faces between the existing mesh and the convex hull.</p>
+</dd>
+<dt>Join Triangles</dt><dd><p>Joins adjacent triangles into quads.
+Has all the same properties as the <em>Tris to Quads</em> operator (angle limit, compare UVs, etc.).</p>
+</dd>
+<dt>Max Face Angle, Max Shape Angle, Compare</dt><dd><p>See <a href="../face/triangles_quads.html#mesh-faces-tristoquads">Triangles to Quads</a>.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

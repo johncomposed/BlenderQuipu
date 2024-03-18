@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Operations &gt; Mesh Boolean</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Operation Nodes</a></li>
+<li>Mesh Boolean Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh-boolean-node">
+<h1>Mesh Boolean Node</h1>
+<p>The <em>Mesh Boolean Node</em> allows you to cut, subtract, and join the geometry of two inputs.
+This node offers the same operations as the <a href="../../../modifiers/generate/booleans.html">Boolean modifier</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh 1/2</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Self Intersection</dt><dd><p>Correctly calculates cases when one or both operands have self-intersections.
+This involves more calculations making the node slower.</p>
+</dd>
+<dt>Hole Tolerant</dt><dd><p>Optimizes the Boolean output for <a href="../../../../glossary/index.html#term-Non-manifold">Non-manifold</a> geometry
+at the cost of increased computational time.
+Because of the performance impact, this option should only be enabled
+when the solver demonstrates errors with non-manifold geometry.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Operation</dt><dd><dl>
+<dt>Intersect:</dt>
+<dd><p>Produce a new geometry containing only the volume inside of both geometry 1 and geometry 2.</p>
+</dd>
+<dt>Union:</dt>
+<dd><p>The two input meshes are joined, then any interior elements are removed.</p>
+</dd>
+<dt>Difference:</dt>
+<dd><p>Geometry 2 is subtracted from geometry 1 (everything outside of geometry 2 is kept).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry output.</p>
+</dd>
+<dt>Intersecting Edges</dt><dd><p>A boolean attribute field with a selection of the edges that were created where the two inputs
+meet.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

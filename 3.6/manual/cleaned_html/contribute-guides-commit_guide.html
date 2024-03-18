@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Contribute &gt; Guides &gt; Commit Guide</title></head>
+<body><ul>
+<li><a href="../index.html">Contribute Documentation</a></li>
+<li>Commit Guidelines</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="commit-guidelines">
+<h1>Commit Guidelines</h1>
+<p>Access to directly submit changes is limited to people with commit access to the repository.
+Once you are provided with commit access you can start committing directly instead of creating a patch file.</p>
+<p>You can make commits from your Git client or using the Git command line tool.
+The following command will create a commit and send it to the central repository:</p>
+<div><div><pre>git commit -m "This is what I did"
+git push
+</pre></div>
+</div>
+<p>If you leave out <code>-m "message"</code>, you will be prompted to type the message in a text editor.</p>
+<div>
+<p>Tip</p>
+<p>You should make sure you are always on the latest revision before committing.
+You may not be able to commit directly if there are conflicting changes in the latest revision.</p>
+<p>To avoid this update your local repository before committing (run <code>make update</code>).</p>
+</div>
+<div>
+<p>See also</p>
+<p><a href="https://wiki.blender.org/wiki/Tools/Git">Blender’s Git usage guide</a></p>
+</div>
+<div>
+<p>See also</p>
+<p>See <a href="../release_cycle.html">Release Cycle</a> for documentation on how to make
+commits to a specific release branch and how to create merge commits.</p>
+</div>
+<section id="writing-a-good-commit-message">
+<h2>Writing a Good Commit Message</h2>
+<p>When making changes to the manual that directly relate to a specific commit (change) in Blender,
+it is helpful to make the title of the commit the same as the commit made to Blender.
+It is requested that you include the commit hash of the commit made to the Blender source code.</p>
+<p>For example, the commit <a href="https://developer.blender.org/rBM8473">rBM8473</a>
+includes a descriptive indicative of the changes made along with the hash <code>rBa71d2b260170</code>.
+The hash can be extracted from the URL provided in the Documentation task for a specific upcoming release.</p>
+<p>Other more general changes do not have to follow the above policy however,
+it is still important to make the description clear about what changes you made and why.
+It can be helpful to prefix the commit title with a prefix word such as <code>Cleanup:</code> or <code>Fix:</code>
+when you are making general cleanups or fixes respectively.</p>
+<p>Writing good commit messages helps administrators keep track of
+changes made and ensures all new features are properly documented.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Operators</title></head>
+<body><ul>
+<li><a href="index.html">User Interface</a></li>
+<li>Operators</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="operators">
+<h1>Operators</h1>
+<p>Operators execute an action the moment they’re activated,
+which makes them different from tools (which require some sort of input).
+Operators can be started from <a href="controls/buttons/buttons.html#ui-operator-buttons">Operator Buttons</a>,
+<a href="controls/buttons/menus.html#ui-header-menu">Header Menus</a>, or <a href="controls/templates/operator_search.html#bpy-ops-wm-search-menu">Menu Search</a>.
+Examples of operators include adding a new object,
+deleting it, or setting its shading to smooth.</p>
+<section id="operator-properties">
+<h2>Operator Properties</h2>
+<p>Most operators have properties that can be adjusted to refine their result.
+First run the operator (which will use its default settings),
+then adjust the properties in the <a href="undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> region.</p>
+</section>
+<section id="modal-operators">
+<h2>Modal Operators</h2>
+<p>Modal operators exist as a concept in between <a href="tool_system.html">Tools</a>
+and regular operators.
+They require some sort of interactive input.</p>
+<p>The action of a modal operator can be confirmed using <kbd>LMB</kbd> or <kbd>Return</kbd>.
+To cancel a modal operator use <kbd>RMB</kbd> or <kbd>Esc</kbd>.</p>
+<section id="slider-operators">
+<h3>Slider Operators</h3>
+<p>Slider operators are used to interactively adjust a percentage value
+in the editor’s <a href="window_system/regions.html#ui-region-header">Header</a>.</p>
+<p>You can adjust the percentage by dragging the slider left or right.
+This can be made coarser (snapping in 10% increments) by holding <kbd>Ctrl</kbd>
+and more precise by holding <kbd>Shift</kbd>.
+For some sliders, you can toggle “overshoot” with <kbd>E</kbd>, which lets
+you go beyond the 0-100% range.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

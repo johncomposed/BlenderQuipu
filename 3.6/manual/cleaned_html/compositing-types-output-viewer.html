@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Output &gt; Viewer</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Output Nodes</a></li>
+<li>Viewer Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewer-node">
+<h1>Viewer Node</h1>
+<p>The <em>Viewer</em> node allows temporarily visualizing data from inside a node graph.
+It can be plugged in anywhere to inspect an image or value map in your node tree.</p>
+<p>Select a view node with <kbd>LMB</kbd> to switch between multiple viewer nodes.
+It is possible to automatically plug any other node into a Viewer node
+by pressing <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> on it.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>See <a href="composite.html">Composite Node</a>.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Tile Order</dt><dd><p>The tile order can be defined for the backdrop image, using the <em>Tile order</em> field in the properties of
+the Viewer node (<em>Properties</em> panel in Sidebar region, with the Viewer node selected):</p>
+<dl>
+<dt>Rule of thirds</dt><dd><p>Calculates tiles around each of the nine zones defined by the <em>rule of thirds</em>.</p>
+</dd>
+<dt>Bottom up</dt><dd><p>Tiles are calculated from the bottom up.</p>
+</dd>
+<dt>Random</dt><dd><p>Calculates tiles in a non-specific order.</p>
+</dd>
+<dt>Center</dt><dd><p>Calculates the tiles around a specific center, defined by X and Y fields.</p>
+<p>X, Y</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p>This node has no output sockets.</p>
+<div>
+<p>Note</p>
+<p>It is possible to add multiple Viewer nodes, though only the active one
+(last selected, indicated by a red header) will be shown on the backdrop or in the Image editor.</p>
+</div>
+</section>
+<section id="using-the-image-editor">
+<h2>Using the Image Editor</h2>
+<p>The Viewer node allows results to be displayed in the Image Editor.
+The image is facilitated in the header by selecting <em>Viewer Node</em> in the linked <em>Image</em> data-block menu.
+The Image Editor will display the image from the currently selected Viewer node.</p>
+<p>To save the image being viewed,
+use Image ‣ Save As…, <kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd> to save the image to a file.</p>
+<p>The Image Editor also has three additional options in its header to view Images with or
+without Alpha, or to view the Alpha or Z itself.
+Click and holding the mouse in the Image displayed allows you to sample the values.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

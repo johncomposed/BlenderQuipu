@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Textures &gt; Environment</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Texture</a></li>
+<li>Environment Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="environment-texture-node">
+<h1>Environment Texture Node</h1>
+<p>The Node <em>Environmental Texture</em> is used to light your scene using an environment map image file as a texture.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate for texture look-up. If this socket is left unconnected,
+the image is mapped as environment with the Z axis as up.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Image</dt><dd><p>Image data-block used as the image source.
+Additional settings can be found in Sidebar ‣ Item ‣ Properties:
+These include options to control the alpha channel along with addition options for the color space.
+These addition options are documented with the rest of
+<a href="../../../editors/image/image_settings.html#editors-image-image-settings-common">Common Image Settings</a>.</p>
+</dd>
+<dt>Color Space</dt><dd><p>Type of data that the image contains, either Color or Non-Color Data.
+For most color textures the default of Color should be used, but in case of e.g. a bump or alpha map,
+the pixel values should be interpreted as Non-Color Data, to avoid doing any unwanted color space conversions.</p>
+<p>The list of color spaces depends on the active <a href="../../color_management.html#ocio-config">OCIO config</a>.
+The default supported color spaces are described in detail here:
+<a href="../../color_management.html#ocio-config-default-color-spaces">Default OpenColorIO Configuration</a></p>
+</dd>
+<dt>Texture Interpolation</dt><dd><p>Interpolation method used for the environment texture. The following interpolations are available:</p>
+<dl>
+<dt>Linear:</dt>
+<dd><p>Regular quality interpolation.</p>
+</dd>
+<dt>Closest:</dt>
+<dd><p>No interpolation, use closest pixel.</p>
+</dd>
+<dt>Cubic:</dt>
+<dd><p>Smoother, better quality interpolation.</p>
+</dd>
+<dt>Smart:</dt>
+<dd><p>Bicubic when magnifying, otherwise Bilinear is used.
+This is only available for <a href="../osl.html">OSL</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Projection Method</dt><dd><p>Allows you to use different types of environmental maps. The following methods are supported:</p>
+<dl>
+<dt>Equirectangular:</dt>
+<dd><p>Projection from an Equirectangular photo.</p>
+</dd>
+<dt>Mirror Ball:</dt>
+<dd><p>Projection from an orthographic photo or mirror ball.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>RGB color from the image.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>HDR image from OpenFootage.net.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

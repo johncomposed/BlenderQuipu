@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Copy Scale</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Copy Scale Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="copy-scale-constraint">
+<h1>Copy Scale Constraint</h1>
+<p>The <em>Copy Scale</em> constraint forces its owner to have the same scale as its target.</p>
+<div>
+<p>Note</p>
+<p>Here we talk of <em>scale</em>, not of <em>size</em>! Indeed, you can have two objects,
+one much bigger than the other, and yet both of them have the same scale.
+This is also true with bones: in <em>Pose Mode</em>,
+they all have a unitary scale when they are in rest position,
+represented by their visible length.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Copy Scale panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraints target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Axis</dt><dd><p>These buttons control which axes of the target scale are copied.</p>
+</dd>
+<dt>Power</dt><dd><p>Allows raising the copied scale to the specified arbitrary power.</p>
+</dd>
+<dt>Make Uniform</dt><dd><p>Instead of copying scale for individual axes, apply a uniform scaling factor
+to all axes of the owner that achieves the same overall change in volume.</p>
+</dd>
+<dt>Offset</dt><dd><p>When enabled, the constraint combines the copied scale with the owner’s scale,
+instead of overwriting it.</p>
+</dd>
+<dt>Additive</dt><dd><p>Uses addition instead of multiplication in the implementation of the <em>Offset</em> option.</p>
+</dd>
+<dt>Target/Owner</dt><dd><p>Standard conversion between spaces.
+See <a href="../interface/common.html#rigging-constraints-interface-common-space">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Since scale is a multiplicative quantity, it should be combined using multiplication,
+and split into fractions or inverted via power. Thus the use of <em>Power</em> is
+more mathematically correct than <em>Influence</em>, which uses linear interpolation.
+The use of the <em>Additive</em> option is also not recommended.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>To copy scale from one axis of the target to all axes of the owner,
+disable other axes, enable <em>Make Uniform</em>, and set <em>Power</em> to 3.</p>
+</div>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

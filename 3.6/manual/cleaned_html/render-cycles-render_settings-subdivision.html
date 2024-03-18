@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Render Settings &gt; Subdivision</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Subdivision</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="subdivision">
+<h1>Subdivision</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Subdivision</p>
+</dd>
+</dl>
+</div>
+<div>
+<p>Note</p>
+<p>These settings are only available if <a href="../features.html#cycles-experimental-features">Experimental Feature Set</a> is turned on.</p>
+</div>
+<p>These settings are used to control <a href="../object_settings/adaptive_subdiv.html">Adaptive Subdivision</a>.</p>
+<dl id="bpy-types-cyclesrendersettings-dicing-rate">
+<dt>Dicing Rate Render, Viewport</dt><dd><p>Size of <a href="../../../glossary/index.html#term-Micropolygons">Micropolygons</a> in pixels for the final/viewport render.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-offscreen-dicing-scale">
+<dt>Offscreen Scale</dt><dd><p>Multiplier for dicing rate of geometry outside of the camera view.
+The dicing rate of objects is gradually increased the further they are outside the camera view.
+Lower values provide higher quality reflections and shadows for off screen objects,
+while higher values use less memory.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-max-subdivisions">
+<dt>Max Subdivisions</dt><dd><p>Stop subdividing when this level is reached even if the dicing rate would produce finer <a href="../../../glossary/index.html#term-Tessellation">Tessellation</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-dicing-camera">
+<dt>Dicing Camera</dt><dd><p>Camera to use as reference point when subdividing geometry,
+useful to avoid crawling artifacts in animations when the scene camera is moving.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

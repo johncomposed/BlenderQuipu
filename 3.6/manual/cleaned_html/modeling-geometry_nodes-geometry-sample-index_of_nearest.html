@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Sample &gt; Index Of Nearest</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Sample Geometry Nodes</a></li>
+<li>Index of Nearest</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="index-of-nearest">
+<h1>Index of Nearest</h1>
+<p>The <cite>Index of Nearest</cite> node is a way to find other close elements in the same geometry.
+If needed you can use Group ID to determine the group of neighbors to be analyzed together.</p>
+<p>This is an alternative to the <a href="sample_nearest.html">Sample Nearest Node</a> node.
+The main difference is that this node does not require a geometry input, because the geometry
+from the <a href="../../fields.html#field-context">field context</a> is used.</p>
+<div>
+<p>Tip</p>
+<p>This is often combined with the <a href="../../utilities/field/evaluate_at_index.html">Evaluate at Index Node</a> or
+the <a href="sample_index.html">Sample Index Node</a> node.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Position</dt><dd><p>The position for each element to search.
+By default, this is the same as if the <a href="../read/position.html">Position Node</a> was connected.</p>
+</dd>
+<dt>Group ID</dt><dd><p>ID to group elements together.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Index</dt><dd><p>The <a href="../read/input_index.html">index</a>
+of the closest element in the same geometry component.</p>
+</dd>
+<dt>Has Neighbor</dt><dd><p>This is true when the group of the element has at least two elements.
+This is only relevant when using <em>Group ID</em>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

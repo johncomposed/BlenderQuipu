@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Emitter &gt; Children</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Particle System</a></li>
+<li><a href="index.html">Emitter</a></li>
+<li>Children</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="children">
+<h1>Children</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Children</p>
+</dd>
+</dl>
+</div>
+<p><em>Children</em> are <em>Hair</em> or <em>Emitter</em> particles originating from individual particles.
+They make it possible to work primarily with a relatively low amount of Parent particles,
+for whom the physics are calculated. The children are then aligned to their parents.
+The number and visualization of the children can be changed without a recalculation of the physics.</p>
+<p>If you activate children, the parents are no longer rendered. This can be enabled in the Render panel
+<a href="render.html#bpy-types-particlesettings-use-parent-particles">Parent Particles</a>. By default, parent particles
+are not rendered because the shape of the children can be quite different from that of their parents.</p>
+<section id="common-options">
+<h2>Common Options</h2>
+<dl>
+<dt>Child Type</dt><dd><dl>
+<dt>None</dt><dd><p>No children are generated.</p>
+</dd>
+<dt>Simple</dt><dd><p>Children are emitted from the parent position.</p>
+</dd>
+<dt>Interpolated</dt><dd><p>Children are emitted between the <em>Parent</em> particles on the faces of a mesh.
+They interpolate between adjacent parents. This is especially useful for fur,
+because you can achieve an even distribution.
+Some of the children can become virtual parents, which are influencing other particles nearby.</p>
+</dd>
+</dl>
+</dd>
+<dt>Display Amount</dt><dd><p>The number of children in the 3D Viewport.</p>
+</dd>
+<dt>Render Amount</dt><dd><p>The number of children to be rendered.</p>
+</dd>
+<dt>Length</dt><dd><p>Length of child paths.</p>
+</dd>
+<dt>Threshold</dt><dd><p>Amount of particles left untouched by child path length.</p>
+</dd>
+<dt>Seed</dt><dd><p>Offset in the random number table for child particles, to get a different randomized result.</p>
+</dd>
+</dl>
+<section id="clumping">
+<h3>Clumping</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Children ‣ Clumping</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Use Clump Curve</dt><dd><p>Use <a href="../../../interface/controls/templates/curve.html#ui-curve-widget">Curve Widget</a> instead of parameters.</p>
+</dd>
+<dt>Clump</dt><dd><p>Clumping amount along child strands.
+The children may meet at their tip (1.0) or start together at their root (-1.0).</p>
+</dd>
+<dt>Shape</dt><dd><p>Form of <em>Clump</em>. Either inverse parabolic (0.99) or exponentially (-0.99).</p>
+</dd>
+<dt>Twist</dt><dd><p>Todo.</p>
+</dd>
+<dt>Use Twist Curve</dt><dd><p>Todo.</p>
+</dd>
+</dl>
+<section id="clump-noise">
+<h4>Clump Noise</h4>
+<p>Creates random clumps around the parent hair.</p>
+<dl>
+<dt>Clump Noise Size</dt><dd><p>The size of the clumps.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="roughness">
+<h3>Roughness</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Children ‣ Roughness</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Use Roughness Curve</dt><dd><p>Use <a href="../../../interface/controls/templates/curve.html#ui-curve-widget">Curve Widget</a> instead of parameters.</p>
+</dd>
+<dt>Uniform, Size</dt><dd><p>It is based on children location so it varies the paths in a similar way when the children are near.</p>
+</dd>
+<dt>Endpoint, Shape</dt><dd><p>“Rough End” randomizes path ends (a bit like random negative clumping).
+Shape may be varied from &lt;1 (parabolic) to 10.0 (hyperbolic).</p>
+</dd>
+<dt>Random, Size, Threshold</dt><dd><p>It is based on a random vector so it is not the same for nearby children.
+The threshold can be specified to apply this to only a part of children.
+This is useful for creating a few stray children that will not do what others do.</p>
+</dd>
+</dl>
+</section>
+<section id="kink">
+<h3>Kink</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Children ‣ Kink</p>
+</dd>
+</dl>
+</div>
+<figure id="id5">
+<figcaption>
+<p>Child particles with Kink.</p>
+<div>
+<p>From left to right: Curl, Radial, Wave, Braid, Spiral.</p>
+</div>
+</figcaption>
+</figure>
+<p>With <em>Kink</em> you can rotate the children around the parent.
+See Fig. <a href="#fig-particle-child-kink">Child particles with Kink.</a> above picture for the different types of <em>Kink</em>.</p>
+<dl>
+<dt>Kink Type</dt><dd><dl>
+<dt>Nothing</dt><dd><p>Deactivated.</p>
+</dd>
+<dt>Curl</dt><dd><p>Children grow in a spiral around the parent hairs.</p>
+</dd>
+<dt>Radial</dt><dd><p>Children form around the parent a wave shape that passes through the parent hair.</p>
+</dd>
+<dt>Wave</dt><dd><p>Children form a wave, all in the same direction.</p>
+</dd>
+<dt>Braid</dt><dd><p>Children braid themselves around the parent hair.</p>
+</dd>
+<dt>Spiral</dt><dd><p>Generates a spiral at the end of each hair.</p>
+<dl>
+<dt>Radius, Resolution</dt><dd><p>Define the overall size.</p>
+</dd>
+<dt>Shape</dt><dd><p>Makes a the spiral grow in- or outward.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Alignment Limitations</p>
+<p>When hair is pointing straight up (along the chosen spiral axis, default Z), spirals may not show up!
+This is a limitation of the projection method used.
+Giving a slight tilt or random orientation to hairs fixes this.</p>
+</div>
+</dd>
+<dt>Amplitude</dt><dd><p>The amplitude of the offset.</p>
+</dd>
+<dt>Clump</dt><dd><p>How much clump effects kink amplitude.</p>
+</dd>
+<dt>Flatness</dt><dd><p>How flat the hairs are.</p>
+</dd>
+<dt>Frequency</dt><dd><p>The frequency of the offset (1/total length). The higher the frequency the more rotations are done.</p>
+</dd>
+<dt>Shape</dt><dd><p>Where the rotation starts (offset of rotation).</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="simple">
+<h2>Simple</h2>
+<dl>
+<dt>Size</dt><dd><p>A multiplier for children size.</p>
+</dd>
+<dt>Random Size</dt><dd><p>Random variation to the size of child particles.</p>
+</dd>
+<dt>Radius</dt><dd><p>The radius in which the children are distributed around their parents.
+This is 3D, so children may be emitted higher or lower than their parents.</p>
+</dd>
+<dt>Roundness</dt><dd><p>The roundness of the children around their parents. Either in a sphere (1.0) or in-plane (0.0).</p>
+</dd>
+</dl>
+</section>
+<section id="interpolated">
+<h2>Interpolated</h2>
+<dl>
+<dt>Virtual Parents</dt><dd><p>Relative amount of virtual parents.</p>
+</dd>
+<dt>Long Hair</dt><dd><p>Calculate children that suit long hair well.</p>
+</dd>
+</dl>
+<section id="parting">
+<h3>Parting</h3>
+<dl>
+<dt>Parting</dt><dd><p>Creates parting in the children based on parent strands.</p>
+</dd>
+<dt>Min/Max</dt><dd><p>The minimum/maximum root to tip angle (tip distance/root distance for long hair).</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id6">
+<figcaption>
+<p>From left to right: Round: 0.0, Round: 1.0, Clump: 1.0, Clump: -1.0, Shape: -0.99.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

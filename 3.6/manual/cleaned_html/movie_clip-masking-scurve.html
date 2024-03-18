@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Masking &gt; Scurve</head>
+<body><ul>
+<li><a href="../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="index.html">Masking</a></li>
+<li>S-Curves</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="s-curves">
+<h1>S-Curves</h1>
+<p>The curve type used for creating mask splines is almost a Bézier curve, but with some differences.
+Smooth edges of the mask are defined by feathering.
+The curve needed to support feathering in a way that stuck to the curve as you edited it,
+for ease of editing an animation. These are called S-curves.</p>
+<p>Besides the handles, every control point also has points that define the feather between
+the current point and the next point on the spline.
+Each feather point is stored in UW space,
+where U means position across spline segment, and W (weight) means distance between main spline and feather points.</p>
+<figure id="id2">
+<figcaption>
+<p>S-Curve explained.</p>
+</figcaption>
+</figure>
+<p>This allows for deforming the main spline in almost any way,
+and the feather will be updated automatically to reflect that change.</p>
+<p>For example if there is just rotation of the spline,
+feather would stay completely unchanged. If one point’s feather is moved,
+the other feathers will be automatically stretched uniformly along that segment
+and the overall shape will be almost the same as artists would want it to be.</p>
+<section id="primitives">
+<h2>Primitives</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Add</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>There are two primitives available: a Bézier Circle and a Square with vector handles.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Properties &gt; Deform</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Deform</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="deform">
+<h1>Deform</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Bone ‣ Deform</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>The Deform panel.</p>
+</figcaption>
+</figure>
+<p>In this panel you can set deformation options for each bone.</p>
+<p>Toggling the checkbox in the panel header off,
+prevents the bone from deforming the geometry at all,
+overriding any weights that it might have been assigned before; it mutes its influence.</p>
+<p>It also excludes the active bone in the automatic weight calculation when the mesh is
+parented to the armature using the <em>Armature Deform</em> tool with the <em>With Automatic Weights</em> option.</p>
+<section id="envelope">
+<h2>Envelope</h2>
+<figure id="id3">
+<figcaption>
+<p>Bone influence areas for envelopes method.</p>
+</figcaption>
+</figure>
+<p>Envelopes is the most general skinning method. It works with all available object types for
+skinning (meshes, lattices, curves, surfaces and texts).
+It is based on proximity between bones and their geometry,
+each bone having two different areas of influence,
+shown in the <em>Envelope</em> visualization:</p>
+<ul>
+<li><p>The inside area, materialized by the “solid” part of the bone, and controlled by both root and tip radius.</p></li>
+<li><p>The outside area, materialized by the lighter part around the bone,
+and controlled by the <em>Distance</em> setting.</p></li>
+</ul>
+<div>
+<p>See also</p>
+<p>The <a href="../editing/transform.html">editing pages</a> for how to edit these properties.</p>
+</div>
+<dl id="bpy-types-bone-envelope-distance">
+<dt>Envelope Distance</dt><dd><p>The Distance defines a volume which is the range within the bone
+has an influence on vertices of the deformed object.
+The geometry is less and less affected by the bone as it goes away by following a quadratic decay.</p>
+<figure id="id4">
+<figcaption>
+<p>Single bone with various envelope sizes.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<dl id="bpy-types-bone-envelope-weight">
+<dt>Envelope Weight</dt><dd><p>A bone property, that controls the global influence of the bone over the deformed object,
+when using the envelopes method.</p>
+<p>It is only useful for the parts of geometry that are “shared”,
+influenced by more than one bone (generally, at the joints…) – a bone with a high weight will
+have more influence on the result than one with a low weight…
+Note that when set to 0.0, it has the same effect as disabling the <em>Deform</em> option.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bone-use-envelope-multiply">
+<dt>Envelope Multiply</dt><dd><p>This option controls how the two deforming methods interact, when they are both enabled.
+By default, when they are both active, all vertices belonging to at least one vertex group are only deformed
+through the vertex groups method. The other “orphan” vertices being handled by the envelopes one.
+When you enable this option, the “deformation influence” that this bone would have on a vertex
+(based from its envelope settings) is multiplied with this vertex’s weight in the corresponding vertex group.
+In other words, the vertex groups method is further “weighted” by the envelopes method.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bone-tail-radius">
+<dt>Radius Head, Tail</dt><dd><p>Set the radius for the head and the tail of envelope bones.
+Inside this volume, the geometry if fully affected by the bone.</p>
+<figure id="id5">
+<figcaption>
+<p>Three Armature Bones all using Envelope Weight.</p>
+<div>
+<p>The 1st with a default radius value, the two others with differing Tail and Head radius values.</p>
+</div>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

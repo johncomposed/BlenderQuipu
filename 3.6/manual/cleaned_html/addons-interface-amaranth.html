@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Interface &gt; Amaranth</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Interface</a></li>
+<li>Amaranth Toolset</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="amaranth-toolset">
+<h1>Amaranth Toolset</h1>
+<p>A collection of tools and settings to improve productivity.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Edit menu, Preferences, then Add-ons.</p></li>
+<li><p>Search for Amaranth, and activate the add-on.</p></li>
+</ul>
+</section>
+<section id="d-view">
+<h2>3D View</h2>
+<section id="set-camera-bounds-as-render-border">
+<h3>Set Camera Bounds as Render Border</h3>
+<p>When in camera view, we can now set the border-render to be the same size of the camera,
+so we don’t render outside the view. Makes faster render preview.</p>
+<p>Usage: Context menus (<kbd>RMB</kbd>) when in Camera View.</p>
+</section>
+<section id="select-meshlights">
+<h3>Select Meshlights</h3>
+<p>Select all the meshes that emit light.</p>
+<p>Usage: On the header of the 3D View, top of the select menu.</p>
+</section>
+<section id="adjust-passepartout">
+<h3>Adjust Passepartout</h3>
+<p>The passepartout value of local Cameras is now available via the context menu,
+while in Camera view.</p>
+<p>Usage: Context menus (<kbd>RMB</kbd>) when in Camera View.</p>
+</section>
+<section id="scene-cameras-and-meshlights-count">
+<h3>Scene, Cameras, and Meshlights Count</h3>
+<p>Add the number of scenes, cameras, and light emitting meshes to the stats in the Status Bar.</p>
+<p>Disabled by default as there has been reports of very minor slowdown on scenes with many hi-poly objects.
+Never experienced myself but just in case.</p>
+<p>Usage: Once enabled in the add-on preferences, it will appear in the Status Bar.</p>
+</section>
+<section id="wireframe-toggle">
+<h3>Wireframe Toggle</h3>
+<p>Enable or disable wireframe display on mesh objects.
+It even works on linked objects/scenes too, where this option is not accessible.</p>
+<p>“Display” will enable the wireframe, while “Clear” will disable it.</p>
+<p>Both using the following settings:</p>
+<dl>
+<dt>Draw All Edges</dt><dd><p>Display edges even on coplanar faces</p>
+</dd>
+<dt>Subdvision Optimal Display</dt><dd><p>Enable/Disable the “Optimal Display” option on Subdvision modifiers</p>
+</dd>
+<dt>Only Selected Objects</dt><dd><p>Only apply to the selected objects, otherwise apply to all.</p>
+</dd>
+<dt>All Scenes</dt><dd><p>Display wireframe on all the objects in all scenes.
+Handy when working with linked scenes, where it’s impossible to access the Wireframe option from the UI.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="render">
+<h2>Render</h2>
+<section id="ui-final-resolution">
+<h3>UI: Final Resolution</h3>
+<p>Display a <strong>Final Resolution</strong> label with the size in pixels of your render.
+It also displays the final size for border renders.</p>
+<p>Usage: Find it in the ‘Format’ panel, Render properties.</p>
+</section>
+<section id="cycles-set-samples-per">
+<h3>Cycles: Set Samples Per</h3>
+<p>A quick way to see and set the number of render samples on each Scene or ViewLayer.</p>
+<p>Usage: Find it in the Sampling panel, on Render properties.</p>
+</section>
+<section id="object-id-for-collection-instances">
+<h3>Object ID for Collection Instances</h3>
+<p>Override the Pass Index for all objects in the Collection.</p>
+<p>In order for the Pass Index to be loaded on computers without Amaranth installed,
+it will automatically create a text file (called AmaranthStartup.py) and save it inside the .blend,
+this will auto-run on startup and set the Pass Index. Remember to have auto-run Python scripts on your Preferences.</p>
+<p>Usage: Select an Instanced Collection and set a Pass Index (other than zero) and press “Apply Object ID to Duplis”
+in the Relations panel in Object Properties.</p>
+</section>
+</section>
+<section id="nodes-editor">
+<h2>Nodes Editor</h2>
+<section id="display-image-node-in-image-editor">
+<h3>Display Image Node in Image Editor</h3>
+<p>A quick way to view an image assigned to an Image node.</p>
+<p>Usage: Double-click an Image Node in the Nodes Editor (Compositor or Cycles),
+there must be at least 1 image editor available.</p>
+</section>
+<section id="node-templates-vignette">
+<h3>Node Templates: Vignette</h3>
+<p>Add a set of nodes to create a vignette effect attached to the selected node.</p>
+<dl>
+<dt>Vignette</dt><dd><p>Adjust the size and position of the vignette with the Ellipse Mask’s X/Y and width, height values.</p>
+</dd>
+</dl>
+<p>Usage: Find the templates in the Compositor’s header, “Template” drop-down. Or hit <kbd>W</kbd>.</p>
+</section>
+<section id="nodes-xyz-sliders-for-normal-node">
+<h3>Nodes: XYZ Sliders for Normal Node</h3>
+<p>Tweak the Normal node more accurately by using these sliders.</p>
+<p>Usage: Find it in the Properties panel, when selecting a Normal node.</p>
+</section>
+<section id="object-material-indices-panel">
+<h3>Object / Material Indices Panel</h3>
+<p>When working with ID Masks in the Nodes Editor,
+it’s hard to follow track of which Objects/Materials have which Pass Index.</p>
+<p>This adds a panel on the sidebar when an ID Mask node is selected.
+The active object is highlighted between [square brackets]</p>
+<p>Usage: On the Nodes Editor’s sidebar, when an ID Mask node is selected.</p>
+</section>
+<section id="shaders-extra-info">
+<h3>Shaders Extra Info</h3>
+<p>Display the name and type of the current object. It works on Materials and Lights.</p>
+<p>Usage: Find it in the Node Editor’s header.</p>
+</section>
+<section id="nodes-stats">
+<h3>Nodes Stats</h3>
+<p>Display the number of selected and total nodes on the compositor.</p>
+<p>Usage: Find it in the Compositing Nodes Editor.</p>
+</section>
+<section id="nodes-simplify-panel">
+<h3>Nodes Simplify Panel</h3>
+<p>Disable/Enable certain nodes at a time. Useful to quickly “simplify” compositing.</p>
+<p>This feature is a work in progress, the main issue now is when switching many different kinds one after the other.</p>
+<p>Experimental feature.</p>
+<p>Usage: Find it in the Nodes Editor sidebar (<kbd>N</kbd>).</p>
+</section>
+</section>
+<section id="animation">
+<h2>Animation</h2>
+<section id="jump-n-frames">
+<h3>Jump N Frames</h3>
+<p>Press <kbd><kbd>Shift</kbd>-<kbd>Up</kbd></kbd> or <kbd><kbd>Shift</kbd>-<kbd>Down</kbd></kbd> to jump forward/backwards a custom number of frames.</p>
+<p>Useful for example when animating at 12 frames per second, to be able to jump every 1 second with a shortcut.
+Make sure to save the preferences so this value is stored and used in the future.</p>
+<p>Usage: Find it in Preferences, Animation section, Timeline panel.</p>
+</section>
+<section id="current-frame-slider">
+<h3>Current Frame Slider</h3>
+<p>Currently the only way to change the current frame is to have a Timeline editor open,
+but sometimes you don’t have one, or you’re fullscreen.
+This feature adds the <cite>Current Frame</cite> slider to the context menu.</p>
+<p>Usage: Find it in the <kbd>RMB</kbd> (context or <kbd>W</kbd>
+in right-click select keymap) menu in Object mode or Pose mode,
+click-drag sideways or click in the middle to set the frame manually.</p>
+</section>
+<section id="bone-motion-paths-match-frame-range-clear-all-paths">
+<h3>Bone Motion Paths: Match Frame Range + Clear All Paths</h3>
+<dl>
+<dt>Clear All Paths</dt><dd><p>Simple operator to loop through all bones and clear their paths, useful when having hidden bones
+(otherwise you have to go through each one of them and clear manually)</p>
+</dd>
+<dt>Match Current Frame Range</dt><dd><p>Set the current frame range as motion path range.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="scene">
+<h2>Scene</h2>
+<section id="save-reload-file">
+<h3>Save &amp; Reload File</h3>
+<p>When working with linked libraries, very often you need to save and load again to see the changes.</p>
+<p>Note: Since this feature is meant to speed-up the save/reload process, there is no prompt on save.</p>
+<p>Usage: Press <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>W</kbd></kbd> or find it at the bottom of the File menu</p>
+</section>
+<section id="refresh-scene">
+<h3>Refresh Scene</h3>
+<p>Refresh the current scene, useful when working with libraries or drivers.</p>
+<p>Usage: Press <kbd>F5</kbd> or find it in the context menu <kbd>W</kbd></p>
+</section>
+</section>
+<section id="debug">
+<h2>Debug</h2>
+<section id="list-missing-images">
+<h3>List Missing Images</h3>
+<p>Display a list of missing images (that is, images that can’t be found) Under a collapsible list.</p>
+<p>Display the image name and its path, if the image is coming from a linked .blend, display the path to it.</p>
+<p>Clicking on the .blend library path (Blender icon) will open the file in a new Blender instance.</p>
+<p>Usage: Find it in the Scene Debug panel, under Scene Properties.</p>
+</section>
+<section id="list-missing-node-links">
+<h3>List Missing Node Links</h3>
+<p>Operator to look for empty image nodes, or missing images in nodes.</p>
+<p>The “List Missing Node Links” button will print:
+* Node Groups that were linked but are now “Missing Datablock”
+* Image Nodes pointing to a non-existent image
+* Image Nodes that don’t have any output connected</p>
+<p>Additionally, it will print in the terminal a list of all the Materials that meet any of the missing cases above,
+the object they belong to, and their path (if they’re coming from a Library).</p>
+<p>Usage: Find it in the Scene Debug panel, on Scene Properties.</p>
+</section>
+<section id="list-empty-material-slots">
+<h3>List Empty Material Slots</h3>
+<p>Having empty material slots with no material assigned to it is rare, but can happen.
+Sometimes because the material was linked and the link got lost.</p>
+<p>The “List Empty Material Slots” button will print a list of all the objects that have empty material slots.</p>
+<p>If the objects are linked, it will show a list of the libraries paths,
+click on them to open a new Blender instance with that library.</p>
+<p>Usage: Find it in the Scene Debug panel, on Scene Properties.</p>
+</section>
+<section id="list-cycles-material-using-x-shader">
+<h3>List Cycles Material using X shader</h3>
+<p>Where X is any shader type you want. It will display (and print on console) a list of all the materials containing
+the shader you specified above.</p>
+<p>Good for finding out if there’s any meshlight (Emission) material hidden somewhere,
+or if there are many glossy shaders making things noisy.</p>
+</section>
+<section id="lighter-s-corner">
+<h3>Lighter’s Corner</h3>
+<p>A list of all the lights in the scene, including meshlights (meshes that have a Material with Emission shader).</p>
+<p>From this list it is possible to adjust Ray Visibility (Camera, Diffuse, Glossy, Shadow) and renderability.</p>
+<p>Usage: Find it in the Lighter’s Corner panel, on Scene Properties.</p>
+</section>
+</section>
+<section id="file-browser">
+<h2>File Browser</h2>
+<section id="go-to-current-blend-s-folder">
+<h3>Go to Current Blend’s Folder</h3>
+<p>A quick way to go to the currently open blend’s directory.</p>
+</section>
+<section id="libraries-bookmark">
+<h3>Libraries Bookmark</h3>
+<p>The “Libraries” panel in the File Browser displays the path to all the libraries linked to that .blend.
+That way you can quickly go to the folders related to the file.</p>
+<p>Usage: Find it in the <strong>Libraries</strong> panel in File Browser. Click on any path to go to that directory.</p>
+</section>
+</section>
+<section id="timeline">
+<h2>Timeline</h2>
+<section id="timeline-extra-info">
+<h3>Timeline Extra Info</h3>
+<p>Display amount of frames left until Frame End, very handy especially when rendering an animation or OpenGL preview.</p>
+<p>Display current/end time in <a href="https://en.wikipedia.org/wiki/SMPTE_timecode">SMPTE</a>.</p>
+<p>Usage: Find it in the Timeline Editor’s header.</p>
+</section>
+</section>
+<section id="modeling">
+<h2>Modeling</h2>
+<section id="symmetry-tools">
+<h3>Symmetry Tools</h3>
+<p>Two operators to help making a mesh symmetric.</p>
+<dl>
+<dt>Find Asymmetric</dt><dd><p>Selects vertices whose position doesn’t match the opposite side.</p>
+</dd>
+<dt>Make Symmetric</dt><dd><p>Move selected vertices to match the position of those on the other side.</p>
+</dd>
+</dl>
+<p>Usage: Search (<kbd>Spacebar</kbd>) for <strong>Find Asymmetric</strong>, and <strong>Make Symmetric</strong> operators.</p>
+</section>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous</h2>
+<section id="color-management-presets">
+<h3>Color Management Presets</h3>
+<p>Save your Color Management options as presets, for easy re-use.</p>
+<p>Store most options in the Color Management panel, such as the look and color settings.
+Storing curve points is not supported yet.</p>
+<p>Usage: Find the presets selector on the top of the <strong>Color Management</strong> panel under Render Properties.</p>
+</section>
+<section id="instancing-show-path-of-libraries">
+<h3>Instancing: Show Path of Libraries</h3>
+<p>Display the library path of a linked Collection Instance.
+Click on the path to open that .blend file in a new Blender instance.</p>
+<p>Usage: Find it in the <strong>Instancing</strong> panel, when a Collection Instance (linked) is active.</p>
+</section>
+<section id="sequencer-display-image-file-name">
+<h3>Sequencer: Display Image File Name</h3>
+<p>When seeking through an image sequence, display the active strips’
+file name for the current frame, and its playhead (in square brackets).</p>
+<p>Usage: Find it in the VSE header.</p>
+</section>
+<section id="exr-render-warn-when-z-not-connected">
+<h3>EXR Render: Warn when Z not connected</h3>
+<p>Display a warning label when exporting EXR, with Z Buffer enabled,
+but the Z input in the <strong>Composite</strong> node is not connected.</p>
+<p>Usage: Find it in the Output panel, Render properties.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Interface</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>A collection of tools and settings to improve productivity.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Everywhere</p>
+</dd>
+<dt>File:</dt>
+<dd><p>amaranth folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Pablo Vazquez (pablovazquez)</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>Pablo Vazquez (pablovazquez)</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

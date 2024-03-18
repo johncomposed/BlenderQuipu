@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Workbench &gt; Sampling</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Workbench</a></li>
+<li>Sampling</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sampling">
+<h1>Sampling</h1>
+<p>The quality of the renders can be adjusted by changing the <a href="../../glossary/index.html#term-Anti-Aliasing">Anti-Aliasing</a> method.
+A different one can be selected for the 3D Viewport, viewport rendering and
+for final rendering.</p>
+<p>The setting for the 3D Viewport is a user preference to specify the anti-aliasing method
+that runs best on the used system. The setting for viewport rendering
+and final rendering is saved per scene.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Sampling
+Preferences ‣ Viewport</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>No Anti-Aliasing</dt><dd><p>With this option selected no anti-aliasing will be applied.</p>
+</dd>
+<dt>Single Pass Anti-Aliasing</dt><dd><p>Scene will be rendered with a post-process anti-aliasing pass.</p>
+</dd>
+<dt>Multisample</dt><dd><p>The scene will be rendered multiple times with a slight offset.
+The anti-aliasing will be gathered from the multiple renders.
+The number of samples are predefined so it uses the best distribution of the samples.</p>
+<p>5, 8, 11, 16, 32</p>
+<div>
+<p>Tip</p>
+<p>Multisample anti-aliasing is well suited for rendering small details like hair.</p>
+</div>
+<p><em>Progressive Viewport Rendering</em></p>
+<p>For the 3D Viewport, one sample is rendered at a time. When there are no changes
+to the scene or viewport the next sample will be rendered.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

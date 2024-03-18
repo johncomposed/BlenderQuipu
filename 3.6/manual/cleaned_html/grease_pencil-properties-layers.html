@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Properties &gt; Layers</title></head>
+<body><ul>
+<li><a href="../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Layers</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="layers">
+<h1>Layers</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Object Data tab ‣ Layers</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Y</kbd></p>
+</dd>
+</dl>
+</div>
+<section id="layers-list">
+<h2>Layers List</h2>
+<figure id="id2">
+<figcaption>
+<p>Grease Pencil Layers panel.</p>
+</figcaption>
+</figure>
+<p>Grease Pencil objects each have a list of 2D layers for grouping and arranging strokes
+in a <a href="../../interface/controls/templates/list_view.html#ui-list-view">List view</a>. Any stroke can only belong to a single 2D layer.
+There is always only one active layer in the list (the selected one).
+When you draw, the new strokes are added to the active layer.
+By default the view order of the layers in the viewport is top to bottom.</p>
+<p>Every layer correspond to a channel in the Dope Sheet editor (in Grease Pencil mode).
+See <a href="../../editors/dope_sheet/grease_pencil.html">Dope Sheet</a> for more information.</p>
+<p>Layers can also be used together with Modifiers to only affects part of your drawing.
+See <a href="../modifiers/introduction.html">Modifiers</a> for more information.</p>
+<div>
+<p>Tip</p>
+<p>Sometimes the layers you are not working on can be a distraction.
+Activate <em>Fade Inactive Layers</em> in overlays to control the opacity of the non-active layers.
+See <a href="../../editors/3dview/display/overlays.html">Overlays</a> for more information.</p>
+</div>
+<p>Next to the layer name there are four icons buttons that control common properties of the layer:</p>
+<dl id="bpy-types-gpencillayer-use-mask-layer">
+<dt>Use Mask (mask icon)</dt><dd><p>Toggle the affect of <a href="masks.html">Masks</a> on the layer.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-use-onion-skinning">
+<dt>Onion Skinning (onion skin icon)</dt><dd><p>Toggle using the layer for <a href="onion_skinning.html">Onion Skinning</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-hide">
+<dt>Hide (eye icon)</dt><dd><p>Toggle layer visibility in the viewport and in render.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-lock">
+<dt>Lock (padlock icon)</dt><dd><p>Toggle layer from being editable.</p>
+</dd>
+</dl>
+<dl>
+<dt>Layer Specials</dt><dd><p>Operators for working with layers.</p>
+<dl id="bpy-ops-gpencil-layer-duplicate">
+<dt>Duplicate Layer</dt><dd><p>Makes an exact copy of the selected layer appending a number to differentiate its name.</p>
+</dd>
+<dt>Duplicate Empty Keyframes</dt><dd><p>Makes a copy of the selected layer but with empty keyframes.
+Useful to easily have empty keyframes preset to work on the cleanup or filling process.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-gpencil-reveal">
+<dt>Show All</dt><dd><p>Turns on the visibility of every layer in the list.</p>
+</dd>
+<dt>Hide Others</dt><dd><p>Turns off the visibility of every layer in the list except the active one.</p>
+</dd>
+<dt>Lock All</dt><dd><p>Locks edition of all the layers in the list.</p>
+</dd>
+<dt>Unlock All</dt><dd><p>Unlocks edition of all the layers in the list.</p>
+</dd>
+<dt>Autolock Inactive Layer</dt><dd><p>Locks automatically the edition of every layer in the list except the active one.
+This way you avoid to make unwanted changes in other layers without the need to lock them every time.</p>
+</dd>
+<dt>Disallow Locked Materials Editing</dt><dd><p>Avoids editing locked materials in the layer. When disabled,
+any material can be edited even if they are locked in the material list.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-gpencil-layer-merge">
+<dt>Merge Down <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></dt><dd><p>Combine the selected layer with the layer below, the new layer keeps the name of the lower layer.</p>
+</dd>
+<dt>Merge All</dt><dd><p>Combine all layers into the active layer.</p>
+</dd>
+<dt>Copy Layer to Selected</dt><dd><p>Copy the active layer to the selected Grease Pencil object.</p>
+</dd>
+<dt>Copy All Layers to Selected</dt><dd><p>Copy all layers to the selected Grease Pencil object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-gpencil-layer-isolate">
+<dt>Visibility (screen icon)</dt><dd><p>Toggle whether the active layer is the only one that can be edited and is visible.</p>
+</dd>
+<dt>Isolate Lock (padlock icon)</dt><dd><p>Toggle whether the active layer is the only one that can be edited.</p>
+</dd>
+</dl>
+<p>Below the layers list there are additional common settings:</p>
+<dl id="bpy-types-gpencillayer-blend-mode">
+<dt>Blend</dt><dd><p>The layer blending operation to perform. See <a href="../../glossary/index.html#term-Color-Blend-Modes">Color Blend Modes</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-opacity">
+<dt>Opacity</dt><dd><p>Used to set the opacity of the layer.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-use-lights">
+<dt>Use Lights</dt><dd><p>When enabled, the layer is affected by lights.</p>
+</dd>
+</dl>
+</section>
+<section id="masks">
+<h2>Masks</h2>
+<p>In a <a href="../../interface/controls/templates/list_view.html#ui-list-view">List view</a> of layers affected by a layer mask.
+See <a href="masks.html">Masks</a> for more information.</p>
+</section>
+<section id="transform">
+<h2>Transform</h2>
+<p>Allows per-layer location, rotation and scale transformations.</p>
+</section>
+<section id="adjustments">
+<h2>Adjustments</h2>
+<figure id="id3">
+<figcaption>
+<p>Layers adjustment panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-gpencillayer-tint-color">
+<dt>Tint Color</dt><dd><p>Color that tint any material colors used in the layer.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-tint-factor">
+<dt>Factor</dt><dd><p>Controls the amount of tint color to apply.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-line-change">
+<dt>Stroke Thickness</dt><dd><p>Thickness value that override the strokes thickness in the layer.</p>
+</dd>
+</dl>
+</section>
+<section id="relations">
+<h2>Relations</h2>
+<dl id="bpy-types-gpencillayer-parent-type">
+<dt>Parent/Type</dt><dd><p>Select a Parent object and Type to manipulate the layer.
+The layer will inherit the transformations of the parent,
+this is especially useful when rigging for cut-out animation.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-pass-index">
+<dt>Pass Index</dt><dd><p>The layer index number can be used with some modifiers to restrict changes to only certain areas.</p>
+<p>See <a href="../modifiers/introduction.html">Modifiers</a> for more information.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-viewlayer-render">
+<dt>View Layer</dt><dd><p>Defines the View Layer to use for the Grease Pencil layer.
+If empty, the layer will be included in all View Layers.
+This is useful to separate drawings parts for <a href="../../compositing/introduction.html">compositing</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-use-viewlayer-masks">
+<dt>Disable Masks in Render</dt><dd><p>If enabled no masks on the layer are included in the view layer render.</p>
+</dd>
+</dl>
+</section>
+<section id="display">
+<h2>Display</h2>
+<dl id="bpy-types-gpencillayer-channel-color">
+<dt>Custom Channel Color</dt><dd><p>Sets the color to use in the channel region of the <a href="../../editors/dope_sheet/grease_pencil.html">Dope Sheet</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencillayer-use-solo-mode">
+<dt>Show Only On Keyframed</dt><dd><p>Makes the layer visible in the viewport only if it has a keyframe in the actual frame.
+This helps for example when you are in the inking process using the <em>Fill</em> tool and want to only see
+the strokes that are in the actual frame to avoid fill in unwanted regions.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

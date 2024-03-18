@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Texture &gt; White Noise</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Texture Nodes</a></li>
+<li>White Noise Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="white-noise-texture-node">
+<h1>White Noise Texture Node</h1>
+<div>
+<p>Note</p>
+<p>This node is ported from shader nodes. The manual and images are
+referencing the shader version of the node.
+This node accepts field inputs and outputs.
+When not connected the Vector input has an implicit <code>position</code> attribute value.</p>
+</div>
+<p>The <em>White Noise Texture</em> node returns a random number based on an input <a href="../../../glossary/index.html#term-Seed">Seed</a>.
+The seed can be a number, a 2D vector, a 3D vector, or a 4D vector; depending on the <em>Dimensions</em> property.
+The output number ranges between zero and one.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>The inputs are dynamic, they become available if needed depending on the node properties.</p>
+<dl>
+<dt>Vector</dt><dd><p>Vector used as seed in 2D, 3D, and 4D dimensions.</p>
+</dd>
+<dt>W</dt><dd><p>Value used as seed in 1D and 4D dimensions.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Dimensions</dt><dd><p>The dimensions of the space to evaluate the noise in.</p>
+<dl>
+<dt>1D:</dt>
+<dd><p>The <em>W</em> input is used as seed.</p>
+</dd>
+<dt>2D:</dt>
+<dd><p>The X and Y components of the <em>Vector</em> input are used as seed.</p>
+</dd>
+<dt>3D:</dt>
+<dd><p>The <em>Vector</em> input is used as seed.</p>
+</dd>
+<dt>4D:</dt>
+<dd><p>Both the <em>Vector</em> input and the <em>W</em> input are used as seed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>Output random value.</p>
+</dd>
+<dt>Color</dt><dd><p>Output random color.</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h2>Notes</h2>
+<p>The slightest difference in seed values would result in completely different outputs.
+Consequently, bad precision may have significant impact on the output.
+Usually, we can mitigate this issue by:</p>
+<ul>
+<li><p>Eliminating the problematic seed value. If the problematic seed value is constant,
+it should be eliminated by choosing a lower dimension or multiplying it by zero.</p></li>
+<li><p>Adding an arbitrary value to the seed. The issue might only happen at certain boundaries,
+like unit boundaries, so simply adding an arbitrary value might solve the issue.</p></li>
+<li><p>Taking the absolute value of the seed. In computing, zero may be positive or negative,
+so taking the absolute values unifies the zero into a single value.</p></li>
+</ul>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Precision issue due to signed zeros on the Z axis.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Mitigating the issue by eliminating the Z axis.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Mitigating the issue by adding an arbitrary value.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Mitigating the issue by taking the absolute value.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id5">
+<figcaption>
+<p>Generating cell noise using the Snap vector operation and the White Noise node.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

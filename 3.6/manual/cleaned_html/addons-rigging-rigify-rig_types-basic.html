@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Rigging &gt; Rigify &gt; Rig Types &gt; Basic</title></head>
+<body><ul>
+<li><a href="../../../index.html">Add-ons</a></li>
+<li><a href="../../index.html">Rigging</a></li>
+<li><a href="../index.html">Rigify</a></li>
+<li><a href="index.html">Rig Types</a></li>
+<li>Basic</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="basic">
+<h1>Basic</h1>
+<p>These rig types are used to generate simple single-bone features,
+and for custom rigging done directly in the meta-rig.</p>
+<p>The single-bone rig types must be applied separately to every bone even within a connected chain,
+and can have connected children controlled by a different rig type.
+This is unlike chain-based rig types that usually consume the whole connected chain.</p>
+<section id="basic-copy-chain">
+<h2><code>basic.copy_chain</code></h2>
+<p>Copies the bone chain keeping all the parent relations within the chain untouched.
+Useful as a utility rig type for custom rigs.</p>
+<p>Requirement: A chain of at least two connected bones.</p>
+<dl>
+<dt>Control (Boolean)</dt><dd><p>When enabled control bones and widgets will be created.</p>
+</dd>
+<dt>Deform (Boolean)</dt><dd><p>When enabled deform bones will be created.</p>
+</dd>
+</dl>
+</section>
+<section id="basic-pivot">
+<h2><code>basic.pivot</code></h2>
+<p>Single-bone rig type that creates a ‘custom pivot’ control for rotating and scaling its child sub-rigs.</p>
+<p>This type of control transforms its children when rotated or scaled, while moving it
+merely changes the pivot point used by rotation or scaling.</p>
+<dl>
+<dt>Master Control</dt><dd><p>When enabled an extra parent control bone with a box widget is created to allow moving the rig.
+It is also required by all other options besides <em>Deform Bone</em>.</p>
+</dd>
+<dt>Widget Type</dt><dd><p>Allows selecting one of the predefined widgets to generate for the master control instead of the default cube.</p>
+</dd>
+<dt>Switchable Parent</dt><dd><p>Generates a mechanism for switching the effective parent of the rig based on the value of a custom property.</p>
+</dd>
+<dt>Register Parent</dt><dd><p>Registers the rig as a potential parent scope for its child sub-rigs’ parent switches.</p>
+<dl>
+<dt>Tags</dt><dd><p>Specifies additional comma-separated tag keywords for the registered parent scope.
+They can be used by other rigs to filter parent choices, or for selecting the default parent.</p>
+<p>Some of the existing tags that are useful here:</p>
+<dl>
+<dt><code>injected</code> (special)</dt><dd><p>The parent scope will be made available for all children of the <em>parent</em> sub-rig,
+rather than just this rig’s children.</p>
+</dd>
+<dt><code>held_object</code></dt><dd><p>A control for the object held in the character’s hand. Preferred by finger IK.</p>
+<p>The <code>injected,held_object</code> combination is perfect for such a control.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Pivot Control</dt><dd><p>Disabling this avoids generating the actual custom pivot control, effectively turning this rig type
+into a version of <a href="#basic-super-copy">basic.super_copy</a> with parent switching support and a different widget.</p>
+</dd>
+<dt>Deform Bone</dt><dd><p>When enabled a deform bone will be created.</p>
+</dd>
+</dl>
+</section>
+<section id="basic-raw-copy">
+<h2><code>basic.raw_copy</code></h2>
+<p>Single-bone rig type that copies the bone without the <code>ORG-</code> name prefix.</p>
+<p>Normally all bones copied from the meta-rig are prefixed with <code>ORG-</code> and placed on an invisible layer.
+This precludes their use as controls or deforming bones, which makes it difficult to transfer complex
+fully custom rigging verbatim from the meta-rig.</p>
+<p>This rig type does not add the automatic prefix, thus allowing an appropriate <code>ORG-</code>, <code>MCH-</code> or <code>DEF-</code>
+prefix to be manually included in the meta-rig bone name, or alternatively using no prefix to create
+a control bone.</p>
+<dl>
+<dt>Relink Constraints</dt><dd><p>Allows retargeting constraints belonging to the bone to point at bones created in the process
+of generating the rig, thus allowing custom rigging to integrate with generated bones.</p>
+<p>To use this feature, add <code>@</code> and the intended target bone name to the constraint name, resulting
+in the <code>...@bone_name</code> syntax. After all bones of the rig are generated, the constraint target
+bone will be replaced. If the new bone name is just <code>CTRL</code>, <code>MCH</code> or <code>DEF</code>, this will just
+replace the <code>ORG</code> prefix in the existing target bone name. For the Armature constraint you can add
+a <code>@</code> suffix for each target, or just one <code>@CTRL</code>, <code>@MCH</code> or <code>@DEF</code> suffix to update all.</p>
+<dl>
+<dt>Parent</dt><dd><p>If the field is not empty, applies the same name substitution logic to the parent of the bone.</p>
+</dd>
+</dl>
+<p>When this feature is enabled, the bone will not be automatically parented to the root bone even
+if it has no parent; enter <code>root</code> in the <em>Parent</em> field if that is necessary.</p>
+</dd>
+</dl>
+</section>
+<section id="basic-super-copy">
+<h2><code>basic.super_copy</code></h2>
+<p>Single-bone rig type that simply copies the bone. Useful as utility rig type for
+adding custom features or specific deform bones to your rigs.</p>
+<dl>
+<dt>Control (Boolean)</dt><dd><p>When enabled a control bone and widget will be created.</p>
+</dd>
+<dt>Widget (Boolean)</dt><dd><p>When enabled a widget will be created in replacement to the standard.</p>
+</dd>
+<dt>Widget Type (String):</dt><dd><p>Allows selecting one of the predefined widget types to generate instead of the default circle.</p>
+</dd>
+<dt>Deform (Boolean)</dt><dd><p>When enabled a deform bone will be created.</p>
+</dd>
+<dt>Relink Constraints</dt><dd><p>Works the same as in the <a href="#basic-raw-copy">basic.raw_copy</a> rig. In addition, when enabled any constraints that have
+names prefixed with <code>CTRL:</code> are moved to the control, and with <code>DEF:</code> to the deform bone.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Scripting &gt; Security</title></head>
+<body><ul>
+<li><a href="../index.html">Advanced</a></li>
+<li><a href="index.html">Scripting &amp; Extending Blender</a></li>
+<li>Scripting &amp; Security</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="scripting-security">
+<h1>Scripting &amp; Security</h1>
+<p>The ability to include Python scripts within blend-files is valuable for advanced tasks
+such as rigging and automation. However, it poses a security risk since
+Python does not restrict what a script can do.
+Therefore, you should only run scripts from sources you know and trust.
+Automatic execution is disabled by default;
+however, some blend-files need this to function properly.</p>
+<p>When a blend-file tries to execute a script and is not allowed, a dialog will appear.
+In it, you can choose to <em>Allow Execution</em> or to <em>Ignore</em> the scripts.</p>
+<figure id="id1">
+<figcaption>
+<p>An Auto-run warning in the Info editor’s header.</p>
+</figcaption>
+</figure>
+<section id="scripts-in-blend-files">
+<h2>Scripts in Blend-Files</h2>
+<section id="auto-execution">
+<h3>Auto Execution</h3>
+<p>Here are the different ways blend-files may automatically run scripts.</p>
+<dl>
+<dt>Registered Text-Blocks</dt><dd><p>A text data-block can have its <em>Register</em> option enabled which means it will load on start.</p>
+</dd>
+<dt>Animation Drivers</dt><dd><p>Python expressions can be used to <em>Drive</em> values and are often used in more advanced rigs and animations.</p>
+</dd>
+</dl>
+</section>
+<section id="manual-execution">
+<h3>Manual Execution</h3>
+<p>There are other ways scripts in a blend-file may execute that require user
+interaction (therefore will run even when auto execution is off),
+but you should be aware that this is the case since it is not necessarily obvious.</p>
+<ul>
+<li><p>Running a script in the Text editor.</p></li>
+<li><p>Rendering with Freestyle, because Freestyle uses scripts to control line styles.</p></li>
+</ul>
+</section>
+</section>
+<section id="controlling-script-execution">
+<h2>Controlling Script Execution</h2>
+<p>Blender provides a number of ways to control whether scripts
+from a blend-file are allowed to automatically execute.</p>
+<p>First, the File Browser has the option <strong>Trusted Source</strong> which you can use on
+a case-by-case basis to control auto execution.
+Since you may forget to set this,
+or may open a file without going through the File Browser,
+you can change the default (described next).</p>
+<section id="setting-defaults">
+<h3>Setting Defaults</h3>
+<p>In the Preferences, there is the toggle to <a href="../../editors/preferences/save_load.html#prefs-auto-execution">Auto Run Python Scripts</a>.
+This means the <strong>Trusted Source</strong> option in the File Browser will be enabled by default,
+and scripts can run when blend-files are loaded without using the File Browser.
+Once enabled you have the option to exclude certain directories;
+a typical configuration would be to trust all paths except for the download directory.</p>
+<figure id="id2">
+<figcaption>
+<p>The Auto Run Python Scripts checkbox.</p>
+</figcaption>
+</figure>
+</section>
+<section id="command-line">
+<h3>Command Line</h3>
+<p>You may want to perform batch rendering or some other task from the command line,
+running Blender without an interface.
+In this case, the Preferences are still used but you may want to override them:</p>
+<ul>
+<li><p>Enable with <code>-y</code> or <code>--enable-autoexec</code></p></li>
+<li><p>Disable with <code>-Y</code> or <code>--disable-autoexec</code></p></li>
+</ul>
+<section id="example">
+<h4>Example</h4>
+<p>To render an animation in background mode, allowing drivers and other scripts to run:</p>
+<div><div><pre>blender --background --enable-autoexec my_movie.blend --render-anim
+</pre></div>
+</div>
+<div>
+<p>Note</p>
+<p>These command-line arguments can be used to start a regular Blender instance and
+will still override the Preferences.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

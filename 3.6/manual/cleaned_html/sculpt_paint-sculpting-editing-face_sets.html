@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Editing &gt; Face Sets</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Face Sets</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="face-sets">
+<h1>Face Sets</h1>
+<p>This page details the face set related hotkey operators and menu operators in sculpt mode.</p>
+<section id="face-set-from-masked">
+<h2>Face Set from Masked</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Face Set from Masked</p>
+</dd>
+</dl>
+</div>
+<p>Creates a new face set from <a href="mask.html#sculpt-mask-menu">Masked Geometry</a>.</p>
+</section>
+<section id="face-set-from-visible">
+<h2>Face Set from Visible</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Face Set from Visible</p>
+</dd>
+</dl>
+</div>
+<p>Creates a new face set from all visible geometry.</p>
+</section>
+<section id="face-set-from-edit-mode-selection">
+<h2>Face Set from Edit Mode Selection</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Face Set from Edit Mode Selection</p>
+</dd>
+</dl>
+</div>
+<p>Creates a new face set corresponding to the Edit Mode face selection.</p>
+</section>
+<section id="initialize-face-sets">
+<h2>Initialize Face Sets</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Initialize Face Sets</p>
+</dd>
+</dl>
+</div>
+<p>Initializes all face sets on the mesh at once based off one of several mesh attribute properties.</p>
+<dl>
+<dt>Mode</dt><dd><p>The mesh data attribute used to define the boundaries for the face sets.</p>
+<dl>
+<dt>By Loose Parts</dt><dd><p>Creates a new face set per discontinuous part of the mesh.</p>
+</dd>
+<dt>By Face Set Boundaries</dt><dd><p>Creates a face set for each isolated face set.
+This mode is useful for splitting the patterns created by <a href="expand.html#face-set-expand">Face Set Expand</a>
+into individual Face Sets for further editing.</p>
+</dd>
+<dt>By Materials</dt><dd><p>Creates a face set per <a href="../../../render/materials/assignment.html#bpy-types-materialslot">Material Slot</a>.</p>
+</dd>
+<dt>By Normals</dt><dd><p>Creates face sets for Faces that have similar <a href="../../../modeling/meshes/structure.html#modeling-meshes-structure-normals">Normals</a>.</p>
+</dd>
+<dt>By UV Seams</dt><dd><p>Creates face sets using <a href="../../../modeling/meshes/uv/unwrapping/seams.html">UV Seams</a> as boundaries.</p>
+</dd>
+<dt>By Edge Creases</dt><dd><p>Creates face sets using <a href="../../../modeling/meshes/editing/edge/edge_data.html#bpy-ops-transform-edge-crease">Edge Creases</a> as boundaries.</p>
+</dd>
+<dt>By Edge Bevel Weight</dt><dd><p>Creates face sets using <a href="../../../modeling/meshes/editing/edge/edge_data.html#bpy-ops-transform-edge-bevelweight">Bevel Weights</a> as boundaries.</p>
+</dd>
+<dt>By Sharp Edges</dt><dd><p>Creates face sets using <a href="../../../modeling/meshes/editing/edge/edge_data.html#bpy-ops-mesh-mark-sharp">Sharp Edges</a> as boundaries.</p>
+</dd>
+<dt>By Face Maps</dt><dd><p>Creates a face set per <a href="../../../modeling/meshes/properties/object_data.html#bpy-types-facemaps">Face Map</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Threshold</dt><dd><p>The minimum value to consider a certain attribute a boundary when creating the face sets.</p>
+</dd>
+</dl>
+</section>
+<section id="grow-shrink-face-sets">
+<h2>Grow/Shrink Face Sets</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Grow/Shrink Face Sets</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p><a href="../tools/edit_face_set.html">Edit Face Set</a></p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>W</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>W</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expands or contracts the face set under the cursor by adding or removing surrounding faces.</p>
+</section>
+<section id="expand-face-set">
+<h2>Expand Face Set</h2>
+<div>
+<p>Note</p>
+<p>More info on Face Set Expand at the <a href="expand.html#bpy-ops-sculpt-expand">Expand page</a>.</p>
+</div>
+</section>
+<section id="extract-face-set">
+<h2>Extract Face Set</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Extract Face Set</p>
+</dd>
+</dl>
+</div>
+<p>Creates a new mesh based on the selected face set.
+Once the operator is initiated, hover over the face set and <kbd>LMB</kbd> to create the new mesh.
+After the operator is finished the new mesh will be selected in Object Mode.</p>
+</section>
+<section id="invert-visible-face-sets">
+<h2>Invert Visible Face Sets</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Invert Visible Face Sets</p>
+</dd>
+</dl>
+</div>
+<p>Hides all geometry that is part of a face set and makes all hidden geometry that is part of a face set visible.</p>
+</section>
+<section id="show-all-face-sets">
+<h2>Show All Face Sets</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Show All Face Sets</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Shows all hidden geometry that is part of a face set.</p>
+</section>
+<section id="randomize-colors">
+<h2>Randomize Colors</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Randomize Colors</p>
+</dd>
+</dl>
+</div>
+<p>Generates a new set of random colors to render the face sets in the 3D Viewport.</p>
+</section>
+<section id="display-settings">
+<h2>Display Settings</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Popover:</dt>
+<dd><p>Viewport Overlays – Sculpt ‣ Face Sets</p>
+</dd>
+</dl>
+</div>
+<p>The face sets display can be toggled as a <a href="../../../editors/3dview/display/overlays.html">viewport overlay</a>.
+In the overlay popover, the opacity of the face sets overlay can be adjusted to make it more or less visible on the
+mesh.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Rigid Body &gt; Tips</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Rigid Body</a></li>
+<li>Tips</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="tips">
+<h1>Tips</h1>
+<p>As with all physics-enabled objects, pay close attention to the <em>Animated</em> checkbox
+in the <em>Rigid Body</em> panel of the <em>Physics</em> tab in the Properties.
+A common mistake is to use keyframe animation on a <em>Passive</em> physics
+object without checking the <em>Animated</em> box. The object will move,
+but the physics engine will behave as if the <em>Passive</em> is still in its starting place, leading to disappointment.</p>
+<section id="animation">
+<h2>Animation</h2>
+<p>The most common trick is to
+<a href="../../glossary/index.html#term-Keyframe">Keyframe</a> animate the location or rotation of an <em>Active</em> physics object as well as
+the <em>Animated</em> checkbox.
+When the curve on the <em>Animated</em> property switches to disabled, the physics engine takes over
+using the object’s last known location, rotation and velocities.</p>
+<p>Animating the strengths of various other parameters
+(a <a href="constraints/types/motor.html">Motor’s</a> Target Velocity,
+a <a href="constraints/types/hinge.html">Hinge’s</a> limits, etc.)
+can be used to accomplish a wide variety of interesting results.</p>
+<p>Enabling a constraint during the physics simulation often has dramatic results
+as the physics engine tries to bring into alignment two objects which are often dramatically out of alignment.
+It is very common for the affected objects to build up enough kinetic energy to bounce themselves out of camera.</p>
+<p>Rigid body dynamics can be baked to normal keyframes with <em>Bake To Keyframes</em>
+in the Object ‣ Rigid Body menu.</p>
+</section>
+<section id="simulation-stability">
+<h2>Simulation Stability</h2>
+<p>The simplest way of improving simulation stability is to increase the steps per second.
+However, care has to be taken since making too many steps can cause problems and
+make the simulation even less stable
+(if you need more than 1000 steps, you should look at other ways to improve stability).</p>
+<p>Increasing the number of solver iterations helps making constraints stronger and
+also improves object stacking stability.</p>
+<p>It is best to avoid small objects, as they are currently unstable.
+Ideally, objects should be at least 20 cm in diameter.
+If it is still necessary, setting the collision margin to 0,
+while generally not recommended, can help making small object behave more naturally.</p>
+<p>When objects are small and/or move very fast, they can pass through each other.
+Besides what is mentioned above it’s also good to avoid using mesh shapes in this case.
+Mesh shapes consist of individual triangles and therefore do not
+really have any thickness, so objects can pass through more easily.
+You can give them some thickness by increasing the collision margin.</p>
+</section>
+<section id="combining-rigid-bodies-with-other-simulations">
+<h2>Combining Rigid Bodies with Other Simulations</h2>
+<p>Since the rigid body simulation is part of the animation system,
+it can influence other simulations just like the animation system can.</p>
+<p>In order for this to work, the rigid body object needs to have a Collision Modifier.
+Simply click on <em>Collision</em> in the <em>Physics</em> tab.</p>
+</section>
+<section id="scaling-rigid-bodies">
+<h2>Scaling Rigid Bodies</h2>
+<p>Rigid body objects can be scaled, also during the simulation.
+This work well in most cases, but can sometimes cause problems.</p>
+<p>If dynamic scaling is not needed, rigid body objects should have the scale applied by
+using the <em>Apply Scale</em> tool <kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Getting Started &gt; Installing &gt; Linux Windowing Environment</head>
+<body><ul>
+<li><a href="index.html">Installing Blender</a></li>
+<li>Linux Windowing Environment</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="linux-windowing-environment">
+<h1>Linux Windowing Environment</h1>
+<p>On Linux Blender supports both X11 and Wayland for official releases.</p>
+<p>When Wayland is detected, it is the preferred system, otherwise X11 will be used.</p>
+<div>
+<p>Hint</p>
+<p>The current “Windowing Environment” is listed in File ‣ About.</p>
+</div>
+<section id="x11">
+<h2>X11</h2>
+<p>This is the windowing environment that has been used most widely on Linux &amp; Unix systems.</p>
+<p>There are no near-term plans to deprecate or remove X11 support.</p>
+</section>
+<section id="wayland">
+<h2>Wayland</h2>
+<p>Support for Wayland is a more recent addition, so there may be configurations that have not been tested yet.
+Please report a bug if you experience problems.</p>
+<p>Blender has been tested with Gnome-Shell (mutter), KDE (plasma) &amp; SWAY (wlroots) based compositors.</p>
+<section id="requirements">
+<h3>Requirements</h3>
+<dl>
+<dt>Gnome-Shell</dt><dd><p>Under Gnome-Shell the <code>libdecor</code> library is required.
+This is available as a package on most Linux distribution.</p>
+<p>If the library isn’t found X11 will be used as a fallback.</p>
+</dd>
+</dl>
+</section>
+<section id="troubleshooting">
+<h3>Troubleshooting</h3>
+<p>Detailed Wayland output can help to track down problems.
+Launch Blender from the <a href="../../advanced/command_line/launch/linux.html">command-line</a> with additional arguments:</p>
+<dl>
+<dt>Blender’s Wayland Logging</dt><dd><div><div><pre>blender --log "ghost.wl.*" --log-level 2
+</pre></div>
+</div>
+</dd>
+<dt>Wayland Built-In Logging</dt><dd><div><div><pre>WAYLAND_DEBUG=1 blender
+</pre></div>
+</div>
+</dd>
+<dt>Disable Wayland (forcing X11)</dt><dd><div><div><pre>WAYLAND_DISPLAY="" blender
+</pre></div>
+</div>
+</dd>
+<dt>Disable <code>libdecor</code> (forcing borderless windows under Gnome-Shell)</dt><dd><p>Uninstall <code>libdecor</code>, then run Blender with an empty X11 display variable.</p>
+<div><div><pre>DISPLAY="" blender
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="environment-variables">
+<h3>Environment Variables</h3>
+<dl>
+<dt><code>XCURSOR_THEME</code></dt><dd><p>The cursor theme to use (must refer to a locally installed cursor).</p>
+</dd>
+<dt><code>XCURSOR_SIZE</code></dt><dd><p>The cursor size, defaults to 28, you may wish to increase the size on Hi-DPI displays.</p>
+</dd>
+</dl>
+</section>
+<section id="known-limitations">
+<h3>Known Limitations</h3>
+<dl>
+<dt>Gnome Shell’s Fractional Scaling (before version 44)</dt><dd><p>Versions of Gnome-Shell prior to 44 don’t fully support fractional scaling.</p>
+<p>Using fractional under older versions of Gnome-Shell may result in glitches such as a
+<a href="https://projects.blender.org/blender/blender/issues/105895">small cursor size</a>.</p>
+</dd>
+<dt>NVidia GPU</dt><dd><p>Currently NVidia drivers don’t fully support features needed for Wayland. Graphical glitches and flickering are
+common problems. In some cases, there can be
+<a href="https://projects.blender.org/blender/blender/issues/103999">crashes on startup</a>.
+This is not specific to Blender, so NVidia users may want to use X11 until driver support improves.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="feature-comparison">
+<h2>Feature Comparison</h2>
+<table>
+<thead>
+<tr><th><p>Feature</p></th>
+<th><p>X11</p></th>
+<th><p>Wayland</p></th>
+<th><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>Smooth Scroll</p></td>
+<td><p>✗</p></td>
+<td><p>✓</p></td>
+<td><div>
+<div>Smooth scrolling with track-pads.</div>
+</div>
+</td>
+</tr>
+<tr><td><p>Multi-Touch Gestures</p></td>
+<td><p>✗</p></td>
+<td><p>✓</p></td>
+<td><div>
+<div>Track-pad and tablet support for</div>
+<div>pinch to zoom, pan and orbit.</div>
+</div>
+</td>
+</tr>
+<tr><td><p>Reliable Cursor Warping</p></td>
+<td><p>✗ <sup>*1</sup></p></td>
+<td><p>✓</p></td>
+<td><div>
+<div>Cursor warping is used while transforming</div>
+<div>and orbiting the viewport for e.g.</div>
+</div>
+</td>
+</tr>
+<tr><td><p>Window Positioning</p></td>
+<td><p>✓</p></td>
+<td><p>✗ <sup>*2</sup></p></td>
+<td><div>
+<div>Needed for dragging between windows and</div>
+<div>restoring window positions on file load.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Other features which both systems support such as Hi-DPI, 3D-mouse, tablet input, … etc.
+have been left out of this list.</p>
+<div>
+<div><sup>*1</sup> In X11 fast cursor motion may exit the window bounds while the cursor is grabbed (transforming for e.g.).</div>
+<div><sup>*2</sup> Wayland doesn’t support setting the window position,
+as this is a design decision it’s unlikely to be supported
+(see issues for <a href="https://projects.blender.org/blender/blender/issues/98928">position</a>).</div>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

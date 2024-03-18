@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Copy Location</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Copy Location Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="copy-location-constraint">
+<h1>Copy Location Constraint</h1>
+<p>The <em>Copy Location</em> constraint forces its owner to have the same location as its target.</p>
+<div>
+<p>Important</p>
+<p>Note that if you use such a constraint on a <em>connected</em> bone, it will have
+no effect, as it is the parent’s tip which controls the position of your
+owner bone’s root.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Copy Location panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraints target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Axis</dt><dd><p>These buttons control which axes are constrained.</p>
+</dd>
+<dt>Invert</dt><dd><p>Invert their respective corresponding axis coordinates.</p>
+</dd>
+<dt>Offset</dt><dd><p>When enabled, this control allows the owner to be moved (using its current transform properties),
+relative to its target’s position.</p>
+</dd>
+<dt>Target/Owner</dt><dd><p>Standard conversion between spaces.
+See <a href="../interface/common.html#rigging-constraints-interface-common-space">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<section id="animation">
+<h3>Animation</h3>
+<p>Let us animate a solar system with the <em>Copy Location</em> constraint and its <em>Offset</em> option.
+You can make the owner, called “moon”, describe perfect circles centered on the world origin
+(using e.g. <em>Location X/Y</em> sine and cosine F-Curves, see <a href="../../../editors/graph_editor/fcurves/modifiers.html#bpy-types-fmodifierfunctiongenerator">Built-in Function Modifier</a>).
+Then copy the location of a target “earth” with the <em>Offset</em> checkbox enabled
+to model a satellite in a (simplified) orbit around its planet.
+Repeat these steps for more planets circling around its center star “sun”.</p>
+<p>Following video is a small animation of a solar system created using (among a few others)
+the previously described technique:</p>
+<p>Note that, this ‘solar’ system is not realistic at all
+(the wrong scale, the earth is rotating in the wrong direction around the sun, …).</p>
+<p>You can download
+the <a href="https://archive.blender.org/wiki/index.php/File:ManAnimationTechsUsingConstraintsExSolarSys.blend">blend-file</a>
+used to create this animation.</p>
+<p>Furthermore you can also animate a few properties of each constraint using animation curves:
+e.g. you can animate the <em>Influence</em> of a constraint.
+It is used to first let the camera follow the moon, then the earth,
+and finally using two <em>Copy Location</em> constraints with <em>Offset</em> set.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

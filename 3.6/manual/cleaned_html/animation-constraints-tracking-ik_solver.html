@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Tracking &gt; Ik Solver</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Inverse Kinematics Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="inverse-kinematics-constraint">
+<h1>Inverse Kinematics Constraint</h1>
+<p>The <em>Inverse Kinematics</em> constraint implements the <em>inverse kinematics</em> armature
+posing technique. Hence, it is only available for bones.
+To quickly create an IK constraint with a target, select a bone in Pose Mode,
+and press <kbd><kbd>Shift</kbd>-<kbd>I</kbd></kbd>.</p>
+<p>This constraint is fully documented in
+the <a href="../../armatures/posing/bone_constraints/index.html#bone-constraints-inverse-kinematics">Inverse Kinematics</a> page, part of the rigging chapter.</p>
+<div>
+<p>Note</p>
+<p>The IK constraints are special in that they modify multiple bones.
+For this reason, they ignore their position in the stack and
+always run after all other constraints on the affected bones. To apply constraints after IK,
+it is necessary to first copy the final transformation to a new bone chain,
+e.g. using <a href="../transform/copy_transforms.html">Copy Transforms</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Inverse Kinematics panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the an armature.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Pole Target</dt><dd><p>Object for pole rotation.</p>
+</dd>
+<dt>Iterations</dt><dd><p>Maximum number of solving iterations.</p>
+</dd>
+<dt>Chain Length</dt><dd><p>How many bones are included in the IK effect. Set to 0 to include all bones.</p>
+</dd>
+<dt>Use Tail</dt><dd><p>Include bone’s tail as last element in chain.</p>
+</dd>
+<dt>Stretch</dt><dd><p>Enable IK stretching.</p>
+</dd>
+<dt>Weight Position</dt><dd><p>For Tree-IK: Weight of position control for this target.</p>
+</dd>
+<dt>Rotation</dt><dd><p>Chain follows rotation of target.</p>
+</dd>
+<dt>Target</dt><dd><p>Disable for targetless IK.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+<section id="itasc-solver">
+<h3>iTaSC Solver</h3>
+<p>If the <a href="../../armatures/posing/bone_constraints/inverse_kinematics/introduction.html#rigging-armatures-posing-bone-constraints-ik-model-itasc">iTaSC IK Solver</a>
+is used, the IK Solver Constraint changes to add these addition parameters.</p>
+<dl>
+<dt>IK Type</dt><dd><dl>
+<dt>Copy Pose</dt><dd><p>Equivalent to the traditional end effector position and orientation constraint:
+the end effector is constrained to take the position, and optionally the orientation,
+of a given target, which is set in the target field.</p>
+<dl>
+<dt>Position/Rotation Locking</dt><dd><p>Allows to obtain various effect by not constraining the coordinates along certain axis.</p>
+<dl>
+<dt>Axis Reference</dt><dd><p>Specifies how to compute the axis coordinates.</p>
+<dl>
+<dt>Bone</dt><dd><p>The coordinates are the position and orientation of the target relative to the bone.</p>
+</dd>
+<dt>Target</dt><dd><p>The opposite of <em>Bone</em>, the coordinates are the position and
+orientation of the tip of the bone relative to the target.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Distance</dt><dd><p>Specify that the end effector will stay inside, at, or outside a sphere centered on the target object.</p>
+<dl>
+<dt>Limit Mode</dt><dd><dl>
+<dt>Inside</dt><dd><p>The end effector will stay inside of the distance from the target object.</p>
+</dd>
+<dt>Outside</dt><dd><p>The end effector will stay outside of the distance from the target object.</p>
+</dd>
+<dt>On Surface</dt><dd><p>The end effector will stay exactly at the distance from the target object.</p>
+</dd>
+</dl>
+</dd>
+<dt>Distance</dt><dd><p>The radius from the target object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The <em>Influence</em> parameter is not implemented if <em>Pole Target</em> is used.</p>
+</div>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Primitives &gt; Quadrilateral</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Primitive Nodes</a></li>
+<li>Quadrilateral Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="quadrilateral-node">
+<h1>Quadrilateral Node</h1>
+<p>The <em>Quadrilateral</em> node generates a polygon with four points, with different modes.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Width / Bottom Width / Top Width</dt><dd><p>The X axis size of the shape.</p>
+</dd>
+<dt>Height</dt><dd><p>The Y axis size of the shape.</p>
+</dd>
+<dt>Bottom Height / Top Height</dt><dd><p>The distance between the bottom or top point and the X axis, in <em>Kite</em> mode.</p>
+</dd>
+<dt>Offset</dt><dd><p>In <em>Parallelogram</em> mode, the relative X difference between the top and bottom edge.
+In <em>Trapezoid</em> mode, the amount to move the top edge in the positive X axis.</p>
+</dd>
+<dt>Point 1 - 4</dt><dd><p>Input vectors for the <em>Points</em> mode.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><dl>
+<dt>Rectangle:</dt>
+<dd><p>Generate a rectangle-shaped curve with a width and a height.</p>
+</dd>
+<dt>Parallelogram:</dt>
+<dd><p>Generate a rectangle with an offset for the different X values of the top and bottom edges.</p>
+</dd>
+<dt>Trapezoid:</dt>
+<dd><p>Generate a trapezoid-shaped curve with a height, a width for the top and bottom, and an offset.</p>
+</dd>
+<dt>Kite:</dt>
+<dd><p>Generate a kite shape with a width, and the top and bottom points distance from the X axis.</p>
+</dd>
+<dt>Points:</dt>
+<dd><p>Generate a four point cyclic poly spline by inputting the position vectors directly.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Poly spline generated from the inputs.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

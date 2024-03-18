@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Face &gt; Triangles Quads</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Face Tools</a></li>
+<li>Triangles to Quads</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="triangles-to-quads">
+<h1>Triangles to Quads</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face ‣ Triangles to Quads</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>J</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>This tool converts the selected triangles into quads by taking adjacent triangles and
+removing the shared edge to create a quad, based on a threshold.
+This tool can be applied on a selection of multiple triangles.</p>
+<p>This means you can select the entire mesh and convert triangles that already form square shapes –
+to be converted into quads, without having to concern yourself with individual faces.</p>
+<p>Alternatively you can force this operation selecting a pairs of faces (see hint below for other ways of joining).</p>
+<p>To create a quad, this tool needs at least two adjacent triangles.
+If you have an even number of selected triangles,
+it is also possible not to obtain only quads. In fact,
+this tool tries to create most even rectangular quads from the given triangles,
+which means some triangles could remain.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Before converting tris to quads.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>After converting tris to quads.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Max Angle</dt><dd><p>This value, between (0 to 180), controls the threshold for this tool to work on adjacent triangles.
+With a threshold of 0.0,
+it will only join adjacent triangles that form a perfect rectangle
+(i.e. right-angled triangles sharing their hypotenuses).
+Larger values are required for triangles with a shared edge that is small,
+relative to the size of the other edges of the triangles.</p>
+</dd>
+<dt>Compare UVs</dt><dd><p>When enabled, it will prevent the union of triangles that are not also adjacent in the active UV map.</p>
+</dd>
+<dt>Compare VCols</dt><dd><p>When enabled, it will prevent the union of triangles that have no matching Color Attribute color.</p>
+</dd>
+<dt>Compare Sharp</dt><dd><p>When enabled, it will prevent the union of triangles that share an edge marked as sharp.</p>
+</dd>
+<dt>Compare Materials</dt><dd><p>When enabled, it will prevent the union of triangles that do not have the same material assigned.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>When isolated groups of faces are selected, they can be combined
+with <a href="../vertex/make_face_edge.html#modeling-mesh-make-face-edge-dissolve">Create Face</a> or <a href="../mesh/delete.html#bpy-ops-mesh-dissolve-faces">Dissolve Faces</a>;
+this is not limited to quads.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

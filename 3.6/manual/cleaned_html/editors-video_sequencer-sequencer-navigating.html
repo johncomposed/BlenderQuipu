@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Sequencer &gt; Navigating</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Video Sequencer</a></li>
+<li><a href="index.html">Sequencer</a></li>
+<li>Navigating</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="navigating">
+<h1>Navigating</h1>
+<section id="header">
+<h2>Header</h2>
+<figure id="id1">
+<figcaption>
+<p>Video Sequencer Header.</p>
+</figcaption>
+</figure>
+<section id="view-menu">
+<h3>View Menu</h3>
+<p>As usual, the View Menu controls the editor’s view settings.</p>
+<dl>
+<dt>Sidebar <kbd>N</kbd></dt><dd><p>Show or hide the <a href="../../../interface/window_system/regions.html#ui-region-sidebar">Sidebar</a>.</p>
+</dd>
+<dt>Toolbar <kbd>T</kbd></dt><dd><p>Show or hide the <a href="../../../interface/tool_system.html#ui-region-toolbar">Toolbar</a>.</p>
+</dd>
+<dt>Adjust Last Operation</dt><dd><p>Displays a pop-up panel to alter properties of the last
+completed operation. See <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a>.</p>
+</dd>
+<dt>Channels</dt><dd><p>Show or hide the <a href="channels.html#bpy-types-sequencetimelinechannel">Channel Region</a>.</p>
+</dd>
+<dt>Preview as Backdrop</dt><dd><p>Displays the current frame in the background of the main view like in the Compositor.</p>
+</dd>
+<dt>Frame Selected <kbd>NumpadPeriod</kbd></dt><dd><p>Zooms in the display to fit only the selected strips.</p>
+</dd>
+<dt>Frame All <kbd>Home</kbd></dt><dd><p>Zooms the display to show all strips.</p>
+</dd>
+<dt>Zoom <kbd><kbd>Shift</kbd>-<kbd>B</kbd></kbd></dt><dd><p>Click and drag to draw a rectangle and zoom to this rectangle.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacesequenceeditor-use-clamp-view">
+<dt>Limit View to Contents</dt><dd><p>Limit the timeline’s height to the maximum used channel slot.</p>
+</dd>
+<dt>Navigation</dt><dd><dl>
+<dt>Play Animation <kbd>Spacebar</kbd></dt><dd><p>Start or stop playback of animation. This will start playback in all editors.</p>
+</dd>
+<dt>Go to Current Frame <kbd>Numpad0</kbd></dt><dd><p>Scrolls the timeline so the current frame is in the center.</p>
+</dd>
+<dt>Jump to Previous Strip <kbd>PageDown</kbd></dt><dd><p>Current frame will jump to beginning of strip.</p>
+</dd>
+<dt>Jump to Next Strip <kbd>PageUp</kbd></dt><dd><p>Current frame will jump to end of strip.</p>
+</dd>
+<dt>Jump to Previous Strip (Center) <kbd><kbd>Alt</kbd>-<kbd>PageDown</kbd></kbd></dt><dd><p>Jump to previous center of the strip.</p>
+</dd>
+<dt>Jump to Next Strip (Center) <kbd><kbd>Alt</kbd>-<kbd>PageUp</kbd></kbd></dt><dd><p>Jump to next center of the strip.</p>
+</dd>
+</dl>
+</dd>
+<dt>Range</dt><dd><dl>
+<dt>Set Preview Range <kbd>P</kbd></dt><dd><p>Interactively define frame range used for playback.
+Allows you to define a temporary preview range to use for animation playback
+(this is the same thing as the <em>Playback Range</em> option of
+the <a href="../../timeline.html#animation-editors-timeline-headercontrols">Timeline editor header</a>).</p>
+</dd>
+<dt>Set Preview Range to Strips</dt><dd><p>Sets the frame range of preview to the range of the selected strips.</p>
+</dd>
+<dt>Clear Preview Range <kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd></dt><dd><p>Clears preview range.</p>
+</dd>
+<dt>Set Start Frame <kbd><kbd>Ctrl</kbd>-<kbd>Home</kbd></kbd></dt><dd><p>Set Start of animation range to the current frame.</p>
+</dd>
+<dt>Set End Frame <kbd><kbd>Ctrl</kbd>-<kbd>End</kbd></kbd></dt><dd><p>Set End of animation range to the current frame.</p>
+</dd>
+<dt>Set Frame Range to Strips</dt><dd><p>Sets the frame range of preview and render animation to the frame range of the selected strips.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-refresh-all">
+<dt>Refresh All</dt><dd><p>To force Blender to re-read in files, and to force a re-render of the 3D Viewport,
+click the <em>Refresh Sequencer</em> button.
+Blender will update and synchronize all cached images and compute the current frame.</p>
+<p>Certain operations, like moving an object in the 3D Viewport, may not force the <em>Sequencer</em>
+to call for a refresh of the rendered image (since the movement may not affect the rendered image).
+If an image or video, used as a strip, is changed by some application outside of Blender,
+Blender has no real way of being notified from your operating system.</p>
+</dd>
+<dt>Sync Visible Range</dt><dd><p>Synchronize the visible range with other time based editors.</p>
+</dd>
+<dt>Show Seconds <kbd><kbd>Ctrl</kbd>-<kbd>T</kbd></kbd></dt><dd><p>Shows seconds instead of frames on the time axis.</p>
+</dd>
+<dt>Show Markers</dt><dd><p>Shows the markers region. When disabled, the <a href="#markers-menu">Markers Menu</a> is also hidden
+and markers operators are not available in this editor.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequenceeditor-show-cache">
+<dt>Show Cache</dt><dd><p>Show which frames are <a href="sidebar/cache.html">Cached</a>
+Show all enabled types;
+Final Images, Raw Images, Preprocessed Images, Composite Images</p>
+<p>In order for this property to be visible, enable <a href="../../preferences/interface.html#prefs-interface-dev-extras">Developer Extras</a>.</p>
+</dd>
+<dt>Sequence Render Image</dt><dd><p>Render an image of the current frame.</p>
+</dd>
+<dt>Sequence Render Animation</dt><dd><p>Render timeline from Preview Start to Preview End Frame to a Video file or series of images.</p>
+</dd>
+<dt>Export Subtitles</dt><dd><p>Exports <a href="../../../video_editing/edit/montage/strips/text.html">Text strips</a>,
+which can act as subtitles, to a <a href="https://en.wikipedia.org/wiki/SubRip">SubRip</a> file (<code>.srt</code>).
+The exported file contains all Text strips in the video sequence.</p>
+</dd>
+<dt>Toggle Sequencer/Preview <kbd><kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd></dt><dd><p>Switch the editor display type between Sequencer and Preview.</p>
+</dd>
+</dl>
+</section>
+<section id="markers-menu">
+<h3>Markers Menu</h3>
+<p><a href="../../../animation/markers.html">Markers</a> are used to denote frames with key points or significant events
+within an animation. Like with most animation editors, markers are shown at the bottom of the editor.</p>
+<figure id="id2">
+<figcaption>
+<p>Markers in animation editor.</p>
+</figcaption>
+</figure>
+<p>For descriptions of the different marker tools see <a href="../../../animation/markers.html#animation-markers-editing">Editing Markers</a>.</p>
+</section>
+</section>
+<section id="main-view">
+<h2>Main View</h2>
+<section id="adjusting-the-view">
+<h3>Adjusting the View</h3>
+<p>Use these shortcuts to adjust the sequence area of the editor:</p>
+<ul>
+<li><p>Pan: <kbd>MMB</kbd></p></li>
+<li><p>Zoom: <kbd>Wheel</kbd></p></li>
+<li><p>Vertical Scroll: use <kbd><kbd>Shift</kbd>-<kbd>Wheel</kbd></kbd>, or drag on the left scrollbar.</p></li>
+<li><p>Horizontal Scroll: use <kbd><kbd>Ctrl</kbd>-<kbd>Wheel</kbd></kbd>, or drag on the lower scrollbar.</p></li>
+<li><p>Scale View: <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd> and drag up/down (vertical scale) or left/right (horizontal scale).</p></li>
+<li><p>Scale View Vertically: drag on the circles on the vertical scrollbar.</p></li>
+<li><p>Scale View Horizontally: drag on the circles on the horizontal scrollbar.</p></li>
+</ul>
+</section>
+<section id="playhead">
+<h3>Playhead</h3>
+<p>The Playhead is the blue vertical line with the current frame number at the top.
+It can be set or moved to a new position by pressing or holding <kbd>LMB</kbd>
+in scrubbing area at the top of the timeline.
+You can move the Playhead in increments by pressing <kbd>Left</kbd> or <kbd>Right</kbd>, or by using <kbd><kbd>Alt</kbd>-<kbd>Wheel</kbd></kbd>.
+You can also jump to the beginning or end frame by pressing <kbd><kbd>Shift</kbd>-<kbd>Left</kbd></kbd> or <kbd><kbd>Shift</kbd>-<kbd>Right</kbd></kbd>.
+As you do, the image for that frame is displayed in the Preview region.</p>
+<p>When you drag the frame indicator with <kbd><kbd>Shift</kbd>-<kbd>RMB</kbd></kbd> directly on a sequence strip,
+this will show the strip <em>solo</em>, (temporarily disregarding effects and other strips,
+showing only this strip’s output) and the strip will be highlighted.</p>
+<p>When holding <kbd>Ctrl</kbd> while dragging it will snap to the start and endpoints of strips.</p>
+<p>Real-time preview is possible on reasonable computers
+when viewing an image sequence or movie (<code>avi</code>/<code>mov</code>) file.
+Scene strips can use viewport previews or proxies for real-time playback,
+otherwise displaying rendered frame is supported, but typically too slow for real-time playback.</p>
+<div>
+<p>Hint</p>
+<p>Every other synced editor can be used for scrubbing e.g. the Timeline.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Preferences &gt; Animation</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Preferences</a></li>
+<li>Animation</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="animation">
+<h1>Animation</h1>
+<p>The <em>Animation</em> section lets you manage settings related to <a href="../../animation/index.html">Animation</a>.
+This includes how editors look and also some different tools properties.</p>
+<figure id="id1">
+<figcaption>
+<p>Blender Preferences Animation section.</p>
+</figcaption>
+</figure>
+<section id="timeline">
+<h2>Timeline</h2>
+<p>These settings control things in the <a href="../timeline.html">Timeline</a>.</p>
+<dl>
+<dt>Allow Negative Frame</dt><dd><p>Playback and animations can occur during negative frame ranges.</p>
+</dd>
+<dt>Minimum Grid Spacing</dt><dd><p>The minimum number of pixels between grid lines.</p>
+</dd>
+<dt>Timecode Style</dt><dd><p>Format of timecodes displayed when not displaying timing in terms of frames.
+The format uses ‘+’ as a separator for sub-second frame numbers,
+with left and right truncation of the timecode as necessary.</p>
+</dd>
+<dt>Zoom to Frame Type</dt><dd><p>Defines what time range (around the cursor) will be displayed
+when the <em>View Frame</em> <kbd>Numpad0</kbd> is performed.</p>
+<dl>
+<dt>Keep Range</dt><dd><p>The currently displayed time range is preserved.</p>
+</dd>
+<dt>Seconds</dt><dd><p>The number of seconds specified in the <em>Zoom Seconds</em> field will be shown around the cursor.</p>
+</dd>
+<dt>Keyframes</dt><dd><p>The number of animation keyframes defined in the <em>Zoom Keyframes</em> field will be shown around the cursor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="keyframes">
+<h2>Keyframes</h2>
+<p>These settings control <a href="../../animation/keyframes/index.html">Keyframes</a>
+which are the building blocks for animations.</p>
+<dl>
+<dt>Visual Keying</dt><dd><p>When an object is using constraints, the object property value does not actually change.
+<em>Visual Keying</em> will add keyframes to the object property,
+with a value based on the visual transformation from the constraint.</p>
+</dd>
+<dt>Only Insert Needed</dt><dd><p>This will only insert keyframes if the value of the property is different.</p>
+</dd>
+<dt>Auto-Keyframing</dt><dd><dl>
+<dt>Show Warning</dt><dd><p>Displays a warning at the top right of the <em>3D Viewport</em>, when moving objects, if <em>Auto Keyframe</em> is on.</p>
+</dd>
+<dt>Only Insert Available</dt><dd><p>This will only add keyframes to channels of F-Curves that already exist.</p>
+</dd>
+<dt>Enable in New Scenes</dt><dd><p>Enables <em>Auto Keyframe</em> by default for new scenes.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>Learn more about <a href="../timeline.html#bpy-types-toolsettings-use-keyframe-insert-auto">Auto-Keyframing</a>.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="f-curves">
+<h2>F-Curves</h2>
+<p>These settings control how <a href="../graph_editor/fcurves/index.html">F-Curves</a>
+look and their default behavior.</p>
+<dl>
+<dt>Unselected Opacity</dt><dd><p>Controls the opacity of unselected <a href="../graph_editor/fcurves/index.html">F-Curves</a> against
+the background of the Graph Editor.</p>
+</dd>
+<dt>Default Smoothing Mode</dt><dd><p>Controls the behavior of <a href="../graph_editor/fcurves/properties.html#editors-graph-fcurves-settings-handles">automatic curve handles</a>
+for newly created F-Curves.</p>
+</dd>
+<dt>Default Interpolation</dt><dd><p>Controls the default <a href="../graph_editor/fcurves/properties.html#editors-graph-fcurves-settings-interpolation">Interpolation</a>
+for newly created keyframes.</p>
+</dd>
+<dt>Default Handles</dt><dd><p>Controls the default <a href="../graph_editor/fcurves/properties.html#editors-graph-fcurves-settings-handles">Handle</a> for newly created F-Curves.</p>
+</dd>
+<dt>XYZ to RGB</dt><dd><p>Color for X, Y, or Z animation curves (location, scale or rotation)
+is the same as the color for the X, Y, and Z axis.</p>
+</dd>
+<dt>Show Group Colors</dt><dd><p>Display groups and channels with colors matching their corresponding groups.</p>
+</dd>
+<dt>Only Selected Curve Keyframes</dt><dd><p>Only shows the keyframes markers on the selected curves.</p>
+</dd>
+<dt>Use High Quality Display</dt><dd><p>Display F-Curves using <a href="../../glossary/index.html#term-Anti-Aliasing">Anti-Aliasing</a> and other effects (disable for a better performance).</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

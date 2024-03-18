@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Build</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Build Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="build-modifier">
+<h1>Build Modifier</h1>
+<p>The <em>Build</em> modifier causes the faces of the mesh object to appear or disappear one after the other over time.</p>
+<p>By default, faces appear in the order in which they are stored in memory (by default, the order of creation).
+The face/vertex order can be altered in Edit Mode by using <a href="../../meshes/editing/mesh/sort_elements.html#mesh-edit-sort-elements">Sort Mesh Elements</a>.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Build modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Start Frame</dt><dd><p>The start frame of the building process.</p>
+</dd>
+<dt>Length</dt><dd><p>The number of frames over which to rebuild the object.</p>
+</dd>
+<dt>Reversed</dt><dd><p>The modifier will operate in reverse, essentially allowing it to be used as a “deconstruction” effect.
+This is useful for making a set of instancing objects gradually disappear.</p>
+</dd>
+</dl>
+<section id="randomize">
+<h3>Randomize</h3>
+<p>Randomizes the order in which the faces are built.</p>
+<dl>
+<dt>Seed</dt><dd><p>The random seed.
+Changing this value gives a different “random” order when <em>Randomize</em> is checked.
+This order is always the same for a given seed/mesh set.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>The Build modifier can be used to make a large number of items to progressively appear,
+without resorting to animating the visibility of each one by one. Examples of this include
+a mesh containing vertices only, which is used as
+an <a href="../../../scene_layout/object/properties/instancing/verts.html">Instancing Vertex emitter</a>,
+and has the Build modifier on it. Such a setup is a workaround/technique for being able to art-direct
+a semi-random layout of a collection of objects (e.g. leaves/balls forming a carpet).
+This can be preferable to particles e.g. due to undesirable distribution of items leaving random gaps
+and overlapping in other places.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

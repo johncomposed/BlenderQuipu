@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Tracking &gt; Damped Track</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Damped Track Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="damped-track-constraint">
+<h1>Damped Track Constraint</h1>
+<p>The <em>Damped Track</em> constraint constrains one local axis of the owner to always point towards <em>Target</em>.
+This constraint uses a pure <a href="../../../glossary/index.html#term-Swing">Swing</a> rotation, i.e. the shortest possible single axis rotation.
+In other 3D software you can find it with the name “Look at” constraint.</p>
+<p>Although usually associated with bones, Damped Track can align objects to point to (and follow)
+other objects or bones. It is important to note that the constraint aligns the origin’s axes to
+point to the target’s origin point. This is illustrated in the following figure.
+In each case the objects are set as Damped Track to +X.</p>
+<figure id="id1">
+<figcaption>
+<p>A: Object vertices aligned along axis origin.
+B: Object vertices aligned away from origin.</p>
+</figcaption>
+</figure>
+<section id="options">
+<h2>Options</h2>
+<figure id="id2">
+<figcaption>
+<p>Damped Track panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraint’s target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Track Axis</dt><dd><p>Once the owner object has had a Damped Track constraint applied to it,
+you must then choose which axis of the object you want to point at the Target object.
+The negative axis direction cause the object to point away from
+the Target object along the selected axis direction.</p>
+<p>-X, -Y, -Z, X, Y, Z</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

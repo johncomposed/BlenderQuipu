@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Video Editing &gt; Edit &gt; Montage &gt; Strips &gt; Effects &gt; Multicam</head>
+<body><ul>
+<li><a href="../../../../index.html">Video Editing</a></li>
+<li><a href="../../../index.html">Edit Your Project</a></li>
+<li><a href="../../index.html">Montage</a></li>
+<li><a href="../index.html">Strips</a></li>
+<li><a href="index.html">Effect Strips</a></li>
+<li>Multicam Selector Strip</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="multicam-selector-strip">
+<h1>Multicam Selector Strip</h1>
+<p>The Multicam Selector strip is used for multi-camera editing.
+Multi-camera editing is when a scene is recorded using multiple cameras from different angles
+and then edited together afterwards.</p>
+<section id="workflow">
+<h2>Workflow</h2>
+<p>The process of multi camera editing can be rather easy in the Video Sequencer if properly setup.
+The following guide shows the basic steps to setup a basic multi camera editing workflow.</p>
+<ol>
+<li><p>First you are going to want to add in each of your video strips.</p></li>
+<li><p>Next, you will want to sync all your cameras by either using
+<a href="../sound.html">Audio Waveforms</a> or by the movement of objects.</p>
+<div>
+<p>Tip</p>
+<p>To make syncing strips easier you can group cameras, their audio,
+and their effects together using <a href="../../meta.html">Meta Strips</a>.</p>
+</div>
+</li>
+<li><p>Split the editor into many <a href="../../../../../editors/video_sequencer/preview/index.html">Previews</a>, one for each input track.
+Then change the <a href="../../../../../editors/video_sequencer/preview/sidebar.html#bpy-types-spacesequenceeditor-display-channel">Display Channel</a>
+of each of the previews to the channel number of the input track.</p></li>
+<li><p>Add a Multicam Selector strip <em>above</em> all the video channel tracks.</p>
+<p>After completing these steps you should get something similar to the following image:</p>
+<figure id="id2">
+<figcaption>
+<p>Multi-camera editing setup.</p>
+</figcaption>
+</figure>
+</li>
+<li><p>Now select the Multicam strip, if you take a look at the strip options (in the Sidebar),
+you will notice, that Multicam is a rather simple effect strip:
+It just takes a selected channel as its input. That is all.
+The magic comes with the convenient keyboard layout.</p></li>
+<li><p>When you select the Multicam strip, the keys <kbd>1</kbd> to <kbd>9</kbd> are mapped to the cut buttons.
+So, select the Multicam strip and start playback and press the keys
+for the correct input while watching the individual cameras.</p></li>
+<li><p>You will end up with a small Multicam Selector strip for every cut.</p></li>
+</ol>
+<p>In reality, it boils down to: watch a few seconds to see, what is coming,
+watch it again and do a rough cut using the number keys.
+Then fine-tune the placement by selecting the outer handles of two neighboring Multicam for A/B rolling.</p>
+<div>
+<p>Tip</p>
+<p>To improve playback performance enable <a href="../../../../../editors/video_sequencer/sequencer/sidebar/proxy.html">Proxies</a>.</p>
+</div>
+</section>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Source Channel</dt><dd><p>The channel which the Multicam Selector gets its input from.</p>
+</dd>
+<dt>Cut To</dt><dd><p>Cuts the Multicam strip at the current frame and
+changes the <em>Source Channel</em> automatically to the selected channels.</p>
+</dd>
+</dl>
+</section>
+<section id="id1">
+<h2>Workflow</h2>
+<ol>
+<li><p>First you are going to want to add in each of your video strips.</p></li>
+<li><p>Next, you will want to sync all your cameras by either using
+<a href="../sound.html">Audio Waveforms</a> or by the movement of objects.</p>
+<div>
+<p>Tip</p>
+<p>To make syncing strips easier you can group cameras, their audio,
+and their effects together using <a href="../../meta.html">Meta Strips</a>.</p>
+</div>
+</li>
+<li><p>Split the editor into many <a href="../../../../../editors/video_sequencer/preview/index.html">Previews</a>, one for each input track.
+Then change the <a href="../../../../../editors/video_sequencer/preview/sidebar.html#bpy-types-spacesequenceeditor-display-channel">Display Channel</a>
+of each of the previews to the channel number of the input track.</p></li>
+<li><p>Add a Multicam Selector strip <em>above</em> all the video channel tracks.</p>
+<p>After completing these steps you should get something similar to the following image:</p>
+<figure id="id3">
+<figcaption>
+<p>Multi-camera editing setup.</p>
+</figcaption>
+</figure>
+</li>
+<li><p>Now select the Multicam strip, if you take a look at the strip options (in the Sidebar),
+you will notice, that Multicam is a rather simple effect strip:
+It just takes a selected channel as its input. That is all.
+The magic comes with the convenient keyboard layout.</p></li>
+<li><p>When you select the Multicam strip, the keys <kbd>1</kbd> to <kbd>9</kbd> are mapped to the cut buttons.
+So, select the Multicam strip and start playback and press the keys
+for the correct input while watching the individual cameras.</p></li>
+<li><p>You will end up with a small Multicam Selector strip for every cut.</p></li>
+</ol>
+<p>In reality, it boils down to: watch a few seconds to see, what is coming,
+watch it again and do a rough cut using the number keys.
+Then fine-tune the placement by selecting the outer handles of two neighboring Multicam for A/B rolling.</p>
+<div>
+<p>Tip</p>
+<p>To improve playback performance enable <a href="../../../../../editors/video_sequencer/sequencer/sidebar/proxy.html">Proxies</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

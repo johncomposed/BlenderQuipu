@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Join Geometry</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Geometry Nodes</a></li>
+<li>Join Geometry Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="join-geometry-node">
+<h1>Join Geometry Node</h1>
+<p>The <em>Join Geometry</em> node merges separately generated geometries into a single one.
+If the geometry inputs contain different types of data, the output will also contain different data types.</p>
+<div>
+<p>Note</p>
+<p>The node cannot handle the case when more than one geometry input has a volume component.</p>
+</div>
+<section id="materials">
+<h2>Materials</h2>
+<p>When multiple mesh inputs contain different materials, the material slots from each mesh geometry
+are merged so that the output mesh will contain all the input materials.</p>
+</section>
+<section id="attributes">
+<h2>Attributes</h2>
+<p>When merging attributes from multiple geometry inputs, the highest complexity data type is chosen
+for the output attribute. In other words, if a <code>weight</code> attribute has a Boolean type on one geometry input
+and a vector data type on another geometry, the <code>weight</code> attribute on the output geometry will have
+a vector data type. The same heuristic is used for attribute domains, the domain with the most information
+will be used for the output.</p>
+<div>
+<p>Warning</p>
+<p>Like other geometry nodes, this node always outputs generic typed attributes. So instead of a
+<a href="../../../glossary/index.html#term-Vertex-Group">Vertex Group</a> attribute, it will create a “Float” attribute on the result, and it will
+create a generic 2D vector attribute instead of a special “UV Map” attribute. Some other areas
+of Blender don’t properly handle generic attributes in version 3.0.</p>
+<p>Custom face corner normals are also not transferred currently.</p>
+</div>
+</section>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Geometry that will be joined. Multiple inputs are allowed.
+When the node is muted, only the first link will be passed through.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

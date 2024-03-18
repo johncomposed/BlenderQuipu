@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Timeline</title></head>
+<body><ul>
+<li><a href="index.html">Editors</a></li>
+<li>Timeline</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="timeline">
+<h1>Timeline</h1>
+<p>The <em>Timeline</em> editor, identified by a clock icon,
+is used for manipulating keyframes and scrubbing the Playhead.</p>
+<figure id="id1">
+<figcaption>
+<p>The Timeline.</p>
+</figcaption>
+</figure>
+<p>The <em>Timeline</em> gives the user a broad overview of a scene’s animation,
+by showing the current frame, the keyframes of the active object,
+the start and end frames of your animation sequence, as well as markers set by the user.</p>
+<p>The <em>Timeline</em> includes <em>Transport Controls</em>, to play, pause, and skip through an animation sequence.</p>
+<p>It also includes tools for manipulating <em>Keyframes</em>, <em>Keying Sets</em>, and <em>Markers</em>.</p>
+<section id="main-view">
+<h2>Main View</h2>
+<p>The main <em>Timeline</em> region displays the animation frames over time.</p>
+<p>Here you can see the <em>Keyframes</em> (diamond shapes), <em>Playhead</em> (blue handle), <em>Scrollbar</em> (along the bottom).</p>
+<section id="adjusting-the-view">
+<h3>Adjusting the View</h3>
+<p>The <em>Timeline</em> can be panned by holding <kbd>MMB</kbd>,
+then dragging the area left or right.</p>
+<p>You can zoom the <em>Timeline</em> by using <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd>, the mouse <kbd>Wheel</kbd>,
+or pressing <kbd>NumpadMinus</kbd> and <kbd>NumpadPlus</kbd>.</p>
+<p>You can also use the scrollbars, located at the bottom or the right of the editor, to pan and zoom the view.</p>
+</section>
+<section id="playhead">
+<h3>Playhead</h3>
+<p>The <em>Playhead</em> is the blue vertical line with the current frame number at the top.</p>
+<figure id="id2">
+<figcaption>
+<p>Playhead.</p>
+</figcaption>
+</figure>
+<p>The <em>Playhead</em> can be set or moved to a new position by pressing or
+holding <kbd>LMB</kbd> in scrubbing area at the top of the timeline.</p>
+<p>The <em>Playhead</em> can be moved in single-frame increments by pressing <kbd>Left</kbd> or <kbd>Right</kbd>,
+or you can jump to the beginning or end frame by pressing <kbd><kbd>Shift</kbd>-<kbd>Left</kbd></kbd> or <kbd><kbd>Shift</kbd>-<kbd>Right</kbd></kbd>.</p>
+</section>
+<section id="frame-range">
+<h3>Frame Range</h3>
+<p>By default, the <em>Frame Range</em> is set to start at frame 1 and end at frame 250.
+You can change the frame range in the top right of the Timeline header, or in the Output Properties.</p>
+</section>
+<section id="keyframes">
+<h3>Keyframes</h3>
+<p>For the active and selected objects, keyframes are displayed as diamond shapes.</p>
+<p>You can click to select one at a time, or select several by holding <kbd>Shift</kbd>,
+or by dragging a box around the keyframes.
+You can then move single keys by dragging them,
+and you can move multiple keys by pressing <kbd>G</kbd> and scale them with <kbd>S</kbd>.</p>
+<p><em>Only Selected Channels</em> can be enabled. Timeline ‣ View ‣ Only Selected Channels.
+For <em>Armatures</em>, this will display the object keyframes,
+and the keyframes for the active and selected pose bones.</p>
+</section>
+<section id="markers">
+<h3>Markers</h3>
+<p>See the <a href="../animation/markers.html">Markers page</a> for more information.</p>
+</section>
+</section>
+<section id="header">
+<h2>Header</h2>
+<section id="popovers">
+<h3>Popovers</h3>
+<section id="playback-popover">
+<h4>Playback Popover</h4>
+<p>The <em>Playback</em> popover contains options controlling the animation playback.</p>
+<dl id="bpy-types-scene-sync-mode">
+<dt>Sync</dt><dd><figure id="id3">
+<figcaption>
+<p>3D Viewport red FPS.</p>
+</figcaption>
+</figure>
+<p>When you play an animation, the frame rate is displayed at the top left of the 3D Viewport.
+If the scene is detailed and playback is slower than the set <a href="../render/output/properties/format.html#bpy-types-rendersettings-fps">Frame Rate</a>,
+these options are used to synchronize the playback.</p>
+<dl>
+<dt>Play Every Frame</dt><dd><p>Plays every frame even if playback is slow.</p>
+</dd>
+<dt>Frame Dropping</dt><dd><p>Drop frames if playback becomes slower than the scene’s frame rate.</p>
+</dd>
+<dt>Sync to Audio</dt><dd><p>Drop frames if playback becomes too slow to remain synced with audio.</p>
+</dd>
+</dl>
+</dd>
+<dt>Audio</dt><dd><dl>
+<dt>Scrubbing</dt><dd><p>If your animation has sound, this option plays bits of the sound wave
+while you move the Playhead with <kbd>LMB</kbd> or keyboard arrows.</p>
+</dd>
+<dt>Mute</dt><dd><p>Mute the sound from any audio source.</p>
+</dd>
+</dl>
+</dd>
+<dt>Playback</dt><dd><dl>
+<dt>Limit Playback to Frame Range</dt><dd><p>Don’t allow selecting frames outside of the playback range using the mouse.</p>
+</dd>
+</dl>
+<dl id="bpy-types-screen-use-follow">
+<dt>Follow Current Frame</dt><dd><p>Animation editors can be setup to always follow the time indicator as animation is being played back.
+Following will be done when animating and changing frame:
+When the cursor reaches the end of the screen, the next range of frames of the same width will be displayed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-screen-use-play">
+<dt>Play In</dt><dd><dl>
+<dt>Active Editor</dt><dd><p>While playing, updates the Timeline, if <em>Animation Editors</em> and <em>All 3D Viewports</em> disabled.</p>
+</dd>
+<dt>3D Viewport</dt><dd><p>While playing, updates the 3D Viewport and the Timeline.</p>
+</dd>
+<dt>Animation Editors</dt><dd><p>While playing, updates the Timeline, Dope Sheet, Graph Editor, Video Sequencer.</p>
+</dd>
+<dt>Image Editor</dt><dd><p>The Image editor in Mask mode.</p>
+</dd>
+<dt>Properties Editor</dt><dd><p>When the animation is playing, this will update the property values in the UI.</p>
+</dd>
+<dt>Movie Clip Editor</dt><dd><p>While playing, updates the Movie Clip Editor.</p>
+</dd>
+<dt>Node Editors</dt><dd><p>While playing, updates the Node properties for the node editors.</p>
+</dd>
+<dt>Video Sequencer</dt><dd><p>While playing, updates the Video Sequencer.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-scene-show-subframe">
+<dt>Show</dt><dd><dl>
+<dt>Subframes</dt><dd><p>Display and allow changing the current scene subframe.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="keying-popover">
+<h4>Keying Popover</h4>
+<p>The <em>Keying</em> popover contains options that affect keyframe insertion.</p>
+<dl id="bpy-types-keyingsetsall-active">
+<dt>Active Keying Set</dt><dd><figure id="id4">
+<figcaption>
+<p>Timeline Keying Sets.</p>
+</figcaption>
+</figure>
+<p><em>Keying Sets</em> are a set of keyframe channels in one.
+They are made so the user can record multiple properties at the same time.
+With a keying set selected, when you insert a keyframe,
+Blender will add keyframes for the properties in the active <em>Keying Set</em>.
+There are some built-in keying sets, <em>LocRotScale</em>, and also custom keying sets.
+Custom keying sets can be defined in the panels
+Properties ‣ Scene ‣ Keying Sets + Active Keying Set.</p>
+<dl>
+<dt>Insert Keyframes (plus icon)</dt><dd><p>Insert keyframes on the current frame for the properties in the active <em>Keying Set</em>.</p>
+</dd>
+<dt>Delete Keyframes (minus icon)</dt><dd><p>Delete keyframes on the current frame for the properties in the active <em>Keying Set</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-keyframe-type">
+<dt>New Keyframe Type</dt><dd><p><a href="../animation/keyframes/introduction.html#keyframe-type">Keyframe Types</a> on insertion.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-keyframe-cycle-aware">
+<dt>Cycle-Aware Keying</dt><dd><p>When inserting keyframes into <a href="graph_editor/fcurves/modifiers.html#bpy-types-fmodifiercycles">trivially cyclic curves</a>,
+special handling is applied to preserve the cycle integrity (most useful while tweaking an established cycle):</p>
+<ul>
+<li><p>If a key insertion is attempted outside of the main time range of the cycle,
+it is remapped back inside the range.</p></li>
+<li><p>When overwriting one of the end keys, the other one is updated accordingly.</p></li>
+</ul>
+<p>In addition, when adding a new curve into an action with a
+<a href="../animation/actions.html#bpy-types-action-use-frame-range">Manual Frame Range</a>
+and <em>Cyclic Animation</em> enabled, the curve is automatically made cyclic with the period matching the frame range.
+For convenience this check and conversion is also done before adding the second keyframe to such a curve.</p>
+</dd>
+</dl>
+</section>
+<section id="auto-keying-popover">
+<h4>Auto Keying Popover</h4>
+<figure id="id5">
+<figcaption>
+<p>Timeline Auto Keyframe.</p>
+</figcaption>
+</figure>
+<p>The record button (⏺) enables <em>Auto Keyframe</em>:
+It will add and/or replace existing keyframes for the active object when you transform it in the 3D Viewport.
+For example, when enabled, first set the Playhead to the desired frame,
+then move an object in the 3D Viewport, or set a new value for a property in the UI.</p>
+<p>When you set a new value for the properties,
+Blender will add keyframes on the current frame for the transform properties.
+Other use cases are <a href="3dview/navigate/walk_fly.html#dview-fly-walk">Fly/Walk Navigation</a> to record the walk/flight path
+and <a href="3dview/sidebar.html#bpy-types-spaceview3d-lock-camera">Lock Camera to View</a> to record the navigation in camera view.</p>
+<div>
+<p>Note</p>
+<p>Note that <em>Auto Keyframe</em> only works for transform properties (objects and bones),
+in the 3D Viewport (i.e. you can’t use it e.g. to animate the colors of a material in the Properties…).</p>
+</div>
+<dl>
+<dt>Add &amp; Replace / Replace</dt><dd><p>This controls how the auto keyframe mode works.
+Only one mode can be used at a time.</p>
+<dl>
+<dt>Add &amp; Replace</dt><dd><p>Add or replace existing keyframes.</p>
+</dd>
+<dt>Replace</dt><dd><p>Only replace existing keyframes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Only Active Keying Set</dt><dd><p>When enabled, new keyframes for properties will be inserted into the active <em>Keying Set</em>.</p>
+</dd>
+<dt>Layered Recording</dt><dd><p>Adds a new NLA Track and strip for every loop/pass made over the animation to allow non-destructive tweaking.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="menus">
+<h3>Menus</h3>
+<section id="view-menu">
+<h4>View Menu</h4>
+<p>The <em>View Menu</em> controls what you see, and what it looks like.</p>
+<dl>
+<dt>Adjust Last Operation</dt><dd><p>Displays a pop-up panel to alter properties of the last
+completed operation. See <a href="../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a>.</p>
+</dd>
+<dt>Show Seconds <kbd><kbd>Ctrl</kbd>-<kbd>T</kbd></kbd></dt><dd><p>Whether to show the time in the X axis and the <em>Playhead</em> as
+frames (based on the FPS) or as seconds.</p>
+</dd>
+<dt>Sync Visible Range</dt><dd><p>It synchronizes the horizontal panning and scale of the current editor
+with the other editors (Graph, Dope Sheet, NLA and Sequencer) when this option is set.
+That way you always have these editors showing the same section of frames.</p>
+</dd>
+<dt>Show Markers</dt><dd><p>Shows the markers region. When disabled, the <a href="#markers-menu">Markers Menu</a> is also hidden
+and markers operators are not available in this editor.</p>
+</dd>
+<dt>Only Keyframes from Selected Channels</dt><dd><p>For <em>Armatures</em>, this will display the object keyframes,
+and the keyframes for the active and selected pose bones.</p>
+</dd>
+<dt>Cache</dt><dd><dl>
+<dt>Show Cache</dt><dd><p>Show all enabled types.</p>
+<p>Soft Body, Particles, Cloth, Simulation Nodes, Smoke, Dynamic Paint, Rigid Body.</p>
+</dd>
+</dl>
+<figure id="id6">
+<figcaption>
+<p>Timeline Cache.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Frame All <kbd>Home</kbd></dt><dd><p>Maximize the area based on the Animation Range.</p>
+</dd>
+<dt>Go to Current Frame <kbd>Numpad0</kbd></dt><dd><p>Centers the Timeline to the Playhead.</p>
+</dd>
+</dl>
+</section>
+<section id="markers-menu">
+<h4>Markers Menu</h4>
+<p><a href="../animation/markers.html">Markers</a> are used to denote frames with key points or significant events
+within an animation. Like with most animation editors, markers are shown at the bottom of the editor.</p>
+<figure id="id7">
+<figcaption>
+<p>Markers in animation editor.</p>
+</figcaption>
+</figure>
+<p>For descriptions of the different marker tools see <a href="../animation/markers.html#animation-markers-editing">Editing Markers</a>.</p>
+</section>
+</section>
+<section id="header-controls">
+<h3>Header Controls</h3>
+<p>The Timeline header controls.</p>
+<figure id="id8">
+<figcaption>
+<p>Timeline header controls.</p>
+<div>
+<p>1. Popovers for Playback and Keying, 2. Transport Controls, 3. Frame Controls</p>
+</div>
+</figcaption>
+</figure>
+<section id="transport-controls">
+<h4>Transport Controls</h4>
+<p>These buttons are used to set, play, rewind, the <em>Playhead</em>.</p>
+<figure id="id9">
+<figcaption>
+<p>Transport controls.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Jump to Start (❙⏴) <kbd><kbd>Shift</kbd>-<kbd>Left</kbd></kbd></dt><dd><p>This sets the cursor to the start of frame range.</p>
+</dd>
+<dt>Jump to Previous Keyframe (◆⏴) <kbd>Down</kbd></dt><dd><p>This sets the cursor to the previous keyframe.</p>
+</dd>
+<dt>Rewind (◀) <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Spacebar</kbd></kbd></dt><dd><p>This plays the animation sequence in reverse.
+When playing the play buttons switch to a pause button.</p>
+</dd>
+<dt>Play (▶) <kbd>Spacebar</kbd></dt><dd><p>This plays the animation sequence.
+When playing the play buttons switch to a pause button.</p>
+</dd>
+<dt>Jump to Next Keyframe (⏵◆) <kbd>Up</kbd></dt><dd><p>This sets the cursor to the next keyframe.</p>
+</dd>
+<dt>Jump to End (⏵❙) <kbd><kbd>Shift</kbd>-<kbd>Right</kbd></kbd></dt><dd><p>This sets the cursor to the end of frame range.</p>
+</dd>
+<dt>Pause (⏸) <kbd>Spacebar</kbd></dt><dd><p>This stops the animation.</p>
+</dd>
+</dl>
+</section>
+<section id="frame-controls">
+<h4>Frame Controls</h4>
+<dl>
+<dt>Current Frame <kbd><kbd>Alt</kbd>-<kbd>Wheel</kbd></kbd></dt><dd><p>The current frame of the animation/playback range.
+Also the position of the <em>Playhead</em>.</p>
+</dd>
+<dt>Preview Range (clock icon)</dt><dd><p>This is a temporary frame range used for previewing a smaller part of the full range.
+The preview range only affects the viewport, not the rendered output.
+See <a href="graph_editor/introduction.html#graph-preview-range">Preview Range</a>.</p>
+</dd>
+<dt>Start Frame</dt><dd><p>The start frame of the animation/playback range.</p>
+</dd>
+<dt>End Frame</dt><dd><p>The end frame of the animation/playback range.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

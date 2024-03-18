@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Python Console</title></head>
+<body><ul>
+<li><a href="index.html">Editors</a></li>
+<li>Python Console</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="python-console">
+<h1>Python Console</h1>
+<p>The Python Console is a quick way to execute commands,
+with access to the entire Python API, command history and auto-complete.
+The command prompt is typical for Python 3.x,
+the interpreter is loaded and is ready to accept commands at the prompt <code>&gt;&gt;&gt;</code>.</p>
+<p>The Python Console is a good way to explore the possibilities of Blender built-in Python.
+The Python Console can be used to test small bits of Python code which can then be pasted into larger scripts.</p>
+<figure id="id1">
+<figcaption>
+<p>Python Console.</p>
+</figcaption>
+</figure>
+<section id="interface">
+<h2>Interface</h2>
+<section id="header-menus">
+<h3>Header Menus</h3>
+<section id="view-menu">
+<h4>View Menu</h4>
+<dl>
+<dt>Zoom In / Zoom Out</dt><dd><p>Increases/Decreases the font size of the console text.</p>
+</dd>
+<dt>Move to Previous Word <kbd><kbd>Ctrl</kbd>-<kbd>Left</kbd></kbd></dt><dd><p>Moves the cursor to the beginning of the previous word.
+If the cursor is in the middle of a word, the cursor is moved to the beginning of the current word.</p>
+</dd>
+<dt>Move to Next Word <kbd><kbd>Ctrl</kbd>-<kbd>Right</kbd></kbd></dt><dd><p>Moves the cursor to the end of the next word.
+If the cursor is in the middle of a word, the cursor is moved to the end of the current word.</p>
+</dd>
+<dt>Move to Line Begin <kbd>Home</kbd></dt><dd><p>Moves the cursor to the start of the current line.</p>
+</dd>
+<dt>Move to Line End <kbd>End</kbd></dt><dd><p>Moves the cursor to the end of the current line.</p>
+</dd>
+</dl>
+</section>
+<section id="console-menu">
+<h4>Console Menu</h4>
+<dl>
+<dt>Clear All</dt><dd><p>Refreshes the console giving the view a fresh start.
+Note that command history is not cleared.</p>
+</dd>
+<dt>Clear Line <kbd><kbd>Shift</kbd>-<kbd>Return</kbd></kbd>.</dt><dd><p>Removes everything from the prompt line.</p>
+</dd>
+<dt>Delete Previous Word <kbd><kbd>Ctrl</kbd>-<kbd>Backspace</kbd></kbd></dt><dd><p>Deletes everything between the cursor and the beginning of the previous word (separated by periods).
+If the cursor is in the middle of a word, deletes everything to the beginning of the current word.</p>
+</dd>
+<dt>Delete Next Word <kbd><kbd>Ctrl</kbd>-<kbd>Delete</kbd></kbd></dt><dd><p>Deletes everything between the cursor and the end of the next word.
+If the cursor is in the middle of a word, deletes everything to the end of the current word.</p>
+</dd>
+<dt>Copy as Script <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>C</kbd></kbd></dt><dd><p>Copies the full history buffer to the clipboard,
+this can be pasted into a text file to be used as a Python script.</p>
+</dd>
+<dt>Copy <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd></dt><dd><p>Copy the selection.</p>
+</dd>
+<dt>Paste <kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd></dt><dd><p>Paste into the command line.</p>
+</dd>
+<dt>Indent <kbd>Tab</kbd></dt><dd><p>Inserts a tab character at the cursor.</p>
+</dd>
+<dt>Unindent <kbd><kbd>Shift</kbd>-<kbd>Tab</kbd></kbd></dt><dd><p>Unindents the selection.</p>
+</dd>
+<dt>Backward in History <kbd>Up</kbd></dt><dd><p>Changes the current command to previous command as they appear in the command history.</p>
+</dd>
+<dt>Forward in History <kbd>Down</kbd></dt><dd><p>Changes the current command to next command as they appear in the command history.</p>
+</dd>
+<dt>Autocomplete <kbd>Tab</kbd></dt><dd><p>See <a href="#auto-completion">Auto Completion</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="main-view">
+<h3>Main View</h3>
+<p>Key Bindings</p>
+<ul>
+<li><p><kbd>Left</kbd> / <kbd>Right</kbd> – Cursor motion.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Left</kbd></kbd> / <kbd><kbd>Ctrl</kbd>-<kbd>Right</kbd></kbd> – Cursor motion, by word.</p></li>
+<li><p><kbd>Backspace</kbd> / <kbd>Delete</kbd> – Erase characters.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Backspace</kbd></kbd> / <kbd><kbd>Ctrl</kbd>-<kbd>Delete</kbd></kbd> – Erase words.</p></li>
+<li><p><kbd>Return</kbd> – Execute command.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Return</kbd></kbd> – Add to command history without executing.</p></li>
+</ul>
+</section>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<section id="aliases">
+<h3>Aliases</h3>
+<p>Some variables and modules are available for convenience:</p>
+<ul>
+<li><p><code>C</code>: Quick access to <code>bpy.context</code>.</p></li>
+<li><p><code>D</code>: Quick access to <code>bpy.data</code>.</p></li>
+<li><p><code>bpy</code>: Top level Blender Python API module.</p></li>
+</ul>
+</section>
+<section id="first-look-at-the-console-environment">
+<h3>First Look at the Console Environment</h3>
+<p>To check what is loaded into the interpreter environment, type <code>dir()</code>
+at the prompt and execute it.</p>
+</section>
+<section id="auto-completion">
+<h3>Auto Completion</h3>
+<p>Now, type <code>bpy.</code> and then press <kbd>Tab</kbd> and you will see the Console
+auto-complete feature in action.</p>
+<p>You will notice that a list of submodules inside of <code>bpy</code> appear. These modules encapsulate all
+that we can do with Blender Python API and are very powerful tools.</p>
+<p>Lets list all the contents of <code>bpy.app</code> module.</p>
+<p>Notice the green output above the prompt where you enabled auto-completion.
+What you see is the result of auto completion listing.
+In the above listing all are module attributed names,
+but if you see any name end with <code>(</code>, then that is a function.</p>
+<p>We will make use of this a lot to help our learning the API faster.
+Now that you got a hang of this, lets proceed to investigate some of modules in <code>bpy</code>.</p>
+</section>
+<section id="before-tinkering-with-the-modules">
+<h3>Before Tinkering with the Modules</h3>
+<p>If you look at the 3D Viewport in the default Blender scene,
+you will notice three objects: Cube, Light and Camera.</p>
+<ul>
+<li><p>All objects exist in a context and there can be various modes under which they are operated upon.</p></li>
+<li><p>At any instance, only one object is active and there can be more than one selected object.</p></li>
+<li><p>All objects are data in the blend-file.</p></li>
+<li><p>There are operators/functions that create and modify these objects.</p></li>
+</ul>
+<p>For all the scenarios listed above (not all were listed, mind you…)
+the <code>bpy</code> module provides functionality to access and modify data.</p>
+</section>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<section id="bpy-context">
+<h3>bpy.context</h3>
+<div>
+<p>Note</p>
+<p>For the commands below to show the proper output, make sure you have selected object(s) in the 3D Viewport.</p>
+</div>
+<dl>
+<dt><code>bpy.context.mode</code></dt><dd><p>Will print the current 3D Viewport mode (Object, Edit, Sculpt, etc.).</p>
+</dd>
+<dt><code>bpy.context.object</code> or <code>bpy.context.active_object</code></dt><dd><p>Will give you access to the active object in the 3D Viewport.</p>
+</dd>
+</dl>
+<p>Change the X location to a value of 1:</p>
+<div><div><pre>bpy.context.object.location.x = 1
+</pre></div>
+</div>
+<p>Move the object from previous X location by 0.5 unit:</p>
+<div><div><pre>bpy.context.object.location.x += 0.5
+</pre></div>
+</div>
+<p>Change the X, Y, Z location:</p>
+<div><div><pre>bpy.context.object.location = (1, 2, 3)
+</pre></div>
+</div>
+<p>Change only the X, Y components:</p>
+<div><div><pre>bpy.context.object.location.xy = (1, 2)
+</pre></div>
+</div>
+<p>The data type of object’s location:</p>
+<div><div><pre>type(bpy.context.object.location)
+</pre></div>
+</div>
+<p>Now that is a lot of data that you have access to:</p>
+<div><div><pre>dir(bpy.context.object.location)
+</pre></div>
+</div>
+<dl>
+<dt><code>bpy.context.selected_objects</code></dt><dd><p>Will give access to a list of all selected objects.</p>
+</dd>
+</dl>
+<p>Type this and then press <kbd>Tab</kbd>:</p>
+<div><div><pre>bpy.context.selected_objects
+</pre></div>
+</div>
+<p>To print out the name of first object in the list:</p>
+<div><div><pre>bpy.context.selected_objects[0]
+</pre></div>
+</div>
+<p>The complex one… But this prints a list of objects not including the active object:</p>
+<div><div><pre>[obj for obj in bpy.context.selected_objects if obj != bpy.context.object]
+</pre></div>
+</div>
+</section>
+<section id="bpy-data">
+<h3>bpy.data</h3>
+<p><code>bpy.data</code> has functions and attributes that give you access to all the data in the blend-file.</p>
+<p>You can access following data in the current blend-file:
+objects, meshes, materials, textures, scenes, screens, sounds, scripts, etc.</p>
+<p>That is a lot of data.</p>
+</section>
+<section id="bpy-ops">
+<h3>bpy.ops</h3>
+<p>The tool system is built around the concept of operators.
+Operators are typically executed from buttons or menus but can be called directly from Python too.</p>
+<p>See the <a href="https://docs.blender.org/api/current/bpy.ops.html">bpy.ops</a>
+API documentation for a list of all operators.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

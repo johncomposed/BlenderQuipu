@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Operations &gt; Separate Geometry</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Geometry Operation Nodes</a></li>
+<li>Separate Geometry Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="separate-geometry-node">
+<h1>Separate Geometry Node</h1>
+<p>The <em>Separate Geometry</em> node produces two geometry outputs. Based on the <em>Selection</em> input,
+the input geometry is split between the two outputs.</p>
+<div>
+<p>Tip</p>
+<p>This node can be combined with the <a href="../../utilities/math/compare.html">Compare Node</a>
+for a more precise control of which parts are separated to a given output geometry.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard Geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>Boolean field used to calculate which output each part of the geometry will go to.
+Parts in the selection will move to the <em>Selection</em> output.
+Parts not in the selection will move to the <em>Inverted</em> output.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Domain</dt><dd><p>The domain on which the selection field is evaluated.</p>
+<dl>
+<dt>Point:</dt>
+<dd><p>The selection is on the points, control points, and vertices of the geometry.</p>
+</dd>
+<dt>Edge:</dt>
+<dd><p>The selection is on the edges of the mesh component. The other components
+are not modified.</p>
+</dd>
+<dt>Faces:</dt>
+<dd><p>The selection is on the faces of the mesh component. The other components
+are not modified.</p>
+</dd>
+<dt>Spline:</dt>
+<dd><p>The selection is on the splines in the curve component. For each spline, it
+is either entirely in the selection or not at all. The other components are not
+modified.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>When selecting a domain that doesn’t modify all components, the unmodified
+components will appear in both outputs.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Selection</dt><dd><p>The parts of the geometry in the selection.</p>
+</dd>
+<dt>Inverted</dt><dd><p>The parts of the geometry not in the selection.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

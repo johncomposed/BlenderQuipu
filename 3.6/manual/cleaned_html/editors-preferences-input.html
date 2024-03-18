@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Preferences &gt; Input</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Preferences</a></li>
+<li>Input</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="input">
+<h1>Input</h1>
+<p>In the Input preferences, you can customize how Blender reacts to the mouse and keyboard
+as well as define your own keymap.</p>
+<section id="keyboard">
+<h2>Keyboard</h2>
+<dl>
+<dt>Emulate Numpad</dt><dd><p>The Numpad keys are used quite often in Blender and are not assigned to the same action as
+the regular number keys. If you have a keyboard without a Numpad (e.g. on a laptop),
+you can tell Blender to treat the standard number keys as Numpad keys by checking <em>Emulate Numpad</em>.</p>
+</dd>
+<dt>Default to Advanced Numeric Input</dt><dd><p>For transform mode, default to <a href="../../scene_layout/object/editing/transform/control/numeric_input.html#transform-numeric-input-advanced">Advanced Mode</a>,
+otherwise <a href="../../scene_layout/object/editing/transform/control/numeric_input.html#transform-numeric-input-simple">Simple Mode</a> is used.</p>
+</dd>
+</dl>
+</section>
+<section id="mouse">
+<h2>Mouse</h2>
+<dl id="preferences-input-emulate-mouse">
+<dt>Emulate 3 Button Mouse</dt><dd><p>Blender can be configured to work with pointing devices which do not have an <kbd>MMB</kbd>.
+The functionality of the three mouse buttons by holding <kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd>.</p>
+<p>Mouse/Keyboard combinations referenced in this manual
+can be expressed with the combinations shown in the table. For example:</p>
+<p><kbd>MMB</kbd> drag becomes <kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> drag for example.</p>
+<div>
+<p>Warning</p>
+<p>This option prevents certain features from being accessed,
+since <kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> is used for some operations.</p>
+<ul>
+<li><p>Modifying multiple items values at once (objects, bones… etc).</p></li>
+<li><p>Deselecting edge/face rings in Edit Mode.</p></li>
+<li><p>Detaching node links.</p></li>
+<li><p>Moving the Compositor background image.</p></li>
+</ul>
+<p>Some touchpads support three-finger tap for middle mouse button,
+which may be an alternative to using this option.</p>
+</div>
+<dl>
+<dt>Modifier <em>(unsupported on Microsoft Windows)</em></dt><dd><dl>
+<dt><kbd>Alt</kbd></dt><dd><p>Use the <kbd>Alt</kbd> key to emulate the middle mouse button.</p>
+</dd>
+<dt><kbd>OSKey</kbd></dt><dd><p>Use the <kbd>OSKey</kbd> to emulate the middle mouse button.</p>
+<p>This has the advantage that it doesn’t conflict with existing <kbd><kbd>Alt</kbd>-<kbd>MMB</kbd></kbd> shortcuts,
+noted above.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Continuous Grab</dt><dd><p>This feature is used to prevent the problem where an action such as moving objects or panning a view,
+is limited by your screen bounds.</p>
+<p>This is done by warping the mouse within the view.</p>
+<div>
+<p>Note</p>
+<p>Cursor warping is only supported by <em>relative</em> input devices (mouse, trackball, trackpad).</p>
+<p>Graphics tablets, however, typically use <em>absolute</em> positioning,
+this feature is disabled when a tablet is being used.</p>
+<p>This is detected for each action,
+so the presence of a tablet will not disable <em>Continuous Grab</em> for mouse cursor input.</p>
+</div>
+</dd>
+<dt>Release Confirms</dt><dd><p>Dragging <kbd>LMB</kbd> on an object will move it.
+To confirm this (and other) transform, an <kbd>LMB</kbd> is necessary by default.
+When this option is activated, the release of <kbd>LMB</kbd> acts as confirmation of the transform.</p>
+</dd>
+<dt>Mouse Drag Threshold</dt><dd><p>The number of pixels that a User Interface element has to be moved before it is recognized by Blender,
+values below this will be detected as click events.</p>
+</dd>
+<dt>Tablet Drag Threshold</dt><dd><p>The drag threshold for tablet events.</p>
+</dd>
+<dt>Drag Threshold</dt><dd><p>The drag threshold for non mouse/tablet events (keyboard or <a href="../../glossary/index.html#term-NDOF">NDOF</a> for example).</p>
+<p>This affects <a href="../../interface/keymap/blender_default.html#keymap-pref-py-menu-on-drag">Pie Menu on Drag</a> keymap preference.</p>
+</dd>
+<dt>Motion Threshold</dt><dd><p>The number of pixels the cursor must be moved before the movement is registered.
+This is helpful for tablet pens that are a lot more difficult to keep still,
+then this could help to reduce stuttering of the cursor position.</p>
+<div>
+<p>Note</p>
+<p>Unlike the click/drag distinction, this is used to detect small movements
+for example, picking selection cycles through elements near the cursor.
+Once the cursor moves past this threshold, selection stops cycling and picks the closest item.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="touchpad">
+<h2>Touchpad</h2>
+<div>
+<p>Note</p>
+<p>This panel is only available on Windows or macOS.</p>
+</div>
+<dl>
+<dt>Multi-touch Gestures</dt><dd><p>Use multi-touch gestures for navigation with touchpad, instead of scroll wheel emulation.</p>
+</dd>
+</dl>
+</section>
+<section id="tablet">
+<h2>Tablet</h2>
+<dl>
+<dt>Tablet API (Windows only)</dt><dd><p>Select the native Windows Ink or older Wintab system for pressure sensitivity.
+Blender automatically selects the API for your operating system and tablet,
+however in case of problems this can be set manually.
+You may need to restart Blender for changes to take affect.</p>
+</dd>
+<dt>Max Threshold</dt><dd><p>Amount of pressure required to achieve full intensity.</p>
+</dd>
+<dt>Softness</dt><dd><p>Controls how the softness of the low pressure response onset using a gamma curve.</p>
+</dd>
+</dl>
+</section>
+<section id="ndof">
+<h2>NDOF</h2>
+<p>These preferences control how an <a href="../../getting_started/configuration/hardware.html#hardware-ndof">NDOF device</a> interacts with the 3D Viewport.
+These preferences can also be accessed using the <kbd>NDOFMenu</kbd> button on the NDOF device
+to open a pop-up menu to adjust the settings directly from the 3D Viewport.</p>
+<dl>
+<dt>Pan Sensitivity</dt><dd><p>The overall sensitivity for panning in the 3D Viewport.</p>
+</dd>
+<dt>Orbit Sensitivity</dt><dd><p>The overall sensitivity for orbiting in the 3D Viewport.</p>
+</dd>
+<dt>Deadzone</dt><dd><p>The threshold for the amount of movement needed from
+the device’s rest position for Blender to interrupt that movement.</p>
+</dd>
+<dt>Navigation</dt><dd><p>Navigation style for the viewport.</p>
+<dl>
+<dt>Free:</dt>
+<dd><p>Uses the full 6-degrees of freedom.</p>
+</dd>
+<dt>Orbit:</dt>
+<dd><p>Orbit about the view center.</p>
+</dd>
+</dl>
+</dd>
+<dt>Rotation</dt><dd><p>Rotation style for the viewport.</p>
+<dl>
+<dt>Turntable:</dt>
+<dd><p>Rotates the view keeping the horizon horizontal.</p>
+</dd>
+<dt>Trackball:</dt>
+<dd><p>Is less restrictive, allowing any orientation.</p>
+</dd>
+</dl>
+</dd>
+<dt>Show Navigation Guide</dt><dd><p>Display the pivot point and axis during rotation.</p>
+</dd>
+<dt>Invert Zoom</dt><dd><p>Zoom using opposite direction.</p>
+</dd>
+<dt>Lock Camera Pan/Zoom</dt><dd><p>Pan/zoom the camera view instead of leaving the camera view when orbiting.</p>
+</dd>
+<dt>Swap Y and Z Axes</dt><dd><p>Pan using up/down on the NDOF devices instead of forward/backwards.</p>
+</dd>
+<dt>Invert Axis Pan</dt><dd><p>Reverses the panning axis on the selected axes.</p>
+</dd>
+<dt>Orbit</dt><dd><p>Reverses the orbit axis on the selected axes.</p>
+</dd>
+<dt>Fly/Walk</dt><dd><p>Settings to control how the NDOF device is used while using <a href="../3dview/navigate/walk_fly.html#dview-fly-walk">Walk/Fly Navigation</a>.</p>
+<dl>
+<dt>Lock Horizon</dt><dd><p>Keeps the horizontal axis level while flying.</p>
+</dd>
+<dt>Helicopter Mode</dt><dd><p>Moves the 3D Viewport up or down when moving the NDOF device up/down.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

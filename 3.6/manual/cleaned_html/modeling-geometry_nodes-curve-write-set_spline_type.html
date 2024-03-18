@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Write &gt; Set Spline Type</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Write Curve Nodes</a></li>
+<li>Set Spline Type Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="set-spline-type-node">
+<h1>Set Spline Type Node</h1>
+<p>Sets the spline type for the splines in the curve component that
+are in the selection.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry input with a curve component.</p>
+</dd>
+<dt>Selection</dt><dd><p>The splines whose spline types will be changed.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Spline Type</dt><dd><p>The type to convert the splines in the selection to.
+Read the <a href="../../../curves/structure.html#curve-spline-types">Spline Types</a> page for more details
+on the different spline types.</p>
+<dl>
+<dt>Bézier:</dt>
+<dd><p>Convert to a Bézier spline. A spline converted from a poly spline gets vector handles,
+while one converted from NURBS or Catmull Rom spline gets auto handles.</p>
+<div>
+<p>Note</p>
+<p>When converting from a NURBS spline to a Bézier spline,
+at least six points are needed.
+When the number of points is not a multiple of three
+a full conversion is not possible and the spline has to be truncated.</p>
+</div>
+</dd>
+<dt>NURBS:</dt>
+<dd><p>Convert to a NURBS spline.</p>
+</dd>
+<dt>Poly:</dt>
+<dd><p>Convert to a poly spline.</p>
+</dd>
+<dt>Catmull Rom:</dt>
+<dd><p>Convert to a Catmull Rom spline.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard curve output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

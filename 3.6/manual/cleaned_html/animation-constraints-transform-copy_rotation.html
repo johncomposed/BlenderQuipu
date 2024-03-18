@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Copy Rotation</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Copy Rotation Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="copy-rotation-constraint">
+<h1>Copy Rotation Constraint</h1>
+<p>The <em>Copy Rotation</em> constraint forces its owner to match the rotation of its target.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Copy Rotation panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraints target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Order</dt><dd><p>Allows specifying which <a href="../../../glossary/index.html#term-Euler">Euler</a> order to use during the copy operation.
+Defaults to the order of the owner.</p>
+</dd>
+<dt>Axis</dt><dd><p>These buttons control which axes are constrained.</p>
+</dd>
+<dt>Invert</dt><dd><p>Invert their respective corresponding axis coordinates.</p>
+</dd>
+<dt>Mix</dt><dd><p>Specifies how the new rotation is combined with the existing rotation.</p>
+<dl>
+<dt>Replace</dt><dd><p>The new axis values replace existing values.</p>
+</dd>
+<dt>Add</dt><dd><p>The new axis values are added to the existing values.</p>
+</dd>
+<dt>Before Original</dt><dd><p>The new rotation is added before the existing rotation, as if it was applied to
+a parent of the constraint owner.</p>
+</dd>
+<dt>After Original</dt><dd><p>The new rotation is added after the existing rotation, as if it was applied to
+a child of the constraint owner.</p>
+</dd>
+<dt>Offset (Legacy)</dt><dd><p>This replicates the behavior of the original Offset checkbox. It was intended
+to be similar to the <em>Before Original</em> behavior, but does not work correctly
+with multiple axis rotations, and is thus deprecated.</p>
+</dd>
+</dl>
+</dd>
+<dt>Target/Owner</dt><dd><p>Standard conversion between spaces.
+See <a href="../interface/common.html#rigging-constraints-interface-common-space">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

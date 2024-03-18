@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Volume Principled</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Principled Volume</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="principled-volume">
+<h1>Principled Volume</h1>
+<p>The <em>Principled Volume</em> shader combines all volume shading components into
+a single easy to use node. Volumes like smoke and fire can be rendered with
+a single shader node, which includes scattering, absorption and blackbody emission.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Volume scattering color.</p>
+</dd>
+<dt>Color Attribute</dt><dd><p>Volume grid for coloring the volume. Use “color” for smoke simulations.</p>
+</dd>
+<dt>Density</dt><dd><p>Density of the volume.</p>
+</dd>
+<dt>Density Attribute</dt><dd><p>Volume grid to define the density, typically “density”.</p>
+</dd>
+<dt>Anisotropy</dt><dd><p>Backward or forward scattering direction.</p>
+</dd>
+<dt>Absorption Color</dt><dd><p>Volume shadow color tint.</p>
+</dd>
+<dt>Emission Strength</dt><dd><p>Amount of light to emit.</p>
+</dd>
+<dt>Emission Color</dt><dd><p>Emission color tint.</p>
+</dd>
+<dt>Blackbody Intensity</dt><dd><p>Blackbody emission for fire. Set to 1 for physically accurate intensity.</p>
+</dd>
+<dt>Blackbody Tint</dt><dd><p>Color tint for blackbody emission.</p>
+</dd>
+<dt>Temperature</dt><dd><p>Temperature in kelvin for blackbody emission, higher values emit more.</p>
+</dd>
+<dt>Temperature Attribute</dt><dd><p>Volume grid to define the temperature, typically “temperature”.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Volume</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

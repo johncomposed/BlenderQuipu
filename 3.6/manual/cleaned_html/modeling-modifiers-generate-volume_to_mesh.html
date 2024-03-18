@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Volume To Mesh</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Volume to Mesh Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="volume-to-mesh-modifier">
+<h1>Volume to Mesh Modifier</h1>
+<p>This modifier is the inverse of the <em>Mesh to Volume</em> modifier.
+It takes an existing volume object and converts one of its grids to a mesh.
+Only scalar grids (such as the density grid) can be converted.</p>
+<div>
+<p>Tip</p>
+<p>To copy and move the generated mesh separately from the volume object,
+use a <a href="../../../scene_layout/object/properties/instancing/collection.html">collection instance</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Volume to Mesh modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Object</dt><dd><p>The source volume object.</p>
+</dd>
+<dt>Grid Name</dt><dd><p>The name of the grid that will be converted.
+This has to be a scalar grid.</p>
+</dd>
+<dt>Resolution Mode</dt><dd><p>Mode for how the resolution of the final mesh is controlled.</p>
+<dl>
+<dt>Grid</dt><dd><p>This makes the resolution dependent on the resolution of the grid that is converted.
+Higher resolution grids result in a higher resolution mesh.
+In many cases, that is the most efficient mode.</p>
+</dd>
+<dt>Voxel Amount</dt><dd><p>Specifies the approximate resolution of the final mesh.
+The voxel size is adapted to the size of the entire volume.</p>
+</dd>
+<dt>Voxel Size</dt><dd><p>Use a fixed resolution that does not change when the volume changes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Threshold</dt><dd><p>Voxels with a larger value are considered to be inside the mesh and all other voxels outside.
+The mesh will be generated on the boundary of inside and outside voxels.
+This is sometimes also called the “iso value”.</p>
+</dd>
+<dt>Adaptivity</dt><dd><p>This is similar to decimating the final to reduce resolution where it is not needed.</p>
+</dd>
+<dt>Smooth Shading</dt><dd><p>Enables smooth shading on the generated mesh.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id2">
+<figcaption>
+<p>Converting a cloud-shaped volume to a mesh.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Editing &gt; Transform Panel</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Curves</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Transform Panel</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="transform-panel">
+<h1>Transform Panel</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<p>When nothing is selected, the panel is empty.
+When more than one vertex is selected, the median values are edited
+and “Median” is added in front of the labels.</p>
+<dl>
+<dt>Control Point, Vertex</dt><dd><p>The first controls (X, Y, Z) show the coordinates of the selected point or handle (vertex).
+In case of a NURBS curve, there is a fourth component available (W),
+which defines the <a href="../structure.html#curves-structure-nurbs-weight">weight</a>
+of the selected control point or the median weight.</p>
+</dd>
+<dt>Space</dt><dd><p>The Space radio buttons let you choose if those coordinates are relative
+to the object origin (local) or the global origin (global).</p>
+<p>Global, Local</p>
+</dd>
+</dl>
+<dl id="curves-weight">
+<dt>Weight</dt><dd><p>Controls the “goal weight” of selected control points,
+which is used when a curve has <a href="../../../physics/soft_body/index.html">Soft Body</a> physics,
+forcing the curve to “stick” to their original positions, based on the weight.</p>
+</dd>
+<dt>Radius</dt><dd><p>Controls the width of the extrusion/bevel along the “spinal” curve.
+The radius will be interpolated from point to point (you can check it with the normals).</p>
+</dd>
+<dt>Tilt</dt><dd><p>Controls how the normals (visualized as arrows)
+twist around each control point – so it is only relevant with 3D curves!
+The tilt will be interpolated from point to point (you can check it with the normals).</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

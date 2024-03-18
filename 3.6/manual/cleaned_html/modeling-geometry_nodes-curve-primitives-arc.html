@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Primitives &gt; Arc</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Primitive Nodes</a></li>
+<li>Arc Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="arc-node">
+<h1>Arc Node</h1>
+<p>The <em>Arc</em> node generates a poly spline arc. The node has two modes, Radius and Points.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Resolution</dt><dd><p>Number of edges on the arc.</p>
+</dd>
+<dt>Radius</dt><dd><p>The radius of the arc. <em>Radius</em> mode only.</p>
+</dd>
+<dt>Start Angle</dt><dd><p>Starting angle of the arc.  <em>Radius</em> mode only.</p>
+</dd>
+<dt>Sweep Angle</dt><dd><p>Length of the arc.   <em>Radius</em> mode only.</p>
+</dd>
+<dt>Connect Center</dt><dd><p>Connect the arc at the center.</p>
+</dd>
+<dt>Invert Arc</dt><dd><p>Invert and draw opposite arc.</p>
+</dd>
+<dt>Start, Middle, End</dt><dd><p>The three points on the arc. <em>Points</em> mode only.
+The order of the points determines the direction (clockwise or counterclockwise) of the arc.
+The arc will always draw from Start to End via the Middle point. This can be changed by using
+the Invert Arc option.</p>
+</dd>
+<dt>Offset Angle</dt><dd><p>Offset angle of the arc. <em>Points</em> mode only.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Because of the finite resolution, the middle point does not necessarily lie on the generated arc.</p>
+</div>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><dl>
+<dt>Points:</dt>
+<dd><p>The position and radius of the arc are determined by three points.
+The center of the arc, radius and normal are also given as outputs.</p>
+</dd>
+<dt>Radius:</dt>
+<dd><p>The arc is determined by the radius, start angle and sweep angle.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Poly spline generated from the inputs.</p>
+</dd>
+<dt>Center</dt><dd><p>The center of the arc described by the three points. <em>Points</em> mode only.</p>
+</dd>
+<dt>Normal</dt><dd><p>The normal direction of the plane described by the three points,
+pointing towards the positive Z axis. <em>Points</em> mode only.</p>
+</dd>
+<dt>Radius</dt><dd><p>The radius of the arc described by the three points. <em>Points</em> mode only.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

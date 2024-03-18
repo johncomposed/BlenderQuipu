@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Textures &gt; Point Density</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Texture</a></li>
+<li>Point Density Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="point-density-node">
+<h1>Point Density Node</h1>
+<p>The <em>Point Density</em> node is used to add volumetric points for each particle or vertex of another object.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate to sample texture at;
+defaults to global position (<em>Position</em> output of <em>Geometry</em> node) if the socket is left unconnected.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Point Data</dt><dd><p>Where to get points from.</p>
+<dl>
+<dt>Particle System</dt><dd><p>Use each particle position from the specified particle system.</p>
+</dd>
+<dt>Object Vertices</dt><dd><p>Use each vertex position from the specified object.</p>
+</dd>
+</dl>
+</dd>
+<dt>Object</dt><dd><p>Which object’s vertices or particle system will be used.</p>
+</dd>
+<dt>Particle System</dt><dd><p>Particle positions from this system will be used.</p>
+</dd>
+<dt>Space</dt><dd><p>The coordinate system for mapping points.</p>
+<dl>
+<dt>World Space:</dt>
+<dd><p>Map each point exactly where the source particle or vertex is.</p>
+</dd>
+<dt>Object Space:</dt>
+<dd><p>Fit the points from the source particles/vertices
+inside the bounding box of the object with the point density texture.</p>
+</dd>
+</dl>
+</dd>
+<dt>Radius</dt><dd><p>Size of the points.</p>
+</dd>
+<dt>Interpolation</dt><dd><p>Texel filtering type.</p>
+<dl>
+<dt>Closest:</dt>
+<dd><p>No interpolation, use nearest texel. Produces blocky looking points.</p>
+</dd>
+<dt>Linear:</dt>
+<dd><p>Interpolate linearly between texels, producing soft, round points.</p>
+</dd>
+<dt>Cubic:</dt>
+<dd><p>Use cubic falloff, producing very soft points. Useful when points are very densely packed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Resolution</dt><dd><p>The dimensions of the texture holding the point data.</p>
+</dd>
+<dt>Color Source</dt><dd><p>Which attribute of the particle system or mesh is used to color the output.</p>
+<dl>
+<dt>Particle Color Sources</dt><dd><dl>
+<dt>Particle Age:</dt>
+<dd><p>Lifetime mapped as (0.0 - 1.0) intensity.</p>
+</dd>
+<dt>Particle Speed:</dt>
+<dd><p>Particle speed (absolute magnitude of velocity) mapped as (0.0 - 1.0) intensity.</p>
+</dd>
+<dt>Particle Velocity:</dt>
+<dd><p>XYZ velocity mapped to RGB colors.</p>
+</dd>
+</dl>
+</dd>
+<dt>Vertex Color Sources</dt><dd><dl>
+<dt>Vertex Color:</dt>
+<dd><p>Use a Color Attribute for coloring the point density texture.</p>
+<div>
+<p>Note</p>
+<p>Color Attributes are defined per face corner.
+A single vertex can have as many different colors as faces it is part of.
+The actual color of the point density texture is averaged from all vertex corners.</p>
+</div>
+</dd>
+<dt>Vertex Weight:</dt>
+<dd><p>Use weights from a vertex group as intensity values.</p>
+</dd>
+<dt>Vertex Normals:</dt>
+<dd><p>Use object-space vertex normals as RGB values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Texture color output.</p>
+</dd>
+<dt>Density</dt><dd><p>Density of volume.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Domain object with Point Density texture using vertices from ball as points.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

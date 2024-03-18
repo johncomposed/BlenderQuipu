@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Interface &gt; Adding Removing</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Adding/Removing a Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="adding-removing-a-constraint">
+<h1>Adding/Removing a Constraint</h1>
+<p>What is described on this page about Object Constraints can be also be applied on Bone Constraints.</p>
+<section id="tab">
+<h2>Tab</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Properties ‣ Constraint tab</p>
+</dd>
+</dl>
+</div>
+<p>To add a constraint click on the <em>Add Object Constraint</em> menu in the Constraints tab.</p>
+<p>To remove a constraint click on the “X” button
+in the <a href="header.html">header</a>.</p>
+</section>
+<section id="menu">
+<h2>Menu</h2>
+<section id="add-constraint-with-targets">
+<h3>Add Constraint (with Targets)</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Constraint ‣ Add Constraint (with Targets)</p>
+</dd>
+</dl>
+</div>
+<p>Adds a constraint to the active object.
+The type of constraint must be chosen from a pop-up menu,
+though it can be changed later from the <em>Add Constraint (with Targets)</em>
+<a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel.
+If there is an other object selected besides the active one,
+that object will be the constraint target (if the chosen constraint accepts targets).</p>
+<p>When using a bone from another armature as the target for a constraint, the tool
+will look inside the non-active armature and use its active bone,
+provided that armature is in Pose Mode.</p>
+</section>
+<section id="copy-constraints-to-selected-objects">
+<h3>Copy Constraints to Selected Objects</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Constraint ‣ Copy Constraints to Selected Objects</p>
+</dd>
+</dl>
+</div>
+<p>Copies the active object Constraints to the rest of the selected objects.</p>
+</section>
+<section id="clear-object-constraints">
+<h3>Clear Object Constraints</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Pose Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Object ‣ Constraint ‣ Clear Object Constraints</p>
+</dd>
+</dl>
+</div>
+<p>Removes all Constraints of the selected object(s).</p>
+</section>
+</section>
+<section id="track">
+<h2>Track</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Object ‣ Track</p>
+</dd>
+</dl>
+</div>
+<p>These tools add a tracking constraint to the selected objects;
+the target object of the constraint will be the active object, which won’t have a constraint added.</p>
+<ul>
+<li><p><a href="../tracking/damped_track.html">Damped Track Constraint</a></p></li>
+<li><p><a href="../tracking/track_to.html">Track To Constraint</a></p></li>
+<li><p><a href="../tracking/locked_track.html">Lock Track Constraint</a></p></li>
+</ul>
+<dl>
+<dt>Clear Track</dt><dd><p>Removes all Damped Track, Track To and Lock Track Constraints from the selected objects.</p>
+</dd>
+<dt>Clear and Keep Transformation (Clear Track)</dt><dd><p>Removes all Track Constraint from the selected objects, while keeping the final transform caused by them.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

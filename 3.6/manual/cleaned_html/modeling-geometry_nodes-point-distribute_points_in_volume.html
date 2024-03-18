@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Point &gt; Distribute Points In Volume</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Point Nodes</a></li>
+<li>Distribute Points in Volume</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="distribute-points-in-volume">
+<h1>Distribute Points in Volume</h1>
+<p>The <em>Distribute Points in Volume</em> node creates points inside of volume grids.
+The node has two basic modes of operation: distributing points randomly, or in
+a regular grid. Both methods operate on all of the float grids in the volume.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Volume</dt><dd><p>Standard volume geometry input.</p>
+</dd>
+<dt>Density</dt><dd><p>Number of points to sample per unit volume.</p>
+</dd>
+<dt>Spacing</dt><dd><p>Spacing between grid points.</p>
+</dd>
+<dt>Threshold</dt><dd><p>Minimum value of a volume cell to contain a grid point</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Distribution Method</dt><dd><dl>
+<dt>Random:</dt>
+<dd><p>Distribute points randomly inside of the volume. The local point count is implicitly
+defined as a product of the global from the <em>Density</em> input and the local voxel value.
+This method creates a distribution that is not stable as the input volume deforms.</p>
+</dd>
+<dt>Grid:</dt>
+<dd><p>Distribute the points in a grid pattern inside of the volume. At each grid point, the voxel
+value is used to determine whether to add a point.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Points</dt><dd><p>Standard point cloud geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

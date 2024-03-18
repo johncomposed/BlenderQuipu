@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Relationship &gt; Shrinkwrap</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Shrinkwrap Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="shrinkwrap-constraint">
+<h1>Shrinkwrap Constraint</h1>
+<p>The <em>Shrinkwrap</em> constraint is the “object counterpart” of
+the <a href="../../../modeling/modifiers/deform/shrinkwrap.html">Shrinkwrap Modifier</a>.
+It moves the owner origin and therefore the owner object’s location to the surface of its target.</p>
+<p>This implies that the target <em>must</em> have a surface. In fact,
+the constraint is even more selective, as it can only use meshes as targets. Hence,
+the <em>Shrinkwrap</em> option is only shown in the <em>Add Constraint to Active Object</em> menu,
+<kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>C</kbd></kbd>, (or its bone’s equivalent),
+when the selected inactive object is a mesh.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Shrinkwrap panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraint’s target, which <em>must</em> be a mesh object,
+and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Distance</dt><dd><p>This number field controls the offset of the owner from the shrunk computed position on the target’s surface.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+<section id="mode">
+<h3>Mode</h3>
+<p>This selector allows you to select which method to use to compute the point on
+the target’s surface to which to move the owner’s origin. You have these options:</p>
+<section id="nearest-surface-point">
+<h4>Nearest Surface Point</h4>
+<p>The chosen target’s surface’s point will be the nearest one to the original owner’s location.
+This is the default and most commonly useful option.</p>
+</section>
+<section id="projection">
+<h4>Projection</h4>
+<p>The target’s surface point is determined by projecting the owner’s origin along a given axis.</p>
+<dl>
+<dt>Project Axis</dt><dd><p>This axis is controlled by the radio buttons that show up when you select this type.
+This mean the projection axis can only be aligned with one of the three axes, or their opposites.
+When the projection of the owner’s origin along the selected direction does not hit the target’s surface,
+the owner’s location is left unchanged.</p>
+<p>+X, +Y, +Z, -X, -Y, -Z</p>
+</dd>
+<dt>Space</dt><dd><p>Coordinate space in which the axis direction is specified.</p>
+</dd>
+<dt>Distance</dt><dd><p>Distance cutoff after which projection is assumed to have failed, leaving the location unchanged.</p>
+</dd>
+<dt>Project Opposite</dt><dd><p>In addition to the selected projection axis, project in the opposite direction and
+choose the closest hit.</p>
+</dd>
+<dt>Face Cull</dt><dd><p>This radio button allows you to prevent any projection over the “front side”
+(respectively the “back side”) of the target’s faces. The “side” of a face is determined
+by its normal (front being the side “from where” the normal “originates”).</p>
+<p>Off, Front, Back</p>
+<dl>
+<dt>Invert Cull</dt><dd><p>When used with <em>Project Opposite</em> and <em>Face Culling</em>, it inverts the <em>Front</em> or <em>Back</em> cull choice
+for the opposite direction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="nearest-vertex">
+<h4>Nearest Vertex</h4>
+<p>This method is very similar to the <em>Nearest Surface Point</em> one,
+except that the owner’s possible shrink locations are limited to the target’s vertices.</p>
+<p>This method doesn’t support the <em>Snap Mode</em> setting described below.</p>
+</section>
+<section id="target-normal-projection">
+<h4>Target Normal Projection</h4>
+<p>This method is similar to <em>Nearest Surface Point</em>, but produces a much smoother
+projection in return for being significantly slower.</p>
+<p>Instead of finding the closest point, it searches for the nearest point
+that has its interpolated smooth normal pointing towards or away from the original owner position.
+Non-manifold boundary edges are specially handled as infinitely thin cylinders
+that emit normals in all perpendicular directions. Ignores flat shading and auto smooth settings.</p>
+</section>
+</section>
+<section id="snap-mode">
+<h3>Snap Mode</h3>
+<p>Most Shrinkwrap types support an additional setting to control how the owner is moved to
+the target point selected by the methods described above. Some of the choices
+only differ if <em>Distance</em> is not zero.</p>
+<dl>
+<dt>On Surface</dt><dd><p>The owner location is always changed. The offset is applied along the projection line
+connecting the original owner location and selected target point towards
+the original position.</p>
+</dd>
+<dt>Outside Surface</dt><dd><p>Like <em>On Surface</em>, but the offset is always applied towards the outside of the target.</p>
+</dd>
+<dt>Above Surface</dt><dd><p>Like <em>On Surface</em>, but the offset is applied along the smooth normal of the target.</p>
+</dd>
+<dt>Inside</dt><dd><p>The owner is not moved if it is already inside the target.
+Offset shrinks the allowed volume towards the inside along the projection line.</p>
+</dd>
+<dt>Outside</dt><dd><p>The owner is not moved if it is already outside the target.
+Offset expands the exclusion volume towards the outside along the projection line.</p>
+</dd>
+</dl>
+<p>The <em>Inside</em> and <em>Outside</em> options can be used for very crude collision detection.
+The inside vs outside determination is done based on the target normal and
+is not always stable near 90 degree and sharper angles in the target mesh.</p>
+</section>
+<section id="align-to-normal">
+<h3>Align To Normal</h3>
+<p>Whenever <em>Snap Mode</em> is available, it is also possible to align the specified
+local axis of the object to the smooth normal of the target at the selected
+point. The axis is selected via radio buttons.</p>
+<p>The alignment is performed via smallest rotation, like in
+<a href="../tracking/damped_track.html">Damped Track</a> constraint.</p>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

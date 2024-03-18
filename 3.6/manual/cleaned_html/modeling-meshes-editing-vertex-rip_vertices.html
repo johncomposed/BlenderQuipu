@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Vertex &gt; Rip Vertices</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Vertex Tools</a></li>
+<li>Rip Vertices</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="rip-vertices">
+<h1>Rip Vertices</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Vertex ‣ Rip Vertices</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>V</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Rip creates a “hole” in the mesh by making a copy of selected vertices and edges,
+still linked to the neighboring non-selected vertices,
+so that the new edges are borders of the faces on one side, and the old ones,
+borders of the faces on the other side of the rip.</p>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Selected vertex.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Hole created after using rip on vertex.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Edges selected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Result of rip with edge selection.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id6">
+<figcaption>
+<p>A complex selection of vertices.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Result of rip operation.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="limitations">
+<h2>Limitations</h2>
+<p>Rip will only work when edges and/or vertices are selected.
+Using the tool when a face is selected (explicitly or implicitly), will return an error
+message <em>“Cannot perform ripping with faces selected this way”</em>.
+If your selection includes edges or vertices that are not “between” two faces <a href="../../../../glossary/index.html#term-Manifold">Manifold</a>,
+it will also fail with the message <em>“No proper selection or faces include”</em>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Structure</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Meshes</a></li>
+<li>Structure</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="structure">
+<h1>Structure</h1>
+<p>With meshes, everything is built from three basic structures:
+<em>vertices</em>, <em>edges</em> and <em>faces</em>.</p>
+<figure id="id4">
+<figcaption>
+<p>Example of mesh structure.</p>
+</figcaption>
+</figure>
+<section id="vertices">
+<h2>Vertices</h2>
+<p>The most elementary part of a mesh is the vertex (vertices plural) which is a single point or position in 3D space.
+Vertices are represented in the 3D Viewport in Edit Mode as small dots.
+The vertices of an object are stored as an array of coordinates.</p>
+<div>
+<p>Tip</p>
+<p>Do not mistake the <a href="../../scene_layout/object/origin.html">object origin</a> for a vertex.
+It may look similar, but it is bigger and cannot be selected.</p>
+<figure id="id5">
+<figcaption>
+<p>The vertex is labeled as “A”; the object’s origin dot is labeled as “B”.</p>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="edges">
+<h2>Edges</h2>
+<p>An edge always connects two vertices by a straight line.
+The edges are the “wires” you see when you look at a mesh in wireframe view.
+They are usually invisible on the rendered image. They are used to construct faces.</p>
+</section>
+<section id="faces">
+<h2>Faces</h2>
+<p>Faces are used to build the actual surface of the object.
+They are what you see when you render the mesh.
+If this area does not contain a face,
+it will simply be transparent or nonexistent in the rendered image.</p>
+<p>A face is defined as the area between either three (triangles), four (quadrangles) or more (n-gons) vertices,
+with an edge on every side. The faces are often abbreviated to <em>tris, quads &amp; n-gons</em>.</p>
+<p>Triangles are always flat and therefore easy to calculate. On the other hand,
+quadrangles “deform well” and are therefore preferred for animation and subdivision modeling.</p>
+<div>
+<p>See also</p>
+<ul>
+<li><p><a href="https://blender.stackexchange.com/questions/2931">Why should triangles be avoided for character animation?</a></p></li>
+<li><p><a href="https://blender.stackexchange.com/questions/89">When should N-gons be used, and when shouldn’t they?</a></p></li>
+</ul>
+</div>
+</section>
+<section id="normals">
+<h2>Normals</h2>
+<p>In geometry, a normal is a direction or line that is perpendicular to something,
+typically a triangle or surface but can also be relative to a line,
+a tangent line for a point on a curve, or a tangent plane for a point on a surface.</p>
+<figure id="id6">
+<figcaption>
+<p>A visualization of the face normals of a torus.</p>
+</figcaption>
+</figure>
+<p>In the figure above, each blue line represents the normal for a face on the torus.
+The lines are each perpendicular to the face on which they lie.
+The visualization can be activated, in Edit Mode,
+in the <a href="../../editors/3dview/display/overlays.html#mesh-display-normals">Mesh Display Viewport Overlays panel</a>.</p>
+<section id="properties">
+<h3>Properties</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Data ‣ Normals</p>
+</dd>
+</dl>
+</div>
+<figure id="id7">
+<figcaption>
+<p>Normals panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-mesh-auto-smooth-angle">
+<dt>Auto Smooth</dt><dd><p>Edges where an angle between the faces is smaller than specified in the <em>Angle</em> field will be smoothed,
+when shading of these parts of the mesh is set to smooth. This is an easier way to combine smooth and sharp edges.</p>
+</dd>
+</dl>
+<figure id="id8">
+<figcaption>
+<p>Example mesh with Auto Smooth enabled.</p>
+</figcaption>
+</figure>
+<section id="advanced-smooth-shading-sharp-edges">
+<h4>Advanced Smooth Shading &amp; Sharp Edges</h4>
+<p>By default in Blender, with basic normal computing behavior, a sharp edge is always defined
+as an edge being either non-manifold, or having at least one of its faces defined as flat.</p>
+<p>Enabling the <em>Auto Smooth</em> setting adds an extra parameter to define a sharp edge,
+the <em>Angle</em> threshold between two neighbor faces, above which the edge will always be considered as sharp.</p>
+<p><em>Auto Smooth</em> also enables <em>Custom Split Normals</em> handling, which can be either defined (and edited)
+as a <a href="editing/mesh/normals.html">mesh data layer</a>, or generated on the fly by modifiers.
+In any case, when a mesh gets custom normals, they always supersede the default ones computed by <em>Auto Smooth</em>.</p>
+<p>Sharp edges may still be used by the custom normals modifiers to compute their normals,
+depending on their settings.</p>
+</section>
+</section>
+<section id="custom-split-normals">
+<h3>Custom Split Normals</h3>
+<p><em>Custom Split Normals</em> is a way to tweak/fake shading by pointing normals towards
+other directions than the default, auto-computed ones. It is mostly used in game development,
+where it helps counterbalance some issues generated by low-poly objects
+(the most common examples are low-poly trees, bushes, grass, etc. and the ‘rounded’ corners).</p>
+<p>Blender supports custom normals on a ‘smooth fan’ base, defined as a set of neighbor face corners
+sharing the same vertex and ‘linked’ by smooth edges. This means you can have normals per face corners,
+per a set of neighbor face corners, or per vertex.</p>
+<section id="enabling-custom-split-normals">
+<h4>Enabling Custom Split Normals</h4>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Normals ‣ Split</p>
+</dd>
+</dl>
+</div>
+<p>Enables custom split normals.
+Also, any of the custom normal editing tools (see below) will, as a convenience,
+enable custom normals if they are not already enabled.</p>
+<div>
+<p>Note</p>
+<p>This has the side effect of enabling <a href="#auto-smooth">Auto Smooth</a>, as that is necessary to use custom normals.
+Once you have custom normals, the angle threshold of the <em>Auto Smooth</em> behavior is disabled –
+all non-sharp-tagged edges will be considered as smooth, disregarding the angle between their faces.</p>
+</div>
+</section>
+<section id="editing-custom-split-normals">
+<h4>Editing Custom Split Normals</h4>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Normals</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>N</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>There are a number of tools for editing custom split normals.
+The custom normal mesh edit tools can affect all normals (the default), or only selected ones.
+To select a custom normal associated with a particular vertex and face:</p>
+<ul>
+<li><p>Make the element selection mode both Vertex and Face (use <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> to enable the second one).</p></li>
+<li><p>Select one or more vertices, then select a face.
+This can be repeated to select more vertices and a different face and so on.
+It is easiest to see the effect of these tools if you turn on
+the Edit Mode Overlays option <em>Display vertex-per-face normals as lines</em>.</p></li>
+</ul>
+<div>
+<p>See also</p>
+<p><a href="editing/mesh/normals.html">Editing Normals</a>.</p>
+</div>
+</section>
+</section>
+<section id="importing-custom-split-normals">
+<h3>Importing Custom Split Normals</h3>
+<p>Some tools, particularly those used in <abbr title="Computer-Aided Design">CAD</abbr>, tend to generate irregular geometry
+when tessellating their objects into meshes (very thin and long triangles, etc.).
+Auto-computed normals on such geometry often gives bad artifacts,
+so it is important to be able to import and use the normals as generated by the CAD tool itself.</p>
+<div>
+<p>Note</p>
+<p>Currently, only the <a href="../../addons/import_export/scene_fbx.html">FBX Importer</a> and
+<a href="../../files/import_export/alembic.html">Alembic Importer</a> are capable of importing custom normals.</p>
+</div>
+</section>
+</section>
+<section id="topology">
+<h2>Topology</h2>
+<section id="loops">
+<h3>Loops</h3>
+<figure id="id9">
+<figcaption>
+<p>Edge and face loops.</p>
+</figcaption>
+</figure>
+<p><em>Edge</em> and <em>face</em> loops are sets of faces or edges that form continuous “loops” as shown in
+Fig. <a href="#fig-mesh-topo-loop">Edge and face loops.</a>.</p>
+<p>In the image above, loops that do not end in poles are cyclic (1 and 3).
+They start and end at the same vertex and divide the model into two partitions.
+Loops can be a quick and powerful tool to work with specific,
+continuous regions of a mesh and are a prerequisite for organic character animation.
+For a detailed description of how to work with loops in Blender, see:
+<a href="selecting/loops.html#bpy-ops-mesh-loop-multi-select">Select Edge Loops</a>.</p>
+<div>
+<p>Note</p>
+<p>Note that loops (2 and 4) do not go around the whole model.
+Loops stop at so-called poles because there is no unique way to continue a loop from a pole.
+Poles are vertices that are connected to either three, five, or more edges. Accordingly,
+vertices connected to exactly one, two or four edges are not poles.</p>
+</div>
+<p id="modeling-mesh-structure-edge-loops">Edge Loops</p>
+<p>Loops (1 and 2) in Fig. <a href="#fig-mesh-topo-loop">Edge and face loops.</a> are edge loops.
+They connect vertices so that each one on the loop has exactly two neighbors that are not on
+the loop and placed on both sides of the loop (except the start and end vertex in case of poles).</p>
+<p>Edge loops are an important concept especially in organic (subsurface)
+modeling and character animation. When used correctly, they allow you to build models with
+relatively few vertices that look very natural when used as subdivision surfaces and
+deform very well in animation.</p>
+<p>Take Fig. <a href="#fig-mesh-topo-loop">Edge and face loops.</a> in organic modeling as an example: the edge loops follow
+the natural contours and deformation lines of the skin and the underlying muscles.
+The loops are denser in areas that deform more when the character moves, for example at the shoulders or knees.</p>
+<p>Further details on working with edge loops can be found in <a href="selecting/loops.html#bpy-ops-mesh-loop-multi-select">Select Edge Loops</a>.</p>
+<p>Face Loops</p>
+<p>These are a logical extension of edge loops in that they consist of the faces between
+two edge loops, as shown in loops (3 and 4) in Fig. <a href="#fig-mesh-topo-loop">Edge and face loops.</a>.
+Note that for non-circular loops (4)
+the faces containing the poles are not included in a face loop.</p>
+<p>Further details on working with face loops can be found in
+<a href="selecting/loops.html#modeling-meshes-selecting-face-loops">Face Loop Selection</a>.</p>
+</section>
+<section id="poles">
+<h3>Poles</h3>
+<p>See <a href="https://blender.stackexchange.com/a/133676/55">N-poles &amp; E-poles</a>.</p>
+</section>
+<section id="non-manifold">
+<h3>Non-Manifold</h3>
+<p>See <a href="../../glossary/index.html#term-Non-manifold">Non-manifold</a>.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

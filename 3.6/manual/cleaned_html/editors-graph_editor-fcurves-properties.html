@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Graph Editor &gt; Fcurves &gt; Properties</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Graph Editor</a></li>
+<li><a href="index.html">F-Curves</a></li>
+<li>Properties</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="properties">
+<h1>Properties</h1>
+<section id="active-f-curve">
+<h2>Active F-Curve</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ F-Curve ‣ Active F-Curve</p>
+</dd>
+</dl>
+</div>
+<figure id="id3">
+<figcaption>
+<p>Active F-Curve panel.</p>
+</figcaption>
+</figure>
+<p>This panel displays properties for the active F-Curve.</p>
+<dl>
+<dt>Channel Name</dt><dd><p>ID Type + Channel name (X Location).</p>
+</dd>
+</dl>
+<dl id="bpy-types-fcurve-data-path">
+<dt>Data Path</dt><dd><p>RNA Path to property.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fcurve-array-index">
+<dt>RNA Array Index</dt><dd><p>Index to the specific property affected by the F-Curve if applicable.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fcurve-color-mode">
+<dt>Display Color</dt><dd><p>The method used to determine the color of the F-Curve shown in the Graph editor.</p>
+<dl>
+<dt>Auto Rainbow:</dt>
+<dd><p>Increment the hue of the F-Curve color based on the channel index.</p>
+</dd>
+<dt>Auto XYZ to RGB:</dt>
+<dd><p>For property sets like location XYZ, automatically set the set of colors to red, green, blue.</p>
+</dd>
+<dt>User Defined:</dt>
+<dd><p>Define a custom color for the active F-Curve.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fcurve-auto-smoothing">
+<dt>Handle Smoothing</dt><dd><p>Selects the method used to compute <a href="#editors-graph-fcurves-settings-handles">automatic Bézier handles</a>
+(<em>Automatic</em>, <em>Auto Clamped</em>, <em>Vector</em>).</p>
+<figure id="id4">
+<figcaption>
+<p>Handle smoothing mode comparison.</p>
+<div>
+<p>Yellow: <em>None</em>, Cyan: <em>Continuous Acceleration</em>.
+From left to right, four <em>Auto Clamped</em> keys, one <em>Vector</em>, and the rest are <em>Automatic</em>.</p>
+</div>
+</figcaption>
+</figure>
+<dl>
+<dt>None:</dt>
+<dd><p>Only directly adjacent key values are considered when computing the handles.
+Vector handles are pointed directly at the adjacent keyframes.</p>
+<p>This older method is very simple and predictable, but it can only produce
+truly smooth curves in the most trivial cases. Note the kinks in the yellow curve
+around the keys located between the extremes, and near the Vector handles.</p>
+</dd>
+<dt>Continuous Acceleration:</dt>
+<dd><p>A system of equations is solved in order to avoid or minimize jumps in acceleration
+at every keyframe. Vector handles are integrated into the curves as smooth transitions
+to imaginary straight lines beyond the keyframe.</p>
+<p>It produces much smoother curves out of the box, but necessarily means that
+any changes in the key values may affect interpolation over a significant stretch
+of the curve; although the amount of change decays exponentially with distance.
+This change propagation is stopped by any key with <em>Free</em>, <em>Aligned</em>, or <em>Vector</em>
+handles, as well as by extremes with <em>Auto Clamped</em> handles.</p>
+<p>The mode also tends to overshoot and oscillate more with fully <em>Automatic</em> handles
+in some cases (see the right end of the image above). So it is recommended to use
+<em>Auto Clamped</em> by default, and only switch to <em>Automatic</em> handles in places
+where this is desired behavior. That effect can also be reduced by adding in-between keys.</p>
+<div>
+<p>Tip</p>
+<p>Considering the upsides and downsides of each mode, <em>Continuous Acceleration</em> should be
+better suited for limited animation, which uses a small number of interpolated keys with
+minimal manual polish. In case of highly polished high key rate animation, the benefits of
+smoothing may not outweigh the workflow disruption from more extensive change propagation.</p>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="active-keyframe">
+<h2>Active Keyframe</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ F-Curve ‣ Active Keyframe</p>
+</dd>
+</dl>
+</div>
+<figure id="id5">
+<figcaption>
+<p>Active Keyframe panel.</p>
+</figcaption>
+</figure>
+<dl id="editors-graph-fcurves-settings-interpolation">
+<dt>Interpolation</dt><dd><p>Mode for the <a href="../../../glossary/index.html#term-Interpolation">Interpolation</a> between the current and next keyframe.</p>
+<p>Interpolation</p>
+<dl>
+<dt>Constant:</dt>
+<dd><figure id="id6">
+<figcaption>
+<p>Constant.</p>
+</figcaption>
+</figure>
+<p>There is no interpolation at all. The curve holds the value of its last keyframe,
+giving a discrete (stairway) “curve”.
+Usually only used during the initial “blocking” stage in pose-to-pose animation workflows.</p>
+</dd>
+<dt>Linear:</dt>
+<dd><figure id="id7">
+<figcaption>
+<p>Linear.</p>
+</figcaption>
+</figure>
+<p>This simple interpolation creates a straight segment, giving a non-continuous line.
+It can be useful when using only two keyframes and the <em>Extrapolation</em> extend mode,
+to easily get an infinite straight line (i.e. a linear curve).</p>
+</dd>
+<dt>Bézier:</dt>
+<dd><figure id="id8">
+<figcaption>
+<p>Bézier.</p>
+</figcaption>
+</figure>
+<p>The more powerful and useful interpolation, and the default one.
+It gives nicely smoothed curves, i.e. smooth animations!</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Remember that some F-Curves can only take discrete values,
+in which case they are always shown as if constant interpolated, whatever option you chose.</p>
+</div>
+<p>Easing (by strength)</p>
+<p>Different methods of easing interpolations for F-Curve segment.
+The “Robert Penner easing equations” (basically, equations which define some preset ways that
+one keyframe transitions to another) which reduce the amount of manual work (inserting and tweaking keyframes)
+to achieve certain common effects. For example, snappy movements.</p>
+<ul>
+<li><p>Linear</p></li>
+<li><p>Sinusoidal</p></li>
+<li><p>Quadratic</p></li>
+<li><p>Cubic</p></li>
+<li><p>Quartic</p></li>
+<li><p>Quintic</p></li>
+<li><p>Exponential</p></li>
+<li><p>Circular</p></li>
+</ul>
+<div>
+<p>See also</p>
+<p>For more info and a few live demos, see <a href="https://easings.net">https://easings.net</a> and
+<a href="http://robertpenner.com/easing/">http://robertpenner.com/easing/</a></p>
+</div>
+<p>Dynamic Effects</p>
+<p>These additional easing types imitate (fake) physics-based effects like bouncing/springing effects.
+The corresponding settings can be found in the Sidebar region ‣ Active Keyframe panel.</p>
+<dl>
+<dt>Back:</dt>
+<dd><p>Cubic easing with overshoot and settle.
+Use this one when you want a bit of an overshoot coming into the next keyframe,
+or perhaps for some wind-up anticipation.</p>
+<dl>
+<dt>Back</dt><dd><p>The back property controls the size and direction (i.e. above/below the curve) of the overshoot.</p>
+</dd>
+</dl>
+</dd>
+<dt>Bounce:</dt>
+<dd><p>Exponentially decaying parabolic bounce, like when objects collide.
+e.g. for Bouncing balls, etc.</p>
+</dd>
+<dt>Elastic:</dt>
+<dd><p>Exponentially decaying sine wave, like an elastic band.
+This is like bending a stiff pole stuck to some surface,
+and watching it rebound and settle back to its original state.</p>
+<dl>
+<dt>Amplitude</dt><dd><p>The amplitude property controls how strongly the oscillation diverges from the basic curve.
+At 0.0, there is no oscillation (i.e. it just snaps to the B-value like an extreme exponential transition),
+and at 1.0 a profile similar to the one shown in the icon occurs.</p>
+</dd>
+<dt>Period</dt><dd><p>The period property controls the frequency with which oscillations occur.
+Higher values result in denser oscillations.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="editors-graph-fcurves-settings-easing">
+<dt>Easing</dt><dd><p>The Easing Type controls which end of the segment between the two keyframes that the easing effects apply to.
+It has no effect if the <a href="#editors-graph-fcurves-settings-interpolation">Interpolation Mode</a>
+is set to either <em>Constant</em>, <em>Linear</em>, or <em>Bézier</em>.</p>
+<dl>
+<dt>Automatic Easing:</dt>
+<dd><p>The most commonly expected of the below behaviors is used.
+For the transitional effects, this is basically <em>ease in</em>, while for the physics effects it is <em>ease out</em>.</p>
+</dd>
+<dt>Ease In:</dt>
+<dd><p>Effect builds up to the second keyframe.</p>
+</dd>
+<dt>Ease Out:</dt>
+<dd><p>Effect fades out from the first keyframe.</p>
+</dd>
+<dt>Ease In Out:</dt>
+<dd><p>Effect occurs on both ends of the segment.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-keyframe-co-ui">
+<dt>Key Frame</dt><dd><p>Set the frame for the active keyframe.</p>
+</dd>
+<dt>Value</dt><dd><p>Set the value for the active keyframe.</p>
+</dd>
+</dl>
+<dl id="editors-graph-fcurves-settings-handles">
+<dt>Left/Right Handle Type</dt><dd><p>When using Bézier-interpolated curves it is possible to control the slope of the curve at the control points.
+This is done via the curve point <em>handles</em>; you can set the type of handle to use
+for the curve points by pressing <kbd>V</kbd> or choosing Key, Handle Type in the Graph editor menu.
+Each curve point can have a different handle type, even within the same curve.</p>
+<p>There are three automatic modes, <em>Automatic</em>, <em>Auto Clamped</em>, and <em>Vector</em>,
+where Blender automatically determines the curve’s slope at each control point.
+The neighboring control points have the most influence of the slope,
+and points further away have a smaller influence. This can be controlled per F-Curve with
+the <a href="#bpy-types-fcurve-auto-smoothing">Auto Handle Smoothing</a> properties.</p>
+<p>By using the other, non-automatic modes, you have full manual control over the slope.</p>
+<dl>
+<dt>Automatic:</dt>
+<dd><figure id="id9">
+<figcaption>
+<p>Auto handles.</p>
+</figcaption>
+</figure>
+<p>Handle positions are automatically chosen to produce smooth curves.</p>
+</dd>
+<dt>Auto Clamped:</dt>
+<dd><figure id="id10">
+<figcaption>
+<p>Auto clamped handles.</p>
+</figcaption>
+</figure>
+<p>Automatic handles clamped to prevent overshoots and
+changes in the curve direction between keyframes (S-shapes).</p>
+</dd>
+<dt>Vector:</dt>
+<dd><figure id="id11">
+<figcaption>
+<p>Vector handles.</p>
+</figcaption>
+</figure>
+<p>Creates automatic linear interpolation between keyframes. The segments remain linear when
+keyframe centers are moved. However, when the handles are moved, the handle type switches to <em>Free</em>.</p>
+</dd>
+<dt>Aligned:</dt>
+<dd><figure id="id12">
+<figcaption>
+<p>Aligned handles.</p>
+</figcaption>
+</figure>
+<p>The two handles of the curve point are locked together to always point in exactly opposite directions.
+This results in a curve that is always smooth at the control point.</p>
+</dd>
+<dt>Free:</dt>
+<dd><figure id="id13">
+<figcaption>
+<p>Free handles.</p>
+</figcaption>
+</figure>
+<p>The handles can be moved completely independently, and thus can result in a sharp change of direction.</p>
+</dd>
+</dl>
+<dl id="bpy-types-keyframe-handle-right">
+<dt>Frame, Value</dt><dd><p>Set the frame and value for the left/right interpolation handle for the active keyframe.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

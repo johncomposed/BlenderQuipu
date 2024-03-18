@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Clip &gt; Display &gt; Clip Display</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Movie Clip Editor</a></li>
+<li><a href="index.html">Display</a></li>
+<li>Clip Display</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="clip-display">
+<h1>Clip Display</h1>
+<p>This pop-over contains display settings related to editor itself.</p>
+<dl id="bpy-types-spaceclipeditor-show-blue-channel">
+<dt>R, G, B</dt><dd><p>Control the color channels used for frame preview.
+It is needed because the tracking algorithm works with grayscale images and it is not
+always obvious to see which channels disabled will increase contrast of feature points and reduce noise.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceclipeditor-use-grayscale-preview">
+<dt>Grayscale Preview (B/W)</dt><dd><p>Shows the whole frame gray-scale.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceclipeditor-use-mute-footage">
+<dt>Mute (eye icon) <kbd>M</kbd></dt><dd><p>Shows black frames in the preview instead of the movie clip.
+It helps to find tracks which are tracked inaccurately or which were not tracked at all.</p>
+</dd>
+</dl>
+<dl id="bpy-types-movieclipuser-use-render-undistorted">
+<dt>Render Undistorted</dt><dd><p>Applies the <em>Lens Distortion</em> settings to the viewport image in order to display the footage undistorted.
+It is only a preview option, which does not actually change the footage itself.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceclipeditor-show-stable">
+<dt>Show Stable</dt><dd><p>This option makes the displayed frame be affected by the 2D stabilization settings
+(available in reconstruction mode only).
+It is only a preview option, which does not actually change the footage itself.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceclipeditor-show-grid">
+<dt>Grid</dt><dd><p>Displays a grid which is originally orthographic,
+but is affected by the distortion model (available in distortion mode only).
+This grid can be used for manual calibration –
+distorted lines of grids are equal to straight lines in the footage.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceclipeditor-use-manual-calibration">
+<dt>Calibration</dt><dd><p>Applies the distortion model for annotation strokes (available in distortion mode only).
+This option also helps to perform manual calibration.
+A more detailed description of this process will be added later.</p>
+</dd>
+</dl>
+<dl id="bpy-types-movieclip-display-aspect">
+<dt>Display Aspect Ratio</dt><dd><p>Changes the aspect ratio for displaying only. It does not affect the tracking or solving process.</p>
+</dd>
+</dl>
+<section id="marker-display">
+<h2>Marker Display</h2>
+<p>Defines how markers are displayed in the editor.
+Settings can be found in the <a href="#clip-editor-clip-display-label">Clip Display</a> pop-over.</p>
+<dl>
+<dt>Pattern</dt><dd><p>Can be used to disable displaying of rectangles which correspond to pattern areas of tracks.
+In some cases it helps
+to make the clip view cleaner to check how good tracking is.</p>
+</dd>
+<dt>Search <kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></dt><dd><p>Can be used to disable displaying of rectangles which correspond to search areas of tracks.
+In some cases it helps to make the clip view cleaner to check how good tracking is.
+Only search areas for selected tracks will be displayed.</p>
+</dd>
+<dt>Path</dt><dd><p>And <em>Length</em> control displaying of the paths of tracks. The ways tracks are moving can be visible looking
+at only one frame. It helps to determine if a track jumps from its position or not.</p>
+</dd>
+<dt>Show Disabled <kbd><kbd>Alt</kbd>-<kbd>D</kbd></kbd></dt><dd><p>Makes it possible to hide all tracks which are disabled on the current frame.
+This helps to make view more clear, to see if the tracking is accurate enough.</p>
+</dd>
+<dt>Info</dt><dd><p>Displays information such as track name and status of the track
+(if it is keyframed, disabled, tracked or estimated).
+Names and status for selected tracks are displayed.</p>
+</dd>
+<dt>3D Markers</dt><dd><p>Shows the markers after solving the movie clip. Therefore the solved position of each track is
+projected back to the movie clip and displayed as a small point.
+The color of the point depends on the distance between the projected coordinate and
+the original coordinate: if they are close enough, the point is green, otherwise it will be red.
+This helps to find tracks which were not solved nicely and need to be tweaked.</p>
+</dd>
+<dt>Display Thin</dt><dd><p>The way in which markers are displayed compact (black outline and yellow foreground color)
+makes tracks visible on all kind of footage (both dark and light).
+But sometimes it can be annoying and this option will make the marker display more compactly –
+the outline is replaced by dashed black lines rendered on top of the foreground,
+so that marker areas are only 1px thick.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

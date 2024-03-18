@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Point Cloud</title></head>
+<body><ul>
+<li>Point Cloud</li>
+</ul><div>
+<div itemprop="articleBody">
+<div>
+<p>Important</p>
+<p>This feature is currently <a href="../editors/preferences/experimental.html">experimental</a>
+and not available in current releases.</p>
+</div>
+<section id="point-cloud">
+<h1>Point Cloud</h1>
+<p><a href="../glossary/index.html#term-Point-Cloud">Point clouds</a> can be used to represent 3D scans and
+in the future can represent particles. Each point can store data in a set of <a href="#attributes">Attributes</a>.</p>
+<figure id="id1">
+<figcaption>
+<p>Example of a monkey object represented as a point cloud.</p>
+</figcaption>
+</figure>
+<section id="properties">
+<h2>Properties</h2>
+<section id="attributes">
+<h3>Attributes</h3>
+<p>The <em>Attributes</em> panel contains different point cloud characteristics such as the position and size of points.
+Use the <a href="../interface/controls/templates/list_view.html#ui-list-view">List View</a> to manage attributes.</p>
+<section id="attribute-types">
+<h4>Attribute Types</h4>
+<div>
+<p>See also</p>
+<p>See <a href="geometry_nodes/attributes_reference.html#geometry-nodes-builtin-attributes">Built-In Attributes</a> for information about common attributes.</p>
+</div>
+<table>
+<thead>
+<tr><th><p>Name</p></th>
+<th><p>Type</p></th>
+<th><p>Domain</p></th>
+<th><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p><code>position</code></p></td>
+<td><p><em>Vector</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>Built-in attribute describing vertex or point locations, in the modifier object’s transform space.</p></td>
+</tr>
+<tr><td><p><code>radius</code></p></td>
+<td><p><em>Float</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>The radius of each point.</p></td>
+</tr>
+<tr><td><p><code>color</code></p></td>
+<td><p><em>Color</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>The color of each point.</p></td>
+</tr>
+<tr><td><p><code>id</code></p></td>
+<td><p><em>Integer</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>A unique identifier given to each particle.</p></td>
+</tr>
+<tr><td><p><code>velocity</code></p></td>
+<td><p><em>Vector</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>The speed and direction that the particle is traveling.</p></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Custom Attributes</dt><dd><p>Custom attribute can be given to particles to hold a custom characteristic.</p>
+<dl>
+<dt>Name</dt><dd><p>The name of the attribute.</p>
+</dd>
+<dt>Data Type</dt><dd><p>The type of data to store in the attribute.</p>
+<dl>
+<dt>Float:</dt>
+<dd><p>Floating-point value</p>
+</dd>
+<dt>Integer:</dt>
+<dd><p>32-bit integer</p>
+</dd>
+<dt>Vector:</dt>
+<dd><p>3D vector with floating-point values</p>
+</dd>
+<dt>Color:</dt>
+<dd><p>RGBA color with floating-point precision</p>
+</dd>
+<dt>Byte Color:</dt>
+<dd><p>RGBA color with 8-bit precision</p>
+</dd>
+<dt>String:</dt>
+<dd><p>Text string</p>
+</dd>
+</dl>
+</dd>
+<dt>Domain</dt><dd><p>The type of element the attribute is stored in.
+Currently, attributes can only be stored per <em>Point</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="custom-properties">
+<h3>Custom Properties</h3>
+<p>See the <a href="../files/custom_properties.html#files-data-blocks-custom-properties">Custom Properties</a> page for more information.</p>
+</section>
+</section>
+<section id="editing">
+<h2>Editing</h2>
+<p>Currently, not much can be done with point clouds; however,
+they can be <a href="../scene_layout/object/editing/convert.html">converted to/from meshes</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Contribute &gt; Build</title></head>
+<body><ul>
+<li><a href="index.html">Contribute Documentation</a></li>
+<li>Building the Manual</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="building-the-manual">
+<h1>Building the Manual</h1>
+<p>Converting the RST-files into pretty HTML pages is simple.</p>
+<p>Open a terminal or Command Prompt in the <code>~/blender-manual</code> directory and simply run:</p>
+<div><div><pre>make
+</pre></div>
+</div>
+<div>
+<p>Tip</p>
+<p>On Microsoft Windows you can simply open the <code>make.bat</code> file to easily
+run the command without having to open the Command Prompt and typing commands.</p>
+</div>
+<p>This is the command you should use when building the docs,
+however, other commands are available by typing <code>make help</code>.
+This command will convert the RST-files into HTML pages
+and automatically open your default web browser to view the result.
+The command will continue to run and watch for changes made to the RST-files
+and refresh the HTML pages as necessary.</p>
+<div>
+<p>Note</p>
+<p>The converted pages can also be viewed manually by browsing the build directory: <code>~/blender-manual/build/html</code>.
+For example to open the home page, open <code>build/html/index.html</code> to read the manual.</p>
+</div>
+<p>The building process may take several minutes the first time (or after any major changes),
+but for subsequent changes it should only take a few seconds.</p>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Video Editing &gt; Edit &gt; Montage &gt; Strips &gt; Scene</head>
+<body><ul>
+<li><a href="../../../index.html">Video Editing</a></li>
+<li><a href="../../index.html">Edit Your Project</a></li>
+<li><a href="../index.html">Montage</a></li>
+<li><a href="index.html">Strips</a></li>
+<li>Scene Strip</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="scene-strip">
+<h1>Scene Strip</h1>
+<p>Scene strips are a way to insert the render output of another scene into your sequence.
+Instead of rendering out a video, then inserting the video file, you can insert the scene directly.</p>
+<p>The strip length will be determined based on the animation settings in that scene.</p>
+<div>
+<p>Note</p>
+<p>Scene strips cannot be used to reference the sequence’s own scene; a secondary scene must be used instead.</p>
+</div>
+<section id="adding-scene-strips">
+<h2>Adding Scene Strips</h2>
+<p>Existing scenes strips can be added from the Add ‣ Scene ‣ “Scene Name”.
+New scenes can also be created directly from the add menu with Add ‣ Scene ‣ New Scene.</p>
+<p>Options</p>
+<dl>
+<dt>Start Frame</dt><dd><p>The first frame to start the scene strip.</p>
+</dd>
+<dt>Channel</dt><dd><p>The channel to place the strip in.</p>
+</dd>
+<dt>Replace Selection</dt><dd><p>Replace the active strip with the new scene strip.</p>
+</dd>
+</dl>
+<p>When creating a new scene you have the following options:</p>
+<dl>
+<dt>Type</dt><dd><p>How the new scene is created.</p>
+<dl>
+<dt>New:</dt>
+<dd><p>Add new Strip with a new empty Scene with default settings.</p>
+</dd>
+<dt>Copy Settings:</dt>
+<dd><p>Add a new Strip, with an empty scene, and copy settings from the current scene.</p>
+</dd>
+<dt>Linked Copy:</dt>
+<dd><p>Add a Strip and link in the collections from the current scene (shallow copy).</p>
+</dd>
+<dt>Full Copy:</dt>
+<dd><p>Add a Strip and make a full copy of the current scene.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Scene</dt><dd><p>A <a href="../../../../interface/controls/templates/data_block.html#ui-data-block">Data-Block Menu</a> to select or create the scene to render from.</p>
+</dd>
+<dt>Input</dt><dd><p>Input type to use for the Scene strip.</p>
+<dl>
+<dt>Camera:</dt>
+<dd><p>Use the Scene’s 3D camera as input.</p>
+</dd>
+<dt>Sequencer:</dt>
+<dd><p>Use the scene’s Sequencer timeline as input, allowing one scene to reuse
+another scene’s edit (instead of taking the render output from the scene).</p>
+<p>This is similar to how <a href="../meta.html">Meta Strips</a> work,
+with the added advantage of supporting multiple instances of the same data.</p>
+</dd>
+</dl>
+</dd>
+<dt>Camera</dt><dd><p>This can be used to override the scene’s camera with any other object.</p>
+<p>It is useful to support switching views within a single scene.</p>
+</dd>
+<dt>Volume</dt><dd><p>Volume of the audio taken from the chosen scene.</p>
+</dd>
+<dt>Show</dt><dd><dl>
+<dt>Annotations</dt><dd><p>Shows <a href="../../../../interface/annotate_tool.html">Annotations</a> while in non-render
+<a href="../../../../editors/video_sequencer/preview/sidebar.html#bpy-types-rendersettings-sequencer-gl-preview">Preview Shading Modes</a>
+i.e. <em>Solid</em> or <em>Wireframe</em> mode.</p>
+</dd>
+<dt>Transparent</dt><dd><p>Creates a transparent background.
+This is useful for doing overlays like rendering out Grease Pencil films via the Sequencer.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="limitations">
+<h2>Limitations</h2>
+<p>Scene strips do not render individual <a href="../../../../render/layers/passes.html">Render Passes</a>;
+only the <em>Combined</em> render pass will be used.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

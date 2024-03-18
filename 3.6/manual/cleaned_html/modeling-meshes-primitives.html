@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Primitives</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Meshes</a></li>
+<li>Primitives</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="primitives">
+<h1>Primitives</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Mesh</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>A common object type used in a 3D scene is a mesh.
+Blender comes with a number of “primitive” mesh shapes that you can start modeling from.
+You can also add primitives in Edit Mode at the 3D cursor.</p>
+<figure id="id2">
+<figcaption>
+<p>Blender’s standard primitives.</p>
+</figcaption>
+</figure>
+<div>
+<p>Note</p>
+<p>Planar Primitives</p>
+<p>You can make a planar mesh three-dimensional by moving one or more of the vertices out of its plane
+(applies to <em>Plane</em>, <em>Circle</em> and <em>Grid</em>).
+A simple circle is often used as a starting point to create even the most complex of meshes.</p>
+</div>
+<section id="common-options">
+<h2>Common Options</h2>
+<p>These options can be specified in the <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel,
+which appears when the object is created.
+Options included in more than one primitive are:</p>
+<dl>
+<dt>Generate UVs</dt><dd><p>Generates a default UV unwrapping of new geometry.
+This will be defined in the first UV layer (which will get added if needed).</p>
+</dd>
+<dt>Radius/Size, Align to View, Location, Rotation</dt><dd><p>See <a href="../../scene_layout/object/types.html#object-common-options">Common Object Options</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="plane">
+<h2>Plane</h2>
+<p>The standard plane is a single quad face, which is composed of four vertices, four edges, and one face.
+It is like a piece of paper lying on a table;
+it is not a three-dimensional object because it is flat and has no thickness.
+Objects that can be created with planes include floors, tabletops, or mirrors.</p>
+</section>
+<section id="cube">
+<h2>Cube</h2>
+<p>A standard cube contains eight vertices, twelve edges, and six faces,
+and is a three-dimensional object. Objects that can be created out of cubes include dice,
+boxes, or crates.</p>
+</section>
+<section id="circle">
+<h2>Circle</h2>
+<dl>
+<dt>Vertices</dt><dd><p>The number of vertices that define the circle or polygon.</p>
+</dd>
+<dt>Fill Type</dt><dd><p>Set how the circle will be filled.</p>
+<dl>
+<dt>Triangle Fan</dt><dd><p>Fill with triangular faces which share a vertex in the middle.</p>
+</dd>
+<dt>N-gon</dt><dd><p>Fill with a single <a href="../../glossary/index.html#term-N-gon">N-gon</a>.</p>
+</dd>
+<dt>Nothing</dt><dd><p>Do not fill. Creates only the outer ring of vertices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="uv-sphere">
+<h2>UV Sphere</h2>
+<p>A standard UV sphere is made out of quad faces and a triangle fan at the top and bottom.
+It can be used for texturing.</p>
+<dl>
+<dt>Segments</dt><dd><p>Number of vertical segments. Like the Earth’s meridians, going pole to pole.</p>
+</dd>
+<dt>Rings</dt><dd><p>Number of horizontal segments. These are like the Earth’s parallels.</p>
+<div>
+<p>Note</p>
+<p>Rings are face loops and not edge loops, which would be one less.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="icosphere">
+<h2>Icosphere</h2>
+<p>An icosphere is a polyhedral sphere made up of triangles.
+Icospheres are normally used to achieve a more isotropical layout of
+vertices than a UV sphere, in other words, they are uniform in every direction.</p>
+<dl>
+<dt>Subdivisions</dt><dd><p>How many recursions are used to define the sphere.
+At level 1 the icosphere is an icosahedron, a solid with 20 equilateral triangular faces.
+Each increase in the number of subdivisions splits each triangular face into four triangles.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Subdividing an icosphere raises the vertex count very quickly even with few iterations
+(10 times creates 5,242,880 triangles),
+Adding such a dense mesh is a sure way to cause the program to crash.</p>
+</div>
+</section>
+<section id="cylinder">
+<h2>Cylinder</h2>
+<p>Objects that can be created out of cylinders include handles or rods.</p>
+<dl>
+<dt>Vertices</dt><dd><p>The number of vertical edges between the circles used to define the cylinder or prism.</p>
+</dd>
+<dt>Depth</dt><dd><p>Sets the starting height of the cylinder.</p>
+</dd>
+<dt>Cap Fill Type</dt><dd><p>Similar to circle (see above). When set to none, the created object will be a tube.
+Objects that can be created out of tubes include pipes or drinking glasses
+(the basic difference between a cylinder and a tube is that the former has closed ends).</p>
+</dd>
+</dl>
+</section>
+<section id="cone">
+<h2>Cone</h2>
+<p>Objects that can be created out of cones include spikes or pointed hats.</p>
+<dl>
+<dt>Vertices</dt><dd><p>The number of vertical edges between the circles or tip, used to define the cone or pyramid.</p>
+</dd>
+<dt>Radius 1</dt><dd><p>Sets the radius of the circular base of the cone.</p>
+</dd>
+<dt>Radius 2</dt><dd><p>Sets the radius of the tip of the cone. Which will create a frustum (a pyramid or cone with the top cut off).
+A value of 0 will produce a standard cone shape.</p>
+</dd>
+<dt>Depth</dt><dd><p>Sets the starting height of the cone.</p>
+</dd>
+<dt>Base Fill Type</dt><dd><p>Similar to circle (see above).</p>
+</dd>
+</dl>
+</section>
+<section id="torus">
+<h2>Torus</h2>
+<p>A doughnut-shaped primitive created by rotating a circle around an axis.
+The overall dimensions can be defined by two methods.</p>
+<dl>
+<dt>Operator Presets</dt><dd><p>Torus preset settings for reuse. These presets are stored as scripts in the proper presets directory.</p>
+</dd>
+<dt>Major Segments</dt><dd><p>Number of segments for the main ring of the torus.
+If you think of a torus as a “spin” operation around an axis, this is how many steps are in the spin.</p>
+</dd>
+<dt>Minor Segments</dt><dd><p>Number of segments for the minor ring of the torus.
+This is the number of vertices of each circular segment.</p>
+</dd>
+<dt>Dimensions Mode</dt><dd><p>Change the way the torus is defined.</p>
+<p>Major/Minor, Exterior/Interior</p>
+<dl>
+<dt>Major Radius</dt><dd><p>Radius from the origin to the center of the cross sections.</p>
+</dd>
+<dt>Minor Radius</dt><dd><p>Radius of the torus’ cross section.</p>
+</dd>
+<dt>Exterior Radius</dt><dd><p>If viewed along the major axis,
+this is the radius from the center to the outer edge.</p>
+</dd>
+<dt>Interior Radius</dt><dd><p>If viewed along the major axis,
+this is the radius of the hole in the center.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="grid">
+<h2>Grid</h2>
+<p>A regular quadratic grid which is a subdivided plane.
+Example objects that can be created out of grids include landscapes
+and organic surfaces.</p>
+<dl>
+<dt>X Subdivisions</dt><dd><p>The number of spans in the X axis.</p>
+</dd>
+<dt>Y Subdivisions</dt><dd><p>The number of spans in the Y axis.</p>
+</dd>
+</dl>
+</section>
+<section id="monkey">
+<h2>Monkey</h2>
+<p>This adds a stylized monkey head to use as a test mesh,
+use <a href="../../glossary/index.html#term-Subdivision-Surface">Subdivision Surface</a> for a refined shape.</p>
+<p>This is intended as a test mesh, similar to:</p>
+<ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Utah_teapot">Utah Teapot</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Stanford_Bunny">Stanford Bunny</a>.</p></li>
+</ul>
+<div>
+<p>Hint</p>
+<p>History</p>
+<p>This is a gift from old NaN to the community and is seen as a programmer’s joke or
+“Easter Egg”. It creates a monkey’s head once you press the <em>Monkey</em> button.
+The Monkey’s name is “Suzanne” and is Blender’s mascot.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Add-ons</p>
+<p>In addition to the basic geometric primitives,
+Blender has a number of script generated meshes to offer as preinstalled add-ons.
+These are available when enabled in the <a href="../../editors/preferences/addons.html">Preferences</a>
+(select the Category <em>Add Mesh</em>, then check any desired items).</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

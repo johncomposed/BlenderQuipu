@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Materials &gt; Properties</title></head>
+<body><ul>
+<li><a href="../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Materials</a></li>
+<li>Properties</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="properties">
+<h1>Properties</h1>
+<section id="surface">
+<h2>Surface</h2>
+<figure id="id1">
+<figcaption>
+<p>Shader panel with only Stroke component activated.</p>
+</figcaption>
+</figure>
+<section id="stroke">
+<h3>Stroke</h3>
+<p>When enabled, the shader use the stroke component.
+The <em>Stroke</em> component controls how to render the edit lines.</p>
+<dl id="bpy-types-materialgpencilstyle-mode">
+<dt>Line Type</dt><dd><p>Defines how to display or distribute the output material over the stroke.</p>
+<dl>
+<dt>Line:</dt>
+<dd><p>Connects every points in the strokes showing a continuous line.</p>
+</dd>
+<dt>Dots:</dt>
+<dd><p>Use a disk shape at each point in the stroke.
+The dots are not connected.</p>
+</dd>
+<dt>Squares:</dt>
+<dd><p>Use a square shape at each point in the stroke.
+The squares are not connected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-materialgpencilstyle-stroke-style">
+<dt>Style</dt><dd><p>The type of the material.</p>
+<dl>
+<dt>Solid:</dt>
+<dd><p>Use a solid color.</p>
+<dl>
+<dt>Base Color</dt><dd><p>The base color of the stroke.</p>
+</dd>
+</dl>
+</dd>
+<dt>Texture:</dt>
+<dd><p>Use an image texture.</p>
+<dl>
+<dt>Base Color</dt><dd><p>The base color of the stroke.</p>
+</dd>
+<dt>Image</dt><dd><p>The image data-block used as an image source.</p>
+</dd>
+<dt>Blend</dt><dd><p>Texture and Base Color mixing amount.</p>
+</dd>
+<dt>UV Factor</dt><dd><p>The image size along the stroke.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-materialgpencilstyle-use-stroke-holdout">
+<dt>Holdout</dt><dd><p>Removes the color from strokes underneath the current by using it as a mask.</p>
+</dd>
+</dl>
+<dl id="bpy-types-materialgpencilstyle-alignment-mode">
+<dt>Alignment</dt><dd><p>Defines how to align the <em>Dots</em> and <em>Squares</em> along the drawing path and with the object’s rotation.</p>
+<dl>
+<dt>Path:</dt>
+<dd><p>Aligns to the drawing path and the object’s rotation.</p>
+</dd>
+<dt>Object:</dt>
+<dd><p>Aligns to the object’s rotation; ignoring the drawing path.</p>
+</dd>
+<dt>Fixed:</dt>
+<dd><p>Aligns to the screen space; ignoring the drawing path and the object’s rotation.</p>
+</dd>
+</dl>
+</dd>
+<dt>Rotation</dt><dd><p>Rotates the points of <em>Dot</em> and <em>Square</em> strokes.</p>
+<div>
+<p>Note</p>
+<p>The <em>Rotation</em> option is limited to a range of -90 to 90 degrees.</p>
+</div>
+</dd>
+<dt>Self Overlap</dt><dd><p>Disables stencil and overlap self-intersections with alpha materials.</p>
+</dd>
+</dl>
+<table id="id2">
+<caption>Samples of different material strokes mode types and styles.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Mode Type: Line, Style: Solid.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Mode Type: Line, Style: Texture.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Mode Type: Dot, Style: Solid.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Mode Type: Dot, Style: Texture.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fill">
+<h3>Fill</h3>
+<p>When enabled, the shader use the fill component.
+The <em>Fill</em> component control how to render the filled areas determined by closed edit lines.</p>
+<dl>
+<dt>Style</dt><dd><p>The type of material.</p>
+<dl>
+<dt>Solid</dt><dd><p>Use solid color.</p>
+<dl>
+<dt>Base Color</dt><dd><p>The base color of the fill.</p>
+</dd>
+</dl>
+</dd>
+<dt>Gradient</dt><dd><p>Use a color gradient.</p>
+<dl>
+<dt>Gradient Type</dt><dd><dl>
+<dt>Linear</dt><dd><p>Mix the colors along a single axis.</p>
+</dd>
+<dt>Radial</dt><dd><p>Mix the colors radiating from a center point.</p>
+</dd>
+</dl>
+</dd>
+<dt>Base Color</dt><dd><p>The primary color.</p>
+</dd>
+<dt>Secondary Color</dt><dd><p>The secondary color.</p>
+</dd>
+<dt>Blend</dt><dd><p>Base Color and Secondary Color mixing amount.</p>
+</dd>
+<dt>Flip Colors</dt><dd><p>Flips the gradient, inverting the Base Color and Secondary Color.</p>
+</dd>
+<dt>Location</dt><dd><p>Shifts the gradient position.</p>
+<p>X, Y</p>
+</dd>
+<dt>Rotation</dt><dd><p>Rotates the gradient.</p>
+</dd>
+<dt>Scale</dt><dd><p>Scales the gradient.</p>
+<p>X, Y</p>
+</dd>
+</dl>
+</dd>
+<dt>Texture</dt><dd><p>Use an image texture.</p>
+<dl>
+<dt>Base Color</dt><dd><p>The base color of the fill.</p>
+</dd>
+<dt>Image</dt><dd><p>The image data-block used as an image source.</p>
+</dd>
+<dt>Blend</dt><dd><p>Texture and Base Color mixing amount.</p>
+</dd>
+<dt>Location</dt><dd><p>Shifts the image position.</p>
+<p>X, Y</p>
+</dd>
+<dt>Rotation</dt><dd><p>Rotates the image.</p>
+</dd>
+<dt>Scale</dt><dd><p>Scales the image.</p>
+<p>X, Y</p>
+</dd>
+<dt>Clip Image</dt><dd><p>When enabled, show one image instance only (do not repeat).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-materialgpencilstyle-use-fill-holdout">
+<dt>Holdout</dt><dd><p>Removes the color from strokes underneath the current by using it as a mask.</p>
+</dd>
+</dl>
+<table id="id7">
+<caption>Samples of different material fill styles.</caption>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Style: Solid.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Style: Gradient (Linear).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Style: Gradient (Radial).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Style: Texture.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="settings">
+<h2>Settings</h2>
+<dl id="bpy-types-materialgpencilstyle-pass-index">
+<dt>Pass Index</dt><dd><p>This index can be used with some modifiers to restrict changes to only a certain material.
+See <a href="../modifiers/introduction.html">Modifiers</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

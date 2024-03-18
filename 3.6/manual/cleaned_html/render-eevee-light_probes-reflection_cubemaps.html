@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Light Probes &gt; Reflection Cubemaps</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Light Probes</a></li>
+<li>Reflection Cubemaps</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="reflection-cubemaps">
+<h1>Reflection Cubemaps</h1>
+<p>Specular Indirect Lighting is stored in an array of cubemaps. These are defined by the Reflection Cubemap objects.
+They specify where to sample the scene’s lighting and where to apply it.</p>
+<div>
+<p>See also</p>
+<p><a href="../render_settings/indirect_lighting.html">Indirect Lighting</a>.</p>
+</div>
+<p><em>Screen Space Reflections</em> are much more precise than reflection cubemaps.
+If enabled, they have priority and cubemaps are used as a fall back if a ray misses.</p>
+<p>If <em>Ambient Occlusion</em> is enabled, it will be applied in a physically plausible manner to specular indirect lighting.</p>
+<div>
+<p>Note</p>
+<p>The cube probes are encoded into tetrahedral maps. Some distortions may occur on the negative Z hemisphere.
+Those are more visible with higher roughness values.</p>
+</div>
+<section id="blending">
+<h2>Blending</h2>
+<p>The lighting values from a Reflection Cubemap will fade outwards until the volume bounds are reached.
+They will fade into the world’s lighting or another Reflection Cubemap’s lighting.
+If multiple Reflection Cubemaps overlap, smaller (in volume) ones will always have more priority.
+If an object is not inside any Reflection Cubemap influence,
+or if the indirect lighting has not been baked, the world’s cubemap will be used to shade it.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Object Data ‣ Probe</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Distance</dt><dd><p>A probe object only influences the lighting of nearby surfaces.
+This influence zone is defined by the Distance parameter and object scaling.
+The influence distance varies is a bit, depending on the probe type.</p>
+<p>For Reflection Cubemaps the influence volume can either be a box or a sphere centered on the probe’s origin.</p>
+</dd>
+<dt>Falloff</dt><dd><p>Percentage of the influence distance during which the influence of a probe fades linearly.</p>
+</dd>
+<dt>Intensity</dt><dd><p>Intensity factor of the recorded lighting.
+Making this parameter anything other than 1.0 is not physically correct.
+Use it for tweaking or artistic purposes.</p>
+</dd>
+<dt>Clipping</dt><dd><p>Define the near and far clip distances when capturing the scene.</p>
+</dd>
+<dt>Visibility Collection</dt><dd><p>Sometimes, it is useful to limit which objects appear in the light probe’s captured lighting.
+For instance, an object that is too close to a capture point might be better excluded.
+This is what the visibility collection does.
+Only objects that are in this collection will be visible when this probe will capture the scene.</p>
+<p>There is also an option to invert this behavior and effectively hide the objects inside this collection.</p>
+<div>
+<p>Note</p>
+<p>This is only a filtering option.
+That means if an object is not visible at render time it won’t be visible during the probe render.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="custom-parallax">
+<h2>Custom Parallax</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Object Data ‣ Custom Parallax</p>
+</dd>
+</dl>
+</div>
+<p>By default, the influence volume is also the parallax volume.
+The parallax volume is a volume on which is projected the recorded lighting.
+It should roughly fit it surrounding area. In some cases it may be better to
+adjust the parallax volume without touching the influence parameters.
+In this case, just enable the <em>Custom Parallax</em> and
+change the shape and distance of the parallax volume independently.</p>
+</section>
+<section id="viewport-display">
+<h2>Viewport Display</h2>
+<dl>
+<dt>Influence</dt><dd><p>Show the influence bounds in the 3D Viewport. The inner sphere is where the falloff starts.</p>
+</dd>
+<dt>Clipping</dt><dd><p>Show the clipping distance in the 3D Viewport.</p>
+</dd>
+<dt>Parallax</dt><dd><p>Show the <em>Custom Parallax</em> shape in the 3D Viewport.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

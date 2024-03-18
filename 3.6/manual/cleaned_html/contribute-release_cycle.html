@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Contribute &gt; Release Cycle</title></head>
+<body><ul>
+<li><a href="index.html">Contribute Documentation</a></li>
+<li>Release Cycle</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="release-cycle">
+<h1>Release Cycle</h1>
+<p>A new Blender version is targeted to be released every 3 months.
+The actual <a href="https://wiki.blender.org/wiki/Process/Release_Cycle">release cycle</a> for a specific release is longer,
+and overlaps the previous and next release cycle.</p>
+<section id="branches">
+<h2>Branches</h2>
+<p>Work is done in two branches:</p>
+<ul>
+<li><p><code>blender-v{VERSION}-release</code> branch: fixes and other incremental improvements.</p></li>
+<li><p><code>master</code> branch: documentation for new features and improvements for the release after that.</p></li>
+</ul>
+<p>The <code>blender-v{VERSION}-release</code> branch will be available for 5 weeks prior to the release date.
+At the same time <code>master</code> will be open for the next release,
+giving 2 months to add documentation for new features of the next release, and another month to make improvements.</p>
+<section id="switching-branches">
+<h3>Switching Branches</h3>
+<p>To switch to the release branch use:</p>
+<div><div><pre>git checkout blender-v{VERSION}-release
+</pre></div>
+</div>
+<p>To switch back to the development branch use:</p>
+<div><div><pre>git checkout main
+</pre></div>
+</div>
+</section>
+<section id="updating-branches">
+<h3>Updating Branches</h3>
+<p>To merge changes from the release branch to the development branch,
+first switch to the development branch and use:</p>
+<div><div><pre>git merge blender-v{VERSION}-release
+</pre></div>
+</div>
+</section>
+</section>
+<section id="bcon-phases">
+<h2>Bcon Phases</h2>
+<p>Each Blender version has its own Bcon phase,
+indicating which types of changes are allowed to be committed and what writers are focusing on.</p>
+<p>That means for example that Blender 2.90 can be in Bcon3 (wrapping up),
+while Blender 2.91 is in Bcon1 (new features and changes).</p>
+<table>
+<thead>
+<tr><th><p>Phase</p></th>
+<th><p>Description</p></th>
+<th><p>Duration</p></th>
+<th><p>Details</p></th>
+<th><p>Branch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>Bcon1</p></td>
+<td><p>New features and changes</p></td>
+<td><p>4-5 weeks</p></td>
+<td><p>The first 5 weeks overlap with the Bcon3 and Bcon4 phases of the previous release,
+Writing focus will be split on fixes for the previous release
+and writing documentation for features already added or likely to be added to Blender.
+This is also the perfect time to make any larger or more disruptive improvements to the manual.</p></td>
+<td><p><code>master</code></p></td>
+</tr>
+<tr><td><p>Bcon2</p></td>
+<td><p>Improve and stabilize</p></td>
+<td><p>4 weeks</p></td>
+<td><p>Work to improve, optimize and fix bugs in new and existing features.
+All big or disruptive changes must be finished at the end of this stage.</p></td>
+<td><p><code>master</code></p></td>
+</tr>
+<tr><td><p>Bcon3</p></td>
+<td><p>Wrapping up</p></td>
+<td><p>4 weeks</p></td>
+<td><p>Focus should be on fixes and other incremental improvements.
+All new Blender features should be documented by the end of this stage.</p></td>
+<td><p><code>blender-v{VERSION}-release</code></p></td>
+</tr>
+<tr><td><p>Bcon4</p></td>
+<td><p>Prepare release</p></td>
+<td><p>1 week</p></td>
+<td><p>Focus should be wrapping up fixes and other incremental improvements.</p></td>
+<td><p><code>blender-v{VERSION}-release</code></p></td>
+</tr>
+<tr><td><p>Bcon5</p></td>
+<td><p>Release</p></td>
+<td><p>1-2 days</p></td>
+<td><p>The manual is archived on the server and redirects / symlinks are updated.
+See the <a href="guides/maintenance_guide.html#about-contribute-guides-release">Release Guide</a> for more information.</p></td>
+</tr>
+<tr><td><p>Bcon6</p></td>
+<td><p>Long-term release</p></td>
+<td><p>2 years</p></td>
+<td><p>In case a major error is found in the manual the patch will be committed to the release branch.</p></td>
+<td><p><code>blender-v{VERSION}-release</code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Cloth Filter</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Cloth Filter</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cloth-filter">
+<h1>Cloth Filter</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Cloth Filter</p>
+</dd>
+</dl>
+</div>
+<p>This tool works similar to the <a href="cloth.html">Cloth Brush</a>,
+however, it applies a cloth simulation to all vertices in the mesh at the same time.
+Click and drag away from the object for a positive effect and towards for a negative effect.</p>
+<div>
+<p>Tip</p>
+<p>Vertices can be “pinned” by <a href="mask.html">masking</a> vertices
+that should remain stationary, or by using <a href="../editing/face_sets.html#sculpting-editing-facesets">Face Sets</a>.</p>
+</div>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<dl>
+<dt>Filter Type</dt><dd><p>Operation that is going to be applied to the mesh.</p>
+<dl>
+<dt>Gravity:</dt>
+<dd><p>Applies gravity to the simulation.</p>
+</dd>
+<dt>Inflate:</dt>
+<dd><p>Inflates the cloth.</p>
+</dd>
+<dt>Expand:</dt>
+<dd><p>Expands the cloth’s dimensions.</p>
+</dd>
+<dt>Pinch:</dt>
+<dd><p>Pinches the cloth to the point where the cursor was when the filter started.</p>
+</dd>
+<dt>Scale:</dt>
+<dd><p>Scales the mesh as a <a href="../../../physics/soft_body/index.html">Soft Body</a>
+using the distance to the origin of the object as scale.
+This creates filter produces folds in the surface.
+The orientation of the folds can be controlled using the <em>Force Axis</em> and <em>Orientation</em>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Strength</dt><dd><p>The amount of effect the filter has on the mesh.</p>
+</dd>
+<dt>Force Axis</dt><dd><p>Apply the force along the selected axis.</p>
+</dd>
+<dt>Orientation</dt><dd><p><a href="../../../editors/3dview/controls/orientation.html">Orientation</a> of the axis to limit the filter force.</p>
+<dl>
+<dt>Local:</dt>
+<dd><p>Use the local axis to limit the force and set the gravity direction.</p>
+</dd>
+<dt>World:</dt>
+<dd><p>Use the world axis to limit the force and set the gravity direction.</p>
+</dd>
+<dt>View:</dt>
+<dd><p>Use the view axis to limit the force and set the gravity direction.</p>
+</dd>
+</dl>
+</dd>
+<dt>Cloth Mass</dt><dd><p>Mass of each simulation particle.</p>
+</dd>
+<dt>Cloth Damping</dt><dd><p>How much the applied forces are propagated through the cloth.</p>
+</dd>
+<dt>Use Face Sets</dt><dd><p>Only applies the cloth forces to the vertices assigned to the <a href="../editing/face_sets.html#sculpting-editing-facesets">Face Set</a>
+that are under the mouse.</p>
+</dd>
+<dt>Use Collisions</dt><dd><p>Enables the detection of collisions with other objects during the simulation.
+In order for the sculpt object to collide with object,
+the collision object must have <a href="../../../physics/collision.html">Collision Physics</a> activated.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

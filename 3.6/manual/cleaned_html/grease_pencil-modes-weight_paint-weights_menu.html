@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Weight Paint &gt; Weights Menu</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Weight Paint Mode</a></li>
+<li>Weights Menu</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="weights-menu">
+<h1>Weights Menu</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Weights</p>
+</dd>
+</dl>
+</div>
+<p>This page covers many of the tools in the <em>Weights</em> menu.</p>
+<section id="normalize-all">
+<h2>Normalize All</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Weights ‣ Normalize All</p>
+</dd>
+</dl>
+</div>
+<p>For each point, this tool makes sure that the sum of the weights across all vertex groups is equal to 1.
+It normalizes all of the vertex groups, except for locked groups, which keep their weight values untouched.</p>
+<dl>
+<dt>Lock Active</dt><dd><p>Keep the values of the active group while normalizing all the others.</p>
+</dd>
+</dl>
+</section>
+<section id="normalize">
+<h2>Normalize</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Weights ‣ Normalize</p>
+</dd>
+</dl>
+</div>
+<p>This tool only works on the active vertex group.
+All points keep their relative weights, but the entire set of weights is scaled up
+such that the highest weight value is 1.0.</p>
+</section>
+<section id="invert">
+<h2>Invert</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Weights ‣ Invert</p>
+</dd>
+</dl>
+</div>
+<p>Replaces each weight of the selected vertex group by × -1.0 weight.</p>
+<p>Examples:</p>
+<ul>
+<li><p>Original 1.0 converts to 0.0</p></li>
+<li><p>Original 0.5 remains 0.5</p></li>
+<li><p>Original 0.0 converts to 1.0</p></li>
+</ul>
+<dl>
+<dt>Subset</dt><dd><p>Restrict the tool to a subset.
+See <a href="../../../sculpt_paint/weight_paint/editing.html#bpy-ops-object-vertex-group-levels">The Subset Option</a> about how subsets are defined.</p>
+</dd>
+<dt>Add Weights</dt><dd><p>Add vertices that have no weight before inverting (these weights will all be set to 1.0).</p>
+</dd>
+<dt>Remove Weights</dt><dd><p>Remove vertices from the vertex group if they are 0.0 after inverting.</p>
+</dd>
+</dl>
+</section>
+<section id="smooth">
+<h2>Smooth</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Weights ‣ Smooth</p>
+</dd>
+</dl>
+</div>
+<p>Smooths the weights of the active vertex group.</p>
+</section>
+<section id="generate-weights">
+<h2>Generate Weights</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Weights ‣ Generate Weights</p>
+</dd>
+</dl>
+</div>
+<p>Generate automatic weight for armatures (requires an Armature modifier).</p>
+<dl>
+<dt>With Empty Group</dt><dd><p>When parenting it will create an empty vertex groups on the child objects (if they do not exist already)
+for and named after each deforming bone in the armature.</p>
+</dd>
+<dt>With Automatic Weights</dt><dd><p>Works similar to <em>With Empty Groups</em>, but it will not leave the vertex groups empty.
+It calculates how much influence a particular bone would have on points based on the distance
+from those points to a particular bone (“bone heat” algorithm).
+This influence will be assigned as weights in the vertex groups.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

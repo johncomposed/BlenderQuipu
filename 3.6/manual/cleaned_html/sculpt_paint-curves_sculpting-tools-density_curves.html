@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Curves Sculpting &gt; Tools &gt; Density Curves</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Curves Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Density Brush</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="density-brush">
+<h1>Density Brush</h1>
+<p>Create (or remove) curves based on a target distance.
+It generates a high number of points and then rejects the
+ones that are too close to existing points.</p>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<dl id="bpy-types-brushcurvessculptsettings-density-mode">
+<dt>Density Mode</dt><dd><p>Determines whether the brush adds or removes curves.</p>
+<dl>
+<dt>Auto:</dt>
+<dd><p>Either add or remove curves depending on the distance between existing curve roots under the cursor.</p>
+</dd>
+<dt>Add:</dt>
+<dd><p>Add new curves between existing curves, taking the minimum distance into account.</p>
+</dd>
+<dt>Remove:</dt>
+<dd><p>Remove curves whose root points are too close.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushcurvessculptsettings-minimum-distance">
+<dt>Distance Min</dt><dd><p>Goal distance between the curve roots.</p>
+<dl id="bpy-ops-sculpt-curves-min-distance-edit">
+<dt>Edit Minimum Distance <kbd>R</kbd></dt><dd><p>Interactively sets the <em>Distance Min</em> value by displaying
+a graphic inside the brush cursor, giving a representation of the density.</p>
+<p>The density can be adjusted by moving the mouse cursor closer or farther from the paint cursor.
+The <em>Distance Min</em> will be changed once the operator is confirmed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushcurvessculptsettings-density-add-attempts">
+<dt>Count Max</dt><dd><p>The maximum amount of points that the brush tries to sample in the surface.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

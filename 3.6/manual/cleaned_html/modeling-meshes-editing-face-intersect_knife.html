@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Face &gt; Intersect Knife</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Face Tools</a></li>
+<li>Intersect (Knife)</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="intersect-knife">
+<h1>Intersect (Knife)</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face ‣ Intersect (Knife)</p>
+</dd>
+</dl>
+</div>
+<p>The Intersect tool lets you cut intersections into geometry.
+It is a bit like the Boolean tool, but, does not calculate interior/exterior geometry.
+Faces are split along the intersections, leaving new edges selected.</p>
+<dl>
+<dt>Source</dt><dd><dl>
+<dt>Self Intersect:</dt>
+<dd><p>Operate on the overlapping geometry of the mesh.</p>
+</dd>
+<dt>Selected/Unselected:</dt>
+<dd><p>Operate between the selected and unselected geometry.</p>
+</dd>
+</dl>
+</dd>
+<dt>Separate Mode</dt><dd><dl>
+<dt>All:</dt>
+<dd><p>Splits the geometry at the new edge.</p>
+</dd>
+<dt>Cut:</dt>
+<dd><p>Keep each side of the intersection separate without splitting the faces in half.</p>
+</dd>
+<dt>Merge:</dt>
+<dd><p>Merge all the geometry from the intersection.</p>
+</dd>
+</dl>
+</dd>
+<dt>Solver</dt><dd><p>Algorithm used to calculate the intersections.</p>
+<dl>
+<dt>Fast:</dt>
+<dd><p>Uses a mathematically simple solver which offers the best performance;
+however, this solver lacks support for overlapping geometry.</p>
+<dl>
+<dt>Merge Threshold</dt><dd><p>Tolerance for close faces to be considered touching.
+It may be useful to increase this when some intersections aren’t detected that should be and
+when extra geometry is being created because edges aren’t detected as overlapping.</p>
+<div>
+<p>Warning</p>
+<p>A threshold approaching the size of faces may cause very slow calculation,
+in general keep this value small.</p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Exact:</dt>
+<dd><p>Uses a mathematically complex solver which offers the best results
+and has full support for overlapping geometry;
+however, this solver is much slower than the <em>Fast Solver</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

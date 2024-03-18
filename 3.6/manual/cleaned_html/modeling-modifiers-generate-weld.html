@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Weld</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Weld Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="weld-modifier">
+<h1>Weld Modifier</h1>
+<p>The <em>Weld</em> modifier looks for groups of vertices within a threshold and merges them,
+collapsing the surrounding geometry.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Weld modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mode</dt><dd><p>Method for choosing which vertices are merged.</p>
+<dl>
+<dt>All:</dt>
+<dd><p>Merge includes all geometry including loose parts.</p>
+</dd>
+<dt>Connected:</dt>
+<dd><p>Merge only includes attached geometry i.e. the modifier will not merge loose parts together.</p>
+</dd>
+</dl>
+</dd>
+<dt>Distance</dt><dd><p>Maximum distance that the vertices must have each other to be merged.</p>
+</dd>
+<dt>Only Loose Edges Connected Mode</dt><dd><p>Only collapse short edges which are not adjacent to any face.
+This is useful for example to stitch the seams used in cloth simulations.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>When the <em>Vertex Group</em> option is selected, only vertices with weight above zero will be affected by the modifier.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be merged by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Emitter &gt; Physics &gt; Keyed</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Particle System</a></li>
+<li><a href="../index.html">Emitter</a></li>
+<li><a href="index.html">Physics</a></li>
+<li>Keyed</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="keyed">
+<h1>Keyed</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Keyed</p>
+</dd>
+</dl>
+</div>
+<p>The path of Keyed particles is determined between particles of any two (or more) particle systems.
+This allows the creation of a chains of systems to create long strands or groovy moving particles.
+Basically the particles have no dynamics but are interpolated from one system to the next each frame.</p>
+<p>To setup <em>Keyed</em> particles you need at least two particle systems in the <em>Keys</em> list.</p>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Loops</dt><dd><p>Sets the number of times the entire <em>Keys</em> list is repeated. Disabled if <em>Use Timing</em> is enabled.</p>
+</dd>
+<dt>Use Timing</dt><dd><p>Enabling this option allows you to specify the timing for each key independently,
+using the <em>Time</em> and <em>Duration</em> options.
+By default, the <em>Use Timing</em> option is deactivated, and the particles will pass through all keys
+for a time equal to its lifetime. A shorter lifetime means faster movement.
+The lifetime will be split equally between the keys,
+this may lead to varying particle speeds between the targets.</p>
+</dd>
+</dl>
+</section>
+<section id="relations">
+<h2>Relations</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Relations</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Key Targets</dt><dd><p>The <a href="../../../../interface/controls/templates/list_view.html#ui-list-view">list view</a> of keys (target particle systems).</p>
+</dd>
+<dt>Object</dt><dd><p>The name of a target object for the selected key. If empty it uses the current particle system.</p>
+</dd>
+<dt>System</dt><dd><p>Index of particle system on the target object.</p>
+</dd>
+<dt>Time</dt><dd><p>The time (frame number) at which the particles will be at the position of the selected system.
+Note also that the <em>Start</em> frame of the Keyed system adds an offset to this time.</p>
+</dd>
+<dt>Duration</dt><dd><p>How long (in frames) the particles stay on this system before they start moving to the next one.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Object &gt; Bool Tools</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Object</a></li>
+<li>Bool Tool</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bool-tool">
+<h1>Bool Tool</h1>
+<p>Todo.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Object then Bool Tool to enable the script.</p></li>
+</ul>
+</section>
+<section id="description">
+<h2>Description</h2>
+<p>Concepts</p>
+<ul>
+<li><p>Brush: Is an object used as a mask for the Boolean operation.</p></li>
+<li><p>Canvas: Is the object that keep the Boolean operation.</p></li>
+</ul>
+<p>You can select any count of objects and apply all these objects to the active one as a Boolean brush.
+Just select the objects that you want to be a brush,
+select an object to set it as active and click in one of those operations:</p>
+<dl>
+<dt>Auto Boolean</dt><dd><dl>
+<dt>Difference <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>NumpadMinus</kbd></kbd></dt><dd><p>Remove the objects to the active.</p>
+</dd>
+<dt>Union <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>NumpadPlus</kbd></kbd></dt><dd><p>Add the selected objects to the active object.</p>
+</dd>
+<dt>Intersection <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>NumpadAsterisk</kbd></kbd></dt><dd><p>Apply an intersect operation between the selected objects and the active.</p>
+</dd>
+<dt>Slice <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>NumpadSlash</kbd></kbd></dt><dd><p>Todo.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>Brush Boolean</dt><dd><dl>
+<dt>Difference <kbd><kbd>Ctrl</kbd>-<kbd>NumpadMinus</kbd></kbd></dt><dd><p>Apply direct Difference to an object.</p>
+</dd>
+<dt>Union <kbd><kbd>Ctrl</kbd>-<kbd>NumpadPlus</kbd></kbd></dt><dd><p>Apply direct Union to an object.</p>
+</dd>
+<dt>Intersection <kbd><kbd>Ctrl</kbd>-<kbd>NumpadAsterisk</kbd></kbd></dt><dd><p>Apply direct Intersection to an object.</p>
+</dd>
+<dt>Slice <kbd><kbd>Ctrl</kbd>-<kbd>NumpadSlash</kbd></kbd></dt><dd><p>Todo.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="preferences">
+<h3>Preferences</h3>
+<dl>
+<dt>Fast Transformation</dt><dd><p>When enable this option in the add-on preferences your <kbd>G</kbd>/<kbd>R</kbd>/<kbd>S</kbd> hotkeys will be replaced for
+a custom one that can handle objects visibility and Boolean modifiers before and
+after the transform operation to give a fast transform when using Boolean operations.
+It only works good when handling high-poly brush, if you try to use it in a low-poly brush
+when another high-poly brush is applied it will be slow yet
+since we have a bad Dependency Graph handling of that situation.</p>
+</dd>
+</dl>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Object</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Boolean modifier tools.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport ‣ Sidebar ‣ Edit tab, <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>B</kbd></kbd></p>
+</dd>
+<dt>File:</dt>
+<dd><p>object_boolean_tools.py</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Vitor Balbio, Mikhail Rachinskiy, TynkaTopi, Meta-Androcto, Simon Appelt</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Templates &gt; Color Picker</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li>Color Picker</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="color-picker">
+<h1>Color Picker</h1>
+<figure id="id1">
+<figcaption>
+<p>Circle HSV.</p>
+</figcaption>
+</figure>
+<p>The color picker is a pop-up that lets you define a color value.
+Holding <kbd>Ctrl</kbd> while dragging snaps the hue to make it quick to select primary colors.</p>
+<dl>
+<dt>Color Field</dt><dd><p>Lets you pick the first and second color component. The shape can be changed; see <a href="#types">Types</a>.</p>
+</dd>
+<dt>Color Slider</dt><dd><p>The slider with a gradient in the background lets you define the third color component.
+It can also be controlled with the <kbd>Wheel</kbd>.</p>
+</dd>
+<dt>Color Model</dt><dd><p>Selects the <a href="../../../glossary/index.html#term-Color-Model">Color Model</a> for the number fields below.</p>
+<p>RGB, HSV/HSL, Hex</p>
+<div>
+<p>Note</p>
+<p>In Blender, the RGB and HSV/HSL values are in Scene Linear color space,
+and are therefore not <a href="../../../glossary/index.html#term-Gamma">Gamma</a> corrected.
+On the contrary, <em>Hex</em> are automatically <a href="../../../glossary/index.html#term-Gamma">Gamma</a> corrected
+for the <a href="../../../glossary/index.html#term-Color-Space">sRGB Color Space</a>.
+For more information, see <a href="../../../render/color_management.html">Color Management</a>.</p>
+</div>
+</dd>
+<dt>Color Values</dt><dd><p>Blender uses values from 0 to 1 to express colors for RGB and HSV colors.</p>
+<p>Hexadecimal (Hex) values are expressed as <code>RRGGBB</code>.
+Shorthand hex colors are also supported as <code>RGB</code>,
+e.g. dark yellow <code>FFCC00</code> can be written as <code>FC0</code>.</p>
+<p>For operations that are capable of using the <a href="../../../glossary/index.html#term-Alpha-Channel">Alpha Channel</a>, another slider “A” is added.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-ui-eyedropper-color">
+<dt>Eyedropper (pipette icon)</dt><dd><p>Samples a color from inside the Blender window using the <a href="../buttons/eyedropper.html#ui-eyedropper">Eyedropper</a>.</p>
+</dd>
+</dl>
+<section id="shortcuts">
+<h2>Shortcuts</h2>
+<ul>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> (drag) snaps to hue.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> (drag) precision motion.</p></li>
+<li><p><kbd>Wheel</kbd> adjust the brightness.</p></li>
+<li><p><kbd>Backspace</kbd> reset the value.</p></li>
+</ul>
+</section>
+<section id="types">
+<h2>Types</h2>
+<p>The default color picker type can be selected in the Preferences,
+see: <a href="../../../editors/preferences/interface.html#prefs-interface-color-picker-type">Interface</a>.</p>
+<table id="id2">
+<caption>Color Picker types.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Circle HSV.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Circle HSL.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Square (SV + H).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Square (HS + V).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Square (HV + S).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

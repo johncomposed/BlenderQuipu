@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Materials &gt; Settings</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Materials</a></li>
+<li>Material Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="material-settings">
+<h1>Material Settings</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Material ‣ Settings</p>
+</dd>
+</dl>
+</div>
+<section id="backface-culling">
+<h2>Backface Culling</h2>
+<p>Backface Culling hides the back side of faces.</p>
+</section>
+<section id="blend-mode">
+<h2>Blend Mode</h2>
+<p>After calculating the color of a surface, the blend mode defines how it is added to the color buffer.
+Depending on this, the final color will be different.</p>
+<div>
+<p>Note</p>
+<p>Alpha Blending is considered a “Transparent” blend mode
+and has implications regarding screen space effects.</p>
+</div>
+<dl>
+<dt>Opaque</dt><dd><p>The previous color will be overwritten by the surface color.
+The alpha component is ignored. This is the fastest option.</p>
+</dd>
+<dt>Alpha Clip</dt><dd><p>The previous color will be overwritten by the surface color,
+but only if the alpha value is above the <em>Clip Threshold</em> value.</p>
+</dd>
+<dt>Alpha Hashed</dt><dd><p>The previous color will be overwritten by the surface color,
+but only if the alpha value is above a random clip threshold.
+This statistical approach is noisy but is able to approximate alpha blending without any sorting problem.
+Increasing the sample count in the render settings will reduce the resulting noise.</p>
+</dd>
+<dt>Alpha Blending</dt><dd><p>Use alpha blending to overlay the surface color on top of the previous color.</p>
+</dd>
+</dl>
+<section id="sorting-problem">
+<h3>Sorting Problem</h3>
+<p>When writing to the color buffer using transparent blend modes,
+the order in which the color blending happens is important as it can change the final output color.
+As of now Eevee does not support per-fragment (pixel) sorting or per-triangle sorting.
+Only per-object sorting is available and is automatically done on all transparent surfaces based on object origin.</p>
+<div>
+<p>Note</p>
+<p>Per-object sorting has a performance cost and having thousands of
+these objects in a scene will greatly degrade performance.</p>
+</div>
+<dl id="bpy-types-material-show-transparent-back">
+<dt>Show Backface</dt><dd><p>If enabled, all transparent fragments will be rendered.
+If disabled, only the front-most surface fragments will be rendered.
+Disable this option to ensure correct appearance of transparency from any point of view.
+When using <em>Alpha Blending</em> this option should be disabled because with <em>Alpha Blending</em>,
+the order in which triangles are sorted is important.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="shadow-mode">
+<h2>Shadow Mode</h2>
+<p>Type of shadows used for a transparent surface.
+Eevee does not support colored shadow maps.</p>
+<p>Half transparent shadows can be produced by using hashed transparent shadows and
+a larger Soft value on the shadow map.</p>
+<div>
+<p>Note</p>
+<p>This option does not change the behavior of contact shadows which are traced using the depth buffer.
+If the material is writing to the depth buffer
+(in other words, if the blend mode is set to either <em>Opaque</em>, <em>Alpha Clip</em> or <em>Alpha Hashed</em>),
+contact shadows will be cast by the surface material regardless of the <em>Transparent Shadow</em> type.</p>
+</div>
+<dl>
+<dt>None</dt><dd><p>The surface will not cast any shadow.</p>
+</dd>
+<dt>Opaque</dt><dd><p>The surface will cast shadows like an opaque surface.</p>
+</dd>
+<dt>Alpha Clip</dt><dd><p>The surface will cast shadows like an opaque surface,
+but only areas where the alpha value is above the <em>Clip Threshold</em> value.</p>
+</dd>
+<dt>Alpha Hashed</dt><dd><p>The surface will cast shadows like an opaque surface,
+but only areas where the alpha value is above a random threshold.</p>
+</dd>
+</dl>
+</section>
+<section id="clip-threshold">
+<h2>Clip Threshold</h2>
+<p>Threshold value for Alpha Clip mode in <em>Blend Mode</em> and <em>Shadow Mode</em>.</p>
+</section>
+<section id="screen-space-refraction">
+<h2>Screen Space Refraction</h2>
+<p>Enabling Screen Space Refraction on a surface means that refraction BSDFs
+will do a ray trace against the depth buffer to find the most accurate refracted color.
+This has a big performance cost if the surface covers a lot of pixels.</p>
+<p>Screen Space Reflections and Ambient Occlusion are not compatible with Screen Space Refraction.
+They will be disabled on the surfaces that use it.
+Surfaces that use Screen Space Refraction will not appear in Screen Space Reflections at the right place.
+Surfaces that use Screen Space Refraction will not cast Ambient Occlusion onto other surfaces.</p>
+<p>If this option is disabled or if the Screen Space Refraction ray tracing fails,
+the refracted ray will use the color of the nearest probe.</p>
+<dl id="bpy-types-material-use-screen-refraction">
+<dt>Screen Space Refraction</dt><dd><p>Enables screen space refraction.</p>
+</dd>
+</dl>
+<dl id="bpy-types-material-refraction-depth">
+<dt>Refraction Depth</dt><dd><p>If Refraction Depth is not 0.0, all refraction BSDFs in the shader will act as if
+the object is a thin slab of the refraction material having this thickness.
+This will model a second refraction event that will double the absorption color and
+start the refraction ray after this second event.</p>
+<p>This option greatly increases the quality of thin glass objects.</p>
+</dd>
+</dl>
+</section>
+<section id="subsurface-translucency">
+<h2>Subsurface Translucency</h2>
+<p>Eevee’s Subsurface Scattering algorithm works by blurring the irradiance in screen space.
+This means that if no visible part of the surface is lit, the effect disappears.</p>
+<p>However, true Subsurface Scattering goes beneath the surface and can travel a large distance.
+This is why a human ear lit from behind appears red on the front side.</p>
+<p>That is what this effect mimics. This translucency approximation only works
+with lights that have shadow maps and only on Subsurface BSDFs (not the Translucency BSDFs).
+It does not work with indirect lighting. The soft parameter of the shadow maps also affects this effect.</p>
+</section>
+<section id="pass-index">
+<h2>Pass Index</h2>
+<p>Index number for the <em>Material Index</em> <a href="../../layers/passes.html">render pass</a>.
+This can be used to give a mask to a material which then can be read with
+the <a href="../../../compositing/types/converter/id_mask.html">ID Mask Node</a> in the Compositor.</p>
+<div>
+<p>Note</p>
+<p><a href="../../../modeling/volumes/introduction.html">Volume Objects</a> are not supported.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

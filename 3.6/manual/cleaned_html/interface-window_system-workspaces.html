@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Window System &gt; Workspaces</title></head>
+<body><ul>
+<li><a href="../index.html">User Interface</a></li>
+<li>Workspaces</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="workspaces">
+<h1>Workspaces</h1>
+<p>Workspaces are essentially predefined window layouts.
+Each Workspace consists of a set of <a href="areas.html">Areas</a>
+containing <a href="../../editors/index.html">Editors</a>, and is geared towards a specific task such as
+modeling, animating, or scripting. You’ll typically switch between
+multiple Workspaces while working on a project.</p>
+<figure id="id2">
+<figcaption>
+<p>Workspaces are located at the Topbar.</p>
+</figcaption>
+</figure>
+<section id="controls">
+<h2>Controls</h2>
+<dl>
+<dt>Tabs</dt><dd><p>Click on the tabs to switch between the workspaces.
+You can also use the keyboard shortcuts <kbd><kbd>Ctrl</kbd>-<kbd>PageUp</kbd></kbd> and <kbd><kbd>Ctrl</kbd>-<kbd>PageDown</kbd></kbd>.
+Double-click a tab to rename the workspace.</p>
+</dd>
+<dt>Add <code>+</code></dt><dd><p>Click on the <em>Add</em> button to add a new workspace.</p>
+</dd>
+<dt>Context menu <kbd>RMB</kbd></dt><dd><p>The context menu contains options to duplicate, delete and reorder workspaces.</p>
+</dd>
+</dl>
+</section>
+<section id="default-workspaces">
+<h2>Default Workspaces</h2>
+<p>Blender’s default startup shows the “Layout” workspace in the main area.
+This workspace is a general workspace to preview your scene
+and contains the following Editors:</p>
+<ul>
+<li><p><a href="../../editors/3dview/introduction.html">3D Viewport</a> on top left.</p></li>
+<li><p><a href="../../editors/outliner/introduction.html">Outliner</a> on top right.</p></li>
+<li><p><a href="../../editors/properties_editor.html">Properties</a> on bottom right.</p></li>
+<li><p><a href="../../editors/timeline.html">Timeline</a> on bottom left.</p></li>
+</ul>
+<figure id="id3">
+<figcaption>
+<p>Blender’s ‘Layout’ Workspace with four editors.</p>
+<div>
+<p>3D Viewport (yellow), Outliner (green), Properties (blue) and Timeline (red).</p>
+</div>
+</figcaption>
+</figure>
+<p>Blender also has several other workspaces added by default:</p>
+<dl>
+<dt>Modeling:</dt>
+<dd><p>For modification of geometry by modeling tools.</p>
+</dd>
+<dt>Sculpting:</dt>
+<dd><p>For modification of meshes by sculpting tools.</p>
+</dd>
+<dt>UV Editing:</dt>
+<dd><p>For mapping of image texture coordinates to 3D surfaces.</p>
+</dd>
+<dt>Texture Paint:</dt>
+<dd><p>For coloring image textures in the 3D Viewport.</p>
+</dd>
+<dt>Shading:</dt>
+<dd><p>For specifying material properties for rendering.</p>
+</dd>
+<dt>Animation:</dt>
+<dd><p>For making properties of objects dependent on time.</p>
+</dd>
+<dt>Rendering:</dt>
+<dd><p>For viewing and analyzing rendering results.</p>
+</dd>
+<dt>Compositing:</dt>
+<dd><p>For combining and post-processing of images and rendering information.</p>
+</dd>
+<dt>Geometry Nodes:</dt>
+<dd><p>For procedural modeling using <a href="../../modeling/geometry_nodes/index.html">Geometry Nodes</a>.</p>
+</dd>
+<dt>Scripting:</dt>
+<dd><p>For interacting with Blender’s Python API and writing scripts.</p>
+</dd>
+</dl>
+<section id="additional-workspaces">
+<h3>Additional Workspaces</h3>
+<p>Blender has a couple additional Workspaces to choose from when adding a new Workspace:</p>
+<p>2D Animation</p>
+<dl>
+<dt>2D Animation:</dt>
+<dd><p>General workspace to work with Grease Pencil.</p>
+</dd>
+<dt>2D Full Canvas:</dt>
+<dd><p>Similar to “2D Animation” but contains a larger canvas.</p>
+</dd>
+</dl>
+<p>VFX</p>
+<dl>
+<dt>Masking:</dt>
+<dd><p>For creating 2D masks for compositing or video editing.</p>
+</dd>
+<dt>Motion Tracking:</dt>
+<dd><p>For calculating camera motion and stabilizing video footage.</p>
+</dd>
+</dl>
+<p>Video Editing</p>
+<dl>
+<dt>Video Editing:</dt>
+<dd><p>For sequencing together media into one video.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="save-and-override">
+<h2>Save and Override</h2>
+<p>The workspaces are saved in the blend-file.
+When you open a file, enabling <a href="../../files/blend/open_save.html#file-load-ui">Load UI</a> in the File Browser indicates that Blender should
+use the file’s screen layout rather than the current one.</p>
+<p>A custom set of workspaces can be saved as a part of the <a href="../../getting_started/configuration/defaults.html">Defaults</a>.</p>
+</section>
+<section id="workspace-settings">
+<h2>Workspace Settings</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Properties</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Active Tool and Workspace Settings ‣ Workspace</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-workspace-object-mode">
+<dt>Mode</dt><dd><p>Switch to this <a href="../../editors/3dview/modes.html">Mode</a> when activating the workspace.</p>
+</dd>
+</dl>
+<section id="filter-add-ons">
+<h3>Filter Add-ons</h3>
+<p>Determines which <a href="../../addons/index.html">Add-ons</a> are enabled in the active workspace.
+When unchecked, the global add-ons will be used.
+When checked, you can enable individual add-ons in the list below.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

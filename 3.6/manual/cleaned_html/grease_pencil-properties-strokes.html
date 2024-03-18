@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Properties &gt; Strokes</title></head>
+<body><ul>
+<li><a href="../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Strokes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="strokes">
+<h1>Strokes</h1>
+<p>General settings for Grease Pencil strokes.</p>
+<figure id="id1">
+<figcaption>
+<p>Strokes panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-greasepencil-stroke-depth-order">
+<dt>Stroke Depth Order</dt><dd><p>Defines how the strokes are ordered in 3D space (for objects not displayed <em>In Front</em>).</p>
+<dl>
+<dt>2D Layers:</dt>
+<dd><p>The Strokes drawing order respect the order of the 2D layers list (top to bottom)
+and ignores the real position of the strokes in 3D space.
+See <a href="layers.html">2D Layers</a> for more information.</p>
+</dd>
+<dt>3D Location:</dt>
+<dd><p>The strokes drawing order is based on the stroke location in 3D space.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Blue, Green and Red strokes in three different layers using 2D Layers depth order.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Blue, Green and Red strokes in three different layers using 3D Location depth order.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-greasepencil-stroke-thickness-space">
+<dt>Stroke Thickness</dt><dd><p>The basis for how the stroke thickness is calculated.</p>
+<dl>
+<dt>World Space:</dt>
+<dd><p>The thickness is relative to world space.
+Stroke thickness change with the screen zoom factor.</p>
+</dd>
+<dt>Screen Space:</dt>
+<dd><p>The thickness is relative to screen space.
+Stroke thickness remains the same regardless of the screen zoom factor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-greasepencil-pixel-factor">
+<dt>Thickness Scale</dt><dd><p>Sets a thickness scale factor for all strokes.</p>
+</dd>
+<dt>Curve Resolution</dt><dd><p>See <a href="../modes/edit/curve_editing.html#bpy-types-greasepencil-edit-curve-resolution">Curve Editing</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

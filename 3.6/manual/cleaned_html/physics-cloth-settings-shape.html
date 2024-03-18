@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Cloth &gt; Settings &gt; Shape</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Cloth</a></li>
+<li><a href="index.html">Settings</a></li>
+<li>Shape</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="shape">
+<h1>Shape</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Cloth ‣ Shape</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Cloth Shape.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-clothsettings-vertex-group-mass">
+<dt>Pin Group</dt><dd><p>Vertex group to use for pinning.</p>
+<p>The shape of the cloth can be controlled by pinning cloth to
+a <a href="../../../modeling/meshes/properties/vertex_groups/index.html">Vertex Group</a>.
+There are several ways of doing this including
+<a href="../../../sculpt_paint/weight_paint/index.html">Weight Painting</a> areas you want to pin.
+The weight of each vertex in the group controls how strongly it is pinned.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-pin-stiffness">
+<dt>Stiffness</dt><dd><p>Target position stiffness.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-use-sewing-springs">
+<dt>Sewing</dt><dd><p>Another method of restraining cloth similar to pinning is sewing springs.
+Sewing springs are virtual springs that pull vertices in one part of
+a cloth mesh toward vertices in another part of the cloth mesh.
+This is different from pinning which binds vertices of the cloth mesh in place or to another object.
+A clasp on a cloak could be created with a sewing spring.
+The spring could pull two corners of a cloak about a character’s neck.
+This could result in a more realistic simulation than pinning the cloak to
+the character’s neck since the cloak would be free to slide about the character’s neck and shoulders.</p>
+<p>Sewing springs are created by adding extra edges to a cloth mesh that are not included in any faces.
+They should connect vertices in the mesh that should be pulled together.
+For example the corners of a cloak.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-sewing-force-max">
+<dt>Max Sewing Force</dt><dd><p>Maximum force that can be applied by sewing springs. Zero means unbounded, but it is not
+recommended to leave the field at zero in most cases, as it can cause instability due to
+extreme forces in the initial frames where the ends of the sewing springs are far apart.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-shrink-min">
+<dt>Shrinking Factor</dt><dd><p>Factor by which to shrink the cloth, specifying a negative value controls the amount for the cloth to grow.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-use-dynamic-mesh">
+<dt>Dynamic Mesh</dt><dd><p>Allows animating the rest shape of cloth using shape keys or
+modifiers (e.g. an Armature modifier or any deformation modifier) placed above the Cloth modifier.
+When it is enabled, the rest shape is recalculated every frame, allowing unpinned
+cloth to squash and stretch following the character with the help of shape keys or modifiers, but
+otherwise move freely under control of the physics simulation.</p>
+<p>Normally cloth uses the state of the object in the first frame to compute
+the natural rest shape of the cloth, and keeps that constant throughout the simulation.
+This is reasonable for fully realistic scenes, but does not quite work for clothing
+on cartoon style characters that use a lot of squash and stretch.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-rest-shape-key">
+<dt>Rest Shape Key</dt><dd><p>Allows starting the cloth simulation using a specific
+<a href="../../../animation/shape_keys/index.html">Shape Key</a> as the rest state,
+instead of the shape that results from evaluating shape keys and preceding modifiers
+in the regular way. This option is mutually exclusive with <em>Dynamic Mesh</em>.</p>
+<p>This can be used to start the simulation with the cloth in a pre-draped state without
+applying that shape as a plastic deformation that relaxes all springs as a side effect.</p>
+<p>This property is only visible if the mesh has shape keys.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

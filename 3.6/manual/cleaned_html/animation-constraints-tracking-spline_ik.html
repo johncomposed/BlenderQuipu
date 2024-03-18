@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Tracking &gt; Spline Ik</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Spline IK Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="spline-ik-constraint">
+<h1>Spline IK Constraint</h1>
+<p>The <em>Spline IK</em> constraint aligns a chain of bones along a curve.
+By leveraging the ease and flexibility of achieving aesthetically
+pleasing shapes offered by curves and the predictability and well-integrated
+control offered by bones, <em>Spline IK</em> is an invaluable tool in the riggers’ toolbox.
+It is particularly well suited for rigging flexible body parts such as tails, tentacles,
+and spines, as well as inorganic items such as ropes.</p>
+<p>To set up <em>Spline IK</em>, it is necessary to have a chain of
+connected bones and a curve to constrain these bones to:</p>
+<ul>
+<li><p>With the last bone in the chain selected,
+add a <em>Spline IK</em> constraint from the <em>Bone Constraints</em> tab in the <em>Properties</em>.</p></li>
+<li><p>Set the ‘Chain Length’ setting to the number of bones in the chain
+(starting from and including the selected bone)
+that should be influenced by the curve.</p></li>
+<li><p>Finally, set <em>Target</em> to the curve that should control the curve.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>The IK constraints are special in that they modify multiple bones.
+For this reason, they ignore their position in the stack and always run after
+all other constraints on the affected bones. To apply constraints after IK,
+it is necessary to first copy the final transformation to a new bone chain,
+e.g. using <a href="../transform/copy_transforms.html">Copy Transforms</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Spline IK panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the target curve.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+<section id="fitting">
+<h3>Fitting</h3>
+<dl>
+<dt>Chain Length</dt><dd><p>How many bones are included in the chain.</p>
+</dd>
+<dt>Even Division</dt><dd><p>Ignore the relative length of the bones when fitting to the curve.</p>
+</dd>
+<dt>Chain Offset</dt><dd><p>Retain the offset of the root joint from the start point of the curve.</p>
+</dd>
+</dl>
+</section>
+<section id="chain-scaling">
+<h3>Chain Scaling</h3>
+<dl>
+<dt>Use Curve Radius</dt><dd><p>Average radius of the endpoints is used to tweak the X and Z scaling of
+the bones, on top of the X and Z scale mode.</p>
+</dd>
+<dt>Y Scale Mode</dt><dd><p>Specifies how the length of a bone is scaled when it is fitted to the curve,
+in addition to the effects of target curve object scale and curvature.</p>
+<dl>
+<dt>None</dt><dd><p>The bone is reset to its rest pose length.</p>
+</dd>
+<dt>Fit Curve</dt><dd><p>The bones are stretched to cover the entire length of the curve.</p>
+</dd>
+<dt>Bone Original</dt><dd><p>The original Y axis scale of the bone is used.</p>
+</dd>
+</dl>
+</dd>
+<dt>XZ Scale Mode</dt><dd><p>Scaling that a bone undergoes in the other two directions.</p>
+<dl>
+<dt>None</dt><dd><p>Do not scale the X and Z axes.</p>
+</dd>
+<dt>Bone Original</dt><dd><p>Use the original scaling of the bones.</p>
+</dd>
+<dt>Inverse Scale</dt><dd><p>Scale of the X and Z axes is the inverse of the Y scale.</p>
+</dd>
+<dt>Volume Preservation</dt><dd><p>Similar to the <a href="stretch_to.html#constraints-stretch-to-volume-preservation">Stretch To</a> constraint.</p>
+</dd>
+</dl>
+</dd>
+<dt>Use Original Scale</dt><dd><p>Specifies that <em>Inverse Scale</em> or <em>Volume Preservation</em> should be applied on top of
+the original scaling of the bones, like in the Stretch To constraint.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>This subject is seen in-depth in
+the <a href="../../armatures/posing/bone_constraints/inverse_kinematics/spline_ik.html">Armature Posing section</a>.</p>
+</div>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

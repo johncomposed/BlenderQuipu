@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Texture &gt; Gradient</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Texture Nodes</a></li>
+<li>Gradient Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="gradient-texture-node">
+<h1>Gradient Texture Node</h1>
+<div>
+<p>Note</p>
+<p>This node is ported from shader nodes. The manual and images are
+referencing the shader version of the node.
+This node accepts field inputs and outputs.
+When not connected the Vector input has an implicit <code>position</code> attribute value.</p>
+</div>
+<p>The <em>Gradient Texture</em> node generates interpolated color and intensity values based on the input vector.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate to sample texture at;
+defaults to Generated texture coordinates if the socket is left unconnected.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Type</dt><dd><p>Controls the type of gradient generated.</p>
+<dl>
+<dt>Linear:</dt>
+<dd><p>Directly outputs the input X coordinate.</p>
+</dd>
+<dt>Quadratic:</dt>
+<dd><p>Interpolates the input X coordinate quadratically.</p>
+</dd>
+<dt>Easing:</dt>
+<dd><p>Uses a combination of quadratic and linear interpolation
+to generate a smooth gradient from the input X coordinate.</p>
+</dd>
+<dt>Diagonal:</dt>
+<dd><p>Averages the input X and Y coordinates.</p>
+</dd>
+<dt>Spherical:</dt>
+<dd><p>Creates an inverse gradient using the length of the input vector; the maximum value is at (0, 0, 0).</p>
+</dd>
+<dt>Quadratic Sphere:</dt>
+<dd><p>The same as Spherical, except interpolated quadratically.</p>
+</dd>
+<dt>Radial:</dt>
+<dd><p>Outputs a value based on the angle of the input around the Z axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Texture color output.</p>
+</dd>
+<dt>Factor</dt><dd><p>Texture intensity output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Gradient texture using object coordinates.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

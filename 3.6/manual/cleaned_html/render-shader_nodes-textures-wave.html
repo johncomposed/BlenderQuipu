@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Textures &gt; Wave</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Texture</a></li>
+<li>Wave Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="wave-texture-node">
+<h1>Wave Texture Node</h1>
+<p>The <em>Wave Texture</em> node adds procedural bands or rings with noise distortion.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate to sample texture at;
+defaults to Generated texture coordinates if the socket is left unconnected.</p>
+</dd>
+<dt>Scale</dt><dd><p>Overall texture scale.</p>
+</dd>
+<dt>Distortion</dt><dd><p>Amount of distortion of the wave.</p>
+<div>
+<p>Hint</p>
+<p>In general, textures can be distorted by mixing their texture coordinates with another texture.
+The distortion built into the <em>Wave Texture Node</em> uses the <em>Color</em> output of the
+<a href="noise.html">Noise Texture Node</a>.</p>
+<p>To replicate this, center its value range around zero, multiply it by a factor proportional to
+<em>Distortion</em>/<em>Scale</em> and add the result onto the texture coordinates.
+<em>Detail</em>, <em>Detail Scale</em>, and <em>Roughness</em> of the <em>Wave Texture Node</em> correspond to the inputs on the
+<a href="noise.html">Noise Texture Node</a>.</p>
+</div>
+</dd>
+<dt>Detail</dt><dd><p>Amount of distortion noise detail.</p>
+</dd>
+<dt>Detail Scale</dt><dd><p>Scale of distortion noise.</p>
+</dd>
+<dt>Roughness</dt><dd><p>Blend between a smoother noise pattern, and rougher with sharper peaks.</p>
+</dd>
+<dt>Phase Offset</dt><dd><p>Position of the wave along the <em>Bands Direction</em>.
+This can be used as an input for more control over the distortion.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Type</dt><dd><p><em>Bands</em> or <em>Rings</em> shaped waves.</p>
+</dd>
+<dt>Bands/Rings Direction</dt><dd><p>The axis the bands or rings propagate from i.e. which axis they are perpendicular to.
+When using <em>Bands</em> a <em>Diagonal</em> axis is an option and when using <em>Rings</em> the rings
+can propagate outwards from a single point by using <em>Spherical</em> direction.</p>
+</dd>
+<dt>Wave Profile</dt><dd><p>Controls the look of the wave type.</p>
+<dl>
+<dt>Saw:</dt>
+<dd><p>Uses a sawtooth profile.</p>
+</dd>
+<dt>Sine:</dt>
+<dd><p>Uses the standard sine profile.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Texture color output.</p>
+</dd>
+<dt>Factor</dt><dd><p>Texture intensity output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Wave Texture.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

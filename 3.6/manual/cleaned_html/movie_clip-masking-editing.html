@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Masking &gt; Editing</head>
+<body><ul>
+<li><a href="../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="index.html">Masking</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<p>The tools and panels available to edit masks are the same in both editors.
+Editing of mask splines happens in a way similar to editing Bézier curves or paths in GIMP or other curve editors.</p>
+<div>
+<p>Tip</p>
+<p>To get interactive feedback on the resulting mask,
+a Mask node can be connected directly to a Viewer node in the Compositor,
+which will then keep updating the compositing result while editing.</p>
+</div>
+<section id="transform">
+<h2>Transform</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt><a href="../../scene_layout/object/editing/transform/move.html">Move</a> <kbd>G</kbd></dt><dd><p>Change the location of control points. Control points can also be moved with <kbd>LMB</kbd>.
+The whole spline can be moved by dragging the center dot with <kbd>LMB</kbd>.</p>
+</dd>
+<dt><a href="../../scene_layout/object/editing/transform/rotate.html">Rotate</a> <kbd>R</kbd></dt><dd><p>Change the location of control points by rotating about a pivot point.</p>
+</dd>
+<dt><a href="../../scene_layout/object/editing/transform/scale.html">Scale</a> <kbd>S</kbd></dt><dd><p>Change the location of control points by expanding the distance between points.</p>
+</dd>
+<dt><a href="../../modeling/meshes/editing/mesh/transform/to_sphere.html">To Sphere</a> <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>S</kbd></kbd></dt><dd><p>Morphs the control points to the shape of a circle.</p>
+</dd>
+<dt><a href="../../modeling/meshes/editing/mesh/transform/shear.html">Shear</a> <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>S</kbd></kbd></dt><dd><p>Shifts control points along a defined axis so parallel control points move past one another.</p>
+</dd>
+<dt><a href="../../modeling/meshes/editing/mesh/transform/push_pull.html">Push/Pull</a></dt><dd><p>Moves the control points closer together (Push) or further apart (Pull).</p>
+</dd>
+<dt>Scale Feather <kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></dt><dd><p>Will scale the feather size.</p>
+</dd>
+</dl>
+</section>
+<section id="clear-feather-weight">
+<h2>Clear Feather Weight</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Clear Feather Weight</p>
+</dd>
+</dl>
+</div>
+<p>Resets the feather weight to zero.</p>
+</section>
+<section id="toggle-cyclic">
+<h2>Toggle Cyclic</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Toggle Cyclic</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>C</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Toggle to create a closed curve or open it again.
+Close the mask by joining the last control point to the first.</p>
+</section>
+<section id="set-handle-type">
+<h2>Set Handle Type</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Set Handle Type</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>V</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Set handle type for selected spline points.</p>
+</section>
+<section id="recalculate-handles">
+<h2>Recalculate Handles</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Recalculate Handles</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>N</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Make normals (handle directions) consistent.</p>
+</section>
+<section id="switch-direction">
+<h2>Switch Direction</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Switch Direction</p>
+</dd>
+</dl>
+</div>
+<p>Switch Direction handle directions in/out.</p>
+</section>
+<section id="copy-paste">
+<h2>Copy Paste</h2>
+<p>Todo.</p>
+</section>
+<section id="clear-parent">
+<h2>Clear Parent</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Clear Parent</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Clears any parenting relationship for the selected spline points.</p>
+</section>
+<section id="make-parent">
+<h2>Make Parent</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Make Parent</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Parents one or more selected spline points to the active motion tracker.</p>
+</section>
+<section id="animation">
+<h2>Animation</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Animation</p>
+</dd>
+</dl>
+</div>
+<p>Masks can be animated with the shape keying system.
+This can be useful when there are not enough good feature points to track in the footage,
+or the mask is not based on footage.
+Mask animation timing can be edited from the <em>Dope Sheet’s</em> <a href="../../editors/dope_sheet/shape_key.html#dope-sheet-mask">Mask Mode</a>.</p>
+<dl>
+<dt>Insert Shape Key <kbd>I</kbd></dt><dd><p>Will insert a shape key for the active mask layer at the current frame.
+This works on the level of mask layers,
+so inserting a shape key will keyframe all the splines and points contained in it.</p>
+</dd>
+<dt>Clear Shape Key <kbd><kbd>Alt</kbd>-<kbd>I</kbd></kbd></dt><dd><p>Will clear the shape key for the active mask layer at the current frame.</p>
+</dd>
+<dt>Feather Reset Animation</dt><dd><p>Resets the feather offset across all animated frames.</p>
+</dd>
+<dt>Re-Key Points of Selected Shapes</dt><dd><p>Re-interpolate selected points on across the range of keys selected in the <em>Dope Sheet</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="show-hide">
+<h2>Show/Hide</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Show/Hide</p>
+</dd>
+</dl>
+</div>
+<ul>
+<li><p>Hide Selected <kbd>H</kbd></p></li>
+<li><p>Hide Unselected <kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd></p></li>
+<li><p>Clear Restricted View <kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd></p></li>
+</ul>
+</section>
+<section id="delete">
+<h2>Delete</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Mask Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Delete</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Removes control points.</p>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous</h2>
+<dl>
+<dt>Slide Spline Curvature <kbd>LMB</kbd></dt><dd><p>Moves the curve and/or control points by clicking on them and dragging.</p>
+</dd>
+<dt>Add Vertex and Slide <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd></dt><dd><p>Inserts new control points and defines handle orientations by a continued mouse drag.
+If the last point was selected, double-click will also close the curve.</p>
+</dd>
+<dt>Add Feather Vertex and Slide <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd></dt><dd><p>Inserts new feather control points that can be transformed independently of the main spline curve.
+If no feather mask is in use this will create a basic feather mask to the curve.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

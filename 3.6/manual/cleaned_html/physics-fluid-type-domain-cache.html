@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Fluid &gt; Type &gt; Domain &gt; Cache</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Fluid</a></li>
+<li><a href="../index.html">Type</a></li>
+<li><a href="index.html">Domain</a></li>
+<li>Cache</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cache">
+<h1>Cache</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Fluid ‣ Cache</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Domain</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Cache</em> panel is used to <a href="../../../../glossary/index.html#term-Baking">Bake</a> the fluid simulation and stores the outcome of
+a simulation so it does not need to be recalculated.</p>
+<p>Baking takes a <strong>lot</strong> of compute power (hence time). Depending on the scene, it is recommended
+to allocate enough time for the baking process.</p>
+<p>If the mesh has modifiers, the rendering settings are used for exporting the mesh to the fluid solver.
+Depending on the setting, calculation times and memory use might exponentially increase. For example,
+when using a moving mesh with <em>Subdivision Surface</em> as an obstacle, it might help to decrease simulation
+time by switching it off, or to a low subdivision level. When the setup/rig is correct, you can always
+increase settings to yield a more realistic result.</p>
+<div>
+<p>Note</p>
+<p>Fluid simulations use their own cache. All other physics simulations make use of
+the <a href="../../../baking.html">General Baking</a> operators.</p>
+</div>
+<dl id="bpy-types-fluiddomainsettings-cache-directory">
+<dt>Cache Directory</dt><dd><p>Directory to store baked simulation files in. Inside this directory each simulation type
+(i.e. mesh, particles, noise) will have its own directory containing the simulation data.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-cache-type">
+<dt>Type</dt><dd><p>The type of the cache determines how the cache can be baked.</p>
+<dl>
+<dt>Replay</dt><dd><p>The cache will be baked as the simulation is being played in the viewport.</p>
+</dd>
+<dt>Modular</dt><dd><p>The cache will be baked step by step: The bake operators for this type are spread across various panels within
+the domain settings (e.g. the bake tool for the mesh can be found in the Mesh panel).</p>
+</dd>
+<dt>All</dt><dd><p>The cache will be baked with a single tool. All selected settings will be considered during this bake.
+The bake tool for this type can be found in the Cache panel.</p>
+</dd>
+</dl>
+<div>
+<p>Important</p>
+<p>“Replay” only works when the <a href="../../../../editors/timeline.html#bpy-types-scene-sync-mode">Playback Sync mode</a> is set to “Play Every Frame”.
+If you need to use “Frame Dropping” or “Sync to Audio”, consider using the “Modular” or “All” options below.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-cache-frame-start">
+<dt>Start</dt><dd><p>Frame on which to start the simulation. This is the first frame that will be baked.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-cache-frame-end">
+<dt>End</dt><dd><p>Frame on which to stop the simulation. This is the last frame that will be baked.</p>
+<div>
+<p>Note</p>
+<p>The simulation is only calculated for positive frames between the <em>Start</em> and <em>End</em> frames
+of the <em>Cache</em> panel. So if you want a simulation that is longer than the default frame range
+you have to change the <em>End</em> frame.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-cache-frame-offset">
+<dt>Offset</dt><dd><p>Frame offset that is used when loading the simulation from the cache.
+It is not considered when baking the simulation, only when loading it.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-use-resumable-cache">
+<dt>Use Resumable Cache</dt><dd><p>Extra data will be saved so that you can resumed baking after pausing. Since more data will be written
+to drive it is recommended to avoid enabling this option when baking at high resolutions.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-cache-data-format">
+<dt>Volume File Format</dt><dd><p>File format for volume based simulation data (i.e. grids and particles).</p>
+<dl>
+<dt>Uni Cache</dt><dd><p>Blender’s own caching format with some compression.
+Each simulation object is stored in its own <code>.uni</code> cache file.</p>
+</dd>
+<dt>OpenVDB</dt><dd><p>Advanced and efficient storage format.
+All simulation objects (i.e. grids and particles) are stored in a single <code>.vdb</code> file per frame.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-cache-mesh-format">
+<dt>Mesh File Format Liquids Only</dt><dd><p>File format for the mesh cache files.</p>
+<dl>
+<dt>Binary Object</dt><dd><p>Mesh data files with some compression.</p>
+</dd>
+<dt>Object</dt><dd><p>Simple, standard data format for mesh data.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-fluid-free-all">
+<dt>Bake All, Free All</dt><dd><p>This option is only available when using the <a href="#bpy-types-fluiddomainsettings-cache-type">Final</a> cache type.
+<em>Bake All</em> will run the simulation considering all parameters from
+the settings (i.e. it will bake all steps that can be baked individually with
+the <a href="#bpy-types-fluiddomainsettings-cache-type">Modular</a> cache type at once).</p>
+<p>The progress will be displayed in the status bar. Pressing <kbd>Esc</kbd> will abort the simulation.</p>
+<p>Once the simulation has been baked, the cache can be deleted by pressing <em>Free All</em>.
+It is not possible to pause or resume a <em>Bake All</em> process as
+only the most essential cache files are stored on drive.</p>
+</dd>
+</dl>
+<section id="advanced">
+<h2>Advanced</h2>
+<dl id="bpy-types-fluiddomainsettings-openvdb-cache-compress-type">
+<dt>Compression Volumes OpenVDB Only</dt><dd><p>Compression method that is used when writing OpenVDB cache files.</p>
+<dl>
+<dt>None</dt><dd><p>Cache files will be written without any compression.</p>
+</dd>
+<dt>Zip</dt><dd><p>Cache files will be written with <code>Zip</code> compression. Effective but slower than <code>Blosc</code>.</p>
+</dd>
+<dt>Blosc</dt><dd><p>Cache files will be written with <code>Blosc</code> compression. Multithreaded compression,
+similar in size and quality to <code>Zip</code> compression.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-openvdb-data-depth">
+<dt>Precision Volumes OpenVDB Only</dt><dd><p>Precision level that is used when writing OpenVDB cache files.</p>
+<dl>
+<dt>Full</dt><dd><p>Volumetric data (e.g. grids, particles) will be written with full precision (32-bit).</p>
+</dd>
+<dt>Half</dt><dd><p>Volumetric data (e.g. grids, particles) will be written with half precision (16-bit).</p>
+</dd>
+<dt>Mini</dt><dd><p>Volumetric data (e.g. grids, particles) will be written with mini float precision (8-bit) where possible.
+For cache data where this is not possible, 16-bit floats will be used instead.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-export-manta-script">
+<dt>Export Mantaflow Script</dt><dd><p>Export the simulation as a standalone Mantaflow script when baking the scene (exported on “Bake Data”).
+Usually, only developers and advanced users who know how to use the Mantaflow GUI will
+make use of this functionality. Use a <a href="../../../../advanced/operators.html#bpy-ops-wm-debug-menu">Debug Value</a> of <code>3001</code> to enable.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

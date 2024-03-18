@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Distort &gt; Movie Distortion</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Distort Nodes</a></li>
+<li>Movie Distortion Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="movie-distortion-node">
+<h1>Movie Distortion Node</h1>
+<p>CPU Compositor Only</p>
+<p>In the real world, all camera lenses produce some or the other sort of lens distortion.
+But, whatever we render has got no distortion. So, this node helps in removing distortion from movies
+or adding distortion to render to make our render blend in with the movie clip.</p>
+<p>Usually, it is used while motion tracking.</p>
+<section id="calculating-distortion">
+<h2>Calculating Distortion</h2>
+<p>Before using this node, one has to calculate the lens distortion of the clip. This can be done by adjusting
+K1, K2 and K3 values in Movie Clip Editor ‣ Properties ‣ Lens.
+For more information on how to edit those values,
+<a href="https://blender.stackexchange.com/questions/15620">check this out</a>.</p>
+</section>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Movie Clip</dt><dd><p>Used to select the movie clip whose distortion is to be used.
+This can be useful if more than one movie clips are present, each having a different distortion setting.
+For controls see <a href="../../../interface/controls/templates/data_block.html#ui-data-block">Data-Block Menu</a>.</p>
+</dd>
+<dt>Distortion Method</dt><dd><dl>
+<dt>Undistort:</dt>
+<dd><p>Used to undistort the image received, and is usually used for the raw distorted movie clip.</p>
+</dd>
+<dt>Distort:</dt>
+<dd><p>Used to distort the image received, and is usually used for rendered images.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>The image after distorting/undistorting.</p>
+</dd>
+</dl>
+</section>
+<section id="distortion-vs-undistortion">
+<h2>Distortion vs Undistortion</h2>
+<p>Although, both, distortion of render and undistortion of movie clip are possible, and produce similar results,
+there is a difference between these two methods.</p>
+<p>There are two kinds of lens distortion possible and, in simple terms, they can be said as:</p>
+<ol>
+<li><p>When the movie clip is bulging out.</p></li>
+<li><p>When the movie clip is bulging in.</p></li>
+</ol>
+<p>For the first case, it is recommended to distort the render and leave the movie clip as it is, because,
+undistorting the movie clip will require extra pixel information, which is not available to Blender.
+Similarly, in the second case, it is recommended to undistort the movie clip and leave the render as it is,
+because, distorting the render will require those extra unavailable pixels.
+Doing the wrong method in the wrong case can create weird results around the edges, such as in the image shown.</p>
+<figure id="id1">
+<figcaption>
+<p>Problems (notice the edges?)</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

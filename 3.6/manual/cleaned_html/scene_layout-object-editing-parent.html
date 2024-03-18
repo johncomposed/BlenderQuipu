@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Parent</title></head>
+<body><ul>
+<li><a href="../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../index.html">Objects</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Parenting Objects</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="parenting-objects">
+<h1>Parenting Objects</h1>
+<p>When modeling a complex object, such as a watch, you may choose to model the different parts as separate objects.
+To make all the parts move as one (“the watch”), you can designate one object as the <em>parent</em> of all the other parts.
+These other parts become its <em>children</em>, and any translation, rotation, or scale of the parent will also
+affects its children.</p>
+<p>Contrary to most biological lifeforms, each object or bone in Blender has at most one parent.
+If an object already has a parent object and you give it another parent then Blender will remove
+the previous parent relationship. When the plural “parents” is used in this chapter,
+it references the hierarchy of parents, so the parent, the grandparent, great grandparent,
+and so on, of an object.</p>
+<section id="make-parent">
+<h2>Make Parent</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Parent</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>To parent objects, select at least two objects
+(select the child objects first, and select the parent object last),
+and press <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd>. The <em>Set Parent To</em> menu will pop up allowing
+you to select from one of several possible different parenting types.
+Selecting one of the entries in <em>Set Parent To</em> confirms,
+and the child/children to parent relationship is created.
+The selected objects will have their ‘parent’ set to the <a href="../selecting.html#object-active">active object</a>,
+and as a result will be ‘siblings’.</p>
+<p>The <em>Set Parent To</em> pop-up menu is context-sensitive, which means
+the number of entries it displays can change depending on what objects are selected
+when the <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> shortcut is used.</p>
+<p>Moving, rotating or scaling the parent will also usually transform the child/children.
+Yet transforming the child/children of the parent will not affect the parent.
+In other words, the direction of influence is from parent to child and not child to parent.</p>
+<div>
+<p>Tip</p>
+<p>You can “move” a child object back to its parent by <a href="clear.html#bpy-ops-object-origin-clear">clearing its origin</a>.</p>
+</div>
+<dl>
+<dt>Type</dt><dd><p>Blender supports many different types of parenting, listed below.
+Besides parenting the selected objects, some types add a Modifier or Constraint to the child objects,
+with the parent as the target object or activates a parent property i.e. <em>Follow Path</em>.</p>
+<ul>
+<li><p>Object</p></li>
+<li><p><a href="../../../animation/armatures/skinning/parenting.html">Armature Deform</a></p></li>
+<li><p>Bone</p></li>
+<li><p><a href="../../../modeling/modifiers/deform/curve.html">Curve Deform</a></p></li>
+<li><p><a href="../../../modeling/curves/properties/path_animation.html#curve-path-animation">Follow Path</a></p></li>
+<li><p><a href="../../../animation/constraints/relationship/follow_path.html">Path Constraint</a></p></li>
+<li><p><a href="../../../modeling/modifiers/deform/lattice.html">Lattice Deform</a></p></li>
+<li><p>Vertex</p></li>
+<li><p>Vertex (Triangle)</p></li>
+</ul>
+</dd>
+<dt>Keep Transform</dt><dd><p>The object’s current world transform (so its absolute location, rotation and scale in the world) is computed.
+The new parent is set, and then the <em>Parent Inverse</em> matrix is computed such that after setting
+the new parent the object is still at its previous world transform.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>Use the Outliner</p>
+<p>There is another way to see the parent-child relationship in groups and that is to use the <em>Outliner</em> view
+of the <a href="../../../editors/outliner/introduction.html">Outliner editor</a>.</p>
+</div>
+<section id="parent-inverse">
+<h3>Parent Inverse</h3>
+<p>Blender can assign a parent without moving the child object.
+This is achieved via a hidden matrix called the <em>Parent Inverse</em> matrix,
+which sits between the <a href="../../../glossary/index.html#term-Transform">transform</a> of the parent and the child.</p>
+<p>When objects are parented with <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd>, Parent Inverse matrix is updated.
+Depending on the choice in the Set Parent menu, the object’s local location,
+rotation, and scale are also updated. For more details, see <a href="#object-parenting">Object Parent</a>.</p>
+<p>The Parent Inverse matrix can be cleared by using <a href="#bpy-ops-object-parent-clear">Clear Parent Inverse</a>.</p>
+<div>
+<p>Note</p>
+<p>When setting the parent via the Object Properties panel, the Parent Inverse matrix is always reset.
+This can cause an unexpected jump in the object’s position.
+To avoid this, use <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> to set the new parent.</p>
+</div>
+</section>
+</section>
+<section id="object-parent">
+<h2>Object Parent</h2>
+<p><em>Object Parent</em> is the most general form of parenting that Blender supports.
+It will take selected objects and make the <a href="../selecting.html#object-active">active object</a>
+the parent object of all the selected objects. Each child object will inherit
+the transformations of the parent. The parent object can be of any type.</p>
+<p>If the object has a preexisting parent, that is cleared first.
+This moves the object to its own location, rotation and scale,
+without its parent’s influence.</p>
+<p>There are three operators that allow you to set an object parent. They differ in
+the way they compute the <a href="#parent-inverse-matrix">Parent Inverse matrix</a>
+and the local <a href="../../../glossary/index.html#term-Transform">Transform</a> of the object.</p>
+<section id="example-object-parent-keep-transform">
+<h3>Example: Object Parent (Keep Transform)</h3>
+<p><em>Object Parent</em> with <em>Keep Transform</em> will keep any previous transformations applied to them from
+the previous parent object.</p>
+<p>Assume that we have a scene consisting of three objects, those being two empty objects named “EmptyA”
+and “EmptyB”, and a Monkey object. Fig. <a href="#fig-view3d-parent-scene-no">Scene with no parenting.</a> shows the three objects with
+no parenting relationships active on them.</p>
+<figure id="id4">
+<figcaption>
+<p>Scene with no parenting.</p>
+</figcaption>
+</figure>
+<p>If you select the Monkey object by <kbd>LMB</kbd> click and then <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd>
+click “EmptyA” object and press <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> and finally select <em>Object</em>
+from the <em>Set Parent To</em> pop-up menu.
+This will result in “EmptyA” object being the parent object of the Monkey object.
+With only “EmptyA” selected rotating/scaling/moving it will result in
+the Monkey object being altered respectively.</p>
+<p>Scale the “EmptyA” object, so that the Monkey becomes smaller and moves to the left a little.</p>
+<figure id="id5">
+<figcaption>
+<p>The monkey is the child object of “EmptyA”.</p>
+</figcaption>
+</figure>
+<p>If you select only the Monkey object by <kbd>LMB</kbd> click and then <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd>
+click “EmptyB” object and press <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> and select <em>Object</em> from
+the <em>Set Parent To</em> pop-up menu.
+This will result in “EmptyB” object being the parent object of the Monkey object.
+Notice that when you change the parent of the Monkey the scale of the Monkey changed.</p>
+<figure id="id6">
+<figcaption>
+<p>The monkey is the child object of “EmptyB”.</p>
+</figcaption>
+</figure>
+<p>This happens because the Monkey object never had its scale altered directly,
+the change came about because it was the child of “EmptyA” which had its scale altered.
+Changing the Monkey’s parent to “EmptyB” resulted in those indirect changes in scale being
+removed, because “EmptyB” has not had its scale altered.</p>
+<p>This is often the required behavior, but it is also sometimes useful that
+if you change your parent object that the child object keep any previous transformations
+it got from the old parent object; If instead when changing the parent object of the Monkey
+from “EmptyA” to “EmptyB” we had chosen parenting type <em>Object</em> and enable <em>Keep Transform</em>,
+the Monkey would keep its scale information it obtained from the old parent “EmptyA”
+when it is assigned to the new parent “EmptyB”.</p>
+<figure id="id7">
+<figcaption>
+<p>The Object parent with Keep Transform.</p>
+</figcaption>
+</figure>
+<p>If you want to follow along with the above description here is the blend-file:</p>
+<p><a href="https://archive.blender.org/wiki/index.php/File:Parent_-_Object_(Keep_Transform)_(Demo_File).blend">File:Parent_-_Object_(Keep_Transform)_(Demo_File).blend</a>.</p>
+</section>
+</section>
+<section id="bone-parent">
+<h2>Bone Parent</h2>
+<p>Bone parenting allows you to make a certain bone in an armature the parent object of another object.
+This means that when transforming an armature the child object will only move
+if the specific bone is the child object of moves.</p>
+<figure id="id8">
+<figcaption>
+<p>Three pictures of armatures with four bones.</p>
+</figcaption>
+</figure>
+<p>In Fig. <a href="#fig-view3d-parent-bone-parent">Three pictures of armatures with four bones.</a> with the 2nd bone being the bone parent of the child object cube.
+The cube is only transformed if the 1st or 2nd bones are.
+Notice altering the 3rd and 4th bones has no effect on the cube.</p>
+<p>To use bone parenting, you must first select all the child objects you wish to parent to a specific armature bone,
+then <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> select the armature object and switch it into Pose Mode and
+then select the specific bone you wish to be the parent bone by <kbd>LMB</kbd> selecting it.
+Once done press <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> and select bone from the <em>Set Parent To</em> pop-up menu.</p>
+<p>Now transforming that bone in Pose Mode will result in the child objects also transforming.</p>
+<section id="relative-parenting">
+<h3>Relative Parenting</h3>
+<p>Bone relative parenting is an option you can toggle for each bone.
+This works in the same way as bone parenting with one difference.</p>
+<p>With bone parenting if you have parented a bone to some child objects and
+you select that bone and switch it into Edit Mode and then move that bone;
+When you switch back into Pose Mode on that bone,
+the child object which is parented to that bone will snap back to the location of the bone in Pose Mode.</p>
+<figure id="id9">
+<figcaption>
+<p>Single armature bone which has a child object cube parented to it using bone parenting.</p>
+</figcaption>
+</figure>
+<p>In Fig. <a href="#fig-view3d-parent-bone-parent-child">Single armature bone which has a child object cube parented to it using bone parenting.</a> the 1st picture shows the position of the cube and
+armature before the bone is moved in Edit Mode.
+2nd picture shows the position of the cube and armature after the bone was selected in Edit Mode,
+moved and switched back into Pose Mode. Notice that the child object moves to the new location of the pose bone.</p>
+<p>Bone relative parenting works differently;
+If you move a parent bone in Edit Mode, when you switch back to Pose Mode,
+the child objects will not move to the new location of the Pose Bone.</p>
+<figure id="id10">
+<figcaption>
+<p>Single bone with bone relative parent to a cube.</p>
+</figcaption>
+</figure>
+<p>In Fig. <a href="#fig-view3d-parent-bone-parent-relative">Single bone with bone relative parent to a cube.</a> the 1st picture
+shows the position of the cube and armature before the bone is moved in Edit Mode.
+2nd picture shows the position of the cube and armature after the bone was selected in Edit Mode,
+moved and switched back into Pose Mode.
+Notice that the child object does not move to the new location of the pose bone.</p>
+<div>
+<p>Note</p>
+<p>When using <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> to set parents, choosing “Bone” or “Bone Relative”
+will respectively clear and set the bone’s “Relative Parenting” option.
+Since “Relative Parenting” is an option that is set per bone, this influences
+all child objects of that bone at once.</p>
+</div>
+</section>
+</section>
+<section id="vertex-parent">
+<h2>Vertex Parent</h2>
+<p>For objects of type curve, surface, mesh and lattice,
+there is the possibility to use one of its vertices or points as the parent of other objects.
+You can parent an object to a single vertex or a group of three vertices as well;
+that way the child/children will move when the parent mesh is deformed.</p>
+<section id="vertex-parent-from-edit-mode">
+<h3>Vertex Parent from Edit Mode</h3>
+<p>In <em>Object Mode</em>, select the child/children and then the parent object.
+<kbd>Tab</kbd> into <em>Edit Mode</em> and on the parent object select either one vertex
+that defines a single point, or select three vertices that define an area
+(the three vertices do not have to form a complete face;
+they can be any three vertices of the parent object),
+and then press <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> and confirm.</p>
+<p>At this point, if a single vertex was selected,
+a relationship/parenting line will be drawn from the vertex to the child/children. If three
+vertices were selected then a relationship/parenting line is drawn from the averaged center of
+the three points (of the parent object) to the child/children. Now,
+as the parent mesh deforms and the chosen parent vertex/vertices move,
+the child/children will move as well.</p>
+</section>
+<section id="vertex-parent-from-object-mode">
+<h3>Vertex Parent from Object Mode</h3>
+<p>Vertex parenting can be performed from Object Mode,
+this is done like regular object parenting,
+press <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> in Object Mode and select <em>Vertex</em> or <em>Vertex (Triangle)</em>.</p>
+<p>The nearest vertices will be used from each object which is typically what you would want.</p>
+<table id="id11">
+<caption>Vertex Parent example.</caption>
+<tbody>
+<tr><td><figure id="id12">
+<figcaption>
+<p>The small cubes can each be automatically parented to a triad of nearby vertices on the icosphere using
+the “Vertex (Triangle)” in the set parent context menu.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id13">
+<figcaption>
+<p>Reshaping the object in Edit Mode then means each of the cubes follows their vertex parent separately.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id14">
+<figcaption>
+<p>Scaling the parent icosphere in Object Mode means the child cubes are also scaled as expected.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The parent context menu item means users can rapidly set up a large number of vertex parent
+relationships,
+and avoid the tedious effort of establishing each parent-child vertex relationship separately.</p>
+<div>
+<p>Note</p>
+<p>It is in fact a sort of “reversed” <a href="../../../modeling/modifiers/deform/hooks.html">hook</a>.</p>
+</div>
+</section>
+</section>
+<section id="make-parent-without-inverse">
+<h2>Make Parent without Inverse</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Parent ‣ Make Parent without Inverse</p>
+</dd>
+</dl>
+</div>
+<p>This sets the parent, and then resets the <em>Parent Inverse</em> matrix and the object’s local location.
+As a result, the object will move to the location of the parent, but keep its rotation and scale.</p>
+<dl>
+<dt>Keep Transform</dt><dd><p>The object’s current world transform (so its absolute location, rotation and scale in the world) is computed.
+The new parent is set, and then the <em>Parent Inverse</em> matrix is computed such that after setting
+the new parent the object is still at its previous world transform.</p>
+</dd>
+</dl>
+</section>
+<section id="clear-parent">
+<h2>Clear Parent</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Parent</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can <em>remove</em> a parent-child relationship via <kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd>.</p>
+<dl>
+<dt>Clear Parent</dt><dd><p>If the parent in the group is selected, nothing is done.
+If a child or children are selected, they are disassociated from the parent,
+or freed, and they return to their <em>original</em> location, rotation, and size.</p>
+</dd>
+<dt>Clear and Keep Transformation</dt><dd><p>Frees the children from the parent, and <em>keeps</em> the location, rotation, and size given to them by the parent.</p>
+<p>See <a href="#non-uniform-scale">Non-Uniform Scale</a> which may apply here.</p>
+</dd>
+<dt>Clear Parent Inverse</dt><dd><p>Instead of removing the hierarchical parent-child relationship, this clears
+the <a href="#parent-inverse">Parent Inverse</a> matrix from the selected objects. With an empty matrix,
+the location, rotation and scale properties of the children are interpreted
+in the coordinate space of the parent.</p>
+</dd>
+</dl>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<section id="non-uniform-scale">
+<h3>Non-Uniform Scale</h3>
+<p>A parent with non-uniform scale and rotation in relation to its child may cause a <em>shear</em> effect.</p>
+<p>While this is supported by parenting, the shear will be lost when the parent is cleared since it
+can’t be represented by location, scale and rotation.</p>
+<p>If <em>Clear and Keep Transformation</em> moves the object, non-uniform scale is the most likely cause.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

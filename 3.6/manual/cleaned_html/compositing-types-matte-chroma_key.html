@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Chroma Key</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Chroma Key Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="chroma-key-node">
+<h1>Chroma Key Node</h1>
+<p>The <em>Chroma Key</em> node determines if a pixel is a foreground or background
+(and thereby should be transparent) based on its chroma values.</p>
+<p>Use this, for example, to composite images that have been shot in front of a green or blue screen.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Key Color</dt><dd><p>The background color usually selected using the color picker and the original image.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Acceptance</dt><dd><p>An angle on the color wheel that represents how tolerant the keying color is. Larger angles allow for larger
+variation in the keying color to be considered background pixels.</p>
+</dd>
+<dt>Cutoff</dt><dd><p>Controls the level that is considered the pure background. Higher cutoff levels mean more pixels will be
+100% transparent if they are within the angle tolerance.</p>
+</dd>
+<dt>Falloff</dt><dd><p>Increase to make nearby pixels partially transparent producing a smoother blend along the edges.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Image with its alpha channel adjusted for the keyed selection.</p>
+</dd>
+<dt>Matte</dt><dd><p>A black-and-white alpha mask of the key.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

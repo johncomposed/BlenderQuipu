@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Cloth &gt; Settings &gt; Physical Properties</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Cloth</a></li>
+<li><a href="index.html">Settings</a></li>
+<li>Physical Properties</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="physical-properties">
+<h1>Physical Properties</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Cloth ‣ Physical Properties</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-clothsettings-mass">
+<dt>Vertex Mass</dt><dd><p>The mass of the cloth material.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-air-damping">
+<dt>Air Viscosity</dt><dd><p>Air has some thickness which slows falling things down.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-bending-model">
+<dt>Bending Model</dt><dd><dl>
+<dt>Linear:</dt>
+<dd><p>Cloth model with linear bending springs (old).</p>
+</dd>
+<dt>Angular:</dt>
+<dd><p>Cloth model with angular bending springs.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="stiffness">
+<h2>Stiffness</h2>
+<dl id="bpy-types-clothsettings-tension-stiffness">
+<dt>Tension</dt><dd><p>How much the material resists stretching.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-compression-stiffness">
+<dt>Compression</dt><dd><p>How much the material resists compression.</p>
+</dd>
+<dt>Structural</dt><dd><p>Overall stiffness of the cloth (only in linear bending model).</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-shear-stiffness">
+<dt>Shear</dt><dd><p>How much the material resists shearing.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-bending-stiffness">
+<dt>Bending</dt><dd><p>Wrinkle coefficient. Higher creates more large folds.</p>
+</dd>
+</dl>
+</section>
+<section id="damping">
+<h2>Damping</h2>
+<dl id="bpy-types-clothsettings-tension-damping">
+<dt>Tension</dt><dd><p>Amount of damping in stretching behavior.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-compression-damping">
+<dt>Compression</dt><dd><p>Amount of damping in compression behavior.</p>
+</dd>
+<dt>Structural</dt><dd><p>Amount of damping in stretching behavior (only in linear bending model).</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-shear-damping">
+<dt>Shear</dt><dd><p>Amount of damping in shearing behavior.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-bending-damping">
+<dt>Bending</dt><dd><p>Amount of damping in bending behavior.</p>
+</dd>
+</dl>
+</section>
+<section id="internal-springs">
+<h2>Internal Springs</h2>
+<p>As stated in the introduction, cloth physics are simulated through <a href="../introduction.html#physics-cloth-introduction-springs">Springs</a>
+connecting vertices on the surface of a mesh. But these springs only interact on the surface
+and only apply to 2D surfaces. 3D or <em>Internal Springs</em> can be used to make a mesh behave similarly to
+a <a href="../../soft_body/index.html">Soft Body</a>. Internal springs can be enabled by toggling the checkbox in
+the <em>Internal Springs</em> panel header.</p>
+<dl id="bpy-types-clothsettings-internal-spring-max-length">
+<dt>Max Spring Creation Length</dt><dd><p>The maximum length an internal spring can have during creation.
+If the distance between internal points is greater than this,
+no internal spring will be created between these points.
+A length of zero means that there is no length limit.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-internal-spring-max-diversion">
+<dt>Max Creation Diversion</dt><dd><p>The maximum angle that is allowed to use to connect the internal points can diverge from the vertex normal.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-internal-spring-normal-check">
+<dt>Check Surface Normals</dt><dd><p>Requires the points the internal springs connect to have opposite normal directions.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-internal-tension-stiffness">
+<dt>Tension</dt><dd><p>How much the material resists stretching.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-internal-compression-stiffness">
+<dt>Compression</dt><dd><p>How much the material resists compression.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-vertex-group-intern">
+<dt>Vertex Group</dt><dd><p>The <em>Tension</em> and <em>Compression</em> of internal springs can be controlled via
+a <a href="../../../modeling/meshes/properties/vertex_groups/index.html">Vertex Group</a> to
+specify which the portions of the mesh have internal springs or the spring strength.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-internal-tension-stiffness-max">
+<dt>Max Tension</dt><dd><p>Maximum tension stiffness value.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-internal-compression-stiffness-max">
+<dt>Max Compression</dt><dd><p>Maximum Compression stiffness value.</p>
+</dd>
+</dl>
+</section>
+<section id="pressure">
+<h2>Pressure</h2>
+<p>Cloth pressure allows the simulation of soft-shelled objects
+such as balloons or balls that are filled with a type of fluid.
+This fluid is modeled as a gas; to emulate an incompressible liquid set
+<em>Pressure Scale</em> as high as possible without breaking the simulation.
+Cloth pressure can be enabled by toggling the checkbox in the <em>Pressure</em> panel header.</p>
+<div>
+<p>Note</p>
+<p><a href="../../../glossary/index.html#term-Non-manifold">Non-manifold</a> meshes will work with cloth pressure however,
+pressure will escape out of the mesh holes and cause drifting or propulsion forces.
+One way to get around this is by using the <em>Vertex Group</em> to exclude the non-manifold portions of the mesh.</p>
+</div>
+<dl id="bpy-types-clothsettings-uniform-pressure-force">
+<dt>Pressure</dt><dd><p>The uniform pressure that is constantly applied to the mesh.
+This value is specified in units of <em>Pressure Scale</em>, and can be
+negative to simulate implosions or any other case where an object
+has outside pressure pushing inwards.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-use-pressure-volume">
+<dt>Custom Volume</dt><dd><p>Use the <em>Target Volume</em> parameter as the initial volume for the cloth,
+instead of computing it from the mesh itself.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-target-volume">
+<dt>Target Volume</dt><dd><p>The mesh volume where the inner/outer pressure will be the same.
+If set to zero, changes in the volume of the object will not affect pressure.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-pressure-factor">
+<dt>Pressure Scale</dt><dd><p>Ambient pressure (in kPa) that exists both inside and outside the object,
+balancing out when the volume matches the target. Increase the value to
+make the object resist changes in volume more strongly.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-fluid-density">
+<dt>Fluid Density</dt><dd><p>Specifies the density of the fluid contained inside the object
+(in kg/liter = 1000 kg/m<sup>3</sup>, use 1 for water), used to generate
+a hydrostatic pressure gradient that simulates the weight of the fluid.
+If the value is negative, it instead models buoyancy from a surrounding fluid.</p>
+<p>The fluid is not actually simulated, so while the setting helps to achieve
+a more plausible object shapes at rest, it cannot create realistic fluid dynamics effects.
+It can also be used to give more weight to a soft body like object with heavy and
+sufficiently flexible filling, even if it is not a fluid by itself.</p>
+<p>The volume of the object is not preserved. If that is desired it should be used
+together with <em>Pressure Scale</em>. <em>Fluid density</em> times <em>object size</em> times 50
+is a good start value for <em>Scale</em> to make sure that no more than 10% volume change
+if the object does not experience higher acceleration than standard gravity.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothsettings-vertex-group-pressure">
+<dt>Vertex Group</dt><dd><p>Cloth pressure can be controlled via a <a href="../../../modeling/meshes/properties/vertex_groups/index.html">Vertex Group</a>
+to specify which the portions of the mesh to apply pressure.
+Zero weight means no pressure while a weight of one means full pressure.</p>
+<p>Note, faces with a vertex that has zero weight will be excluded from the <em>Target Volume</em> calculation.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

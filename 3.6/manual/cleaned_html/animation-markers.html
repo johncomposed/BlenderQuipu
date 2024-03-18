@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Markers</title></head>
+<body><ul>
+<li><a href="index.html">Animation &amp; Rigging</a></li>
+<li>Markers</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="markers">
+<h1>Markers</h1>
+<p>Markers are used to denote frames with key points or significant events within an animation.
+E.g. it could be that a character’s animation starts, the camera changes position, or a door opens.
+Markers can be given names to make them more meaningful at a quick glance.
+They are available in many of Blender’s editors.</p>
+<div>
+<p>Note</p>
+<p>Unlike keyframes, markers are always placed at a whole frame number, you cannot set a marker at frame 2.5.</p>
+</div>
+<p>Markers can be created and edited in the following editors:</p>
+<ul>
+<li><p><a href="../editors/graph_editor/introduction.html">Graph Editor</a></p></li>
+<li><p><a href="../editors/dope_sheet/introduction.html">Dope Sheet</a></p></li>
+<li><p><a href="../editors/nla/index.html">NLA Editor</a></p></li>
+<li><p><a href="../video_editing/index.html">Video Sequence Editor</a></p></li>
+<li><p><a href="../editors/timeline.html">Timeline</a></p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>A marker created in one of these editors will also appear in all others that support them.</p>
+</div>
+<section id="types">
+<h2>Types</h2>
+<p>Besides standard markers, <em>pose markers</em> are another type of markers,
+which are specific to armatures and shape keys.
+They are used to denote poses in the Action Editor mode and Shape Keys Editor of Dope Sheet.</p>
+</section>
+<section id="visualization">
+<h2>Visualization</h2>
+<p>In the supported editors, if at least one is created, markers are visualized
+in a separate row at their bottom.
+This area can be disabled per editor via the View ‣ Show Markers menu option.</p>
+<div>
+<p>Note</p>
+<p>While the markers area is disabled, markers operators are not available in that editor,
+and in the header the <em>Marker</em> menu is hidden.</p>
+</div>
+<section id="standard">
+<h3>Standard</h3>
+<p>Regular markers are shown as small white triangles, empty if unselected or filled if selected,
+and with a dashed line that covers the editor height at the corresponding frame.
+If they have a name, this is shown to their right in white.</p>
+</section>
+<section id="d-viewport">
+<h3>3D Viewport</h3>
+<p>The 3D Viewport does not allow you to create, edit or remove markers,
+but it shows their name in the Object Info in the upper left corner,
+when on their frame.</p>
+</section>
+<section id="pose-markers">
+<h3>Pose Markers</h3>
+<p>Pose markers show a diamond-shaped icon in the Dope Sheet.
+In the NLA editor pose markers are shown as a red dashed line inside the relative action strip.</p>
+</section>
+</section>
+<section id="add-marker">
+<h2>Add Marker</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Add Marker</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>M</kbd></p>
+</dd>
+</dl>
+</div>
+<p>The simplest way to add a marker is to move to the frame where you would like it to appear,
+and press <kbd>M</kbd>.</p>
+<div>
+<p>Hint</p>
+<p>Markers can also be added during playback.</p>
+</div>
+<section id="marker-pose-add">
+<h3>Pose Markers</h3>
+<p>If <em>Show Pose Markers</em> is checked, a pose marker and
+a new pose in the <a href="armatures/posing/editing/pose_library.html#pose-library-old">Old Pose Library</a> are added.</p>
+</section>
+</section>
+<section id="selecting">
+<h2>Selecting</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>LMB</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Click <kbd>LMB</kbd> on the marker’s triangle to select it.
+Use <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> to select multiple markers.</p>
+<p>In the Graph Editor, Dope Sheet, NLA Editor, Timeline, and Video Sequence Editor,
+you can also select all markers with <kbd>A</kbd> while hovering the mouse over the marker row,
+and apply selection tools on them like Box Select, etc.
+(as usual, <kbd>LMB</kbd> to select, <kbd>RMB</kbd> to deselect).
+The corresponding options are found in the Select menu of these editors.</p>
+</section>
+<section id="editing">
+<h2>Editing</h2>
+<section id="duplicate-marker">
+<h3>Duplicate Marker</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Duplicate Marker</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can duplicate the selected markers by pressing <kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd>. Once duplicated,
+the new ones are automatically placed in select mode, so you can move them to the desired location.</p>
+<div>
+<p>Note</p>
+<p>Note that unlike most other duplications in Blender,
+the names of the duplicated markers are not altered at all
+(no <code>.001</code> numeric counter append).</p>
+</div>
+</section>
+<section id="duplicate-marker-to-scene">
+<h3>Duplicate Marker to Scene</h3>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Duplicate Marker to Scene…</p>
+</dd>
+</dl>
+</div>
+<p>Duplicates the selected markers into another scene.</p>
+</section>
+<section id="delete-marker">
+<h3>Delete Marker</h3>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Delete Marker</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd></p>
+</dd>
+</dl>
+</div>
+<p>To delete the selected markers simply press <kbd>X</kbd>,
+and confirm the pop-up message with <kbd>LMB</kbd>.</p>
+</section>
+<section id="rename-marker">
+<h3>Rename Marker</h3>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Rename Marker</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>F2</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Having dozens of markers scattered throughout your scene’s time will not help you much unless you
+know what they stand for. You can name a marker by selecting it, pressing <kbd>F2</kbd>,
+typing the name, and press <kbd>Return</kbd></p>
+</section>
+<section id="move-marker">
+<h3>Move Marker</h3>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Move Marker</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>G</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Once you have one or more markers selected, press <kbd>G</kbd>,
+while hovering with the mouse over the marker bar,
+to move them, and confirm the move with <kbd>LMB</kbd> or <kbd>Return</kbd>
+(as usual, cancel the move with <kbd>RMB</kbd>, or <kbd>Esc</kbd>).
+Or drag them with the <kbd>LMB</kbd>.</p>
+<p>By default, you move the markers in one-frame steps, but if you hold <kbd>Ctrl</kbd>,
+the markers will move in steps corresponding to 1 second (according to the scene’s <em>FPS</em>).</p>
+</section>
+<section id="select">
+<h3>Select</h3>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Select</p>
+</dd>
+</dl>
+</div>
+<p>Convenient operators for selecting Marks; see <a href="#bpy-ops-marker-select">Selecting</a> for more information on selecting Markers.</p>
+<dl id="bpy-ops-marker-select-all">
+<dt>All <kbd>A</kbd></dt><dd><p>Selects all Markers.</p>
+</dd>
+<dt>None <kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></dt><dd><p>Deselects any already selected Markers.</p>
+</dd>
+<dt>Invert <kbd><kbd>Ctrl</kbd>-<kbd>I</kbd></kbd></dt><dd><p>Select all unselected Markers and deselects all selected Markers.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-marker-select-leftright">
+<dt>Before Current Frame</dt><dd><p>Selects all Markers to the left of the current frame and the Marker on the current frame if it exists.</p>
+</dd>
+<dt>After Current Frame</dt><dd><p>Selects all Markers to the Right of the current frame and the Marker on the current frame if it exists.</p>
+</dd>
+</dl>
+</section>
+<section id="show-pose-markers">
+<h3>Show Pose Markers</h3>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Dope Sheet</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>Action Editor or Shape Keys Editor mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Show Pose Markers</p>
+</dd>
+</dl>
+</div>
+<p>Shows markers belonging to the active action instead of scene markers.</p>
+</section>
+<section id="make-markers-local">
+<h3>Make Markers Local</h3>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Make Markers Local</p>
+</dd>
+</dl>
+</div>
+<p>It is possible to convert standard markers into pose markers with Marker ‣ Make Markers Local.
+Note that the original marker will be gone. If you want to keep it, make a duplicate before you convert.</p>
+</section>
+<section id="jump-to-next-previous-marker">
+<h3>Jump to Next/Previous Marker</h3>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Jump to Next/Previous Marker</p>
+</dd>
+</dl>
+</div>
+<p>Moves the Playhead to the next/previous marker relative to the current frame.</p>
+</section>
+</section>
+<section id="bind-camera-to-markers">
+<h2>Bind Camera to Markers</h2>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Timeline</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Marker ‣ Bind Camera to Markers</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>B</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p><em>Bind Camera to Markers</em> is a special operator only available in the <em>Timeline</em>.
+The operator allows markers to be used to set the active object as the active camera.</p>
+<p>To use this operator, select the object to become the active camera
+and select a marker to bind the active camera to.
+If no marker is selected when the operator is applied, a marker will be added.
+When an object is bound to a marker, the marker will be renamed to the name of the active object.
+These markers also have a camera icon next to the left of the name
+to easily distinguish them from other informative markers.</p>
+<p>These markers can be moved to change the frame at which
+the active camera is changed to the object the marker is bound to.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

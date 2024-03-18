@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Properties &gt; Path Animation</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Curves</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Path Animation</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="path-animation">
+<h1>Path Animation</h1>
+<p>The <em>Path Animation</em> settings can be used to determine how child objects move along a certain path.</p>
+<div>
+<p>Note</p>
+<p>This feature is deprecated, but still available.
+A more future-proof method is the <a href="../../../animation/constraints/relationship/follow_path.html">Follow Path Constraint</a>.</p>
+</div>
+<figure id="id1">
+<figcaption>
+<p>Path Animation panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-curve-path-duration">
+<dt>Frames</dt><dd><p>The number of frames that are needed to traverse the path,
+defining the maximum value for the <em>Evaluation Time</em> setting.</p>
+</dd>
+</dl>
+<dl id="bpy-types-curve-eval-time">
+<dt>Evaluation Time</dt><dd><p>Parametric position along the length of the curve that object following it should be at
+(the position is evaluated by dividing by the <em>Frames</em> value).
+By default, it is linked to the global frame number,
+but could be keyframed to give more control over the path animation.</p>
+</dd>
+</dl>
+<dl id="bpy-types-curve-use-path-clamp">
+<dt>Clamp</dt><dd><p>Clamp the curve path children so they can’t travel past the start/end point of the curve.</p>
+</dd>
+</dl>
+<dl id="bpy-types-curve-use-path-follow">
+<dt>Follow</dt><dd><p>Make the curve path children rotate along the curvature of the path.</p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example</h2>
+<p>This example shows you how setup a <em>Path Animation</em>.</p>
+<ol>
+<li><p>Add an object you want to animate and a path along which this object will move.
+In this example it’s the <em>Monkey</em> and the <em>Bézier Circle</em>.</p></li>
+<li><p>To parent the monkey to the Bézier circle, first select the monkey then the curve
+(so that the curve is the active object), press <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> and select <em>Follow Path</em>.
+It will automatically animate <em>Evaluation Time</em> and activate <em>Follow</em> option
+in the <em>Path Animation</em> panel.</p></li>
+<li><p>Select the monkey and
+<a href="../../../scene_layout/object/editing/clear.html">Clear Origin</a> to reset its offset.</p></li>
+<li><p>You can change the orientation of the monkey by changing
+the <a href="../../../scene_layout/object/properties/relations.html">Tracking Axis</a>.</p></li>
+</ol>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Monkey parented to the Bézier Circle.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>The final result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

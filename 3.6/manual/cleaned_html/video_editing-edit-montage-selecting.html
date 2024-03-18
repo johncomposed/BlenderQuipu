@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Video Editing &gt; Edit &gt; Montage &gt; Selecting</head>
+<body><ul>
+<li><a href="../../index.html">Video Editing</a></li>
+<li><a href="../index.html">Edit Your Project</a></li>
+<li><a href="index.html">Montage</a></li>
+<li>Selecting</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="selecting">
+<h1>Selecting</h1>
+<p>The active sequence strip is displayed with a light outline.
+The <em>entire</em> strip could be selected by clicking <kbd>LMB</kbd> in the middle of the strip.</p>
+<section id="select-menu">
+<h2>Select Menu</h2>
+<p>The Select Menu helps you select strips in different ways.</p>
+<dl id="bpy-ops-sequencer-select-all">
+<dt>All <kbd>A</kbd></dt><dd><p>Selects all the strips in the timeline.</p>
+</dd>
+<dt>None <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd></dt><dd><p>Deselects all the strips in the timeline.</p>
+</dd>
+<dt>Invert <kbd><kbd>Ctrl</kbd>-<kbd>I</kbd></kbd></dt><dd><p>Inverts the current selection.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-select-box">
+<dt>Box Select <kbd>B</kbd></dt><dd><p>Click and drag a rectangular lasso around a region of strips in your Sequence workspace.
+Selects strips all intersecting this rectangle.</p>
+</dd>
+<dt>Box Select (Include Handles) <kbd><kbd>Ctrl</kbd>-<kbd>B</kbd></kbd></dt><dd><p>Works the same as <em>Box Select</em> but it selects only the strip’s handles,
+if just one handle is selected moving the strip after selecting will change the strip’s length.
+If both handles are selected the strip will move and behave the exact same as <em>Box Select</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-select-side-of-frame">
+<dt>Side of Frame</dt><dd><dl>
+<dt>Left/Right <kbd>[</kbd>/<kbd>]</kbd></dt><dd><p>Select strips laying left or right to the current frame.</p>
+</dd>
+<dt>Current</dt><dd><p>Select strips intersecting with the current frame.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-select-handles">
+<dt>Handle</dt><dd><p>Operators to select strip handles.
+These operators are useful to change the timing of a cut by moving the handles after selecting them.</p>
+<dl>
+<dt>Both, Left, Right</dt><dd><p>Select the left, right, or both handles of selected strips.</p>
+</dd>
+<dt>Both/Left/Right Neighbor</dt><dd><p>Select the handle of the neighboring strip to the left, right, or on both sides of the selected strips.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-select-side">
+<dt>Channel</dt><dd><p>Select strips in the same channel laying left or right to active strip.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-select-linked">
+<dt>Linked</dt><dd><dl>
+<dt>All <kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd> / Less <kbd><kbd>Ctrl</kbd>-<kbd>NumpadMinus</kbd></kbd> / More <kbd><kbd>Ctrl</kbd>-<kbd>NumpadPlus</kbd></kbd></dt><dd><p>Selects strips, that are placed next to each other without any gaps.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-select-grouped">
+<dt>Grouped <kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></dt><dd><p>Selects strips according to their relation with other strips.</p>
+<dl>
+<dt>Type</dt><dd><p>Selects any strips of the same type within a category for example,
+if you have a Cross strip selected this will select all other effect strips.</p>
+</dd>
+<dt>Global Type</dt><dd><p>Selects any strips of the same type, e.g. Effect, Image, Movie, etc.</p>
+</dd>
+<dt>Effect Type</dt><dd><p>Selects all effect strips.</p>
+</dd>
+<dt>Data</dt><dd><p>Selects strips that share the same data, for example, two image strips sharing the same image file.</p>
+</dd>
+<dt>Effect</dt><dd><p>Selects the strip that shares an effect strip.</p>
+</dd>
+<dt>Effect/Linked</dt><dd><p>Selects the effect strips, if any, linked to the currently selected strip.</p>
+</dd>
+<dt>Overlap</dt><dd><p>Selects any strips that occur on the same frame as the current.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

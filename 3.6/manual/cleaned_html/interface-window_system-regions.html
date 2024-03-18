@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Window System &gt; Regions</title></head>
+<body><ul>
+<li><a href="../index.html">User Interface</a></li>
+<li>Regions</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="regions">
+<h1>Regions</h1>
+<p>Every Editor in Blender is divided into Regions.
+Regions can have smaller structuring elements like
+<a href="tabs_panels.html">tabs and panels</a>
+with buttons, controls and widgets placed within them.</p>
+<figure id="id1">
+<figcaption>
+<p>The regions of the 3D Viewport showing the Sidebar and
+the Adjust Last Operation panel after adding a Cube.</p>
+<div>
+<p>Header (green), Main region (yellow), Toolbar (blue),
+Sidebar (red) and Adjust Last Operation panel (pink).</p>
+</div>
+</figcaption>
+</figure>
+<section id="main-region">
+<h2>Main Region</h2>
+<p>At least one region is always visible.
+It is called the Main region and is the most prominent part of the editor.</p>
+<p>Each editor has a specific purpose, so the main region and
+the availability of additional regions are different between editors.
+See specific documentation about each editor in the <a href="../../editors/index.html">Editors</a> chapter.</p>
+</section>
+<section id="header">
+<h2>Header</h2>
+<p>A header is a small horizontal strip, which sits either at the top or bottom of an area.
+All editors have a header acting as a container for menus and commonly used tools.
+<a href="../controls/buttons/menus.html#ui-header-menu">Menus</a> and buttons will change with the editor type and
+the selected object and mode.</p>
+<figure id="id2">
+<figcaption>
+<p>The Header of the 3D Viewport.</p>
+</figcaption>
+</figure>
+<section id="context-menu">
+<h3>Context Menu</h3>
+<p><kbd>RMB</kbd> on a header reveals a context menu with a couple options:</p>
+<dl>
+<dt>Show Header</dt><dd><p>Toggles the visibility of the header.
+If a header is hidden, it can be made visible again by clicking or dragging
+the small arrow that appears at the top/bottom right of the editor.</p>
+</dd>
+<dt>Show Tool Settings</dt><dd><p>Toggles the visibility of the <a href="#tool-settings">Tool Settings</a>.</p>
+</dd>
+<dt>Show Menus</dt><dd><p>Toggles whether the <a href="../controls/buttons/menus.html#ui-header-menu">Menus</a> are collapsed or not.</p>
+</dd>
+<dt>Flip to Bottom/Top</dt><dd><p>Toggles whether the header or Tool Settings appear on the top or bottom of the editor.</p>
+</dd>
+<dt>Vertical/Horizontal Split</dt><dd><p>Shows an indicator line that lets you select the area and position where to split.
+<kbd>Tab</kbd> switches between vertical/horizontal.</p>
+</dd>
+<dt>Maximize/Full Screen Area</dt><dd><p>See <a href="areas.html#bpy-ops-screen-screen-full-area">Toggle Maximize Area</a>.</p>
+</dd>
+<dt>Duplicate Area into New Window</dt><dd><p>See <a href="areas.html#bpy-ops-screen-area-dupli">Duplicate Area into new Window</a>.</p>
+</dd>
+<dt>Close Area</dt><dd><p>Closes the area and replaces it with the expansion of a neighboring area.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="toolbar">
+<h2>Toolbar</h2>
+<p>The <a href="../tool_system.html#ui-region-toolbar">Toolbar</a> (on the left side of the editor area)
+contains a set of interactive tools. <kbd>T</kbd> toggles the visibility of the Toolbar.</p>
+</section>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<p>A horizontal strip at the top or bottom of the editor (similar to the header)
+containing settings for the currently selected tool. Just like the header,
+it can be hidden and moved through its context menu.</p>
+</section>
+<section id="adjust-last-operation">
+<h2>Adjust Last Operation</h2>
+<p><a href="../undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> is a region that allows
+tweaking an operator after running it. For example, if you just added a cube,
+you can use this region to tweak its size.</p>
+</section>
+<section id="sidebar">
+<h2>Sidebar</h2>
+<p>The <em>Sidebar</em> (on the right side of the editor area)
+contains <a href="tabs_panels.html#ui-panels">Panels</a>
+with settings of objects within the editor and the editor itself.
+<kbd>N</kbd> toggles the visibility of the Sidebar.</p>
+</section>
+<section id="footer">
+<h2>Footer</h2>
+<p>Some editors show a bar (on top/bottom of the editor area)
+that displays information about for example the active tool or operator.</p>
+</section>
+<section id="arranging">
+<h2>Arranging</h2>
+<section id="scrolling">
+<h3>Scrolling</h3>
+<p>A region can be scrolled vertically and/or horizontally by dragging it with the <kbd>MMB</kbd>.
+If the region has no zoom level, it can also be scrolled by using the <kbd>Wheel</kbd>
+while the mouse hovers over it.</p>
+<p id="interface-window-system-regions-scroll-range">Some regions, in particular animation timelines, have scrollbars with added control points
+to adjust the vertical or horizontal range of the region.
+These special scrollbars will have added widgets at the ends, as shown in the following image:</p>
+<figure id="id3">
+<figcaption>
+<p>Scrollbars with zoom widgets.</p>
+</figcaption>
+</figure>
+<p>This can be used to stretch or compress the range to show more or less detail within the available screen space.
+Simply drag one of the dots to either increase or decrease the displayed range.
+You can also quickly adjust both the horizontal and vertical range by dragging in the editor with <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd>.</p>
+</section>
+<section id="changing-the-size-and-hiding">
+<h3>Changing the Size and Hiding</h3>
+<p>Resizing regions works by dragging their border, the same way as
+<a href="areas.html">Areas</a>.</p>
+<p>To hide a region, resize it down to nothing.
+A hidden region leaves a little arrow sign.
+<kbd>LMB</kbd> on this icon to make the region reappear.</p>
+<table id="id4">
+<caption>Hiding and showing the Sidebar.</caption>
+</table>
+</section>
+<section id="scaling">
+<h3>Scaling</h3>
+<p>The scale of certain regions (such as the Toolbar) can be changed by dragging inside them
+with <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd>, or using <kbd>NumpadPlus</kbd> and <kbd>NumpadMinus</kbd> while hovering the
+mouse cursor over them. Press <kbd>Home</kbd> to reset the scale to the default.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Limit Distance</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Limit Distance Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="limit-distance-constraint">
+<h1>Limit Distance Constraint</h1>
+<p>The <em>Limit Distance</em> constraint forces its owner to stay either further from,
+nearer to, or exactly at a given distance from its target. In other words,
+the owner’s location is constrained either outside, inside,
+or at the surface of a sphere centered on its target.</p>
+<p>When you specify a (new) target, the <em>Distance</em> value is automatically set to
+correspond to the distance between the owner and this target.</p>
+<div>
+<p>Important</p>
+<p>Note that if you use such a constraint on a <em>connected</em> bone, it will have
+no effect, as it is the parent’s tip which controls the position of your
+owner bone’s root.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Limit Distance panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraint’s target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Distance</dt><dd><p>This number field sets the limit distance, i.e. the radius of the constraining sphere.</p>
+<dl>
+<dt>Reset Distance <code>X</code></dt><dd><p>When clicked, this small button will reset the <em>Distance</em> value,
+so that it corresponds to the actual distance between the owner and its target
+(i.e. the distance before this constraint is applied).</p>
+</dd>
+</dl>
+</dd>
+<dt>Clamp Region</dt><dd><p>The <em>Limit Mode</em> select menu allows you to choose how to use the sphere
+defined by the <em>Distance</em> setting and target’s origin:</p>
+<dl>
+<dt>Inside</dt><dd><p>The owner is constrained <em>inside</em> the sphere.</p>
+</dd>
+<dt>Outside</dt><dd><p>The owner is constrained <em>outside</em> the sphere.</p>
+</dd>
+<dt>Surface</dt><dd><p>The owner is constrained <em>on the surface</em> of the sphere.</p>
+</dd>
+</dl>
+</dd>
+<dt>Affect Transform</dt><dd><p>Transform operators will take the constraint into account to immediately restrict
+the resulting transform property values.</p>
+</dd>
+<dt>Target/Owner</dt><dd><p>Standard conversion between spaces.
+See <a href="../interface/common.html#rigging-constraints-interface-common-space">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Evaluating both owner and target in a <a href="../interface/common.html#rigging-constraints-interface-common-space-types">Custom Space</a>
+using the root bone or any other suitable parent bone will automatically scale the effective distance with
+the relevant part of the rig.</p>
+</div>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

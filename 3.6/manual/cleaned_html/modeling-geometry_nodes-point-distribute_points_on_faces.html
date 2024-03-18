@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Point &gt; Distribute Points On Faces</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Point Nodes</a></li>
+<li>Distribute Points on Faces</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="distribute-points-on-faces">
+<h1>Distribute Points on Faces</h1>
+<p>The <em>Distribute Points on Faces</em> node places points on the surface of the input geometry object.
+Point, corner, and polygon attributes of the input geometry are transferred to the generated points.
+That includes vertex weights and UV maps.
+Additionally, the node has <em>Normal</em> and <em>Rotation</em> outputs.</p>
+<p>The node also generates a stable ID, stored in the built-in <code>id</code> attribute, used as
+a stable identifier for each point. When the mesh is deformed or the density changes
+the values will be consistent for each remaining point. This attribute is used in
+the <a href="../utilities/random_value.html">Random Value</a> and
+<a href="../instances/instance_on_points.html">Instance on Points</a> nodes.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry input.</p>
+<div>
+<p>Note</p>
+<p>The input geometry must contain a mesh with faces.</p>
+</div>
+</dd>
+<dt>Selection</dt><dd><p>The selection of which face corners should be considered for point distribution.</p>
+</dd>
+<dt>Distance Min</dt><dd><p>The minimal distance points can have to each other.
+This option is only available for the <em>Poisson Disk</em> distribution method.
+At its default value of zero, the node’s behavior is the same as it is in <em>Random</em> mode,
+because none of the internally generated points are removed.</p>
+</dd>
+<dt>Density Max</dt><dd><p>The point density for the point distribution. The unit is in number of points per square meter.
+This value is multiplied by the values from the <em>Density</em> input. Only available in <em>Poisson Disk</em> mode.</p>
+<div>
+<p>Note</p>
+<p>This will be capped on distributions by the <em>Distance Min</em> option.
+If the density is greater than what the minimal distance allows,
+no new points will be added after this threshold has been passed.</p>
+</div>
+</dd>
+<dt>Density</dt><dd><p>The number of points to distribute per square meter on each mesh face.
+This value is multiplied by the values from the <em>Density Attribute</em>.</p>
+<p>In <em>Poisson Disk</em> mode, this value is multiplied by the <em>Density Max</em> input for the final density.</p>
+</dd>
+<dt>Seed</dt><dd><p>The random <a href="../../../glossary/index.html#term-Seed">Seed</a> to use when generating points.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Distribution Method</dt><dd><dl>
+<dt>Random:</dt>
+<dd><p>Distribute points randomly on the surface. This is the fastest distribution method.</p>
+</dd>
+<dt>Poisson Disk:</dt>
+<dd><p>Distribute points randomly on the surface while taking a minimum distance into account.</p>
+</dd>
+</dl>
+</dd>
+<dt>Legacy Normal</dt><dd><p>By default, the node uses smooth and custom normals for the <em>Normal</em> and <em>Rotation</em> values .
+An earlier version of this node only uses “true” normals,
+this option brings back this behavior of only using “true” normals.</p>
+<p>This option can only be available in the Sidebar.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Points</dt><dd><p>Generated points. Named attributes are copied to the result mesh, along with the data in the other
+attribute field outputs.</p>
+</dd>
+<dt>Normal</dt><dd><p>The <a href="../../../glossary/index.html#term-Normal">Normal</a> of the triangle on which each point is scattered.</p>
+</dd>
+<dt>Rotation:</dt><dd><p>An XYZ <a href="../../../glossary/index.html#term-Euler">Euler</a> rotation built from the normal attribute for convenience. Such a value can also be
+built from the normal with the <a href="../utilities/rotation/rotate_euler.html">Rotate Euler Node</a>. Keep in mind that
+the Z axis of the result rotation will be arbitrary, since the mesh normal used to create the rotation
+does not have enough information to set all three rotation axes.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

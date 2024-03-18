@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Import Export &gt; Anim Bvh</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Import-Export</a></li>
+<li>BioVision Motion Capture (BVH)</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="biovision-motion-capture-bvh">
+<h1>BioVision Motion Capture (BVH)</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import/Export ‣ Motion Capture (.bvh)</p>
+</dd>
+</dl>
+</div>
+<p>Imports or exports bvh-files or files with BioVision Hierarchical data
+or data of a skeleton (rig) including its animation.
+Useful for importing data from motion capture devices.</p>
+<section id="properties">
+<h2>Properties</h2>
+<section id="import">
+<h3>Import</h3>
+<dl>
+<dt>Target</dt><dd><p>The motion capture data type.</p>
+<dl>
+<dt>Armature:</dt>
+<dd><p>The bvh-file contains an animated rigged skeleton such as a walking motion capture.</p>
+</dd>
+<dt>Object:</dt>
+<dd><p>The bvh-file contains a static (not animated) mesh object such as a character model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="transform">
+<h4>Transform</h4>
+<dl>
+<dt>Scale</dt><dd><p>Factor to increase the physical size of the BVH.</p>
+</dd>
+<dt>Rotation</dt><dd><div id="id2">
+<p>Todo</p>
+<p>The documentation here is incomplete, you can help by <a href="../../contribute/index.html">contributing</a>.</p>
+</div>
+</dd>
+<dt>Forward / Up</dt><dd><p>Since many applications use a different axis for pointing upwards, these are axis conversion for these settings,
+Forward and up axes – By mapping these to different axes you can convert rotations
+between applications default up and forward axes.</p>
+<p>Blender uses Y forward, Z up (since the front view looks along the +Y direction).
+For example, its common for applications to use Y as the up axis, in that case -Z forward, Y up is needed.</p>
+</dd>
+</dl>
+</section>
+<section id="animation">
+<h4>Animation</h4>
+<dl>
+<dt>Start Frame</dt><dd><p>The start frame, in Blender, to start playback of the BVH animation.</p>
+</dd>
+<dt>Scale FPS</dt><dd><p>Scales the frame rate from the BVH file to the scene frame rate set in Blender,
+otherwise each BVH frame maps directly to a frame in Blender.</p>
+</dd>
+<dt>Loop</dt><dd><p>Cycles the animation playback.</p>
+</dd>
+<dt>Update Scene FPS</dt><dd><p>Set the scene’s frame rate to match the frame rate of the BVH file.</p>
+</dd>
+<dt>Update Scene Duration</dt><dd><p>Extend the scene’s duration to match the BVH’s duration.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="export">
+<h3>Export</h3>
+<section id="id3">
+<h4>Transform</h4>
+<dl>
+<dt>Scale</dt><dd><p>Factor to increase the physical size of the BVH.</p>
+</dd>
+<dt>Rotation</dt><dd><p>TODO.</p>
+</dd>
+<dt>Root Translation Only</dt><dd><p>Only write the translation animation channels for the root bone.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h4>Animation</h4>
+<dl>
+<dt>Start / End</dt><dd><p>Sets the range of animation to export to the BVH file.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

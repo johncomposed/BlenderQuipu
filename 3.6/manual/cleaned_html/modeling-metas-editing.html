@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Metas &gt; Editing</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Metaball</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<p>In addition to having several meta objects in a same family,
+you can also have several meta primitives in a single object (just add some more while in Edit Mode).
+Each will be an element, with its own shape, editing rings (in the viewport), and settings.</p>
+<section id="deleting-elements">
+<h2>Deleting Elements</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd>, <kbd>Delete</kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can only delete the active element, no fancy options here.</p>
+</section>
+<section id="conversion">
+<h2>Conversion</h2>
+<p>To convert the meta to a real mesh, use <a href="../../scene_layout/object/editing/convert.html#object-convert-to">Convert</a> in Object Mode.</p>
+</section>
+<section id="object-families">
+<h2>Object Families</h2>
+<p>A “family” is a way to regroup several meta objects,
+producing something very similar to having several metas inside the same object.</p>
+<p>It is defined by the left part of an object’s name (the one before the first dot).
+Remember, an object’s name is the one in the <em>Object Name</em> field, in most panels,
+<strong>not</strong> the <em>Metaball Name</em> field, which is the meta data-block’s name…
+For example, the <em>family</em> part of “MetaPlane.001” is <code>MetaPlane</code>.
+Each meta object in the same “family” is associated with one another as discussed below.</p>
+<figure id="id2">
+<figcaption>
+<p>Metaball family.</p>
+</figcaption>
+</figure>
+<p>Families of metas are controlled by a <em>base</em> meta object which is identified by
+an object name <strong>without</strong> a dot in it. For example,
+if we have three metas called <code>MetaThing</code>, <code>MetaThing.001</code>,
+<code>MetaThing.round</code>, the <em>base</em> meta object would be <code>MetaThing</code>.</p>
+<p>The <em>base</em> meta object determines the basis, the resolution, the threshold,
+<em>and</em> the transformations. It also has the material and texture area.
+In a way, the <em>base</em> meta is the “owner” of the other metas in the family
+(i.e. it is as if the other metas were “included” or joined into the base one).</p>
+<div>
+<p>Hint</p>
+<p>When working with multiple scenes,
+take care naming your meta objects so the <em>base</em> is always in the same scene as other metas.</p>
+<p>Failing to do so will give confusing behaviors (like invisible meta objects).</p>
+</div>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Fig. <a href="#fig-meta-ball-base">Meta ball base.</a> shows the <em>base</em> meta labeled “B”.
+The other two <em>Meta</em> objects are <em>children</em>. Children’s selection rings are always black,
+while the group’s mesh is orange. Because the metas are grouped,
+they form a unified mesh which can always be selected by selecting the mesh of any meta in the group.</p>
+<figure id="id3">
+<figcaption>
+<p>Meta ball base.</p>
+</figcaption>
+</figure>
+<p>For example, in Fig. <a href="#fig-meta-ball-base">Meta ball base.</a>, only the lower sphere (the parent) has been selected,
+and you see that both the parent’s mesh <em>and</em> all of the children’s meshes are now highlighted.</p>
+<figure id="id4">
+<figcaption>
+<p>Scaling the “base”.</p>
+</figcaption>
+</figure>
+<p>The <em>base</em> meta object controls the <em>polygonalization</em> (mesh structure) for the group, and
+as such, also controls the polygonalization for the children (non-base) metas.
+If we transform the <em>base</em> meta, the children’s polygonalization changes.
+However, if we transform the children, the polygonalization remains unchanged.</p>
+<div>
+<p>Hint</p>
+<p>This discussion of “polygonalization” does <em>not</em> mean that the various meshes do not deform
+towards or away from each other (meta objects always influence one another in the usual way,
+within a same family).</p>
+<p>Rather, it means that the underlying mesh structure changes only when the <em>base</em> object transforms.
+For example, if you scale the <em>base</em>, the children’s mesh structure changes.</p>
+<p>In Fig. <a href="#fig-meta-ball-scale">Scaling the “base”.</a>, the <em>base</em> has been scaled down,
+which has the effect of scaling the mesh structure of each of the children. As you can see,
+the children’s mesh resolution has increased, while the <em>base</em> decreased.
+The children did <em>not</em> change size!</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

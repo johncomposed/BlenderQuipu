@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Import Export &gt; Scene 3Ds</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Import-Export</a></li>
+<li>Autodesk 3DS</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="autodesk-3ds">
+<h1>Autodesk 3DS</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import/Export ‣ 3D Studio (.3ds)</p>
+</dd>
+<dt>Version:</dt>
+<dd><p>2.3.4</p>
+</dd>
+<dt>Blender:</dt>
+<dd><p>3.6</p>
+</dd>
+<dt>Authors:</dt>
+<dd><p>Bob Holcomb, Campbell Barton, Sebastian Schrand</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>Sebastian Sille (NRGSille)</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+</dl>
+</div>
+<section id="usage">
+<h2>Usage</h2>
+<p>This add-on can be used to import and export objects to/from the 3DS Studio file format,
+the native file format of the 3D Studio DOS releases R1 to R4.
+This format is one of the first 3D file formats beside OBJ
+and was commonly used to exchange files from Autodesk<sup>®</sup> 3ds MAX<sup>®</sup>.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<section id="import">
+<h3>Import</h3>
+<section id="include">
+<h4>Include</h4>
+<dl>
+<dt>Image Search</dt><dd><p>This enables a recursive file search if an image file can’t be found.</p>
+</dd>
+<dt>Read Keyframe</dt><dd><p>Reads the keyframe tracks from a 3ds file and transforms the objects to the data wich was found.
+Usually only one frame is found in static scenes, it will be imported to the timeline.
+If the 3ds scene is animated, the complete animation will be imported to the timeline.</p>
+</dd>
+</dl>
+</section>
+<section id="transform">
+<h4>Transform</h4>
+<dl>
+<dt>Forward / Up Axis</dt><dd><p>Since many applications use a different axis for ‘Up’,
+these are axis conversions for Forward and Up axes – By mapping these to different axes
+you can convert rotations between applications default up and forward axes.
+Blender uses Y forward, Z up (since the front view looks along the +Y direction).
+For example, its common for applications to use Y as the up axis, in that case -Z forward, Y up is needed.</p>
+</dd>
+<dt>Size Constraint</dt><dd><p>Scales the imported objects by 10 scene units until it reaches the size defined here.
+To disable set the <em>Size Constraint</em> to zero.</p>
+</dd>
+<dt>Apply Transform</dt><dd><p>Applies object transformations after importing. If unchecked, all objects will stay at its origins.</p>
+</dd>
+<dt>World Space</dt><dd><p>Use world matrix instead of local matrix to transform the objects.
+This is useful for older 3ds files from 3D Studio DOS wich only used world space to transform the objects.
+It is also useful if the object was exported without apply transform.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="export">
+<h3>Export</h3>
+<section id="id2">
+<h4>Include</h4>
+<dl>
+<dt>Selection Only</dt><dd><p>When checked, only selected objects are exported. Otherwise export all objects in the scene.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h4>Transform</h4>
+<dl>
+<dt>Forward / Up</dt><dd><p>Since many applications use a different axis for pointing upwards,
+these are axis conversion for these settings, Forward and up axes – By mapping these to different axes
+you can convert rotations between applications default up and forward axes. Blender uses Y forward,
+Z up (since the front view looks along the +Y direction).
+For example, it is common for applications to use Y as the up axis, in that case -Z forward, Y up is needed.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="materials">
+<h2>Materials</h2>
+<p>Materials in 3ds are defined in various color and percent chunks wich can include
+either integer percent and 24bit color values or float color and percent values,
+both can be read by the importer and will be converted to blender values.
+The exporter uses the integer values, since this is used from 3ds version 3 and above.
+The material definitions wich Blender can use are the following:</p>
+<ul>
+<li><p>3ds Diffuse Color &lt;-&gt; blender Base Color</p></li>
+<li><p>3ds Specular Color &lt;-&gt; blender Specular Color</p></li>
+<li><p>3ds Ambient Color &lt;-&gt; blender Emission Color</p></li>
+<li><p>3ds Mat Shininess &lt;-&gt; blender Roughness inverted</p></li>
+<li><p>3ds Mat Shin2 &lt;-&gt; blender Specular Intensity</p></li>
+<li><p>3ds Mat Shin3 &lt;-&gt; blender Metallic</p></li>
+<li><p>3ds Mat Opacity &lt;-&gt; blender Alpha inverted</p></li>
+<li><p>3ds Mat Bump PCT &lt;-&gt; blender Normalmap Strength</p></li>
+<li><p>3ds Self Illum PCT &lt;-&gt; blender Emission Strength</p></li>
+</ul>
+<section id="textures">
+<h3>Textures</h3>
+<p>Each 3ds material can include different texture mappings,
+which are all imported to Blender material nodes including texture coordinates.
+The 3ds exporter basically takes the images and coordinates,
+wich are directly connected to the Principled BSDF shader,
+if an image is connected to a colormix shader, it will exported as secondary texture.
+Shininess maps to roughness and opacity to the alpha channel,
+they must be color inverted afterwards to match with Blender definition.
+The material mappings are defined as following:</p>
+<ul>
+<li><p>3ds Diffuse Map &lt;-&gt; blender Base Color Texture</p></li>
+<li><p>3ds Specular Map &lt;-&gt; blender Specular Texture</p></li>
+<li><p>3ds Shininess Map &lt;-&gt; blender Roughness Texture</p></li>
+<li><p>3ds Reflection Map &lt;-&gt; blender Metallic Texture</p></li>
+<li><p>3ds Opacity Map &lt;-&gt; blender Alpha Texture</p></li>
+<li><p>3ds Self Illum Map &lt;-&gt; blender Emission Texture</p></li>
+<li><p>3ds Bump Map &lt;-&gt; blender Normal Map (tangent space)</p></li>
+<li><p>3ds Tex2 Map &lt;-&gt; blender Color Texture (connect to mixshader)</p></li>
+</ul>
+<figure id="id4">
+<figcaption>
+<p>An example of a 3ds file with all image maps imported.</p>
+</figcaption>
+</figure>
+<div>
+<p>Note</p>
+<p>All texture filenames are limited to the 8.3 DOS format,
+means that the name of the image texture can only be 8 characters long, others will be stripped away.</p>
+</div>
+</section>
+</section>
+<section id="meshes">
+<h2>Meshes</h2>
+<p>Meshes are made of triangles only, no quads are supported,
+3ds Studio uses edge visibilty flags to hide and show edges, many 3ds files use them to mark the quads.
+The Blender 3ds importer and exporter will use those flags to mark edges sharp,
+this can be used to convert the triangles back to quads.
+The importer can read the smoothchunk and shades a face smooth if it belongs to a smoothgroup,
+the exporter creates a smooth chunk if the mesh contains any smooth faces.
+3ds only supports one pair of UV coordinates per vertex. If any vertex has more UVs, it will be dublicated.</p>
+</section>
+<section id="ambient">
+<h2>Ambient</h2>
+<p>If ambient chunks are found by the importer, a new world with the ambient color will be created.
+Ambient keyframes will be imported to the timeline.
+The exporter creates an ambient chunk with the color of the active world if there is any.</p>
+</section>
+<section id="lights">
+<h2>Lights</h2>
+<p>Lights in 3DS Studio can be a point source or a spotlight, they can be animated,
+using color and energy data and a target for the spotlight. The lights can be imported and exported,
+target data is calculated to Z and X axis angle for pan and tilt, Y is used for the roll angle.</p>
+</section>
+<section id="cameras">
+<h2>Cameras</h2>
+<p>Cameras can be imported and exported to 3ds files.
+They can be animated with field of view (converted to focal length), position and target data,
+calculated to X and Z axis angle for pitch and yaw, Y is used for the roll angle.</p>
+</section>
+<section id="keyframes">
+<h2>Keyframes</h2>
+<p>The importer can read the keyframes, they will be added to the timeline.
+Most animations will play, but the transformations may not be correct,
+some axes or rotations can be inverted. It depends on how it was exported from other applications.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

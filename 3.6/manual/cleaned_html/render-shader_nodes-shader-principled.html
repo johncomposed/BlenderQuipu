@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Principled</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Principled BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="principled-bsdf">
+<h1>Principled BSDF</h1>
+<p>The <em>Principled</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+that combines multiple layers into a single easy to use node.
+It is based on the Disney principled model also known as the “PBR” shader,
+making it compatible with other software such as Pixar’s Renderman<sup>®</sup>
+and Unreal Engine<sup>®</sup>. Image textures painted or baked from
+software like Substance Painter<sup>®</sup> may be directly linked to
+the corresponding parameters in this shader.</p>
+<p>This “Uber” shader includes multiple layers to create a wide variety of materials.
+The base layer is a user controlled mix between diffuse, metal,
+subsurface scattering and transmission.
+On top of that there is a specular layer, sheen layer and clearcoat layer.</p>
+<div>
+<p>Note</p>
+<p>The emphasis on compatibility with other software means that it interprets
+certain input parameters differently from older Blender nodes.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Base Color</dt><dd><p>Diffuse or metal surface color.</p>
+</dd>
+<dt>Subsurface</dt><dd><p>Mix between diffuse and subsurface scattering.
+Rather than being a simple mix between Diffuse and Subsurface Scattering,
+it acts as a multiplier for the Subsurface Radius.</p>
+</dd>
+<dt>Subsurface Radius</dt><dd><p>Average distance that light scatters below the surface.
+Higher radius gives a softer appearance, as light bleeds into shadows and through the object.
+The scattering distance is specified separately for the RGB channels,
+to render materials such as skin where red light scatters deeper.
+The X, Y and Z values are mapped to the R, G and B values, respectively.</p>
+</dd>
+<dt>Subsurface Color</dt><dd><p>Subsurface scattering base color.</p>
+</dd>
+<dt>Subsurface IOR Cycles Only</dt><dd><p>Index of refraction for <em>Subsurface Scattering</em>.</p>
+</dd>
+<dt>Subsurface Anisotropy Cycles Only</dt><dd><p>Controls the directionality of subsurface scattering.</p>
+</dd>
+<dt>Metallic</dt><dd><p>Blends between a non-metallic and metallic material model.
+A value of 1.0 gives a fully specular reflection tinted with the base color,
+without diffuse reflection or transmission.
+At 0.0 the material consists of a diffuse or transmissive base layer, with a specular reflection layer on top.</p>
+</dd>
+<dt>Specular</dt><dd><p>Amount of dielectric specular reflection. Specifies facing (along normal)
+reflectivity in the most common 0 - 8% range.</p>
+<div>
+<p>Hint</p>
+<p>To compute this value for a realistic material with a known index of
+refraction, you may use this special case of the Fresnel formula:
+\(specular = ((ior - 1)/(ior + 1))^2 / 0.08\)</p>
+<p>For example:</p>
+<ul>
+<li><p>water: ior = 1.33, specular = 0.25</p></li>
+<li><p>glass: ior = 1.5, specular = 0.5</p></li>
+<li><p>diamond: ior = 2.417, specular = 2.15</p></li>
+</ul>
+<p>Since materials with reflectivity above 8% do exist, the field allows values above 1.</p>
+</div>
+</dd>
+<dt>Specular Tint</dt><dd><p>Tints the facing specular reflection using the base color, while glancing reflection remains white.</p>
+<p>Normal dielectrics have colorless reflection, so this parameter is not technically physically correct
+and is provided for faking the appearance of materials with complex surface structure.</p>
+</dd>
+<dt>Roughness</dt><dd><p>Specifies microfacet roughness of the surface for diffuse and specular reflection.</p>
+</dd>
+<dt>Anisotropic Cycles Only</dt><dd><p>Amount of anisotropy for specular reflection. Higher values give elongated highlights along the tangent direction;
+negative values give highlights shaped perpendicular to the tangent direction.</p>
+</dd>
+<dt>Anisotropic Rotation Cycles Only</dt><dd><p>Rotates the direction of anisotropy, with 1.0 going full circle.</p>
+<div>
+<p>Hint</p>
+<p>Compared to the <em>Anisotropic BSDF</em> node, the direction of highlight elongation
+is rotated by 90°. Add 0.25 to the value to correct.</p>
+</div>
+</dd>
+<dt>Sheen</dt><dd><p>Amount of soft velvet like reflection near edges,
+for simulating materials such as cloth.</p>
+</dd>
+<dt>Sheen Tint</dt><dd><p>Mix between white and using base color for sheen reflection.</p>
+</dd>
+<dt>Clearcoat</dt><dd><p>Extra white specular layer on top of others.
+This is useful for materials like car paint and the like.</p>
+</dd>
+<dt>Clearcoat Roughness:</dt><dd><p>Roughness of clearcoat specular.</p>
+</dd>
+<dt>IOR</dt><dd><p>Index of refraction for transmission.</p>
+</dd>
+<dt>Transmission</dt><dd><p>Mix between fully opaque surface at zero and fully glass like transmission at one.</p>
+</dd>
+<dt>Transmission Roughness Cycles Only</dt><dd><p>With <strong>GGX</strong> distribution controls roughness used for transmitted light.</p>
+</dd>
+<dt>Emission</dt><dd><p>Light emission from the surface, like the Emission shader.</p>
+</dd>
+<dt>Emission Strength</dt><dd><p>Strength of the emitted light. A value of 1.0 will ensure that the object
+in the image has the exact same color as the <em>Emission Color</em>, i.e. make it ‘shadeless’.</p>
+</dd>
+<dt>Alpha</dt><dd><p>Controls the transparency of the surface, with 1.0 fully opaque.
+Usually linked to the Alpha output of an Image Texture node.</p>
+</dd>
+<dt>Normal</dt><dd><p>Controls the normals of the base layers.</p>
+</dd>
+<dt>Clearcoat Normal</dt><dd><p>Controls the normals of the <em>Clearcoat</em> layer.</p>
+</dd>
+<dt>Tangent</dt><dd><p>Controls the tangent for the <em>Anisotropic</em> layer.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Distribution</dt><dd><p>Microfacet distribution to use.</p>
+<dl>
+<dt>GGX:</dt>
+<dd><p>A method that is faster than <em>Multiple-scattering GGX</em>
+but is less physically accurate. Selecting it enables the <em>Transmission Roughness</em> input.</p>
+</dd>
+<dt>Multiple-scattering GGX:</dt>
+<dd><p>Takes multiple bounce (scattering) events between microfacets into account.
+This gives a more energy conserving results,
+which would otherwise be visible as excessive darkening.</p>
+</dd>
+</dl>
+</dd>
+<dt>Subsurface Method</dt><dd><p>Rendering method to simulate subsurface scattering.</p>
+<div>
+<p>Note</p>
+<p>Eevee does use not support the <em>Random Walk</em> methods.</p>
+</div>
+<dl>
+<dt>Christensen-Burley:</dt>
+<dd><p>An approximation to physically-based volume scattering.
+This method is less accurate than <em>Random Walk</em> however,
+in some situations this method will resolve noise faster.</p>
+</dd>
+<dt>Random Walk (Fixed Radius):</dt>
+<dd><p>Provides accurate results for thin and curved objects.
+Random Walk uses true volumetric scattering inside the mesh,
+which means that it works best for closed meshes.
+Overlapping faces and holes in the mesh can cause problems.</p>
+</dd>
+<dt>Random Walk:</dt>
+<dd><p>Behaves similarly to <em>Random Walk (Fixed Radius)</em> but modulates
+the <em>Subsurface Radius</em> based on the <em>Color</em>, <em>Subsurface Anisotropy</em>, and <em>Subsurface IOR</em>.
+This method thereby attempts to retain greater surface detail and color
+than <em>Random Walk (Fixed Radius)</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Below are some examples of how all the Principled BSDF’s parameters interact with each other.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

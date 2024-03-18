@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Color &gt; Mix</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Color</a></li>
+<li>Mix Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mix-node">
+<h1>Mix Node</h1>
+<p>The <em>Mix Node</em> mixes images by working on the individual and corresponding pixels
+of the two input images. Called “Mix Color” in the shader, geometry, and texture context.</p>
+<blockquote>
+<div><div>
+<p>Important</p>
+<p>As of Blender 3.4 this node has been updated in Shader and Geometry node editors.
+Files saved with the new node are not forward compatible.</p>
+</div>
+</div></blockquote>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>Controls the amount of influence the node exerts on the output image.</p>
+</dd>
+<dt>Image</dt><dd><p>The background image. The image size and resolution sets the dimensions of the output image.</p>
+</dd>
+<dt>Image</dt><dd><p>The foreground image.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mix</dt><dd><p>The Blend modes can be selected in the select menu.
+See <a href="../../../glossary/index.html#term-Color-Blend-Modes">Color Blend Modes</a> for details on each blending mode.</p>
+<p>Add, Subtract, Multiply, Screen, Divide, Difference, Exclusion,
+Darken, Lighten, Overlay, Color Dodge, Color Burn,
+Hue, Saturation, Value, Color, Soft Light, Linear Light</p>
+</dd>
+<dt>Use Alpha</dt><dd><p>If activated, by clicking on the <em>Color and Alpha</em> icon,
+the Alpha channel of the second image is used for mixing.
+When deactivated, the default, the icon background is a light gray.
+The alpha channel of the base image is always used.</p>
+</dd>
+<dt>Clamp</dt><dd><p>Limit the output value between 0.0 and 1.0.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Below are samples of common mix modes and uses, mixing a color or checker with a mask.</p>
+<p>Some explanation of the mixing methods above might help you use the Mix node effectively:</p>
+<dl>
+<dt>Add</dt><dd><p>Adding blue to blue keeps it blue, but adding blue to red makes purple.
+White already has a full amount of blue, so it stays white.
+Use this to shift a color of an image. Adding a blue tinge makes the image feel colder.</p>
+</dd>
+<dt>Subtract</dt><dd><p>Taking Blue away from white leaves Red and Green, which combined make Yellow.
+Taking Blue away from Purple leaves Red. Use this to desaturate an image.
+Taking away yellow makes an image bluer and more depressing.</p>
+</dd>
+<dt>Multiply</dt><dd><p>Black (0.0) times anything leaves black. Anything times White (1.0) is itself.
+Use this to mask out garbage, or to colorize a black-and-white image.</p>
+</dd>
+<dt>Hue</dt><dd><p>Shows you how much of a color is in an image,
+ignoring all colors except what is selected: makes a monochrome picture (style ‘Black &amp; Hue’).</p>
+</dd>
+<dt>Mix</dt><dd><p>Combines the two images, averaging the two.</p>
+</dd>
+<dt>Lighten</dt><dd><p>Like bleach makes your whites whiter. Used with a mask to lighten up a little.</p>
+</dd>
+<dt>Difference</dt><dd><p>It takes out a color. The color needed to turn Yellow into White is Blue.
+Use this to compare two very similar images to see what had been done to one to make it the other;
+sort of like a change log for images. You can use this to see a watermark (see <a href="#watermark-images">Watermark images</a>)
+you have placed in an image for theft detection.</p>
+</dd>
+<dt>Darken</dt><dd><p>With the colors set here, it’s like looking at the world through rose-colored glasses.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Only add, subtract, multiply and divide are suitable for <a href="../../../glossary/index.html#term-Scene-Referenced">Scene Referenced</a> images.</p>
+</div>
+<section id="contrast-enhancement">
+<h3>Contrast Enhancement</h3>
+<p>Here is a small node tree showing the effects of two other common uses for the RGB Curve:
+<em>Darken</em> and <em>Contrast Enhancement</em>.
+You can see the effect each curve has independently,
+and the combined effect when they are <em>mixed</em> equally.</p>
+<figure id="id1">
+<figcaption>
+<p>Example node setup showing “Darken”, “Enhance Contrast” and “Mix” nodes for composition.</p>
+</figcaption>
+</figure>
+<p>As you can hopefully see, our original magic monkey was overexposed by too much light.
+To cure an overexposure, you must both darken the image and enhance the contrast.</p>
+<p>In the top RGB curve, <em>Darken</em>, only the right side of the curve was lowered; thus,
+any X input along the bottom results in a geometrically less Y output.
+The <em>Enhance Contrast</em> RGB (S-shaped) curve scales the output such that middle values of X change dramatically;
+namely, the middle brightness scale is expanded,
+and thus, whiter whites and blacker blacks are output. To make this curve,
+simply click on the curve and a new control point is added.
+Drag the point around to bend the curve as you wish.
+The Mix node combines these two effects equally, and Suzanne feels much better.</p>
+</section>
+<section id="watermark-images">
+<h3>Watermark Images</h3>
+<p>In the old days, a pattern was pressed into the paper mush as it dried,
+creating a mark that identified who made the paper and where it came from.
+The mark was barely perceptible except in just the right light.
+Probably the first form of subliminal advertising. Nowadays,
+people watermark their images to identify them as personal intellectual property,
+for subliminal advertising of the author or hosting service,
+or simply to track their image’s proliferation throughout the web. Blender provides a complete
+set of tools for you to both encode your watermark and to tell if an image has your watermark.</p>
+<section id="encoding-your-watermark-in-an-image">
+<h4>Encoding your Watermark in an Image</h4>
+<p>First, construct your own personal watermark.
+You can use your name, a word, or a shape or image not easily replicated.
+While neutral gray works best using the encoding method suggested,
+you are free to use other colors or patterns.
+It can be a single pixel or a whole gradient; it is up to you. In the example below,
+we are encoding the watermark in a specific location in the image using the <em>Translate</em> node;
+this helps later because we only have to look at a specific location for the mark.
+We then use the RGB to BW node to convert the image to numbers
+that the Map Value node can use to make the image subliminal.
+In this case, it reduces the mark to one-tenth of its original intensity.
+The Add node adds the corresponding pixels,
+making the ones containing the mark ever-so-slightly brighter.</p>
+<figure id="id2">
+<figcaption>
+<p>Embedding your mark in an image using a mark and specific position.</p>
+</figcaption>
+</figure>
+<p>Of course, if you <em>want</em> people to notice your mark, do not scale it so much,
+or make it a contrasting color. There are also many other ways,
+using other mix settings and fancier rigs. Feel free to experiment!</p>
+<div>
+<p>Hint</p>
+<p>Additional uses</p>
+<p>You can also use this technique, using settings that result in visible effects,
+in title sequences to make the words appear to be cast on the water’s surface,
+or as a special effect to make words appear on the possessed girl’s forearm.</p>
+</div>
+</section>
+<section id="decoding-an-image-for-your-watermark">
+<h4>Decoding an Image for your Watermark</h4>
+<p>When you see an image that you think might be yours,
+use the node tree below to compare it to your stock image (pre-watermarked original).
+In this tree, the Mix node is set to Difference,
+and the Map Value node amplifies any difference. The result is routed to a viewer,
+and you can see how the original mark clearly stands out.</p>
+<figure id="id3">
+<figcaption>
+<p>Checking an image for your watermark.</p>
+</figcaption>
+</figure>
+<p>Various image compression algorithms lose some of the original; the difference shows as noise.
+Experiment with different compression settings and marks to see which works best for you by
+having the encoding node group in one scene, and the decoding group in another.
+Use them while changing Blender’s image format settings,
+reloading the watermarked image after saving, to get an acceptable result.
+In the example above, the mark was clearly visible all the way up to <code>JPEG</code> compression of 50%.</p>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

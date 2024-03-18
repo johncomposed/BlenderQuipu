@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Command Line &gt; Arguments</title></head>
+<body><ul>
+<li><a href="../index.html">Advanced</a></li>
+<li><a href="index.html">Command Line</a></li>
+<li>Command Line Arguments</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="command-line-arguments">
+<h1>Command Line Arguments</h1>
+<p>Blender 3.6
+Usage: blender [args …] [file] [args …]</p>
+<section id="render-options">
+<h2>Render Options</h2>
+<dl>
+<dt><code>-b</code>, <code>--background</code></dt><dd><p>Run in background (often used for UI-less rendering).</p>
+</dd>
+<dt><code>-a</code>, <code>--render-anim</code></dt><dd><p>Render frames from start to end (inclusive).</p>
+</dd>
+<dt><code>-S</code>, <code>--scene</code> <code>&lt;name&gt;</code></dt><dd><p>Set the active scene <code>&lt;name&gt;</code> for rendering.</p>
+</dd>
+<dt><code>-f</code>, <code>--render-frame</code> <code>&lt;frame&gt;</code></dt><dd><p>Render frame <code>&lt;frame&gt;</code> and save it.</p>
+<ul>
+<li><p><code>+&lt;frame&gt;</code> start frame relative, <code>-&lt;frame&gt;</code> end frame relative.</p></li>
+<li><p>A comma separated list of frames can also be used (no spaces).</p></li>
+<li><p>A range of frames can be expressed using <code>..</code> separator between the first and last frames (inclusive).</p></li>
+</ul>
+</dd>
+<dt><code>-s</code>, <code>--frame-start</code> <code>&lt;frame&gt;</code></dt><dd><p>Set start to frame <code>&lt;frame&gt;</code>, supports +/- for relative frames too.</p>
+</dd>
+<dt><code>-e</code>, <code>--frame-end</code> <code>&lt;frame&gt;</code></dt><dd><p>Set end to frame <code>&lt;frame&gt;</code>, supports +/- for relative frames too.</p>
+</dd>
+<dt><code>-j</code>, <code>--frame-jump</code> <code>&lt;frames&gt;</code></dt><dd><p>Set number of frames to step forward after each rendered frame.</p>
+</dd>
+<dt><code>-o</code>, <code>--render-output</code> <code>&lt;path&gt;</code></dt><dd><p>Set the render path and file name.
+Use <code>//</code> at the start of the path to render relative to the blend-file.</p>
+<p>The <code>#</code> characters are replaced by the frame number, and used to define zero padding.</p>
+<ul>
+<li><p><code>animation_##_test.png</code> becomes <code>animation_01_test.png</code></p></li>
+<li><p><code>test-######.png</code> becomes <code>test-000001.png</code></p></li>
+</ul>
+<p>When the filename does not contain <code>#</code>, The suffix <code>####</code> is added to the filename.</p>
+<p>The frame number will be added at the end of the filename, eg:</p>
+<div><div><pre>blender -b animation.blend -o //render_ -F PNG -x 1 -a
+</pre></div>
+</div>
+<p><code>//render_</code> becomes <code>//render_####</code>, writing frames as <code>//render_0001.png</code></p>
+</dd>
+<dt><code>-E</code>, <code>--engine</code> <code>&lt;engine&gt;</code></dt><dd><p>Specify the render engine.
+Use <code>-E help</code> to list available engines.</p>
+</dd>
+<dt><code>-t</code>, <code>--threads</code> <code>&lt;threads&gt;</code></dt><dd><p>Use amount of <code>&lt;threads&gt;</code> for rendering and other operations
+[1-1024], 0 for systems processor count.</p>
+</dd>
+</dl>
+</section>
+<section id="format-options">
+<h2>Format Options</h2>
+<dl>
+<dt><code>-F</code>, <code>--render-format</code> <code>&lt;format&gt;</code></dt><dd><p>Set the render format.
+Valid options are:
+<code>TGA</code> <code>RAWTGA</code> <code>JPEG</code> <code>IRIS</code> <code>IRIZ</code> <code>AVIRAW</code> <code>AVIJPEG</code> <code>PNG</code> <code>BMP</code></p>
+<p>Formats that can be compiled into Blender, not available on all systems:
+<code>HDR</code> <code>TIFF</code> <code>OPEN_EXR</code> <code>OPEN_EXR_MULTILAYER</code> <code>MPEG</code> <code>CINEON</code> <code>DPX</code> <code>DDS</code> <code>JP2</code> <code>WEBP</code></p>
+</dd>
+<dt><code>-x</code>, <code>--use-extension</code> <code>&lt;bool&gt;</code></dt><dd><p>Set option to add the file extension to the end of the file.</p>
+</dd>
+</dl>
+</section>
+<section id="animation-playback-options">
+<h2>Animation Playback Options</h2>
+<dl>
+<dt><code>-a</code> <code>&lt;options&gt;</code> <code>&lt;file(s)&gt;</code></dt><dd><p>Instead of showing Blender’s user interface, this runs Blender as an animation player,
+to view movies and image sequences rendered in Blender (ignored if <code>-b</code> is set).</p>
+<p>Playback Arguments:</p>
+<dl>
+<dt><code>-p</code> <code>&lt;sx&gt;</code> <code>&lt;sy&gt;</code></dt><dd><p>Open with lower left corner at <code>&lt;sx&gt;</code>, <code>&lt;sy&gt;</code>.</p>
+</dd>
+<dt><code>-m</code></dt><dd><p>Read from disk (Do not buffer).</p>
+</dd>
+<dt><code>-f</code> <code>&lt;fps&gt;</code> <code>&lt;fps-base&gt;</code></dt><dd><p>Specify FPS to start with.</p>
+</dd>
+<dt><code>-j</code> <code>&lt;frame&gt;</code></dt><dd><p>Set frame step to <code>&lt;frame&gt;</code>.</p>
+</dd>
+<dt><code>-s</code> <code>&lt;frame&gt;</code></dt><dd><p>Play from <code>&lt;frame&gt;</code>.</p>
+</dd>
+<dt><code>-e</code> <code>&lt;frame&gt;</code></dt><dd><p>Play until <code>&lt;frame&gt;</code>.</p>
+</dd>
+<dt><code>-c</code> <code>&lt;cache_memory&gt;</code></dt><dd><p>Amount of memory in megabytes to allow for caching images during playback.
+Zero disables (clamping to a fixed number of frames instead).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="window-options">
+<h2>Window Options</h2>
+<dl>
+<dt><code>-w</code>, <code>--window-border</code></dt><dd><p>Force opening with borders.</p>
+</dd>
+<dt><code>-W</code>, <code>--window-fullscreen</code></dt><dd><p>Force opening in fullscreen mode.</p>
+</dd>
+<dt><code>-p</code>, <code>--window-geometry</code> <code>&lt;sx&gt;</code> <code>&lt;sy&gt;</code> <code>&lt;w&gt;</code> <code>&lt;h&gt;</code></dt><dd><p>Open with lower left corner at <code>&lt;sx&gt;</code>, <code>&lt;sy&gt;</code> and width and height as <code>&lt;w&gt;</code>, <code>&lt;h&gt;</code>.</p>
+</dd>
+<dt><code>-M</code>, <code>--window-maximized</code></dt><dd><p>Force opening maximized.</p>
+</dd>
+<dt><code>-con</code>, <code>--start-console</code></dt><dd><p>Start with the console window open (ignored if <code>-b</code> is set), (Windows only).</p>
+</dd>
+<dt><code>--no-native-pixels</code></dt><dd><p>Do not use native pixel size, for high resolution displays (MacBook <code>Retina</code>).</p>
+</dd>
+<dt><code>--no-window-focus</code></dt><dd><p>Open behind other windows and without taking focus.</p>
+</dd>
+</dl>
+</section>
+<section id="python-options">
+<h2>Python Options</h2>
+<dl>
+<dt><code>-y</code>, <code>--enable-autoexec</code></dt><dd><p>Enable automatic Python script execution (default).</p>
+</dd>
+<dt><code>-Y</code>, <code>--disable-autoexec</code></dt><dd><p>Disable automatic Python script execution (pydrivers &amp; startup scripts).</p>
+</dd>
+<dt><code>-P</code>, <code>--python</code> <code>&lt;filepath&gt;</code></dt><dd><p>Run the given Python script file.</p>
+</dd>
+<dt><code>--python-text</code> <code>&lt;name&gt;</code></dt><dd><p>Run the given Python script text block.</p>
+</dd>
+<dt><code>--python-expr</code> <code>&lt;expression&gt;</code></dt><dd><p>Run the given expression as a Python script.</p>
+</dd>
+<dt><code>--python-console</code></dt><dd><p>Run Blender with an interactive console.</p>
+</dd>
+<dt><code>--python-exit-code</code> <code>&lt;code&gt;</code></dt><dd><p>Set the exit-code in [0..255] to exit if a Python exception is raised
+(only for scripts executed from the command line), zero disables.</p>
+</dd>
+<dt><code>--python-use-system-env</code></dt><dd><p>Allow Python to use system environment variables such as <code>PYTHONPATH</code> and the user site-packages directory.</p>
+</dd>
+<dt><code>--addons</code> <code>&lt;addon(s)&gt;</code></dt><dd><p>Comma separated list (no spaces) of add-ons to enable in addition to any default add-ons.</p>
+</dd>
+</dl>
+</section>
+<section id="logging-options">
+<h2>Logging Options</h2>
+<dl>
+<dt><code>--log</code> <code>&lt;match&gt;</code></dt><dd><p>Enable logging categories, taking a single comma separated argument.
+Multiple categories can be matched using a <code>.*</code> suffix,
+so <code>--log "wm.*"</code> logs every kind of window-manager message.
+Sub-string can be matched using a <code>*</code> prefix and suffix,
+so <code>--log "*undo*"</code> logs every kind of undo-related message.
+Use “^” prefix to ignore, so <code>--log "*,^wm.operator.*"</code> logs all except for <code>wm.operators.*</code>
+Use “*” to log everything.</p>
+</dd>
+<dt><code>--log-level</code> <code>&lt;level&gt;</code></dt><dd><p>Set the logging verbosity level (higher for more details) defaults to 1,
+use -1 to log all levels.</p>
+</dd>
+<dt><code>--log-show-basename</code></dt><dd><p>Only show file name in output (not the leading path).</p>
+</dd>
+<dt><code>--log-show-backtrace</code></dt><dd><p>Show a back trace for each log message (debug builds only).</p>
+</dd>
+<dt><code>--log-show-timestamp</code></dt><dd><p>Show a timestamp for each log message in seconds since start.</p>
+</dd>
+<dt><code>--log-file</code> <code>&lt;filepath&gt;</code></dt><dd><p>Set a file to output the log to.</p>
+</dd>
+</dl>
+</section>
+<section id="debug-options">
+<h2>Debug Options</h2>
+<dl>
+<dt><code>-d</code>, <code>--debug</code></dt><dd><p>Turn debugging on.</p>
+<ul>
+<li><p>Enables memory error detection</p></li>
+<li><p>Disables mouse grab (to interact with a debugger in some cases)</p></li>
+<li><p>Keeps Python’s <code>sys.stdin</code> rather than setting it to None</p></li>
+</ul>
+</dd>
+<dt><code>--debug-value</code> <code>&lt;value&gt;</code></dt><dd><p>Set debug value of <code>&lt;value&gt;</code> on startup.</p>
+</dd>
+<dt><code>--debug-events</code></dt><dd><p>Enable debug messages for the event system.</p>
+</dd>
+<dt><code>--debug-ffmpeg</code></dt><dd><p>Enable debug messages from FFmpeg library.</p>
+</dd>
+<dt><code>--debug-handlers</code></dt><dd><p>Enable debug messages for event handling.</p>
+</dd>
+<dt><code>--debug-libmv</code></dt><dd><p>Enable debug messages from libmv library.</p>
+</dd>
+<dt><code>--debug-cycles</code></dt><dd><p>Enable debug messages from Cycles.</p>
+</dd>
+<dt><code>--debug-memory</code></dt><dd><p>Enable fully guarded memory allocation and debugging.</p>
+</dd>
+<dt><code>--debug-jobs</code></dt><dd><p>Enable time profiling for background jobs.</p>
+</dd>
+<dt><code>--debug-python</code></dt><dd><p>Enable debug messages for Python.</p>
+</dd>
+<dt><code>--debug-depsgraph</code></dt><dd><p>Enable all debug messages from dependency graph.</p>
+</dd>
+<dt><code>--debug-depsgraph-eval</code></dt><dd><p>Enable debug messages from dependency graph related on evaluation.</p>
+</dd>
+<dt><code>--debug-depsgraph-build</code></dt><dd><p>Enable debug messages from dependency graph related on graph construction.</p>
+</dd>
+<dt><code>--debug-depsgraph-tag</code></dt><dd><p>Enable debug messages from dependency graph related on tagging.</p>
+</dd>
+<dt><code>--debug-depsgraph-no-threads</code></dt><dd><p>Switch dependency graph to a single threaded evaluation.</p>
+</dd>
+<dt><code>--debug-depsgraph-time</code></dt><dd><p>Enable debug messages from dependency graph related on timing.</p>
+</dd>
+<dt><code>--debug-depsgraph-pretty</code></dt><dd><p>Enable colors for dependency graph debug messages.</p>
+</dd>
+<dt><code>--debug-depsgraph-uuid</code></dt><dd><p>Verify validness of session-wide identifiers assigned to ID datablocks.</p>
+</dd>
+<dt><code>--debug-ghost</code></dt><dd><p>Enable debug messages for Ghost (Linux only).</p>
+</dd>
+<dt><code>--debug-wintab</code></dt><dd><p>Enable debug messages for Wintab.</p>
+</dd>
+<dt><code>--debug-gpu</code></dt><dd><p>Enable GPU debug context and information for OpenGL 4.3+.</p>
+</dd>
+<dt><code>--debug-gpu-force-workarounds</code></dt><dd><p>Enable workarounds for typical GPU issues and disable all GPU extensions.</p>
+</dd>
+<dt><code>--debug-gpu-disable-ssbo</code></dt><dd><p>Disable usage of shader storage buffer objects.</p>
+</dd>
+<dt><code>--debug-gpu-renderdoc</code></dt><dd><p>Enable Renderdoc integration for GPU frame grabbing and debugging.</p>
+</dd>
+<dt><code>--debug-wm</code></dt><dd><p>Enable debug messages for the window manager, shows all operators in search, shows keymap errors.</p>
+</dd>
+<dt><code>--debug-xr</code></dt><dd><p>Enable debug messages for virtual reality contexts.
+Enables the OpenXR API validation layer, (OpenXR) debug messages and general information prints.</p>
+</dd>
+<dt><code>--debug-xr-time</code></dt><dd><p>Enable debug messages for virtual reality frame rendering times.</p>
+</dd>
+<dt><code>--debug-all</code></dt><dd><p>Enable all debug messages.</p>
+</dd>
+<dt><code>--debug-io</code></dt><dd><p>Enable debug messages for I/O (Collada, …).</p>
+</dd>
+<dt><code>--debug-fpe</code></dt><dd><p>Enable floating-point exceptions.</p>
+</dd>
+<dt><code>--debug-exit-on-error</code></dt><dd><p>Immediately exit when internal errors are detected.</p>
+</dd>
+<dt><code>--disable-crash-handler</code></dt><dd><p>Disable the crash handler.</p>
+</dd>
+<dt><code>--disable-abort-handler</code></dt><dd><p>Disable the abort handler.</p>
+</dd>
+<dt><code>--verbose</code> <code>&lt;verbose&gt;</code></dt><dd><p>Set the logging verbosity level for debug messages that support it.</p>
+</dd>
+</dl>
+</section>
+<section id="gpu-options">
+<h2>GPU Options</h2>
+<dl>
+<dt><code>--gpu-backend</code></dt><dd><p>Force to use a specific GPU backend. Valid options: <code>vulkan</code>,  <code>metal</code>,  <code>opengl</code>.</p>
+</dd>
+</dl>
+</section>
+<section id="misc-options">
+<h2>Misc Options</h2>
+<dl>
+<dt><code>--open-last</code></dt><dd><p>Open the most recently opened blend file, instead of the default startup file.</p>
+</dd>
+<dt><code>--app-template</code> <code>&lt;template&gt;</code></dt><dd><p>Set the application template (matching the directory name), use <code>default</code> for none.</p>
+</dd>
+<dt><code>--factory-startup</code></dt><dd><p>Skip reading the startup.blend in the users home directory.</p>
+</dd>
+<dt><code>--enable-event-simulate</code></dt><dd><p>Enable event simulation testing feature <code>bpy.types.Window.event_simulate</code>.</p>
+</dd>
+<dt><code>--env-system-datafiles</code></dt><dd><p>Set the <code>BLENDER_SYSTEM_DATAFILES</code> environment variable.</p>
+</dd>
+<dt><code>--env-system-scripts</code></dt><dd><p>Set the <code>BLENDER_SYSTEM_SCRIPTS</code> environment variable.</p>
+</dd>
+<dt><code>--env-system-python</code></dt><dd><p>Set the <code>BLENDER_SYSTEM_PYTHON</code> environment variable.</p>
+</dd>
+<dt><code>-noaudio</code></dt><dd><p>Force sound system to None.</p>
+</dd>
+<dt><code>-setaudio</code></dt><dd><p>Force sound system to a specific device.
+<code>None</code> <code>SDL</code> <code>OpenAL</code> <code>CoreAudio</code> <code>JACK</code> <code>PulseAudio</code> <code>WASAPI</code>.</p>
+</dd>
+<dt><code>-h</code>, <code>--help</code></dt><dd><p>Print this help text and exit.</p>
+</dd>
+<dt><code>/?</code></dt><dd><p>Print this help text and exit (Windows only).</p>
+</dd>
+<dt><code>-R</code></dt><dd><p>Register blend-file extension, then exit (Windows only).</p>
+</dd>
+<dt><code>-r</code></dt><dd><p>Silently register blend-file extension, then exit (Windows only).</p>
+</dd>
+<dt><code>-v</code>, <code>--version</code></dt><dd><p>Print Blender version and exit.</p>
+</dd>
+<dt><code>--</code></dt><dd><p>End option processing, following arguments passed unchanged. Access via Python’s <code>sys.argv</code>.</p>
+</dd>
+</dl>
+</section>
+<section id="other-options">
+<h2>Other Options</h2>
+<dl>
+<dt><code>--debug-freestyle</code></dt><dd><p>Enable debug messages for Freestyle.</p>
+</dd>
+</dl>
+</section>
+<section id="argument-parsing">
+<h2>Argument Parsing</h2>
+<p>Arguments must be separated by white space, eg:</p>
+<div><div><pre>blender -ba test.blend
+</pre></div>
+</div>
+<p>…will exit since <code>-ba</code> is an unknown argument.</p>
+</section>
+<section id="argument-order">
+<h2>Argument Order</h2>
+<p>Arguments are executed in the order they are given. eg:</p>
+<div><div><pre>blender --background test.blend --render-frame 1 --render-output '/tmp'
+</pre></div>
+</div>
+<p>…will not render to <code>/tmp</code> because <code>--render-frame 1</code> renders before the output path is set.</p>
+<div><div><pre>blender --background --render-output /tmp test.blend --render-frame 1
+</pre></div>
+</div>
+<p>…will not render to <code>/tmp</code> because loading the blend-file overwrites the render output that was set.</p>
+<div><div><pre>blender --background test.blend --render-output /tmp --render-frame 1
+</pre></div>
+</div>
+<p>…works as expected.</p>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables</h2>
+<dl>
+<dt>BLENDER_USER_RESOURCES:</dt>
+<dd><p>Top level directory for user files.
+(other <code>BLENDER_USER_*</code> variables override when set).</p>
+</dd>
+<dt>BLENDER_USER_CONFIG:</dt>
+<dd><p>Directory for user configuration files.</p>
+</dd>
+<dt>BLENDER_USER_SCRIPTS:</dt>
+<dd><p>Directory for user scripts.</p>
+</dd>
+<dt>BLENDER_USER_DATAFILES:</dt>
+<dd><p>Directory for user data files (icons, translations, ..).</p>
+</dd>
+<dt>BLENDER_SYSTEM_RESOURCES:</dt>
+<dd><p>Top level directory for system files.
+(other <code>BLENDER_SYSTEM_*</code> variables override when set).</p>
+</dd>
+<dt>BLENDER_SYSTEM_SCRIPTS:</dt>
+<dd><p>Directory for system wide scripts.</p>
+</dd>
+<dt>BLENDER_SYSTEM_DATAFILES:</dt>
+<dd><p>Directory for system wide data files.</p>
+</dd>
+<dt>BLENDER_SYSTEM_PYTHON:</dt>
+<dd><p>Directory for system Python libraries.</p>
+</dd>
+<dt>OCIO:</dt>
+<dd><p>Path to override the OpenColorIO config file.</p>
+</dd>
+<dt>TEMP:</dt>
+<dd><p>Store temporary files here.</p>
+</dd>
+<dt>TMP:</dt>
+<dd><p>or $TMPDIR           Store temporary files here.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

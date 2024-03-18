@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Utilities &gt; Math &gt; Float To Integer</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Utilities Nodes</a></li>
+<li><a href="index.html">Math Utility Nodes</a></li>
+<li>Float To Integer Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="float-to-integer-node">
+<h1>Float To Integer Node</h1>
+<p>The <em>Float To Integer</em> node takes a single floating point number input and converts it to
+an integer with a choice of methods.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Float</dt><dd><p>Standard float value input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Rounding Mode</dt><dd><dl>
+<dt>Round:</dt>
+<dd><p>Outputs the closest integer to Float, rounding either up or down based on the value.</p>
+</dd>
+<dt>Floor:</dt>
+<dd><p>Outputs the closest integer less than Float, always rounding down.</p>
+</dd>
+<dt>Ceiling:</dt>
+<dd><p>Outputs the closest integer greater than Float, always rounding up.</p>
+</dd>
+<dt>Truncate:</dt>
+<dd><p>Outputs the closest integer between Float and zero. For positive numbers, acts like Floor.
+For negative numbers, acts as Ceiling.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Result</dt><dd><p>Standard integer output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<thead>
+<tr><th><p>Input Value</p></th>
+<th><p>Round</p></th>
+<th><p>Floor</p></th>
+<th><p>Ceiling</p></th>
+<th><p>Truncate</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>-69.6574</p></td>
+<td><p>-70</p></td>
+<td><p>-70</p></td>
+<td><p>-69</p></td>
+<td><p>-69</p></td>
+</tr>
+<tr><td><p>-3.14159</p></td>
+<td><p>-3</p></td>
+<td><p>-4</p></td>
+<td><p>-3</p></td>
+<td><p>-3</p></td>
+</tr>
+<tr><td><p>-1.5</p></td>
+<td><p>-2</p></td>
+<td><p>-2</p></td>
+<td><p>-1</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr><td><p>1.5</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr><td><p>3.14159</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>3</p></td>
+</tr>
+<tr><td><p>69.6574</p></td>
+<td><p>70</p></td>
+<td><p>69</p></td>
+<td><p>70</p></td>
+<td><p>69</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

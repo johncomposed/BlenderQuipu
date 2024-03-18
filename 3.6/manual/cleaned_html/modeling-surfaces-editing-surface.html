@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Surfaces &gt; Editing &gt; Surface</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Surfaces</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Surface</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="surface">
+<h1>Surface</h1>
+<p>Surface editing has even fewer tools and options than its curve counterpart,
+but has many common points with it…
+So this page covers (or tries to cover) all the subjects,
+from the basics of surface editing to more advanced topics, like retopology.</p>
+<section id="transform">
+<h2>Transform</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<p>A surface can be edited by transforming the locations of the control points.</p>
+<dl>
+<dt>Move, Rotate, Scale</dt><dd><p>Like other elements in Blender, control points can be
+moved, rotated, or scaled as described in
+<a href="../../../scene_layout/object/editing/transform/introduction.html">Basic Transformations</a>.</p>
+</dd>
+<dt>To Sphere, Shear, Warp, Bend, Push/Pull, Warp, Randomize</dt><dd><p>These transform tools are described in
+the <a href="../../meshes/editing/mesh/transform/index.html">Transformations</a> sections.</p>
+</dd>
+<dt>Move/Scale Texture Space</dt><dd><p>Like other objects, surfaces have textures spaces which can be
+<a href="../../meshes/uv/uv_texture_spaces.html#properties-texture-space-editing">edited</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="mirror">
+<h2>Mirror</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Mirror</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Mirror</em> tool is also available, behaving exactly as with
+<a href="../../meshes/editing/mesh/mirror.html">mesh vertices</a>.</p>
+</section>
+<section id="snap">
+<h2>Snap</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Snap</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p><a href="../../../editors/3dview/controls/snapping.html">Mesh snapping</a>
+also works with control points, except for within itself (other components of the active spline).
+Snapping works with 2D surfaces but points will be constrained to the local XY axes.</p>
+</section>
+<section id="spin">
+<h2>Spin</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Spin</p>
+</dd>
+</dl>
+</div>
+<p>This tool is a bit similar to its <a href="../../meshes/tools/spin.html">mesh counterpart</a>
+but with less control and options (in fact, there is none!).</p>
+<p>It only works on selected “surfaces” made of <em>one U row</em> (and not with one V row),
+so-called “surface curves”, by “extruding” this “cross section” in a square pattern.
+While automatically adjusting the weights of control points to get a perfect circular extrusion
+(this also implies closing the surface along the V axis), following exactly the same principle
+as for the <em>NURBS Tube</em> or <em>NURBS Torus</em> primitives.</p>
+</section>
+<section id="add-duplicate">
+<h2>Add Duplicate</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Add Duplicate</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Similar as with meshes and curves, this tool duplicates the selection.
+The copy is selected and placed in move mode, so you can move it to another place.</p>
+<p>However, with surfaces there are some selections that cannot be duplicated,
+in which case they will just be placed in move mode… In fact,
+only selections forming a <em>single</em> valid sub-grid are copyable; let us see this in practice:</p>
+<ul>
+<li><p>You can copy a single control point.
+From it, you will be able to “extrude” a “surface curve” along the U axis,
+and then extrude this unique U row along the V axis to create a real new surface.</p></li>
+<li><p>You can copy a single continuous part of a row (or a whole row, of course).
+This will give you a new <em>U row</em>, even if you selected (part of) a V row!</p></li>
+<li><p>You can copy a single whole sub-grid.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>Trying to duplicate several valid “sub-grids” (even being single points)
+at once will not work; you will have to do it one after the other…</p>
+</div>
+</section>
+<section id="split">
+<h2>Split</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Split</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Y</kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Split</em> operator splits a selected segment of a surface from the rest of the surface.
+This segment can then be moved or altered without affecting the other surface.
+If a single control point is selected the <em>Split</em> operator will create a new singular loose control point;
+leaving the previously selected control point attached to the rest of the surface.</p>
+</section>
+<section id="separate">
+<h2>Separate</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Separate</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>P</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Surface objects that are made of multiple distinct parts can be separated into their own
+objects by selecting the desired segments and using <em>Separate</em>.
+Note, if there is only one surface in a surface object,
+<em>Separate</em> will create a new surface object with no control points.</p>
+</section>
+<section id="toggle-cyclic">
+<h2>Toggle Cyclic</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Toggle Cyclic</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>C</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>As in <a href="../../curves/editing/curve.html#modeling-curves-toggle-cyclic">curves</a>,
+surfaces can be closed (cyclic) or open. However, as surfaces are 2D,
+you can control this property independently along the U and V axes.</p>
+<p>To toggle the cyclic property of a surface along one axis,
+use <em>Toggle Cyclic</em> and choose either <em>Cyclic U</em> or <em>Cyclic V</em> from the pop-up menu.
+The corresponding surface’s outer edges will join together to form a “closed” surface.</p>
+<div>
+<p>Note</p>
+<p>Inner and Outer</p>
+<p>Surfaces have an “inner” and “outer” face, the first being black whereas the latter is correctly shaded.
+When you close a surface in one or two directions, you might get an entirely black object! In this case,
+just <a href="segments.html#modeling-surfaces-editing-segments-switch-direction">Switch Direction</a> of the surface.</p>
+</div>
+</section>
+<section id="set-spline-type">
+<h2>Set Spline Type</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Set Spline Type</p>
+</dd>
+</dl>
+</div>
+<p>This feature only works for <a href="../../curves/index.html">Curves</a>.</p>
+</section>
+<section id="show-hide">
+<h2>Show/Hide</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Show/Hide</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd>, <kbd>H</kbd>, <kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>When in <em>Edit Mode</em>, you can hide and reveal elements from the display.
+You can only show or hide control points, as segments are always shown,
+unless all control points of the connected surface are hidden,
+in which case the surface is fully hidden.</p>
+<div>
+<p>See also</p>
+<p>See <a href="../../../scene_layout/object/editing/show_hide.html#object-show-hide">Show/Hide</a> in <em>Object Mode</em>.</p>
+</div>
+</section>
+<section id="cleanup">
+<h2>Cleanup</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Cleanup</p>
+</dd>
+</dl>
+</div>
+<p>This feature only works for <a href="../../curves/index.html">Curves</a>.</p>
+</section>
+<section id="delete">
+<h2>Delete</h2>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Surface ‣ Delete</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd>, <kbd>Delete</kbd></p>
+</dd>
+</dl>
+</div>
+<p>The selection must abide by the following rules:</p>
+<ul>
+<li><p>Whole rows, and only whole rows must be selected.</p></li>
+<li><p>Only rows along the same axis must be selected (i.e. you cannot delete both U and V rows at the same time).</p></li>
+</ul>
+<p>Also remember that NURBS order cannot be higher than its number of control points in a given axis,
+so it might decrease when you delete some control points…
+Of course, when only one row remains, the surface becomes a “surface curve”; when only one point remains,
+there is no more visible surface; and when all points are deleted, the surface itself is deleted.</p>
+<dl>
+<dt>Vertices</dt><dd><p>This will delete the selected rows, <em>without</em> breaking the surface
+(i.e. the adjacent rows will be directly linked, joined, once the intermediary ones are deleted).
+Remember that NURBS order cannot be higher than its number of control points,
+so it might decrease when you delete some control point.
+Of course, when only one point remains, there is no more visible curve,
+and when all points are deleted, the curve itself is deleted.</p>
+</dd>
+<dt>Segment</dt><dd><p>Deletes the segment that connects the selected control points and disconnects them.</p>
+</dd>
+<dt>Dissolve Vertices <kbd><kbd>Ctrl</kbd>-<kbd>X</kbd></kbd></dt><dd><p>This feature only works for <a href="../../curves/index.html">Curves</a>.</p>
+</dd>
+</dl>
+<section id="example">
+<h3>Example</h3>
+<p>In the image below (left), a row of control points has been selected by initially selecting
+the one control point and using <a href="../selecting.html#bpy-ops-curve-select-row">Select Control Point Row</a> to select the remaining
+control points. Then, using <a href="#delete">Delete</a> <em>Vertices</em>,
+the selected row of control points is erased, resulting in the image below (right).</p>
+<figure id="id13">
+<figcaption>
+<p>Before and after.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

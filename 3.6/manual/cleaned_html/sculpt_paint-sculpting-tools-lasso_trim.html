@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Lasso Trim</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Lasso Trim</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="lasso-trim">
+<h1>Lasso Trim</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Lasso Trim</p>
+</dd>
+</dl>
+</div>
+<p>Adds or removes geometry based on a <a href="../../../interface/selecting.html#tool-select-lasso">lasso selection</a>.
+This tool is especially useful for sketching an early base mesh for further
+sculpting with the <a href="../tool_settings/remesh.html">voxel remesher</a>.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Using Lasso Trim set to Join</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>The symmetrized mesh.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Sculpting with voxel remeshing.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>New geometry is assigned to a new <a href="../editing/face_sets.html#sculpting-editing-facesets">Face Set</a>.
+When removing geometry, the new interior geometry along the selection will be assigned
+a new face set instead.</p>
+<div>
+<p>Note</p>
+<p>It is not recommended to use this tool on a mesh above 100k vertices when using <em>Difference</em>
+or <em>Union</em> as the Trim Mode. This tool is using a Boolean operation so it might take a long time to process.
+For higher resolution meshes it is recommended to instead use the
+<a href="line_project.html">Line Project</a> tool or the <em>Fair Positions</em>
+mode of the <a href="edit_face_set.html">Edit Face Set</a> tool to trim geometry.</p>
+</div>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<dl>
+<dt>Trim Mode</dt><dd><p>Geometry can be either added or removed by choosing one of these modes.</p>
+<dl>
+<dt>Difference:</dt>
+<dd><p>Removes geometry, filling any holes that are created.</p>
+</dd>
+<dt>Union:</dt>
+<dd><p>Creates a geometry and joins any intersections with existing geometry.</p>
+</dd>
+<dt>Join:</dt>
+<dd><p>Similar to <em>Union</em> but joins the mesh as separate geometry,
+without performing any Boolean operations with existing geometry.</p>
+</dd>
+</dl>
+</dd>
+<dt>Shape Orientation</dt><dd><p>The method used to orientate the trimming shape.</p>
+<dl>
+<dt>View:</dt>
+<dd><p>Use the view to orientate the trimming shape.</p>
+</dd>
+<dt>Surface:</dt>
+<dd><p>Use the surface normal to orientate the trimming shape.</p>
+</dd>
+</dl>
+</dd>
+<dt>Extrude Mode</dt><dd><dl>
+<dt>Fixed:</dt>
+<dd><p>Aligns new geometry orthogonally for 90 degree angles in depth.</p>
+</dd>
+<dt>Project:</dt>
+<dd><p>Aligns new geometry with the perspective of the current view for a tapered result.</p>
+</dd>
+</dl>
+</dd>
+<dt>Use Cursor for Depth</dt><dd><p>Use cursor location and radius for the dimensions and position of the trimming shape.
+If not set, the tool uses the full depth of the object from the camera view.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

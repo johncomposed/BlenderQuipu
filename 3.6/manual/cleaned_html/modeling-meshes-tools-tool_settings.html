@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Tools &gt; Tool Settings</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Tool Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="tool-settings">
+<h1>Tool Settings</h1>
+<section id="options">
+<h2>Options</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Tool tab ‣ Options panel</p>
+</dd>
+</dl>
+</div>
+<section id="transform">
+<h3>Transform</h3>
+<dl id="bpy-types-toolsettings-use-transform-correct-face-attributes">
+<dt>Correct Face Attributes</dt><dd><p>Adjust geometry attributes like <a href="../uv/index.html">UVs</a>
+and <a href="../../../sculpt_paint/vertex_paint/index.html">Color Attributes</a> while transforming.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-transform-correct-keep-connected">
+<dt>Keep Connected</dt><dd><p>Merge attributes connected to the same vertex while using <em>Correct Face Attributes</em>.</p>
+<div>
+<p>Tip</p>
+<p>Keeping UVs connected is useful for organic modeling, but not for architectural modeling.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="uvs">
+<h3>UVs</h3>
+<dl id="bpy-types-toolsettings-use-edge-path-live-unwrap">
+<dt>Live Unwrap</dt><dd><p>Automatically recalculates the UV unwrapping every time an edge has its seam property changed.
+Note, this is different than the <a href="../uv/editing.html#bpy-types-spaceuveditor-use-live-unwrap">Live Unwrap</a>
+option in the UV Editor.</p>
+</dd>
+</dl>
+</section>
+<section id="mirror">
+<h3>Mirror</h3>
+<p>Mirror allows you to transform vertices symmetrically according to the chosen axis.
+When you transform an element (vertex, edge or face),
+if there is its exact axis-mirrored counterpart (in local space),
+it will be transformed accordingly, through a symmetry along the chosen axis.</p>
+<div>
+<p>Note</p>
+<p>The conditions for <em>Mirror</em> to work are quite strict, which can make it difficult to use.
+To have an exact mirrored version of a (half) mesh,
+it’s easier and simpler to use the <a href="../../modifiers/generate/mirror.html">Mirror Modifier</a>.</p>
+</div>
+</section>
+<section id="topology-mirror">
+<h3>Topology Mirror</h3>
+<div>
+<p>Note</p>
+<p>For <em>Topology Mirror</em> to work, at least one of the three <em>Mirror Axis</em> must be enabled.</p>
+</div>
+<p>When using any of the three <em>Mirror Axis</em> options to work on a mirrored Mesh Geometry, the vertices that
+are mirrored must be perfectly placed. If they are not exactly positioned in their mirror
+locations then the <em>Mirror Axis</em> will not treat those vertices as mirrored.</p>
+<p><em>Topology Mirror</em> tries to address this problem by determining which vertices are mirrored vertices not only by
+using their positions but also by looking at how those vertices are related to others in the Mesh Geometry.
+It looks at the overall topology to determine if particular vertices will be treated as mirrored.
+The effect of this is that mirrored vertices can be non-symmetrical and yet still be treated as mirrored.</p>
+<div>
+<p>Note</p>
+<p>The <em>Topology Mirror</em> functionality will work more reliably on mesh geometry
+which is more detailed. If you use very simple geometry, for example
+a <em>Cube</em> or <em>UV Sphere</em>, the <em>Topology Mirror</em> option will often not work.</p>
+</div>
+<section id="example">
+<h4>Example</h4>
+<p>For an example of how to use <em>Topology Mirror</em> open up a new Blender scene,
+then delete the default cube and add a Monkey object to the 3D Viewport.</p>
+<ol>
+<li><p>Press <kbd>Tab</kbd> to put the Monkey object into <em>Edit Mode</em>.</p></li>
+<li><p>With all the <em>Mirror Axis</em> options disabled move one of the Monkey object’s vertices slightly.</p></li>
+<li><p>Then Turn the <em>X Axis Mirror</em> on but leave <em>Topology Mirror</em> disabled.</p></li>
+<li><p>If you now move that vertex again, the <em>X Axis Mirror</em> will not work and the mirrored
+vertices will not be altered.</p></li>
+<li><p>If you then enable <em>Topology Mirror</em> and move the same vertices again,
+then <em>X Axis Mirror</em> should still mirror the other vertex,
+even though they are not perfectly positioned.</p></li>
+</ol>
+</section>
+</section>
+<section id="auto-merge-vertices">
+<h3>Auto Merge Vertices</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Sidebar ‣ Tool ‣ Options ‣ Auto Merge Vertices</p>
+</dd>
+</dl>
+</div>
+<p>When enabled, as soon as a vertex moves closer to another one
+than the <em>Threshold</em> setting, they are automatically merged.
+This option affects interactive operations only
+(tweaks made in the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel are considered interactive too).
+If the exact spot where a vertex is moved contains more than one vertex,
+then the merge will be performed between the moved vertex and one of those.</p>
+<dl id="bpy-types-toolsettings-use-mesh-automerge-and-split">
+<dt>Split Edges &amp; Faces</dt><dd><p>Detects the intersection of each transformed edge, creating a new vertex in place
+and sectioning the edge and the face if any.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-double-threshold">
+<dt>Threshold</dt><dd><p>Defines the maximum distance between vertices that are merged.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

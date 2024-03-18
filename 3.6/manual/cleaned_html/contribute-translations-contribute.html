@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Contribute &gt; Translations &gt; Contribute</head>
+<body><ul>
+<li><a href="../index.html">Contribute Documentation</a></li>
+<li>Contribute</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="contribute">
+<h1>Contribute</h1>
+<p>On this page French (<code>fr</code>) is used for examples. However, it can be replaced with other
+<a href="https://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html">languages codes</a>.
+So, be sure to change the <code>/fr</code> suffixes in this guide to the language you are translating!</p>
+<p>To see which languages are currently available, you can browse the repository:</p>
+<p><code>https://projects.blender.org/blender/blender-manual-translations</code></p>
+<div>
+<p>Note</p>
+<p>First of all, it is assumed that you have the manual already building.
+If you have not done this already go back too
+the <a href="../index.html#about-getting-started">Getting Started</a> section.</p>
+</div>
+<section id="installing">
+<h2>Installing</h2>
+<section id="language-files">
+<h3>Language Files</h3>
+<p>From the directory containing your checkout of the manual run:</p>
+<div><div><pre>git clone https://projects.blender.org/blender/blender-manual-translations.git locale
+</pre></div>
+</div>
+<p>This will create a <code>locale/fr</code> subdirectory.</p>
+<p>You should have a directory layout like this:</p>
+<div><div><pre>blender-manual
+   |- locale/
+   |  |- fr/
+   |  |  |- LC_MESSAGES/
+   |- manual/
+</pre></div>
+</div>
+<div>
+<p>Note</p>
+<p>When running Git from the command line (such as updating or committing),
+you will need to change directory to <code>locale</code> first rather then the <code>blender-manual</code> directory.</p>
+</div>
+</section>
+<section id="a-po-editor">
+<h3>A PO Editor</h3>
+<p>To make edit the PO files you will need to install a PO editor.
+We recommended that you use <a href="https://poedit.net/">Poedit</a>
+however, any PO editor will do.</p>
+<div>
+<p>Note</p>
+<p>For Linux users, you will have to check with
+your distribution’s software center for a version of Poedit.
+This editor is only a recommendation. There are others, such as Kate and Kwrite, that
+could offer syntax highlighting and basic tools for text editing, e.g. letter case transposes.
+Other platforms can use some text editors supporting the syntax highlighting for PO files,
+or allowing you to create a custom one (such as Notepad++ on Windows).</p>
+</div>
+</section>
+</section>
+<section id="building-with-translations">
+<h2>Building with Translations</h2>
+<p>Now you can build the manual with the translation applied:</p>
+<p>On Linux and macOS run:</p>
+<div><div><pre>make -e BF_LANG=fr
+</pre></div>
+</div>
+<p>On Windows run:</p>
+<div><div><pre>set BF_LANG=fr
+make html
+</pre></div>
+</div>
+<p>Now you will have a build of the manual with translations applied.</p>
+</section>
+<section id="editing-translation-files">
+<h2>Editing Translation Files</h2>
+<p>Now you can edit the PO translation files, in the <code>LC_MESSAGES</code> folder you have two files:</p>
+<ul>
+<li><p><code>blender_manual.po</code> – This is the main translation file that you will be editing.</p></li>
+<li><p><code>sphinx.po</code> – This translation file is much smaller and contains translations for the website theme.</p></li>
+</ul>
+<p>To edit these files open them up in your translation editor, i.e. Poedit.
+Once in your editor you will see a list of texts, each of these items represent some part of the user manual.
+You may need to adjust your editor to sort the list in a way that makes sense for example “by source”.</p>
+<p>You can now select an untranslated string and your editor will have an input box to add the translation.
+The modified <code>.po</code> files can now submitted as a patch or committed back to the repository.</p>
+<div>
+<p>Tip</p>
+<p>Make sure that you <a href="#building-with-translations">Building with Translations</a> to catch any syntax errors you may make while translating.
+These errors will be displayed as warnings while building the manual.</p>
+</div>
+</section>
+<section id="submitting-translations">
+<h2>Submitting Translations</h2>
+<p>Translators who have been given commit access can commit to the
+main repository without needing to fork the repository.</p>
+<p>See <a href="../guides/commit_guide.html">Commit Guidelines</a> if this applies to you.</p>
+<section id="fork-translation-repository">
+<h3>Fork Translation Repository</h3>
+<ol>
+<li><p>Go to Blender repository and click the Fork button.</p></li>
+<li><p>Confirm the fork with the default settings.</p></li>
+<li><p>Now you will have to add your personal fork as a remote in your local git repository.
+Click <em>SSH</em> to see the correct URL, and then add it like this:</p>
+<div><div><pre>git remote add me git@projects.blender.org:&lt;USERNAME&gt;/blender-manual-translations.git
+git submodule sync
+</pre></div>
+</div>
+</li>
+</ol>
+<div>
+<p>Note</p>
+<p>In order to push to the fork repository, you need an SSH key.
+If you don’t already have the file <code>~/.ssh/id_rsa.pub</code>,
+there’s a simple command to generate such keys which works on Linux, macOS, and in Git Bash on Windows:</p>
+<div><div><pre>ssh-keygen
+</pre></div>
+</div>
+<p>This command will generate a private key id_rsa and a public key id_rsa.pub in <code>~/.ssh</code>.
+The private key must never be shown or sent to anyone else to avoid compromising your account,
+but the public key is safe to share.</p>
+<p>The contents of <code>~/.ssh/id_rsa.pub</code> can be copied and pasted into
+the <a href="https://projects.blender.org/user/settings/keys">account settings on projects.blender.org</a>,
+after clicking “Add Key”. Any name for the SSH key is ok.</p>
+</div>
+</section>
+</section>
+<section id="maintenance">
+<h2>Maintenance</h2>
+<section id="keeping-track-of-fuzzy-strings">
+<h3>Keeping Track of Fuzzy Strings</h3>
+<p>When the manual is updated, those translations which are outdated will be marked as fuzzy.
+To keep track with that, you can use a tool we created for that task.</p>
+<p>You can do this by running:</p>
+<div><div><pre>make report_po_progress
+</pre></div>
+</div>
+<p>This will only give a quick summary however, you can get more information by running:</p>
+<div><div><pre>python tools_report/report_translation_progress.py locale/fr/
+</pre></div>
+</div>
+<p>You should get a list of all the files with information about the number of empty and fuzzy strings.
+For more options see:</p>
+<div><div><pre>python tools_report/report_translation_progress.py --help
+</pre></div>
+</div>
+</section>
+<section id="updating-po-files">
+<h3>Updating PO Files</h3>
+<p>As the original manual changes, the templates will need updating.
+Note, doing this is not required,
+as administrator usually update the files for all languages at once.
+This allows all languages to be on the same version of the manual.
+However, if you need to update the files yourself, it can be done as follows:</p>
+<div><div><pre>make update_po
+</pre></div>
+</div>
+<p>The updated templates can then be committed to the repository.</p>
+<div>
+<p>See also</p>
+<p>A guide how to add a new language can be found in the <a href="add_language.html">Adding a Language</a>.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

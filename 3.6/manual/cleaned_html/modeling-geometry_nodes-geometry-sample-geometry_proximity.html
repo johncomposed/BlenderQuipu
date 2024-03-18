@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Sample &gt; Geometry Proximity</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Sample Geometry Nodes</a></li>
+<li>Geometry Proximity Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="geometry-proximity-node">
+<h1>Geometry Proximity Node</h1>
+<p>The <em>Geometry Proximity</em> node computes the closest location on the target geometry.</p>
+<div>
+<p>Tip</p>
+<p>The <a href="../../utilities/math/map_range.html">Map Range Node</a> is often helpful to use with the distance
+output of this node to create a falloff with a maximum distance.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Target</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Source Position</dt><dd><p>The given position to calculate the closest location on the target.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Target Element</dt><dd><dl>
+<dt>Faces:</dt>
+<dd><p>Calculate the closest point anywhere on the faces of the target’s mesh geometry.</p>
+</dd>
+<dt>Edges:</dt>
+<dd><p>Calculate the closest point anywhere on the edges of the target’s mesh geometry.</p>
+</dd>
+<dt>Points:</dt>
+<dd><p>Calculate the closest point or vertex on the target geometry. This mode is usually the fastest.
+This mode works for both point cloud and mesh geometry, the other modes only work for meshes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Position</dt><dd><p>Closest location on the surface of the target mesh, or the closest point in the target point cloud
+in <em>Points</em> mode.</p>
+</dd>
+<dt>Distance</dt><dd><p>Distance (as floating-point value) from the source position to the closest location in the target.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>The different modes of the node: faces, edges and points.
+In this example the Geometry Nodes modifier is added on the target plane.
+Note that the larger plane is subdivided and the smaller plane is not.</p>
+<figure id="id1">
+<figcaption>
+<p>The three target element modes: faces, edges, and points.</p>
+</figcaption>
+</figure>
+<figure id="id2">
+<figcaption>
+<p>Points distributed on a sphere used as a target for a distance used in a shader.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

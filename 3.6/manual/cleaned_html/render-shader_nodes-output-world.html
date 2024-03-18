@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Output &gt; World</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Output</a></li>
+<li>World Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="world-node">
+<h1>World Node</h1>
+<p>The <em>World Output</em> node is used to output light a color information
+to the scene’s <a href="../../lights/world.html">World</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Surface</dt><dd><p>The appearance of the environment,
+usually preceded by a <a href="../shader/background.html">Background</a> shader.</p>
+</dd>
+<dt>Volume</dt><dd><p>Used to add volumetric effects to the world.
+See the shaders <a href="../shader/volume_absorption.html">Volume Absorption</a>
+and <a href="../shader/volume_scatter.html">Volume Scatter</a> for more information.</p>
+<div>
+<p>Note</p>
+<p>It is not possible to have an HDR and volumetric due to the fact that
+HDR’s are assumed to be an infinite distance from the camera.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Target</dt><dd><p>Render engine the input shaders are used for.
+By default shaders are shared between Cycles and Eevee,
+with multiple output nodes specialized shader setups can be created for each.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p>This node has no outputs.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

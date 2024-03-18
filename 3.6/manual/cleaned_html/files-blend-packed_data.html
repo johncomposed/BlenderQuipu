@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Blend &gt; Packed Data</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="index.html">Blender File</a></li>
+<li>Packed Data</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="packed-data">
+<h1>Packed Data</h1>
+<p>Blender has the ability to encapsulate (incorporate)
+various kinds of data within the blend-file that is normally saved outside of the blend-file.
+For example, an image texture that is an external image file can be put “inside” the blend-file.
+This allows sharing a full project as a single file,
+instead of e.g. an archive containing the blend-file and all its dependencies.</p>
+<p>You know that a data is packed when you see a little “gift box” icon displayed next to its path.</p>
+<div>
+<p>Warning</p>
+<p>Not all external files can be packed</p>
+<p>Some typically heavy external files, like videos from the <a href="../../video_editing/introduction.html">Sequence Editor</a>
+or <a href="../../editors/clip/introduction.html">Movie Clips</a>, cannot be packed in a blend-file.</p>
+</div>
+<section id="pack-data">
+<h2>Pack Data</h2>
+<section id="pack-resources">
+<h3>Pack Resources</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>File ‣ External Data ‣ Pack Resources</p>
+</dd>
+</dl>
+</div>
+<p>Mark all eligible external resource files used by the blend-file as packed.
+Actual packing will happen on the next save of the blend-file.</p>
+</section>
+<section id="automatically-pack-resources">
+<h3>Automatically Pack Resources</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>File ‣ External Data ‣ Automatically Pack Resources</p>
+</dd>
+</dl>
+</div>
+<p>When enabled, this option will ensure that all eligible external resource files, existing or added later,
+are systematically marked as packed.
+As with <em>Pack Resources</em>, the blend-file must be saved to the drive for this to have an effect.</p>
+<p>Disabling that option won’t unpack anything, but future external files
+won’t be automatically marked as packed anymore.</p>
+</section>
+<section id="selective-packing">
+<h3>Selective Packing</h3>
+<p>A single file can be packed by clicking on the little “gift box” icon to the left of its file-path UI widget.</p>
+</section>
+</section>
+<section id="unpack-data">
+<h2>Unpack Data</h2>
+<section id="unpack-resources">
+<h3>Unpack Resources</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>File ‣ External Data ‣ Unpack Resources</p>
+</dd>
+</dl>
+</div>
+<p>Unpack all external resource files stored into a blend-file.</p>
+<section id="options">
+<h4>Options</h4>
+<dl>
+<dt>Use files in current directory (create when necessary)</dt><dd><p>Unpacks all files in the same directory <code>//</code> as the blend-file,
+grouping them in proper folders (like ‘’textures’’ for instance).
+However, if the final file exists already, it will use that file, instead of unpacking it.</p>
+</dd>
+<dt>Write files to current directory (overwrite existing files)</dt><dd><p>As with previous option, but if the final file exists already, it will overwrite it.</p>
+</dd>
+<dt>Use files in original location (create when necessary)</dt><dd><p>Unpacks all files in their original location.
+However, if the final file exists already, it will use that file, instead of unpacking it.</p>
+</dd>
+<dt>Write files to original location (overwrite existing files)</dt><dd><p>As with previous option, but if the final file exists already, it will overwrite it.</p>
+</dd>
+<dt>Disable AutoPack, keep all packed files</dt><dd><p>Only deactivates the <em>Automatically Pack Resources</em> option.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="selective-unpacking">
+<h3>Selective Unpacking</h3>
+<p>A single file can be unpacked by clicking on the little “gift box” icon to the left of its file-path UI widget.</p>
+<section id="id4">
+<h4>Options</h4>
+<dl>
+<dt>Remove Pack</dt><dd><p>Just mark the file as unpacked, without actually writing it or reloading it from the drive.</p>
+</dd>
+<dt>Create &lt;local file path&gt;</dt><dd><p>Unpack the file at the proposed path, which is local to the current blend-file.</p>
+</dd>
+<dt>Use &lt;original file path&gt; (differs)|(identical)</dt><dd><p>If the original file path still exists, mark it as unpacked.
+Note that it won’t be automatically reloaded from the drive.
+<em>(differs)</em> or <em>(identical)</em> show difference status between the packed version
+and the one on-drive.</p>
+</dd>
+<dt>Overwrite &lt;original file path&gt;</dt><dd><p>If the original file path still exists but differs from the packed version,
+mark it as unpacked and overwrite the on-drive file with the packed version.</p>
+</dd>
+<dt>Create &lt;original file path&gt;</dt><dd><p>If the original file path does not exist, mark it as unpacked and write it to drive.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="pack-linked-libraries">
+<h2>Pack Linked Libraries</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>File ‣ External Data ‣ Pack Linked Libraries</p>
+</dd>
+</dl>
+</div>
+<p>Mark all linked library files in the current blend-file as packed.
+Actual packing will happen on the next save of the blend-file.</p>
+</section>
+<section id="unpack-linked-libraries">
+<h2>Unpack Linked Libraries</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>File ‣ External Data ‣ Unpack Linked Libraries</p>
+</dd>
+</dl>
+</div>
+<p>Unpack all used linked library files from this blend-file.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

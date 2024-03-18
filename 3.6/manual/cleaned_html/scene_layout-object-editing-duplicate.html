@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Duplicate</title></head>
+<body><ul>
+<li><a href="../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../index.html">Objects</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Duplicate</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="duplicate">
+<h1>Duplicate</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit and Object Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Duplicate Objects</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>This will create a visually-identical copy of the selected object(s).
+The copy is created at the same position as the original object and
+you are automatically placed in move mode. See the examples below.</p>
+<p>This copy is a new object, which shares data-blocks with the original object
+(by default, all the materials, textures, and F-Curves), but which has copied others,
+like the mesh, for example. That is why this form of duplication is sometimes called “shallow link”,
+because not all data-blocks are shared; some of them are “hard copied”!</p>
+<div>
+<p>Tip</p>
+<p>You can choose which types of data-block will be linked or copied when duplicating
+in the <a href="../../../editors/preferences/editing.html#prefs-editing-duplicate-data">Preferences</a>.</p>
+</div>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id2">
+<figcaption>
+<p>The Cube object was duplicated.</p>
+</figcaption>
+</figure>
+<p>The object <code>Cube</code> was duplicated, using <kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd>. Both these cubes have
+separate meshes with unique names: <code>Cube</code> and <code>Cube.001</code>.</p>
+<ul>
+<li><p>The original left cube is being edited, the duplicated right cube remains unchanged.
+The mesh data has been copied, not linked.</p></li>
+<li><p>Likewise, if one cube is edited in Object Mode, the other cube remains
+unchanged. The new object’s transform properties or data-block is a copy, not linked.</p></li>
+<li><p>When the cube was duplicated, it inherited the material of the original cube.
+The material properties were linked, not copied.</p></li>
+</ul>
+<p>See above if you want separate copies of the data-blocks normally linked.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

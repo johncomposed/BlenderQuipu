@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Fluid &gt; Type &gt; Effector</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Fluid</a></li>
+<li><a href="index.html">Type</a></li>
+<li>Effector</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="effector">
+<h1>Effector</h1>
+<p>Effector objects are used to deflect fluids and influence the fluid flow. To define any mesh object
+as an effector object, add fluid physics by clicking <em>Fluid</em> in Properties ‣ Physics.
+Then select <em>Effector</em> as the fluid <em>Type</em>.</p>
+<div>
+<p>Tip</p>
+<p><a href="../../forces/force_fields/index.html">Force Fields</a>
+(such as wind or vortex) are supported, like in most physics systems.
+The influence individual force types have can be
+<a href="domain/field_weights.html">controlled</a> per domain object.</p>
+</div>
+<section id="settings">
+<h2>Settings</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Fluid ‣ Settings</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Effector</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-fluideffectorsettings-effector-type">
+<dt>Effector Type</dt><dd><dl>
+<dt>Collision</dt><dd><p>Objects of this type will collide with fluid.</p>
+</dd>
+<dt>Guide</dt><dd><p>The velocity of objects of this type will be used when baking the guiding.
+So fluid guiding objects should move and have some velocity.</p>
+<dl id="bpy-types-fluideffectorsettings-velocity-factor">
+<dt>Velocity Factor</dt><dd><p>Multiply the guiding object velocities by this factor. This is useful when working with
+multiple guiding objects and some of them should have higher or smaller velocities.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluideffectorsettings-guide-mode">
+<dt>Guide Mode</dt><dd><p>The mode describes how guiding velocities should be written into the global guiding velocity
+field of the domain.</p>
+<dl>
+<dt>Maximize</dt><dd><p>The guiding object will compare the existing velocity in the global velocity field with
+its own velocity. If its absolute value is greater than the absolute value in the velocity
+field the guiding velocity will be kept.</p>
+</dd>
+<dt>Minimize</dt><dd><p>A guiding object will compare the existing velocity in the global velocity field with its
+own velocity. If its absolute value is smaller than the absolute value in the velocity
+field the guiding velocity will be kept.</p>
+</dd>
+<dt>Override</dt><dd><p>The most intuitive option. A guiding object will always
+write its own current velocity into the global guiding velocity field.
+Values in the velocity field from a previous frame or guiding object
+will be overridden.</p>
+</dd>
+<dt>Averaged</dt><dd><p>A guiding object will write the average of its own current velocity and the existing
+guiding velocity at that cell into the global guiding velocity field.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluideffectorsettings-subframes">
+<dt>Effector Substeps</dt><dd><p>Number of substeps used to reduce gaps in collision of fluid from fast-moving effectors.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluideffectorsettings-surface-distance">
+<dt>Surface Thickness</dt><dd><p>Additional area around the effector that will be considered as an effector.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluideffectorsettings-use-effector">
+<dt>Use Effector</dt><dd><p>Enables or disables the effector object effect on the fluid,
+this property is useful for animations to selectively enable and disable
+when the effector affects the fluid.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluideffectorsettings-use-plane-init">
+<dt>Is Planar</dt><dd><p>Defines the effector as either a single dimension object i.e. a plane or the mesh is <a href="../../../glossary/index.html#term-Non-manifold">Non-manifold</a>.
+This ensures that the fluid simulator will give the most accurate results for these types of meshes.</p>
+<p>A <a href="../../../glossary/index.html#term-Manifold">Manifold</a> mesh can also be declared as planar. The fluid solver will then ignore the volume
+inside the mesh and just emit fluid from the mesh sides.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

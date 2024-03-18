@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Properties &gt; Skeleton</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Armatures</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Skeleton</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="skeleton">
+<h1>Skeleton</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Armature ‣ Skeleton</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Skeleton panel.</p>
+</figcaption>
+</figure>
+<p>In this panel you can arrange sets of bones into different layers for easier manipulation.</p>
+<dl id="bpy-types-armature-pose-position">
+<dt>Pose Position</dt><dd><p>A radio button to switch between Pose Position and Rest Position.</p>
+<p>In <em>Edit Mode</em>, you always see armatures in their rest position,
+in <em>Object Mode</em> and <em>Pose Mode</em>, by default, you see them in <em>Pose Position</em>
+(i.e. as it was transformed in the <em>Pose Mode</em>).
+If you want to see it in the rest position in all modes, select <em>Rest Position</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-armature-layers">
+<dt>Armature Layers</dt><dd><p>Each armature has 32 layers to organize armatures by “regrouping” them into sets of bones.
+Only bones in active layers will be visible/editable, but they will always be effective
+(i.e. move objects or deform geometry), whether in an active layer or not.
+This property changes which layers are visible in the 3D Viewport.
+To show several layers at once, <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> on the desired layers to view.
+To move bones to a given layer, use <a href="../bones/editing/change_layers.html#bpy-ops-armature-bone-layers">Change Bone Layers</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-armature-layers-protected">
+<dt>Protected Layers</dt><dd><p>You can lock a given bone layer for all <a href="../../../files/linked_libraries/library_proxies.html">Proxies</a>
+of your armature, i.e. all bones in this layer will not be editable.</p>
+<div>
+<p>Note</p>
+<p><em>Protected Layers</em> in proxy are restored to proxy settings on file reload and undo.</p>
+</div>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

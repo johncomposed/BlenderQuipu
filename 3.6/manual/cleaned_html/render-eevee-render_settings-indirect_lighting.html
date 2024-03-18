@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Render Settings &gt; Indirect Lighting</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Indirect Lighting</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="indirect-lighting">
+<h1>Indirect Lighting</h1>
+<p>While not strictly correct, all lighting that is not coming straight out
+from a light object is considered as indirect lighting in Eevee.
+That means distant <a href="../../../glossary/index.html#term-HDRI">HDRI</a> lighting (or World) is considered as indirect lighting.
+Mesh objects using an Emission node are also considered as indirect lighting.</p>
+<p>In Eevee, indirect lighting is separated into two component: Diffuse and Specular.
+Both have different needs and representation. For efficiency,
+the indirect lighting data is precomputed on demand into a static lighting cache.</p>
+<p>As of now the light cache is static and needs to be computed before rendering.
+It cannot be updated per frame (unless via scripting).
+This limitation is being worked on and will be removed in future versions.</p>
+<p>Only view independent lighting can be baked. This is why Reflection Planes are not stored inside the light cache.</p>
+<p>The visibility and collections used during the baking process are the ones in the current Active View Layer.</p>
+<p>To enable light bounces through large environments, the light baking process can be run multiple times
+while injecting the previous bake result into the bake.</p>
+<p>Light bounces only concerns diffuse lighting.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Indirect Lighting</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Auto Bake</dt><dd><p>Enabling this option will trigger baking when a probe is changed; useful when positioning probes objects.</p>
+</dd>
+<dt>Diffuse Bounces</dt><dd><p>Number of bounces to compute when baking the diffuse irradiance.
+Total baking time is more or less multiplied by the number of bounce.</p>
+</dd>
+<dt>Cubemap Size</dt><dd><p>Size of the reflection cubemaps.</p>
+</dd>
+<dt>Diffuse Occlusion</dt><dd><p>Each irradiance sample also stores a shadow map that is used to minimize indirect light leaking.
+This parameter defines the size of this shadow map.</p>
+</dd>
+<dt>Irradiance Smoothing</dt><dd><p>Smooths irradiance interpolation but introduces light bleeding.
+The irradiance visibility term can make the lighting not interpolate smoothly on some surfaces.
+This setting relaxes the weight of that interpolation.</p>
+</dd>
+<dt>Clamp Glossy</dt><dd><p>Clamp pixel intensity to reduce noise inside glossy reflections from reflection cubemaps (0 is disabled).</p>
+</dd>
+<dt>Filter Quality</dt><dd><p>Takes more samples during cubemap filtering to remove artifacts. For now, this only has an effect on cubemaps.</p>
+</dd>
+</dl>
+<section id="display">
+<h2>Display</h2>
+<dl>
+<dt>Cubemap Size</dt><dd><p>Display the Reflection Cubemaps present in the cache directly in the 3D Viewport.</p>
+</dd>
+<dt>Irradiance Size</dt><dd><p>Display the Irradiance Samples present in the cache in the 3D Viewport.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Cache data display only works in the 3D Viewport and
+only if the viewport uses world lighting in Material Preview or Rendered mode.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

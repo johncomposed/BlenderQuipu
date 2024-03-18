@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Editing &gt; Expand</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Expand</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="expand">
+<h1>Expand</h1>
+<p>This is a multi-purpose modal operator to intuitively create and edit masks/face sets.
+When executed, it uniformly expand outwards a pattern from the vertex under the cursor.</p>
+<div>
+<p>Note</p>
+<p>These operators are meant to be used interactively through the shortcut.</p>
+</div>
+<p>There is also a <a href="https://www.youtube.com/watch?v=XT7h6lmE5bc">full showcase of the Expand features and use cases</a>.</p>
+<figure id="id7">
+<figcaption>
+<p>A preview of Expand Mask by Topology</p>
+</figcaption>
+</figure>
+<section id="expand-mask-by-topology">
+<h2>Expand Mask by Topology</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Expand Mask by Topology</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expands a mask from the active vertex.</p>
+<section id="usage">
+<h3>Usage</h3>
+<dl>
+<dt>Mask from A to B</dt><dd><p>Start the operator and expand a mask from an origin to your mouse cursor distance.
+Then confirm with <kbd>LMB</kbd> or <kbd>Return</kbd></p>
+<p>By default the expansion will use a <em>Geodesic</em> falloff <kbd>1</kbd>
+to create perfectly accurate distances along the surfaces.
+Use other falloff types via <kbd>2</kbd>, <kbd>3</kbd> &amp; <kbd>4</kbd> to expand via
+triangles, whole faces or scene distances instead.</p>
+<figure id="id8">
+<figcaption>
+<p>The typical result when using the Diagonals falloff to expand along the quads of the face.</p>
+</figcaption>
+</figure>
+<p>Start Expand while pointing at an open boundary to expand from the entire boundary loop.
+This will always use the <em>Topology</em> falloff mode.</p>
+</dd>
+<dt>Fill Connected Meshes</dt><dd><p>Move your cursor outside of the boundaries of the mesh to mask the entire connected mesh.
+This can be done repeatedly to quickly mask separate meshes.</p>
+</dd>
+<dt>Fill Face Sets</dt><dd><p>Hold <kbd>Ctrl</kbd> to snap to face sets under your cursor and fill them.
+Any face set that was already covered in the expansion will be filled as well.</p>
+</dd>
+<dt>Automatically Set Transform Pivot</dt><dd><p>While using any Transform tool, the pivot point
+will automatically snap the border of an Expand result.
+This way areas (Like limbs) can be masked and then immediately rotated or otherwise transformed.</p>
+</dd>
+<dt>Pattern Creation</dt><dd><p>The different falloff types can be used for circular, triangular and square patterns.
+More loops can also be added/removed via <kbd>W</kbd> &amp; <kbd>Q</kbd> to repeat the pattern across the mesh.</p>
+<figure id="id9">
+<figcaption>
+<p>An example of using expand with mirror options,
+loops and a recursion to create wood carving patterns.</p>
+</figcaption>
+</figure>
+<div>
+<p>Tip</p>
+<p><a href="../tool_settings/symmetry.html">Mirror options</a>
+can also be combined with the expansion.</p>
+</div>
+<p>Linear gradients <kbd>G</kbd> or brush falloff gradients <kbd>B</kbd> will help to add slanted surfaces
+to the patterns.</p>
+<p>A “Recursions” with <kbd>R</kbd> or <kbd><kbd>Alt</kbd>-<kbd>R</kbd></kbd> will start
+a new expansion along the border of the current expansion.
+Doing this multiple times, can help for increasingly random patterns
+or advanced pattern creation.</p>
+<figure id="id10">
+<figcaption>
+<p>An example of using loops and gradients with multiple expanded masks.</p>
+</figcaption>
+</figure>
+<div>
+<p>Tip</p>
+<p>Remember that Expand only affects visible geometry.
+So if a pattern should only be created on a part of the mesh,
+<a href="sculpt.html">hide</a> the other geometry first.</p>
+</div>
+<p>Use the <a href="../tools/mesh_filter.html">Mesh Filter</a>
+to deform the geometry and the <a href="../tools/color_filter.html">Color Filter</a>
+to add colors, to apply the patterns on the sculpt.</p>
+</dd>
+<dt>Expanding Textures</dt><dd><p>Textures can be used to affect the shape and gradients of the expanded mask.
+This feature can be combined with loops and recursion to create unique results.</p>
+<p>To use a texture, you need to assign it to your currently active brush in the
+<a href="../../brush/texture.html">Texture</a> Brush Settings. The texture can be edited/created
+in the <a href="../../../render/materials/legacy_textures/index.html">Texture Properties</a>.</p>
+<div>
+<p>Note</p>
+<p>This texture only works when the <a href="../../brush/texture.html#bpy-types-brushtextureslot-map-mode">Mapping</a> is set to <em>3D</em>.</p>
+</div>
+<p>Use <kbd>Y</kbd> and <kbd>T</kbd> to increase or decrease the affect the texture has on the edge of the mask.</p>
+</dd>
+</dl>
+</section>
+<section id="controls">
+<h3>Controls</h3>
+<dl>
+<dt>Invert:</dt>
+<dd><p><kbd>F</kbd>
+Flips between expanding a positive mask (value of one) or a negative mask (value of zero).
+In the case of face sets, this option flips between including areas inside the masked area
+or areas outside the masked area.
+.. needs visual technical examples for both</p>
+</dd>
+<dt>Toggle Preserve State:</dt>
+<dd><p><kbd>E</kbd>
+Accumulate the new mask on top of the previous one or replace it.
+For Face Sets, this will toggle between creating Face Sets boundaries
+or replacing the existing Face Sets.</p>
+</dd>
+<dt>Move Origin:</dt>
+<dd><p><kbd>Spacebar</kbd>
+Moves the initial vertex used for calculating the falloff.
+.. needs visual technical example</p>
+</dd>
+<dt>Geodesic Falloff:</dt>
+<dd><p><kbd>1</kbd>
+Uses a falloff based on the <a href="../../../glossary/index.html#term-Geodesic">Geodesic</a> distances from the edge boundary to the active vertex.</p>
+</dd>
+<dt>Topology Falloff:</dt>
+<dd><p><kbd>2</kbd>
+Uses a falloff based on a flood fill using edges.</p>
+</dd>
+<dt>Diagonals Falloff:</dt>
+<dd><p><kbd>3</kbd>
+Uses a falloff based on a flood fill using polygon diagonals and edges.</p>
+</dd>
+<dt>Spherical Falloff:</dt>
+<dd><p><kbd>4</kbd>
+Uses a falloff based on the Euclidean distances from the edge boundary to the active vertex.
+.. needs visual technical examples</p>
+</dd>
+<dt>Toggle Gradient:</dt>
+<dd><p><kbd>G</kbd>
+Enables linear gradient of values from the origin to the current active vertex.</p>
+</dd>
+<dt>Toggle Brush Gradient:</dt>
+<dd><p><kbd>B</kbd>
+Similar to linear gradient but uses the current brush <a href="../../brush/falloff.html">Falloff</a>
+to define the shape of the falloff.
+.. needs visual technical examples</p>
+</dd>
+<dt>Geodesic Recursive Step:</dt>
+<dd><p><kbd>R</kbd>
+Start a new expansion with a <a href="../../../glossary/index.html#term-Geodesic">Geodesic</a> falloff from the boundary of the current falloff.</p>
+</dd>
+<dt>Topology Recursive Step:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>R</kbd></kbd>
+Start a new expansion with a topology falloff from the boundary of the current falloff.
+.. needs visual technical examples</p>
+</dd>
+<dt>Snap Expanded to Face Sets:</dt>
+<dd><p><kbd>Ctrl</kbd>
+Isolates the expanded region to the boundary of the face set under the cursor.</p>
+</dd>
+<dt>Loop Count Increase:</dt>
+<dd><p><kbd>W</kbd>
+Increase the number of loops or iterations the operator is run;
+using four loops will split the mask into four parts.</p>
+</dd>
+<dt>Loop Count Decrease:</dt>
+<dd><p><kbd>Q</kbd>
+Decrease the number of loops or iterations the operator is run;
+using four loops will split the mask into four parts.
+.. needs visual technical examples</p>
+</dd>
+<dt>Texture Distortion Increase:</dt>
+<dd><p><kbd>Y</kbd>
+Increases the falloff distance when using a texture to distort the mask shape.</p>
+</dd>
+<dt>Texture Distortion Decrease:</dt>
+<dd><p><kbd>T</kbd>
+Decreases the falloff distance when using a texture to distort the mask shape.
+..needs visual technical examples</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="expand-mask-by-normals">
+<h2>Expand Mask by Normals</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mask ‣ Expand Mask by Normals</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expand a mask, following the curvature of the surface.
+This operator uses the same internal operator as <a href="#bpy-ops-sculpt-expand">Expand</a>
+meaning all the shortcuts and functionality works the same as that tool.</p>
+<p>This operator is especially useful for hard surface sculpting.</p>
+<div>
+<p>Tip</p>
+<p>If one expansion does not properly fill the entire desired surface,
+use the operator repeatedly with a different starting point.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Using any of the Falloff shortcuts <kbd><kbd>1</kbd>-<kbd>4</kbd></kbd>
+will replace the curvature falloff of this operator.</p>
+</div>
+</section>
+<section id="expand-face-set-by-topology">
+<h2>Expand Face Set by Topology</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Expand Face Set by Topology</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>W</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expands a face set from the active vertex.
+This operator uses the same internal operator as <a href="#bpy-ops-sculpt-expand">Expand</a>
+meaning all the hotkeys and functionality works the same as that tool,
+with the gradient features as the exception.</p>
+<section id="id4">
+<h3>Usage</h3>
+<dl>
+<dt>Saving Masks</dt><dd><p>Expanding Face Sets has all the same use cases as expanding masks.
+The advantage for this one is that they will be saved for repeated usage.
+Face sets can be filled any time with a mask,
+so assigning areas face sets will save you time.
+(And of course face sets can be used to
+<a href="sculpt.html">hide face sets</a>)</p>
+</dd>
+<dt>Pivot Points for Pose Brush</dt><dd><p>When using the <a href="../tools/pose.html">Pose Brush</a> it is most predictable when using it with
+Face Sets to define the face set boundaries as pivot point locations.
+Face Sets can be expanded from a point or from a boundary between hidden face sets
+to create them quickly.
+Alternatively <a href="face_sets.html#bpy-ops-sculpt-face-set-edit">Grow/Shrink Face Sets</a>
+or use the <a href="#face-set-expand-active">Expand Active Face Set</a> to dynamically grow/shrink them.</p>
+</dd>
+<dt>Cloth Sculpting</dt><dd><p>Tools like the <a href="../tools/cloth_filter.html">Cloth Filter</a>
+and <a href="../tools/cloth.html">Cloth Brush</a>
+work especially well when only simulating small areas at a time.
+Face Sets can very easily be created with Expand to assign areas of action.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="expand-active-face-set">
+<h2>Expand Active Face Set</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face Sets ‣ Expand Face Set by Topology</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>W</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expands an existing face set with a geodesic falloff.
+This operator uses the same internal operator as <a href="#bpy-ops-sculpt-expand">Expand</a>
+meaning all the hotkeys and functionality works the same as that tool.</p>
+<div>
+<p>Note</p>
+<p>Using any of the Falloff shortcuts <kbd><kbd>1</kbd>-<kbd>4</kbd></kbd>
+the operator to switch to <a href="#face-set-expand">Expand Face Set by Topology</a>.</p>
+</div>
+<section id="id6">
+<h3>Usage</h3>
+<dl>
+<dt>Resizing Face Sets</dt><dd><p>Resize a Face Set along the surface distances.
+It is an alternative to <a href="face_sets.html#bpy-ops-sculpt-face-set-edit">Grow/Shrink Face Sets</a>
+which follows the topology instead of geodesic distances.</p>
+</dd>
+<dt>Joining Face Sets</dt><dd><p>When holding <kbd>Ctrl</kbd> the expansion will instead snap to other Face Sets.
+This is a fast way of joining multiple face sets into one.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

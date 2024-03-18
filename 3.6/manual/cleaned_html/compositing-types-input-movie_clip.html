@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Input &gt; Movie Clip</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Input Nodes</a></li>
+<li>Movie Clip Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="movie-clip-node">
+<h1>Movie Clip Node</h1>
+<p>This node is a special node that uses some of the values taken from
+footage cameras and trackings and link them to the output.
+It is possible to load image sequences, but only Image and Alpha values
+will be available, because the other outputs will not have any values
+associated with them.
+When a tracked clip is chosen, Blender will fulfill the outputs using
+internal values taken from the tracking. So the controls for
+start and end frames will be defined in the Movie Clip editor.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no input sockets.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Movie Clip</dt><dd><p>Used to select the movie clip. For controls see <a href="../../../interface/controls/templates/data_block.html#ui-data-block">Data-Block Menu</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p>The first two sockets are the minimum output.</p>
+<dl>
+<dt>Image</dt><dd><p>Outputs the entire image in the specified color space.</p>
+</dd>
+<dt>Alpha</dt><dd><p>The alpha value taken from the movie or image.</p>
+</dd>
+<dt>Offset X</dt><dd><p>The X offset value from the footage camera or tracking.</p>
+</dd>
+<dt>Offset Y</dt><dd><p>The Y offset value from the footage camera or tracking.</p>
+</dd>
+<dt>Scale</dt><dd><p>The scale of the image taken from the footage camera or tracking.</p>
+</dd>
+<dt>Angle</dt><dd><p>The lens angle taken from the footage camera or tracking.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

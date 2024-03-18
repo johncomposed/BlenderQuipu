@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Forces &gt; Force Fields &gt; Types &gt; Curve Guide</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Forces</a></li>
+<li><a href="../index.html">Force Fields</a></li>
+<li>Curve Guide</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve-guide">
+<h1>Curve Guide</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Force Fields</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Curve Guide</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Curve Guide</em> is used to force particles to follow a certain
+path defined by a <a href="../../../../modeling/curves/index.html">Curve Object</a>.
+A typical scenario would be to move a red blood cell inside a vein,
+or to animate the particle flow in a motor.
+You can also use <em>Curve Guide</em> to shape certain hair strands.</p>
+<div>
+<p>Note</p>
+<p>You can also use the <a href="../../../particles/mode.html">Particle Edit Mode</a> to define a path.</p>
+</div>
+<p>Since you can animate curves as a soft body or any other usual way,
+you may build very complex animations while keeping great control and keeping the simulation time to a minimum.</p>
+<p>The option <em>Curve Follow</em> does not work for particles. Instead you have to set <em>Angular Velocity</em>
+(<em>Particle system</em> tab) to <em>Spin</em> and leave the rotation constant (i.e. do not turn on <em>Dynamic</em>).</p>
+<p>A <em>Curve Guide</em> force affects all particles on the same layer, independently from their distance to the curve.
+If you have several guides in a layer,
+their fields add up to each other (the way you may have learned it in your physics course).
+But you can limit their influence radius by changing the <em>Minimum Distance</em> (see below).</p>
+<p>A particle follows a <em>Curve Guide</em> during its lifetime,
+the velocity depends on its lifetime and the length of the path.</p>
+<div>
+<p>Note</p>
+<p>The Curve Guide does not affect <a href="../../../soft_body/index.html">soft bodies</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<dl id="bpy-types-fieldsettings-guide-free">
+<dt>Free</dt><dd><p>Fraction of particle life time, that is not used for the curve.</p>
+</dd>
+<dt>Falloff Power</dt><dd><p>This setting governs the strength of the guide between <em>Min Distance</em> and <em>Max Distance</em>.
+A falloff of 1 means a linear progression.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-use-guide-path-add">
+<dt>Additive</dt><dd><p>If you use <em>Additive</em>, the speed of the particles is also evaluated depending on the falloff.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-use-guide-path-weight">
+<dt>Weights</dt><dd><p>Use Curve weights to influence the particle influence along the curve.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-guide-clump-amount">
+<dt>Clumping Amount</dt><dd><p>The particles come together at the end of the curve (1) or they drift apart (-1).</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-guide-clump-shape">
+<dt>Shape</dt><dd><p>Defines the form in which the particles come together.
++0.99: the particles meet at the end of the curve.
+0: linear progression along the curve. -0.99: the particles meet at the beginning of the curve.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-guide-minimum">
+<dt>Min Distance</dt><dd><p>The distance from the curve, up to where the force field is effective with full strength.
+If you have a falloff of 0, this parameter will have no effect,
+because the field is effective with full strength up to <em>Max Distance</em> (or the infinity).
+<em>Min Distance</em> is shown with a circle at the endpoints of the curve in the 3D Viewport.</p>
+</dd>
+<dt>Max Distance</dt><dd><p>The maximum influence radius. Shown by an additional circle around the curve object.</p>
+</dd>
+</dl>
+<section id="kink">
+<h3>Kink</h3>
+<div>
+<p>Warning</p>
+<p>This feature is broken in the current version, see Bug Report #46776.</p>
+</div>
+<dl id="bpy-types-fieldsettings-guide-kink-type">
+<dt>Type</dt><dd><p>Changes the shape that the particles can take.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Todo.</p>
+</dd>
+<dt>Braid:</dt>
+<dd><p>Braid.</p>
+</dd>
+<dt>Curl:</dt>
+<dd><p>The radius of the influence depends on the distance of the curve to the emitter.</p>
+</dd>
+<dt>Radial:</dt>
+<dd><p>A three-dimensional, standing wave.</p>
+</dd>
+<dt>Roll:</dt>
+<dd><p>A one-dimensional, standing wave.</p>
+</dd>
+<dt>Rotation:</dt>
+<dd><p>Todo.</p>
+</dd>
+<dt>Wave:</dt>
+<dd><p>A two-dimensional, standing wave.</p>
+</dd>
+</dl>
+<p>It is not so easy to describe the resulting shapes, so have a look at the example below.</p>
+<figure id="id2">
+<figcaption>
+<p>Kink options of a curve guide. From left to right: Radial, Wave, Braid, Roll.
+Animation.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-guide-kink-axis">
+<dt>Axis</dt><dd><p>Which axis to use for the offset.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-guide-kink-frequency">
+<dt>Frequency</dt><dd><p>The frequency of the offset.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-guide-kink-shape">
+<dt>Shape</dt><dd><p>Adjust the offset to the beginning/end.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-guide-kink-amplitude">
+<dt>Amplitude</dt><dd><p>The Amplitude of the offset.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id3">
+<figcaption>
+<p>Curve Guide force field.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Primitives &gt; Cylinder</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Primitive Nodes</a></li>
+<li>Cylinder Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cylinder-node">
+<h1>Cylinder Node</h1>
+<p>The <em>Cylinder</em> node generates a cylinder mesh.
+It is similar to the Cone node but always uses the same radius for the circles at the top and bottom.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vertices</dt><dd><p>Number of vertices on the circle at the top and bottom.
+No geometry is generated if the number is below three.</p>
+</dd>
+<dt>Side Segments</dt><dd><p>Number of edges running vertically along the side of the cone.
+No geometry is generated if the number is below one.</p>
+</dd>
+<dt>Fill Segments</dt><dd><p>Number of concentric rings used to fill the round faces at the top and bottom.
+No geometry is generated if the number is below one.</p>
+</dd>
+<dt>Radius</dt><dd><p>Distance of the vertices from the Z axis.
+If this is zero, the output will be a single line.</p>
+</dd>
+<dt>Depth</dt><dd><p>Height of the cylinder.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Fill Type</dt><dd><p>How the circles at the top and bottom are filled with faces when their radius is larger than zero.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Do not fill the circles.</p>
+</dd>
+<dt>N-Gon:</dt>
+<dd><p>Fill the innermost segment of the circles with a single face.</p>
+</dd>
+<dt>Triangles:</dt>
+<dd><p>Fill the innermost segment of the circles with triangles connected to a new vertex on the Z axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry output.</p>
+</dd>
+<dt>Top</dt><dd><p>A boolean attribute field with a selection of the faces on the top of the cylinder. If the <em>Fill Type</em>
+property is <em>None</em>, then this will be a selection of the top edges instead. If the <em>Radius</em> is
+zero, this will be a selection of the top point.</p>
+</dd>
+<dt>Side</dt><dd><p>A boolean attribute field with a selection of the faces on the side of the cylinder.</p>
+</dd>
+<dt>Bottom</dt><dd><p>This is the same as the <em>Top</em> selection output, but on the bottom side of the geometry instead.</p>
+</dd>
+<dt>UV Map</dt><dd><p>A 2D vector representing the default X/Y coordinates of the <a href="../../../../glossary/index.html#term-UV-Map">UV Map</a> for the primitive’s shape.
+This can be connected to the <a href="../../attribute/store_named_attribute.html">Store Named Attribute Node</a>,
+to be used once the Geometry Nodes Modifier get applied.
+The UV map must be stored on the face corner in order to be accessed.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

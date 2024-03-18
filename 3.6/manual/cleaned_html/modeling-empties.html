@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Empties</title></head>
+<body><ul>
+<li><a href="index.html">Modeling</a></li>
+<li>Empties</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="empties">
+<h1>Empties</h1>
+<p>The “empty” is a single coordinate point with no additional geometry.
+Because an empty has no volume and surface, it cannot be rendered.
+Still it can be used as a handle for many purposes.</p>
+<section id="primitives">
+<h2>Primitives</h2>
+<figure id="id1">
+<figcaption>
+<p>Empty Display Types.</p>
+</figcaption>
+</figure>
+<section id="plain-axes">
+<h3>Plain Axes</h3>
+<p>Displays as six lines, initially with one pointing in each of the +X, -X, +Y, -Y, +Z, and -Z axis directions.</p>
+</section>
+<section id="arrows">
+<h3>Arrows</h3>
+<p>Displays as arrows, initially pointing in the positive X, Y, and Z axis directions, each with a label.</p>
+</section>
+<section id="single-arrow">
+<h3>Single Arrow</h3>
+<p>Displays as a single arrow, initially pointing in the +Z axis direction.</p>
+</section>
+<section id="circle">
+<h3>Circle</h3>
+<p>Displays as a circle initially in the XZ plane.</p>
+</section>
+<section id="cube">
+<h3>Cube</h3>
+<p>Displays as a cube, initially aligned to the XYZ axes.</p>
+</section>
+<section id="sphere">
+<h3>Sphere</h3>
+<p>Displays as an implied sphere defined by three circles.
+Initially, the circles are aligned, one each, to the X, Y, and Z axes.</p>
+</section>
+<section id="cone">
+<h3>Cone</h3>
+<p>Displays as a cone, initially pointing in the +Y axis direction.</p>
+</section>
+<section id="image">
+<h3>Image</h3>
+<p>Empties can display images. This can be used to create reference images,
+including blueprints or character sheets to model from.
+The image is displayed regardless of the 3D display mode.</p>
+<p>Empty Displays settings can be accessed from Properties ‣ Object Data ‣ Empty panel.</p>
+<dl>
+<dt>Offset X, Y</dt><dd><p>Offset the image origin
+(where 1.0 represents the width/height of the image).</p>
+<dl>
+<dt>X=0.5, Y=0.5:</dt>
+<dd><p>Object origin at image center.</p>
+</dd>
+<dt>X=0.0, Y=0.0:</dt>
+<dd><p>Object origin at image bottom, left.</p>
+</dd>
+<dt>X=1.0, Y=1.0:</dt>
+<dd><p>Object origin at image top, right.</p>
+</dd>
+</dl>
+</dd>
+<dt>Depth</dt><dd><dl>
+<dt>Default:</dt>
+<dd><p>Use normal depth behavior.</p>
+</dd>
+<dt>Front:</dt>
+<dd><p>Always display on top of other objects.</p>
+</dd>
+<dt>Back:</dt>
+<dd><p>Always display behind of other objects.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>When using the image as a reference for modeling,
+it can be useful to set the depth to <em>Front</em>, with a low <em>Opacity</em>.</p>
+</div>
+</dd>
+<dt>Side</dt><dd><dl>
+<dt>Both:</dt>
+<dd><p>Display both the front and back of the empty.</p>
+</dd>
+<dt>Front:</dt>
+<dd><p>Only display the front of the image.</p>
+</dd>
+<dt>Back:</dt>
+<dd><p>Only display the back of the image.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>This is useful if you are using an image as a reference where you have photos from
+both the front and back,
+so two empty images can be set only to show when viewed from the correct side.</p>
+</div>
+</dd>
+<dt>Show in</dt><dd><dl>
+<dt>Orthographic</dt><dd><p>Show in orthographic view.</p>
+</dd>
+<dt>Perspective</dt><dd><p>Show in perspective view.</p>
+<div>
+<p>Hint</p>
+<p>It’s often useful to disable this so reference images don’t
+<em>get in the way</em> when viewing a model.</p>
+</div>
+</dd>
+<dt>Only Axis Aligned</dt><dd><p>Only displays the image contents when the view is aligned with the object’s local axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-object-use-empty-image-alpha">
+<dt>Opacity</dt><dd><p>Blends the image with the background. The value slider adjusts the opacity of the image,
+changing how much of the image is blended with the background.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="editing">
+<h2>Editing</h2>
+<p>An empty can only be edited in Object Mode, which includes its transformation and parenting properties.
+For other tools see the <a href="../scene_layout/object/index.html">Object section</a>.</p>
+<dl>
+<dt>Apply Scale <kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></dt><dd><p>While empties don’t exactly have any object data attached to them which can be used for supporting
+“true” apply scale (i.e. with non-uniform scaling), they do have <em>Display Size</em> which controls how
+large the empties are displayed (before scaling). This works by taking the scale factor on the most-scaled axis,
+and combines this with the existing empty <em>Display Size</em> to maintain the correct dimensions on that axis.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl id="bpy-types-object-empty-display-type">
+<dt>Display As</dt><dd><p>The <a href="#primitives">Primitives</a> empty type to display in the 3D Viewport.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-empty-display-size">
+<dt>Size</dt><dd><p>Controls the size of the empties visualization. This does not change its scale, but functions as an offset.</p>
+</dd>
+</dl>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>Empties can serve as transform handles. Some examples of ways to use them include:</p>
+<p>Parent object for a group of objects</p>
+<p>An empty can be parented to any number of other objects.
+This gives the user the ability to control a group of objects easily, and without affecting a render.</p>
+<p>Target for constraints</p>
+<p>An empty can also be used as a target for normal, or bone constraints.
+This gives the user far more control; for instance,
+a rig can easily be set up to enable a camera to point towards an empty using the <em>Track to</em> constraint.</p>
+<p>Array offset</p>
+<p>An empty can be used to offset an Array Modifier,
+meaning complex deformations can be achieved by only moving a single object.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>An example of an empty being used to control an array.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>An example of an empty being used to control the Track To constraint.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Other common uses:</p>
+<ul>
+<li><p>Placeholders</p></li>
+<li><p>Rigging controls</p></li>
+<li><p>DOF distances</p></li>
+<li><p>Reference Images</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

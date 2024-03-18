@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Outliner &gt; Selecting</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Outliner</a></li>
+<li>Selecting and Activating</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="selecting-and-activating">
+<h1>Selecting and Activating</h1>
+<figure id="id1">
+<figcaption>
+<p>Selected data-blocks with the Cube active.</p>
+</figcaption>
+</figure>
+<p>Selection is done with <kbd>LMB</kbd> (and/or the <a href="editing.html#editors-outliner-editing-context-menu">context menu</a>)
+on the row of a data-block. Single selections will also activate the data-block.
+The rows of selected data-blocks are highlighted blue, with the active data-block highlighted in a lighter blue.</p>
+<p>Clicking in empty space below the list of data-blocks will deselect all.</p>
+<div>
+<p>Note</p>
+<p>By default, selecting data-blocks in the Outliner will select the respective objects,
+bones, and sequences in the 3D Viewport and Video Sequencer. Selections in the 3D Viewport
+and Video Sequencer will be synced to each Outliner. To disable selection syncing, turn off
+the toggle in the <a href="interface.html#editors-outliner-interface-filter">filter</a> popover.</p>
+</div>
+<p>Children of a data-block can also be selected by clicking the icon that is displayed to
+the right of the parent data-block’s name.</p>
+<section id="selecting-multiple-data-blocks">
+<h2>Selecting Multiple Data-Blocks</h2>
+<p>Extend the selection one data-block at a time using <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd>.
+Each data-block added to the selection this way will be made the active data-block.</p>
+<p>Select a range of elements from the active element using <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd>.
+To select a range without deselecting the previous selection, use <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd>.</p>
+<p>A click and drag from any location in the Outliner other than a name or icon will begin a box selection.
+Use <kbd>Shift</kbd> to add and <kbd>Ctrl</kbd> to subtract from existing selections with box select.
+Box select can also be started with <kbd>B</kbd>.</p>
+<p>To select all items use <kbd>A</kbd>; <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd> will deselect all items.</p>
+<p>The keyboard arrow keys can be used to navigate and select in the Outliner.
+Keyboard selection and navigation starts from the active data-block.</p>
+<table>
+<tbody>
+<tr><td><p><kbd>Up</kbd></p></td>
+<td><p>Select the previous element in the list.</p></td>
+</tr>
+<tr><td><p><kbd>Down</kbd></p></td>
+<td><p>Select the next element in the list.</p></td>
+</tr>
+<tr><td><p><kbd><kbd>Shift</kbd>-<kbd>Up</kbd></kbd></p></td>
+<td><p>Select the previous element without deselecting.</p></td>
+</tr>
+<tr><td><p><kbd><kbd>Shift</kbd>-<kbd>Down</kbd></kbd></p></td>
+<td><p>Select the next element without deselecting.</p></td>
+</tr>
+<tr><td><p><kbd>Left</kbd></p></td>
+<td><p>Close the data-block or select the parent.</p></td>
+</tr>
+<tr><td><p><kbd>Right</kbd></p></td>
+<td><p>Open the data-block to view children or select the first child.</p></td>
+</tr>
+<tr><td><p><kbd><kbd>Shift</kbd>-<kbd>Left</kbd></kbd></p></td>
+<td><p>Close this and all child data-blocks.</p></td>
+</tr>
+<tr><td><p><kbd><kbd>Shift</kbd>-<kbd>Right</kbd></kbd></p></td>
+<td><p>Open this and all child data-blocks.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="properties-editor-sync">
+<h2>Properties Editor Sync</h2>
+<p>When clicking the data-block icons or any other data icon (modifiers, constraints, object data, etc.),
+<a href="../properties_editor.html">Properties</a> will change to the corresponding tab to modify the properties of
+that data-block.This feature can be enabled or disabled in Properties editor using
+the <a href="../properties_editor.html#bpy-types-spaceproperties-outliner-sync">Sync with Outliner</a> option.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Osl</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Shader Nodes</a></li>
+<li>Open Shading Language</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="open-shading-language">
+<h1>Open Shading Language</h1>
+<p>Cycles Only</p>
+<p>It is also possible to create your own nodes using
+<a href="https://github.com/AcademySoftwareFoundation/OpenShadingLanguage">Open Shading Language</a> (OSL).
+These nodes will only work with the CPU and OptiX rendering backend.</p>
+<p>To enable it, select <em>Open Shading Language</em> as the shading system in the render settings.</p>
+<div>
+<p>Note</p>
+<p>Some OSL features are not available when using the OptiX backend. Examples include:</p>
+<ul>
+<li><p>Memory usage reductions offered by features like on-demand texture loading and
+mip-mapping are not available.</p></li>
+<li><p>Texture lookups require OSL to be able to determine a constant image file path for each
+texture call.</p></li>
+<li><p>Some noise functions are not available. Examples include <em>Cell</em>, <em>Simplex</em>, and <em>Gabor</em>.</p></li>
+<li><p>The <a href="#render-shader-nodes-osl-trace">trace</a> function is not functional.
+As a result of this, the <a href="input/ao.html#bpy-types-shadernodeambientocclusion">Ambient Occlusion</a>
+and <a href="input/bevel.html#bpy-types-shadernodebevel">Bevel</a> nodes do not work.</p></li>
+</ul>
+</div>
+<section id="script-node">
+<h2>Script Node</h2>
+<p>OSL was designed for node-based shading,
+and <em>each</em> OSL shader corresponds to <em>one</em> node in a node setup.
+To add an OSL shader, add a script node and link it to a text data-block or an external file.
+Input and output sockets will be created from the shader parameters on
+clicking the update button in the Node or the Text editor.</p>
+<p>OSL shaders can be linked to the node in a few different ways. With the <em>Internal</em> mode,
+a text data-block is used to store the OSL shader, and the OSO bytecode is stored in the node itself.
+This is useful for distributing a blend-file with everything packed into it.</p>
+<p>The <em>External</em> mode can be used to specify a <code>.osl</code> file from a drive,
+and this will then be automatically compiled into a <code>.oso</code> file in the same directory.
+It is also possible to specify a path to a <code>.oso</code> file, which will then be used directly,
+with compilation done manually by the user. The third option is to specify just the module name,
+which will be looked up in the shader search path.</p>
+<p>The shader search path is located in the same place as the scripts or configuration path, under:</p>
+<dl>
+<dt>Linux</dt><dd><pre>$HOME/.config/blender/3.6/shaders/</pre>
+</dd>
+<dt>Windows</dt><dd><pre>C:\Users\$user\AppData\Roaming\Blender Foundation\Blender\3.6\shaders\</pre>
+</dd>
+<dt>macOS</dt><dd><pre>/Users/$USER/Library/Application Support/Blender/3.6/shaders/</pre>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>For use in production, we suggest to use a node group to wrap shader script nodes,
+and link that into other blend-files.
+This makes it easier to make changes to the node afterwards as sockets are added or removed,
+without having to update the script nodes in all files.</p>
+</div>
+</section>
+<section id="writing-shaders">
+<h2>Writing Shaders</h2>
+<p>For more details on how to write shaders, see the <a href="https://github.com/AcademySoftwareFoundation/OpenShadingLanguage/blob/main/src/doc/osl-languagespec.pdf">OSL specification</a>.
+Here is a simple example:</p>
+<div><div><pre>shader simple_material(
+    color Diffuse_Color = color(0.6, 0.8, 0.6),
+    float Noise_Factor = 0.5,
+    output closure color BSDF = diffuse(N))
+{
+    color material_color = Diffuse_Color * mix(1.0, noise(P * 10.0), Noise_Factor);
+    BSDF = material_color * diffuse(N);
+}
+</pre></div>
+</div>
+</section>
+<section id="closures">
+<h2>Closures</h2>
+<p>OSL is different from, for example, RSL or GLSL, in that it does not have a light loop.
+There is no access to lights in the scene,
+and the material must be built from closures that are implemented in the renderer itself.
+This is more limited, but also makes it possible for the renderer to do optimizations and
+ensure all shaders can be importance sampled.</p>
+<p>The available closures in Cycles correspond to the shader nodes and their sockets;
+for more details on what they do and the meaning of the parameters,
+see the <a href="shader/index.html">shader nodes manual</a>.</p>
+<section id="bsdf">
+<h3>BSDF</h3>
+<ul>
+<li><p><code>diffuse(N)</code></p></li>
+<li><p><code>oren_nayar(N, roughness)</code></p></li>
+<li><p><code>diffuse_ramp(N, colors[8])</code></p></li>
+<li><p><code>phong_ramp(N, exponent, colors[8])</code></p></li>
+<li><p><code>diffuse_toon(N, size, smooth)</code></p></li>
+<li><p><code>glossy_toon(N, size, smooth)</code></p></li>
+<li><p><code>translucent(N)</code></p></li>
+<li><p><code>reflection(N)</code></p></li>
+<li><p><code>refraction(N, ior)</code></p></li>
+<li><p><code>transparent()</code></p></li>
+<li><p><code>microfacet_ggx(N, roughness)</code></p></li>
+<li><p><code>microfacet_ggx_aniso(N, T, ax, ay)</code></p></li>
+<li><p><code>microfacet_ggx_refraction(N, roughness, ior)</code></p></li>
+<li><p><code>microfacet_beckmann(N, roughness)</code></p></li>
+<li><p><code>microfacet_beckmann_aniso(N, T, ax, ay)</code></p></li>
+<li><p><code>microfacet_beckmann_refraction(N, roughness, ior)</code></p></li>
+<li><p><code>ashikhmin_shirley(N, T, ax, ay)</code></p></li>
+<li><p><code>ashikhmin_velvet(N, roughness)</code></p></li>
+</ul>
+</section>
+<section id="hair">
+<h3>Hair</h3>
+<ul>
+<li><p><code>hair_reflection(N, roughnessu, roughnessv, T, offset)</code></p></li>
+<li><p><code>hair_transmission(N, roughnessu, roughnessv, T, offset)</code></p></li>
+<li><p><code>principled_hair(N, absorption, roughness, radial_roughness, coat, offset, IOR)</code></p></li>
+</ul>
+</section>
+<section id="bssrdf">
+<h3>BSSRDF</h3>
+<ul>
+<li><p><code>bssrdf_cubic(N, radius, texture_blur, sharpness)</code></p></li>
+<li><p><code>bssrdf_gaussian(N, radius, texture_blur)</code></p></li>
+</ul>
+</section>
+<section id="volume">
+<h3>Volume</h3>
+<ul>
+<li><p><code>henyey_greenstein(g)</code></p></li>
+<li><p><code>absorption()</code></p></li>
+</ul>
+</section>
+<section id="other">
+<h3>Other</h3>
+<ul>
+<li><p><code>emission()</code></p></li>
+<li><p><code>ambient_occlusion()</code></p></li>
+<li><p><code>holdout()</code></p></li>
+<li><p><code>background()</code></p></li>
+</ul>
+</section>
+</section>
+<section id="attributes">
+<h2>Attributes</h2>
+<p>Geometry attributes can be read through the <code>getattribute()</code> function.
+This includes UV maps, color attributes and any attributes output from geometry nodes.</p>
+<p>The following built-in attributes are available through <code>getattribute()</code> as well.</p>
+<dl>
+<dt><code>geom:generated</code></dt><dd><p>Automatically generated texture coordinates, from undeformed mesh.</p>
+</dd>
+<dt><code>geom:uv</code></dt><dd><p>Default render UV map.</p>
+</dd>
+<dt><code>geom:tangent</code></dt><dd><p>Default tangent vector along surface, in object space.</p>
+</dd>
+<dt><code>geom:undisplaced</code></dt><dd><p>Position before displacement, in object space.</p>
+</dd>
+<dt><code>geom:dupli_generated</code></dt><dd><p>For instances, generated coordinate from instancer object.</p>
+</dd>
+<dt><code>geom:dupli_uv</code></dt><dd><p>For instances, UV coordinate from instancer object.</p>
+</dd>
+<dt><code>geom:trianglevertices</code></dt><dd><p>Three vertex coordinates of the triangle.</p>
+</dd>
+<dt><code>geom:numpolyvertices</code></dt><dd><p>Number of vertices in the polygon (always returns three currently).</p>
+</dd>
+<dt><code>geom:polyvertices</code></dt><dd><p>Vertex coordinates array of the polygon (always three vertices currently).</p>
+</dd>
+<dt><code>geom:name</code></dt><dd><p>Name of the object.</p>
+</dd>
+<dt><code>geom:is_smooth</code></dt><dd><p>Is mesh face smooth or flat shaded.</p>
+</dd>
+<dt><code>geom:is_curve</code></dt><dd><p>Is object a curve or not.</p>
+</dd>
+<dt><code>geom:curve_intercept</code></dt><dd><p>0..1 coordinate for point along the curve, from root to tip.</p>
+</dd>
+<dt><code>geom:curve_thickness</code></dt><dd><p>Thickness of the curve in object space.</p>
+</dd>
+<dt><code>geom:curve_length</code></dt><dd><p>Length of the curve in object space.</p>
+</dd>
+<dt><code>geom:curve_tangent_normal</code></dt><dd><p>Tangent Normal of the strand.</p>
+</dd>
+<dt><code>geom:is_point</code></dt><dd><p>Is point in a point cloud or not.</p>
+</dd>
+<dt><code>geom:point_radius</code></dt><dd><p>Radius of point in point cloud.</p>
+</dd>
+<dt><code>geom:point_position</code></dt><dd><p>Center position of point in point cloud.</p>
+</dd>
+<dt><code>geom:point_random</code></dt><dd><p>Random number, different for every point in point cloud.</p>
+</dd>
+<dt><code>path:ray_length</code></dt><dd><p>Ray distance since last hit.</p>
+</dd>
+<dt><code>object:random</code></dt><dd><p>Random number, different for every object instance.</p>
+</dd>
+<dt><code>object:index</code></dt><dd><p>Object unique instance index.</p>
+</dd>
+<dt><code>object:location</code></dt><dd><p>Object location.</p>
+</dd>
+<dt><code>material:index</code></dt><dd><p>Material unique index number.</p>
+</dd>
+<dt><code>particle:index</code></dt><dd><p>Particle unique instance number.</p>
+</dd>
+<dt><code>particle:age</code></dt><dd><p>Particle age in frames.</p>
+</dd>
+<dt><code>particle:lifetime</code></dt><dd><p>Total lifespan of particle in frames.</p>
+</dd>
+<dt><code>particle:location</code></dt><dd><p>Location of the particle.</p>
+</dd>
+<dt><code>particle:size</code></dt><dd><p>Size of the particle.</p>
+</dd>
+<dt><code>particle:velocity</code></dt><dd><p>Velocity of the particle.</p>
+</dd>
+<dt><code>particle:angular_velocity</code></dt><dd><p>Angular velocity of the particle.</p>
+</dd>
+</dl>
+</section>
+<section id="trace">
+<h2>Trace</h2>
+<p>CPU Only</p>
+<p>We support the <code>trace(point pos, vector dir, ...)</code> function,
+to trace rays from the OSL shader. The “shade” parameter is not supported currently,
+but attributes can be retrieved from the object that was hit using the
+<code>getmessage("trace", ..)</code> function. See the OSL specification for details on how to use this.</p>
+<p>This function cannot be used instead of lighting;
+the main purpose is to allow shaders to “probe” nearby geometry,
+for example to apply a projected texture that can be blocked by geometry,
+apply more “wear” to exposed geometry, or make other ambient occlusion-like effects.</p>
+</section>
+<section id="metadata">
+<h2>Metadata</h2>
+<p>Metadata on parameters controls their display in the user interface. The following
+metadata is supported:</p>
+<dl>
+<dt><code>[[ string label = "My Label" ]]</code></dt><dd><p>Name of parameter in in the user interface</p>
+</dd>
+<dt><code>[[ string widget = "null" ]]</code></dt><dd><p>Hide parameter in the user interface.</p>
+</dd>
+<dt><code>[[ string widget = "boolean" ]]</code> and <code>[[ string widget = "checkbox" ]]</code></dt><dd><p>Display integer parameter as a boolean checkbox.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

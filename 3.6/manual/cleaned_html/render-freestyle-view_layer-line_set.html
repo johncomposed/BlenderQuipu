@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Freestyle &gt; View Layer &gt; Line Set</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Freestyle</a></li>
+<li><a href="index.html">View Layer Properties</a></li>
+<li>Line Set</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="line-set">
+<h1>Line Set</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ View Layer ‣ Freestyle Line Set</p>
+</dd>
+</dl>
+</div>
+<p>A line set selects, among the lines (edges) detected by Freestyle,
+which ones will be rendered using its attached
+<a href="line_style/introduction.html">line style</a>, through various methods.</p>
+<figure id="id2">
+<figcaption>
+<p>Freestyle Line Set panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-freestylelineset-select-by-image-border">
+<dt>Select By</dt><dd><dl>
+<dt>Image Border</dt><dd><p>Causes Freestyle to only take geometry within the image border into consideration for line calculation.
+This reduces render times but increases continuity problems when geometry is moved out of and
+into camera view.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="visibility">
+<h2>Visibility</h2>
+<dl id="bpy-types-freestylelineset-visibility">
+<dt>Type</dt><dd><p>Determine how to use visibility for feature edge selection.</p>
+<dl>
+<dt>Visible:</dt>
+<dd><p>Only lines occluded by no surfaces are rendered.</p>
+</dd>
+<dt>Hidden:</dt>
+<dd><p>Lines occluded by at least one surface are rendered.</p>
+<figure id="id3">
+<figcaption>
+<p>Proof of concept of visible and hidden edges by LightBWK
+(blend-file).</p>
+</figcaption>
+</figure>
+</dd>
+<dt>QI Range:</dt>
+<dd><p>QI stands for <em>Quantitative Invisibility</em>. Lines occluded by
+a number of surfaces in the given range are rendered.</p>
+<dl id="bpy-types-freestylelineset-qi-end">
+<dt>Start, End</dt><dd><p>Min/max number of occluding surfaces for a line to be rendered.</p>
+</dd>
+</dl>
+<figure id="id4">
+<figcaption>
+<p>QI Range proof of concept demo, Start: 3, End: 7, by LightBWK
+(blend-file).</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="edge-types">
+<h2>Edge Types</h2>
+<p>Edge types are basic algorithms for the selection of lines from geometry.
+When using the parameter editor you have to choose at least one edge type in order to get a render output,
+but several edge types can be combined in one line set.
+Edge types can also be excluded from calculation by pressing the <em>X</em> next to them.</p>
+<figure id="id5">
+<figcaption>
+<p>Examples of some basic edge types:
+Silhouette (green), Crease (black), Border (blue) and Edge Marks (red)
+(blend-file by LightBWK).</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-freestylelineset-select-silhouette">
+<dt>Type</dt><dd><dl>
+<dt>Silhouette</dt><dd><p>Draws silhouettes around your closed objects by rendering lines where the surface normal transitions between
+pointing toward and away from the camera. It is often good for organic objects (like Suzanne &amp; Sphere),
+and bad for sharp edges, like a box. It cannot render open mesh objects like open cylinders and flat planes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-select-crease">
+<dt>Crease</dt><dd><p>Shows only edges whose adjacent faces form an angle sharper than the defined view map’s <em>Crease Angle</em>.</p>
+<figure id="id6">
+<figcaption>
+<p>Crease Angle proof of concept for 121° by LightBWK
+(blend-file).</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-select-border">
+<dt>Border</dt><dd><p>Border shows open mesh edges, i.e. edges that belong to only one face. An open cylinder has open edges at
+the top and bottom, and a plane is open all around. Suzanne’s eye socket is an open edge.</p>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-select-edge-mark">
+<dt>Edge Marks</dt><dd><p>Renders marked edges. See <a href="#edge-marks">Edge Marks</a> for details.</p>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-select-contour">
+<dt>Contour</dt><dd><p>Draws lines around each object, separating it from other objects behind it, or the scene background.</p>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-select-external-contour">
+<dt>External Contour</dt><dd><p>Draws lines around all objects, separating them from the scene background, but not each other.</p>
+</dd>
+</dl>
+<figure id="id7">
+<figcaption>
+<p>Left pair: Contour; Right pair: External Contour.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-freestylelineset-select-material-boundary">
+<dt>Material Boundary</dt><dd><p>Draws lines where two materials meet on the same object.</p>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-select-suggestive-contour">
+<dt>Suggestive Contour</dt><dd><p>Draws some lines which would form the <em>Silhouette</em> of the mesh if the view point was shifted.
+Depends on your view map settings for <em>Kr Derivative Epsilon</em> and <em>Sphere Radius</em>
+(further information: <a href="https://archive.blender.org/wiki/index.php/File:Manual-2.6-Render-Freestyle-PrincetownLinestyle.pdf">File:Manual-2.6-Render-Freestyle-PrincetownLinestyle.pdf</a>).</p>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-select-ridge-valley">
+<dt>Ridge &amp; Valley</dt><dd><p>Draws lines marking crests of ridges and valleys, i.e. places where the surface curvature is at
+its minimum or maximum. Depends on your <em>Sphere Radius</em> view map settings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="edge-marks">
+<h3>Edge Marks</h3>
+<p>In Edit Mode you can mark “Freestyle Edges” in the same manner
+you can mark “Seams” for UV unwrapping or “Sharp” for edge split.
+These marked edges are available to render when you select <em>Edge Mark</em>.</p>
+<p>This is done as follows:</p>
+<ol>
+<li><p>Select the mesh object and enter <em>Edit Mode</em>.</p></li>
+<li><p>Select the edges you want to be marked.</p></li>
+<li><p>Press <kbd><kbd>Ctrl</kbd>-<kbd>E</kbd></kbd> and select <em>Mark Freestyle Edge</em>.</p></li>
+</ol>
+<p>Edge marks are useful when you want to draw lines along particular mesh edges.
+The examples below explain the use of edge marks.</p>
+<figure id="id8">
+<figcaption>
+<p>Marking Freestyle Edges in Edit Mode; the edge marks are highlighted in green.</p>
+</figcaption>
+</figure>
+<p>With <em>Edge Marks</em> enabled, the previously-marked lines are always rendered.
+You can see the black contour lines and the blue lines that are made with edge marks.</p>
+<table>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>Render without Edge Marks.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Render with Edge Marks enabled.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>What are edge marks good for?</p>
+<ul>
+<li><p>When you need to render marks on an almost-flat plane, when other edge types cannot detect any line.</p></li>
+<li><p>When you want full control of edge rendering. Often used for edges of squarish shapes.</p></li>
+<li><p>Mark the whole base mesh to be rendered for base mesh preview.</p></li>
+</ul>
+<p>What are edge marks not good for?</p>
+<ul>
+<li><p>Round outer edges (use instead <em>Contour/External Contour/Silhouette</em>).</p></li>
+</ul>
+</section>
+</section>
+<section id="face-marks">
+<h2>Face Marks</h2>
+<p>Face marks are useful for removing lines from certain areas of a mesh.</p>
+<p>To set a face mark:</p>
+<ol>
+<li><p>Select a mesh object and enter <em>Edit Mode</em>.</p></li>
+<li><p>Select the faces you want to be marked.</p></li>
+<li><p>Press <kbd><kbd>Ctrl</kbd>-<kbd>F</kbd></kbd> and select Face Data ‣ Mark Freestyle Face.</p></li>
+</ol>
+<p>In this example, two faces of the default cube are marked like the image on the left.
+On the right is a render without face marks activated.</p>
+<table>
+<tbody>
+<tr><td><figure id="id11">
+<figcaption>
+<p>Marked faces (Edit Mode).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id12">
+<figcaption>
+<p>Render output.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The line selection can be controlled via inclusion and faces options:</p>
+<dl id="bpy-types-freestylelineset-face-mark-negation">
+<dt>Negation</dt><dd><p>Whether to include or exclude edges matching defined face mark conditions from the line set.</p>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-face-mark-condition">
+<dt>Condition</dt><dd><dl>
+<dt>One Face:</dt>
+<dd><p>(De)select all edges which have one or both neighbor faces marked.</p>
+</dd>
+<dt>Both Faces:</dt>
+<dd><p>(De)select all edges which have both of their neighbor faces marked.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id13">
+<figcaption>
+<p>Inclusive, One Face.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id14">
+<figcaption>
+<p>Inclusive, Both Faces.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id15">
+<figcaption>
+<p>Exclusive, One Face.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id16">
+<figcaption>
+<p>Exclusive, Both Faces.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collection">
+<h2>Collection</h2>
+<p>Include or exclude objects for line calculation,
+based on their belonging to a <a href="../../../scene_layout/collections/index.html">Collection</a>.</p>
+<dl id="bpy-types-freestylelineset-collection">
+<dt>Line Set Collection</dt><dd><p>The name of the object collection to use.</p>
+</dd>
+</dl>
+<dl id="bpy-types-freestylelineset-collection-negation">
+<dt>Negation</dt><dd><p>Whether to include or exclude lines from those objects in this line set.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

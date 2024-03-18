@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Sss</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Subsurface Scattering</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="subsurface-scattering">
+<h1>Subsurface Scattering</h1>
+<p>The <em>Subsurface Scattering</em> node is used to add simple subsurface multiple scattering,
+for materials such as skin, wax, marble, milk and others. For these materials,
+rather than light being reflect directly off the surface, it will penetrate the surface and
+bounce around internally before getting absorbed or leaving the surface at a nearby point.</p>
+<p>How far the color scatters on average can be configured per RGB color channel. For example,
+for skin, red colors scatter further, which gives distinctive red-colored shadows,
+and a soft appearance.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the surface, or physically speaking, the probability that light is reflected for each wavelength.</p>
+</dd>
+<dt>Scale</dt><dd><p>Global scale factor for the scattering radius.</p>
+</dd>
+<dt>Radius</dt><dd><p>Average distance that light scatters below the surface.
+Higher radius gives a softer appearance, as light bleeds into shadows and through the object.
+The scattering distance is specified separately for the RGB channels,
+to render materials such as skin where red light scatters deeper.
+The X, Y and Z values are mapped to the R, G and B values, respectively.</p>
+</dd>
+<dt>IOR Cycles Only</dt><dd><p>Index of refraction for <em>Subsurface Scattering</em>.</p>
+</dd>
+<dt>Anisotropy Cycles Only</dt><dd><p>Controls the directionality of subsurface scattering.</p>
+</dd>
+<dt>Normal</dt><dd><p>Normal used for shading; if nothing is connected the default shading normal is used.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Subsurface Method</dt><dd><p>Rendering method to simulate subsurface scattering.</p>
+<div>
+<p>Note</p>
+<p>Eevee does use not support the <em>Random Walk</em> methods.</p>
+</div>
+<dl>
+<dt>Christensen-Burley:</dt>
+<dd><p>An approximation to physically-based volume scattering.
+This method is less accurate than <em>Random Walk</em> however,
+in some situations this method will resolve noise faster.</p>
+</dd>
+<dt>Random Walk (Fixed Radius):</dt>
+<dd><p>Provides accurate results for thin and curved objects.
+Random Walk uses true volumetric scattering inside the mesh,
+which means that it works best for closed meshes.
+Overlapping faces and holes in the mesh can cause problems.</p>
+</dd>
+<dt>Random Walk:</dt>
+<dd><p>Behaves similarly to <em>Random Walk (Fixed Radius)</em> but modulates
+the <em>Radius</em> based on the <em>Color</em>, <em>Anisotropy</em>, and <em>IOR</em>.
+This method thereby attempts to retain greater surface detail and color
+than <em>Random Walk (Fixed Radius)</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSSRDF</dt><dd><p><abbr title="Bidirectional Scattering Surface Reflectance Distribution Function">BSSRDF</abbr> shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Random walk subsurface scattering.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Topology &gt; Corners Of Face</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Topology Nodes</a></li>
+<li>Corners of Face Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="corners-of-face-node">
+<h1>Corners of Face Node</h1>
+<p>The <em>Corners of Face</em> node gives access to specific corners of input faces.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Face Index</dt><dd><p>The index of the input face.</p>
+<div>
+<p>Note</p>
+<p>By default this uses the <a href="../../geometry/read/input_index.html">index</a>
+from the field context, which makes it important that the node is evaluated on
+the face domain.</p>
+</div>
+</dd>
+<dt>Weights</dt><dd><p>Values used to sort the face’s corners.
+By default the corners are sorted by index, so the corners with the smallest indices come first.</p>
+</dd>
+<dt>Sort Index</dt><dd><p>Which of the sorted corners to use for the <em>Corner Index</em> output. If the value is larger than
+the total number of corners, it will wrap around to the beginning.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Corner Index</dt><dd><p>The index of one of the face’s corners, chosen by the <em>Sort Index</em> input.</p>
+</dd>
+<dt>Total</dt><dd><p>The number of corners in the face, or its side count.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Surfaces &gt; Selecting</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Surfaces</a></li>
+<li>Selecting</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="selecting">
+<h1>Selecting</h1>
+<p>This page discusses specific selecting tools for surface objects in Edit Mode.
+The Surface Edit also uses the general select tools used which are described
+in the <a href="../../interface/selecting.html">interface section</a>.</p>
+<p>Surface selection in <em>Edit Mode</em> is very similar to
+<a href="../curves/selecting.html">NURBS curve selection</a>.
+The basic tools are the same as with <a href="../meshes/selecting/index.html">meshes</a>,
+so you can select a simple control point with an <kbd>LMB</kbd>-click,
+add to current selection with <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> clicks, Border Select, and so on.</p>
+<section id="select-menu">
+<h2>Select Menu</h2>
+<p>The <em>Select</em> menu (in the 3D Viewport header) is even simpler than for curves…</p>
+<p>All these options have the same meaning and behavior as in <a href="../../scene_layout/object/selecting.html">Object Mode</a>
+and mesh <a href="../meshes/selecting/index.html">Edit Mode</a>.</p>
+<dl>
+<dt>All <kbd>A</kbd></dt><dd><p>Select all.</p>
+</dd>
+<dt>None <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd></dt><dd><p>Select none.</p>
+</dd>
+<dt>Inverse <kbd><kbd>Ctrl</kbd>-<kbd>I</kbd></kbd></dt><dd><p>Selects all the geometry that is not selected, and deselect currently selected components.</p>
+</dd>
+</dl>
+<dl>
+<dt><a href="../../interface/selecting.html#tool-select-box">Box Select</a> <kbd>B</kbd></dt><dd><p>Interactive box selection.</p>
+</dd>
+<dt><a href="../../interface/selecting.html#tool-select-circle">Circle Select</a> <kbd>C</kbd></dt><dd><p>Interactive circle selection.</p>
+</dd>
+<dt><a href="../../interface/selecting.html#tool-select-lasso">Lasso Select</a></dt><dd><p>Interactive free-form selection.</p>
+</dd>
+</dl>
+<dl>
+<dt><a href="#select-random">Select Random</a></dt><dd><p>Select random control points.</p>
+</dd>
+<dt><a href="#checker-deselect">Checker Deselect</a></dt><dd><p>Select every Nth control point.</p>
+</dd>
+<dt><a href="#select-linked">Select Linked</a> <kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd></dt><dd><p>Select control points that are connected to the current selection.</p>
+</dd>
+<dt><a href="#select-similar">Select Similar</a> <kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></dt><dd><p>Select control points that have similar properties to the current selection.</p>
+</dd>
+</dl>
+<dl>
+<dt><a href="#select-control-point-row">Select Control Point Row</a></dt><dd><p>Select a whole <a href="structure.html#modeling-surfaces-rows-grids">row</a> of control points.</p>
+</dd>
+</dl>
+<dl>
+<dt><a href="#select-more-less">Select More/Less</a></dt><dd><p>Select objects based on their parent child relationships.</p>
+</dd>
+</dl>
+</section>
+<section id="select-random">
+<h2>Select Random</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Random</p>
+</dd>
+</dl>
+</div>
+<p>Select random control points.</p>
+<dl>
+<dt>Percent</dt><dd><p>Selects the defined percentage of control points.</p>
+</dd>
+<dt>Random Seed</dt><dd><p><a href="../../glossary/index.html#term-Seed">Seed</a> used by the pseudo-random number generator.</p>
+</dd>
+<dt>Action</dt><dd><p>Controls whether the operator <em>Selects</em> or <em>Deselects</em> control points.</p>
+</dd>
+</dl>
+</section>
+<section id="checker-deselect">
+<h2>Checker Deselect</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Checker Deselect</p>
+</dd>
+</dl>
+</div>
+<p>This tool applies an alternating selected/deselected checker pattern.
+This only works if you already have more than one control point selected.</p>
+<p>It works by changing the current selection so that only every Nth
+control points will remain selected, starting from the active one.</p>
+<dl>
+<dt>Deselected</dt><dd><p>The number of deselected elements in each pattern repetition.</p>
+</dd>
+<dt>Selected</dt><dd><p>The number of selected elements in each pattern repetition.</p>
+</dd>
+<dt>Offset</dt><dd><p>Offset from the starting point.</p>
+</dd>
+</dl>
+</section>
+<section id="select-linked">
+<h2>Select Linked</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Linked</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>L</kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p><em>Select Linked</em> will add to the selection the mouse cursor’s nearest control point,
+and all the linked ones, i.e. all points belonging to the same surface.</p>
+</section>
+<section id="select-similar">
+<h2>Select Similar</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Similar</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Selects control points that have certain similar properties to the active one.
+The <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel provides several selection options:</p>
+<dl>
+<dt>Type</dt><dd><dl>
+<dt>Type</dt><dd><p>Selects splines that have the same spline Type i.e. Bézier, NURBS or Poly.</p>
+</dd>
+<dt>Radius</dt><dd><p>Selects control points that have a similar Radius value.</p>
+</dd>
+<dt>Weight</dt><dd><p>Selects all points that have a similar Weight value.</p>
+</dd>
+<dt>Direction</dt><dd><p>Selects control points that have a similar handles direction.</p>
+</dd>
+</dl>
+</dd>
+<dt>Compare</dt><dd><p>For quantitative properties, this property selects the type of comparison to between the two numerical values.</p>
+<dl>
+<dt>Equal:</dt>
+<dd><p>Select items with the same value as the active item’s chosen property.</p>
+</dd>
+<dt>Greater:</dt>
+<dd><p>Select items with a larger value as the active item’s chosen property.</p>
+</dd>
+<dt>Less:</dt>
+<dd><p>Select items with a smaller value as the active item’s chosen property.</p>
+</dd>
+</dl>
+</dd>
+<dt>Threshold</dt><dd><p>For quantitative properties, this property controls how
+close the property’s values have to be in the comparison.</p>
+</dd>
+</dl>
+</section>
+<section id="select-control-point-row">
+<h2>Select Control Point Row</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Control Point Row</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>R</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>This option works a bit like
+<a href="../meshes/selecting/loops.html#bpy-ops-mesh-loop-multi-select">edge loop selection</a> for meshes,
+inasmuch it selects a whole <a href="structure.html#modeling-surfaces-rows-grids">row</a> of control points,
+based on the active (the last selected) one. The first time you press <kbd><kbd>Shift</kbd>-<kbd>R</kbd></kbd>,
+the V row passing through (containing) the active point will be added to the <em>current</em> selection.
+If you use again this shortcut, you will toggle between the U and V row of this point,
+removing <em>everything else</em> from the selection.</p>
+</section>
+<section id="select-more-less">
+<h2>Select More/Less</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ More/Less</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>NumpadPlus</kbd></kbd> / <kbd><kbd>Ctrl</kbd>-<kbd>NumpadMinus</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expand or contract the selection based on current selected control points.</p>
+<dl>
+<dt>More</dt><dd><p>For each selected control point, select <strong>all</strong> its linked points (i.e. two, three or four).</p>
+</dd>
+<dt>Less</dt><dd><p>For each selected control point, if <strong>all</strong> points linked to this point are selected, keep it selected.
+For all other selected control points, deselect them.</p>
+</dd>
+</dl>
+<p>This implies two points:</p>
+<ol>
+<li><p>First, when <strong>all</strong> control points of a surface are selected, nothing will happen
+(as for <em>Less</em>, all linked points are always selected, and of course, <em>More</em> cannot add any).
+Conversely, the same goes when no control point is selected.</p></li>
+<li><p>Second, these tools will never “go outside” of a surface
+(they will never “jump” to another surface in the same object).</p></li>
+</ol>
+</section>
+</section>
+</div>
+</div></body>
+</html>

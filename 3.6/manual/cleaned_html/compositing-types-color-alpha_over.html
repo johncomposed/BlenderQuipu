@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Color &gt; Alpha Over</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Color Nodes</a></li>
+<li>Alpha Over Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="alpha-over-node">
+<h1>Alpha Over Node</h1>
+<p>The <em>Alpha Over</em> node is used to layer images on top of one another.
+Where the foreground image pixels have an alpha greater than 0, it will be overlaid over the background image.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>Controls the transparency of the foreground image.
+A factor less than 1 will make the foreground more transparent.</p>
+</dd>
+<dt>Image</dt><dd><p>Input for the <em>background</em> image.</p>
+</dd>
+<dt>Image</dt><dd><p>Input for the <em>foreground</em> image.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Convert Premultiplied</dt><dd><p>Converts foreground image to <a href="../../../glossary/index.html#term-Premultiplied-Alpha">Premultiplied Alpha</a> format.</p>
+<p>The <em>Alpha Over</em> node is designed to work with premultiplied alpha color format.
+Use this checkbox when you know that your image has <a href="../../../glossary/index.html#term-Straight-Alpha">Straight Alpha</a> color values,
+to perform the correct over operation. Result will still be premultiplied alpha.</p>
+</dd>
+<dt>Premultiply</dt><dd><p>Mix between using <a href="../../../glossary/index.html#term-Premultiplied-Alpha">Premultiplied Alpha</a> or <a href="../../../glossary/index.html#term-Straight-Alpha">Straight Alpha</a>.</p>
+<p>When set to 1, the foreground color values will be multiplied by alpha, i.e. premultiplied;
+this is equivalent to enabling <em>Convert Premultiplied</em>.
+When set to 0, color values does not change.</p>
+<p>If <em>Premultiply</em> is not zero, <em>Convert Premultiplied</em> will be ignored.</p>
+<div>
+<p>Note</p>
+<p>This is a legacy option.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<section id="overlay">
+<h3>Overlay</h3>
+<p>In the node tree below, <em>Color Ramp</em> node is used to add an alpha channel to the black-and-white swirl image.
+Then <em>Alpha Over</em> node is used to overlay it on top of another image.</p>
+<figure id="id1">
+<figcaption>
+<p>Assembling a composite image using Alpha Over.</p>
+</figcaption>
+</figure>
+</section>
+<section id="fade-in">
+<h3>Fade In</h3>
+<p>In the next example, the <em>Factor</em> is used to make a “Fade In” effect.
+This effect can be animated by adding a <em>Time</em> node inputted in the <em>Factor</em> socket as shown below.
+Over the course of 30 frames, the <em>Alpha Over</em> node outputs an image that
+starts with the pure background image, and the title slowly appearing.</p>
+<figure id="id2">
+<figcaption>
+<p>Animated fade in effect using Alpha Over.</p>
+</figcaption>
+</figure>
+<p>Note the <em>Convert Premultiply</em> checkbox is enabled,
+since as the foreground used a PNG image that has straight alpha.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

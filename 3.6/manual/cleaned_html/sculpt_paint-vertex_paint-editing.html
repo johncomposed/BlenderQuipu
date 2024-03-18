@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Vertex Paint &gt; Editing</title></head>
+<body><ul>
+<li><a href="../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="index.html">Vertex Paint</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Vertex Paint Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Paint</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-ops-paint-vertex-color-set">
+<dt>Set Vertex Colors <kbd><kbd>Shift</kbd>-<kbd>K</kbd></kbd></dt><dd><p>Fill the active Color Attribute with the current paint color.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-paint-vertex-color-smooth">
+<dt>Smooth Vertex Colors</dt><dd><p>Smooth colors across vertices.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-paint-vertex-color-dirt">
+<dt>Dirty Vertex Colors</dt><dd><dl>
+<dt>Blur Strength</dt><dd><p>Blur strength per iteration.</p>
+</dd>
+<dt>Blur Iterations</dt><dd><p>Number of times to blur the colors (higher blurs more).</p>
+</dd>
+<dt>Highlight Angle</dt><dd><p>Clamps the angle for convex areas of the mesh.
+Lower values increase the contrast but can result in clamping.
+90 means flat, 180 means infinitely pointed.</p>
+</dd>
+<dt>Dirt Angle</dt><dd><p>Clamps the angle for concave areas of the mesh.
+Higher values increase the contrast but can result in clamping.
+90 means flat, 0 means infinitely deep.</p>
+</dd>
+<dt>Dirt Only</dt><dd><p>When active it won’t calculate cleans for convex areas.</p>
+</dd>
+<dt>Normalize</dt><dd><p>Choose optimal contrast by effectively lowering
+<em>Highlight Angle</em> and increasing <em>Dirt Angle</em> automatically.
+Disabling <em>Normalize</em> allows getting consistent results across multiple
+objects.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-paint-vertex-color-from-weight">
+<dt>Vertex Color from Weight</dt><dd><p>Converts the active weight into grayscale colors.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-paint-vertex-color-invert">
+<dt>Invert</dt><dd><p>Invert RGB values.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-paint-vertex-color-levels">
+<dt>Levels</dt><dd><p>Adjust the levels of the selected vertices.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-paint-vertex-color-hsv">
+<dt>Hue/Saturation/Value</dt><dd><p>Adjust the HSV values of the selected vertices.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-paint-vertex-color-brightness-contrast">
+<dt>Brightness/Contrast</dt><dd><p>Adjust the brightness/contrast of the selected vertices.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Sequencer &gt; Sidebar &gt; Modifiers</title></head>
+<body><ul>
+<li><a href="../../../index.html">Editors</a></li>
+<li><a href="../../index.html">Video Sequencer</a></li>
+<li><a href="../index.html">Sequencer</a></li>
+<li><a href="index.html">Sidebar</a></li>
+<li>Modifiers</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="modifiers">
+<h1>Modifiers</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Modifiers ‣ Modifiers</p>
+</dd>
+</dl>
+</div>
+<p>Modifiers are used to make adjustments on the image, like contrast,
+brightness, saturation, color balance and applying masks.</p>
+<p>You can add these modifiers directly to the selected strip,
+or you can use it within an “Adjustment Layer” effect strip,
+which allows you to apply these modifiers onto several strips the same time.</p>
+<dl>
+<dt>Use Linear Modifiers</dt><dd><p>Calculate modifiers in linear space instead of sequencer space.</p>
+</dd>
+<dt>Copy to Selected Strips</dt><dd><p>Allows you to copy the modifiers to selected strips.
+This works two ways, you can either replace the old modifiers or append/add to the previous modifiers.</p>
+</dd>
+</dl>
+<section id="common-options">
+<h2>Common Options</h2>
+<p>Each modifier has several buttons at its top:</p>
+<dl>
+<dt>Mute (eye icon)</dt><dd><p>Disables the modifier. Very useful to compare the image, with / without modifications.</p>
+</dd>
+<dt>Move (up/down arrow icon)</dt><dd><p>The next two buttons are used to change the modifier’s position in the stack.</p>
+</dd>
+<dt>Remove <code>X</code></dt><dd><p>The cross is to delete the modifier from the stack.</p>
+</dd>
+</dl>
+<section id="masking">
+<h3>Masking</h3>
+<p>Use it for masking the other modifiers in the stack which are below.</p>
+<p>For example, to correct the brightness only on a certain zone of the image,
+you can filter the Brightness/Contrast modifier by placing a Mask modifier,
+just before it in the stack. You can choose to use a Mask created in the Mask editor,
+or to use another strip as a mask (the image of this strip must have an alpha channel).
+This mask will be applied on all the others modifiers below it in the stack.</p>
+<dl>
+<dt>Mask Input Type</dt><dd><p>Type of input data used for mask.</p>
+<dl>
+<dt>Strip:</dt>
+<dd><p>Uses the grayscale representation of the image in a strip to affect the alpha of the current strip.</p>
+</dd>
+<dt>Mask:</dt>
+<dd><p>Use a mask data-block to affect the alpha of the current strip.</p>
+</dd>
+</dl>
+</dd>
+<dt>Mask</dt><dd><p>The Strip or Mask data-block to use as an input.</p>
+</dd>
+<dt>Mask Time Mask Input Only</dt><dd><p>How the start frame of the mask is calculated.</p>
+<dl>
+<dt>Relative:</dt>
+<dd><p>Mask animation is offset to the start of the strip.</p>
+</dd>
+<dt>Absolute:</dt>
+<dd><p>Mask animation is in sync with scene frame.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="types">
+<h2>Types</h2>
+<p>Currently, the following modifiers are supported:</p>
+<section id="brightness-contrast-modifier">
+<h3>Brightness/Contrast Modifier</h3>
+<p>Adjusts the brightness and contrast of the modifier input.</p>
+</section>
+<section id="color-balance-modifier">
+<h3>Color Balance Modifier</h3>
+<p>Color balance adjustments, either by the Lift, Gamma, and Gain or the Slope, Offset and Power method.</p>
+<p>This modifier works similar to the <a href="../../../../compositing/types/color/color_balance.html">Color Balance Node</a>.</p>
+<p>Depending on the selected method, the following operations can be applied to the color values in the
+sequencer color space:</p>
+<dl>
+<dt>Lift/Gamma/Gain</dt><dd><dl>
+<dt>Lift</dt><dd><p>Increases the value of dark colors.</p>
+</dd>
+<dt>Gamma</dt><dd><p>Adjusts midtones.</p>
+</dd>
+<dt>Gain</dt><dd><p>Adjusts highlights.</p>
+</dd>
+</dl>
+</dd>
+<dt>Offset/Power/Slope (ASC-CDL)</dt><dd><p>The following formula is applied to each RGB color value separately: \(c_{out} =  (c_{in}*s + o)^p\)</p>
+<dl>
+<dt>Slope</dt><dd><p>The multiplier \(s\) influences all color values except black. Its effect is stronger
+the brighter the source color is.</p>
+</dd>
+<dt>Offset</dt><dd><p>Shifts color values after applying Slope by adding the Offset \(o\) to them. Note that
+the selected value shown in the UI will be subtracted by 1, so the default value of 1 means
+effectively no offset is applied.</p>
+</dd>
+<dt>Power</dt><dd><p>Over-all exponent \(p\), which mainly adjusts the midtones.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="curves-modifier">
+<h3>Curves Modifier</h3>
+<p>Color and RGB curves.</p>
+<p>This modifier works the same as the <a href="../../../../compositing/types/color/rgb_curves.html">Curves Node</a>.</p>
+</section>
+<section id="hue-correct-modifier">
+<h3>Hue Correct Modifier</h3>
+<p>HSV multi points curves.</p>
+<p>This modifier works the same as the <a href="../../../../compositing/types/color/hue_correct.html">Curves Node</a>.</p>
+</section>
+<section id="mask-modifier">
+<h3>Mask Modifier</h3>
+<p>The mask modifier is used to affect the <a href="../../../../glossary/index.html#term-Alpha-Channel">Alpha Channel</a> of the current strip.</p>
+<p>For example, to correct the brightness only on a certain zone of the image,
+you can filter the Brightness/Contrast modifier by placing a Mask modifier,
+just before it in the stack. You can choose to use a Mask created in the Mask editor,
+or to use another strip as a mask (the image of this strip must have an alpha channel).
+This mask will be applied on all the others modifiers below it in the stack.</p>
+<dl id="bpy-types-sequencemodifier-input-mask-type">
+<dt>Mask Input Type</dt><dd><p>Type of input data used for mask.</p>
+<dl>
+<dt>Strip:</dt>
+<dd><p>Uses the grayscale representation of the image in a strip to affect the alpha of the current strip.</p>
+</dd>
+<dt>Mask:</dt>
+<dd><p>Use a mask data-block to affect the alpha of the current strip.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-sequencemodifier-input-mask-strip">
+<dt>Mask</dt><dd><p>The Strip or Mask data-block to use as an input.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequencemodifier-mask-time">
+<dt>Mask Time Mask Input Only</dt><dd><p>How the start frame of the mask is calculated.</p>
+<dl>
+<dt>Relative:</dt>
+<dd><p>Mask animation is offset to the start of the strip.</p>
+</dd>
+<dt>Absolute:</dt>
+<dd><p>Mask animation is in sync with scene frame.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="tone-map-modifier">
+<h3>Tone Map Modifier</h3>
+<p>Used to map one set of colors to another in order to approximate the appearance
+of high dynamic range images in a medium that has a more limited dynamic range.</p>
+<p>This modifier works the same as the <a href="../../../../compositing/types/color/tone_map.html">Tone Map Node</a>.</p>
+</section>
+<section id="white-balance-modifier">
+<h3>White Balance Modifier</h3>
+<p>Use it to adjust the white balance by choosing the color that should be white.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

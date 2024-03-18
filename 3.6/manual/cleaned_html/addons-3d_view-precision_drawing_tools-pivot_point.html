@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Precision Drawing Tools &gt; Pivot Point</title></head>
+<body><ul>
+<li><a href="../../index.html">Add-ons</a></li>
+<li><a href="../index.html">3D View</a></li>
+<li><a href="index.html">Precision Drawing Tools (PDT)</a></li>
+<li>Pivot Point</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="pivot-point">
+<h1>Pivot Point</h1>
+<p>The PDT <strong>Pivot Point</strong>, hereafter <strong>PP</strong>, is intended to provide a location
+for rotating and scaling geometry in Edit Mode Only. It works as an independent
+location to the 3D Cursor. It can, however, be placed relative to Object Geometry.</p>
+<p>The Menu For Pivot Point</p>
+<p>Here the pivot point has been placed relative to the selected vertex.</p>
+<section id="operations">
+<h2>Operations:</h2>
+<p>Most operations only work in <strong>Edit</strong> Mode, so these are greyed out if you are in any other mode.</p>
+<p>Starting from the top, the first row is the <code>Show Pivot</code> button with three inputs alongside.</p>
+<p>To show the PP, click the <code>Show</code> button, to remove it press <code>Hide</code> button,
+Show will change to Hide when PP is displayed.</p>
+<p>You can still use the PP location, whether you can see it, or not.</p>
+<p>The three inputs are; <code>Size Factor</code> ranging from 0.2 to 2 and will adjust the relative size
+of the PP, the PP is drawn relative to the 3D View scale. The next is the <code>Width</code> and this
+determines how bold the PP arms are ranging from 1 to 5. The last is the <code>Alpha</code>
+and determines the translucency (Color Alpha) of the PP, values range from 0.2 to 1.</p>
+<p>The next row shows the <code>Pivot Location</code>, values can be entered here,
+or the boxes may be “scrubbed” and the PP will move as you do so.</p>
+<p>On the next row is <code>To Selected</code>, which locates the PP on a selected set of geometry.
+The middle button is <code>To Cursor</code>, which locates the PP at the 3D Cursor location.
+The right button is <code>To Origin</code>, which locates the PP on the selected Object’s Origin,
+you must have a selected Object.</p>
+<p>Here the PP has been located on the weighted center of the selected face.</p>
+<p>The next row has <strong>Rotate</strong> and <strong>Angle</strong>, To rotate selected geometry about the PP,
+first set the <code>Angle</code> and click <code>Rotate</code>. Geometry is rotated about the View Plane
+(an axis normal to your screen).</p>
+<p>Here the selected geometry has been rotated 30 degrees about the PP.</p>
+<p>The next row has <code>Scale</code> on the left, this button is used to scale the selected geometry
+about the PP. this uses factors as set in the last row showing X, Y and Z values.
+the scaling is performed about the <code>Global</code> Axes. There are many ways in Blender
+to Scale about different axes, so it was decided not to replicate all this,
+this is the function I use the most for scaling.</p>
+<p>The button on the right is <code>Cursor To Pivot</code>, it will locate the 3D Cursor to the PP,
+this is useful if you want to use other Blender techniques for rotating, scaling, etc.
+but want to use the PP location.</p>
+<p>The PP cannot be used to move geometry, it was decided that there are already
+sufficient methods of doing this in Blender.</p>
+</section>
+<section id="setting-scales-by-two-measures">
+<h2>Setting Scales by Two Measures:</h2>
+<p>Underneath you will see the <code>Scale Distance</code> &amp; <code>System Distance</code> Inputs,
+<code>System Distance</code> is merely a copy of <code>Distance</code> from the <code>PDT Design</code> Section.
+This can be set by a variety of methods, one of which is to select two vertices
+and then use the Set A/D 2D Tool, found in PDT Design, or you can just type a value in.</p>
+<p>There are circumstances where you know that a dimension in the model,
+lets say two vertices measure 14.3 units and that is wrong.
+You know that either a section, or the whole mesh needs scaling
+so this dimension becomes 16.2. Instead of you having to work out
+the scale factor yourself, you can merely type 16.2 into <code>Scale Distance</code>,
+having set <code>System Distance</code> to 14.3 and the system will calculate the scales for you,
+in this case; <strong>1.14085</strong>. Should you only want to scale in one axis, set the other two to 1.</p>
+<p>You would then select the required geometry, set the position of the PP
+and use the PP <code>Scale</code> button.</p>
+</section>
+<section id="read-write-pp-to-object">
+<h2>Read &amp; Write PP to Object:</h2>
+<p>You can write the PP location to the <strong>Object</strong> using the <code>PP Write</code> button,
+these are stored in the form a <code>Custom Property</code>, you will be required to confirm this,
+clicking OK on the popup accepts this operation, moving your cursor off the confirm dialogue
+cancels the operation. This facility allows you to store a PP location, easily readable,
+against each object, this could be, for example, the rotational center of a hydraulic cylinder for example,
+where you do not want this location to also be the object origin point.</p>
+<p>You can then read back this information to place the PP using the <code>PP Read</code> button.
+If the custom property are not there, either because it hasn’t been written,
+or because you have deleted it, an error is displayed.</p>
+<p>Confirmation is Required for the Write Operation.</p>
+<p>This is the custom property stored against the Object.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

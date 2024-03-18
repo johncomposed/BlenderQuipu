@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Transparent</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Transparent BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="transparent-bsdf">
+<h1>Transparent BSDF</h1>
+<p>The <em>Transparent</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+is used to add transparency without refraction, passing straight through the surface,
+as if there were no geometry there. Useful with alpha maps, for example.
+This shader <a href="../../cycles/render_settings/light_paths.html#render-cycles-light-paths-transparency">affects light paths somewhat differently</a>
+than other BSDFs.
+Note that only pure white transparent shaders are completely transparent.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the surface, or physically speaking,
+the probability for each wavelength that light is blocked or passes straight through the surface.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Transparent shader (pure white).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Transparent shader behavior.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Transparent shader (gray).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

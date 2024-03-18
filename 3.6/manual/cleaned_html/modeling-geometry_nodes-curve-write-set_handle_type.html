@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Write &gt; Set Handle Type</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Write Curve Nodes</a></li>
+<li>Set Handle Type Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="set-handle-type-node">
+<h1>Set Handle Type Node</h1>
+<p>Sets the handle type for the points on the Bézier curve that are in the selection.</p>
+<p>A selection for a certain handle type can be retrieved with
+the <a href="../read/handle_type_selection.html">Handle Type Selection Node</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Bézier curve.</p>
+</dd>
+<dt>Selection</dt><dd><p>The points whose handle types will be changed.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><p>Whether to update left or right or both handles.
+When both are selected, both the left and the right handles will be updated.</p>
+<dl>
+<dt>Left:</dt>
+<dd><p>Update the left handles.</p>
+</dd>
+<dt>Right:</dt>
+<dd><p>Update the right handles.</p>
+</dd>
+</dl>
+</dd>
+<dt>Handle Type</dt><dd><p>The handle type to switch to. See the <a href="../../../curves/structure.html#curve-bezier-handle-type">Bézier curves</a>
+page for more details on the different handle types.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard curve output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

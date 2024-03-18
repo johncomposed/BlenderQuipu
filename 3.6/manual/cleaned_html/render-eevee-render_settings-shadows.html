@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Render Settings &gt; Shadows</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Shadows</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="shadows">
+<h1>Shadows</h1>
+<p>These settings influence shadows which appear on objects because there is another object (the occluder)
+between them and a Light. Eevee uses a technique called Shadow Mapping to calculate these shadows.
+A shadow map is calculated by looking around from the position of each Light and finding the objects
+which are closest to the Light. These objects are called the nearest occluders.
+Everything which is behind (or, you can say, covered by) the nearest occluders will be in shadow.</p>
+<p>The shadow map is a cube (hence the term “cubemap”) and the Light is in the middle of this cube.
+The cube has six sides and each side is divided into a grid.
+You can set the resolution of the grid (for example, 512 × 512 pixels) with the <em>Cube Size</em> setting below.
+During shadow calculation, the nearest occluders are only searched at grid points but not between grid points.
+Because of this, the edge of the calculated shadow will appear pixelated at low Cube Size settings.</p>
+<div>
+<p>Note</p>
+<p>Settings for the shadows and illumination caused by light bouncing between objects (indirect lighting)
+can be found on the Indirect Lighting tab.</p>
+</div>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Shadows</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Cube Size</dt><dd><p>Number of pixels on one side of the shadow cube-map (see above)
+used to calculate the shadow of Point, Area and Spot lights.
+If you want to make the edge of shadows less pixelated, then increase this value.
+But be aware that this increases memory usage and decreases performance since a 512 px cube-map
+has 6 × 512 × 512 pixels in it.</p>
+</dd>
+<dt>Cascade Size</dt><dd><p>Size of one cascade used by <em>Cascaded Shadow Maps</em>. This is only for Sun lights.</p>
+</dd>
+<dt>High Bitdepth</dt><dd><p>This option can help reduce some artifacts due to float imprecision inside the shadow maps.
+This option effectively doubles the memory usage of shadow maps and will slow down their update.</p>
+</dd>
+<dt>Soft Shadows</dt><dd><p>Randomize the shadow map’s origin to create soft shadows. It needs a lot of samples to get rid of the banding.</p>
+</dd>
+<dt>Light Threshold</dt><dd><p>The minimum amount of light for a light to contribute for lighting.
+This light threshold does not take the light shape into account and may not suit every case.
+That is why Blender provides a <a href="../lighting.html#bpy-types-light-cutoff-distance">per-light override</a>
+where you can just set the cut off distance.</p>
+<p>The influence distance is also used as shadow far clip distance, which might affect how shadows look.
+This influence distance does not affect sun lights that still have a far clip distance.</p>
+<div>
+<p>See also</p>
+<p><a href="../lighting.html#bpy-types-light-cutoff-distance">Custom Distance</a>.</p>
+</div>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The Soft Shadows method is not physically based and will not match Cycles for very large lights.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

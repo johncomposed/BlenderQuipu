@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Read &gt; Face Area</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Read Mesh Nodes</a></li>
+<li>Face Area Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="face-area-node">
+<h1>Face Area Node</h1>
+<p>The <em>Face Area</em> node outputs the surface area of a mesh’s faces.
+The units are in Blender units no matter the unit system,
+equivalent to meters-squared at the default unit scale.</p>
+<div>
+<p>Note</p>
+<p>For <a href="../../../../glossary/index.html#term-Quad">quads</a> and <a href="../../../../glossary/index.html#term-N-gon">N-gons</a>, when the face’s vertices are not planar,
+the output is not necessarily the same as the sum of every one of the face’s triangles visible
+in the viewport. In this case it should only be used an approximation. In some cases,
+the <a href="../operations/triangulate.html">Triangulate Node</a> can be used to get an exact value.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Area</dt><dd><p>The surface area of each of the mesh’s faces.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Combined with the <a href="../../attribute/attribute_statistic.html">Attribute Statistic Node</a>,
+this node can be used to calculate the total surface area of a mesh.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

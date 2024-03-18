@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Transform &gt; Basic</title></head>
+<body><ul>
+<li><a href="../../../../index.html">Modeling</a></li>
+<li><a href="../../../index.html">Meshes</a></li>
+<li><a href="../../index.html">Editing</a></li>
+<li><a href="../index.html">Mesh Tools</a></li>
+<li><a href="index.html">Transformation</a></li>
+<li>Move, Rotate, Scale</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="move-rotate-scale">
+<h1>Move, Rotate, Scale</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Move, Rotate, Scale</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Transform ‣ Move, Rotate, Scale</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>G</kbd>, <kbd>R</kbd>, <kbd>S</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Once you have a selection of one or more elements, you can move <kbd>G</kbd>,
+rotate <kbd>R</kbd> or scale <kbd>S</kbd> them, like many other things in Blender,
+as described in the <a href="../../../../../scene_layout/object/editing/transform/introduction.html">Manipulation in 3D Space</a> section.
+To move, rotate and scale selected components, either use the <em>Move</em>, <em>Rotate</em>, and <em>Scale</em> buttons,
+the <a href="../../../../../editors/3dview/display/gizmo.html">transform gizmos</a>,
+or the shortcuts: <kbd>G</kbd>, <kbd>R</kbd>, and <kbd>S</kbd> respectively.</p>
+<p>After moving a selection, the options in the <a href="../../../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel allow you to
+fine-tune your changes, limit the effect to certain axes, turn Proportional Editing on and off, etc.
+Of course, when you move an element of a given type (e.g. an edge),
+you also modify the implicitly related elements of other kinds (e.g. vertices and faces).</p>
+<p>Pressing <kbd>G</kbd> twice enters either <em>Edge Slide</em> or <em>Vertex Slide</em> tool depending on the selection.
+You also have in <em>Edit Mode</em> an extra option when using these basic manipulations:
+the <a href="../../../../../editors/3dview/controls/proportional_editing.html">Proportional Editing</a>.</p>
+<section id="transform-panel">
+<h2>Transform Panel</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<p>When nothing is selected, the panel is empty.
+When more than one vertex is selected, the median values is edited
+and “Median” is added in front of the labels.</p>
+<dl>
+<dt>Vertex</dt><dd><p>The first controls (X, Y, Z) show the coordinates of the selected vertex or the median point.</p>
+</dd>
+<dt>Space</dt><dd><p>The Space radio buttons let you choose if those coordinates are relative to the object origin (local) or
+the global origin (global).</p>
+<p>Global, Local</p>
+</dd>
+</dl>
+<section id="vertex-data">
+<h3>Vertex Data</h3>
+<dl id="modeling-vertex-bevel-weight">
+<dt>Bevel Weight</dt><dd><p>This vertex property, a value between (0.0 to 1.0),
+is used by the <a href="../../../../modifiers/generate/bevel.html">Bevel Modifier</a>
+to control the bevel intensity of the vertices, when the <em>Only Vertices</em> option is active.</p>
+</dd>
+</dl>
+<dl id="modeling-vertex-crease-subdivision">
+<dt>Crease</dt><dd><p>This vertex property, a value between (0.0 to 1.0), is used by
+the <a href="../../../../modifiers/generate/subdivision_surface.html">Subdivision Surface Modifier</a>
+to control the sharpness of the vertices in the subdivided mesh.</p>
+</dd>
+</dl>
+</section>
+<section id="edge-data">
+<h3>Edge Data</h3>
+<p>When an edge is selected, the following options are available. More buttons appear:</p>
+<dl id="modeling-edges-bevel-weight">
+<dt>Bevel Weight</dt><dd><p>This edge property, a value between (0.0 to 1.0),
+is used by the <a href="../../../../modifiers/generate/bevel.html">Bevel Modifier</a>
+to control the bevel intensity of the edges.</p>
+<p>This property can also be set using the <a href="../../edge/edge_data.html#bpy-ops-transform-edge-bevelweight">Edge Bevel Weight</a> operator.</p>
+</dd>
+</dl>
+<dl id="modeling-edges-crease-subdivision">
+<dt>Crease</dt><dd><p>This edge property, a value between (0.0 to 1.0), is used by
+the <a href="../../../../modifiers/generate/subdivision_surface.html">Subdivision Surface Modifier</a>
+to control the sharpness of the edges in the subdivided mesh.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

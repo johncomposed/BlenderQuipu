@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Freestyle &gt; View Layer &gt; Line Style &gt; Modifiers &gt; Color &gt; Curvature 3D</title></head>
+<body><ul>
+<li><a href="../../../../../index.html">Rendering</a></li>
+<li><a href="../../../../index.html">Freestyle</a></li>
+<li><a href="../../../index.html">View Layer Properties</a></li>
+<li><a href="../../index.html">Line Style</a></li>
+<li><a href="index.html">Color Modifiers</a></li>
+<li>Curvature 3D</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curvature-3d">
+<h1>Curvature 3D</h1>
+<p>A modifier based on radial curvatures of the underlying 3D surface.
+The <a href="https://en.wikipedia.org/wiki/Curvature">curvature</a> of a 2D curve
+at a point is a measure of how quickly the curve turns at the point.
+The quicker the turn is, the larger the curvature is at the point.
+The curvature is zero if the curve is a straight line.
+Radial curvatures are those computed for a 2D curve that appears at the cross section
+between the 3D surface and a plane defined by the view point (camera location)
+and the normal direction of the surface at the point.</p>
+<p>For radial curvatures to be calculated (and therefore for this modifier to have any effect),
+the <em>Face Smoothness</em> option has to be turned on and the object needs to have <em>Smooth Shading</em>.</p>
+<dl>
+<dt>Curvature Min, Max</dt><dd><p>The limits of the mapping.
+If the current point of the stroke is at <em>Min Curvature</em> or less from the target,
+it will take the start point of the mapping. And conversely,
+if it is at <em>Max Curvature</em> or more from the target, it will take the end-point value of the mapping.</p>
+</dd>
+</dl>
+<figure id="id1">
+<figcaption>
+<p>Curvature 3D modifier demo by T.K.
+(blend-file).</p>
+</figcaption>
+</figure>
+</section>
+</div>
+</div></body>
+</html>

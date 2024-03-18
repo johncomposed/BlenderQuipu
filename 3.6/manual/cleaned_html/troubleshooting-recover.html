@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Troubleshooting &gt; Recover</title></head>
+<body><ul>
+<li><a href="index.html">Troubleshooting</a></li>
+<li>Recovering Data</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="recovering-data">
+<h1>Recovering Data</h1>
+<p>Computer crashes, power outages, or simply forgetting to save can result in
+the loss or corruption of your work. You can use Blender’s <em>Auto Save</em> feature
+to reduce the chance of losing files when such events occur.</p>
+<p>There are options to save a backup of your files like
+<em>Auto Save</em> that saves your file automatically over time, and <em>Save on Quit</em>,
+which saves your blend-file automatically when you exit Blender.
+In addition to these functions being enabled by default,
+the <em>Save on Quit</em> functionality cannot be disabled.</p>
+<div>
+<p>Note</p>
+<p>For your actions, there are options like <em>Undo</em>, <em>Redo</em> and an <em>Undo History</em>,
+used to roll back from mistakes under normal operation, or return back to a specific action.
+See <a href="../interface/undo_redo.html">Undo &amp; Redo</a>.</p>
+</div>
+<section id="recovering-save-versions">
+<h2>Recovering Save Versions</h2>
+<p>By default Blender keeps an additional backup when saving files.
+So saving renames the previously saved file with a <code>.blend1</code> extension instead of overwriting it.</p>
+<p>This file can be used to revert to a previous state.</p>
+<p>See <a href="../editors/preferences/save_load.html#prefs-save-load-backups">Save Versions</a> to configure the number of versions kept.</p>
+</section>
+<section id="recovering-auto-saves">
+<h2>Recovering Auto Saves</h2>
+<section id="last-session">
+<h3>Last Session</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>File ‣ Recover ‣ Last Session</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Recover Last Session</em> will open the <code>quit.blend</code> file
+that is saved into the <a href="../advanced/blender_directory_layout.html#temp-dir">Temporary Directory</a> when you quit Blender under normal operation (see
+<a href="../glossary/index.html#term-Blender-Session">Blender Session</a>). Note that files in your temporary directory may be deleted when you reboot
+your computer (depending on your system configuration).</p>
+</section>
+<section id="auto-save">
+<h3>Auto Save</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>File ‣ Recover ‣ Auto Save</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Recover Auto Save</em> allows you to open the <em>Auto Saved</em> file.
+You will have to navigate to your <a href="../advanced/blender_directory_layout.html#temp-dir">Temporary Directory</a>.
+The <em>Auto Saved</em> files are named using a random number and have a blend extension.</p>
+<p>See <a href="../editors/preferences/save_load.html#prefs-auto-save">Auto Save Preferences</a> to configure auto-save.</p>
+<dl>
+<dt>Trusted Source</dt><dd><p>When enabled, Python scripts and drivers that may be included in the file will be run automatically.
+Enable this only if you created the file yourself,
+or you trust that the person who gave it to you did not include any malicious code with it.
+See <a href="../advanced/scripting/security.html">Python Security</a> to configure default trust options.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Enable the detailed list view when browsing auto-saved files to show which is the most recent.</p>
+<figure id="id3">
+<figcaption>
+<p>File Browser displaying a vertical list.</p>
+</figcaption>
+</figure>
+</div>
+<div>
+<p>Warning</p>
+<p>When recovering an <em>Auto Saved</em> file, any changes made since the last <em>Auto Save</em> will be lost.
+Only one <em>Auto Saved</em> file exists for each <code>.blend</code> file, i.e. Blender does not keep older versions.
+Therefor, you will only be able to restore the most recent <em>Auto Save</em> file.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Operations &gt; Interpolate Curves</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Operation Nodes</a></li>
+<li>Interpolate Curves Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="interpolate-curves-node">
+<h1>Interpolate Curves Node</h1>
+<p>Generate new curves on points by interpolating between existing curves.
+This is useful to have a smaller set of original curves to make editing easier and faster
+while still generating high-density curves for the viewport or a final render.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Guide Curves</dt><dd><p>Base curves that new curves are interpolated between.</p>
+</dd>
+<dt>Guide Up</dt><dd><p>Optional up vector that is typically a surface normal. Supplying an up vector will improve
+the quality of the interpolation, making it aware of the surface shape which it otherwise
+wouldn’t have a way to know about.</p>
+<div>
+<p>Tip</p>
+<p>In a typical “child hair” generation setup, this up direction is retrieved with a combination
+of the <a href="../../mesh/sample/sample_uv_surface.html">Sample UV Surface Node</a> using the same geometry
+that the points were distributed on, and the <a href="../../geometry/read/normal.html">Normal Node</a>.</p>
+</div>
+</dd>
+<dt>Guide Group ID</dt><dd><p>Splits guides into separate groups. New curves interpolate existing curves from a single group.
+This input can be useful for generating hair parts by stopping curves in different sections
+(with different group IDs) from affecting each other.</p>
+</dd>
+<dt>Points</dt><dd><p>The positions of the first root control points of the newly generated interpolated curves.</p>
+</dd>
+<dt>Points Up</dt><dd><p>Optional up vector that is typically a surface normal.</p>
+</dd>
+<dt>Point Group ID</dt><dd><p>The curve group to interpolate in.</p>
+</dd>
+<dt>Max Neighbor</dt><dd><p>Maximum amount of close guide curves that are taken into account for interpolation.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curves</dt><dd><p>The guide curves with interpolated curves.</p>
+</dd>
+<dt>Closest Index</dt><dd><p>Index of the closest guide curve for each generated curve.</p>
+<div>
+<p>Note</p>
+<p>Internally this node mixes the data from multiple guide curves, with the maximum number
+of sources depending on the <em>Max Neighbor</em> input. This output is only the index of the curve
+with the largest weight.</p>
+</div>
+</dd>
+<dt>Closest Weight</dt><dd><p>Weight of the closest guide curve for each generated curve.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Operations &gt; Dual Mesh</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Operation Nodes</a></li>
+<li>Dual Mesh Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="dual-mesh-node">
+<h1>Dual Mesh Node</h1>
+<p>The <em>Dual Mesh Node</em> converts a mesh into its dual, i.e. faces are turned into
+vertices and vertices are turned into faces. This also means that attributes
+which were on the face domain are transferred to the point domain in the dual mesh.</p>
+<div>
+<p>Warning</p>
+<p>The Dual Mesh node only works on manifold geometry. To work with non-manifold geometry
+it’s best to remesh the geometry first.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Keep Boundaries</dt><dd><p>Keeps the non-manifold boundaries of the input mesh in place, by creating
+extra geometry, and avoiding the dual mesh transformation there.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Dual Mesh</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>The <em>Dual Mesh Node</em> combines nicely with triangulated meshes. In this case
+an Ico Sphere is used, which is made up of nice and evenly spaced triangles.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

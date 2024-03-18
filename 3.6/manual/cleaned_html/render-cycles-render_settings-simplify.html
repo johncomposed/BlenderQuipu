@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Render Settings &gt; Simplify</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Simplify</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="simplify">
+<h1>Simplify</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Render ‣ Simplify</p>
+</dd>
+</dl>
+</div>
+<p>Common Settings</p>
+<dl id="bpy-types-rendersettings-simplify-subdivision">
+<dt>Max Subdivision</dt><dd><p>Maximum number of subdivision by the Subdivision Surface modifiers.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-simplify-child-particles">
+<dt>Child Particles</dt><dd><p>Show only a subset of all child hairs and particles.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-texture-limit">
+<dt>Texture Limit</dt><dd><p>Automatically scales textures down so that they are no larger than the values chosen.
+This can help reduce computer memory resources when rendering large scenes with huge textures.</p>
+</dd>
+</dl>
+<section id="viewport">
+<h2>Viewport</h2>
+<p>See Common Settings above.</p>
+<dl id="bpy-types-rendersettings-simplify-volumes">
+<dt>Volume Resolution</dt><dd><p>Resolution percentage of <a href="../../../modeling/volumes/index.html">volume objects</a> in the viewport.
+This mostly affects memory usage rather than computation times.</p>
+</dd>
+</dl>
+</section>
+<section id="render">
+<h2>Render</h2>
+<p>See Common Settings above.</p>
+</section>
+<section id="culling">
+<h2>Culling</h2>
+<dl id="bpy-types-cyclesrendersettings-use-camera-cull">
+<dt>Camera Cull</dt><dd><p>Automatically culls objects based on the camera frustum defined by the <em>Margin</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-use-distance-cull">
+<dt>Distance Cull</dt><dd><p>Automatically culls objects based on their distance from the active camera.
+This is set via the <em>Distance</em> property.</p>
+</dd>
+</dl>
+</section>
+<section id="grease-pencil">
+<h2>Grease Pencil</h2>
+<dl id="bpy-types-rendersettings-simplify-gpencil-onplay">
+<dt>Playback Only</dt><dd><p>Activates the simplification process only during animation playback.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-simplify-gpencil-view-fill">
+<dt>Fill</dt><dd><p>Shows the fill component in Grease Pencil materials.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-simplify-gpencil-view-modifier">
+<dt>Modifiers</dt><dd><p>Shows Grease Pencil <a href="../../../grease_pencil/modifiers/index.html">modifiers</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-simplify-gpencil-shader-fx">
+<dt>Shader Effects</dt><dd><p>Shows Grease Pencil <a href="../../../grease_pencil/modifiers/index.html">visual effects</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-simplify-gpencil-tint">
+<dt>Layer Tinting</dt><dd><p>Shows layers tint overrides.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-simplify-gpencil-antialiasing">
+<dt>Anti-Aliasing</dt><dd><p>Use <a href="../../../glossary/index.html#term-Anti-Aliasing">Anti-Aliasing</a> to smooth stroke edges. The amount of anti-aliasing can be adjusted by
+the <a href="grease_pencil.html#bpy-types-scenegpencil-antialias-threshold">Anti-Aliasing Threshold</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

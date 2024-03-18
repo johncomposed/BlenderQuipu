@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Contribute &gt; Guides &gt; Templates</title></head>
+<body><ul>
+<li><a href="../index.html">Contribute Documentation</a></li>
+<li>Templates</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="templates">
+<h1>Templates</h1>
+<p>The following guide provides patterns for interface elements and directories.</p>
+<section id="operator-menus">
+<h2>Operator Menus</h2>
+<p>Each operator should receive its own heading or page based on the length of the content.
+At the start should be a reference admonition documenting the context of the operator:</p>
+<div><div><pre>.. admonition:: Reference
+   :class: refbox
+
+   :Mode:      Edit Mode
+   :Menu:      :menuselection:`Curve --&gt; Snap`
+   :Shortcut:  :kbd:`Shift-S`
+</pre></div>
+</div>
+</section>
+<section id="panels">
+<h2>Panels</h2>
+<p>Panels should be documented by their own heading, nested panels should use decreasing heading levels.
+Each panel could have its own page based on the length of documentation and/or the amount of panels.
+Expanded menus that toggle what properties are presented to the user should be treated like subpanels:</p>
+<div><div><pre>Panel Title
+===========
+
+Nested Panel Title
+------------------
+</pre></div>
+</div>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>Properties should be documented using definition lists.
+Properties that are hidden based on other properties should used nested definitions:</p>
+<div><div><pre>Property
+   Property description.
+
+   Hidden Property
+      Hidden property description.
+</pre></div>
+</div>
+<p>Select menus should be documented using the following syntax:</p>
+<div><div><pre>Menu Label
+   General description of the menu.
+
+   :Menu Item: Menu Item Definition.
+   :Menu Item: Menu Item Definition.
+   :Menu Item: Menu Item Definition.
+</pre></div>
+</div>
+</section>
+<section id="nodes">
+<h2>Nodes</h2>
+<p>Nodes should always have three headings inputs, properties and outputs
+with a note of absence if the node has none.
+At the end of the page can be an optional example(s) section:</p>
+<div><div><pre>**********
+World Node
+**********
+
+.. figure:: /images/render_shader-nodes_output_world_node.png
+   :align: right
+
+   The World node.
+
+Introduction and general use case(s).
+
+
+Inputs
+======
+
+This node has no inputs.
+
+
+Properties
+==========
+
+This node has no properties.
+
+
+Outputs
+=======
+
+This node has no outputs.
+
+
+Example
+=======
+</pre></div>
+</div>
+</section>
+<section id="directory-layout">
+<h2>Directory Layout</h2>
+<p>Sections should be generally structured as follows:</p>
+<ul>
+<li><p><code>directory_name/</code></p>
+<ul>
+<li><p><code>index.rst</code> (contains links to internal files)</p></li>
+<li><p><code>introduction.rst</code></p></li>
+<li><p><code>section_1.rst</code></p></li>
+<li><p><code>section_2.rst</code></p></li>
+</ul>
+</li>
+</ul>
+<p>For example:</p>
+<ul>
+<li><p><code>rendering/</code></p>
+<ul>
+<li><p><code>index.rst</code></p></li>
+<li><p><code>cycles/</code></p>
+<ul>
+<li><p><code>index.rst</code></p></li>
+<li><p><code>introduction.rst</code></p></li>
+<li><p><code>materials/</code></p>
+<ul>
+<li><p><code>index.rst</code></p></li>
+<li><p><code>introduction.rst</code></p></li>
+<li><p><code>volumes.rst</code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The idea is to enclose all the content of a section inside of a folder. Ideally every section
+should have an <code>index.rst</code> (containing the TOC for that section) and an <code>introduction.rst</code>
+(introducing) to the contents of the section.</p>
+<section id="table-of-contents">
+<h3>Table of Contents</h3>
+<p>By default, a table of contents should show two levels of depth:</p>
+<div><div><pre>.. toctree::
+   :maxdepth: 2
+
+   introduction.rst
+   perspective.rst
+   depth_of_field.rst
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

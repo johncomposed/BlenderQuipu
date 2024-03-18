@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Precision Drawing Tools &gt; Design Tools</title></head>
+<body><ul>
+<li><a href="../../index.html">Add-ons</a></li>
+<li><a href="../index.html">3D View</a></li>
+<li><a href="index.html">Precision Drawing Tools (PDT)</a></li>
+<li>Design Tools</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="design-tools">
+<h1>Design Tools</h1>
+<p>The Menu for PDT Tools:</p>
+<p>This section of the menu deals with the Tools, which work with their own variables,
+in some cases, they also use the Working Plane.</p>
+<section id="set-a-d-2d">
+<h2>Set A/D 2D:</h2>
+<p>This button is used to measure the angle relative to horizontal in the Working Plane subtended by two vertices,
+or two objects. You can see a full list of available options in the table on the previous page (Before You Begin)
+for both Edit and Object modes.. Here the <code>Working Plane</code> setting is important, because, if set to <code>View</code>,
+the output will be calculated relative to the views local axes, however the view is oriented,
+otherwise it works with the global axes for the view.</p>
+<p>Output: Sets the Distance, Angle, X, Y &amp; Z input variables.</p>
+<p>Selection: in Edit Mode select two vertices with your mouse,
+the Active vertex is considered to be the center of rotation, or fulcrum point.
+In Object Mode the Active object is similarly considered.</p>
+<p><strong>Example 1</strong>: Set the Input variables to two vertices in Edit Mode in Front view,
+set <code>Working Plane</code> to Front, select the rotational vertex, select the center vertex.
+The Distance variable is set to the apparent separation fo the two vertices in the front view,
+the Angle is set to the apparent angle relative to horizontal in the front view, the X, Y &amp; Z
+inputs are set to the delta offset between the two vertices in the <code>view</code> axes.</p>
+<p><strong>Example 2</strong>: Set the Input variables to two objects in Object Mode in Top view,
+set <code>Working Plane</code> to Top(X-Y), select the rotational object, select the center object.
+The Distance variable is set to the apparent separation of the two objects in the top view,
+the Angle is set to the apparent angle relative to horizontal in the top view, the X, Y &amp; Z
+inputs are set to the delta offset between the two vertices in the <code>view</code> axes.</p>
+<p>Parameters set from two Vertices in Front Working Plane.</p>
+</section>
+<section id="set-a-d-3d">
+<h2>Set A/D 3D:</h2>
+<p>This button is used to measure the angle subtended by three vertices, or three objects.
+You can see a full list of available options in the table on the previous page (Before You Begin)
+for both Edit and Object modes. Here the <code>Working Plane</code>
+setting is irrelevant because the angle is calculated in 3D space.</p>
+<p>Output: Sets the Distance, Angle, X, Y &amp; Z input variables.</p>
+<p>Selection: in Edit Mode select three vertices with your mouse,
+the Active vertex is considered to be the center of rotation, or fulcrum point.
+In Object Mode the Active object is similarly considered.</p>
+<p><strong>Example 1</strong>: Set the Input variables to three vertices in Edit Mode,
+select the two rotational vertices, select the center vertex.
+The Distance variable is set to the real separation of the first vertex and center vertex in the front view,
+the Angle is set to the real angle between the three vertices, X, Y &amp; Z inputs
+are set to the delta offset between the first and center vertices.</p>
+<p><strong>Example 2</strong>: Set the Input variables to three objects in Object Mode, select the two rotational objects,
+select the center object. The Distance variable is set to the real separation of the first vertex
+and center vertex in the front view, the Angle is set to the real angle between the three vertices,
+X, Y &amp; Z inputs are set to the delta offset between the first and center objects.</p>
+</section>
+<section id="join-2-vertices">
+<h2>Join 2 Vertices:</h2>
+<p>This button is used to join two disconnected vertices that do not form part of the same face.
+You can see a full list of available options in the table on the previous page (Before You Begin)
+for both Edit and Object modes. Here the <code>Working Plane</code> setting is irrelevant.
+This Tool works only in Edit Mode.</p>
+<p>Selection: Select two vertices by any method.</p>
+<p><strong>Example 1</strong>: Join two vertices, select two vertices that do not form part of the same face.
+If the vertices do form part of the same face you should use the standard Blender <code>Join</code> command (hotkey j).</p>
+<p>The two Vertices have been joined to form, in this case, a Closed Loop, Before on the Left, After on the Right.</p>
+</section>
+<section id="origin-to-cursor">
+<h2>Origin To Cursor:</h2>
+<p>This button is used to set the Object Origin to the current Cursor location.
+You can see a full list of available options in the table on the previous page
+(Before You Begin) for both Edit and Object modes. Here the <code>Working Plane</code>
+setting is irrelevant. This Tool works in Edit &amp; Object Modes.</p>
+<p>Selection: None required in Edit Mode, select one object in Object Mode.</p>
+<p><strong>Example 1</strong>: Set Object Origin to 1,3,2 in Edit Mode, set X, Y &amp; Z inputs to 1,3,2 respectively,
+set <code>Operation</code> to Cursor, click <code>Absolute</code> button to move cursor. Click <code>Origin To Cursor</code> Tool,
+Origin is moved, but geometry is not moved from its absolute position in World Space.</p>
+</section>
+<section id="taper">
+<h2>Taper:</h2>
+<p>This button is used to set the Object Origin to the current Cursor location.
+You can see a full list of available options in the table on the previous page
+(Before You Begin) for both Edit and Object modes. Here the <code>Working Plane</code>
+setting is irrelevant. This Tool works only in Edit Mode.</p>
+<p>Uses: <code>Move/Rot</code> Axis Selector.</p>
+<p>Selection: Select vertices to be moved, then select fulcrum vertex with SHIFT+Mouse,
+active vertex is considered the rotational center.</p>
+<p><strong>Example 1</strong>: Taper the end of a cube in front view - 25 degrees,
+set Angle to -25 degrees (25 degrees clockwise), select all vertices to be tapered,
+SHIFT+Mouse select center of rotation point vertex, set Move/Rot selector to <code>RotY,MovX</code>,
+set Working Plane to Front(X-Z), click <code>Taper</code>.</p>
+<p>The significance of <code>RotY,MovX</code> is that the Y axis is used as the rotation axis
+and vertices will be moved along the X axis, in View <code>Working Plane</code> Mode,
+remember these are then <code>Local</code> axes, not <code>Global</code> ones.</p>
+<p>Before, the face is at 90 degrees to horizontal.</p>
+<p>After the face is now at 65 degrees to horizontal.</p>
+</section>
+<section id="intersect-all">
+<h2>Intersect All:</h2>
+<p>This button is used to cut edges at any point they intersect with other selected edges.
+You can see a full list of available options in the table on the previous page
+(Before You Begin) for both Edit and Object modes. Here the <code>Working Plane</code>
+setting is irrelevant. This Tool works only in Edit Mode.</p>
+<p>Selection: Select a set of Edges by any method.</p>
+<p><strong>Example 1</strong>: Cut a set of edges at every point where they overlap, or intersect,
+select required edges, click <code>Intersect All</code> button.</p>
+<p>Selected Edges Before.</p>
+<p>Selected Edges After, some have been removed.</p>
+<p>Selected Edges After Extrusion.</p>
+</section>
+<section id="bisect">
+<h2>Bisect:</h2>
+<p>This button is used to form a Bisecting Edge between two other co-planar edges.
+You can see a full list of available options in the table on the previous page
+(Before You Begin) for both Edit and Object modes. Here the <code>Working Plane</code>
+setting is irrelevant. This Tool works only in Edit Mode.</p>
+<p>Selection: Select two Edges by any method.</p>
+<p><strong>Example 1</strong>: Bisect two edges, select 2 co-planar edges, click <code>Bisector</code> button.</p>
+<p>Bisected Edges, Before on Left, After on Right, you can see both Bisectors have been drawn.</p>
+</section>
+<section id="edge-to-face">
+<h2>Edge To Face:</h2>
+<p>This button is used to project an edge to its intersection with a disconnected face.
+You can see a full list of available options in the table on the previous page
+(Before You Begin) for both Edit and Object modes. Here the <code>Working Plane</code>
+setting is irrelevant. This Tool works only in Edit Mode.</p>
+<p>Selection: Select only one edge and one disconnected face.</p>
+<p>The intersection point need to lie within the area of the face.</p>
+<p><strong>Example 1</strong>: Extend one edge to a disconnected face, select one edge and one face, click <code>Edge To Face</code>.</p>
+<p>Edge Extended, Before on Left, After on Right.</p>
+</section>
+<section id="fillet">
+<h2>Fillet:</h2>
+<p>This button is used to fillet the corners of geometry, either closed edge loops, or edges.
+You can see a full list of available options in the table on the previous page
+(Before You Begin) for both Edit and Object modes. Here the <code>Working Plane</code>
+setting is irrelevant. This Tool works only in Edit Mode.</p>
+<p>Uses:  <code>Radius</code>, <code>Segments</code> &amp; <code>Profile</code> inputs &amp; <code>Use Vertices</code> checkbox.</p>
+<p>Selection: Any number of vertices, or edges by any method.</p>
+<p>The Profile settings is the same as for Blender Bevel command, i.e.
+ranges from 0 to 1, 0.05 is a convex fillet, 0.5 is a concave fillet.</p>
+<p><strong>Example 1</strong>: Fillet a closed loop of edges at each corner radius 0.5, 6 segments,
+profile 0.5, select corner vertices to be filleted, set <code>Radius</code> to 0.5,
+set <code>Segments</code> to 6, set Profile to 0.5, check <code>Use Vertices</code>.</p>
+<p>The image shows two Before and Afters, in the bottom set Use Vertices was checked,
+in the top set it was not, this is how to fillet edges.</p>
+<p>Another Before and After, you can see the settings used to produce this.</p>
+<p>Tip! Using an <strong>even</strong> number of segments will result in better topology (no tris)
+where three bevels meet at 90 degree offsets, for example.</p>
+<p>Note! From version 1.1.8 the Fillet Tool now has an <strong>Intersect</strong> checkbox.
+When this is activated the toll will accept only two non-connected edges,
+or four vertices representing two non-connected edges. These two edges and first intersected,
+then the intersection vertex is filleted. The <code>Use Verts</code>
+checkbox is ignored in this mode of operation. Should these two edges
+not intersect in the <code>Working Plane</code>, an error is returned.</p>
+<p>Two examples of Before on the Left and After on the Right.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

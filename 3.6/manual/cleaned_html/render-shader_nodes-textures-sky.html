@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Textures &gt; Sky</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Texture</a></li>
+<li>Sky Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sky-texture-node">
+<h1>Sky Texture Node</h1>
+<p>The <em>Sky Texture</em> node adds a procedural Sky texture.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate to sample texture at;
+defaults to Generated texture coordinates if the socket is left unconnected.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Sky Type</dt><dd><p>Sky model to use.</p>
+<dl>
+<dt>Preetham:</dt>
+<dd><p>Based on the 1999 <a href="https://doi.org/10.1145/311535.311545">paper</a> by Preetham et al.</p>
+</dd>
+<dt>Hosek/Wilkie:</dt>
+<dd><p>Based on the 2012 <a href="https://cgg.mff.cuni.cz/projects/SkylightModelling/">paper</a> by Hosek and Wilkie.</p>
+</dd>
+<dt>Nishita:</dt>
+<dd><p>Improved version of the 1993
+<a href="https://www.scratchapixel.com/lessons/procedural-generation-virtual-worlds/simulating-sky/simulating-colors-of-the-sky.html">model</a>
+by Nishita et al.</p>
+</dd>
+</dl>
+</dd>
+<dt>Sun Direction</dt><dd><p>Sun direction vector.</p>
+</dd>
+<dt>Turbidity</dt><dd><p>Atmospheric turbidity.</p>
+<ul>
+<li><p>2: Arctic like</p></li>
+<li><p>3: clear sky</p></li>
+<li><p>6: warm/moist day</p></li>
+<li><p>10: hazy day</p></li>
+</ul>
+</dd>
+<dt>Ground Albedo</dt><dd><p>Amount of light reflected from the planet surface back into the atmosphere.</p>
+</dd>
+<dt>Sun Disc Cycles Only</dt><dd><p>Enable/Disable sun disc lighting.</p>
+</dd>
+<dt>Sun Size</dt><dd><p>Angular diameter of the sun disc (in degrees).</p>
+</dd>
+<dt>Sun Intensity</dt><dd><p>Multiplier for sun disc lighting.</p>
+</dd>
+<dt>Sun Elevation</dt><dd><p>Rotation of the sun from the horizon (in degrees).</p>
+</dd>
+<dt>Sun Rotation</dt><dd><p>Rotation of the sun around the zenith (in degrees).</p>
+</dd>
+<dt>Altitude</dt><dd><p>The distance from sea level to the location of the camera.
+For example, if the camera is placed on a beach then a value of 0 should be used.
+However, if the camera is in the cockpit of a flying airplane then a value of 10 km will be more suitable.
+Note, this is limited to 60 km because the mathematical model only accounts
+for the first two layers of the earth’s atmosphere (which ends around 60 km).</p>
+</dd>
+<dt>Air</dt><dd><p>Density of air molecules.</p>
+<ul>
+<li><p>0 no air</p></li>
+<li><p>1 clear day atmosphere</p></li>
+<li><p>2 highly polluted day</p></li>
+</ul>
+</dd>
+<dt>Dust</dt><dd><p>Density of dust and water droplets.</p>
+<ul>
+<li><p>0 no dust</p></li>
+<li><p>1 clear day atmosphere</p></li>
+<li><p>5 city like atmosphere</p></li>
+<li><p>10 hazy day</p></li>
+</ul>
+</dd>
+<dt>Ozone</dt><dd><p>Density of ozone molecules;
+useful to make the sky appear bluer.</p>
+<ul>
+<li><p>0 no ozone</p></li>
+<li><p>1 clear day atmosphere</p></li>
+<li><p>2 city like atmosphere</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Texture color output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Example of Sky Texture.</p>
+</figcaption>
+</figure>
+<div>
+<p>See also</p>
+<p><a href="../../../addons/lighting/sun_position.html">Sun Position</a> add-on</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

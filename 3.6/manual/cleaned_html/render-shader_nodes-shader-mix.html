@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Mix</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Mix Shader</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mix-shader">
+<h1>Mix Shader</h1>
+<p>The <em>Mix</em> node is used to mix two shaders together. Mixing can be used for material layering,
+where the <em>Factor</em> input may, for example, be connected to a <em>Blend Weight</em> node.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Shader</dt><dd><p>Shaders to mix, such that incoming rays hit either with the specified probability in the <em>Factor</em> socket.</p>
+</dd>
+<dt>Factor</dt><dd><p>Blend weight to use for mixing two shaders;
+at zero it uses the first shader entirely and at one the second shader.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Shader</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>A mix of a glossy and a diffuse shader makes a nice ceramic material.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

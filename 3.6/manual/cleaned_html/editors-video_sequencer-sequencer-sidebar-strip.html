@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Sequencer &gt; Sidebar &gt; Strip</title></head>
+<body><ul>
+<li><a href="../../../index.html">Editors</a></li>
+<li><a href="../../index.html">Video Sequencer</a></li>
+<li><a href="../index.html">Sequencer</a></li>
+<li><a href="index.html">Sidebar</a></li>
+<li>Strip</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="strip">
+<h1>Strip</h1>
+<section id="header">
+<h2>Header</h2>
+<dl>
+<dt>Type</dt><dd><p>Strip type represented by an icon.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequence-name">
+<dt>Name</dt><dd><p>You can name or rename your strips here.</p>
+<dl id="bpy-ops-sequencer-strip-color-tag-set">
+<dt>Color Tag</dt><dd><p>Besides the set of <a href="../../../../video_editing/edit/montage/strips/introduction.html#sequencer-strip-colors">Default Strip Colors</a>
+strips can also be given an alternative predefined color.
+This can be useful to help organize your sequence by for example,
+giving a special color to all graphic overlays and a different color for footage.</p>
+</dd>
+</dl>
+</dd>
+<dt>Mute</dt><dd><p>If enabled the strip will not produce any output.</p>
+</dd>
+</dl>
+</section>
+<section id="compositing">
+<h2>Compositing</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Compositing</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Blend</dt><dd><p>Mode of blending strip with lower channels.</p>
+</dd>
+<dt>Opacity</dt><dd><p>Set the opacity (alpha) of the strip.
+This value, when animated and with the View ‣ Show F-Curves option turned on,
+is drawn on the strip as a dark section that follows the animation curve.</p>
+</dd>
+</dl>
+</section>
+<section id="transform">
+<h2>Transform</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-sequencetransform-filter">
+<dt>Filter</dt><dd><p>Interpolation Methods.</p>
+<dl>
+<dt>Nearest:</dt>
+<dd><p>No interpolation, uses nearest neighboring pixel.</p>
+</dd>
+<dt>Bilinear:</dt>
+<dd><p>Simple interpolation between adjacent pixels.</p>
+</dd>
+<dt>Subsampling (3x3):</dt>
+<dd><p>Use nearest with 3x3 <a href="../../../../glossary/index.html#term-Anti-Aliasing">subsamples</a> during rendering.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-sequencetransform-offset">
+<dt>Position X, Y</dt><dd><p>Used to move the frames along the X and Y axis.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequencetransform-scale">
+<dt>Scale X, Y</dt><dd><p>Scale the image on the X and Y axis.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequencetransform-rotation">
+<dt>Rotation</dt><dd><p>Rotates the input two-dimensionally along the Z axis.</p>
+</dd>
+</dl>
+<dl id="bpy-types-imagesequence-use-flip">
+<dt>Mirror</dt><dd><p>Mirrors the image along the X axis (left to right) or the Y axis (top to bottom).</p>
+</dd>
+</dl>
+</section>
+<section id="crop">
+<h2>Crop</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Crop</p>
+</dd>
+</dl>
+</div>
+<p>Used to crop the source image. Use <em>Top</em>, <em>Left</em>,
+<em>Bottom</em>, and <em>Right</em> to control the number of pixels that are cropped.</p>
+</section>
+<section id="video">
+<h2>Video</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Video</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Strobe</dt><dd><p>To only display each nth frame. For example, if you set this to 10,
+the strip will only display frames 1, 11, 21, 31, 41… of the source.
+<em>Strobe</em> is a float value – this way you can get a strobe effect synced exactly to a beat,
+for example, by using non-integer values.</p>
+</dd>
+<dt>Reverse Frames</dt><dd><p>Strip is played backwards starting from the last frame in the sequence.</p>
+</dd>
+</dl>
+</section>
+<section id="color">
+<h2>Color</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Color</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Saturation</dt><dd><p>Increase or decrease the saturation of an image.</p>
+</dd>
+<dt>Multiply</dt><dd><p>Multiplies the colors by this value. This will increases the brightness.</p>
+</dd>
+<dt>Convert to Float</dt><dd><p>Converts input to float data.</p>
+</dd>
+</dl>
+</section>
+<section id="sound">
+<h2>Sound</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Sound</p>
+</dd>
+</dl>
+</div>
+<p>Working with sound is documented further at <a href="../../../../video_editing/edit/montage/strips/sound.html#bpy-types-soundsequence">Sound Strip</a>.</p>
+<dl id="bpy-types-soundsequence-volume">
+<dt>Volume</dt><dd><p>The volume of the sound.
+This value, when animated and with the View ‣ Show F-Curves option activated,
+is drawn on the strip as a dark section that follows the animation curve.
+The value is also reflected in the waveform.</p>
+</dd>
+</dl>
+<dl id="bpy-types-soundsequence-pan">
+<dt>Pan</dt><dd><p>Used to pan the audio between speakers in multichannel audio.
+Only works for mono sources. The number of audio channels can be configured in
+the <a href="../../../../render/output/properties/output.html#render-output-video-encoding-audio">Audio Output</a> settings.
+For stereo output panning works from left (-1) to right (1). When
+the output uses more than two channels, values can be between -2 and 2,
+where 0 means front/center, -1 means to the left and 1 to the right.
+To address rear speakers, you can pan to those with the higher values:
+-2, 2 is back. This value basically represents the angle at
+which it’s played if you multiply the value by 90 degrees.
+For smooth animation you can assign values outside the soft bounds,
+since the angle wraps around over multiple rotations.</p>
+</dd>
+</dl>
+<dl id="bpy-types-soundsequence-show-waveform">
+<dt>Display Waveform</dt><dd><p>Display an approximate waveform of the sound file inside of the Sound strip.
+The waveform reflects strip volume and its animation using <a href="../../../../animation/keyframes/introduction.html">keyframes</a>.</p>
+<p>Clipping audio, i.e. values over 100% amplitude, will be shown in red in the waveform.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sound-use-mono">
+<dt>Mono</dt><dd><p>Mixdown all audio channels into a single one.</p>
+</dd>
+</dl>
+</section>
+<section id="time">
+<h2>Time</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Time</p>
+</dd>
+</dl>
+</div>
+<p>The Time panel is used to control source and timeline position of the strip.</p>
+<dl>
+<dt>Lock (padlock icon)</dt><dd><p>Prevents the strip from being moved (found in the panel header).</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequence-channel">
+<dt>Channel</dt><dd><p>Changes the channel number, or row, of the strip.</p>
+</dd>
+<dt>Speed Factor</dt><dd><p>Coefficient of playback speed.
+This value will affect length of the strip, that will not be represented in the timeline.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequence-frame-start">
+<dt>Start</dt><dd><p>Changes the starting frame number of the strip, which is the same as selecting and moving the strip.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequence-frame-final-duration">
+<dt>Duration</dt><dd><p>Changes the length, in frames of the strip. This works by changing the end frame,
+which is the same as selecting and moving the strip’s right handle.</p>
+</dd>
+<dt>End</dt><dd><p>Specifies the ending time and ending frame number for the strip.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sequence-frame-offset-end">
+<dt>Strip Offset Start/End</dt><dd><p>Can be used to either extend the strip beyond the end frame by repeating the last frame.
+Or it can be used to shorten the strip, as if you were cropping the end frame.
+This is the same as adjusting the strip handles.</p>
+</dd>
+</dl>
+<dl id="sequencer-duration-hard">
+<dt>Hold Offset Start/End</dt><dd><p>Offset of the uncut strip content.</p>
+</dd>
+<dt>Current Frame</dt><dd><p>The frame number relative to the start of the active strip.</p>
+</dd>
+</dl>
+</section>
+<section id="source">
+<h2>Source</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Source</p>
+</dd>
+</dl>
+</div>
+<p>The Source panel is used to control sources of the strip
+such as filename and file path and various methods of interpreting these files.</p>
+<dl>
+<dt>Path</dt><dd><p>The directory that contains the source file.
+When the file is moved this can be updated instead of re-create the strip.</p>
+</dd>
+<dt>File</dt><dd><p>The file name of the source file.
+For image strips showing an image sequence, this will be different for each frame.</p>
+</dd>
+<dt>Change Data/Files</dt><dd><p>Same as the <em>Path</em> and <em>File</em> fields, but this time combined to open the File Browser in order to
+find the file(s) you search. Same as Strip ‣ Inputs ‣ Change Paths/Files.</p>
+</dd>
+<dt>MPEG Preseek</dt><dd><p>Movie strip only – Use Preseek field to tell Blender to look backward and compose an image
+based on the specified amount of previous frames (e.g. 15 for MPEG-2 DVD).</p>
+</dd>
+<dt>Color Space</dt><dd><p>To specify the color space of the source file.</p>
+<p>The list of color spaces depends on the active <a href="../../../../render/color_management.html#ocio-config">OCIO config</a>.
+The default supported color spaces are described in detail here:
+<a href="../../../../render/color_management.html#ocio-config-default-color-spaces">Default OpenColorIO Configuration</a></p>
+</dd>
+<dt>Alpha Mode</dt><dd><p>If the source file has an Alpha (transparency) channel, you can choose:</p>
+<p><a href="../../../../glossary/index.html#term-Straight-Alpha">Straight Alpha</a> or <a href="../../../../glossary/index.html#term-Premultiplied-Alpha">Premultiplied Alpha</a></p>
+</dd>
+<dt>Stream Index</dt><dd><p>Movie strip only – For files with several movie streams, use the stream with the given index.</p>
+</dd>
+<dt>Deinterlace</dt><dd><p>Removes fields in a video file. For example,
+if it is an analog video and it has even or odd interlacing fields.</p>
+</dd>
+<dt>Source Information</dt><dd><p>Displays information about the strip’s media.</p>
+<dl>
+<dt>Resolution</dt><dd><p>Resolution of the active strip image output.</p>
+</dd>
+<dt>FPS</dt><dd><p>Movie strip only – The frame rate encoded into the video file.
+If this value does not match the scene <a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-fps">Frame Rate</a>
+the perceived speed of the media will be wrong unless the speed is
+<a href="../../../../video_editing/edit/montage/strips/effects/speed_control.html#video-editing-change-fps">changed</a> to account for the difference in frame rate.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="options-for-sound-strips">
+<h3>Options for Sound Strips</h3>
+<dl>
+<dt>Sound</dt><dd><p><a href="../../../../interface/controls/templates/data_block.html#ui-data-block">Data-block menu</a> to select a sound.</p>
+</dd>
+<dt>Path</dt><dd><p>Path to the sound file used by this <a href="../../../../interface/controls/templates/data_block.html#ui-data-block">data-block</a> menu.</p>
+</dd>
+<dt>Pack</dt><dd><p>Pack sound into the blend-file.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sound-use-memory-cache">
+<dt>Caching</dt><dd><p>Sound file is decoded and loaded into the RAM.</p>
+</dd>
+<dt>Source Information</dt><dd><p>Displays information about the strip’s media.</p>
+<dl>
+<dt>Samplerate</dt><dd><p>The number of samples per second the audio is encoded at.</p>
+</dd>
+<dt>Channels</dt><dd><p>The number of audio channels encoded into the audio stream.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

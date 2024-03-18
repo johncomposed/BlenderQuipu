@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Input &gt; Scene &gt; Image Info</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Input Nodes</a></li>
+<li><a href="index.html">Input Scene Data Nodes</a></li>
+<li>Image Info Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="image-info-node">
+<h1>Image Info Node</h1>
+<p>The <em>Image Info</em> node gets information from image and animation.
+This can be useful to generate parameters in the geometry node for arbitrary images. Image information can be either
+general or frame-specific.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Source image to get parameters from.</p>
+</dd>
+<dt>Frame</dt><dd><p>Frame index for frame-specific outputs.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Width</dt><dd><p>The number of pixels along the X axis. Specific to each frame.</p>
+</dd>
+<dt>Height</dt><dd><p>The number of pixels along the Y axis. Specific to each frame.</p>
+</dd>
+<dt>Has Alpha</dt><dd><p>Whether the transparency channel be different from 1 for the pixels of this image frame. Specific to each frame.</p>
+</dd>
+<dt>Frame Count</dt><dd><p>The number of frames in an image or video frame sequence. For a static image, always 1.</p>
+</dd>
+<dt>FPS</dt><dd><p>The number of frames per second. For static image is always 0.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

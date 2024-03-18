@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Precision Drawing Tools &gt; Book Scanner</title></head>
+<body><ul>
+<li><a href="../../index.html">Add-ons</a></li>
+<li><a href="../index.html">3D View</a></li>
+<li><a href="index.html">Precision Drawing Tools (PDT)</a></li>
+<li>Worked Example - Building A Book Scanner</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="worked-example-building-a-book-scanner">
+<h1>Worked Example - Building A Book Scanner</h1>
+<p>In this page we will show how to make complex parts of this book scanner using PDT.</p>
+<p>This is considered a typical CAD design and consists of many parts
+that can be made by extruding a profile to make the 3D mesh.
+It should be noted that this is a preferred manner to work in the CAD environment,
+rather than starting with a 3D mesh and carving bits out of it.
+We will start with a component that has a hole in it so that process is explained properly.</p>
+<p><strong>Making the End Panels.</strong></p>
+<figure id="id1">
+<figcaption>
+<p>The End Panel in Edit Mode.</p>
+</figcaption>
+</figure>
+<p>For this we will start with a single vertex object at 0,0,0 (You will need to load the “Extra Objects” Add-on).</p>
+<p>I placed all objects, apart from the wheels at the World Center for ease,
+so the start point for this component is 0.39,-0.32,-0.3.
+The first thing to do therefore is move this single vertex in Edit mode to that location.
+For this there are two choices:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0.39,-0.32,-0.3 respectively, set operation to <code>Move</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key gd0.39,-0.32,-0.3 into Command Line.</p></li>
+</ul>
+<p>Now we need to extrude this vertex 0.64 in Y:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,0.64,0 respectively, set operation to <code>Extrude Vertices</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key vd,0.64, into Command Line.</p></li>
+</ul>
+<p>Select both vertices and extrude 0.7 in Z:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,0,0.7 respectively, set operation to <strong>Extrude Vertices</strong> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key vd,,0.7 into Command Line.</p></li>
+</ul>
+<p>Copy leftmost of the new vertices 0,0.065,0.14:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,0.065,0.14 respectively, set operation to <code>Duplicate Geometry</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key dd,0.065,0.14 into Command Line.</p></li>
+</ul>
+<p>Extrude new vertex -0.04 in Z:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,0,-0.04 respectively, set operation to <code>Extrude Vertices</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key vd,,-0.04 into Command Line.</p></li>
+</ul>
+<p>You should now have this:</p>
+<p>I have selected two vertices, join these two together with <strong>Join 2 Verts</strong> Tool.</p>
+<p>Select Top Left vertex and extrude it 0.02 in Y:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,0.02,0 respectively, set operation to <code>Extrude Vertices</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key vd,0.02, into Command Line.</p></li>
+</ul>
+<p>Extrude 0.16 in Z:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,0,0.16 respectively, set operation to <code>Extrude Vertices</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key vd,,0.16 into Command Line.</p></li>
+</ul>
+<p>You should now have this:</p>
+<p>Duplicate the selected vertices to the other side:</p>
+<p>Set 3D Cursor, SHIFT+D, CTRL+M Y - standard Blender commands.</p>
+<p>Join the gaps using <code>Join 2 Verts</code> and you get this:</p>
+<p>Select the vertices shown, they need filleting:</p>
+<ul>
+<li><p>Set <code>Radius</code> to 0.03, <code>Profile</code> to 0.5 and <code>Segments</code> to 6, click <code>Fillet</code>.</p></li>
+<li><p><strong>OR</strong> Key fv0.03,6,0.5 into Command Line.</p></li>
+</ul>
+<p>This is the result:</p>
+<p>Copy bottom left vertex 0.12 in Y &amp; 0.1 in Z:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,0.12,0.1 respectively, set operation to <code>Duplicate Geometry</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key dd,0.12,0.1 into Command Line.</p></li>
+</ul>
+<p>Extrude 0.45 in Z:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,0,0.45 respectively, set operation to <code>Extrude Geometry</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key vd,,0.45 into Command Line.</p></li>
+</ul>
+<p>Extrude 0.15 in Y, 0.31 in Z:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to 0,015,0.31 respectively, set operation to <code>Extrude Geometry</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key vd,0.15,0.31 into Command Line.</p></li>
+</ul>
+<p>Duplicate these new vertices to the other side:</p>
+<p>Set 3D Cursor, SHIFT+D, CTRL+M Y - standard Blender commands.</p>
+<p>Join the gaps using <code>Join 2 Verts</code> and you get this:</p>
+<p>Select the vertices shown, they need filleting:</p>
+<ul>
+<li><p>Set <code>Radius</code> to 0.03, <code>Profile</code> to 0.5 and <code>Segments</code> to 6, click <code>Fillet</code>.</p></li>
+<li><p><strong>OR</strong> Key fv0.03,6,0.5 into Command Line.</p></li>
+</ul>
+<p>You should now have this:</p>
+<p>Join these two vertices each side using <code>Join 2 Verts</code> Tool giving this:</p>
+<p>Select these vertices and key F - (Blender Face command) to give this:</p>
+<p>Switch selection (CTRL+I), select four vertices across joins and make Face again giving this:</p>
+<p>Duplicate entire geometry -0.02 in X:</p>
+<ul>
+<li><p>Set Cartesian Coordinates to -0.02,0,0 respectively, set operation to <code>Duplicate Geometry</code> and click <code>Delta</code>.</p></li>
+<li><p><strong>OR</strong> Key dd-0.02,, into Command Line.</p></li>
+</ul>
+<p>You should now have this:</p>
+<p>Select both outer edge rings and choose <code>Edge</code> =&gt; <code>Bridge Edge Loops</code>,
+repeat for inner edge loops to get all the faces:</p>
+<p>Shown in Face Mode</p>
+<p>Exit Edit Mode, name object “End-R” and duplicate Object (SHIFT+D), rename this new object “End-L”.</p>
+<p>Edit new “End-L” Object and mirror all faces about X Axis.</p>
+<ul>
+<li><p>Set 3D Cursor.</p></li>
+<li><p>Select All Geometry.</p></li>
+<li><p>Key CTRL+M.</p></li>
+<li><p>Key SHIFT+N to normalize faces.</p></li>
+</ul>
+<p>You should now have two ends like this:</p>
+<p>You should be able to see the advantages of making end profiles,
+then bridging the edge loops to make an extruded shape.
+This avoids duplicated geometry and also allows for holes in the object by making faces that split across the hole.
+I would then add an <strong>Edge Modifier</strong> to the objects to clean up the shading and of course make a suitable material.</p>
+<p>You can also see that we can either use <code>PDT Design Functions &amp; Tools</code>,
+or use <code>PDT Command Line</code> to just type in the commands.</p>
+<p>We can use the same principles to make all the other components.</p>
+<p>_To Be Continued…_</p>
+</section>
+</div>
+</div></body>
+</html>

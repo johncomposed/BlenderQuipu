@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Primitives</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Curves</a></li>
+<li>Primitives</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="primitives">
+<h1>Primitives</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Curve</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<div>
+<p>See also</p>
+<p>When adding curves there are some common options like other <a href="../../scene_layout/object/types.html#object-common-options">Objects</a>.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Eventually all the primitive curves will be replaced to use the same curve system used for hair curves.
+Until this is done, their features will diverge.</p>
+<p>They can be converted interchangeably to access the full range of edit and sculpting functionalities.</p>
+</div>
+<p>In Object/Edit Mode, the <em>Add Curve</em> menu, provides a few different curve primitives:</p>
+<section id="bezier-curve">
+<h2>Bézier Curve</h2>
+<p>Adds an open 2D Bézier curve with two control points.</p>
+</section>
+<section id="bezier-circle">
+<h2>Bézier Circle</h2>
+<p>Adds a closed, circle-shaped 2D Bézier curve (made of four control points).</p>
+</section>
+<section id="nurbs-curve">
+<h2>NURBS Curve</h2>
+<p>Adds an open 2D <a href="../../glossary/index.html#term-NURBS">NURBS</a> curve, with four control points, with <em>Uniform</em> knots.</p>
+</section>
+<section id="nurbs-circle">
+<h2>NURBS Circle</h2>
+<p>Adds a closed, circle-shaped 2D <a href="../../glossary/index.html#term-NURBS">NURBS</a> curve (made of eight control points).</p>
+</section>
+<section id="path">
+<h2>Path</h2>
+<p>Adds a <a href="../../glossary/index.html#term-NURBS">NURBS</a> open 3D curve made of five aligned control points,
+with <em>Endpoint</em> knots and the <em>Curve Path</em> setting enabled.</p>
+</section>
+<section id="empty-hair">
+<h2>Empty Hair</h2>
+<p>Adds an empty high-performance curves object and automatically:</p>
+<ul>
+<li><p>Assigns the active object as the <a href="../../sculpt_paint/curves_sculpting/introduction.html">Surface</a>.</p></li>
+<li><p>Set the surface object as the parent of the new object.</p></li>
+<li><p>Adds a Geometry Nodes modifier to deform the curves on the surface.</p></li>
+</ul>
+<section id="selecting">
+<h3>Selecting</h3>
+<p>Hair curves, while similar to regular curves are a bit different and have their own selection tools.
+Many of these match their regular curve tools but are implemented differently
+All hair curve selection operators are documented below for completeness.</p>
+<p>These selection operators work in both Sculpt and Edit modes.</p>
+<section id="selection-modes">
+<h4>Selection Modes</h4>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>3D Viewport Header ‣ Select Mode</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>1</kbd>, <kbd>2</kbd></p>
+</dd>
+</dl>
+<p>Note, this is only supported for “Hair Curves”.</p>
+</div>
+<p>Selection modes limits selection operators to certain curve domains.
+This feature is makes it easy to select whole segments at once, or to give more granular control over editing.</p>
+<dl>
+<dt>Control Points:</dt>
+<dd><p>Allows selection of individual control points.</p>
+</dd>
+<dt>Curve:</dt>
+<dd><p>Limits selection to whole curve segments.</p>
+</dd>
+</dl>
+</section>
+<section id="operators">
+<h4>Operators</h4>
+<dl>
+<dt>All</dt><dd><p>Select all control points or curves.</p>
+</dd>
+<dt>None</dt><dd><p>Deselect all control points or curves.</p>
+</dd>
+<dt>Invert</dt><dd><p>Invert the selection.</p>
+</dd>
+<dt>Random</dt><dd><p>Randomizes inside the existing selection or create new random selection if nothing is selected already.</p>
+</dd>
+<dt>Endpoints</dt><dd><p>Select endpoints of curves.
+Only supported in the Control Point selection mode.</p>
+</dd>
+<dt>Grow</dt><dd><p>Select points or curves which are close to already selected elements.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="editing">
+<h3>Editing</h3>
+<p>The curves can be edited via <a href="../../sculpt_paint/curves_sculpting/introduction.html">sculpting</a>.</p>
+<p>Curves objects also have basic editing support in “Edit Mode”.
+Currently, only the basic <a href="editing/curve.html#modeling-curves-transform">Transform</a> and Delete operators are supported.</p>
+<p id="bpy-ops-curves-delete">The Delete operator can remove Control Points or Segments.
+Deleting can be used to make curves shorter or simplify
+segments by deleting control points in the mid section of a segment.</p>
+</section>
+<section id="properties">
+<h3>Properties</h3>
+<p>Hair Curves have different properties than regular Curve objects;
+these properties are documented below.</p>
+<section id="attributes">
+<h4>Attributes</h4>
+<p>The <em>Attributes</em> panel contains different hair characteristics such as the position and color of hair strands.</p>
+<p>Use the <a href="../../interface/controls/templates/list_view.html#ui-list-view">List View</a> to manage attributes.</p>
+<div>
+<p>See also</p>
+<p>See the <a href="../geometry_nodes/attributes_reference.html">Attribute Reference</a> for details on attributes.</p>
+</div>
+</section>
+<section id="surface">
+<h4>Surface</h4>
+<dl id="bpy-types-curves-surface">
+<dt>Surface</dt><dd><p>The curve surface is an optional mesh that is used to anchor the curves, and behave as a scalp for hair grooming.
+When adding a new Curves object via the <cite>Add Menu</cite> the active object is automatically set as the surface.</p>
+<p>To set a new surface press <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> and select <em>Object (Attach Curves to Surface)</em>
+in the <em>Set Parent To</em> pop-up menu. This option can be seen as part of the Curves settings in the Properties
+Editor.</p>
+</dd>
+</dl>
+<dl id="bpy-types-curves-surface-uv-map">
+<dt>Surface UV Map</dt><dd><p>The name of the attribute on the surface mesh used to define the attachment of each curve.</p>
+<div>
+<p>Note</p>
+<p>If the UV from the surface changed,
+run <a href="../../sculpt_paint/curves_sculpting/introduction.html#bpy-ops-curves-snap-curves-to-surface">Snap to Nearest Surfaces</a> to re-attach the curves.</p>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="fur">
+<h2>Fur</h2>
+<p>Adds a fur setup to the selected objects.
+The fur setup is based on <a href="../geometry_nodes/index.html">Geometry Nodes</a> and built with
+<a href="../geometry_nodes/hair/index.html">Hair Node Groups</a> that come with Blender as bundled assets.</p>
+<p>See <a href="../../physics/introduction.html#bpy-ops-object-quick-fur">Quick Fur</a> for more information.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

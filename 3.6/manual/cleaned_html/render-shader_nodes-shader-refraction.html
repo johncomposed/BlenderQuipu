@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Refraction</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Refraction BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="refraction-bsdf">
+<h1>Refraction BSDF</h1>
+<p>The <em>Refraction</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+is used to add glossy refraction with sharp or microfacet distribution,
+used for materials that transmit light. For best results this node should be considered as
+a building block and not be used on its own,
+but rather mixed with a glossy node using a Fresnel factor.
+Otherwise it will give quite dark results at the edges for glossy refraction.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the surface, or physically speaking, the probability that light is refracted for each wavelength.</p>
+</dd>
+<dt>Roughness</dt><dd><p>Influences sharpness of the refraction; perfectly sharp at 0.0 and smoother with higher values.</p>
+</dd>
+<dt>Normal</dt><dd><p>Normal used for shading; if nothing is connected the default shading normal is used.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Distribution</dt><dd><p>Microfacet distribution to use. <em>Sharp</em> results in perfectly sharp refractions,
+while <em>Beckmann</em> and <em>GGX</em> can use the <em>Roughness</em> input for blurry refractions.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Refraction Shader.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

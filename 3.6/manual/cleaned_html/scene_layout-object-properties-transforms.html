@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Properties &gt; Transforms</title></head>
+<body><ul>
+<li><a href="../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../index.html">Objects</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Transform</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="transform">
+<h1>Transform</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Properties ‣ Transform</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>3D Viewport ‣ Sidebar ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Transform</em> panel in the Sidebar region allows you to view and
+manually/numerically control the position, rotation, and other properties of an object, in <em>Object Mode</em>.
+Each object stores its position, orientation, and scale values.
+These may need to be manipulated numerically, reset, or applied.
+In <em>Edit Mode</em>. It mainly allows you to enter precise coordinates for a vertex,
+or median position for a group of vertices (including an edge/face). As each type of object has a different set of
+options in its <em>Transform</em> panel in <em>Edit Mode</em>,
+see their respective descriptions in the <a href="../../../modeling/index.html">Modeling chapter</a>.</p>
+<p>Use this panel to either edit or display the object’s transform properties such as position,
+rotation and/or scaling. These fields change the object’s origin and then affect the aspect of
+all its <em>vertices</em> and faces.</p>
+<figure id="id3">
+<figcaption>
+<p>Transform Properties.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-object-location">
+<dt>Location</dt><dd><p>The object’s origin location in local coordinates.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-rotation">
+<dt>Rotation</dt><dd><p>The object’s local orientation, relative to the global axes and its own origin.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-rotation-mode">
+<dt>Rotation Mode</dt><dd><p>Method for calculating rotations, additional information can be found
+in the <a href="../../../advanced/appendices/rotations.html">manual’s appendix</a>.</p>
+<dl>
+<dt>Euler:</dt>
+<dd><p>The gizmo handles are aligned to the <a href="../../../glossary/index.html#term-Euler">Euler</a> axis,
+allowing you to see the discreet XYZ axis underlying the Euler rotation,
+as well as possible <a href="../../../glossary/index.html#term-Gimbal-Lock">Gimbal Lock</a>.</p>
+</dd>
+<dt>Axis Angle:</dt>
+<dd><p>The X, Y, and Z coordinates define a point relative to the object origin.
+This point and the origin define an axis around the W value defines the rotation.</p>
+</dd>
+<dt>Quaternion:</dt>
+<dd><p>X, Y, Z and W correspond to the <a href="../../../glossary/index.html#term-Quaternion">Quaternion</a> components.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-object-scale">
+<dt>Scale</dt><dd><p>The object’s relative scale along the local axis
+(e.g. the <em>Scale X</em> value represents the scale along the local X axis).
+Each object (cube, sphere, etc.), when created, has a scale of one unit in each local direction.
+To make the object bigger or smaller, you scale it in the desired axis.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-dimensions">
+<dt>Dimensions</dt><dd><p>The size of the object’s bounding box
+(aligned with the local axes – think of a cardboard box just big enough to hold the object).</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-lock">
+<dt>Transform Properties Locking</dt><dd><p>When the toggle is locked, the corresponding transformation value
+can not be changed in any interactive operation.
+But the value can still be changed using non-interactive operations,
+like editing the corresponding number field or using Python.</p>
+<p>For example, if you locked the <em>Location X</em> property
+then you cannot use the 3D gizmo to move the object along the global X axis.
+But you can still move it using the <em>Location X</em> number field.
+Consider the locking feature as a rigid constraint only changeable from the panel.</p>
+<p>To lock a property, click the padlock icon next to the button.
+The button is unlocked if the icon shows an open padlock,
+and it is locked if the icon appears as a closed padlock.</p>
+</dd>
+</dl>
+<section id="delta-transforms">
+<h2>Delta Transforms</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Properties ‣ Transform ‣ Delta Transforms</p>
+</dd>
+</dl>
+</div>
+<p>Delta Transforms are simply transformations that are applied on top of the transforms described above.
+Delta Transforms are particularly useful in animations. For example,
+you can animate an object with the primary transforms then move them around with Delta Transforms.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

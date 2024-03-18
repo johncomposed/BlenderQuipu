@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Lattice</title></head>
+<body><ul>
+<li><a href="index.html">Animation &amp; Rigging</a></li>
+<li>Lattice</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="lattice">
+<h1>Lattice</h1>
+<p>Lattice – or commonly called deformation cage outside of Blender.
+A lattice consists of a three-dimensional non-renderable grid of vertices.
+Its main use is to apply a deformation to the object it controls with a <a href="../modeling/modifiers/deform/lattice.html">Lattice Modifier</a>.
+If the object is parented with <em>Lattice Deform</em> a Lattice Modifier is automatically applied.</p>
+<section id="editing">
+<h2>Editing</h2>
+<dl>
+<dt>Flip (Distortion Free)</dt><dd><p>Mirrors the vertices displacement from their base position.</p>
+<p>U, V, W</p>
+</dd>
+<dt>Make Regular</dt><dd><p>Resets the whole lattice to a regular grid, where the cells are scaled to one cubic unit.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<figure id="id2">
+<figcaption>
+<p>Lattice properties.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Lattice</dt><dd><p>A <a href="../interface/controls/templates/data_block.html#ui-data-block">Data-Block Menu</a>.</p>
+</dd>
+</dl>
+<section id="id1">
+<h3>Lattice</h3>
+<dl>
+<dt>Points</dt><dd><p>Rate of subdivision in the axes:</p>
+<p>U, V, W</p>
+</dd>
+<dt>Interpolation Type</dt><dd><p>Selector for each axis. See <a href="shape_keys/shape_keys_panel.html#fig-interpolation-type">Different types of interpolation.</a>.</p>
+<p>Linear, Cardinal, Catmull-Rom, B-Spline</p>
+</dd>
+<dt>Outside</dt><dd><p>Takes only the vertices on the surface of the lattice into account.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>The strength of the influence assigned as a weight to the individual vertices in the selected vertex group.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>The lattice should be scaled and moved to fit around your object in Object Mode.
+Any scaling applied to the object in Edit Mode will result in the object deforming.
+This includes applying its scale with <kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd> as this will achieve the same result as
+scaling the lattice in Edit Mode, and therefore the object.</p>
+<figure id="id3">
+<figcaption>
+<p>Lattice around the cube object in Object Mode.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

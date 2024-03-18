@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Uv &gt; Overlays</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">UV Editor</a></li>
+<li>Overlays</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="overlays">
+<h1>Overlays</h1>
+<figure id="id1">
+<figcaption>
+<p>The Overlays pop-over.</p>
+</figcaption>
+</figure>
+<p>In the header, there is a button to turn off all overlays for the UV Editor.
+This option also toggles the visibility of <a href="../../modeling/meshes/uv/workflows/udims.html">UDIM</a>
+tile information.</p>
+<p>The drop-down button opens a pop-over with more detailed settings.
+The following categories are available:</p>
+<section id="guides">
+<h2>Guides</h2>
+<dl id="bpy-types-spaceimageoverlay-show-grid-background">
+<dt>Grid</dt><dd><p>Show the grid.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-show-grid-over-image">
+<dt>Over Image</dt><dd><p>Show the grid on top of the image rather than behind it.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-grid-shape-source">
+<dt>Grid Shape Source</dt><dd><p>How the row and column counts are determined.</p>
+<dl>
+<dt>Dynamic:</dt>
+<dd><p>The grid starts at 8×8 cells that are automatically subdivided further as you zoom in.</p>
+</dd>
+<dt>Fixed:</dt>
+<dd><p>The row and column counts are fixed and can be configured manually.</p>
+</dd>
+<dt>Pixel:</dt>
+<dd><p>Each grid cell matches one image pixel.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-custom-grid-subdivisions">
+<dt>Fixed Subdivisions X, Y</dt><dd><p>Number of columns/rows in the grid.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-tile-grid-shape">
+<dt>Tiles X, Y</dt><dd><p>The number of <a href="../../modeling/meshes/uv/workflows/udims.html">UDIM</a>
+tile grids to display in each cardinal direction.</p>
+</dd>
+</dl>
+</section>
+<section id="uv-editing">
+<h2>UV Editing</h2>
+<dl id="bpy-types-spaceuveditor-show-stretch">
+<dt>Display Stretch</dt><dd><p>Show how much of a shape difference there is between UV space and 3D space.
+Blue means low distortion, red means high.
+You can choose whether to display the distortion based on <em>Angle</em> or <em>Area</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="geometry">
+<h2>Geometry</h2>
+<dl id="bpy-types-spaceuveditor-uv-opacity">
+<dt>UV Opacity</dt><dd><p>Opacity of edges and faces.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-edge-display-type">
+<dt>Display As</dt><dd><p>Control how edges are shown.</p>
+<dl>
+<dt>Outline:</dt>
+<dd><p>Display edges in gray with a black outline.</p>
+</dd>
+<dt>Dash:</dt>
+<dd><p>Display edges as dashed black-gray lines.</p>
+</dd>
+<dt>Black:</dt>
+<dd><p>Display edges in black.</p>
+</dd>
+<dt>White:</dt>
+<dd><p>Display edges in white.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-show-modified-edges">
+<dt>Modified Edges</dt><dd><p>Additionally show the edges as they look after applying modifiers (in gray).</p>
+</dd>
+</dl>
+<dl id="bpy-types-spaceuveditor-show-faces">
+<dt>Faces</dt><dd><p>Display faces over the image.</p>
+</dd>
+</dl>
+</section>
+<section id="image">
+<h2>Image</h2>
+<dl>
+<dt>Show Metadata</dt><dd><p>Display metadata about the selected Render Result. See the Output tab’s
+<a href="../../render/output/properties/metadata.html">Metadata</a> panel to change what metadata to include.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

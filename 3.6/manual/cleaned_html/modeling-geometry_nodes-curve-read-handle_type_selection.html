@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Read &gt; Handle Type Selection</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Read Curve Nodes</a></li>
+<li>Handle Type Selection Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="handle-type-selection-node">
+<h1>Handle Type Selection Node</h1>
+<p>Creates a selection based on the handle types of the control points.</p>
+<p>The handle type of each control point can be changed with the
+<a href="../write/set_handle_type.html">Set Handle Type Node</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><p>Whether to consider left and/or right handles.
+When both are selected, the output value is true
+if either of the handles are of the chosen type.</p>
+<dl>
+<dt>Left:</dt>
+<dd><p>Consider the left handle.</p>
+</dd>
+<dt>Right:</dt>
+<dd><p>Consider the right handle.</p>
+</dd>
+</dl>
+</dd>
+<dt>Handle Type</dt><dd><p>Handle type for which the selection will be true.
+See the <a href="../../../curves/structure.html#curve-bezier-handle-type">Bézier curves</a> page for more details
+on the different handle types.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Selection</dt><dd><p>Boolean field set to true wherever the handle type matches.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

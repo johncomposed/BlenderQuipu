@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Tracking &gt; Stretch To</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Stretch To Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="stretch-to-constraint">
+<h1>Stretch To Constraint</h1>
+<p>The <em>Stretch To</em> constraint causes its owner to rotate and scale its Y axis towards its target.
+So it has the same tracking behavior as the <a href="track_to.html">Track To constraint</a>.
+However, it assumes that the Y axis will be the tracking and stretching axis,
+and does not give you the option of using a different one.</p>
+<p>It also optionally has some raw volumetric features,
+so the owner can squash down as the target moves closer,
+or thin out as the target moves farther away.
+Note however, that it is not the real volume of the owner which is thus preserved,
+but rather the virtual one defined by its scale values. Hence,
+this feature works even with non-volumetric objects, like empties, 2D meshes or surfaces,
+and curves.</p>
+<p>With bones, the “volumetric” variation scales them along their own local axes
+(remember that the local Y axis of a bone is aligned with it, from root to tip).</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Stretch To panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraints target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Original Length</dt><dd><p>This number field sets the rest distance between the owner and its target, i.e.
+the distance at which there is no deformation (stretching) of the owner.</p>
+<dl>
+<dt>Reset Original Length <code>X</code></dt><dd><p>When clicked, this small button will recalculate the <em>Rest Length</em> value,
+so that it corresponds to the actual distance between the owner and its target
+(i.e. the distance before this constraint is applied).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="constraints-stretch-to-volume-preservation">
+<dt>Volume Variation</dt><dd><p>This number field controls the amount of “volume” variation exponentially to the stretching amount.
+Note that the 0.0 value is not allowed, if you want to disable the volume feature,
+use the <em>None</em> button (see below).</p>
+</dd>
+<dt>Volume Min, Max</dt><dd><p>Limits for the volume preservation to a minimum and maximum scaling each by a <em>Bulge</em> factor.</p>
+</dd>
+<dt>Smooth</dt><dd><p>Smoothness factor to make limits less visible.</p>
+</dd>
+<dt>Maintain Volume</dt><dd><p>These buttons control which of the X and/or Z axes should be affected (scaled up/down)
+to preserve the virtual volume while stretching along the Y axis.
+If you enable the <em>none</em> button, the volumetric features are disabled.</p>
+</dd>
+<dt>Rotation</dt><dd><p>Specifies how the owner should be rotated to track the target with its Y axis.</p>
+<dl>
+<dt>XZ, ZX</dt><dd><p>These buttons are equivalent to the <em>Up</em> ones of
+the <a href="track_to.html">Track To constraint</a>:
+the owner is rotated around two local axes in the specified order.</p>
+</dd>
+<dt>Swing</dt><dd><p>The constraint uses a single <a href="../../../glossary/index.html#term-Swing">Swing</a> rotation, equivalent to
+the <a href="damped_track.html">Damped Track constraint</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

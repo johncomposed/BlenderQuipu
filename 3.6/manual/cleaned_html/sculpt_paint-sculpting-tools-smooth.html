@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Smooth</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Smooth</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="smooth">
+<h1>Smooth</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Smooth</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Smooths the positions of the vertices to either polish surfaces or remove volume from larger shapes.
+Because this brush is so essential, it’s always accessible by holding <kbd>Shift</kbd> and sculpting.</p>
+<p>Also available as a <a href="mesh_filter.html">Mesh Filter</a>
+to smooth all unmasked areas at once.</p>
+<div>
+<p>Note</p>
+<p>The brush called <em>Smooth</em> will be used whenever holding <kbd>Shift</kbd> and sculpting.
+If the smoothing strength or behavior needs to be changed, switch to the <em>Smooth</em>
+brush and adjust the settings there.</p>
+</div>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<section id="general">
+<h3>General</h3>
+<dl>
+<dt>Strength</dt><dd><p>The strength of the smoothing is relative to the density of the mesh.
+If the resolution is increased on the sculpted mesh,
+the strength of the smooth brush will be weaker than before and needs to be increased.</p>
+</dd>
+<dt>Direction <kbd>Ctrl</kbd></dt><dd><dl>
+<dt>Smooth</dt><dd><p>Smooths the surface of the mesh.</p>
+</dd>
+<dt>Enhance Details</dt><dd><p>Enhances details on the surface of the mesh by applying a smoothing operation in the opposite direction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div id="bpy-types-brush-smooth-deform-type">
+<p>Note</p>
+<p>More info at <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-general">General</a> brush settings
+and on <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-advanced">Advanced</a> brush settings.</p>
+</div>
+</section>
+<section id="unique">
+<h3>Unique</h3>
+<dl>
+<dt>Deformation</dt><dd><p>There are two deformation types.</p>
+<dl>
+<dt>Laplacian:</dt>
+<dd><p>Smooths the surface and volumes. This is the default behavior.</p>
+</dd>
+<dt>Surface:</dt>
+<dd><p>Smooths only the surface of the mesh, while preserving the volume.</p>
+<dl id="bpy-types-brush-surface-smooth-shape-preservation">
+<dt>Shape Preservation</dt><dd><p>How much of the original shape is preserved while smoothing. Increasing the value
+reduces the effect of having multiple iterations on the strength of smoothing.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-surface-smooth-current-vertex">
+<dt>Per-Vertex Displacement</dt><dd><p>How much the position of each individual vertex influences the final result.
+Increasing the value reduces the overall strength of smoothing.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-surface-smooth-iterations">
+<dt>Iterations</dt><dd><p>Number of smoothing iterations per brush step.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>This method works by applying regular smoothing, computing the difference between
+the original (blended between start of iteration and fully original based on <em>Shape Preservation</em>)
+and the smoothed mesh, smoothing these offsets, pushing vertices back using the smoothed offsets,
+and finally blending in the original mesh based on <em>Per-Vertex Displacement</em>.</p>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

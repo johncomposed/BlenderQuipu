@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Warp</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Warp Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="warp-modifier">
+<h1>Warp Modifier</h1>
+<p>The <em>Warp</em> modifier can be used to warp parts of a mesh to a new location in
+a very flexible way, by using two objects to select the “from” and “to” regions.</p>
+<figure id="id1">
+<figcaption>
+<p>A Warp modifier applied to a grid mesh.</p>
+</figcaption>
+</figure>
+<p>This modifier is a bit tricky to understand at first.
+It requires two points, specified by the two target objects’ origins.
+The “from” point designates a point in space that is pulled toward the “to” point.
+It is akin to using
+the <a href="../../../editors/3dview/controls/proportional_editing.html">Proportional Editing</a> in Edit Mode.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id2">
+<figcaption>
+<p>The Warp modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Object From</dt><dd><p>The object defining the origin transformation of the warp.</p>
+</dd>
+<dt>Object To</dt><dd><p>The object defining the destination transformation of the warp.</p>
+</dd>
+<dt>Preserve Volume</dt><dd><p>Enables volume preservation when rotating one of the transforms.</p>
+</dd>
+<dt>Strength</dt><dd><p>Sets how strong the effect is.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>The name of a vertex group which is used to control the influence of the modifier.
+If left empty, the modifier affects all vertices equally.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="falloff">
+<h3>Falloff</h3>
+<dl>
+<dt>Falloff Type</dt><dd><p>Sets the way the strength of the warp change as it goes from the center of the transform to the <em>Radius</em> value.
+See <a href="../../../editors/3dview/controls/proportional_editing.html">Proportional Editing</a>
+for descriptions of the falloff types.</p>
+</dd>
+<dt>Radius</dt><dd><p>Sets the distance from the transforms that can be warped by the transform handles.</p>
+</dd>
+</dl>
+</section>
+<section id="texture">
+<h3>Texture</h3>
+<dl>
+<dt>Texture</dt><dd><p>You can finely control which vertices are affected by the warp,
+and to what extent, using a texture.</p>
+</dd>
+</dl>
+<p>See <a href="../common_options.html#modifiers-common-options-masking">common masking options</a> for a complete reference.</p>
+</section>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>The <em>Warp</em> modifier can be awkward to use sometimes, and its use case is rather small,
+but there are a few still. For example, it can be used to have
+an interactive <a href="../../../editors/3dview/controls/proportional_editing.html">Proportional Editing</a>
+that can be used for animations.</p>
+<p>Another way to use this modifier is similar to
+the <a href="mesh_deform.html">Deform Modifier</a>.
+This allows you to deform parts of the mesh without having to make a vertex group.</p>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id3">
+<figcaption>
+<p>Warp Modifier with a custom falloff curve.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

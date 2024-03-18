@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Collections &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../object/index.html">Objects</a></li>
+<li><a href="../object/properties/index.html">Properties</a></li>
+<li><a href="index.html">Collections</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>In Blender, objects are not directly part of the scenes.
+Instead, they all get stored in a main database (basically the blend-file).</p>
+<figure id="id1">
+<figcaption>
+<p>The blend-file and its stored data.</p>
+</figcaption>
+</figure>
+<p>From there they are referenced into as many Scenes as you would like to see them.</p>
+<p>When they are stored in a scene, they are part of a so-called <em>scene collection</em>.
+So ultimately all the scene objects belong to this special collection.</p>
+<figure id="id2">
+<figcaption>
+<p>The scene collection.</p>
+</figcaption>
+</figure>
+<section id="collections">
+<h2>Collections</h2>
+<p>While the <em>scene collection</em> contains all the Scene’s objects,
+the user can also make their own collections to better organize these objects.</p>
+<p>It works like a Venn diagram, where all the objects are part of the <em>scene collection</em>,
+but can also be part of multiple collections.</p>
+<figure id="id3">
+<figcaption>
+<p>Venn diagram.</p>
+</figcaption>
+</figure>
+<p>The result is a clear and flexible way to arrange objects together on the Scene level.</p>
+<figure id="id4">
+<figcaption>
+<p>Scene organization.</p>
+</figcaption>
+</figure>
+</section>
+<section id="naming-and-nesting">
+<h2>Naming and Nesting</h2>
+<p>Collections can be named and sorted hierarchically.
+Just like folders can have subfolders in any operating system,
+collections can have nested collections too.</p>
+<figure id="id5">
+<figcaption>
+<p>Nested collections.</p>
+</figcaption>
+</figure>
+<p>For example: a <em>house</em> collection can contain a <em>bedroom</em> collection,
+which in turn contains a <em>furniture</em> collection referencing a bed, a cabinet and other objects.</p>
+</section>
+<section id="color-tagging">
+<h2>Color Tagging</h2>
+<p>Collections can have a color group assigned to them; helping organize
+and group different collections. This color tag is displayed as part of
+the collection icon in the <a href="../../editors/outliner/index.html">Outliner</a>
+and various other menus. The available colors are defined by
+Blender’s interface <a href="../../editors/preferences/themes.html">Theme</a>.</p>
+<p>To assign a color to a collection,
+use the <a href="../../editors/outliner/editing.html#bpy-ops-outliner-collection-color-tag-set">Set Color Tag</a> tool in the Outliner.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

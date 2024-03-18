@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Diffuse</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Diffuse BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="diffuse-bsdf">
+<h1>Diffuse BSDF</h1>
+<p>The <em>Diffuse</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+node is used to add Lambertian and Oren-Nayar diffuse reflection.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the surface, or physically speaking,
+the probability that light is reflected or transmitted for each wavelength.</p>
+</dd>
+<dt>Roughness Cycles Only</dt><dd><p>Surface roughness; 0.0 gives standard Lambertian reflection, higher values activate the Oren-Nayar BSDF.</p>
+</dd>
+<dt>Normal</dt><dd><p>Normal used for shading; if nothing is connected the default shading normal is used.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Lambertian reflection.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Diffuse shader behavior.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Oren-Nayar reflection.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

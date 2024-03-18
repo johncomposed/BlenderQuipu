@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Volume Info</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Volume Info Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="volume-info-node">
+<h1>Volume Info Node</h1>
+<p>The <em>Volume Info</em> node provides information about <em>Smoke Domains</em>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Gives the color of the smoke inside the <a href="../../../physics/fluid/type/domain/index.html">Fluid Domain</a>.
+The color and vector outputs are the same. The Factor output is an average of the channels.</p>
+</dd>
+<dt>Density</dt><dd><p>Gives a scalar defining the density of any smoke inside
+the <a href="../../../physics/fluid/type/domain/index.html">Fluid Domain</a>.</p>
+</dd>
+<dt>Flame</dt><dd><p>Gives a scalar defining the density of any fire inside
+the <a href="../../../physics/fluid/type/domain/index.html">Fluid Domain</a>.
+All three outputs are the same.</p>
+</dd>
+<dt>Temperature</dt><dd><p>Gives a scalar defining the temperature of the volume. Values in the range 0 - 1 map to 0 - 1000 kelvin.
+This may be used to render physically-based fire with the Blackbody or Principled Volume shaders.
+All three outputs are the same.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id1">
+<figcaption>
+<p>Smoke density.</p>
+</figcaption>
+</figure>
+<figure id="id2">
+<figcaption>
+<p>Computing the color of fire using the Blackbody node.
+Since the Blackbody node expects its input in Kelvin,
+the temperature output has to be remapped first.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Troubleshooting &gt; 3D View</title></head>
+<body><ul>
+<li><a href="index.html">Troubleshooting</a></li>
+<li>3D Viewport</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="d-viewport">
+<h1>3D Viewport</h1>
+<section id="rendering">
+<h2>Rendering</h2>
+<section id="depth-buffer-glitches">
+<h3>Depth Buffer Glitches</h3>
+<p>Sometimes when setting a large <a href="../editors/3dview/sidebar.html#bpy-types-spaceview3d-clip-start">clipping range</a>
+will allow you to see both near and far objects,
+but reduces the depth precision resulting in artifacts.</p>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Model with no clipping artifacts.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Model with clipping artifacts.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Mesh with artifacts in Edit Mode.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>To avoid this:</p>
+<ul>
+<li><p>Increase the near clipping when working on large scenes.</p></li>
+<li><p>Decrease the far clipping when objects are not viewed at a distance.</p></li>
+</ul>
+<p>When perspective is disabled only the far Clip End is used, very high values can still result in artifacts.
+This is <strong>not</strong> specific to Blender, all graphics applications have these same limitations.</p>
+</section>
+<section id="objects-invisible-in-camera-view">
+<h3>Objects Invisible in Camera View</h3>
+<p>If you have a large scene, viewing it through Camera View may not display all of the objects in the scene.
+One possibility may be that the <a href="../render/cameras.html#camera-clipping">clipping distance</a> of the camera is too low.
+The camera will only show objects that fall within the clipping range.</p>
+</section>
+</section>
+<section id="performance">
+<h2>Performance</h2>
+<section id="slow-rendering">
+<h3>Slow Rendering</h3>
+<p>There are a couple of reasons why you may be experiencing a slow viewport.</p>
+<dl>
+<dt>Old Hardware</dt><dd><p>Sometimes your hardware, mainly your graphics card, may be too slow to keep up with your model.</p>
+</dd>
+<dt>Upgrade Graphics Driver</dt><dd><p>In some cases, slow selection is resolved by using updated drivers.</p>
+</dd>
+</dl>
+</section>
+<section id="slow-selection">
+<h3>Slow Selection</h3>
+<p>Blender uses OpenGL for selection, some graphics card drivers are slow at performing this operation.</p>
+<p>This becomes especially problematic on dense geometry.</p>
+<p>Possible Solutions:</p>
+<dl>
+<dt>GPU Depth Picking (Preferences)</dt><dd><p>See Preferences ‣ Viewport ‣ Selection.</p>
+<p>This option is enabled by default, disabling it may give a better performance at
+the cost of selection accuracy.</p>
+</dd>
+<dt>Upgrade Graphics Driver</dt><dd><p>In some cases, slow selection is resolved by using updated drivers.
+<em>It is generally good to use recent drivers when using 3D software.</em></p>
+</dd>
+<dt>Select Centers (Workaround)</dt><dd><p>In <em>Object Mode</em>, holding <kbd>Ctrl</kbd> while selecting uses the object center point.
+While this can be useful on its own, it has the side effect of not relying on OpenGL selection.</p>
+</dd>
+<dt>Change Display Mode (Workaround)</dt><dd><p>Using <em>Wireframe</em> display mode can be used to more quickly select different objects.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Obviously, the workarounds listed here are not long term solutions,
+but it is handy to know if you are stuck using a system with poor OpenGL support.</p>
+<p>Ultimately, if none of these options work out it may be worth upgrading your hardware.</p>
+</div>
+</section>
+</section>
+<section id="navigation">
+<h2>Navigation</h2>
+<section id="lost-in-space">
+<h3>Lost in Space</h3>
+<p>When navigating your scene, you may accidentally navigate away from your scene
+and find yourself with a blank viewport. There are two ways to fix this:</p>
+<ol>
+<li><p>Select an object in the <a href="../editors/outliner/index.html">Outliner</a>,
+then zoom to that object with View ‣ Frame Selected or <kbd>NumpadPeriod</kbd>.</p></li>
+<li><p>Use <kbd>Home</kbd> to fit all objects into the 3D Viewport.</p></li>
+</ol>
+</section>
+<section id="invisible-limit-zooming-in">
+<h3>Invisible Limit Zooming In</h3>
+<p>Sometimes when navigating you may be trying to zoom in but it seems that you have hit a limit
+to how far you can zoom.
+This is because Blender uses a central point to orbit around.</p>
+<p>In practice this is good for modeling an object which you rotate about a lot to see from all sides
+(think of a potter using a wheel).
+However, this makes it awkward to explore a scene or model an object from the ‘inside’, for example.</p>
+<section id="solutions">
+<h4>Solutions</h4>
+<ul>
+<li><p>Use <a href="../editors/3dview/navigate/navigation.html#bpy-ops-view3d-dolly">View Dolly</a>.</p></li>
+<li><p>Use <a href="../editors/3dview/navigate/walk_fly.html#dview-fly-walk">Walk/Fly Navigation</a>.</p></li>
+<li><p>Use <a href="../editors/preferences/navigation.html#prefs-navigation-auto-depth">Auto Depth</a> and <a href="../editors/preferences/navigation.html#prefs-zoom-mouse-pos">Zoom to Mouse Position</a>.
+These tools will make sure the distance is always the value under the mouse cursor,</p></li>
+<li><p>Use <a href="../editors/3dview/navigate/navigation.html#bpy-ops-view3d-zoom-border">Zoom Region</a> as it also resets the center point when zooming.</p></li>
+<li><p>Center the view around the mouse cursor <kbd><kbd>Alt</kbd>-<kbd>MMB</kbd></kbd>.
+This will take the position under the cursor and make it your viewpoint center.</p></li>
+<li><p>Use an <abbr title="N-Degrees of Freedom">NDOF</abbr>, also known as a 3D mouse,
+see <a href="../getting_started/configuration/hardware.html#hardware-ndof">configuring peripherals</a> for more information.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="tools">
+<h2>Tools</h2>
+<section id="invalid-selection">
+<h3>Invalid Selection</h3>
+<p>There are times when selection fails under some configurations,
+often this is noticeable in mesh <em>Edit Mode</em>,
+selecting vertices/edges/faces where random elements are selected.</p>
+<p>Internally Blender uses <a href="../glossary/index.html#term-OpenGL">OpenGL</a> for selection,
+so the graphics card driver relies on giving correct results.</p>
+<p>Possible Solutions:</p>
+<dl>
+<dt>Disable <a href="../glossary/index.html#term-Multisampling">Multisampling</a></dt><dd><p>This is by far the most common cause of selection issues.</p>
+<p>There are known problems with some graphics cards when using multisampling.</p>
+<p>You can disable this option by turning multisampling off in your graphics card driver options.</p>
+</dd>
+<dt>Change Anti-Aliasing Sample Settings</dt><dd><p>Depending on your OpenGL configuration,
+some specific sample settings may work while others fail.</p>
+<p>Unfortunately finding working configuration involves trial &amp; error testing.</p>
+</dd>
+<dt>Upgrade Graphics Driver</dt><dd><p>As with any OpenGL-related issues, using recent drivers can resolve problems.</p>
+<p>However, it should be noted that this is a fairly common problem and remains unresolved with many drivers.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

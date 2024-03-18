@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Rigid Body &gt; Constraints &gt; Types &gt; Generic Spring</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Rigid Body</a></li>
+<li><a href="../index.html">Rigid Body Constraints</a></li>
+<li><a href="index.html">Types</a></li>
+<li>Generic Spring Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="generic-spring-constraint">
+<h1>Generic Spring Constraint</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Rigid Body Constraint</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Generic Spring</p>
+</dd>
+</dl>
+</div>
+<p>The generic spring constraint adds some spring parameters for the X/Y/Z axes
+to all the options available on the Generic constraint.
+Using the spring alone allows the objects to bounce around as if attached
+with a spring anchored at the constraint object.
+This is usually a little too much freedom,
+so most applications will benefit from enabling translation or rotation constraints.</p>
+<p>If the damping on the springs is set to 1, then the spring forces are prevented from realigning the anchor points,
+leading to strange behavior. If your springs are acting weird, check the damping.</p>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Limits</dt><dd><dl>
+<dt>X/Y/Z Axis</dt><dd><p>Enables/disables limit translation on X, Y or Z axis respectively.</p>
+<dl>
+<dt>Lower</dt><dd><p>Lower limit of translation for X, Y or Z axis respectively.</p>
+</dd>
+<dt>Upper</dt><dd><p>Upper limit of translation for X, Y or Z axis respectively.</p>
+</dd>
+</dl>
+</dd>
+<dt>X/Y/Z Angle</dt><dd><p>Enables/disables limit rotation around the X, Y or Z axis respectively.</p>
+<dl>
+<dt>Lower</dt><dd><p>Lower limit of rotation for X, Y or Z axis respectively.</p>
+</dd>
+<dt>Upper</dt><dd><p>Upper limit of rotation for X, Y or Z axis respectively.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Springs</dt><dd><dl>
+<dt>X/Y/Z Axis</dt><dd><p>Enables/disables springs translation on X, Y or Z axis respectively.</p>
+<dl>
+<dt>Stiffness</dt><dd><p>Spring Stiffness of the translation on X, Y or Z axis respectively. Specifies how “bendy” the spring is.</p>
+</dd>
+<dt>Damping</dt><dd><p>Spring Damping of the translation on X, Y or Z axis respectively. Amount of damping the spring has.</p>
+</dd>
+</dl>
+</dd>
+<dt>X/Y/Z Angle</dt><dd><p>Enables/disables springs rotation around the X, Y or Z axis respectively.</p>
+<dl>
+<dt>Stiffness</dt><dd><p>Spring Stiffness of the rotation around the X, Y or Z axis respectively.
+Specifies how “bendy” the spring is.</p>
+</dd>
+<dt>Damping</dt><dd><p>Spring Damping of the rotation around the X, Y or Z axis respectively. Amount of damping the spring has.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

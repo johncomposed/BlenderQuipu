@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Editing &gt; Sculpt</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Sculpt</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sculpt">
+<h1>Sculpt</h1>
+<p>This page details the general hotkey operators and menu operators in sculpt mode.</p>
+<section id="transforms">
+<h2>Transforms</h2>
+<dl>
+<dt>Move</dt><dd><p>Change the position of the object.</p>
+</dd>
+<dt>Rotate</dt><dd><p>Change the orientation of the mesh.</p>
+</dd>
+<dt>Scale</dt><dd><p>Increase/decrease the size of the mesh.</p>
+</dd>
+<dt>Sphere</dt><dd><p>Morph the mesh to a spherical shape.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p><a href="../tools/transforms.html">Transform Tools</a>.</p>
+</div>
+</section>
+<section id="show-hide">
+<h2>Show &amp; Hide</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Sculpt</p>
+</dd>
+</dl>
+</div>
+<p>Some very common hotkey operators to control the visibility based on face sets.
+These are not part of any menu and have to be used via the shortcuts.
+More visibility operators can be found in the <a href="face_sets.html">Face Sets Menu</a>
+and the Pie Menu shortcut <kbd>W</kbd>. (Since visibility is often toggled via face sets.)</p>
+<dl>
+<dt>Box Hide</dt><dd><p>Draw a box to hide faces of a mesh.</p>
+</dd>
+<dt>Box Show</dt><dd><p>Draw a box to reveal hidden faces.
+This works similar to the <a href="../../../interface/selecting.html#tool-select-box">Box Select</a> tool.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sculpt-face-set-change-visibility">
+<dt>Toggle Visibility <kbd>H</kbd></dt><dd><p>Hide all face sets except the active one (under the cursor).
+If face sets are already hidden, then this operator will show everything.</p>
+</dd>
+<dt>Hide Active Face Set <kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Hide the face set under the cursor. Press <kbd>H</kbd> afterwards to show everything.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>These two shortcuts are inverted compared to other modes, to make the operators more convenient to access.
+Toggling the Visibility is far more often used. If this behavior is undesired it’s recommended
+to change the keymap in the preferences.</p>
+</div>
+<dl id="sculpt-show-all">
+<dt>Show All <kbd>W</kbd>, <kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Reveal all hidden faces.</p>
+</dd>
+<dt>Invert Visible Face Sets</dt><dd><p>Hides all geometry that is part of a face set and makes all hidden geometry that is part of a face set visible.</p>
+</dd>
+<dt>Hide Masked</dt><dd><p>Hides all masked vertices.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>For a more general introduction see
+<a href="../introduction/visibility_masking_face_sets.html">Visibility, Masking &amp; Face Sets</a>.</p>
+</div>
+</section>
+<section id="trimming">
+<h2>Trimming</h2>
+<p>The trimming operators add or remove geometry from the mesh based on a gesture input.
+These operators are especially useful for sketching an early base mesh for further
+sculpting with the <a href="../tool_settings/remesh.html">voxel remesher</a>.</p>
+<dl id="bpy-ops-sculpt-trim-box-gesture">
+<dt><a href="../tools/box_trim.html">Box Trim</a></dt><dd><p>Removes geometry based on a <a href="../../../interface/selecting.html#tool-select-box">box selection</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sculpt-trim-lasso-gesture">
+<dt><a href="../tools/lasso_trim.html">Lasso Trim</a></dt><dd><p>Removes geometry based on a <a href="../../../interface/selecting.html#tool-select-lasso">lasso selection</a>.</p>
+</dd>
+<dt><a href="../tools/box_trim.html">Box Add</a></dt><dd><p>Adds geometry based on a <a href="../../../interface/selecting.html#tool-select-box">box selection</a>.</p>
+</dd>
+<dt><a href="../tools/lasso_trim.html">Lasso Add</a></dt><dd><p>Adds geometry based on a <a href="../../../interface/selecting.html#tool-select-lasso">lasso selection</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sculpt-project-line-gesture">
+<dt><a href="../tools/line_project.html">Line Project</a></dt><dd><p>Flattens the geometry along a plane determined by the camera view and a drawn line.
+The region of the mesh being flattened is visualized by the side of the line that is shaded.</p>
+</dd>
+</dl>
+</section>
+<section id="fairing">
+<h2>Fairing</h2>
+<p>These operators smooths geometry patches based of a <a href="face_sets.html">Face set</a>.</p>
+<div>
+<p>See also</p>
+<p><a href="../tools/edit_face_set.html">Edit Face Set Tool</a></p>
+</div>
+<dl>
+<dt>Fair Positions</dt><dd><p>Creates a perfectly flat and smooth geometry patch from the face set.
+This is the ideal way to trim parts of your mesh
+if the vertex count is too high for other operations,
+or the vertex IDs must not be altered
+(Like when using <a href="../../../modeling/modifiers/generate/multiresolution.html">Multires</a> sculpting).</p>
+</dd>
+<dt>Fair Tangency</dt><dd><p>Creates a smooth as possible geometry patch from the face set
+by minimizing changes in vertex <a href="../../../glossary/index.html#term-Tangent">tangents</a>.
+This is ideal for creating smooth curved surfaces on complex topology,
+where just using the smooth brush will not lead to desired results</p>
+</dd>
+</dl>
+</section>
+<section id="mesh-filters">
+<h2>Mesh Filters</h2>
+<p>Applies a deformation to all vertices in the mesh at the same time.
+Masking, auto-masking and visibility will be taken into account.</p>
+<p>To use these operators, click and drag away from left to right
+or from right to left for a negative effect.</p>
+<div>
+<p>See also</p>
+<p><a href="../tools/mesh_filter.html">Mesh Filter Tool</a></p>
+</div>
+<dl>
+<dt>Smooth</dt><dd><p>Smooths the positions of the vertices to either polish surfaces or remove volume from larger shapes.
+Especially useful to fix most of the artifacts of the voxel remesher.
+This filter works similar to the <a href="../tools/smooth.html">Smooth</a> brush.</p>
+</dd>
+<dt>Surface Smooth</dt><dd><p>Eliminates irregularities of the mesh by making the positions
+of the vertices more uniform while preserving the volume of the object.
+This filter works similar to the <em>Surface</em> deformation type of the
+<a href="../tools/smooth.html">Smooth</a> brush.</p>
+</dd>
+<dt>Inflate</dt><dd><p>Displaces vertices uniformly along their normal.
+This filter works similar to the <a href="../tools/inflate.html">Inflate</a> brush.</p>
+</dd>
+<dt>Relax Topology</dt><dd><p>Tries to create an even distribution of quads without deforming the volume of the mesh.
+This filter works the same as holding <kbd>Shift</kbd> with the
+<a href="../tools/slide_relax.html">Slide Relax</a> brush.</p>
+</dd>
+<dt>Relax Face Sets</dt><dd><p>This will remove the jagged lines visible after drawing or creating a face set.
+This filter works the same as holding <kbd>Shift</kbd> with the
+<a href="../tools/draw_facesets.html">Draw Face Set</a> brush.</p>
+</dd>
+<dt>Sharpen</dt><dd><p>Sharpens and smooths the mesh based on its curvature,
+resulting in pinching hard edges and polishing flat surfaces.
+Especially useful when sculpting hard surfaces and stylized models
+with creasing and flattening brushes.</p>
+</dd>
+<dt>Enhance Details</dt><dd><p>Increases the high frequency surface details of the mesh
+by intensifying the difference between creases and valleys.
+This filter works similar to the inverted direction of the
+<a href="../tools/smooth.html">Smooth</a> brush.</p>
+</dd>
+<dt>Erase Displacement</dt><dd><p>Deletes displacement information of
+the <a href="../../../modeling/modifiers/generate/multiresolution.html">Multires Modifier</a>,
+resetting the mesh to a regular subdivision surface result.
+This can be used to reset parts of the sculpt or to fix reprojection artifacts
+after applying a <a href="../../../modeling/modifiers/deform/shrinkwrap.html">Shrinkwrap Modifier</a>.</p>
+<p>Negative strokes will intensify the displacement details,
+this method works similar to <em>Enhance Details</em> and can give better results in some circumstances.</p>
+</dd>
+<dt>Random</dt><dd><p>Randomly moves vertices along the vertex normal.
+This filter works similar to the <a href="../../../scene_layout/object/editing/transform/randomize.html#bpy-ops-object-randomize-transform">Randomize Transform</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="set-pivot">
+<h2>Set Pivot</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Sculpt ‣ Set Pivot</p>
+</dd>
+</dl>
+</div>
+<p>Like Object and Edit Mode, Sculpt Mode also has a <a href="../../../glossary/index.html#term-Pivot-Point">Pivot Point</a>.
+This is because the basic <a href="../tools/transforms.html">move, rotate and scale</a>
+transforms are also supported in Sculpt Mode.
+But the pivot point in Sculpt Mode is unique. It always moves together with the transformed mesh
+and can be both manually &amp; automatically placed.</p>
+<dl>
+<dt>Origin</dt><dd><p>Sets the pivot to the origin of the sculpt.</p>
+</dd>
+<dt>Unmasked</dt><dd><p>Sets the pivot position to the average position of the unmasked vertices.</p>
+</dd>
+<dt>Mask Border</dt><dd><p>Sets the pivot position to the center of the mask’s border.
+This operation will automatically happen when using <a href="expand.html#bpy-ops-sculpt-expand">Expand</a>.</p>
+</dd>
+<dt>Active Vertex</dt><dd><p>Sets the pivot position to the active vertex position.</p>
+</dd>
+<dt>Surface</dt><dd><p>Sets the pivot position to the surface under the cursor.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>For more convenient placement of the pivot point it’s recommended to assign a shortcut to either
+<em>Surface</em> or <em>Active Vertex</em>.</p>
+</div>
+<div>
+<p>See also</p>
+<p>For a more general introduction see <a href="../introduction/transforming.html">Transforming</a>.</p>
+</div>
+</section>
+<section id="rebuild-bvh">
+<h2>Rebuild BVH</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Sculpt ‣ Rebuild BVH</p>
+</dd>
+</dl>
+</div>
+<p>Recalculates the <a href="../../../glossary/index.html#term-BVH">BVH</a> used by <a href="../tool_settings/dyntopo.html">Dyntopo</a>
+to improve performance, which might degrade over time while using Dyntopo.</p>
+<div>
+<p>See also</p>
+<p>For a more general introduction see <a href="../introduction/adaptive.html">Adaptive Resolution</a>.</p>
+</div>
+</section>
+<section id="transfer-sculpt-mode">
+<h2>Transfer Sculpt Mode</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Sculpt ‣ Transfer Sculpt Mode</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>Q</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Switches Sculpt Mode from the <a href="../../../glossary/index.html#term-Active">Active</a> object to the object under the mouse.
+See <a href="../../../editors/3dview/modes.html#bpy-ops-object-transfer-mode">Switching Objects</a> for more information.</p>
+<div>
+<p>See also</p>
+<p>For a more general introduction see
+<a href="../introduction/multiple_objects.html">Working with Multiple Objects</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

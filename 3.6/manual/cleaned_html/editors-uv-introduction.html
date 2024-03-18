@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Uv &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">UV Editor</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>The UV Editor is used for editing UV maps, which describe how a 2D image should be mapped
+onto a 3D object.</p>
+<figure id="id1">
+<figcaption>
+<p>UV Editor with a UV map and a test grid texture.</p>
+</figcaption>
+</figure>
+<p>Image textures are typically needed when the desired look is hard to achieve with procedural textures,
+or if the texture is not uniform. For example, a car would only have scratches in a few places where they make sense,
+not in random places all over its body.</p>
+<p>Blender offers a number of projections (Box, Sphere…) that automatically apply a 2D image to a 3D object,
+but these tend to only work for simple meshes. For more complex ones, you need to create a UV map instead.
+This is a flat area where each face of the 3D object is laid out on the 2D image, specifying which part of the
+image it should be textured with. This gives you complete control over the mapping process.</p>
+<p>The name “UV” refers to the axes of the map: U for horizontal, V for vertical. These letters were chosen to
+avoid confusion with “X” and “Y”, which refer to axes in 3D space instead.</p>
+<section id="uvs-explained">
+<h2>UVs Explained</h2>
+<p>The best analogy to understand UV mapping is cutting up a cardboard box.
+If you were to take a pair of scissors and cut along its edges,
+you would be able to spread it out flat on a tabletop. As you are looking down at the table,
+we could say that U is the left-right direction, and V is the up-down direction.</p>
+<p>As a next step, you could put the spread-out box on top of a poster, cut the poster
+to match its shape, glue the poster to the box, and finally reassemble the box.
+You now have a 3D box textured with a 2D image.</p>
+<p>A UV map describes how the box is cut up, and how it’s laid out on the poster.
+You have complete freedom in how to do this: if you wanted to, you could cut each individual
+side of the box and position, rotate, scale, and even skew it on the poster
+independently of the other sides.</p>
+<section id="example">
+<h3>Example</h3>
+<figure id="id2">
+<figcaption>
+<p>3D space (XYZ) versus UV space.</p>
+</figcaption>
+</figure>
+<p>In the above image, a dome in 3D space is flattened into a disc in UV space.
+Each 3D face is then textured with the part of the image it covers in the UV map.</p>
+<p>The image also demonstrates a common problem in UV maps: distortion. Notice how,
+even though the checkered squares in the 2D texture are all the same size,
+they get different sizes when applied to the 3D dome (they’re smaller at the base
+than at the top). This is because the faces in the UV map have different relative
+sizes than in 3D space, which is a result of the flattening process.</p>
+<p>You’ll typically want to minimize this distortion by manually guiding and tweaking
+the flattening, using <a href="../../modeling/meshes/uv/unwrapping/seams.html">seams</a> for example.
+However, it’s not always possible to eliminate it completely.</p>
+</section>
+</section>
+<section id="interface">
+<h2>Interface</h2>
+<section id="header">
+<h3>Header</h3>
+<figure id="id3">
+<figcaption>
+<p>UV Editor header.</p>
+</figcaption>
+</figure>
+<p>The header contains several menus and options for working with UVs.</p>
+<dl>
+<dt>Sync Selection</dt><dd><p>Synchronizes the selection between the UV Editor and the 3D Viewport.
+See <a href="selecting.html#bpy-types-toolsettings-use-uv-select-sync">Sync Selection</a> for more details.</p>
+</dd>
+<dt>Selection Mode</dt><dd><p>The UV element type to select.
+See <a href="selecting.html#bpy-types-toolsettings-uv-select-mode">Selection Mode</a> for more details.</p>
+</dd>
+<dt>Sticky Selection Mode</dt><dd><p>Which other vertices to select automatically.
+See <a href="selecting.html#bpy-types-toolsettings-uv-sticky-select-mode">Sticky Selection Mode</a> for more details.</p>
+</dd>
+<dt>View</dt><dd><p>Tools for controlling how the content is displayed in the editor.
+See <a href="navigating.html">Navigating</a>.</p>
+</dd>
+<dt>Select</dt><dd><p>Tools for <a href="selecting.html">selecting UVs</a>.</p>
+</dd>
+<dt>Image</dt><dd><p>Tools for opening and manipulating images.
+See <a href="../image/editing.html">Editing</a>.</p>
+</dd>
+<dt>UV</dt><dd><p>Contains tools for <a href="../../modeling/meshes/uv/unwrapping/introduction.html">Unwrapping Meshes</a>
+and <a href="../../modeling/meshes/uv/editing.html">Editing UVs</a>.</p>
+</dd>
+<dt>Pivot <kbd>Period</kbd></dt><dd><p>See <a href="../3dview/controls/pivot_point/index.html">Pivot Point</a>.</p>
+</dd>
+<dt>Snap <kbd><kbd>Shift</kbd>-<kbd>Tab</kbd></kbd></dt><dd><p>See <a href="controls/snapping.html">Snapping</a>.</p>
+</dd>
+<dt>Proportional Editing <kbd>O</kbd></dt><dd><p>See <a href="../3dview/controls/proportional_editing.html">Proportional Editing</a>.</p>
+</dd>
+<dt>Image</dt><dd><p>A <a href="../../interface/controls/templates/data_block.html#ui-data-block">data-block menu</a> used for selecting images.
+When an image has been loaded or created in the UV Editor,
+the <a href="../image/image_settings.html">Image panel</a> appears in the Sidebar region.</p>
+</dd>
+<dt>Image Pin</dt><dd><p>When enabled the current image remains visible regardless of the object selection.
+This switching only happens if the 3D Viewport is in Edit Mode or Texture Paint Mode.</p>
+<p>This can be useful to enable when an image is used as a reference.</p>
+</dd>
+<dt>Show Gizmo</dt><dd><p>Lets you show/hide all gizmos using the toggle button, or specific gizmos using
+the drop-down arrow.</p>
+<dl>
+<dt>Navigate</dt><dd><p>Enable/disable the gizmos used to pan or zoom the 2D viewport.
+See <a href="navigating.html#editors-uv-navigate-gizmos">Navigation Gizmos</a> for more information.</p>
+</dd>
+</dl>
+</dd>
+<dt>Show Overlays</dt><dd><p>Lets you show/hide all overlays using the toggle button, or specific overlays
+using the drop-down arrow. See <a href="overlays.html">Overlays</a>.</p>
+</dd>
+<dt>Active UV Loop Layer</dt><dd><p>Select which UV map to use.</p>
+</dd>
+<dt>Display Channels</dt><dd><p>Select what color channels are displayed.</p>
+<dl>
+<dt>Color &amp; Alpha:</dt>
+<dd><p>Enables transparency and shows a checkerboard behind the image.</p>
+</dd>
+<dt>Color:</dt>
+<dd><p>Displays the colored image, without alpha channel.</p>
+</dd>
+<dt>Alpha:</dt>
+<dd><p>Displays the alpha channel as a grayscale image. White areas are opaque, black areas are transparent.</p>
+</dd>
+<dt>Z-Buffer:</dt>
+<dd><p>Displays the depth from the camera, from Clip Start to Clip End,
+as specified in the <a href="../../render/cameras.html">Camera settings</a>.</p>
+</dd>
+<dt>Red, Green, Blue:</dt>
+<dd><p>Single color channel visualized as a grayscale image.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

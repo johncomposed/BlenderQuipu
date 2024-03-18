@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Import Export &gt; Mesh Uv Layout</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Import-Export</a></li>
+<li>UV Layout</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="uv-layout">
+<h1>UV Layout</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>UV Editor ‣ UV ‣ Export UV Layout</p>
+</dd>
+</dl>
+</div>
+<section id="usage">
+<h2>Usage</h2>
+<p>Using your favorite image painting program, you could use an exported UV layout to create a texture.
+Then save your changes, and back in Blender, use the Image ‣ Open
+to load it as your UV image for the mesh in Edit Mode for the desired (and active) UV map.</p>
+<p>As a way of communicating to an artist who is painting your UV Texture for you,
+Blender has a tool called <em>UV Layout</em> (UV Editor ‣ UV ‣ Export UV Layout)
+that saves an image as a <code>Targa</code> (<code>.tga</code>), <code>EPS</code>, or <code>SVG</code> format for the object you have selected.</p>
+<p>The image will be lines defining the UV edges that are within the image area of the UV mapping area.
+Edges outside the boundary, even if selected, will not be shown in the saved graphic.
+The artist will use this as a transparent layer in their paint program as a guide when painting your texture.
+The example below shows Blender in the background, and the Gimp working on the texture,
+using the saved layout as a guide. Note that <code>targa</code> format supports the Alpha channel,
+so you can paint transparent areas of the mesh. For using images as textures, see the page on
+<a href="../../render/materials/legacy_textures/types/image_movie.html">Image Textures</a>.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>A UV layout in the UV Editor.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>A UV layout in a paint program.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<figure id="id4">
+<figcaption>
+<p>Export options.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>All UVs</dt><dd><p>if disabled, then only the UV faces selected will be outlined.</p>
+</dd>
+<dt>Modified</dt><dd><p>Export UVs from the modified mesh.</p>
+</dd>
+<dt>Format</dt><dd><p>Select the type of image file to save (<code>.png</code>, <code>.eps</code>, <code>.svg</code>).</p>
+</dd>
+<dt>Size</dt><dd><p>Select the size of the image in pixels.</p>
+</dd>
+<dt>Fill Opacity</dt><dd><p>Set the opacity of the fill.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

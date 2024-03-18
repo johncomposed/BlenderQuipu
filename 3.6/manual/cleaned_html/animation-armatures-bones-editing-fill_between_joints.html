@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Editing &gt; Fill Between Joints</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Fill Between Joints</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="fill-between-joints">
+<h1>Fill Between Joints</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Fill Between Joints</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>F</kbd></p>
+</dd>
+</dl>
+</div>
+<p>The main use of this tool is to create one bone between two selected joints by pressing
+<kbd>F</kbd>, similar to how in mesh editing you can “create edges/faces”.</p>
+<p>If you have one root and one tip selected, the new bone:</p>
+<ul>
+<li><p>Will have the root placed on the selected tip.</p></li>
+<li><p>Will have the tip placed on the selected root.</p></li>
+<li><p>Will be parented and connected to the bone owning the selected tip.</p></li>
+</ul>
+<table id="id2">
+<caption>Fill between a tip and a root.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Active tip on the left.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Active tip on the right.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If you have two tips selected, the new bone:</p>
+<ul>
+<li><p>Will have the root placed on the selected tip closest to the 3D cursor.</p></li>
+<li><p>Will have the tip placed on the other selected tip.</p></li>
+<li><p>Will be parented and connected to the bone owning the tip used as the new bone’s root.</p></li>
+</ul>
+<table id="id5">
+<caption>Fill between tips.</caption>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>3D cursor on the left.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>3D cursor on the right.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If you have two roots selected, you will face a small problem due to the event system in
+Blender not updating the interface in real-time.</p>
+<p>When clicking <kbd>F</kbd>, similar to the previous case, you will see a new bone:</p>
+<ul>
+<li><p>With the root placed on the selected root closest to the 3D cursor.</p></li>
+<li><p>With the tip placed on the other selected root.</p></li>
+<li><p>Parented and connected to the bone owning the root used as the new bone’s root.</p></li>
+</ul>
+<p>If you try to move the new bone, Blender will update the interface and you will see
+that the new bone’s root moves to the tip of the parent bone.</p>
+<table id="id8">
+<caption>Fill between roots.</caption>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>Before UI update (3D cursor on the left).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>After UI update, correct visualization.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Clicking <kbd>F</kbd> with only one bone joint selected will create a bone from the selected
+joint to the 3D cursor position, and it will not parent it to any bone in the armature.</p>
+<table id="id11">
+<caption>Fill with only one bone joint selected.</caption>
+<tbody>
+<tr><td><figure id="id12">
+<figcaption>
+<p>Fill with only one tip selected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id13">
+<figcaption>
+<p>Fill with only one root selected.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You will get an error when:</p>
+<ul>
+<li><p>Trying to fill two joints of the same bone.</p></li>
+<li><p>Trying to fill more than two bone joints.</p></li>
+</ul>
+</section>
+</div>
+</div></body>
+</html>

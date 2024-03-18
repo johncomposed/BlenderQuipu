@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Limit Rotation</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Limit Rotation Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="limit-rotation-constraint">
+<h1>Limit Rotation Constraint</h1>
+<p>An object or bone can be rotated around the X, Y and Z axes.
+This constraint restricts the amount of allowed rotations around each axis,
+through lower and upper bounds.</p>
+<p>It is interesting to note that even though the constraint limits the visual and
+rendered rotations of its owner, its owner’s data-block still allows (by default)
+the object or bone to have rotation values outside the minimum and maximum ranges.
+This can be seen in the <em>Transform</em> panel.
+When an owner is rotated and attempted to be rotated outside the limit boundaries,
+it will be constrained to those boundaries visually and when rendered, but internally,
+its rotation values will still be changed beyond the limits. If the constraint is removed,
+its ex-owner will seem to jump to its internally specified rotation.</p>
+<p>Similarly, if its owner has an internal rotation that is beyond the limit, rotating it back
+into the limit area will appear to do nothing until the internal rotation values are back
+within the limit threshold (unless you enabled the <em>Affect Transform</em> option, see below).</p>
+<p>Setting equal the min and max values of an axis,
+locks the owner’s rotation around that axis… Although this is possible,
+using the <em>Transformation Properties</em> axis locking feature is probably easier.</p>
+<p>This transform does not constrain the bone if it is manipulated by the IK solver.
+For constraining the rotation of a bone for IK purposes,
+see <a href="../../armatures/posing/bone_constraints/inverse_kinematics/introduction.html">Inverse Kinematics</a>.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Limit Rotation panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Limit X, Y, Z</dt><dd><p>These buttons enable the rotation limit around respectively the X, Y and Z axes of the owner,
+in the chosen <em>Owner</em> space.
+The <em>Min</em> and <em>Max</em> number fields to their right control the value of
+their lower and upper boundaries, respectively.</p>
+<div>
+<p>Note</p>
+<ul>
+<li><p>If a min value is higher than its corresponding max value,
+the constraint behaves as if it had the same value as the max one.</p></li>
+<li><p>Unlike the <a href="limit_location.html">Limit Location constraint</a>,
+you cannot separately enable lower or upper limits.</p></li>
+<li><p>The constraint can be used to simply remove shear from the owner transformation
+by leaving all limits disabled.</p></li>
+</ul>
+</div>
+</dd>
+<dt>Order</dt><dd><p>Allows specifying which <a href="../../../glossary/index.html#term-Euler">Euler</a> order to use when applying the limits.
+Defaults to the order of the owner.</p>
+</dd>
+<dt>Affect Transform</dt><dd><p>The constraint is taken into account when the object is manually rotated using
+transformation tools in the editors. This prevents assigning transformation
+property values (as shown in the <em>Transform</em> panel) that exceed the specified limits.</p>
+</dd>
+<dt>Owner</dt><dd><p>This constraint allows you to choose in which space evaluate its owner’s transform properties.
+See <a href="../interface/common.html#rigging-constraints-interface-common-space">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

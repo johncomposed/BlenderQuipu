@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Freestyle &gt; View Layer &gt; Line Style &gt; Modifiers &gt; Geometry &gt; 2D Transform</title></head>
+<body><ul>
+<li><a href="../../../../../index.html">Rendering</a></li>
+<li><a href="../../../../index.html">Freestyle</a></li>
+<li><a href="../../../index.html">View Layer Properties</a></li>
+<li><a href="../../index.html">Line Style</a></li>
+<li><a href="index.html">Geometry Modifiers</a></li>
+<li>2D Transform</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="d-transform">
+<h1>2D Transform</h1>
+<p>The <em>2D Transform</em> modifier applies two-dimensional scaling and/or rotation to
+the stroke backbone geometry. Scale is applied before rotation.</p>
+<dl>
+<dt>Pivot</dt><dd><p>The center (pivot point) of these 2D transformations can be:</p>
+<dl>
+<dt>Stroke Center:</dt>
+<dd><p>The median point of the stroke.</p>
+</dd>
+<dt>Stroke Start:</dt>
+<dd><p>The beginning point of the stroke.</p>
+</dd>
+<dt>Stroke End:</dt>
+<dd><p>The end point of the stroke.</p>
+</dd>
+<dt>Stroke Point Parameter:</dt>
+<dd><p>The <em>Stroke Point Parameter</em> factor controls where along the stroke the pivot point is
+(start point if set to 0.0; end point if set to 1.0).</p>
+</dd>
+<dt>Absolute 2D Point:</dt>
+<dd><p>The <em>Pivot X</em> and <em>Y</em> values define the position of the pivot point in the final render
+(from the bottom left corner).</p>
+<div>
+<p>Important</p>
+<p>Currently, you have to take into account the <em>real</em> render size,
+i.e. resolution <strong>and</strong> resolution percentage.</p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Scale X, Y</dt><dd><p>The scaling factors, in their respective axes.</p>
+</dd>
+<dt>Rotation Angle</dt><dd><p>The rotation angle.</p>
+</dd>
+</dl>
+<figure id="id1">
+<figcaption>
+<p>2D Transform modifier
+(blend-file).</p>
+</figcaption>
+</figure>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Templates &gt; Curve</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li>Curve Widget</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve-widget">
+<h1>Curve Widget</h1>
+<figure id="id1">
+<figcaption>
+<p>Curve widget.</p>
+</figcaption>
+</figure>
+<p>The <em>Curve Widget</em> allows to intuitively map a range of input values to a set of output values
+by adjusting a curve, where the X axis represents the input and the Y axis the output.</p>
+<section id="control-points">
+<h2>Control Points</h2>
+<p>Like all curves in Blender, the curve of the <em>Curve Widget</em> is controlled using <em>control points</em>.</p>
+<p>By default, there are two control points: one at (0.0, 0.0) and one at (1.0, 1.0),
+meaning the input is mapped directly to the output (unchanged).</p>
+<dl>
+<dt>Move</dt><dd><p>Simply click and drag it around.</p>
+</dd>
+<dt>Add</dt><dd><p>Click anywhere on the curve where there is not already a control point.</p>
+</dd>
+<dt>Remove</dt><dd><p>Select it and click the <code>X</code> button at the top right.</p>
+</dd>
+</dl>
+</section>
+<section id="controls">
+<h2>Controls</h2>
+<p>Above the curve graph is a row of controls. These are:</p>
+<dl>
+<dt>Zoom In (plus magnifying glass icon)</dt><dd><p>Zoom into the center of the graph to show more details and provide more accurate control.
+To navigate around the curve while zoomed in, click and drag in an empty part of the graph.</p>
+</dd>
+<dt>Zoom Out (minus magnifying glass icon)</dt><dd><p>Zoom out of the graph to show fewer details and view the graph as a whole.
+You cannot zoom out further than the clipping region (see <em>Clipping</em> below).</p>
+</dd>
+<dt>Specials <code>v</code></dt><dd><p>A <a href="../buttons/menus.html#ui-specials-menu">Specials</a> menu with operators to edit control points or to set properties.</p>
+<dl>
+<dt>Reset View</dt><dd><p>Resets the view of the curve.</p>
+</dd>
+<dt>Handle Options</dt><dd><p>Controls how the control points affect the curve shape.
+It determines the interpolation of the curve segment at the selected control point.</p>
+<dl>
+<dt>Vector Handle</dt><dd><p>Vector handles create straight lines and sharp corners.</p>
+</dd>
+<dt>Auto Handle</dt><dd><p>Automatic handles that create smooth curves.</p>
+</dd>
+<dt>Auto-Clamped Handle</dt><dd><p>Automatic handles that create smooth curves while also preventing overshoot.</p>
+</dd>
+<dt>Free Handle</dt><dd><p>The handles can be moved completely independently, and thus can result in a sharp change of direction.</p>
+</dd>
+<dt>Aligned Free Handles</dt><dd><p>The two handles of the curve point are locked together to always point in exactly opposite directions.
+This results in a curve that is always smooth at the control point.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Vector Handles.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Auto Handles.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Auto Clamped Handles.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Extend Options</dt><dd><p>Controls how the curve is extended before the first control point and after the last control point.</p>
+<dl>
+<dt>Extend Horizontal</dt><dd><p>Causes the curve to stay horizontal before the first point and after the last point.</p>
+</dd>
+<dt>Extend Extrapolated</dt><dd><p>Causes the curve to extrapolate before the first point and after the last point,
+based on the shape of the curve.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Extend Horizontal.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Extend Extrapolated.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Reset Curve</dt><dd><p>Resets the curve to default (removes all points added to the curve).</p>
+</dd>
+</dl>
+</dd>
+<dt>Clipping Options (dot icon)</dt><dd><dl>
+<dt>Use Clipping</dt><dd><p>Forces curve points to stay between specified values.</p>
+</dd>
+<dt>Min X/Y and Max X/Y</dt><dd><p>Set the minimum and maximum bounds of the curve points.</p>
+</dd>
+</dl>
+</dd>
+<dt>Delete <code>X</code></dt><dd><p>Remove the selected control point. The first and last points cannot be deleted.</p>
+</dd>
+<dt>X, Y</dt><dd><p>The coordinates of the selected control point.</p>
+</dd>
+<dt>Copy/Paste <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd></dt><dd><p>The whole curve can be copied from one Curve Widget to another by hovering over
+the curve graph and pressing <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

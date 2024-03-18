@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Knife Project</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Knife Project</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="knife-project">
+<h1>Knife Project</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Knife Project</p>
+</dd>
+</dl>
+</div>
+<p>Knife projection is a non-interactive tool where you can use objects to cookie-cut into
+one or more meshes rather than hand drawing the line. The outline of selected objects
+that <em>are not</em> in Edit Mode are used to cut the meshes along the view axis of objects
+that <em>are</em> in Edit Mode. Afterwards the resulting geometry inside the cutters outline will be selected.
+Outlines can be a wireframe or boundary edges (i.e. the unconnected edges of a mesh), as well as
+Curve objects.</p>
+<p>Keep in mind that Knife Project works from the current view’s perspective.  For best results, make sure
+to rotate your view to exactly the position you require before using this tool.  Orthographic views such
+as Right, Front, and Top are commonly used for more predictable results.</p>
+<div>
+<p>Note</p>
+<p>The primitives, being manifold objects, do not have wireframe or boundary edges.
+In the case of the cube, deleting the top face will result in cutting edges.
+<a href="../../selecting/all_by_trait.html#bpy-ops-mesh-select-non-manifold">Select Non-Manifold</a>
+(Wire, Boundaries) will highlight the cutting edges of mesh objects.</p>
+<p>In general, for flat shapes, you will usually want to select “Faces Only” from the delete menu to leave
+behind only edges.</p>
+</div>
+<p>To use Knife Project, first in <em>Object Mode</em> select the objects to be cut,
+then switch to <em>Edit Mode</em> and select the cutting objects in the Outliner (<kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd>),
+and finally choose Mesh ‣ Knife Project.</p>
+<div>
+<p>Hint</p>
+<p><a href="../../../../editors/3dview/navigate/align.html">3D Viewport Alignment</a> to adjust the projection axis.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Cut Through</dt><dd><p>Projects the cut through the entire mesh, including back faces not currently visible.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Before projecting from a text object.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Resulting knife projection.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Before projecting from a mesh object.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Resulting knife projection (extruded after).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Before projecting from a 3D curve object.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Resulting knife projection (extruded after).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<p>When cutting multiple meshes in Edit Mode at once,
+geometry from these meshes does not occlude separate mesh objects behind them.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

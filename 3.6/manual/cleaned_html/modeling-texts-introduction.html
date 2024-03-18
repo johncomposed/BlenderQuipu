@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Texts &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Text</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Text</p>
+</dd>
+</dl>
+</div>
+<p>Text objects contain some text, and are in the same object type family as curves and surfaces ones,
+as fonts are vector data (they are made of curves).</p>
+<p>Blender uses a “Font System” to manage mapping letter codes to geometry representing them in the 3D Viewport.
+This font system has its own <em>built-in</em> font, but it can use external fonts too,
+including <em>PostScript Type 1</em>, <em>OpenType</em> and <em>TrueType</em> fonts.
+And moreover, it can use any objects existing in the current blend-file as letters.</p>
+<figure id="id2">
+<figcaption>
+<p>An example of an extruded text.</p>
+</figcaption>
+</figure>
+<p>Text objects allow you to create and render 2D or 3D text,
+with various advanced layout options, like justifying and frames.
+By default, letters are just flat filled surfaces, exactly like any closed 2D curve.
+But, just like curves, you can extrude them,
+and apply <a href="../modifiers/introduction.html">modifiers</a> to them
+(e.g. to make them <a href="../modifiers/deform/curve.html">follow a curve</a>).</p>
+<p>Text in Blender can be laid out in some relatively advanced ways,
+defining columns or blocks of text, using different alignments, and so on.</p>
+<p>Those features are similar in concept to what you can find in <abbr title="DeskTop Publishing">DTP</abbr> software
+(like <a href="https://www.scribus.net/">Scribus</a>), although at a very basic level currently.</p>
+<div>
+<p>Tip</p>
+<p>You can convert a text object, either to a curve, or directly to a mesh,
+using <a href="../../scene_layout/object/editing/convert.html#object-convert-to">Convert</a> in Object Mode.</p>
+</div>
+<div>
+<p>Note</p>
+<p>A maximum of 50,000 characters is allowed per text object. However,
+be forewarned that the more characters a single text object has,
+the slower the object will respond interactively.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

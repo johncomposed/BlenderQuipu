@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Knife Topology Tool</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Knife Topology Tool</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="knife-topology-tool">
+<h1>Knife Topology Tool</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Knife</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Knife Topology Tool</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>K</kbd></p>
+</dd>
+</dl>
+</div>
+<p>The Knife tool can be used to interactively subdivide (cut up)
+geometry by drawing lines or closed loops to create holes.</p>
+<section id="usage">
+<h2>Usage</h2>
+<p>When using <em>Knife</em>, the cursor changes to an icon of a scalpel
+and the header changes to display options for the tool.
+You can draw connected straight lines by clicking <kbd>LMB</kbd>,
+marked with small green squares. Red squares are already defined cuts.
+Surrounding red squares mean that there is a cut already in that position,
+so no additional vertex will be created (besides the first one).</p>
+<p>If multiple objects are selected before entering Edit Mode,
+then knife cuts will affect all of those objects.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Mesh before knife cut.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Knife cut active.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>After confirming knife cut.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<dl>
+<dt>Occlude Geometry</dt><dd><p>Only cut geometry visible on screen.</p>
+</dd>
+<dt>Only Selected <kbd><kbd>Shift</kbd>-<kbd>K</kbd></kbd></dt><dd><p>Only cuts through selected geometry.</p>
+</dd>
+<dt>X-Ray</dt><dd><p>Show cut points on non-visible geometry too, when <em>Occlude Geometry</em> is deactivated.</p>
+</dd>
+<dt>Measurement</dt><dd><p>Which visible measurements to show.</p>
+<p>Distance, Angle, None, Both</p>
+</dd>
+<dt>Angle Snapping</dt><dd><p>Whether or not dragged lines should be constrained to particular angles, and if so,
+which coordinate system the angle is relative to.</p>
+<p>None, Screen, Relative</p>
+</dd>
+<dt>Angle Snapping Increment</dt><dd><p>When angle snapping is on, the angle will be constrained to a multiple of this angle.</p>
+</dd>
+</dl>
+</section>
+<section id="controls">
+<h2>Controls</h2>
+<dl>
+<dt>Confirm <kbd>Spacebar</kbd> or <kbd>Return</kbd></dt><dd><p>Confirms the cut.
+<kbd>Return</kbd> will leave selected every edge except the new edges created from the cut.</p>
+</dd>
+<dt>Cancel <kbd>Esc</kbd></dt><dd><p>Cancels the cut.</p>
+</dd>
+<dt>Draw a Continuous Line <kbd>LMB</kbd> drag.</dt><dd><p>So you can draw a free-hand line over a surface,
+points will be created at edge intersections.</p>
+</dd>
+<dt>Close Loop double-click <kbd>LMB</kbd></dt><dd><p>This is a quick way to close the loop you are currently cutting.</p>
+</dd>
+<dt>New Cut <kbd>RMB</kbd></dt><dd><p>Begins a new cut. This allows you to define multiple distinct cut lines.
+If multiple cuts have been defined, they are recognized as new snapping points.</p>
+<table>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Creating multiple cuts.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Result of starting new cuts while in the tool.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Midpoint Snap <kbd>Shift</kbd></dt><dd><p>Hold to snap the cursor to the midpoint of edges,
+meaning that all cuts will be performed at the exact center of each cut edge.</p>
+</dd>
+<dt>Ignore Snap <kbd>Ctrl</kbd></dt><dd><p>Hold to make the tool ignore snapping,
+unlike the default where mouse cursor snaps to near edges.</p>
+</dd>
+<dt>Cut Through: <kbd>C</kbd></dt><dd><p>Allow the Cut tool to cut through to occluded faces, instead of only the visible ones.</p>
+</dd>
+<dt>Angle Constrain <kbd>A</kbd></dt><dd><p>Constrains the cut line to certain degree increments.
+The increment can be specified in the Tool Settings (see above), or can be typed
+when angle constraining is active.
+The default angles are in the plane of the screen, but typing <kbd>A</kbd> again
+makes it relative to the last cut edge.
+If the last cut edge is ambiguous (because the cut was on a vertex),
+typing <kbd>R</kbd> cycles through the possible reference edges.</p>
+<table>
+<tbody>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Constraining cut angle.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Result of constraining cut angle.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Axis Constrain <kbd>X</kbd>, <kbd>Y</kbd>, or <kbd>Z</kbd></dt><dd><p>Constrains the cut line to one of the coordinate system axes.
+Initially it will be the global axis with the given name,
+but pressing the same key again switches to the object’s local axis system.
+Additionally, if the scene transformation orientation is set to
+a custom orientation (e.g. from a face), the constraints will be in that coordinate system.</p>
+</dd>
+<dt>Visible Measurements <kbd>S</kbd></dt><dd><p>Shows measurements of the cuts being made: angles with respect to a mesh edge, lengths, or both.
+Pressing <kbd>S</kbd> repeatedly cycles between what can be shown.</p>
+<p>Only Distance, Only Angles, Both, None</p>
+<table>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>Only Distance.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Only Angles.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Both Angles and Distance.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Undo <kbd><kbd>Ctrl</kbd>-<kbd>Z</kbd></kbd></dt><dd><p>Undoes the previous cut segment. The starting point for the next cut is adjusted accordingly.
+If a cut is a drag cut, the entire drag cut is undone.</p>
+</dd>
+<dt>X-Ray Mode <kbd>V</kbd></dt><dd><p>Toggles whether or not cuts to segments behind the visible geometry are shown.</p>
+</dd>
+</dl>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<section id="duplicate-vertices">
+<h3>Duplicate Vertices</h3>
+<p>If you experience problems where duplicate vertices are being created by cuts,
+this is often caused by too large a near/far clipping range.</p>
+<p>Try increasing the <em>Clip Start</em> to avoid this problem,
+see <a href="../../../../troubleshooting/3d_view.html#troubleshooting-depth">Depth Troubleshooting</a> for details.</p>
+</section>
+<section id="unconnected-cuts">
+<h3>Unconnected Cuts</h3>
+<p>Cuts that begin or end in the middle of a face, will be ignored.</p>
+<p><em>This is constrained by the kinds of geometry Blender can represent.</em></p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

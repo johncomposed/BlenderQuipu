@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Video Editing &gt; Edit &gt; Montage &gt; Strips &gt; Image</head>
+<body><ul>
+<li><a href="../../../index.html">Video Editing</a></li>
+<li><a href="../../index.html">Edit Your Project</a></li>
+<li><a href="../index.html">Montage</a></li>
+<li><a href="index.html">Strips</a></li>
+<li>Image/Sequence Strip</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="image-sequence-strip">
+<h1>Image/Sequence Strip</h1>
+<div>
+<p>Tip</p>
+<p>Image strips can display thumbnails in the Sequencer overlaid on their strips
+by enabling the <a href="../../../../editors/video_sequencer/sequencer/display.html#bpy-types-sequencertimelineoverlay-show-thumbnails">Thumbnails</a> overlay.</p>
+</div>
+<section id="single-image">
+<h2>Single Image</h2>
+<p>When you add a single still image (<code>*.jpg</code>, <code>*.png</code>, etc.),
+Blender creates a 25 frames long strip which will show this image along the strips range.</p>
+</section>
+<section id="image-sequence">
+<h2>Image Sequence</h2>
+<p>In the case of (numbered) image sequences
+(e.g. <code>*-0001.jpg</code>, <code>*-0002.jpg</code>, <code>*-0003.jpg</code>, etc, of any image format), you have a choice:</p>
+<dl>
+<dt>Range</dt><dd><p>Navigate into the directory and <kbd>LMB</kbd> click and drag over a range of names to highlight multiple files.
+You can page down and continue <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> click-dragging to add more to the selection.</p>
+</dd>
+<dt>Batch</dt><dd><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> click selected non-related stills for batch processing; each image will be one frame,
+in sort order, and can be a mix of file types (<code>jpg</code>, <code>png</code>, <code>exr</code>, etc.).</p>
+</dd>
+<dt>All</dt><dd><p>Press <kbd>A</kbd> to select/deselect all files in the directory.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Dealing with Different Sizes</p>
+<p>Dealing with different sized images and different sized outputs is tricky.
+If you have a mismatch between the size of the input image and the render output size,
+the Video Sequencer will try to auto-scale the image to fit it entirely in the output.
+This may result in clipping. If you do not want that, use <em>Crop</em> and/or <em>Offset</em> in the Input
+panel to move and select a region of the image within the output. When you use <em>Crop</em> or <em>Offset</em>,
+the auto-scaling will be disabled and you can manually re-scale by adding the Transform effect.</p>
+</div>
+</section>
+<section id="add-image-strip">
+<h2>Add Image Strip</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Image/Sequence</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Relative Path</dt><dd><p>Store the location of the image file relative to the blend-file.</p>
+</dd>
+<dt>Start Frame</dt><dd><p>The <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequence-frame-start">Start Frame</a> to place the left handle of the strip.</p>
+</dd>
+<dt>End Frame</dt><dd><p>The end frame to place the right handle of the strip.</p>
+<div>
+<p>Tip</p>
+<p>Subtract the <em>Start Frame</em> from the <em>End Frame</em> to get the strip’s duration.</p>
+</div>
+</dd>
+<dt>Channel</dt><dd><p>The <a href="../../../../editors/video_sequencer/sequencer/channels.html">Channel</a> to place the strip.</p>
+</dd>
+<dt>Replace Selection</dt><dd><p>Replaces the currently selected strips with the new strip.</p>
+</dd>
+<dt>Fit Method</dt><dd><p>Determines how images with an aspect ratio different than the scene’s
+<a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a> are scaled to fit inside the render area.</p>
+<dl>
+<dt>Scale to Fit:</dt>
+<dd><p>Adjusts the strips <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a> so the visual contents of
+the strip to fit exactly within the project’s <a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a>
+while maintaining the original aspect ratio.</p>
+<p>This may mean that the transparent areas may be added
+along the content’s border to fit the content in the rendered area.</p>
+</dd>
+<dt>Scale to Fill:</dt>
+<dd><p>Adjusts the strips <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a>
+so the visual contents of the strip to span the project’s
+<a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a> while maintaining the original aspect ratio.</p>
+<p>This may mean that portions of the original image no longer fit the content inside the rendered area.</p>
+</dd>
+<dt>Stretch to Fill:</dt>
+<dd><p>Adjusts the strips <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a> so the visual contents of
+the strip to fill the project’s <a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a>. Note, unlike
+the other two methods described above, <em>Stretch to Fill</em> does not maintaining the original aspect ratio.</p>
+<p>This may mean that the original image becomes distorted to fit the content inside the rendered area.</p>
+</dd>
+</dl>
+</dd>
+<dt>Set View Transform</dt><dd><p>Automatically sets an appropriate <a href="../../../../render/color_management.html#bpy-types-colormanagedviewsettings-view-transform">View Transform</a>
+based on the <a href="../../../../glossary/index.html#term-Color-Space">Color Space</a> of the imported media. In most cases, the <em>Standard</em> should be used;
+using the wrong transform could result in inaccurate colors or degraded rendering performance.</p>
+</dd>
+<dt>Use Placeholders</dt><dd><p>Image sequences can use placeholder files.
+This works by enabling <em>Use Placeholders</em> checkbox when adding an image strip.
+The option detects the frame range of opened images using Blender’s frame naming scheme
+(<code>filename + frame number + .extension</code>) and makes an image sequence
+with all files in between even if they are missing.
+This allows you to render an image sequence with a few frames missing and
+still the image strip will have the correct range to account for the missing frames displayed as black.</p>
+<p>When the missing frames are rendered or placed in the same folder,
+you can <a href="../../../../editors/video_sequencer/sequencer/navigating.html#bpy-ops-sequencer-refresh-all">refresh</a>
+the Sequencer and get the missing frames in the strip.
+The option is also available when using the <em>Change Data/File</em> operator and
+allows you to add more images to the range.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Face &gt; Intersect Boolean</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Face Tools</a></li>
+<li>Intersect (Boolean)</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="intersect-boolean">
+<h1>Intersect (Boolean)</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face ‣ Intersect (Boolean)</p>
+</dd>
+</dl>
+</div>
+<p>Performs Boolean operations with the selection on the unselected geometry.
+While the <a href="../../../modifiers/generate/booleans.html">Boolean Modifier</a> is useful for non-destructive edits,
+access to these operations with a tool in Edit Mode can be useful to quickly perform edits.</p>
+<dl>
+<dt>Boolean Operation</dt><dd><dl>
+<dt>Intersect:</dt>
+<dd><p>Opposite of <em>Difference</em> (everything <em>inside</em> of the target mesh is kept).</p>
+</dd>
+<dt>Union:</dt>
+<dd><p>The target mesh is added to the modified mesh.</p>
+</dd>
+<dt>Difference:</dt>
+<dd><p>The target mesh is subtracted from the modified mesh (everything <em>outside</em> of the target mesh is kept).</p>
+</dd>
+</dl>
+</dd>
+<dt>Solver</dt><dd><p>Algorithm used to calculate the Boolean intersections.</p>
+<dl>
+<dt>Fast:</dt>
+<dd><p>Uses a mathematically simple solver which offers the best performance;
+however, this solver lacks support for overlapping geometry.</p>
+<dl>
+<dt>Merge Threshold</dt><dd><p>Tolerance for close faces to be considered touching.
+It may be useful to increase this when some intersections aren’t detected that should be and
+when extra geometry is being created because edges aren’t detected as overlapping.</p>
+<div>
+<p>Warning</p>
+<p>A threshold approaching the size of faces may cause very slow calculation,
+in general keep this value small.</p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Exact:</dt>
+<dd><p>Uses a mathematically complex solver which offers the best results
+and has full support for overlapping geometry;
+however, this solver is much slower than the <em>Fast Solver</em>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Swap</dt><dd><p>Changes the order of the operations when using <em>Difference</em> to determine which side is kept.</p>
+</dd>
+<dt>Self Intersection</dt><dd><p>Correctly calculates cases when one or both operands have self-intersections,
+this involves more calculations making it slower.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

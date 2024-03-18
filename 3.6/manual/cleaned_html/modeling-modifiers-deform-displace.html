@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Displace</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Displace Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="displace-modifier">
+<h1>Displace Modifier</h1>
+<p>The <em>Displace</em> modifier displaces vertices in a mesh based on the intensity of a texture.
+Either procedural or image textures can be used.</p>
+<p>The displacement can be along a particular local axis, along the vertex normal,
+or the separate RGB components of the texture can be used to displace vertices in the local X,
+Y and Z directions simultaneously (sometimes referred to as <em>Vector Displacement</em>).</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Displace modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Texture</dt><dd><p>The name of the texture from which the displacement for each vertex is derived.
+If this field is empty, the modifier defaults to 1.0 (white).</p>
+<dl>
+<dt>Coordinates</dt><dd><p>The texture coordinate system to use when retrieving values from the texture for each vertex.</p>
+<p>See <a href="../common_options.html#modifiers-common-options-masking">common masking options</a> for a complete reference.</p>
+</dd>
+</dl>
+</dd>
+<dt>Direction</dt><dd><p>The direction along which to displace the vertices.
+Can be one of the following:</p>
+<dl>
+<dt>X, Y, Z</dt><dd><p>Displace along an axis.</p>
+</dd>
+<dt>Normal</dt><dd><p>Displace along the vertex normal.</p>
+</dd>
+<dt>Custom Normal</dt><dd><p>Displace along (averaged) <a href="../../meshes/structure.html#modeling-meshes-normals-custom">custom normals</a>, instead of vertex normals.</p>
+</dd>
+<dt>RGB to XYZ</dt><dd><p>Displace along local XYZ axes individually using the RGB components of the texture
+(Red values displaced along the X axis, Green along the Y, Blue along the Z).</p>
+</dd>
+</dl>
+</dd>
+<dt>Space</dt><dd><p>With a direction set to X, Y, Z, or XYZ the modifier can either displace along local or global axes.</p>
+</dd>
+<dt>Strength</dt><dd><p>The strength of the displacement. After offsetting by the <em>Midlevel</em> value,
+the displacement will be multiplied by the <em>Strength</em> value to give the final vertex offset.</p>
+<p>\(vertex_offset = displacement × Strength\)</p>
+<p>A negative strength can be used to invert the effect of the modifier.</p>
+</dd>
+<dt>Midlevel</dt><dd><p>The texture value which will be treated as no displacement by the modifier.
+Texture values below this threshold will result in negative displacement along the selected direction,
+while texture values above it will result in positive displacement.</p>
+<p>\(displacement = texture_value - Midlevel\)</p>
+<p>Recall that color/luminosity values are typically between (0.0 to 1.0) in Blender,
+and not between (0 to 255).</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>The name of a vertex group which is used to control the influence of the modifier.
+If left empty, the modifier affects all vertices equally.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id2">
+<figcaption>
+<p>Three different objects created with the Displace modifier.
+Sample blend-file.</p>
+</figcaption>
+</figure>
+<figure id="id3">
+<figcaption>
+<p>A slime animation created with the Displace modifier.
+Sample blend-file.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Color &gt; Tone Map</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Color Nodes</a></li>
+<li>Tone Map Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="tone-map-node">
+<h1>Tone Map Node</h1>
+<p>Tone mapping is a technique used in image processing and computer graphics to map one set of
+colors to another in order to approximate the appearance of high dynamic range images
+in a medium that has a more limited dynamic range.</p>
+<p>Essentially, tone mapping addresses the problem of strong contrast reduction from the scene values
+(radiance) to the displayable range, while preserving the image details and color appearance.
+This is important to appreciate the original scene content.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p><abbr title="High Dynamic Range">HDR</abbr> image.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Type</dt><dd><dl>
+<dt>Rh Simple</dt><dd><dl>
+<dt>Key</dt><dd><p>The value the average luminance is mapped to.</p>
+</dd>
+<dt>Offset</dt><dd><p>Normally always 1, but can be used as an extra control to alter the brightness curve.</p>
+</dd>
+<dt>Gamma</dt><dd><p>If not used, set to 1.</p>
+</dd>
+</dl>
+</dd>
+<dt>R/D Photoreceptor</dt><dd><dl>
+<dt>Intensity</dt><dd><p>If less than zero, darkens image; otherwise, makes it brighter.</p>
+</dd>
+<dt>Contrast</dt><dd><p>Set to 0 to use estimate from input image.</p>
+</dd>
+<dt>Adaptation</dt><dd><p>If 0, global; if 1, based on pixel intensity.</p>
+</dd>
+<dt>Color Correction</dt><dd><p>If 0, same for all channels; if 1, each independent.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p><abbr title="Low Dynamic Range">LDR</abbr> image.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Fluid &gt; Type &gt; Domain &gt; Gas &gt; Adaptive Domain</head>
+<body><ul>
+<li><a href="../../../../index.html">Physics</a></li>
+<li><a href="../../../index.html">Fluid</a></li>
+<li><a href="../../index.html">Type</a></li>
+<li><a href="../index.html">Domain</a></li>
+<li><a href="index.html">Gas Settings</a></li>
+<li>Adaptive Domain</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="adaptive-domain">
+<h1>Adaptive Domain</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Domain</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Fluid ‣ Adaptive Domain</p>
+</dd>
+</dl>
+</div>
+<p>When enabled, the domain will adaptively shrink to best fit the gas,
+saving computation time by leaving voxels without gas out of the simulation.
+Unless the <em>Add Resolution</em> is used, the adaptive domain will not exceed the bounds of the original domain.</p>
+<dl>
+<dt>Add Resolution</dt><dd><p>Number of voxels to add around the outside of the domain.</p>
+</dd>
+<dt>Margin</dt><dd><p>Amount of extra space to leave around gas, measured in voxels.
+With very fast-moving gas larger margins may be required to prevent the gas from being cut off
+by the adaptive boundary, but note this will increase the number of voxels which need to be computed.</p>
+</dd>
+<dt>Threshold</dt><dd><p>Smallest amount of gas a voxel can contain before it is considered empty
+and the adaptive domain is allowed to cut it out of the simulation.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

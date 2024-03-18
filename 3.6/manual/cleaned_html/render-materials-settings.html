@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Materials &gt; Settings</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Materials</a></li>
+<li>Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="settings">
+<h1>Settings</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Material ‣ Settings</p>
+</dd>
+</dl>
+</div>
+<section id="renderer-settings">
+<h2>Renderer Settings</h2>
+<p>While shading nodes control the appearance, these settings control the quality and algorithms
+that each renderer uses to render the material.</p>
+<ul>
+<li><p><a href="../eevee/materials/settings.html">Eevee specific settings</a></p></li>
+<li><p><a href="../cycles/material_settings.html">Cycles specific settings</a></p></li>
+</ul>
+</section>
+<section id="pass-index">
+<h2>Pass Index</h2>
+<dl id="bpy-types-material-pass-index">
+<dt>Pass Index</dt><dd><p>Index number for the <em>Material Index</em> <a href="../layers/passes.html">render pass</a>.
+This can be used to give a mask to a material and then be read with
+the <a href="../../compositing/types/converter/id_mask.html">ID Mask Node</a> in the Compositor.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p><a href="../../modeling/volumes/introduction.html">Volume Objects</a> are not supported.</p>
+</div>
+</section>
+<section id="viewport-display">
+<h2>Viewport Display</h2>
+<p>These settings control the 3D Viewport display in solid shading.
+They provide a faster alternative to full shader nodes,
+which may be too heavy or distracting for tasks like modeling, layout or sculpting.</p>
+<dl id="bpy-types-material-diffuse-color">
+<dt>Color</dt><dd><p>Diffuse or metal surface color.</p>
+</dd>
+</dl>
+<dl id="bpy-types-material-metallic">
+<dt>Metallic</dt><dd><p>Blends between a non-metallic and metallic material model.
+A value of 1.0 gives a fully specular reflection tinted with the base color,
+without diffuse reflection or transmission.
+At 0.0 the material consists of a diffuse or transmissive base layer, with a specular reflection layer on top.</p>
+</dd>
+</dl>
+<dl id="bpy-types-material-roughness">
+<dt>Roughness</dt><dd><p>Specifies microfacet roughness of the surface for metal and specular reflection.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Operations &gt; Duplicate Elements</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Geometry Operation Nodes</a></li>
+<li>Duplicate Elements Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="duplicate-elements-node">
+<h1>Duplicate Elements Node</h1>
+<p>The <em>Duplicate Elements</em> node creates a new geometry with the specified elements
+from the input duplicated an arbitrary number of times. The positions of elements
+are not changed, so all of the duplicates will be at the exact same location.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>Boolean field that is true for parts of the geometry to be deleted.</p>
+</dd>
+<dt>Amount</dt><dd><p>Field indicating how many times each input element should be duplicated.
+If the value is zero for an element, it will not be included in the output at all.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Domain</dt><dd><p>The type of geometry element to duplicate</p>
+<dl>
+<dt>Point:</dt>
+<dd><p>Duplicate the points of meshes, curves, or point clouds.
+Any other elements will not be included in the output.</p>
+</dd>
+<dt>Edge:</dt>
+<dd><p>Duplicate mesh edges. Faces will not be included in the output.</p>
+</dd>
+<dt>Faces:</dt>
+<dd><p>Duplicate mesh faces. Each duplicated face will be separate,
+in other words they will not share edges with other faces.</p>
+</dd>
+<dt>Spline:</dt>
+<dd><p>Individual curves from the input curves component will be duplicated.</p>
+</dd>
+<dt>Instances:</dt>
+<dd><p>Input top-level instances will be duplicated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry output.</p>
+</dd>
+<dt>Duplicate Index</dt><dd><p>An attribute field with a value for every output element describing which
+duplicate of the corresponding input. The value for every input element will
+start at 0 and increase to <cite>Amount - 1</cite>.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Combined with the <a href="../geometry_to_instance.html">Geometry to Instance Node</a>,
+this can be used to create a basic efficient “Array” operation. This should be more efficient
+because the duplicates are <a href="../../instances.html">instances</a>.</p>
+<p>The “Duplicate Index” is used to move each instance in the result a different amount.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

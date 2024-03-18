@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modifiers &gt; Color &gt; Tint</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li><a href="index.html">Color</a></li>
+<li>Tint Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="tint-modifier">
+<h1>Tint Modifier</h1>
+<p>The <em>Tint</em> Modifier colorize the original stroke or fill with a selected color.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Tint Modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mode</dt><dd><p>The color transformation will be applied on the stroke and/or the fill color.</p>
+<p>Stroke &amp; Fill, Stroke, Fill</p>
+</dd>
+<dt>Strength</dt><dd><p>Controls the amount for the color mixing.</p>
+<p>A value of 0 respect the original stroke’s color,
+a value of 1.0 totally replace the original color with the tint color.</p>
+<p>A shift greater than 1.0 will make the points alpha less transparent than originally (2.0 is fully opaque).</p>
+</dd>
+<dt>Tint Type</dt><dd><dl>
+<dt>Uniform</dt><dd><dl>
+<dt>Color</dt><dd><p>Defines the tint color for mixing with the original color.</p>
+</dd>
+</dl>
+</dd>
+<dt>Gradient</dt><dd><dl>
+<dt>Color Ramp</dt><dd><p>Defines the tint gradient color for mixing with the original color.
+For controls see <a href="../../../interface/controls/templates/color_ramp.html#ui-color-ramp-widget">Color Ramp Widget</a>.</p>
+</dd>
+<dt>Object</dt><dd><p>A <a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> to select an object (usually an empty),
+which position and rotation will be used to define the center of the effect.</p>
+</dd>
+<dt>Radius</dt><dd><p>Defines the maximum distance of the effect.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="influence">
+<h3>Influence</h3>
+<p>See <a href="../introduction.html#grease-pencil-modifier-influence-filters">Influence Filters</a>.</p>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table id="id2">
+<caption>Tint uniform color sample.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Strength: 0 (original color).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Strength: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Strength: 1.0 (fully tinted).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id6">
+<caption>Tint gradient color sample.</caption>
+<tbody>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Radius: 1, Strength: 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Radius: 5, Strength: 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Radius: 10, Strength: 1.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

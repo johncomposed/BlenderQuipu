@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Display &gt; Gizmo</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">3D Viewport</a></li>
+<li><a href="index.html">Display</a></li>
+<li>Viewport Gizmos</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewport-gizmos">
+<h1>Viewport Gizmos</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Header:</dt>
+<dd><p> Gizmos</p>
+</dd>
+</dl>
+</div>
+<p>Clicking the icon toggles all gizmos in the 3D Viewport.
+The drop-down button displays a popover with more detailed settings,
+which are described below.</p>
+<section id="id2">
+<h2>Viewport Gizmos</h2>
+<dl>
+<dt>Navigate</dt><dd><p>Enable/disable the <a href="../navigate/introduction.html#navigation-gizmo">navigation gizmo</a>.</p>
+</dd>
+<dt>Active Tool</dt><dd><p>Enable/disable the gizmo of the active tool.</p>
+</dd>
+<dt>Active Object</dt><dd><p>Enable/disable the Object Gizmos for the active element (see below).</p>
+</dd>
+</dl>
+</section>
+<section id="object-gizmos">
+<h2>Object Gizmos</h2>
+<p>Object Gizmos allow mouse-controlled translation, rotation and scaling in the 3D Viewport.
+While they’re called “object” gizmos in the popover, they also apply to other transformable
+elements such as mesh vertices.</p>
+<p>There is a separate gizmo for each operation.
+Each gizmo can be used separately or in combination with the others.</p>
+<p>A gizmo always has three color-coded axes: X (red), Y (green), and Z (blue).
+You can drag an axis with <kbd>LMB</kbd> to transform along it. The Move and Scale gizmos
+additionally have small colored squares for transforming along two axes in one go.</p>
+<p>Various modifier keys can be used:</p>
+<ul>
+<li><p>Holding <kbd>Ctrl</kbd> at any time will toggle <a href="../controls/snapping.html">snapping</a>
+and also make rotation and scaling work in coarse increments.</p></li>
+<li><p>Holding <kbd>Shift</kbd> <em>after</em> pressing <kbd>LMB</kbd> will do the opposite of the above, “slowing down”
+the transformation relative to mouse movement to allow finer adjustments.</p></li>
+<li><p>Holding <kbd>Shift</kbd> <em>before</em> pressing <kbd>LMB</kbd> will perform the transformation in the plane
+that’s perpendicular to the clicked axis. See <a href="../../../scene_layout/object/editing/transform/control/axis_locking.html#view3d-transform-plane-lock">Plane Locking</a>.</p></li>
+</ul>
+<p>The Gizmos popover has the following settings for object gizmos:</p>
+<dl>
+<dt>Orientation</dt><dd><p>The orientation to use for the gizmo. <em>Default</em> means to use the viewport’s
+<a href="../controls/orientation.html">Transform Orientation</a>.
+The other options override it.</p>
+</dd>
+<dt>Move</dt><dd><p>Show the gizmo to control the location.
+Dragging the small white circle allows free movement in the viewing plane.</p>
+</dd>
+<dt>Rotate</dt><dd><p>Show the gizmo to control the rotation.
+Dragging the large white circle allows rotation around the viewing direction.
+Dragging the translucent white disc within that circle (only visible when
+hovering over the gizmo) allows <a href="../../../scene_layout/object/editing/transform/rotate.html#view3d-transform-trackball">trackball rotation</a>.</p>
+</dd>
+<dt>Scale</dt><dd><p>Show the gizmo to control the scale.
+Dragging the area between the small and large white circles scales along all three axes.</p>
+</dd>
+</dl>
+<p>The latter three options are also available in a pie menu
+if you have the <em>Grave Accent / Tilde Action</em> in the
+<a href="../../preferences/keymap.html">Keymap Preferences</a> set to <em>Gizmos</em>.</p>
+<div>
+<p>Note</p>
+<p>If you’re using a tool that’s tied to a particular gizmo setup (the <em>Move</em>, <em>Rotate</em>,
+<em>Scale</em> and <em>Transform</em> tools), the Move/Rotate/Scale checkboxes won’t have any effect.</p>
+</div>
+<table>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Move.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Rotate.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Scale.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Combination.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>See also</p>
+<p>The <a href="../../preferences/viewport.html#prefs-viewport-gizmo-size">Gizmo Preferences</a>.</p>
+</div>
+</section>
+<section id="empty">
+<h2>Empty</h2>
+<p>Gizmo settings for <a href="../../../modeling/empties.html">empties</a>.</p>
+<dl>
+<dt>Image</dt><dd><p>Show the gizmo to adjust the image size and position.</p>
+</dd>
+<dt>Force Field</dt><dd><p>Show the gizmo to adjust the <a href="../../../physics/forces/force_fields/introduction.html">force field</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="light">
+<h2>Light</h2>
+<p>Gizmo settings for <a href="../../../render/lights/light_object.html">lights</a>.</p>
+<dl>
+<dt>Size</dt><dd><p>Show the gizmo to adjust the Spot Size of spotlights.</p>
+</dd>
+<dt>Look At</dt><dd><p>Show the gizmo to adjust the direction of lights.</p>
+</dd>
+</dl>
+</section>
+<section id="camera">
+<h2>Camera</h2>
+<p>Gizmo settings for <a href="../../../render/cameras.html">cameras</a>.</p>
+<dl>
+<dt>Lens</dt><dd><p>Show the gizmo to adjust the focal length (for Perspective cameras)
+or orthographic scale (for Orthographic cameras).</p>
+</dd>
+<dt>Focus Distance</dt><dd><p>Enable the gizmo for adjusting the focus distance. To see this gizmo,
+you need to enable the Viewport Display ‣ Limits checkbox
+in the camera’s properties (green camera icon).</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

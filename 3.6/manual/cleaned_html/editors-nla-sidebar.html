@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Nla &gt; Sidebar</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Nonlinear Animation</a></li>
+<li>Sidebar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sidebar">
+<h1>Sidebar</h1>
+<section id="edited-action">
+<h2>Edited Action</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Edited Action</p>
+</dd>
+</dl>
+</div>
+<figure id="id6">
+<figcaption>
+<p>Edited Action panel.</p>
+</figcaption>
+</figure>
+<p>This panel is available for actions that have not been “<a href="tracks.html#bpy-ops-nla-action-pushdown">Pushed Down</a>”.</p>
+<dl>
+<dt>Action</dt><dd><p>A <a href="../../interface/controls/templates/data_block.html#ui-data-block">Data-Block</a> menu that allows you to edit actions shown in the action track.
+See also the Action Editor’s <a href="../dope_sheet/action.html#dopesheet-action-action">Action</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-animdata-action-extrapolation">
+<dt>Extrapolation</dt><dd><p>Action to take for gaps past the strip extents.</p>
+<dl>
+<dt>Hold</dt><dd><p>Affects both sides of the strip. This should only be set on the very first strip.
+When the order of strips changes (for example by dragging them in the NLA editor),
+a strip that is marked as <em>Hold</em> is no longer the very first strip
+will automatically be set to <em>Hold Forward</em> by Blender.</p>
+</dd>
+<dt>Hold Forward</dt><dd><p>Affects the region after the clip, only. This can be set on any strip.</p>
+</dd>
+<dt>Nothing</dt><dd><p>Affects only the region of the strip itself. This can be set on any strip.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-animdata-action-blend-type">
+<dt>Blending</dt><dd><p>Affects how the property values directly produced by the strip are combined with
+the result of evaluating the stack below. The bottom-most strip is blended on top of
+the default values of the properties.</p>
+<dl>
+<dt>Replace</dt><dd><p>The top strip is linearly blended in with the accumulated result according to influence,
+completely overwriting it if influence is set to 100%.</p>
+</dd>
+<dt>Multiply, Subtract, Add</dt><dd><p>The result of the strip is multiplied, subtracted, or added to the accumulated results,
+and then blended in according to influence.</p>
+<p>\(result = mix(previous, previous (+-*) value, influence)\)</p>
+</dd>
+<dt>Combine</dt><dd><p>Depending on the type of each property, one of the following methods is automatically chosen:</p>
+<dl>
+<dt>Axis/Angle Rotation</dt><dd><p>\(result = previous + value * influence\)</p>
+<p>This results in averaging the axis and adding the amount of rotation.</p>
+</dd>
+<dt>Quaternion Rotation</dt><dd><p>Quaternion math is applied to all four channels of the property at once:</p>
+<p>\(result = {previous} \times {value} ^ {influence}\)</p>
+</dd>
+<dt>Proportional (Scale)</dt><dd><p>\(result = previous * (value / default) ^ {influence}\)</p>
+</dd>
+<dt>Others</dt><dd><p>\(result = previous + (value - default) * {influence}\)</p>
+</dd>
+</dl>
+<p>This allows layering actions that can also be used as a standalone.
+Properties keyframed at their default values remain at default.</p>
+<div>
+<p>Note</p>
+<p>Since this blending mode is based on using quaternion multiplication to calculate
+the Quaternion Rotation properties, it always drives all four channels during playback,
+and <em>Insert Single Keyframe</em> is forced to insert all four keys.
+Other types of channels can still be keyed individually.</p>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-animdata-action-influence">
+<dt>Influence</dt><dd><p>Amount the active Action contributes to the result of the NLA stack.</p>
+</dd>
+</dl>
+</section>
+<section id="strip">
+<h2>Strip</h2>
+<dl id="bpy-types-nlastrip-name">
+<dt>Name</dt><dd><p>Name of the track which the strip currently belongs to.</p>
+</dd>
+</dl>
+<dl id="bpy-types-nlastrip-mute">
+<dt>Mute</dt><dd><p>Toggles NLA strip evaluation, the strip outline will be dashed.</p>
+</dd>
+</dl>
+<section id="active-strip">
+<h3>Active Strip</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Strip ‣ Active Strip</p>
+</dd>
+</dl>
+</div>
+<figure id="id7">
+<figcaption>
+<p>Active Strip panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Frame Start, End</dt><dd><p>The boundaries of the strip itself. Note that this will stretch the duration of the Action,
+it will not cause greater or fewer keyframes from the Actions to play (see below for that option).</p>
+</dd>
+<dt>Extrapolation</dt><dd><p>See <a href="#bpy-types-animdata-action-extrapolation">Extrapolation</a>.</p>
+</dd>
+<dt>Blending</dt><dd><p>See <a href="#bpy-types-animdata-action-blend-type">Blending</a>.</p>
+</dd>
+<dt>Blend In, Out</dt><dd><p>The first and last frame that represents when this strip will have full influence.</p>
+</dd>
+<dt>Auto Blend In/Out</dt><dd><p>Creates a ramp starting at the overlap of the strips. The first strip has full control,
+and it ramps linearly giving the second strip full control by the end of the overlapping time period.</p>
+</dd>
+<dt>Playback</dt><dd><dl>
+<dt>Reversed</dt><dd><p>Cause this strip to be played completely backwards.</p>
+</dd>
+<dt>Cyclic Strip Time</dt><dd><p>Cycle the animated time within the action start and end.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="animated-influence">
+<h4>Animated Influence</h4>
+<p>Enabling alteration of the degree of influence this strip has as a keyframable value.
+If influence isn’t animated, the strips will fade linearly, during the overlap.
+These can be found in the Dope Sheet or Graph Editors under the <em>NLA Control Curves</em> and
+look like group channels. They appear before all the groups or F-Curves for that channel.</p>
+</section>
+<section id="animated-strip-time">
+<h4>Animated Strip Time</h4>
+<p>Same as <em>Animated Influence</em>, but with <em>Strip Time</em>.</p>
+</section>
+</section>
+<section id="action-clip">
+<h3>Action Clip</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Animations ‣ Action Clip</p>
+</dd>
+</dl>
+</div>
+<figure id="id8">
+<figcaption>
+<p>Action Clip panel.</p>
+</figcaption>
+</figure>
+<p>This represents the ‘object data’ of the strip. Much like the transform values of an object.</p>
+<dl>
+<dt>Action</dt><dd><p>A reference to the Action contained within the strip.
+Can be changed to replace the current strip’s value with another Action.</p>
+</dd>
+<dt>Frame Start, End</dt><dd><p>How much of the Action to use.</p>
+<p>For instance, it is common to set the first and last keyframe of an Action to be the same keyframes.
+The problem with this is if you loop the animation,
+there is a slight hitch where the same keyframes are played twice.
+To fix this, simply reduce the <em>End Frame</em>.</p>
+<div>
+<p>Note</p>
+<p>If you select values that are above or below the actual keyframe count of the Action,
+then the <a href="../graph_editor/channels/editing.html#editors-graph-fcurves-settings-extrapolation">F-Curve Extrapolation</a> will be applied.</p>
+</div>
+</dd>
+<dt>Sync Length</dt><dd><p>Causes the <em>Start</em> and <em>End Frames</em>, above, to be reset to
+the first and last keyframed frames of the Action.</p>
+</dd>
+<dt>Now</dt><dd><p>The <em>Now</em> button causes the <em>Start</em> and <em>End Frames</em>, above, to be reset
+to the first and last keyframed frames of the Action.</p>
+</dd>
+<dt>Playback Scale</dt><dd><p>Stretches strip, another way of increasing the <em>Strip Extents: End Frame</em>, above.</p>
+</dd>
+<dt>Repeat</dt><dd><p>Also expands the strip, but by looping from the first keyframe and going forward.</p>
+</dd>
+</dl>
+</section>
+<section id="action">
+<h3>Action</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Animations ‣ Action</p>
+</dd>
+</dl>
+</div>
+<p>This panel is identical to the one in Dope Sheet, and allows viewing or changing properties of the
+action used in the Action Clip, i.e. <a href="../../animation/actions.html#bpy-types-action-use-frame-range">Manual Frame Range</a>.</p>
+</section>
+</section>
+<section id="modifiers">
+<h2>Modifiers</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Modifiers ‣ Modifiers</p>
+</dd>
+</dl>
+</div>
+<p>Like its counterparts in graph and video editing,
+Modifiers can stack different combinations of effects for strips.</p>
+<p>See <a href="../graph_editor/fcurves/modifiers.html">F-Curve Modifiers</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

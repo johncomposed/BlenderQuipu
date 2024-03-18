@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Buttons &gt; Menus</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li>Menus</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="menus">
+<h1>Menus</h1>
+<p>Blender uses a variety of different menus for accessing options and <a href="../../operators.html">Operators</a>.
+Menus can be interacted with in the following ways:</p>
+<dl>
+<dt>Mouse selection</dt><dd><p><kbd>LMB</kbd> on the desired item.</p>
+</dd>
+<dt>Numerical selection</dt><dd><p>You can use the number keys or numpad to input an item in the list to select.
+For example, <kbd>Numpad1</kbd> will select the first item and so on.</p>
+</dd>
+</dl>
+<p>If a menu is too large to fit on the screen, a small
+scrolling triangle appears on the top or bottom.
+Scrolling is done by moving the mouse above or below this triangle.</p>
+<p>Shortcuts</p>
+<ul>
+<li><p>Use <kbd>Wheel</kbd> while hovering with the mouse.</p></li>
+<li><p>Arrow keys can be used to navigate.</p></li>
+<li><p>Each menu item has an underlined character which can be pressed to activate it.</p></li>
+<li><p>Number keys or numpad can also be used to activate menu items.
+(<kbd>1</kbd> for the first menu item, <kbd>2</kbd> for the second etc.
+For larger menus, <kbd><kbd>Alt</kbd>-<kbd>1</kbd></kbd> activates the 11th and so on, up to <kbd><kbd>Alt</kbd>-<kbd>0</kbd></kbd> for the 20th.)</p></li>
+<li><p>Press <kbd>Return</kbd> to activate the selected menu item.</p></li>
+<li><p>Press <kbd>Esc</kbd> to close the menu without activating any menu item. This can also be
+done by moving the mouse cursor far away from the menu, or by <kbd>LMB</kbd> clicking anywhere
+outside of it.</p></li>
+</ul>
+<section id="header-menus">
+<h2>Header Menus</h2>
+<figure id="id1">
+<figcaption>
+<p>Image menu in the Header of the Image editor.</p>
+</figcaption>
+</figure>
+<p>Most <a href="../../window_system/regions.html#ui-region-header">headers</a> exhibit a set of menus, located at the start of the header.
+Header menus are used to configure the editor and access operators.
+All menu entries show the relevant shortcut keys, if any.</p>
+<section id="collapsing-menus">
+<h3>Collapsing Menus</h3>
+<p>Sometimes it’s helpful to gain some extra horizontal space in the header by collapsing menus.
+This can be accessed from the header context menu:
+click <kbd>RMB</kbd> on the header and select <em>Collapse Menus</em>.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Right-click on any of the header menus.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Access the menu from the collapsed icon.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="select-menus">
+<h2>Select Menus</h2>
+<figure id="id4">
+<figcaption>
+<p>The 3D Viewport Mode Select menu.</p>
+</figcaption>
+</figure>
+<p>A Select menu (or “selector” for short) lets you choose between a set of options.
+It appears as an icon and/or text with a down arrow on the right side.
+To use it, click the button with <kbd>LMB</kbd> to show the available options,
+then click the desired option (once selected, it’ll appear inside the button).
+You can also use <kbd><kbd>Ctrl</kbd>-<kbd>Wheel</kbd></kbd> to cycle through the options without opening the menu.</p>
+</section>
+<section id="popover-menus">
+<h2>Popover Menus</h2>
+<figure id="id5">
+<figcaption>
+<p>The Transform Orientations popover menu.</p>
+</figcaption>
+</figure>
+<p>Popover menus are similar to Select Menus, but can show more varied content
+such as a title, buttons, sliders, etc.</p>
+</section>
+<section id="context-menu">
+<h2>Context Menu</h2>
+<p>Context menus are pop-ups that can be opened with <kbd>RMB</kbd>.
+In most editors, it’s also possible to use the <kbd>Menu</kbd> key.
+The contents of the menu depend on the location of the mouse pointer.</p>
+<p>When invoked in an editor, the menu contains a list of operators sensitive to the editor’s mode.
+When invoked over buttons and properties, common options include:</p>
+<dl>
+<dt>Single</dt><dd><p>Apply the change to a single value of a set (e.g. only the X coordinate of an object’s Location).</p>
+</dd>
+<dt>All</dt><dd><p>Apply the change to all values in a set (e.g. all coordinates of an object’s Location).</p>
+</dd>
+</dl>
+<dl id="bpy-ops-ui-reset-default-button">
+<dt>Reset to Default Value(s) <kbd>Backspace</kbd></dt><dd><p>Replaces the current value by the default.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-ui-copy-data-path-button">
+<dt>Copy Data Path <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>C</kbd></kbd></dt><dd><p>Copies the Python property data path, relative to the data-block.
+Useful for Python scripting.</p>
+</dd>
+<dt>Copy Full Data Path <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>C</kbd></kbd></dt><dd><p>Copies the full Python property data path including any needed context information.</p>
+</dd>
+<dt>Copy As New Driver</dt><dd><p>Creates a new driver using this property as input, and copies it to the clipboard.
+Use <em>Paste Driver</em> to add the driver to a different property, or <em>Paste Driver Variables</em>
+to extend an existing driver with a new input variable.</p>
+</dd>
+<dt>Copy To Selected</dt><dd><p>Copies the property value to the selected object’s corresponding property.
+A use case is if the Properties context is pinned.</p>
+</dd>
+<dt>Assign Shortcut</dt><dd><p>Lets you define a keyboard or mouse shortcut for an operation.
+To define the shortcut you must first move the mouse cursor over the button that pops up.
+When “Press a key” appears you must press and/or click the desired shortcut.
+Press <kbd>Esc</kbd> to cancel.</p>
+<div>
+<p>See also</p>
+<p><a href="../../keymap/introduction.html">Common Shortcuts</a>.</p>
+</div>
+</dd>
+<dt>Change Shortcut</dt><dd><p>Lets you redefine the shortcut.</p>
+</dd>
+<dt>Remove Shortcut</dt><dd><p>Unlinks the existing shortcut.</p>
+</dd>
+<dt>Online Manual <kbd>F1</kbd></dt><dd><p>Opens an online page of the Blender Manual in a web browser.</p>
+</dd>
+<dt>Online Python Reference</dt><dd><p>Context-sensitive access to
+the <a href="https://docs.blender.org/api/current/">Python API Reference</a>.</p>
+</dd>
+<dt>Edit Source</dt><dd><p>For UI development – Creates a text data-block with the source code associated with the control,
+in case the control is based on a Python script.
+In the Text Editor it points at the code line where the element is defined.</p>
+</dd>
+<dt>Edit Translation</dt><dd><p>For UI development – Points at the translation code line.</p>
+</dd>
+</dl>
+</section>
+<section id="specials-menu">
+<h2>Specials Menu</h2>
+<p>The Specials pop-up menu is similar to a context menu, but is opened
+using a button consisting of a down arrow on a dark background .</p>
+</section>
+<section id="pie-menus">
+<h2>Pie Menus</h2>
+<p>A pie menu is a menu whose items are spread radially around the mouse.</p>
+<figure id="id6">
+<figcaption>
+<p>The 3D Viewport Mode Pie menu.</p>
+</figcaption>
+</figure>
+<div>
+<p>Tip</p>
+<p>The fastest way to operate a Pie menu is to press down the key(s) that
+invoke the menu, move the mouse slightly towards a selection, and
+release the key(s) to activate the selection.</p>
+</div>
+<p>Releasing the key without moving the mouse will keep the menu open so you
+can click the desired item.
+If you do move the mouse before releasing, the item closest to the mouse
+will be activated instantly.</p>
+<p>An open disc widget at the center of the pie menu shows
+the current direction of the pie menu. The selected item is also highlighted.
+A pie menu will only have a valid direction for item selection
+if the mouse is touching or extending beyond the disc widget at the center of the menu.</p>
+<p>Pie menu items support key accelerators, which are the letters underlined on each menu item.
+Number keys can also be used.</p>
+<p>If there are sub-pies available, it is indicated by a plus icon.</p>
+<div>
+<p>See also</p>
+<p><a href="../../../editors/preferences/interface.html#prefs-pie-menu">Pie menu settings</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

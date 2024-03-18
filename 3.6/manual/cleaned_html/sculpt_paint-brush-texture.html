@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Brush &gt; Texture</title></head>
+<body><ul>
+<li><a href="../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="index.html">Brush</a></li>
+<li>Texture &amp; Texture Mask</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="texture-texture-mask">
+<h1>Texture &amp; Texture Mask</h1>
+<p>This page covers both the Texture and Texture Mask panels.
+Add a Texture to the brush to control the color of the brush.
+A Texture Mask is used to control the strength of the brush.
+Both the Texture and Texture Mask offer the same settings.</p>
+<figure id="id1">
+<figcaption>
+<p>Example of the Texture panel and a textured brush in use.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Texture</dt><dd><p>In paint modes the texture is used as a color source,
+while for sculpting it is used to determine the strength of the brush.</p>
+<p>Any image texture or procedural texture can be assigned in the texture and texture mask panels.
+Textures can be further edited in the properties editor (Click the properties icon for quick access)</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>It’s recommended to load all needed images ahead of time as image textures into Blender.
+Then they can be easily selected by clicking on the texture and picking it from the data-block popup.
+Textures can also be <cite>appended/linked</cite> from other Blender files.</p>
+</div>
+<dl id="bpy-types-brushtextureslot-mask-map-mode">
+<dt>Mapping &amp; Mask Mapping</dt><dd><p>How the texture is applied to the brush stroke.</p>
+<div>
+<p>Tip</p>
+<p>It is recommended to set this to <em>Area Plane</em> or <em>View Plane</em> for the most common behavior.
+Ideally match this setting with the
+<a href="brush_settings.html#bpy-types-brush-sculpt-plane">Sculpt Plane</a> setting if in sculpt mode.</p>
+</div>
+<dl>
+<dt>View Plane:</dt>
+<dd><p>If <em>View Plane</em> is enabled, the current viewing angle is used to project the brush texture onto the model.
+This is especially useful for projection painting.</p>
+</dd>
+<dt>Area Plane:</dt>
+<dd><p>Projects the brush texture along the local surface <a href="../../glossary/index.html#term-Normal">normal</a>,
+which keeps the texture from stretching on steep angles.
+This is an ideal default for most brushes.</p>
+</dd>
+<dt>Tiled:</dt>
+<dd><p>The <em>Tile</em> option repeats the texture across the screen,
+so moving the brush will not change where the texture is applied.
+The <em>Tile</em> option is most useful with tileable images, rather than procedural textures.</p>
+</dd>
+<dt>3D:</dt>
+<dd><p>The <em>3D</em> option allows the brush to take full advantage of procedural textures.
+This mode uses vertex coordinates rather than the brush location to determine what area of the texture to use.</p>
+<p>This option is not available for the Texture Mask.</p>
+</dd>
+<dt>Random:</dt>
+<dd><p>Picks a random texture coordinate to sample from for each step of the stroke.</p>
+</dd>
+<dt>Stencil:</dt>
+<dd><p>This is the ideal option for stamping textures for projection painting.
+Stencil mapping works by projecting the texture from the camera space on the mesh or canvas.
+Painting is applied only inside the boundaries of the stencil.
+The stencil is displayed as a screen space overlay on the viewport.
+To transform the stencil texture use the following shortcuts (Hold <kbd>Alt</kbd> for the Texture Mask):</p>
+<ul>
+<li><p>Move <kbd>RMB</kbd></p></li>
+<li><p>Scale <kbd><kbd>Shift</kbd>-<kbd>RMB</kbd></kbd></p></li>
+<li><p>Rotate <kbd><kbd>Ctrl</kbd>-<kbd>RMB</kbd></kbd></p></li>
+</ul>
+<p>While using stencil scaling, <kbd>X</kbd> and <kbd>Y</kbd> are used to constrain the scaling to one axis.
+Pressing one of the buttons twice reverts to unconstrained scaling.</p>
+<dl id="bpy-ops-brush-stencil-fit-image-aspect">
+<dt>Image Aspect</dt><dd><p>Restore the aspect ratio of the original image to reset stretching introduce by scaling,
+(Image textures only.) This operator can use the tiling and scale values of the brush texture
+if the relevant are enabled in <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-brush-stencil-reset-transform">
+<dt>Reset Transform</dt><dd><p>Restores the position of the stencil.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-pressure-masking">
+<dt>Pressure Masking</dt><dd><p>Only available for the Texture Mask. It allows to clip the mask result based on pressure.</p>
+<dl>
+<dt>Off:</dt>
+<dd><p>Disabled.</p>
+</dd>
+<dt>Ramp:</dt>
+<dd><p>Fades out the mask effect on higher pressure.</p>
+</dd>
+<dt>Cutoff:</dt>
+<dd><p>Expands the used values from the image based on stylus pressure.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushtextureslot-angle">
+<dt>Angle <kbd><kbd>Ctrl</kbd>-<kbd>F</kbd></kbd></dt><dd><p>This is the rotation angle of the texture brush.
+It can be changed interactively via <kbd><kbd>Ctrl</kbd>-<kbd>F</kbd></kbd> in the 3D Viewport.
+While rotating the angle via the hotkey you can enter a value numerically as well.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushtextureslot-use-rake">
+<dt>Rake</dt><dd><p>Texture angle follows the direction of the brush stroke.
+Useful for stamping textures repeatedly along the stroke.
+Not available with <em>3D</em>, <em>Tiled</em>, or <em>Stencil</em> Mapping types.
+The shortcut is not available in Sculpt mode.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushtextureslot-use-random">
+<dt>Random</dt><dd><p>Angle is randomized on each step of the stroke.
+Not available with <em>3D</em>, <em>Tiled</em>, or <em>Stencil</em> Mapping types.
+The shortcut is not available in Sculpt mode.</p>
+<dl id="bpy-types-brushtextureslot-random-angle">
+<dt>Random Angle</dt><dd><p>Constraints the random deviation to a range.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-textureslot-offset">
+<dt>Offset X, Y, Z</dt><dd><p>Offset the texture map placement in X, Y, and Z axes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textureslot-scale">
+<dt>Size X, Y, Z</dt><dd><p>Set the scale of the texture in each axis.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-texture-sample-bias">
+<dt>Sample Bias Sculpt Mode</dt><dd><p>Value added to texture samples.
+This can be used if the midlevel of a height map is not correct.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-color-as-displacement">
+<dt>Vector Displacement Sculpt Mode</dt><dd><p>Use the color channels to displace geometry in 3 vectors.</p>
+<div>
+<p>Note</p>
+<p>This is only supported for the <a href="../sculpting/tools/draw.html">Draw</a> brush
+with <a href="#bpy-types-brushtextureslot-map-mode">Area Plane</a> mapping enabled.</p>
+</div>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

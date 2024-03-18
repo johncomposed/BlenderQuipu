@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Introduction</title></head>
+<body><ul>
+<li><a href="index.html">Animation &amp; Rigging</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<section id="animation">
+<h2>Animation</h2>
+<p>Animation is making an object move or change shape over time.
+Objects can be animated in many ways:</p>
+<dl>
+<dt>Moving as a whole object</dt><dd><p>Changing their position, orientation or size in time;</p>
+</dd>
+<dt>Deforming them</dt><dd><p>Animating their vertices or control points;</p>
+</dd>
+<dt>Inherited animation</dt><dd><p>Causing the object to move based on the movement of another object (e.g. its parent, hook, armature, etc.).</p>
+</dd>
+</dl>
+<p>In this chapter, we will cover the first two,
+but the basics given here are actually vital for understanding the following chapters as well.</p>
+<p>Animation is typically achieved with the use of <a href="keyframes/introduction.html">keyframes</a>.</p>
+<div>
+<p>See also</p>
+<p>Related Sections</p>
+<ul>
+<li><p><a href="../physics/introduction.html">Physical Simulation</a></p></li>
+<li><p><a href="../movie_clip/index.html">Motion Tracking</a></p></li>
+</ul>
+</div>
+<section id="state-colors">
+<h3>State Colors</h3>
+<figure id="id1">
+<figcaption>
+<p>State colors of properties.</p>
+</figcaption>
+</figure>
+<p>Properties have different colors and menu items for different states.</p>
+<table>
+<tbody>
+<tr><td><p>Gray</p></td>
+<td><p>Not animated</p></td>
+</tr>
+<tr><td><p>Yellow</p></td>
+<td><p>Keyframed on the current frame</p></td>
+</tr>
+<tr><td><p>Green</p></td>
+<td><p>Keyframed on a different frame</p></td>
+</tr>
+<tr><td><p>Orange</p></td>
+<td><p>Changed from the keyframed value</p></td>
+</tr>
+<tr><td><p>Purple</p></td>
+<td><p>Controlled by a driver</p></td>
+</tr>
+</tbody>
+</table>
+<p>The changed value highlight currently doesn’t work with <a href="../editors/nla/introduction.html">NLA</a>.</p>
+</section>
+</section>
+<section id="rigging">
+<h2>Rigging</h2>
+<p>Rigging is a general term used for adding controls to objects,
+typically for the purpose of animation.</p>
+<p>Rigging often involves using one or more of the following features:</p>
+<dl>
+<dt><a href="armatures/index.html#armatures-index">Armatures</a></dt><dd><p>This allows mesh objects to have flexible joints and is often used for skeletal animation.</p>
+</dd>
+<dt><a href="constraints/index.html#constraints-index">Constraints</a></dt><dd><p>To control the kinds of motions that make sense and add functionality to the rig.</p>
+</dd>
+<dt><a href="../modeling/modifiers/index.html#modifiers-index">Object Modifiers</a></dt><dd><p>Mesh deformation can be quite involved, there are multiple modifiers that help control this.</p>
+</dd>
+<dt><a href="shape_keys/index.html#animation-shape-keys-index">Shape Keys</a></dt><dd><p>To support different target shapes <em>(such as facial expressions)</em> to be controlled.</p>
+</dd>
+<dt><a href="drivers/index.html#animation-drivers-index">Drivers</a></dt><dd><p>So your rig can control many different values at once,
+as well as making some properties automatically update based on changes elsewhere.</p>
+</dd>
+</dl>
+<p>Rigging can be as advanced as your project requires,
+rigs are effectively defining own user interface for the animator to use,
+without having to be concerned the underlying mechanisms.</p>
+<section id="examples">
+<h3>Examples</h3>
+<ul>
+<li><p>An armature is often used with a modifier to deform a mesh for character animation.</p></li>
+<li><p>A camera rig can be used instead of animating the camera object directly to simulate real-world camera rigs
+(with a boom arm, mounted on a rotating pedestal for example, effects such as camera jitter can be added too).</p></li>
+</ul>
+<div>
+<p>See also</p>
+<p>The content of this chapter is simply a reference to how rigging is accomplished in Blender.
+It should be paired with additional resources such as Nathan Vegdahl’s excellent introduction to
+the fundamental concepts of character rigging,
+<a href="https://www.youtube.com/playlist?list=PLE211C8C41F1AFBAB">Humane Rigging</a>.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

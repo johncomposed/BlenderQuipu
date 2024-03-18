@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Sample &gt; Sample Index</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Sample Geometry Nodes</a></li>
+<li>Sample Index Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sample-index-node">
+<h1>Sample Index Node</h1>
+<p>The <em>Sample Index</em> node retrieves values from a source geometry at a specific index.</p>
+<div>
+<p>Tip</p>
+<p>If the <em>Geometry</em> used for the input is the same as the geometry from the <a href="../../fields.html#field-context">field context</a>,
+this node is equivalent to the <a href="../../utilities/field/evaluate_at_index.html">Evaluate at Index Node</a>. Using that node
+is usually preferable since avoiding the geometry socket makes the whole setup easier to use in other situations
+and share.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Different components can have same attribute domain (Points).
+This node simply uses first component that not empty for such domain,
+checked in the order of: Mesh, Point Cloud, Curve.
+The <a href="../operations/separate_components.html">Separate Components Node</a> can be used to sample directly from a
+specific component.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>The geometry to retrieve the attribute from.</p>
+</dd>
+<dt>Value</dt><dd><p>A field to evaluate on the source <em>Geometry</em>. The values are then retrieved from specific
+indices for the output.</p>
+</dd>
+<dt>Index</dt><dd><p>Which index to use when retrieving the data from the input <em>Value</em> field. Any index can be
+connected, resulting in a “shuffling” of the values.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>The <a href="../../attributes_reference.html#attribute-data-types">data type</a> to use for the retrieved values.</p>
+</dd>
+<dt>Domain</dt><dd><p>The <a href="../../attributes_reference.html#attribute-domains">attribute domain</a> that the attribute is transferred from, or in other words,
+the domain used to evaluate the <em>Attribute</em> input. For example, it is possible to transfer data from the
+faces of one geometry to the points of another.</p>
+</dd>
+<dt>Clamp</dt><dd><p>Clamp the indices to the size of the attribute domain instead of outputting a default value for invalid indices.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>The data retrieved from the source <em>Geometry</em> input.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Here the node is used to copy the positions of one object to another. This recreates the behavior of the
+Transfer Attribute node from Blender versions before 3.4. This works best when their geometries have
+the same number of points and the same Topology.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

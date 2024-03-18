@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Output &gt; Properties &gt; Stereoscopy &gt; Usage</title></head>
+<body><ul>
+<li><a href="../../../index.html">Rendering</a></li>
+<li><a href="../../index.html">Render Output</a></li>
+<li><a href="../index.html">Output Properties</a></li>
+<li><a href="index.html">Stereoscopy</a></li>
+<li>Usage</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="usage">
+<h1>Usage</h1>
+<p>For example, we will take an existing blend-file
+that was made for monoscopic rendering and transform it to be stereo 3D ready.</p>
+<figure id="id1">
+<figcaption>
+<p>Creature Factory 2 by Andy Goralczyk rendered in stereo 3D (anaglyph).</p>
+</figcaption>
+</figure>
+<section id="introduction">
+<h2>Introduction</h2>
+<p>Start opening up your project file, in this case <code>turntable.blend</code> from the <em>Creature Factory 2</em>
+Open Movie Workshop series from the Blender Institute by Andy Goralczyk.</p>
+<figure id="id2">
+<figcaption>
+<p>Turntable Creature Factory 2.</p>
+</figcaption>
+</figure>
+</section>
+<section id="stereoscopy-setup">
+<h2>Stereoscopy Setup</h2>
+<p>Go to the <a href="../../index.html">Output Properties</a> and enable <em>Stereoscopy</em> for this scene.</p>
+<figure id="id3">
+<figcaption>
+<p>Scene render views.</p>
+</figcaption>
+</figure>
+<div>
+<p>Note</p>
+<p>When you turn on <em>Stereoscopy</em> in the scene, you get 3D preview in the viewport,
+as well as multiple panels that are now accessible all over the user interface.</p>
+</div>
+<figure id="id4">
+<figcaption>
+<p>Viewport with 3D visualization.</p>
+</figcaption>
+</figure>
+</section>
+<section id="camera">
+<h2>Camera</h2>
+<p>To tweak the stereo 3D parameters, select the camera in the Outliner.
+In the Camera panel go to the Stereoscopy tab and change the <em>Convergence Distance</em>.</p>
+<p>The viewport will respond in real-time to those changes allowing you to preview the current depth value of the scene.</p>
+<figure id="id5">
+<figcaption>
+<p>Stereo convergence distance.</p>
+</figcaption>
+</figure>
+</section>
+<section id="viewport">
+<h2>Viewport</h2>
+<p>Before fine-tuning the camera parameters,
+you can set the convergence plane in the viewport based in your scene depth layout.
+Go outside the camera view and you will instantly see the convergence plane in front of the camera.</p>
+<p>You can toggle this and other display settings in the Stereoscopy panel of the 3D Viewport’s Sidebar.
+In the following image, the camera’s frustum volumes are also visible.</p>
+<figure id="id6">
+<figcaption>
+<p>Viewport plane and volume stereo preview.</p>
+</figcaption>
+</figure>
+</section>
+<section id="stereo-3d-display">
+<h2>Stereo 3D Display</h2>
+<p>If you have a real 3D display at some point, you can change the 3D display mode in the Window menu,
+by calling the Stereo 3D operator.
+Be aware that some modes require a fullscreen editor to work.</p>
+<figure id="id7">
+<figcaption>
+<p>Window menu, stereo 3D operator.</p>
+</figcaption>
+</figure>
+</section>
+<section id="viewport-preview">
+<h2>Viewport Preview</h2>
+<p>Before rendering your scene, you can save a Viewport Preview of the animation for testing in the final display.
+In the Render Output panel you can choose the output <em>Views Format</em>.</p>
+<p>The options include individual files per view, top-bottom, anaglyph among others.
+Pick the one that fits your display requirements.</p>
+</section>
+<section id="rendering-and-image-editor">
+<h2>Rendering and Image Editor</h2>
+<p>Once you are happy with the results, you can render out the final animation.
+In the Image Editor you can inspect the individual views and the stereo result.</p>
+</section>
+<section id="image-formats">
+<h2>Image Formats</h2>
+<p>Your final animation can be saved in more robust formats.
+In this example we saved as cross-eyed side-by-side stereo 3D.</p>
+<figure id="id8">
+<figcaption>
+<p>Side-by-side cross-eye format.</p>
+</figcaption>
+</figure>
+</section>
+<section id="final-considerations">
+<h2>Final Considerations</h2>
+<p>As this guide showed, there is more to stereo 3D rendering than just generate two images.
+The earlier the stereo pipeline is considered the smoother it will get.
+The following sections are a more in-depth view of the individual components we visited in the workflow.</p>
+</section>
+<section id="window-stereo-3d-display">
+<h2>Window Stereo 3D Display</h2>
+<p>An essential component of the Stereoscopy pipeline is the ability to display the stereo image in a proper display.
+Blender supports from high-end 3D displays to simple red-cyan glasses.
+On top of that, you can set a different display mode for each window.</p>
+<p>The display mode can be changed via the Window menu
+or if you create your own shortcuts for the <code>wm.set_stereo_3d</code> operator.</p>
+<figure id="id9">
+<figcaption>
+<p>Window menu, stereo 3D operator.</p>
+</figcaption>
+</figure>
+<section id="display-mode">
+<h3>Display Mode</h3>
+<dl>
+<dt>Anaglyph</dt><dd><p>Render two differently filtered colored images for each eye.
+Anaglyph glasses are required. We support red-cyan, green-magenta and yellow-blue glasses.</p>
+</dd>
+<dt>Interlace</dt><dd><p>Render two images for each eye into one interlaced image.
+A 3D-ready monitor is required. We support Row, Column and Checkerboard Interleaved.
+An option to Swap Left/Right helps to adjust the image for the screen. This method works better in fullscreen.</p>
+</dd>
+<dt>Time Sequential</dt><dd><p>Render alternate eyes.
+This method is also known as Page Flip.
+This requires the graphic card to support Quad Buffer and it only works in fullscreen.</p>
+</dd>
+<dt>Side-by-Side</dt><dd><p>Render images for left and right eye side-by-side.
+There is an option to support Cross-Eye glasses.
+It works only in fullscreen, and it should be used with the Full Editor operator.</p>
+</dd>
+<dt>Top-Bottom</dt><dd><p>Render images for left and right eye one above another.
+It works only in fullscreen, and it should be used with the Full Editor operator.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Full Screen Stereo 3D Modes</p>
+<p>If you have a 3D display most of the time,
+you will use it to see in stereo 3D, you will have to go to the fullscreen mode.
+In fact some modes will only work in the full window mode that hides most of
+the user interface from the work area.
+In this case it is recommended to work with two monitors,
+using the 3D screen for visualizing the stereo result
+while the other screen can be used for the regular Blender work.</p>
+</div>
+</section>
+</section>
+<section id="stereo-3d-camera">
+<h2>Stereo 3D Camera</h2>
+<p>When using the Stereo 3D scene view setup, a stereo pair is created
+on-the-fly and used for rendering and previsualization.
+For all the purposes this works as two cameras that share most parameters (focal length, clipping, …).
+The stereo pair, however, is offset, and can have unique rotation and shift between itself.</p>
+<figure id="id10">
+<figcaption>
+<p>Stereo 3D camera settings.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Interocular Distance</dt><dd><p>Set the distance between the camera pair.
+Although the convergence of a stereo pair can be changed in post-production,
+different interocular distances will produce different results
+due to the parts of the scene being occluded from each point of view.</p>
+</dd>
+<dt>Convergence Plane Distance</dt><dd><p>The converge point for the stereo cameras.
+This is often the distance between a projector and the projection screen.
+You can visualize this in the 3D Viewport.</p>
+</dd>
+</dl>
+<dl>
+<dt>Spherical Stereo</dt><dd><p>Render every pixel rotating the camera around the middle of the interocular distance.</p>
+</dd>
+<dt>Use Pole Merge</dt><dd><p>Fade interocular distance to 0 after the given cutoff angle.</p>
+<dl>
+<dt>Pole Merge Start Angle</dt><dd><p>Angle at which interocular distance starts to fade to 0.</p>
+</dd>
+<dt>Pole Merge End Angle</dt><dd><p>Angle at which interocular distance is 0.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="convergence-mode">
+<h3>Convergence Mode</h3>
+<dl>
+<dt>Off-Axis</dt><dd><p>The stereo camera pair is separated by the interocular distance,
+and shifted inwards so it converges in the convergence plane.
+This is the ideal format since it is the one closest to how the human vision works.</p>
+</dd>
+<dt>Parallel</dt><dd><p>This method produces two parallel cameras that do not converge.
+Since this method needs to be manually converged it cannot be used for viewing.
+This method is common when combining real footage with rendered elements.</p>
+</dd>
+<dt>Toe-in</dt><dd><p>A less common approach is to rotate the cameras instead of shifting their frustum.
+The Toe-in method is rarely used in modern 3D productions.</p>
+</dd>
+<dt>Pivot</dt><dd><p>The stereo pair can be constructed around the active camera with a new camera built for each eye
+(Center Pivot) or using the existing camera and creating (Left or Right).
+The latter is what is used when only one eye needs to be rendered for an existing mono 2D project.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="viewport-stereo-3d">
+<h2>Viewport Stereo 3D</h2>
+<p>When you enable <em>Views</em> in the Render Layer panel, a new area is available in the 3D Viewport Sidebar region.
+In this panel you can pick whether to see the stereo 3D in the viewport, or which camera to see.
+It also allow you to see the <em>Cameras</em>, the <em>Plane</em> and the <em>Volume</em> of the stereo cameras.</p>
+<figure id="id11">
+<figcaption>
+<p>Viewport stereo 3D settings.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Cameras</dt><dd><p>When working with the Stereo 3D Viewports setup, you can inspect what
+each individual generated camera is looking or the combined result of them.
+In the Multi-View mode you can see the combined result of the left and right cameras
+(when available) or the current selected camera.</p>
+</dd>
+<dt>Plane</dt><dd><p>The convergence plane represents the screen as it is perceived by the audience.
+Visualizing it in the 3D Viewport allows you to layout your scene
+based on your depth script outside the camera view.</p>
+</dd>
+<dt>Volume</dt><dd><p>The intersection of the stereo cameras frustums helps planning the show
+by avoiding elements being visible by only one camera.
+The volume is defined by the camera’s start and end clipping distances.
+The areas that are in the frustum of one camera only are known as <em>retinal rivalry areas</em>.
+They are tolerated in the negative space (the region from the convergence plane into the image)
+but are to be avoided at all costs in the positive space (the area from the convergence plane to the camera).</p>
+<figure id="id12">
+<figcaption>
+<p>Viewport 3D: convergence plane and volume display.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</section>
+<section id="multi-view-and-stereo-3d-image-i-o">
+<h2>Multi-View and Stereo 3D Image I/O</h2>
+<dl>
+<dt>Multi-View and Stereo 3D</dt><dd><p>Multi-view images can be saved in special formats according to the production requirements.
+By default the system saves each view as an individual file,
+thus generating as many files as views to be rendered.
+In stereo 3D productions, for the final deployment or
+even intermediary previews it is convenient to save stereo 3D images,
+that are ready to use with 3D displays or simple anaglyph glasses.
+The formats supported match the display modes available for the window.</p>
+</dd>
+<dt>Lossy-Formats</dt><dd><p>Some stereo 3D formats represent a considerable loss of data.
+For example, the Anaglyph format will cap out entire color channels from the original image.
+The Top-Bottom compressed will discard half of your vertical resolution data.
+The Interlace will mash your data considerably.
+Once you export in those formats, you can still import the image
+back in Blender, for it to be treated as Stereo 3D.
+You will need to match the window stereo 3D display mode to the image stereo 3D format though.</p>
+</dd>
+<dt>Lossless Formats</dt><dd><p>Some formats will preserve the original data,
+leading to no problems on exporting and importing the files back in Blender.
+The Individual option will produce separate images that
+(if saved in a lossless encoding such as <code>PNG</code> or <code>OpenEXR</code>)
+can be loaded back in production with no loss of data.
+For the Stereo 3D formats the only lossless options are
+<em>Top-Bottom</em> and <em>Side-by-Side</em> without the Squeezed Frame option.</p>
+</dd>
+<dt>Multi-View OpenEXR</dt><dd><p>Another option is to use multi-view OpenEXR files. This format can save multiple views in
+a single file and is backward compatible with old OpenEXR viewers (you see only one view though).
+Multi-view native support is only available to OpenEXR.</p>
+</dd>
+</dl>
+</section>
+<section id="image-editor">
+<h2>Image Editor</h2>
+<dl>
+<dt>View Menu</dt><dd><p>After you render your scene with Stereo 3D you will be able to see
+the rendered result in the combined stereo 3D or to inspect the individual views.
+This works for Viewer nodes, render results or opened images.</p>
+<figure id="id13">
+<figcaption>
+<p>Stereo 3D and view menu.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Views Format</dt><dd><p>When you drag and drop an image into the Image Editor, Blender will open it as an individual images at first.
+If your image was saved with one of the Stereo 3D formats, you can change how
+Blender should interpret the image by switching the mode to Stereo 3D,
+turning on <em>Use Multi-View</em> and picking the corresponding stereo method.</p>
+<figure id="id14">
+<figcaption>
+<p>Views formats and stereo 3D.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</section>
+<section id="compositor">
+<h2>Compositor</h2>
+<p>The Compositor works smoothly with multi-view images.
+The compositing of a view is completed before the remaining views start to be composited.
+The pipeline is the same as the single-view workflow, with the difference that you can use images,
+movies or image sequences in any of the supported multi-view formats.</p>
+<figure id="id15">
+<figcaption>
+<p>Compositor, backdrop and Split Viewer node.</p>
+</figcaption>
+</figure>
+<p>The views to render are defined in the current scene views,
+in a similar way as you define the composite output resolution in the current scene render panel,
+regardless of the Image nodes resolutions or Render Layers from different scenes.</p>
+<div>
+<p>Note</p>
+<p>Single-View Images</p>
+<p>If the image from an Image node does not have the view you are trying to render,
+the image will be treated as a single-view image.</p>
+</div>
+<dl>
+<dt>Switch View Node</dt><dd><p>If you need to treat the views separately, you can use
+the <a href="../../../../compositing/types/converter/switch_view.html">Switch View node</a>
+to combine the views before an Output node.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Performance</p>
+<p>By default, when compositing and rendering from the user interface all views are rendered and then composited.
+During test iterations you can disable all but one view from the Scene Views panel,
+and re-enable it after you get the final look.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

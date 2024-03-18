@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Hair &gt; Guides &gt; Curl Hair Curves</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Hair Nodes</a></li>
+<li><a href="index.html">Hair Guides Nodes</a></li>
+<li>Curl Hair Curves</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curl-hair-curves">
+<h1>Curl Hair Curves</h1>
+<p>Deforms existing hair curves into curls using guide curves.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p><strong>Geometry</strong></p>
+<dl>
+<dt>Guide Index</dt><dd><p>Guide index map witch describes which curve to use as the center of each braid group.
+If this input is provided, it priority over an existing map in the <code>guide_curve_index</code>
+attribute, and the <em>Guide Distance</em> and <em>Guide Mask</em> attribute will be unused.</p>
+</dd>
+<dt>Guide Distance</dt><dd><p>Minimum distance between two guides for new guide map.</p>
+</dd>
+<dt>Guide Mask</dt><dd><p>Mask for which curve are eligible to be selected as guides.</p>
+</dd>
+<dt>Existing Guide Map</dt><dd><p>Use the existing guide map attribute if available. If this is false, and the <em>Guide Index</em>
+input isn’t provided, the <em>Guide Distance</em> and <em>Guide Mask</em> input will be used to generate
+a new <a href="create_guide_index_map.html">guide map</a> for this node.
+Creating the guide map in a separate node or modifier gives more complete control over its creation.</p>
+</dd>
+<dt>Factor</dt><dd><p>Factor to blend overall effect.</p>
+</dd>
+<dt>Subdivision</dt><dd><p>Subdivision level applied before deformation.</p>
+</dd>
+<dt>Curl Start</dt><dd><p>Percentage along each curve to blend deformation from the root.</p>
+</dd>
+<dt>Radius</dt><dd><p>Overall radius of the curls.</p>
+</dd>
+<dt>Factor Start</dt><dd><p>Factor for the radius at the curl start.</p>
+</dd>
+<dt>Factor End</dt><dd><p>Factor for the radius at the curl end.</p>
+</dd>
+<dt>Frequency</dt><dd><p>Frequency factor of the curls.
+This input can vary for different points of the same curve.</p>
+</dd>
+<dt>Random Offset</dt><dd><p>Amount of random offset per curve.</p>
+</dd>
+<dt>Seed</dt><dd><p>Random Seed for the operation.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p><strong>Geometry</strong></p>
+<dl>
+<dt>Guide Index</dt><dd><p>Guide index map that was used for the operation.
+If a new guide map is created by this node, it will be stored for
+this output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

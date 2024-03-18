@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Brush &gt; Falloff</title></head>
+<body><ul>
+<li><a href="../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="index.html">Brush</a></li>
+<li>Falloff</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="falloff">
+<h1>Falloff</h1>
+<p>The Falloff allows you to control the <em>Strength</em> falloff of the brush.
+The falloff is mapped from the center of the brush (left part of the curve)
+towards its borders (right part of the curve).
+Changing the shape of the curve will make the brush softer or harder.
+Read more about using the <a href="../../interface/controls/templates/curve.html#ui-curve-widget">Curve Widget</a>.</p>
+<figure id="id1">
+<figcaption>
+<p>Brush curve example.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-brush-curve">
+<dt>Curve Preset</dt><dd><dl>
+<dt>Custom:</dt>
+<dd><p>You can choose how the strength of the falloff is determined from the center of the brush
+to the borders by manually manipulating the control points within the curve widget.
+There are also a couple of preset custom curves displayed at the bottom of the curve widget
+that can be used on their own or as a starting point for tweaking.</p>
+<table id="id2">
+<caption>Custom Preset types.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Smooth.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Sphere.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Root.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Sharp.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Linear.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Constant.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Smooth:</dt>
+<dd><p>The center strength, the border strength, and the falloff transition between them are evenly distributed.</p>
+</dd>
+<dt>Smoother:</dt>
+<dd><p>Similar to <em>Smooth</em> but produces a wider center point of the brush before tapering off.</p>
+</dd>
+<dt>Sphere:</dt>
+<dd><p>The strength of the brush is predominately at its strongest point
+with a steep falloff near the border of the brush.</p>
+</dd>
+<dt>Root:</dt>
+<dd><p>Similar to a Sphere but the center is a more concentrated point.</p>
+</dd>
+<dt>Sharp:</dt>
+<dd><p>The center of the brush is the strongest point
+then exponentially tapers off to a lower strength, creating a fine point.</p>
+</dd>
+<dt>Linear:</dt>
+<dd><p>With the center being the strongest,
+the strength will consistently weaken as it reaches the border of the brush.</p>
+</dd>
+<dt>Sharper:</dt>
+<dd><p>Similar to <em>Sharp</em> but the center point is more condensed.</p>
+</dd>
+<dt>Inverse Square:</dt>
+<dd><p>A hybrid between <em>Smooth</em> and <em>Sphere</em>.</p>
+</dd>
+<dt>Constant:</dt>
+<dd><p>The strength of the brush remains unified across the entire brush.
+This will create a sharp edge at the border of the brush.</p>
+</dd>
+</dl>
+<figure id="id9">
+<figcaption>
+<p>(From Left to Right) Smooth, Smoother, Sphere, Root,
+Sharp, Linear, Sharper, Inverse square, Constant.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<dl id="bpy-types-brush-falloff-shape">
+<dt>Falloff Shape</dt><dd><p>Use projected or spherical falloff.
+Note, this is not supported in Texture Paint Mode.</p>
+<dl>
+<dt>Sphere:</dt>
+<dd><p>Applies brushes influence in a sphere, outwards from the center.</p>
+</dd>
+<dt>Projected:</dt>
+<dd><p>This turns the brush influence into a cylinder (the depth along the view is ignored) instead of a sphere.
+It can be used along the outline of a mesh to adjust its silhouette.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="front-face-falloff">
+<h2>Front-Face Falloff</h2>
+<p>As faces point away from the view the brush strokes fade away to prevent harsh edges.</p>
+<dl id="bpy-types-brush-use-frontface-falloff">
+<dt>Normal Falloff / Front-Face Falloff</dt><dd><p>If disabled, the normal of the surface has no effect on the falloff.</p>
+</dd>
+</dl>
+<dl id="bpy-types-imagepaint-normal-angle">
+<dt>Angle</dt><dd><p>The angle at which the falloff begins.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

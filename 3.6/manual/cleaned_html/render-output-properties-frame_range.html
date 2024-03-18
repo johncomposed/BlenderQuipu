@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Output &gt; Properties &gt; Frame Range</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Render Output</a></li>
+<li><a href="index.html">Output Properties</a></li>
+<li>Frame Range</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="frame-range">
+<h1>Frame Range</h1>
+<figure id="id1">
+<figcaption>
+<p>Frame Range panel.</p>
+</figcaption>
+</figure>
+<p>This panel defines how long an animation will last in terms of frames.
+Frames can be divided by the scene’s <a href="format.html#bpy-types-rendersettings-fps">Frame Rate</a>
+to get the animation duration in terms of time.
+For example, a 250 frame animation at a frame rate of 30 will last 8.3 seconds.</p>
+<dl id="bpy-types-scene-frame-end">
+<dt>Frame Start, End</dt><dd><p>Set the <em>Start</em> and <em>End</em> frames for <a href="../animation.html">Rendering Animations</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-scene-frame-step">
+<dt>Step</dt><dd><p>Controls the number of frames to advance by for each frame in the timeline.</p>
+</dd>
+</dl>
+<section id="time-stretching">
+<h2>Time Stretching</h2>
+<p>Use to remap the length of an animation; making it run slower or faster.
+The <em>Old</em> and <em>New</em> settings may either be used as absolute values or as a ratio:
+For example, setting <em>Old</em> to a value of 2 and <em>New</em> to 1 will run the animation twice as fast.</p>
+<div>
+<p>Warning</p>
+<p>Using <em>Time Stretching</em> will not influence the <em>Start</em> or <em>End</em> frames set above,
+so make sure that your animation is not cut off or has extraneous still frames at the end.</p>
+</div>
+<dl id="bpy-types-rendersettings-frame-map-old">
+<dt>Old</dt><dd><p>The length in frames of the original animation.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-frame-map-new">
+<dt>New</dt><dd><p>The length in frames the new animation will last.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

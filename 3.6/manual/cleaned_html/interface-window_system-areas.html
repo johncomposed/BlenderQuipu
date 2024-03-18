@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Window System &gt; Areas</title></head>
+<body><ul>
+<li><a href="../index.html">User Interface</a></li>
+<li>Areas</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="areas">
+<h1>Areas</h1>
+<figure id="id4">
+<figcaption>
+<p>Area boundaries are indicated by rounded corners (yellow highlights).</p>
+</figcaption>
+</figure>
+<p>The Blender window is divided into a number of rectangles called Areas.
+Areas reserve screen space for <a href="../../editors/index.html">Editors</a>, such as the
+<a href="../../editors/3dview/introduction.html">3D Viewport</a> or the
+<a href="../../editors/outliner/introduction.html">Outliner</a>.
+Each editor offers a specific piece of functionality.</p>
+<p>Areas are grouped into <a href="workspaces.html">Workspaces</a>,
+which are geared towards particular tasks (modeling, animating and so on).</p>
+<div>
+<p>Note</p>
+<p>While some keyboard shortcuts in Blender are global (such as <kbd><kbd>Ctrl</kbd>-<kbd>S</kbd></kbd>
+for saving), many depend on which editor the mouse cursor is hovering over.</p>
+<p>As an example, say you just selected two objects in the Outliner and want
+to join them. If you pressed the shortcut for this (<kbd><kbd>Ctrl</kbd>-<kbd>J</kbd></kbd>)
+while the cursor is still in the Outliner, nothing would happen as the
+shortcut isn’t valid there; you first need to move your cursor
+to the 3D Viewport.</p>
+</div>
+<section id="resizing">
+<h2>Resizing</h2>
+<p>You can resize areas by dragging their borders with <kbd>LMB</kbd>.
+Move your mouse cursor over the border between two areas,
+so that the cursor changes to a double-headed arrow, and then click and drag.</p>
+</section>
+<section id="splitting">
+<h2>Splitting</h2>
+<p>Splitting an area will create a new area. Placing the mouse cursor
+in an area corner will change the cursor to a cross (+) to indicate that
+pressing down <kbd>LMB</kbd> will activate splitting or joining.
+Dragging from an area corner <strong>inward</strong> will <em>split</em> the area.
+You define the split direction by dragging either horizontally or vertically.</p>
+</section>
+<section id="joining">
+<h2>Joining</h2>
+<figure id="id5">
+<figcaption>
+<p>Properties is being joined to the Outliner.</p>
+</figcaption>
+</figure>
+<p>Dragging from an area corner <strong>outward</strong> will <em>join</em> two areas.
+The area that will be closed shows a dark overlay.
+You can select which area will be closed by moving the mouse over it.
+Release the <kbd>LMB</kbd> to complete the join.
+If you press <kbd>Esc</kbd> or <kbd>RMB</kbd> before releasing the mouse,
+the operation will be canceled.</p>
+<div>
+<p>Tip</p>
+<p>The cursor will also turn into a cross when hovering over either
+end of the border between two areas. When splitting or joining,
+it’s best not to start dragging from this border, but from a
+corner inside one of the areas.</p>
+</div>
+<section id="area-options">
+<h3>Area Options</h3>
+<p><kbd>RMB</kbd> on the border opens the <em>Area Options</em>.</p>
+<dl>
+<dt>Vertical/Horizontal Split</dt><dd><p>Shows an indicator line that lets you select the area and position where to split.
+<kbd>Tab</kbd> switches between vertical/horizontal.</p>
+</dd>
+<dt>Join Areas</dt><dd><p>Shows the join direction overlay.</p>
+</dd>
+<dt>Swap Areas</dt><dd><p>Swaps this area with the adjacent one.</p>
+</dd>
+</dl>
+<section id="swapping-contents">
+<h4>Swapping Contents</h4>
+<p>You can swap the contents of two areas by pressing <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd>
+on one of the corners of the initial area, dragging towards the target area,
+and releasing the mouse there. The two areas do not need to be side-by-side,
+though they must be inside the same window.</p>
+</section>
+</section>
+</section>
+<section id="duplicate-area-into-new-window">
+<h2>Duplicate Area into new Window</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>View ‣ Area ‣ Duplicate Area into new Window</p>
+</dd>
+</dl>
+</div>
+<p>A new floating window containing an area can be created from
+View ‣ Area ‣ Duplicate Area into new Window. (Not available in some editors.)</p>
+<p>The new window is a fully functional window, which is part of the same instance of Blender.
+This can be useful, e.g. if you have multiple monitors.</p>
+<p>You can also create a new window from an existing area by pressing <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd>
+on an area corner, then dragging outward slightly.</p>
+</section>
+<section id="toggle-maximize-area">
+<h2>Toggle Maximize Area</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>View ‣ Area ‣ Toggle Maximize Area</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Spacebar</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expands the Area so it fills the whole window (while keeping the Topbar and Status Bar visible).
+To return to normal size, use the keyboard shortcut again or click the <em>Back to Previous</em> button in the Topbar.</p>
+</section>
+<section id="toggle-fullscreen-area">
+<h2>Toggle Fullscreen Area</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>View ‣ Area ‣ Toggle Fullscreen Area</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>Spacebar</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expands the Area so it fills the whole window, hiding the Topbar, Status Bar, and even the
+secondary <a href="regions.html">regions</a> (toolbars etc.) of the Area’s own editor.
+To return to normal size, use the keyboard shortcut again or click the icon in the Area’s top right corner
+(only becomes visible when hovering).</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

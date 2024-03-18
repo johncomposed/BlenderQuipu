@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Vector &gt; Normal Map</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Vector</a></li>
+<li>Normal Map Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="normal-map-node">
+<h1>Normal Map Node</h1>
+<p>The <em>Normal Map</em> node generates a perturbed normal from an RGB normal map image.
+This is usually chained with an <em>Image Texture</em> node in the color input,
+to specify the normal map image. For tangent space normal maps,
+the UV coordinates for the image must match,
+and the image texture should be set to <em>Non-Color</em> mode to give correct results.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Strength</dt><dd><p>Strength of the normal mapping effect.</p>
+<figure id="id1">
+<figcaption>
+<p>Strength is set to 0, 0.5, 1, 2 (from left to right).</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Color</dt><dd><p>RGB color that encodes the normal map in the specified space.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Space</dt><dd><p>The input RGB color can be in one of three spaces: Tangent, Object and World space.
+Tangent space normal maps are the most common, as they support object transformation and mesh deformations.
+Object space normal maps keep sticking to the surface under object transformations,
+while World normal maps do not.</p>
+</dd>
+<dt>UV Map</dt><dd><p>Name of the UV map to derive normal mapping tangents from. When chained with an Image Texture node,
+this UV map should be the same as the UV map used to map the texture.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Normal</dt><dd><p>Normal that can be used as an input to BSDF nodes.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id2">
+<figcaption>
+<p>The Normal Map Strength is set to 1.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

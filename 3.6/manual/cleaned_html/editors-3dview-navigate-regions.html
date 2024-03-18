@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Navigate &gt; Regions</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">3D Viewport</a></li>
+<li><a href="index.html">Navigating</a></li>
+<li>View Regions</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="view-regions">
+<h1>View Regions</h1>
+<section id="clipping-region">
+<h2>Clipping Region</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>View ‣ View Regions ‣ Clipping Region…</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>B</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Allows you to define a clipping region to limit the 3D Viewport display to a portion of 3D space.
+It can assist in the process of working with complex models and scenes.</p>
+<p>Once activated, you have to draw a rectangle with the mouse.
+It becomes a clipping volume of four planes:</p>
+<ul>
+<li><p>A right-angled <a href="https://en.wikipedia.org/wiki/Parallelepiped">parallelepiped</a>
+(of infinite length) if your view is orthographic.</p></li>
+<li><p>A rectangular-based pyramid (of infinite height) if your view is in perspective.</p></li>
+</ul>
+<p>Once clipping is used, you will only see what’s inside the volume you defined.
+Tools such as paint, sculpt, selection, transform snapping, etc.
+will also ignore geometry outside the clipping bounds.</p>
+<p>To delete this clipping, press <kbd><kbd>Alt</kbd>-<kbd>B</kbd></kbd> again.</p>
+<section id="example">
+<h3>Example</h3>
+<table id="id3">
+<caption>Region/Volume clipping.</caption>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Selecting a region.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Region selected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>View rotated.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <em>Region/Volume clipping</em> image shows an example of using the clipping tool with a cube.
+Start by activating the tool with <kbd><kbd>Alt</kbd>-<kbd>B</kbd></kbd>.
+This will generate a dashed cross-hair cursor.
+Click with the <kbd>LMB</kbd> and drag out a rectangular region.
+Now clipping is applied against that region in 3D space.
+Use the <kbd>MMB</kbd> to rotate
+the view and you will see that only what is inside the clipping volume is visible.
+All the editing tools still function as normal, but only within the clipping volume.</p>
+<p>The dark gray area is the clipping volume itself.
+Once clipping is deactivated with another <kbd><kbd>Alt</kbd>-<kbd>B</kbd></kbd>,
+all of 3D space will become visible again.</p>
+</section>
+</section>
+<section id="render-region">
+<h2>Render Region</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>View ‣ View Regions ‣ Render Region…
+View ‣ View Regions ‣ Clear Render Region</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p>Mark: <kbd><kbd>Ctrl</kbd>-<kbd>B</kbd></kbd>
+Clear: <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>B</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>When using the <a href="../display/shading.html#view3d-viewport-shading">Rendered shading mode</a>,
+it can be quite slow to render the entire 3D Viewport. To fix this,
+you can define a subregion to render just a portion.
+This can be very useful for reducing render times for quick previews on an area of interest.</p>
+<p>Apart from clearing the render region, you can also temporarily disable it
+in the <a href="../sidebar.html#bpy-types-spaceview3d-use-render-border">Sidebar</a> if you’re not in
+<a href="camera_view.html">Camera View</a>,
+or in the Output tab of the <a href="../../../render/output/properties/format.html#bpy-types-rendersettings-use-border">Properties</a>
+editor if you are.</p>
+<table id="id7">
+<caption>Render region and associated render.</caption>
+</table>
+<div>
+<p>Tip</p>
+<p>If you set a render region while in camera view and have it enabled in
+the Output properties, it will be applied to the final render.</p>
+</div>
+<div>
+<p>See also</p>
+<p><a href="navigation.html#bpy-ops-view3d-zoom-border">Zoom Region</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

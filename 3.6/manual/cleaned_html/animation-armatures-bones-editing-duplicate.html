@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Editing &gt; Duplicate</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Duplicate</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="duplicate">
+<h1>Duplicate</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Duplicate</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<div>
+<p>Note</p>
+<p>This tool works on selected bones; selected joints are ignored.</p>
+</div>
+<p>As in mesh editing, by pressing <kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd> the selected bones will be duplicated.
+The duplicates become the selected elements and they are placed in select mode,
+so you can move them wherever you like.</p>
+<p>If you select part of a chain, by duplicating it you will get a copy of the selected chain,
+so the copied bones are interconnected exactly like the original ones.</p>
+<p>The duplicate of a bone which is parented to another bone will also be parented to the same
+bone, even if the root bone is not selected for the duplication. Be aware, though,
+that if a bone is parented <strong>and</strong> connected to an unselected bone,
+its copy will be parented, but <strong>not</strong> connected to the unselected bone
+(see Fig. <a href="#fig-rig-bone-duplication">Duplication example.</a>).</p>
+<table id="id2">
+<caption>Duplication example.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>An armature with three selected bones and a selected single root.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>The three duplicated bones. Note that the selected chain is preserved in the copy,
+and that Bone.006 is parented but not connected to Bone.001, as indicated by the black dashed line.
+Similarly, Bone.007 is parented but not connected to Bone.003.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div></body>
+</html>

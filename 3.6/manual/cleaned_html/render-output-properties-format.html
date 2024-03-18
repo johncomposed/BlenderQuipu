@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Output &gt; Properties &gt; Format</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Render Output</a></li>
+<li><a href="index.html">Output Properties</a></li>
+<li>Format</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="format">
+<h1>Format</h1>
+<figure id="id1">
+<figcaption>
+<p>Format panel.</p>
+</figcaption>
+</figure>
+<p>Several render presets exist with common resolution and frame rates
+for TVs and screens can be selected in the panel header.</p>
+<dl id="bpy-types-rendersettings-resolution-y">
+<dt>Resolution X, Y</dt><dd><p>The number of pixels horizontally and vertically in the image.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-resolution-percentage">
+<dt>Percentage</dt><dd><p>Slider to reduce or increase the size of the rendered image relative to the <em>Resolution</em> values.
+This is useful for small test renders that have the same proportions as the final image.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-pixel-aspect-y">
+<dt>Aspect X, Y</dt><dd><p>Older televisions may have non-square pixels,
+so this can be used to control the shape of the pixels along the respective axis.
+This will <em>pre-distort</em> the images which will look stretched on a computer screen,
+but which will display correctly on a TV set.
+It is important that you use the correct pixel aspect ratio when rendering to prevent re-scaling,
+resulting in lowered image quality.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-use-border">
+<dt>Render Region</dt><dd><p>Renders just a portion of the view instead of the entire frame.
+See the <a href="../../../editors/3dview/navigate/regions.html#editors-3dview-navigate-render-region">Render Region</a>
+documentation to see how to define the size of the render region.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-use-crop-to-border">
+<dt>Crop to Render Region</dt><dd><p>Crops the rendered image to the size of the render region,
+instead of rendering a transparent background around it.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-fps-base">
+<dt>Frame Rate</dt><dd><p>The number of frames that are displayed per second, relevant for <a href="../animation.html">Animation</a>.
+The menu gives several common frame rates, custom frame rates can be used by selecting <em>Custom</em>
+which gives access to the following properties:</p>
+<dl>
+<dt>FPS</dt><dd><p>The frame rate, expressed in frames per second.</p>
+</dd>
+<dt>Base</dt><dd><p>Some standards require a more precise frame rate, for example NTSC.
+These can be represent as a fraction where the <em>Base</em> value
+is used as the fraction’s denominator and the FPS being the numerator:
+\(\frac{FPS}{Base}\).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

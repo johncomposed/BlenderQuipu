@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Uv &gt; Uv Unwrap</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">UV Nodes</a></li>
+<li>UV Unwrap Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="uv-unwrap-node">
+<h1>UV Unwrap Node</h1>
+<p>The <em>UV Unwrap Node</em> generates a UV map islands based on a selection of seam edges.
+The node implicitly performs a <a href="pack_uv_islands.html">Pack Islands</a>
+operation upon completion, because the results may not be generally useful otherwise.</p>
+<div>
+<p>See also</p>
+<p>The <a href="../../../meshes/editing/uv.html#bpy-ops-uv-unwrap">Unwrap</a> operator performs a similar operation in the UV editor.
+Unlike the Unwrap operator, the node doesn’t perform aspect ratio correction,
+because it is trivial to implement with a <a href="../../utilities/vector/vector_math.html">Vector Math Node</a>.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Selection</dt><dd><p>Faces to participate in the unwrap operation.
+UVs that are part of any other face will not be affected.</p>
+</dd>
+<dt>Seam</dt><dd><p>Edges to mark where the mesh is “cut” for the purposes of unwrapping.</p>
+</dd>
+<dt>Margin</dt><dd><p>The distance to leave between UV islands.</p>
+</dd>
+<dt>Fill Holes</dt><dd><p>Virtually fill holes in mesh before unwrapping, to better avoid overlaps and preserve symmetry.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Method</dt><dd><dl>
+<dt>Angle Based:</dt>
+<dd><p>This method gives a good 2D representation of a mesh</p>
+</dd>
+<dt>Conformal:</dt>
+<dd><p>Uses LSCM (Least Squares Conformal Mapping). This usually gives a less accurate UV
+mapping than Angle Based, but works better for simpler objects</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>UV</dt><dd><p>The generated UV coordinates between 0 and 1 for each face corner in the selected faces.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>In order for Blender to recognize the created attribute as a UV map,
+it must be created with the <a href="../../attribute/store_named_attribute.html">Store Named Attribute Node</a>
+on the <a href="../../attributes_reference.html#attribute-domains">Face Corner</a> domain with the <a href="../../attributes_reference.html#attribute-data-types">2D Vector</a> data type.
+This is necessary because there is no 2D Vector socket type.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

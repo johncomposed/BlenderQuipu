@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Read &gt; Face Is Planar</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Read Mesh Nodes</a></li>
+<li>Is Face Planar Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="is-face-planar-node">
+<h1>Is Face Planar Node</h1>
+<p>The <em>Is Face Planar</em> node outputs whether every triangle of a
+<a href="../../../../glossary/index.html#term-Quad">quads</a> or <a href="../../../../glossary/index.html#term-N-gon">N-gons</a> is on the same plane as all of the others, in
+other words, if they have the same <a href="../../../meshes/editing/mesh/normals.html">normal</a>.</p>
+<p>For example, a non-planar face can be created by moving a single vertex in a face but not
+the others. Triangles will always be planar.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Threshold</dt><dd><p>The distance a point can be from the surface before the face is no longer
+considered planar.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Planar</dt><dd><p>Whether each mesh face is planar.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Combined with the <a href="../../material/set_material.html">Set Material Node</a>,
+this node is used to visualize all non-planar faces in a mesh.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

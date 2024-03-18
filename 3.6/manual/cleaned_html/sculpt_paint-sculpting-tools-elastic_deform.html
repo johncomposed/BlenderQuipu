@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Elastic Deform</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Elastic Deform</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="elastic-deform">
+<h1>Elastic Deform</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Elastic Deform</p>
+</dd>
+</dl>
+</div>
+<p>Used to simulate realistic deformations such as grabbing or twisting of <a href="../../../glossary/index.html#term-Elastic">Elastic</a> objects.
+For example, this tool works great for modeling the shape of organic objects such as humans or animals.
+When pressing <kbd>Ctrl</kbd>, the brush deforms vertices along the normal of the active vertex.</p>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<section id="general">
+<h3>General</h3>
+<div>
+<p>Note</p>
+<p>More info at <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-general">General</a> brush settings
+and on <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-advanced">Advanced</a> brush settings.</p>
+</div>
+</section>
+<section id="unique">
+<h3>Unique</h3>
+<dl id="bpy-types-brush-elastic-deform-type">
+<dt>Deformation</dt><dd><p>The surface alteration that is used in the brush.</p>
+<dl>
+<dt>Grab:</dt>
+<dd><p>Used to drag a group of vertices around.</p>
+</dd>
+<dt>Bi-scale Grab:</dt>
+<dd><p>Like <em>Grab</em> but the falloff is more localized to the center of the brush.</p>
+</dd>
+<dt>Tri-scale Grab:</dt>
+<dd><p>Like <em>Bi-scale Grab</em> but the falloff is more localized to the center of the brush.</p>
+</dd>
+<dt>Scale:</dt>
+<dd><p>Displaces vertices away from the active vertex.</p>
+</dd>
+<dt>Twist:</dt>
+<dd><p>Vertices are rotated around the active vertex.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-elastic-deform-volume-preservation">
+<dt>Volume Preservation</dt><dd><p>Higher values preserve volumes more, but also lead to more bulging.
+(This value determines the poisson ratio for elastic deformation)</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Properties &gt; Geometry</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Curves</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Geometry</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="geometry">
+<h1>Geometry</h1>
+<figure id="id1">
+<figcaption>
+<p>Geometry panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-curve-offset">
+<dt>Offset</dt><dd><p>Moves the extrusion parallel to the curve normals.</p>
+<figure id="id2">
+<figcaption>
+<p>Bézier Circle -1 offset, 0.5 extrusion, 0.25 Bevel Depth, 10 Bevel resolution.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<dl id="bpy-types-curve-extrude">
+<dt>Extrude</dt><dd><p>Will extrude the curve along both the positive and negative local Z axes.
+Turns a one-dimensional curve into a two-dimensional curve by giving it height.
+With a scale is the sum of both directions, perpendicular to the curve’s normals.</p>
+<table>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Bézier Circle 0.0 extrude (Edit Mode).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Extruded by 0.5 (Object Mode).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-curve-taper-object">
+<dt>Taper Object</dt><dd><p>Tapering a curve causes it to get thinner towards one end.
+You can also alter the proportions of the Taper throughout the tapered object
+by moving/scaling/rotating the control points of the Taper Object.
+The taper curve is evaluated along the local X axis, using the local Y axis for width control.
+In order for this to work the Taper Object can only be another <em>open curve</em>.</p>
+<p>The details are:</p>
+<ul>
+<li><p>The taper is applied independently to all curves of the extruded object.</p></li>
+<li><p>Only the first curve in a <em>Taper Object</em> is evaluated, even if you have several separated segments.</p></li>
+<li><p>The scaling starts at the first control point on the left
+and moves along the curve to the last control point on the right.</p></li>
+<li><p>Negative scaling, (e.g. negative local Y on the taper curve) is possible as well.
+However, rendering artifacts may appear.</p></li>
+<li><p>You may need to increase the curve resolution to see more detail of the taper.</p></li>
+<li><p>The Taper Object is distributed by control points.
+Therefor unevenly spaced control points may likelier to stretch the shape of the taper.
+Subdividing segments causes those points to use a larger fraction of the overall taper shape.</p></li>
+<li><p>With closed curves, the taper curve in <em>Taper Object</em> acts along the whole curve (perimeter of the object),
+not just the length of the object, and varies the extrusion depth. In these cases,
+you want the relative height of the <em>Taper Object</em>
+Taper curve at both ends to be the same, so that the cyclic point
+(the place where the endpoint of the curve connects to the beginning) is a smooth transition.</p></li>
+</ul>
+<div>
+<p>Hint</p>
+<p>Editing the handles and control points of the Taper Object
+will instantly change the shape of the original object.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-curve-taper-mode">
+<dt>Taper Mode</dt><dd><p>For curves using a <em>Taper Object</em>, this option defines
+how the effective curve radius is computed from the Taper Object.</p>
+<dl>
+<dt>Override:</dt>
+<dd><p>The curve radius is ignored and the effective radius is equal to the taper radius.</p>
+</dd>
+<dt>Multiply:</dt>
+<dd><p>The effective radius is computed by multiplying the taper radius with the curve radius.</p>
+</dd>
+<dt>Add:</dt>
+<dd><p>The effective radius is computed by adding the taper radius to the curve radius.</p>
+</dd>
+</dl>
+<table id="id5">
+<caption>Examples of a curve with a radius of zero on one end and a radius of one on the other end.</caption>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Override mode.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Multiply mode.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Add mode.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-curve-use-map-taper">
+<dt>Map Taper</dt><dd><p>For curves using a Taper Object and with modifications to the <em>Start/End Bevel Factor</em>
+the <em>Map Taper</em> option will apply the taper to the beveled part of the curve (not the whole curve).</p>
+</dd>
+</dl>
+<section id="bevel">
+<h2>Bevel</h2>
+<section id="round">
+<h3>Round</h3>
+<dl id="bpy-types-curve-bevel-depth">
+<dt>Depth</dt><dd><p>Changes the size of the bevel.</p>
+<table>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>A curve with different Bevel depths applied (Depth of 0.05).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>A curve with different Bevel depths applied (Depth of 0.25).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-curve-bevel-resolution">
+<dt>Resolution</dt><dd><p>Alters the smoothness of the bevel.</p>
+<table>
+<tbody>
+<tr><td><figure id="id11">
+<figcaption>
+<p>A curve with different resolutions applied (Resolution of 1).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id12">
+<figcaption>
+<p>A curve with different resolutions applied (Resolution of 12).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-curve-use-fill-caps">
+<dt>Fill Caps</dt><dd><p>Seals the ends of a beveled curve.</p>
+</dd>
+</dl>
+</section>
+<section id="object">
+<h3>Object</h3>
+<dl id="bpy-types-curve-bevel-object">
+<dt>Object</dt><dd><p>Here you can specify a curve object (opened or closed) which will be extruded along the curve.
+If your object’s <a href="shape.html#bpy-types-curve-dimensions">shape</a> is 3D,
+it will be projected to its local XY plane before the extrusion.
+You can check how the projected Object looks like by switching its shape to 2D.</p>
+<div>
+<p>Important</p>
+<p>Make sure the shape you want to extrude is in the Object’s local XY plane.
+If it is in the local XZ or YZ plane, it will be reduced to a line when it is projected to the local XY plane.
+Because of this, the extruded shape will be a flat plane.</p>
+</div>
+<table>
+<tbody>
+<tr><td><figure id="id13">
+<figcaption>
+<p>A curve with a Bézier curve as the Bevel Object.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id14">
+<figcaption>
+<p>A curve with a Bézier circle as the Bevel Object.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</section>
+<section id="profile">
+<h3>Profile</h3>
+<figure id="id15">
+<figcaption>
+<p>The custom profile widget.</p>
+</figcaption>
+</figure>
+<p>This <a href="../../../interface/controls/templates/curve.html#ui-curve-widget">Curve Widget</a> allows the creation of a user-defined profile with more complexity than
+with the single profile parameter. The modal tool allows toggling the custom profile,
+but the shape of the profile is only editable in the options panel after the operation is confirmed.</p>
+<p>The profile starts at the bottom right of the widget and ends at the top left, as if it
+were between two edges intersecting at a right angle. Control points are created in the widget and
+then the path is sampled with the number of segments from the Bevel modifier.</p>
+<div>
+<p>Note</p>
+<p>The <em>Profile</em> curve widget stays active when miters are enabled
+because it still controls the shape of the miter profiles.</p>
+</div>
+<dl>
+<dt>Presets</dt><dd><p>The <em>Support Loops</em> and <em>Steps</em> presets are built dynamically depending on
+the number of segments in the bevel. If the number of segments is changed,
+the preset will have to be re-applied.</p>
+</dd>
+<dt>Sampling</dt><dd><p>Samples will first be added to each control point, then if there are enough samples,
+they will be divided evenly between the edges. The <em>Sample Straight Edges</em> option toggles whether
+the samples are added to edges with sharp control points on either side. If there aren’t enough samples
+to give each edge the same number of samples, they will just be added to the most curved edges.
+So it is recommended to use at least as many segments as there are control points.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="start-end-mapping">
+<h2>Start &amp; End Mapping</h2>
+<dl id="bpy-types-curve-bevel-factor-end">
+<dt>Factor Start, End</dt><dd><p>These options determine where to start/end the geometry of the curve.
+This allows to make a curve which is not fully covered with geometry.</p>
+<p>A Start value to 0.5 will start the geometry at 50%
+of the distance from the start of the curve (in effect shortening the curve).
+An End value of 0.75 will start the geometry at 25%
+of the distance from the end of the curve (again, shortening the curve).</p>
+<table>
+<tbody>
+<tr><td><figure id="id16">
+<figcaption>
+<p>A curve with no Factor Start, End.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id17">
+<figcaption>
+<p>A curve with a 0.6 End factor.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-curve-bevel-factor-mapping-end">
+<dt>Mapping Start, End</dt><dd><p>Allows to control the relation between the <em>Factor Start, End</em> (number between 0 and 1)
+and the rendered start and end point of the spline’s geometry.</p>
+<dl>
+<dt>Resolution:</dt>
+<dd><p>Maps the start and end factor to the number of subdivisions of a spline (U resolution).</p>
+</dd>
+<dt>Segments:</dt>
+<dd><p>Maps the start and end factor to the length of its segments.
+Mapping to segments treats the subdivisions in each segment
+of a curve as if they would have all the same length.</p>
+</dd>
+<dt>Spline:</dt>
+<dd><p>Maps the start and end factor to the length of a spline.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<section id="open-2d-curve">
+<h3>Open 2D Curve</h3>
+<p>The extrusion will create a “wall” or “ribbon” following the curve shape. If using a <em>Bevel Depth</em>,
+the wall becomes a sort of slide or gutter.
+If your normals are facing the wrong way you can switch their direction as shown
+<a href="../editing/segments.html#curve-switch-direction">here</a>.</p>
+<figure id="id18">
+<figcaption>
+<p>Open 2D Curve with Alt-C, fill set to none,
+zero offset, 0.5 extrusion, 0.25 Bevel Depth, 10 Bevel resolution.</p>
+</figcaption>
+</figure>
+</section>
+<section id="closed-2d-curve">
+<h3>Closed 2D Curve</h3>
+<p>This is probably the most useful situation, as it will quickly create a volume, with (by default)
+two flat and parallel surfaces filling the two sides of the extruded “wall”. You can remove one or both of these
+faces by choosing the fill mode: both, front, back, or none.</p>
+<p>The optional bevel depth will always create a 90 degree bevels here.</p>
+<figure id="id19">
+<figcaption>
+<p>Closed 2D Curve, 0.5 extrude, 0.25 Bevel Depth, 10 Bevel resolution, Fill: Both.</p>
+</figcaption>
+</figure>
+</section>
+<section id="d-curve">
+<h3>3D Curve</h3>
+<p>Here the fact that the curve is closed or not has no importance –
+you will never get a volume with an extruded 3D curve, only a wall or ribbon, like with open 2D curves.</p>
+<p>However, there is one more feature with 3D curves: the <em>Tilt</em> of the control points (see above).
+It will make the ribbon twist around the curve to create a Möbius strip, for example.</p>
+</section>
+<section id="taper">
+<h3>Taper</h3>
+<p>Let us taper a simple curve circle extruded object using a taper curve. Add a curve,
+then exit <em>Edit Mode</em>. Add another one (a closed one, like a circle); call it “BevelCurve”,
+and enter its name in the <em>Bevel Object</em> field of the first curve
+(<em>Curve</em> tab). We now have a pipe.
+Add a third curve while in <em>Object Mode</em> and call it “TaperCurve”.
+Adjust the left control point by raising it up about 5 units.</p>
+<p>Now return to the Object tab,
+and edit the first curve’s <em>Taper Object</em> field in the Geometry panel to reference the new taper curve
+which we called “TaperCurve”.
+When you hit enter the taper curve is applied immediately,
+with the results shown in Fig. <a href="#fig-curves-extrude-taper-curve">Circle curve set as Bevel Object.</a>.</p>
+<table>
+<tbody>
+<tr><td><figure id="id20">
+<figcaption>
+<p>Circle curve set as Bevel Object.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id21">
+<figcaption>
+<p>Taper extruded curve.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can see the <em>taper curve</em> being applied to the <em>extruded object</em>.
+Notice how the pipe’s volume shrinks to nothing as the taper curve goes from left to right.
+If the taper curve went below the local Y axis the pipe’s inside would become the outside,
+which would lead to rendering artifacts.
+Of course as an artist that may be what you are looking for!</p>
+<figure id="id22">
+<figcaption>
+<p>Taper example 1.</p>
+</figcaption>
+</figure>
+<p>In Fig. <a href="#fig-curves-extrude-taper1">Taper example 1.</a>
+you can clearly see the effect the left taper curve has on the right curve object.
+Here the left taper curve is closer to the object origin and
+that results in a smaller curve object to the right.</p>
+<figure id="id23">
+<figcaption>
+<p>Taper example 2.</p>
+</figcaption>
+</figure>
+<p>In Fig. <a href="#fig-curves-extrude-taper2">Taper example 2.</a> a control point in the taper curve to the left is moved away from
+the origin and that gives a wider result to the curve object on the right.</p>
+<figure id="id24">
+<figcaption>
+<p>Taper example 3.</p>
+</figcaption>
+</figure>
+<p>In Fig. <a href="#fig-curves-extrude-taper3">Taper example 3.</a> we see the use of a more irregular taper curve applied to a curve circle.</p>
+<figure id="id25">
+<figcaption>
+<p>Bevel extrusion with Tilt example.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

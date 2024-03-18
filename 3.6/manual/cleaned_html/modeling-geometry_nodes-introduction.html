@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Geometry Nodes</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Geometry nodes system for modifying the geometry of an object with node-based operations.
+It can be accessed by adding a <a href="../modifiers/generate/geometry_nodes.html">Geometry Nodes Modifier</a>.</p>
+<figure id="id1">
+<figcaption>
+<p>The properties of a Geometry Nodes modifier in the modifier stack.</p>
+</figcaption>
+</figure>
+<p>The geometry node tree connected to a modifier is a <a href="../../interface/controls/nodes/groups.html">Node Group</a>.
+The geometry from the state before the modifier (the original geometry or the result of the previous
+modifier) will be passed to the <em>Group Input</em> node. Then the node group can operate on the geometry
+and pass an output to the <em>Group Output</em> node, where it will be passed to the next modifier.</p>
+<p>Geometry nodes can modify different types of geometry:</p>
+<ul>
+<li><p><a href="../meshes/introduction.html">Meshes</a></p></li>
+<li><p><a href="../curves/introduction.html">Curves</a></p></li>
+<li><p><a href="../point_cloud.html">Point Clouds</a></p></li>
+<li><p><a href="../volumes/introduction.html">Volumes</a></p></li>
+<li><p><a href="instances.html">Instances</a></p></li>
+</ul>
+<p>The interface of the modifier is described in the
+<a href="../modifiers/generate/geometry_nodes.html">Modifier</a> page.</p>
+</section>
+</div>
+</div></body>
+</html>

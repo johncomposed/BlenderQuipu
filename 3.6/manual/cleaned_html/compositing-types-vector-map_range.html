@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Vector &gt; Map Range</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Vector Nodes</a></li>
+<li>Map Range Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="map-range-node">
+<h1>Map Range Node</h1>
+<p>This node converts (maps) an input value range into a destination range.
+By default, values outside the specified input range will be proportionally mapped as well.
+This node is similar to <em>Map Value</em> node but provides a more intuitive way to specify the desired output range.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Value</dt><dd><p>The input value to be remapped.</p>
+</dd>
+<dt>From Min</dt><dd><p>The lower bound of the range to remap from.</p>
+</dd>
+<dt>From Max</dt><dd><p>The higher bound of the range to remap from.</p>
+</dd>
+<dt>To Min</dt><dd><p>The lower bound of the target range.</p>
+</dd>
+<dt>To Max</dt><dd><p>The higher bound of the target range.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Clamp</dt><dd><p>Clamps values to Min/Max of the destination range.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>Standard value output.</p>
+</dd>
+</dl>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>One important use case is to easily map the original range of the Z-depth channel
+to a more usable range (i.e: 0.0 - 1.0) for use as a matte for colorization or filtering operations.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

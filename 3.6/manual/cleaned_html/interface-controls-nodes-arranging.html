@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Nodes &gt; Arranging</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li><a href="index.html">Nodes</a></li>
+<li>Arranging Nodes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="arranging-nodes">
+<h1>Arranging Nodes</h1>
+<section id="snapping">
+<h2>Snapping</h2>
+<p id="bpy-types-toolsettings-use-snap-node">The snapping options can be found on the rightmost side
+of the node editor’s header.</p>
+<dl>
+<dt>Snap</dt><dd><p>Toggle snapping on or off.</p>
+</dd>
+<dt>Snap Node Element</dt><dd><p>What to snap the selected nodes to:</p>
+<dl>
+<dt>Grid:</dt>
+<dd><p>Snap to the grid in the background.</p>
+</dd>
+<dt>Node X:</dt>
+<dd><p>Snap to the X coordinate of another node’s vertical border.</p>
+</dd>
+<dt>Node Y:</dt>
+<dd><p>Snap to the Y coordinate of another node’s horizontal border.</p>
+</dd>
+<dt>Node X/Y:</dt>
+<dd><p>Combination of the above.</p>
+</dd>
+</dl>
+</dd>
+<dt>Snap Target</dt><dd><p>Which part of the selected nodes to snap:</p>
+<dl>
+<dt>Closest:</dt>
+<dd><p>Snap closest point onto target.</p>
+</dd>
+<dt>Center:</dt>
+<dd><p>Snap center of selected nodes onto target.</p>
+</dd>
+<dt>Median:</dt>
+<dd><p>Snap median of selected nodes onto target.</p>
+</dd>
+<dt>Active:</dt>
+<dd><p>Snap active node onto target.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="auto-offset">
+<h2>Auto-Offset</h2>
+<p>When you drop a node with at least one input and one output socket onto an existing connection between two nodes,
+<em>Auto-offset</em> will, depending on the direction setting, automatically move the left or right node away to make room
+for the new node.
+<em>Auto-offset</em> is a feature that helps organizing node layouts interactively without interrupting the user workflow.</p>
+<p>Auto-offset is enabled by default, but it can be disabled from the editor’s View menu.</p>
+<p>You can toggle the offset direction while you are moving the node by pressing <kbd>T</kbd>.</p>
+<p>The offset margin can be changed using the <em>Auto-offset Margin</em>
+setting in the Editing section of the Preferences.</p>
+<div>
+<p>See also</p>
+<p>Example Video:</p>
+<p><a href="https://vimeo.com/135125839">Auto-Offset. A workflow enhancement for Blender’s node editors</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

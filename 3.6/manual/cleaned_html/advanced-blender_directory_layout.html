@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Blender Directory Layout</title></head>
+<body><ul>
+<li><a href="index.html">Advanced</a></li>
+<li>Blender’s Directory Layout</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="blender-s-directory-layout">
+<h1>Blender’s Directory Layout</h1>
+<p>This page documents the different directories used by Blender
+<em>(which can be helpful for troubleshooting)</em>.</p>
+<p>There are three different directories Blender may use,
+their exact locations are platform dependent.</p>
+<dl>
+<dt>LOCAL:</dt>
+<dd><p>Location of configuration and run-time data (for self-contained bundle).</p>
+</dd>
+<dt>USER:</dt>
+<dd><p>Location of configuration files (typically in the user’s home directory).</p>
+</dd>
+<dt>SYSTEM:</dt>
+<dd><p>Location of run-time data for system wide installation (may be read-only).</p>
+</dd>
+</dl>
+<p>For system installations both <strong>SYSTEM</strong> and <strong>USER</strong> directories are needed.</p>
+<p>For locally extracted Blender distributions, the user configuration and run-time data are
+kept in the same subdirectory, allowing multiple Blender versions to run without conflict,
+ignoring the <strong>USER</strong> and <strong>SYSTEM</strong> files.
+This requires you to create a folder named <code>config</code> in the <strong>LOCAL</strong> directory.</p>
+<section id="platform-dependent-paths">
+<h2>Platform Dependent Paths</h2>
+<p>Here are the default locations for each system:</p>
+<section id="linux">
+<h3>Linux</h3>
+<dl>
+<dt>LOCAL:</dt>
+<dd><pre>./3.6/</pre>
+</dd>
+<dt>USER:</dt>
+<dd><pre>$HOME/.config/blender/3.6/</pre>
+</dd>
+<dt>SYSTEM:</dt>
+<dd><pre>/usr/share/blender/3.6/</pre>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The path ./3.6/ is relative to the Blender executable and
+is used for self-contained bundles distributed by official blender.org builds.</p>
+</div>
+<div>
+<p>Note</p>
+<p>The <strong>USER</strong> path will use <code>$XDG_CONFIG_HOME</code> if it is set:</p>
+<pre>$XDG_CONFIG_HOME/blender/3.6/</pre>
+</div>
+</section>
+<section id="macos">
+<h3>macOS</h3>
+<dl>
+<dt>LOCAL:</dt>
+<dd><pre>./3.6/</pre>
+</dd>
+<dt>USER:</dt>
+<dd><pre>/Users/$USER/Library/Application Support/Blender/3.6/</pre>
+</dd>
+<dt>SYSTEM:</dt>
+<dd><pre>/Library/Application Support/Blender/3.6/</pre>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>macOS stores the Blender binary in <code>./Blender.app/Contents/MacOS/Blender</code>.
+The local path to data and config is:</p>
+<pre>./Blender.app/Contents/Resources/3.6/</pre>
+</div>
+</section>
+<section id="windows">
+<h3>Windows</h3>
+<dl>
+<dt>LOCAL:</dt>
+<dd><pre>.\3.6\</pre>
+</dd>
+<dt>USER:</dt>
+<dd><pre>%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\3.6\</pre>
+</dd>
+<dt>SYSTEM:</dt>
+<dd><pre>%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\3.6\</pre>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>For installations from the Window’s Store, the <code>USER</code> and <code>SYSTEM</code>
+directories are inside a special folder resembling:
+<code>%USERPROFILE%\AppData\Local\Packages\BlenderFoundation.Blender&lt;HASH&gt;\LocalCache\Roaming\Blender
+Foundation\Blender</code>
+where “HASH” is a string specific to each installation.</p>
+</div>
+</section>
+</section>
+<section id="path-layout">
+<h2>Path Layout</h2>
+<p>This is the path layout which is used within the directories described above.</p>
+<p>Where <code>./config/startup.blend</code> could be <code>~/.blender/|BLENDER_VERSION|/config/startup.blend</code> for example.</p>
+<dl>
+<dt><code>./autosave/ ...</code></dt><dd><p>Autosave blend-file location. (Windows only, temp directory used for other systems.)</p>
+<p>Search order: <code>LOCAL, USER</code>.</p>
+</dd>
+<dt><code>./config/ ...</code></dt><dd><p>Defaults &amp; session info.</p>
+<p>Search order: <code>LOCAL, USER</code>.</p>
+</dd>
+<dt><code>./config/startup.blend</code></dt><dd><p>Default file to load on startup.</p>
+</dd>
+<dt><code>./config/userpref.blend</code></dt><dd><p>Default preferences to load on startup.</p>
+</dd>
+<dt><code>./config/bookmarks.txt</code></dt><dd><p>File Browser bookmarks.</p>
+</dd>
+<dt><code>./config/recent-files.txt</code></dt><dd><p>Recent file menu list.</p>
+</dd>
+<dt><code>./datafiles/ ...</code></dt><dd><p>Runtime files.</p>
+<p>Search order: <code>LOCAL, USER, SYSTEM</code>.</p>
+</dd>
+<dt><code>./datafiles/locale/{language}/</code></dt><dd><p>Static precompiled language files for UI translation.</p>
+</dd>
+<dt><code>./scripts/ ...</code></dt><dd><p>Python scripts for the user interface and tools.</p>
+<p>Search order: <code>LOCAL, USER, SYSTEM</code>.</p>
+</dd>
+<dt><code>./scripts/addons/*.py</code></dt><dd><p>Python add-ons which may be enabled in the Preferences include import/export format support,
+render engine integration and many handy utilities.</p>
+</dd>
+<dt><code>./scripts/addons/modules/*.py</code></dt><dd><p>Modules for add-ons to use
+(added to Python’s <code>sys.path</code>).</p>
+</dd>
+<dt><code>./scripts/addons_contrib/*.py</code></dt><dd><p>Another add-ons directory which is used for community maintained add-ons (must be manually created).</p>
+</dd>
+<dt><code>./scripts/addons_contrib/modules/*.py</code></dt><dd><p>Modules for <code>addons_contrib</code> to use
+(added to Python’s <code>sys.path</code>).</p>
+</dd>
+<dt><code>./scripts/modules/*.py</code></dt><dd><p>Python modules containing our core API and utility functions for other scripts to import
+(added to Python’s <code>sys.path</code>).</p>
+</dd>
+<dt><code>./scripts/startup/*.py</code></dt><dd><p>Scripts which are automatically imported on startup.</p>
+</dd>
+<dt><code>./scripts/presets/{preset}/*.py</code></dt><dd><p>Presets used for storing user-defined settings for cloth, render formats, etc.</p>
+</dd>
+<dt><code>./scripts/templates_py/*.py</code></dt><dd><p>Example scripts which can be accessed from Text Editor ‣ Templates ‣ Python.</p>
+</dd>
+<dt><code>./scripts/templates_osl/*.osl</code></dt><dd><p>Example OSL shaders which can be accessed from
+Text Editor ‣ Templates ‣ Open Shading Language.</p>
+</dd>
+<dt><code>./python/ ...</code></dt><dd><p>Bundled Python distribution.</p>
+<p>Search order: <code>LOCAL, SYSTEM</code>.</p>
+</dd>
+</dl>
+</section>
+<section id="local-cache-directory">
+<h2>Local Cache Directory</h2>
+<p>The cache directory is used to store persistent caches locally. Currently it is only used for the indexing of
+<a href="../files/asset_libraries/introduction.html#what-is-asset-library">Asset Libraries</a>. The operating system is not expected to clear this automatically.</p>
+<p>The following path will be used:</p>
+<ul>
+<li><dl>
+<dt>Linux:</dt>
+<dd><p><code>$XDG_CACHE_HOME/blender/</code> if <code>$XDG_CACHE_HOME</code> is set, otherwise <code>$HOME/.cache/blender/</code></p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>macOS:</dt>
+<dd><p><code>/Library/Caches/Blender/</code></p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Windows:</dt>
+<dd><p><code>%USERPROFILE%\AppData\Local\Blender Foundation\Blender\Cache\</code></p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="temporary-directory">
+<h2>Temporary Directory</h2>
+<p>The temporary directory is used to store various files at run-time
+(including render layers, physics cache, copy-paste buffer and crash logs).</p>
+<p>The temporary directory is selected based on the following priority:</p>
+<ul>
+<li><p>User Preference (see <a href="../editors/preferences/file_paths.html#prefs-file-paths">File Paths</a>).</p></li>
+<li><p>Environment variables (<code>TEMP</code> on Windows, <code>TMP</code> &amp; <code>TMP_DIR</code> on other platforms).</p></li>
+<li><p>The <code>/tmp/</code> directory.</p></li>
+</ul>
+</section>
+<section id="overriding-default-directories">
+<h2>Overriding Default Directories</h2>
+<p>It’s possible to override the default <strong>USER</strong> and <strong>SYSTEM</strong> directories using environment variables.</p>
+<p>While this shouldn’t be needed for typical usage, some specialized use cases may take advantage of this, such as:</p>
+<ul>
+<li><p>Using a shared network drives for specific paths.</p></li>
+<li><p>Isolating an instance from the default user files to prevent automated tasks from accessing user configuration.</p></li>
+</ul>
+<p>See <a href="command_line/arguments.html#command-line-args-environment-variables">Environment Variables</a> for details.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

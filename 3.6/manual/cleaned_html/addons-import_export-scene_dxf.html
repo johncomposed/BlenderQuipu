@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Import Export &gt; Scene Dxf</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Import-Export</a></li>
+<li>AutoCAD DXF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="autocad-dxf">
+<h1>AutoCAD DXF</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import/Export ‣ AutoCAD DXF</p>
+</dd>
+</dl>
+</div>
+<section id="import">
+<h2>Import</h2>
+<p>DXF layers are reflected as Blender groups. This importer uses a general purpose DXF library called “dxfgrabber”.</p>
+<section id="dxf-type-mapping">
+<h3>DXF Type Mapping</h3>
+<p>To be as non-destructive as possible the importer aims to map as many DXF types to
+Blender curves as possible.</p>
+<section id="dxf-to-curves">
+<h4>DXF to Curves</h4>
+<ul>
+<li><p><code>LINE</code> as <code>POLYLINE</code> curve (with the option to merge connecting lines).</p></li>
+<li><p><code>(LW)POLYLINE</code>, <code>(LW)POLYGON</code> as <code>POLYLINE</code> curve if they have no bulges else as <code>BEZIER</code> curve.</p></li>
+<li><p><code>ARC</code>s, <code>CIRCLE</code>s and <code>ELLIPSE</code>s as <code>BEZIER</code> curves.</p></li>
+<li><p><code>HELIX</code>es (3D) as <code>BEZIER</code> curves.</p></li>
+</ul>
+</section>
+<section id="dxf-to-meshes">
+<h4>DXF to Meshes</h4>
+<ul>
+<li><p><code>MESH</code> is mapped to a mesh object with a Subdivision Surface modifier, including the edge crease.</p></li>
+<li><p><code>POLYFACE</code>s and <code>POLYMESH</code>es are imported to a mesh object.</p></li>
+<li><p><code>3DFACE</code> s, <code>SOLID</code> s, <code>POINT</code> s are imported into one combined mesh object
+per layer called <code>layername_3Dfaces</code>.</p></li>
+</ul>
+</section>
+<section id="missing-dxf-types">
+<h4>Missing DXF Types</h4>
+<ul>
+<li><p>Hatches</p></li>
+<li><p>Leader</p></li>
+</ul>
+</section>
+</section>
+<section id="properties">
+<h3>Properties</h3>
+<section id="merge-options">
+<h4>Merge Options</h4>
+<dl>
+<dt>Blocks As</dt><dd><p>DXF Blocks can be imported as linked objects or group instances.
+Linked objects use parenting for DXF sub-blocks (blocks in blocks).</p>
+</dd>
+<dt>Parent Blocks to Bounding Boxes</dt><dd><p>Draw a bounding box around blocks.</p>
+</dd>
+<dt>Merged Objects</dt><dd><p>Since Blender (v2.71) is pretty slow at adding objects the user might want to
+merge similar DXF geometry to one object.</p>
+<dl>
+<dt>By Layer</dt><dd><p>Produces one object per layer; if there is mesh, curve, lamp, text data on one layer
+one object per layer and per Blender object.</p>
+</dd>
+<dt>By Layer and DXF Type</dt><dd><p>The second not only differentiates between Blender data types but also DXF types,
+such as <code>LWPOLYLINE</code> and <code>POLYLINE</code>.</p>
+</dd>
+<dt>By Layer and Closed No-bulge Polygons</dt><dd><p>Closed polylines with no bulge, that is no curved edges, can be merged to one single mesh.
+This makes sense when the DXF polylines have an extrusion and/or an elevation attribute,
+which basically describes a location/rotation/scale transformation.
+If this merge option is chosen, line thickness settings will be ignored/disabled.</p>
+</dd>
+<dt>By Layer and DXF-Type and Blocks</dt><dd><p>For DXF files with a block being referenced many times, this option allows to insert the same block many times
+with one instanced-face object instead of with one object for each time the block needs to be inserted.
+Unfortunately this works only for block inserts that are uniformly scaled.
+Non-uniformly scaled block inserts are being imported as defined in <em>Blocks As</em>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Combine <code>LINE</code> Entities to Polygons</dt><dd><p>Separated lines in DXF might be merged to one consecutive Blender poly curve.
+Similar to <em>Remove Doubles</em> but for curves.</p>
+</dd>
+</dl>
+</section>
+<section id="line-thickness-and-width">
+<h4>Line Thickness and Width</h4>
+<dl>
+<dt>Represent Line Thickness/Width</dt><dd><p>DXF line attributes <em>thickness</em> and <em>width</em> have an effect on line in Z and X/Y direction respectively.
+A straight line might be turned to a cube by its attributes for instance.
+Therefore, in Blender these attributes are represented with curve extrusion, bevel and taper objects.</p>
+</dd>
+<dt>Merge by Attributes</dt><dd><p>If both <em>Merged Objects</em> and <em>Represent Line Thickness/Width</em> are activated
+the object merging needs to be extended to separate all lines width different thickness and width.
+With <em>Merge by Attributes</em> this separation option is also available without
+the actual representation of line thickness and width.</p>
+</dd>
+</dl>
+</section>
+<section id="optional-objects">
+<h4>Optional Objects</h4>
+<dl>
+<dt>Import <code>TEXT</code></dt><dd><p>(<code>TEXT</code>, <code>MTEXT</code>)</p>
+</dd>
+<dt>Import <code>LIGHT</code></dt><dd><p>Including support for AutoCAD colors.</p>
+</dd>
+<dt>Export <code>ACIS</code> Entities</dt><dd><p>Export NURBS 3D geometry (<code>BODY</code>, <code>REGION</code>, <code>PLANESURFACE</code>, <code>SURFACE</code>, <code>3DSOLID</code>) to ACIS-Sat files,
+since this is the format AutoCAD stores NURBS to DXF.
+You are going to be notified about the amount of stored <code>.sat</code>/<code>.sab</code> files.</p>
+</dd>
+</dl>
+</section>
+<section id="view-options">
+<h4>View Options</h4>
+<dl>
+<dt>Display Groups in Outliner(s)</dt><dd><p>Switch the Outliner display mode to <code>GROUPS</code> (DXF layers are mapped to groups).</p>
+</dd>
+<dt>Import DXF File to a New Scene</dt><dd><p>Todo.</p>
+</dd>
+<dt>Center Geometry to Scene</dt><dd><p>Center the imported geometry to the center of the scene;
+the offset information is stored as a custom property to the scene.</p>
+</dd>
+</dl>
+</section>
+<section id="georeferencing">
+<h4>Georeferencing</h4>
+<p>Important: DXF files do not store any information about
+the coordinate system / spherical projection of its coordinates.
+Best practice is to know the coordinate system for your specific DXF file and
+enter this information in the DXF importer interface as follows:</p>
+<dl>
+<dt>Pyproj</dt><dd><p>Installation: Download (<a href="https://github.com/pyproj4/pyproj">Windows</a>,
+macOS) Pyproj and copy it to</p>
+<pre>AppData/ApplicationSupport Folder/Blender/3.6/scripts/modules/.</pre>
+<p>In case you need to compile your own binary refer to
+<a href="https://blenderartists.org/t/dxf-importer/597868/47">this post</a>
+on Blender Artists.</p>
+<p>Pyproj is a Python wrapper to the PROJ library, a well-known C library used to
+convert coordinates between different coordinate systems.
+Open source GIS libraries such as PROJ are used directly or indirectly by many authorities and
+therefore can be considered well-maintained.</p>
+<p>If Pyproj is available the DXF importer shows a selection of national coordinate systems
+but lets the user also to enter a custom EPSG / SRID code.
+It also stores the SRID as a custom property to the Blender scene.
+If a scene has already such an SRID property the coordinates are being converted from
+your DXF file to target coordinate system and therefore you <strong>must</strong> specify an SRID for the DXF file.
+If no SRID custom property is available the scene SRID is by default the same as the DXF SRID.</p>
+</dd>
+<dt>No Pyproj</dt><dd><p>In case Pyproj is not available the DXF importer will only use its built-in lat/lon to X/Y converter.
+For conversion the “transverse Mercator” projection is applied that inputs a lat/lon coordinate to be used
+as the center of the projection. The lat/lon coordinate is being added to your scene as a custom property.
+Subsequent imports will convert any lat/lon coordinates to the same georeference.</p>
+<p>Important: So far only lat/lon to X/Y conversion is supported.
+If you have a DXF file with Euclidean coordinates that refer to another lat/lon center
+the conversion is not (yet) supported.</p>
+</dd>
+<dt>Rules of thumb for choosing an SRID</dt><dd><p>if you have your data from OpenStreetMap or some similar GIS service website and
+exported it with QGIS or ArcGIS the coordinates are most likely in lat/lon then use WGS84 as
+your SRID with Pyproj or “spherical” if Pyproj is not available.
+For other DXF vector maps it’s very likely that they use local / national coordinate systems.</p>
+<p>Open the DXF with a text editor (it has many thousands of lines) and
+make an educated guess looking at some coordinates.
+DXF works with “group codes”, a name Autodesk invented for “key” as in key/value pairs.
+X has group code 10, Y has 20, Z has 30. If you find a pattern like:</p>
+<div><div><pre>10, newline, whitespace, whitespace, NUMBER, newline,
+20, newline, whitespace, whitespace, NUMBER, newline,
+30, newline, whitespace, whitespace, NUMBER
+</pre></div>
+</div>
+<p>then <code>NUMBER</code> will be most likely your coordinates.
+You can probably tell from the format and/or the range of the coordinates which coordinate system it should be.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="export">
+<h2>Export</h2>
+<section id="supported-data">
+<h3>Supported Data</h3>
+<ul>
+<li><p>Mesh face: <code>POLYFACE</code> or <code>3DFACE</code></p></li>
+<li><p>Mesh edge: <code>LINE</code></p></li>
+<li><p>Modifier (optionally)</p></li>
+</ul>
+</section>
+<section id="unsupported-data">
+<h3>Unsupported Data</h3>
+<ul>
+<li><p>Mesh vertex: <code>POINT</code></p></li>
+<li><p>Curve: <code>LINE</code>s or <code>POLYLINE</code></p></li>
+<li><p>Curve NURBS: <code>curved-POLYLINE</code></p></li>
+<li><p>Text: <code>TEXT</code> or (wip: <code>MTEXT</code>)</p></li>
+<li><p>Camera: <code>POINT</code> or <code>VIEW</code> or <code>VPORT</code> or (wip: <code>INSERT(ATTRIB+XDATA)</code>)</p></li>
+<li><p>Light: <code>POINT</code> or (wip: <code>INSERT(ATTRIB+XDATA)</code>)</p></li>
+<li><p>Empty: <code>POINT</code> or (wip: <code>INSERT</code>)</p></li>
+<li><p>Object matrix: extrusion (<code>210-group</code>), rotation, elevation</p></li>
+<li><p>3D Viewport: (wip: <code>VIEW</code>, <code>VPORT</code>)</p></li>
+<li><p>Instancing vert: auto-instanced or (wip: <code>INSERT</code>)</p></li>
+<li><p>Instancing frame: auto-instanced or (wip: <code>INSERT</code>)</p></li>
+<li><p>Instancing group: auto-instanced or (wip: <code>INSERT</code>)</p></li>
+<li><p>Material: <code>LAYER</code>, <code>COLOR</code> and <code>STYLE</code> properties</p></li>
+<li><p>Group: <code>BLOCK</code> and <code>INSERT</code></p></li>
+<li><p>Parenting: <code>BLOCK</code> and <code>INSERT</code></p></li>
+<li><p>Visibility status: <code>LAYER_on</code></p></li>
+<li><p>Frozen status: <code>LAYER_frozen</code></p></li>
+<li><p>Locked status: <code>LAYER_locked</code></p></li>
+<li><p>Surface</p></li>
+<li><p>Meta</p></li>
+<li><p>Armature</p></li>
+<li><p>Lattice</p></li>
+<li><p><abbr title="InterPOlated">IPO</abbr>/Animation</p></li>
+</ul>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

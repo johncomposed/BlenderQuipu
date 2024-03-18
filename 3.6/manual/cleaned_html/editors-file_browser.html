@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; File Browser</title></head>
+<body><ul>
+<li><a href="index.html">Editors</a></li>
+<li>File Browser</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="file-browser">
+<h1>File Browser</h1>
+<p>The File Browser is used in all the file-related operations. These include:</p>
+<ul>
+<li><p>Opening and saving blend-files.</p></li>
+<li><p>Browsing inside other blend-files, when appending or linking data-blocks,
+see <a href="../files/linked_libraries/index.html">Linked Libraries</a>.</p></li>
+<li><p>Importing from/exporting to other file formats.</p></li>
+<li><p>Picking new locations for existing file paths (images, videos, fonts…).</p></li>
+</ul>
+<p>The most common way to use this editor is through modal operators (like opening or saving a blend-file).
+The File Browser will appear in a new window, waiting for the operation to complete,
+and then close returning the main window.</p>
+<p>You can use the File Browser as any other editor type, to browse through the file system.
+The main purpose of this is to be able to drag-and-drop from the File Browser into other editors.</p>
+<ul>
+<li><p>Images into the <a href="3dview/index.html#editors-3dview-index">3D Viewport</a> (to set as background or apply as material texture).</p></li>
+<li><p>Media files into the <a href="../video_editing/index.html">Video Editing</a>.</p></li>
+</ul>
+<figure id="id1">
+<figcaption>
+<p>The File Browser.</p>
+</figcaption>
+</figure>
+<section id="interface">
+<h2>Interface</h2>
+<section id="main-region">
+<h3>Main Region</h3>
+<p>The main region of the File Browser acts similar to the file browser built into you operating system.
+The region contains an array of files, folders, or internal blend-file data in a grid or list of items.
+<a href="#navigating">Navigating</a>, <a href="#selecting">selecting</a>, and <a href="#editing">editing</a> of these items works just as it would in your operating system’s file
+browser.</p>
+<section id="previews">
+<h4>Previews</h4>
+<p>In its <em>Thumbnail</em> display mode, the File Browser supports many types of previews. These include:</p>
+<ul>
+<li><p>Image and video formats</p></li>
+<li><p>Fonts</p></li>
+<li><p>Blend-files</p></li>
+<li><p>Internal <a href="../files/data_blocks.html">Data-blocks</a></p></li>
+</ul>
+<p>In order to get previews for data-block, there previews must be generated.
+See <a href="../files/blend/previews.html">Blend-files Previews</a> for how to generate and manage Blender data previews.</p>
+<figure id="id2">
+<figcaption>
+<p>The File Browser in Thumbnail mode.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="file-path-region">
+<h3>File Path Region</h3>
+<p>The File Path is above the main region and can aid in navigating and adjust how items are displayed.</p>
+<dl id="bpy-ops-file-previous">
+<dt>Previous Folder <kbd>Backspace</kbd>, <kbd><kbd>Alt</kbd>-<kbd>Left</kbd></kbd></dt><dd><p>Move to previous folder (in navigation history).</p>
+</dd>
+</dl>
+<dl id="bpy-ops-file-next">
+<dt>Next Folder <kbd><kbd>Shift</kbd>-<kbd>Backspace</kbd></kbd>, <kbd><kbd>Alt</kbd>-<kbd>Right</kbd></kbd></dt><dd><p>Move to next folder (in navigation history).</p>
+</dd>
+</dl>
+<dl id="bpy-ops-file-parent">
+<dt>Parent File <kbd>P</kbd>, <kbd><kbd>Alt</kbd>-<kbd>Up</kbd></kbd></dt><dd><p>Move up to parent directory.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-file-refresh">
+<dt>Refresh File List <kbd>R</kbd>, <kbd>NumpadPeriod</kbd></dt><dd><p>Refresh current folder.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-file-directory-new">
+<dt>Create Directory <kbd>I</kbd></dt><dd><p>Will ask you to confirm and create a new directory inside current one,
+scroll to it in the main view, and let you enter its name.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fileselectparams-directory">
+<dt>File Path <kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd></dt><dd><p>Text field for the current folder path.
+<kbd>Tab</kbd> will auto-complete an existing path.
+If you type a nonexistent directory path, you will be prompted to create that new directory.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fileselectparams-filter-search">
+<dt>Search <kbd><kbd>Ctrl</kbd>-<kbd>F</kbd></kbd></dt><dd><p>Filter items by name.
+The wildcard <code>*</code> will match anything, e.g. <code>bl*er</code> will match both <code>blender</code> and <code>blogger</code>.
+There is always an implicit wildcard at start and end of the search text,
+so <code>blender</code> will also match <code>test_blender_file.blend</code>.
+This field can also be used to filter some specific file extension (e.g. <code>.png</code> will list all PNG files).</p>
+</dd>
+</dl>
+<dl id="bpy-types-fileselectparams-display-type">
+<dt>Display Mode</dt><dd><p>Controls how files are displayed.</p>
+<dl>
+<dt>Vertical List:</dt>
+<dd><p>Displays files and folders in a vertical list.</p>
+</dd>
+<dt>Horizontal List:</dt>
+<dd><p>Displays files and folders in a horizontal list.</p>
+</dd>
+<dt>Thumbnails:</dt>
+<dd><p>Shows <a href="#file-browser-previews">previews</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="display-settings">
+<h4>Display Settings</h4>
+<dl id="bpy-types-fileselectparams-display-size">
+<dt>Display Size</dt><dd><p>The size of the thumbnails, or the width of the columns.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fileselectparams-recursion-level">
+<dt>Recursion</dt><dd><p>The number of directory levels to show at once in a flat way.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>List only the current directory content.</p>
+</dd>
+<dt>Blend File:</dt>
+<dd><p>List the whole content of a blend-file (only available when linking or appending data-blocks).</p>
+</dd>
+<dt>One Levels:</dt>
+<dd><p>List all subdirectories’ content, one level of recursion.</p>
+</dd>
+<dt>Two Levels:</dt>
+<dd><p>List all subdirectories’ content, two level of recursion.</p>
+</dd>
+<dt>Three Levels:</dt>
+<dd><p>List all subdirectories’ content, three levels of recursion.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>Showing several levels of directories at once can be handy to e.g. see your whole collection of textures,
+even if you have arranged them in a nice set of directories to avoid having hundreds of
+files in a single place.</p>
+<p>In the <em>Append/Link</em> case, showing the content of the whole blend-file will allow you
+to link different types of data-blocks in a single operation.</p>
+</div>
+<div>
+<p>Warning</p>
+<p>The more levels you show at once, the more time it will take to list them all
+(typically, it will be exponential, showing three levels at once
+may take three orders of magnitude more time to be fully listed).</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-fileselectparams-sort-method">
+<dt>Sort By</dt><dd><p>Sorts items by one of the four methods:</p>
+<dl>
+<dt>Name:</dt>
+<dd><p>Sort the file list alphabetically.</p>
+</dd>
+<dt>Extension:</dt>
+<dd><p>Sort the file list by extension/type.</p>
+</dd>
+<dt>Modified Date:</dt>
+<dd><p>Sort files by modification time.</p>
+</dd>
+<dt>Size:</dt>
+<dd><p>Sort files by size.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="filter-settings">
+<h4>Filter Settings</h4>
+<p>On the right side of the file path are the filtering options.
+The toggle with the funnel icon controls whether filtering is enabled or not.</p>
+<dl>
+<dt>File Types</dt><dd><p>Filters files by categories, like folders, blend-files, images, etc.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fileselectidfilter">
+<dt>Blender IDs</dt><dd><p>When appending or linking, you can also filter by data-block categories, like scenes, animations, materials, etc.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fileselectparams-show-hidden">
+<dt>Show Hidden <kbd>H</kbd></dt><dd><p>Shows hidden files (starting with a <code>.</code>).</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="execution-region">
+<h3>Execution Region</h3>
+<dl id="bpy-types-fileselectparams-filename">
+<dt>File Name</dt><dd><p>Text field to edit the file name and extension.
+When saving, if the background is red, a file with same name already exists in the folder.
+<kbd>Tab</kbd> will auto-complete to existing names in the current directory.</p>
+<dl>
+<dt>Increment Filename <code>-</code>, <code>+</code></dt><dd><p>Removes/Decreases or adds/increases a trailing number to your file name
+(used e.g. to store different versions of a file).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-file-cancel">
+<dt>Cancel <kbd>Esc</kbd></dt><dd><p>Cancels the file selection (and the underlying operation), and closes the File Browser.
+Using the <em>Back to Previous</em> button in the <a href="../interface/window_system/topbar.html">Topbar</a>
+will have the same effect.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-file-execute">
+<dt>Confirm <kbd>Return</kbd></dt><dd><p>The main button to validate the operation, which defines its name.
+Double-clicking on a non-directory item will have the same effect.</p>
+</dd>
+</dl>
+</section>
+<section id="source-list-region">
+<h3>Source List Region</h3>
+<p>The left region displays different ways to quickly access some directories.
+The region is divided into separate panels each containing a <a href="../interface/controls/templates/list_view.html#ui-list-view">UI List</a> of directories.
+Clicking on one of the directories will immediately navigate to that folder.</p>
+<section id="volumes">
+<h4>Volumes</h4>
+<p>Contains all OS-defined available volumes, e.g. drives or network mounts.</p>
+</section>
+<section id="system">
+<h4>System</h4>
+<p>Contains OS-defined common directories, like the main user folder…</p>
+</section>
+<section id="bookmarks">
+<h4>Bookmarks</h4>
+<p>Contains folders that you want to be able to access often without having to navigate to them in the File Browser.
+To the right of that list are buttons to perform basic management actions on your bookmarks,
+e.g. add/remove an entry, move it up or down in the list, etc.</p>
+</section>
+<section id="recent">
+<h4>Recent</h4>
+<p>Contains recently accessed folders.</p>
+<p id="bpy-ops-file-reset-recent">The <code>X</code> button to the right allows you to fully erase this list.</p>
+<p>You can control how many folders appear in this list with the <em>Recent Files</em> number field
+of the <a href="preferences/save_load.html#prefs-save-load">Save &amp; Load</a> tab in the Preferences.</p>
+</section>
+</section>
+<section id="operator-options-region">
+<h3>Operator Options Region</h3>
+<p>The right region shows the options of the calling operator.
+Besides common actions listed below, many import/export add-ons will also expose their options there.</p>
+<dl>
+<dt>Open, Save, Save As Blender File</dt><dd><p>See <a href="../files/blend/open_save.html">Opening &amp; Saving</a>.</p>
+</dd>
+<dt>Open, Replace, Save As Image</dt><dd><p>See <a href="../files/media/image_formats.html">Supported Graphics Formats</a>.</p>
+</dd>
+<dt>Link/Append from Library</dt><dd><p>See <a href="../files/linked_libraries/index.html">Linked libraries</a>.</p>
+</dd>
+</dl>
+<p>For the common option:</p>
+<dl>
+<dt>Relative Path</dt><dd><p>See <a href="../files/blend/open_save.html#files-blend-relative-paths">Relative Paths</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="header-region">
+<h3>Header Region</h3>
+<p>The header only contains two menus, one with you standard editor <em>View</em> controls
+and the other to list a few <a href="#selecting">Selecting</a> operators for the sake of discoverability.
+Often it is hidden as most of the functionality is contained in the regions described previously.</p>
+</section>
+</section>
+<section id="navigating">
+<h2>Navigating</h2>
+<dl>
+<dt>Entering a Directory</dt><dd><p>A single <kbd>LMB</kbd> click on a directory enters it.</p>
+</dd>
+<dt>Parent Directory <kbd>P</kbd></dt><dd><p>Takes you up one level of directory.</p>
+</dd>
+</dl>
+<section id="file-drop">
+<h3>File Drop</h3>
+<p>You can also drag and drop a file or directory from your file manager into the Blender File Browser.
+This will move it to the directory of the dropped file, and the file will be selected.</p>
+</section>
+</section>
+<section id="selecting">
+<h2>Selecting</h2>
+<dl>
+<dt>Select</dt><dd><p>Both <kbd>LMB</kbd> and <kbd>RMB</kbd> clicks work.
+Holding <kbd>Shift</kbd> will extend the items selection.</p>
+</dd>
+<dt>(De)select All <kbd>A</kbd></dt><dd><p>Toggles selecting all files.</p>
+</dd>
+<dt>Dragging</dt><dd><p>Dragging with <kbd>LMB</kbd> starts a <a href="../interface/selecting.html#tool-select-box">box selection</a>.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>You can always select several entries in the File Browser,
+the last selected one is considered as the active one.
+If the calling operation expects a single path (like e.g. the main blend-file <em>Open</em> one),
+it will get that active item’s path, other selected ones will just be ignored.</p>
+</div>
+<section id="arrow-keys">
+<h3>Arrow Keys</h3>
+<p>It is also possible to select/deselect files by “walking” through them using the arrow keys:</p>
+<ul>
+<li><p>Just using an arrow key, the next file in the chosen direction will be selected and all others deselected.</p></li>
+<li><p>Holding down <kbd>Shift</kbd> while doing this does not deselect anything so it extends to the selection,
+plus it allows to deselect files by navigating into a block
+of already selected ones (minimum two files in sequence).</p></li>
+<li><p>Holding down <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd></kbd> further selects/deselects all files in between.</p></li>
+</ul>
+<p>If no file is selected, the arrow key navigation selects the first or last file in the directory,
+depending on the arrow direction.</p>
+<p>If you select a directory and hit <kbd>Return</kbd>, you will go into that directory
+(and highlighting ‘parent’ <code>..</code> entry will bring you up one level).</p>
+</section>
+</section>
+<section id="editing">
+<h2>Editing</h2>
+<dl id="bpy-ops-file-external-operation">
+<dt>External</dt><dd><p>Use the operating system to perform an action on the file or directory.
+The options listed below might not be available on all operating systems.</p>
+<dl>
+<dt>Open:</dt>
+<dd><p>Open the file.</p>
+</dd>
+<dt>Open Folder:</dt>
+<dd><p>Open the folder.</p>
+</dd>
+<dt>Edit:</dt>
+<dd><p>Edit the file.</p>
+</dd>
+<dt>New:</dt>
+<dd><p>Create a new file of this type.</p>
+</dd>
+<dt>Find File:</dt>
+<dd><p>Search for files of this type.</p>
+</dd>
+<dt>Show:</dt>
+<dd><p>Show this file.</p>
+</dd>
+<dt>Play:</dt>
+<dd><p>Play this file.</p>
+</dd>
+<dt>Browse:</dt>
+<dd><p>Browse this file.</p>
+</dd>
+<dt>Preview:</dt>
+<dd><p>Preview this file.</p>
+</dd>
+<dt>Print:</dt>
+<dd><p>Print this file.</p>
+</dd>
+<dt>Install:</dt>
+<dd><p>Install this file.</p>
+</dd>
+<dt>Run As User:</dt>
+<dd><p>Run as specific user.</p>
+</dd>
+<dt>Properties:</dt>
+<dd><p>Show OS Properties for this item.</p>
+</dd>
+<dt>Find in Folder:</dt>
+<dd><p>Search for items in this folder.</p>
+</dd>
+<dt>Command Prompt Here:</dt>
+<dd><p>Open a command prompt here.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-file-delete">
+<dt>Delete Files <kbd>Delete</kbd>, <kbd>X</kbd></dt><dd><p>Delete the currently selected files or directories by moving them to the operating system’s “trash”.</p>
+<p>Note, on Linux deleting directories requires KDE or GNOME.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-file-rename">
+<dt>Rename <kbd>F2</kbd></dt><dd><p>Change the name for the currently selected file or directory.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

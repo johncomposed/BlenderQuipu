@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Hair Info</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Curves Info Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curves-info-node">
+<h1>Curves Info Node</h1>
+<p>The <em>Curves Info</em> node gives access to <a href="../../../physics/particles/hair/index.html">Hair</a> information.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Is Strand</dt><dd><p>Outputs 1 when the shader is acting on a strand, otherwise 0.</p>
+</dd>
+<dt>Intercept</dt><dd><p>The point along the strand where the ray hits the strand (1 at the tip and 0 at the root).</p>
+</dd>
+<dt>Length</dt><dd><p>The total measurement from the root to the tip of the strand,
+interpreted as a grayscale value from 0 to infinity.</p>
+</dd>
+<dt>Thickness</dt><dd><p>The thickness of the strand at the point where the ray hits the strand.</p>
+</dd>
+<dt>Tangent Normal</dt><dd><p>Tangent normal of the strand.</p>
+</dd>
+<dt>Random</dt><dd><p>A random per-curve value in the range from 0 to 1.
+It can for example be used in combination with a color ramp, to randomize the curve’s color.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

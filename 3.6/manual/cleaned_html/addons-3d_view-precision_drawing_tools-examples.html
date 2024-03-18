@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Precision Drawing Tools &gt; Examples</title></head>
+<body><ul>
+<li><a href="../../index.html">Add-ons</a></li>
+<li><a href="../index.html">3D View</a></li>
+<li><a href="index.html">Precision Drawing Tools (PDT)</a></li>
+<li>PDT Examples</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="pdt-examples">
+<h1>PDT Examples</h1>
+<p>Example Models will be shown here, built Exclusively with PDT, Offset Edges and MeasureIt Add-ons.</p>
+<p>This first one may not look too remarkable, except that it is totally accurate to dimensions,
+not approximately, taken from tracing a reference image.</p>
+<p>The draft angles on this half-casting are exactly 5 degrees,
+the length of sides between the radii are exactly to a dimension.
+All intersect points of faces have been placed accurately using PDT,
+not guessed from a zoomed in view. All fillets are exactly to a dimension and exactly in the right place.</p>
+<p>Most of the accuracy of this model would be either impossible, or so very complicated,
+to achieve with Blender on its own. With PDT and Offset Edges,
+it was quick and easy to achieve this kind of topology, suitable for mechanical models,
+at a very high level of precision (constrained only by the storage of coordinates in Blender).
+You can also see the Pivot Point of this model, stored in its Custom Property.</p>
+<section id="example-1-construct-a-casting">
+<h2>Example 1 Construct a Casting:</h2>
+<p><strong>Stage 1:</strong></p>
+<p>This example has been executed from the PDT Command Line section.</p>
+<ul>
+<li><p>Set Move Mode to <code>Selected Entities.</code></p></li>
+<li><p>Place Vertex at 0,0,0 – Command <strong>na,,</strong></p></li>
+<li><p>Extrude 20 at 0 degrees – Command <strong>ei20</strong>, Working Plane set to <code>Front(X-Z)</code></p></li>
+<li><p>Place Cursor at fillet radius center. – Command <strong>ci22.5,90</strong></p></li>
+<li><p>Spin 85 Degrees – Blender Spin -85 degrees</p></li>
+<li><p>Extrude 50 at 85 degrees – Command <strong>ei50,85</strong></p></li>
+</ul>
+<p><strong>Stage 2:</strong></p>
+<ul>
+<li><p>Duplicate first Vertex 150 in X 100 in Z – Command <strong>dd150,,100</strong></p></li>
+<li><p>Extrude 100 at 180 degrees – Command <strong>ei100,180</strong></p></li>
+<li><p>Intersect Corner – <code>Operation</code> = <code>Move</code>, All/Active Selected, click <code>Intersect</code></p></li>
+<li><p>Extrude 100 in Y – Command – <strong>ei100,90</strong> Working Plane set to <code>Top(X-Y)</code></p></li>
+<li><p>Bevel Corner – Blender Command Bevel, 25mm</p></li>
+<li><p>Offset Edges 2.5 – Offset Edges Extrude Command.</p></li>
+</ul>
+<p><strong>Stage 3:</strong></p>
+<ul>
+<li><p>Spin in Top View – Blender Spin Command, 62.5 degrees</p></li>
+<li><p>Extrude 47.5 at 27.5 degrees – Command <strong>ei47.5,27.5</strong></p></li>
+<li><p>Spin in Top View – Blender Spin Command, 27.5 degrees</p></li>
+<li><p>Extrude 30 at 0 degrees – Command <strong>ei30</strong>,</p></li>
+<li><p>Complete highlighted faces using standard Blender techniques to get this:</p></li>
+</ul>
+<p>Then simply extrude the two front face corners level with the cursor
+in X and then selected vertices to make the faces with F key.</p>
+<p>This model is accurate to dimensions, draft angles and corner radii.
+All the command line inputs could be replaced by using the <code>Operation</code>
+options and <code>Command</code> buttons instead.</p>
+<p>Optionally, to improve topology, one could rationalize the top faces to this:</p>
+<p>It would depend on what we wanted to do ultimately with the top faces, like maybe cut holes in them.</p>
+</section>
+<section id="example-2-modify-a-hydraulic-cylinder">
+<h2>Example 2 - Modify a Hydraulic Cylinder:</h2>
+<p>Take this mesh, we have no idea at what angle the mesh lies,
+since it was drawn to a delta measurement not a directional measurement:</p>
+<p>We now want to make it longer along the angle at which it lies, by a known amount,
+so we first use the <code>Set A/S 2D</code> tool to set the angle:</p>
+<p>You can see the angle was 9.9935 degrees, we then input the distance we require in the <code>Distance</code> input box,
+set <code>Operation</code> to <code>Move</code> and click the <code>Direction</code> command to get this:</p>
+<p>You can see the selected vertices have been moved exactly 3000mm at exactly 9.9935 degrees.
+This is one of the main reasons why PDT exists, to do just this type of precise alteration of geometry.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

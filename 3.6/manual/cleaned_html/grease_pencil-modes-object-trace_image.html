@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Object &gt; Trace Image</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Object Mode</a></li>
+<li>Trace Image to Grease Pencil</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="trace-image-to-grease-pencil">
+<h1>Trace Image to Grease Pencil</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Convert ‣ Trace Image to Grease Pencil</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Trace Image to Grease Pencil</em> tool traces a black and white image and generates Grease Pencil strokes.
+If the image is not black and white, it will be internally converted.
+For better results, convert the images manually to black and white.
+Also try to keep the resolution of the image small; high resolutions can produce very dense strokes.</p>
+<section id="usage">
+<h2>Usage</h2>
+<ol>
+<li><p>Add an <a href="../../../modeling/empties.html#bpy-types-object-empty-image">Image Empty</a> to the scene.</p></li>
+<li><p>Run <em>Trace Image to Grease Pencil</em>.</p></li>
+</ol>
+</section>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Target Object</dt><dd><p>The Grease Pencil object name. If left empty, a new Grease Pencil object will be created.</p>
+</dd>
+<dt>Thickness</dt><dd><p>The thickness of the generated Grease Pencil strokes.</p>
+</dd>
+<dt>Resolution</dt><dd><p>Resolution of the generated Grease Pencil strokes i.e. how many control points the stroke will have.
+A higher resolution will preserve more detail from the original image.</p>
+</dd>
+<dt>Scale</dt><dd><p>The object scale applied to the generated Grease Pencil object.</p>
+</dd>
+<dt>Sample</dt><dd><p>Recreates the stroke geometry with a predefined length between points.
+Smaller values will require more points to recreate the stroke,
+while larger values will result in fewer points needed to recreate the curve.
+A value of 0 disables stroke sampling.</p>
+</dd>
+<dt>Color Threshold</dt><dd><p>Determine the <a href="../../../glossary/index.html#term-Luminance">Luminance</a> threshold above which strokes are generated.</p>
+</dd>
+<dt>Turn Policy</dt><dd><p>Determines how to resolve ambiguities during decomposition of an image into paths.</p>
+<dl>
+<dt>Black:</dt>
+<dd><p>Prioritizes to connect black (foreground) components.</p>
+</dd>
+<dt>White:</dt>
+<dd><p>Prioritizes to connect white (background) components.</p>
+</dd>
+<dt>Left:</dt>
+<dd><p>Always take a left turn.</p>
+</dd>
+<dt>Right:</dt>
+<dd><p>Always take a right turn.</p>
+</dd>
+<dt>Minority:</dt>
+<dd><p>Prioritizes to connect the color (black or white) that occurs
+least frequently in the local neighborhood of the current position.</p>
+</dd>
+<dt>Majority:</dt>
+<dd><p>Prioritizes to connect the color (black or white) that occurs
+most frequently in the local neighborhood of the current position.</p>
+</dd>
+<dt>Random:</dt>
+<dd><p>Choose pseudo-randomly.</p>
+</dd>
+</dl>
+</dd>
+<dt>Mode</dt><dd><p>Determines if the image being traced is a single image or image sequence.</p>
+<dl>
+<dt>Single:</dt>
+<dd><p>The image empty is a single image or the current frame of an image sequence.</p>
+</dd>
+<dt>Sequence:</dt>
+<dd><p>The image empty is an <a href="../../../editors/image/image_settings.html#image-sequence">Image Sequence</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Start at Current Frame</dt><dd><p>When enabled, start the tracing process at the current image frame.</p>
+</dd>
+<dt>Trace Frame</dt><dd><p>Used to trace only one frame of the image sequence, set to zero to trace all.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

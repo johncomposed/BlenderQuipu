@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Symmetrize</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Symmetrize</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="symmetrize">
+<h1>Symmetrize</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Symmetrize</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Symmetrize</em> tool is a quick way to make a mesh symmetrical.
+<em>Symmetrize</em> works by cutting the mesh at the pivot point of the object,
+and mirroring over the geometry in the specified axis, and merges the two halves together
+(if they are connected). Also the mesh data is copied from one side to the other:
+e.g. UVs, colors attributes, vertex weights.</p>
+<dl>
+<dt>Direction</dt><dd><p>Specify the axis and direction of the effect. Can be any of the three axes,
+and either positive to negative, or negative to positive.</p>
+</dd>
+<dt>Threshold</dt><dd><p>The vertices in this range will be snapped to the plane of symmetry.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Mesh before Symmetrize.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Mesh after Symmetrize.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>See also</p>
+<p>See <a href="mirror.html">Mirror</a>
+for information on mirroring, which allows you to flip geometry across an axis.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

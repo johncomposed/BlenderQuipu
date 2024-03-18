@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Double Edge Mask</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Double Edge Mask Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="double-edge-mask-node">
+<h1>Double Edge Mask Node</h1>
+<p>CPU Compositor Only</p>
+<p>The <em>Double Edge Mask</em> node creates a gradient between two masks.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Inner Mask</dt><dd><p>A mask representing the inside shape, which will be fully white.</p>
+</dd>
+<dt>Outer Mask</dt><dd><p>A mask representing the outside shape, which will fade from black at its edges
+to white at the <em>Inner Mask</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Inner Edge</dt><dd><dl>
+<dt>All:</dt>
+<dd><p>All shapes in the <em>Inner Mask</em> contribute to the gradient, even ones that do
+not touch the <em>Outer Mask</em> shape.</p>
+</dd>
+<dt>Adjacent Only:</dt>
+<dd><p>Only shapes in the <em>Inner Mask</em> that overlap with the <em>Outer Mask</em> contribute
+to the gradient.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>All.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Adjacent Only.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Buffer Edge</dt><dd><dl>
+<dt>Keep In:</dt>
+<dd><p>Parts of the <em>Outer Mask</em> that touch the edge of the image are treated as if
+they stop at the edge.</p>
+</dd>
+<dt>Bleed Out:</dt>
+<dd><p>Parts of the <em>Outer Mask</em> that touch the edge of the image are extended
+beyond the boundary of the image.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Keep In.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Bleed Out.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mask</dt><dd><p>Standard mask output.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p><a href="https://www.youtube.com/watch?v=VcjEfoNIHZs">Double Edge Mask Example Video</a></p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

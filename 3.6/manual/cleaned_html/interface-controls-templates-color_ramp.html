@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Templates &gt; Color Ramp</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li>Color Ramp Widget</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="color-ramp-widget">
+<h1>Color Ramp Widget</h1>
+<p><em>Color Ramps</em> specify a color gradient based on color stops. Each stop has a position and a color.
+The gradient is then calculated as the interpolation between these stops using the chosen
+interpolation method.</p>
+<figure id="id1">
+<figcaption>
+<p>Color ramp.</p>
+</figcaption>
+</figure>
+<section id="controls">
+<h2>Controls</h2>
+<dl>
+<dt>Add <code>+</code></dt><dd><p>Adds a new stop between the selected stop and the one before it.</p>
+</dd>
+<dt>Delete <code>-</code></dt><dd><p>Deletes the selected color stop.</p>
+</dd>
+<dt>Specials <code>v</code></dt><dd><p>Contains more operators for the color ramp.</p>
+<dl>
+<dt>Flip Color Ramp</dt><dd><p>Flips the gradient, mirroring the positions of the stops.</p>
+</dd>
+<dt>Distribute Stops from Left</dt><dd><p>Distribute the stops so that every step has the same space to the right.
+This is mostly useful when used with Constant interpolation mode.</p>
+</dd>
+<dt>Distribute Stops Evenly</dt><dd><p>Distribute the stops so that all neighbors have the same space between them.</p>
+</dd>
+<dt>Eyedropper (pipette icon) <kbd>E</kbd></dt><dd><p>An <a href="../buttons/eyedropper.html#ui-eyedropper">Eyedropper</a> to sample a color or gradient from the interface to be used in the color ramp.</p>
+</dd>
+<dt>Reset Color Ramp</dt><dd><p>Resets the color ramp to its default state.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-colorramp-color-mode">
+<dt>Color Mode</dt><dd><p>Selection of the <a href="../../../glossary/index.html#term-Color-Model">Color Model</a> used for interpolation.</p>
+<dl>
+<dt>RGB:</dt>
+<dd><p>Blends color by mixing each color channel and combining.</p>
+</dd>
+<dt>HSV/HSL:</dt>
+<dd><p>Blends colors by first converting to HSV or HSL, mixing, then combining again.
+This has the advantage of maintaining saturation between different hues,
+where RGB would de-saturate. This allows for a richer gradient.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-colorramp-interpolation">
+<dt>Color Interpolation</dt><dd><p>The interpolation method to use across the ramp.</p>
+<dl>
+<dt>RGB</dt><dd><dl>
+<dt>B-Spline:</dt>
+<dd><p>Uses a B-spline interpolation for the color stops.</p>
+</dd>
+<dt>Cardinal:</dt>
+<dd><p>Uses a cardinal interpolation for the color stops.</p>
+</dd>
+<dt>Linear:</dt>
+<dd><p>Uses a linear interpolation for the color stops.</p>
+</dd>
+<dt>Ease:</dt>
+<dd><p>Uses an ease interpolation for the color stops.</p>
+</dd>
+<dt>Constant:</dt>
+<dd><p>Uses a constant interpolation for the color stops.</p>
+</dd>
+</dl>
+</dd>
+<dt>HSV/HSL</dt><dd><dl>
+<dt>Clockwise:</dt>
+<dd><p>Clockwise interpolation around the HSV/HSL wheel.</p>
+</dd>
+<dt>Counter-Clockwise:</dt>
+<dd><p>Counterclockwise around the HSV/HSL wheel.</p>
+</dd>
+<dt>Near:</dt>
+<dd><p>Nearest route around the wheel.</p>
+</dd>
+<dt>Far:</dt>
+<dd><p>Furthest route around the wheel.</p>
+</dd>
+</dl>
+<figure id="id2">
+<figcaption>
+<p>HSV and HSL interpolation options.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</dd>
+<dt>Active Color Stop</dt><dd><p>Index of the active color stop (shown as a dashed line).
+Offers an alternative way of selecting a stop in case it’s so close to others
+that it’s hard to select it directly.</p>
+</dd>
+</dl>
+<dl id="bpy-types-colorrampelement-position">
+<dt>Position</dt><dd><p>This slider controls the position of the selected color stop in the range.</p>
+</dd>
+</dl>
+<dl id="bpy-types-colorrampelement-color">
+<dt>Color</dt><dd><p>A <a href="../buttons/fields.html">color field</a> where you can
+specify the color and alpha of the selected stop.</p>
+</dd>
+</dl>
+<section id="shortcuts">
+<h3>Shortcuts</h3>
+<ul>
+<li><p><kbd>LMB</kbd> (drag) moves color stops.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> (click) adds a new color stop.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

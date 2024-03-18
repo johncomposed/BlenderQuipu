@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Pose</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Pose</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="pose">
+<h1>Pose</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Pose</p>
+</dd>
+</dl>
+</div>
+<p>Deform a model simulating armature-like workflow.
+This can either be useful for posing a model without a rig,
+adjusting the proportions of a mesh or other fast deformations.</p>
+<p>The brush will automatically determine an origin point,
+indicated with a while line on the brush cursor.</p>
+<p>If the <a href="../../brush/brush_settings.html#bpy-types-brush-deform-target">Deformation Target</a>
+is changed, the brush can also be used for cloth sculpting.</p>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<section id="general">
+<h3>General</h3>
+<p>Only Radius and Auto-Masking has an impact on the brush behavior for this brush.</p>
+<div>
+<p>Note</p>
+<p>More info at <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-general">General</a> brush settings
+and on <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-advanced">Advanced</a> brush settings.</p>
+</div>
+</section>
+<section id="unique">
+<h3>Unique</h3>
+<dl id="bpy-types-brush-pose-deform-type">
+<dt>Deformation</dt><dd><p>Deformation type that is used by the brush.</p>
+<dl>
+<dt>Rotate/Twist:</dt>
+<dd><p>Rotates the mesh around the pose origin.
+When pressing <kbd>Ctrl</kbd>, the brush applies a twist rotation
+instead (and disables any IK segments that are used).</p>
+</dd>
+<dt>Scale/Translate:</dt>
+<dd><p>Scale the mesh based on the pose origin.
+While holding <kbd>Ctrl</kbd> the brush moves the mesh.</p>
+</dd>
+<dt>Squash/Stretch:</dt>
+<dd><p>Works similar to <em>Scale/Translate</em> however, it applies different
+scale values along different axes to achieve the stretching effect.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-pose-origin-type">
+<dt>Rotation Origins</dt><dd><p>Method to set the rotation origin for the pose origin or individual IK segments.</p>
+<dl>
+<dt>Topology:</dt>
+<dd><p>Sets the rotation origin automatically using the topology and shape of the mesh.</p>
+</dd>
+<dt>Face Sets:</dt>
+<dd><p>Creates a pose segment per <a href="../editing/face_sets.html#sculpting-editing-facesets">Face Set</a>, starting from the active face set.
+This can lead to the most accurate and desirable results.</p>
+</dd>
+<dt>Face Sets FK:</dt>
+<dd><p>Simulates a <a href="../../../glossary/index.html#term-Forward-Kinematics">Forward Kinematics</a> deformation using the <a href="../editing/face_sets.html#sculpting-editing-facesets">Face Set</a>
+under the cursor as control.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-pose-offset">
+<dt>Pose Origin Offset</dt><dd><p>Offset of the pose origin in relation to the brush radius.
+This is useful to manipulate areas with a lot of complex shapes like fingers.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-pose-smooth-iterations">
+<dt>Smooth Iterations</dt><dd><p>Controls the smoothness of the falloff of the deformation.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-pose-ik-segments">
+<dt>Pose IK Segments</dt><dd><p>Controls how many <a href="../../../animation/armatures/posing/bone_constraints/index.html#bone-constraints-inverse-kinematics">IK segments</a>
+are going to be created for posing.
+This can be seen by a divided white line on the cursor.
+This is also useful for making curved deformations with the pose brush,
+like hair clumps and tails.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-pose-lock-rotation">
+<dt>Lock Rotation when Scaling</dt><dd><p>When using <em>Scale/Translate Deformation</em>, do not rotate the segment; only scaling is applied.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-pose-ik-anchored">
+<dt>Keep Anchor Point</dt><dd><p>Keeps the position of the last segment in the IK chain fixed.
+If this is disabled, the mesh can be dragged around more freely,
+creating snake like shapes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-connected-only">
+<dt>Connected Only</dt><dd><p>The brush will only affect topologically connected elements.
+Disabling this will allow deforming multiple disconnected meshes at the same time,
+for example characters with clothing &amp; shoes.</p>
+<p>Disabling this setting can have a big impact on performance,
+as neighboring elements will be merged internally.
+Keeping the <em>Max Element Distance</em> as low as possible
+will help counteract the performance impact.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-disconnected-distance-max">
+<dt>Max Element Distance</dt><dd><p>Maximum distance to search for disconnected loose parts in the mesh.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

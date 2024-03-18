@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Selecting</title></head>
+<body><ul>
+<li><a href="../index.html">Scenes &amp; Objects</a></li>
+<li><a href="index.html">Objects</a></li>
+<li>Selecting</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="selecting">
+<h1>Selecting</h1>
+<p>Selection determines which elements will be the target of our actions.
+Selections work on the current scene visible objects.
+Blender has advanced selection methods. Both in <em>Object Mode</em> and in <em>Edit Mode</em>.</p>
+<section id="selections-and-the-active-object">
+<h2>Selections and the Active Object</h2>
+<p>Blender distinguishes between two different states of selection:</p>
+<figure id="id15">
+<figcaption>
+<p>Active object in yellow, selected object in orange, and unselected object in black.</p>
+</figcaption>
+</figure>
+<p>In <em>Object Mode</em> the last (de)selected item is called the “Active Object”
+and is outlined in yellow (the others are orange).
+There is at most one active object at any time.</p>
+<p>Many actions in Blender use the active object as a reference (for example linking operations).
+If you already have a selection and need to make a different object the active one,
+simply reselect it with <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd>.</p>
+<p>All other selected objects are just selected. You can select any number of objects.
+In order to change a property or to perform an operation on all selected objects (bones, and sequencer strips)
+hold <kbd>Alt</kbd>, while confirming.</p>
+</section>
+<section id="select-menu">
+<h2>Select Menu</h2>
+<section id="all">
+<h3>All</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ All</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>A</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Select all selectable objects.</p>
+</section>
+<section id="none">
+<h3>None</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ None</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Deselect all objects, but the active object stays the same.</p>
+</section>
+<section id="invert">
+<h3>Invert</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Invert</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>I</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Toggle the selection state of all visible objects.</p>
+</section>
+<section id="box-select">
+<h3>Box Select</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Box Select</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>B</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Interactive <a href="../../interface/selecting.html#tool-select-box">box selection</a>.</p>
+</section>
+<section id="circle-select">
+<h3>Circle Select</h3>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Circle Select</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>C</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Interactive <a href="../../interface/selecting.html#tool-select-circle">circle selection</a>.</p>
+</section>
+<section id="lasso-select">
+<h3>Lasso Select</h3>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Lasso Select</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>See <a href="../../interface/selecting.html#tool-select-lasso">Select Lasso</a>.</p>
+</section>
+<section id="select-all-by-type">
+<h3>Select All by Type</h3>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select All by Type</p>
+</dd>
+</dl>
+</div>
+<p>With this tool, it becomes possible to select objects of a certain type in one go.
+For a description of all object types see <a href="types.html">Object Types</a>.</p>
+</section>
+<section id="select-active-camera">
+<h3>Select Active Camera</h3>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Active Camera</p>
+</dd>
+</dl>
+</div>
+<p>Selects the active camera, this is especially handy in complex scene.</p>
+</section>
+<section id="select-mirror">
+<h3>Select Mirror</h3>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Mirror</p>
+</dd>
+</dl>
+</div>
+<p>Select the Mirror objects of the selected object,
+based on their names, e.g. “sword.L” and “sword.R”.</p>
+</section>
+<section id="select-random">
+<h3>Select Random</h3>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Random</p>
+</dd>
+</dl>
+</div>
+<p>Randomly selects unselected objects based on percentage probability.
+The percentage can be modified in the <em>Adjust Last Operation</em> panel.
+It is important to note that the percentage is the likelihood of
+an unselected object being selected and not the percentage amount of objects
+that will be selected.</p>
+</section>
+<section id="select-more-less">
+<h3>Select More/Less</h3>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ More/Less</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>NumpadPlus</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>NumpadMinus</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Their purpose, based on the hierarchical.</p>
+<dl>
+<dt>More</dt><dd><p>Expand the selection to the immediate parent and children of the selected objects.</p>
+</dd>
+<dt>Less</dt><dd><p>Contrast the selection, deselect objects at the boundaries of parent/child relationships.</p>
+</dd>
+<dt>Parent</dt><dd><p>Deselects the currently selected objects and selects their immediate parents.</p>
+</dd>
+<dt>Child</dt><dd><p>Deselects the currently selected objects and selects their immediate children.</p>
+</dd>
+<dt>Extend Parent</dt><dd><p>Extends the selection to the immediate parents of the currently selected objects.</p>
+</dd>
+<dt>Extend Child</dt><dd><p>Extends the selection to the immediate children of the currently selected objects.</p>
+</dd>
+</dl>
+</section>
+<section id="select-grouped">
+<h3>Select Grouped</h3>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Grouped</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>There are two ways to organize the objects in relation to one another.
+The first one is <em>parenting</em>, and the second is simple <em>grouping</em>.
+These relationships to an artist’s advantage by selecting members of respective families or groups.
+<em>Select Grouped</em> uses the active object as a basis to select all others.</p>
+<dl>
+<dt>Children</dt><dd><p>Selects all hierarchical descendants of the active object.</p>
+</dd>
+<dt>Immediate Children</dt><dd><p>Selects all direct children of the active object.</p>
+</dd>
+<dt>Parent</dt><dd><p>Selects the parent of this object if it has one.</p>
+</dd>
+<dt>Siblings</dt><dd><p>Select objects that have the same parent as the active object.
+This can also be used to select all root level objects (objects with no parents).</p>
+</dd>
+<dt>Type</dt><dd><p>Select objects that are the same type as the active one.</p>
+</dd>
+<dt>Collection</dt><dd><p>Select all objects that are in the same collection as the active one.
+If the active object belongs to more than one collection,
+a list will pop up so that you can choose which collection to select.</p>
+</dd>
+<dt>Object Hooks</dt><dd><p>Every hook that belongs to the active object.</p>
+</dd>
+<dt>Pass</dt><dd><p>Select objects assigned to the same <a href="../../render/layers/passes.html">Render Pass</a>.</p>
+</dd>
+<dt>Color</dt><dd><p>Select objects with same <a href="properties/display.html#bpy-types-object-color">Object Color</a>.</p>
+</dd>
+<dt>Keying Set</dt><dd><p>Select objects included in the active <a href="../../animation/keyframes/keying_sets.html">Keying Set</a>.</p>
+</dd>
+<dt>Light Type</dt><dd><p>Select matching light types.</p>
+</dd>
+</dl>
+</section>
+<section id="select-linked">
+<h3>Select Linked</h3>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Linked</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>L</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Selects all objects which share a common data-block with the active object.
+<em>Select Linked</em> uses the active object as a basis to select all others.</p>
+<dl>
+<dt>Object Data</dt><dd><p>Selects every object that is linked to the same Object Data, i.e.
+the data-block that specifies the type (mesh, curve, etc.) and the build
+(constitutive elements like vertices, control vertices, and where they are in space) of the object.</p>
+</dd>
+<dt>Material</dt><dd><p>Selects every object that is linked to the same material data-block.</p>
+</dd>
+<dt>Instanced Collection</dt><dd><p>Select every object that is linked to the instanced collection.</p>
+</dd>
+<dt>Texture</dt><dd><p>Selects every object that is linked to the same texture data-block.</p>
+</dd>
+<dt>Particle System</dt><dd><p>Selects all objects that use the same <em>Particle System</em>.</p>
+</dd>
+<dt>Library</dt><dd><p>Selects all objects that are in the same <a href="../../files/linked_libraries/index.html">Library</a>.</p>
+</dd>
+<dt>Library (Object Data)</dt><dd><p>Selects all objects that are in the same <a href="../../files/linked_libraries/index.html">Library</a>
+and limited to <em>Object Data</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="select-pattern">
+<h3>Select Pattern</h3>
+<div id="id14">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Pattern…</p>
+</dd>
+</dl>
+</div>
+<p>Selects all objects whose name matches a given pattern.
+Supported wild-cards: * matches everything, ? matches any single character,
+[abc] matches characters in “abc”, and [!abc] match any character not in “abc”.
+As an example *house* matches any name that contains “house”,
+while floor* matches any name starting with “floor”.</p>
+<dl>
+<dt>Case Sensitive</dt><dd><p>The matching can be chosen to be case sensitive or not.</p>
+</dd>
+<dt>Extend</dt><dd><p>When <em>Extend</em> checkbox is checked the selection is extended instead of generating a new one.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Graph Editor &gt; Channels &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Graph Editor</a></li>
+<li><a href="index.html">Channels</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<section id="channels-region">
+<h2>Channels Region</h2>
+<figure id="id1">
+<figcaption>
+<p>The Channels region.</p>
+</figcaption>
+</figure>
+<p>The channels region is used to select and manage the curves for the Graph editor.
+This part shows the objects and their animation data hierarchy each as headers.
+Each level can be expanded/collapsed by the small arrow to the left of its header.</p>
+<ul>
+<li><p>Scenes, Objects (dark blue)</p></li>
+<li><p><a href="../../../animation/actions.html">Actions</a>, <a href="../../../animation/shape_keys/index.html">Shape keys</a>, etc. (light blue)</p></li>
+<li><p>Groups (green)</p></li>
+<li><p>Channels (gray)</p></li>
+</ul>
+<dl id="bpy-types-dopesheet-filter-text">
+<dt>Name Filter <kbd><kbd>Ctrl</kbd>-<kbd>F</kbd></kbd></dt><dd><p>Only displays channels that match the search text.
+Pressing the invert button displays all channels except the channels that match the search text.</p>
+</dd>
+</dl>
+<section id="controls">
+<h3>Controls</h3>
+<p>On the headers, there are toggles to control channel’s setting:</p>
+<dl>
+<dt>Pin (pin icon)</dt><dd><p>Make the channel always visible regardless of the current selection.</p>
+</dd>
+<dt>Hide (eye icon)</dt><dd><p>Hides the channel(s)/curve (Graph editor only).</p>
+</dd>
+<dt>Modifiers (wrench icon)</dt><dd><p>Deactivates the F-Curve modifiers of the selected curve or all curves in the channel.</p>
+</dd>
+<dt>Mute (checkbox)</dt><dd><p>Deactivates the channel/curve.</p>
+</dd>
+<dt>Lock (padlock icon) <kbd>Tab</kbd></dt><dd><p>Toggle channel/curve from being editable.
+Selected channels can be locked by pressing <kbd>Tab</kbd>.</p>
+<div>
+<p>Note</p>
+<p>In the Dope Sheet this is also working inside the NLA,
+but that it does not prevent edition of the underlying F-Curve.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="selecting">
+<h3>Selecting</h3>
+<ul>
+<li><p>Select channel (text in white/black): <kbd>LMB</kbd></p></li>
+<li><p>Multi Select/Deselect: <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd></p></li>
+<li><p>Select All: <kbd>A</kbd></p></li>
+<li><p>Deselect All: <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd></p></li>
+<li><p>Box Select: (<kbd>LMB</kbd> drag) or <kbd>B</kbd> (<kbd>LMB</kbd> drag)</p></li>
+<li><p>Box Deselect: (<kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> drag) or <kbd>B</kbd> (<kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> drag)</p></li>
+<li><p>Select all keyframes in the channel: double <kbd>LMB</kbd> on a channel header.</p></li>
+</ul>
+</section>
+<section id="editing">
+<h3>Editing</h3>
+<ul>
+<li><p>Rename: <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd></p></li>
+<li><p>Delete selected: <kbd>X</kbd> or <kbd>Delete</kbd></p></li>
+<li><p>Lock selected: <kbd>Tab</kbd></p></li>
+<li><p>Enable Channel Setting: <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>W</kbd></kbd></p></li>
+<li><p>Disable Channel Setting: <kbd><kbd>Alt</kbd>-<kbd>W</kbd></kbd></p></li>
+<li><p>Toggle Channel Setting: <kbd><kbd>Shift</kbd>-<kbd>W</kbd></kbd></p></li>
+</ul>
+<section id="sliders">
+<h4>Sliders</h4>
+<figure id="id2">
+<figcaption>
+<p>The Action editor showing sliders.</p>
+</figcaption>
+</figure>
+<p>On channels headers you can have another column with number fields or sliders,
+allowing you to change the value on the current keyframes, or to add new keyframes.
+See <a href="../introduction.html#graph-view-menu">View Menu</a> for how to show these sliders.</p>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

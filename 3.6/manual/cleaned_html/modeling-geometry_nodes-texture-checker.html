@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Texture &gt; Checker</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Texture Nodes</a></li>
+<li>Checker Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="checker-texture-node">
+<h1>Checker Texture Node</h1>
+<div>
+<p>Note</p>
+<p>This node is ported from shader nodes. The manual and images are
+referencing the shader version of the node.
+This node accepts field inputs and outputs.
+When not connected the Vector input has an implicit <code>position</code> attribute value.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Texture nodes can produce details at a higher frequency
+than geometry can show. This may cause artifacts such
+as Moiré type patterns or a lack of detail due to
+insufficient sampling points.</p>
+</div>
+<p>The <em>Checker Texture</em> is used to add a checkerboard texture.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate to sample texture at;
+defaults to Generated texture coordinates if the socket is left unconnected.</p>
+<div>
+<p>Warning</p>
+<p>This node can have precision issues with some vector inputs.
+See the notes for the <a href="../../../render/shader_nodes/textures/white_noise.html">White Noise Texture</a>
+for ways to mitigate this issue.</p>
+</div>
+</dd>
+<dt>Color1, Color 2</dt><dd><p>Color of the checkers.</p>
+</dd>
+<dt>Scale</dt><dd><p>Overall texture scale. The scale is a factor of the bounding box of the face divided by the scale.
+For example, a scale of 15 will result in 15 alternate patterns over the overall UV bounding box.
+Different patterns could be achieved using other nodes to give different input patterns to this socket.
+For example, using the Math node.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Texture color output.</p>
+</dd>
+<dt>Factor</dt><dd><p>Checker 1 mask (1 = Checker 1).</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Default Checker texture.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

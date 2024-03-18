@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Cast</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Cast Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cast-modifier">
+<h1>Cast Modifier</h1>
+<p>The <em>Cast</em> modifier shifts the shape of a mesh, curve,
+surface or lattice, towards any of a few predefined shapes (sphere, cylinder, cuboid).</p>
+<p>It is equivalent to the <a href="../../meshes/editing/mesh/transform/to_sphere.html#tool-transform-to-sphere">To Sphere</a> tool in Edit Mode,
+and what other programs call “Spherify” or “Spherize”, but, as written above,
+it is not limited to casting to a sphere.</p>
+<div>
+<p>Tip</p>
+<p>The <a href="smooth.html">Smooth Modifier</a> is a good companion to <em>Cast</em>,
+since the cast shape sometimes needs smoothing to look nicer or even to fix shading artifacts.</p>
+</div>
+<div>
+<p>Note</p>
+<p>For performance reasons, this modifier only works with local coordinates.
+If the modified object looks wrong, you may need to apply its
+<a href="../../../scene_layout/object/editing/apply.html#bpy-ops-object-transform-apply">transformations</a>, especially when casting to a cylinder.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Cast modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Shape</dt><dd><p>Menu to choose target shape of the projection: <em>Sphere</em>, <em>Cylinder</em> or <em>Cuboid</em>.</p>
+</dd>
+<dt>Axis</dt><dd><p>Toggle buttons to enable/disable the modifier in the X, Y, Z axes directions
+(X and Y only for <em>Cylinder</em> cast type, since the Z axis remains unaffected).</p>
+</dd>
+<dt>Factor</dt><dd><p>The factor to control blending between original and cast vertex positions.</p>
+<p>It is a linear interpolation: 0.0 gives original coordinates (i.e. modifier has no effect),
+1.0 casts to the target shape.</p>
+<p>Values below 0.0 or above 1.0 exaggerate the deformation, sometimes in interesting ways.</p>
+</dd>
+<dt>Radius</dt><dd><p>If nonzero, this radius defines a sphere of influence.
+Vertices outside it are not affected by the modifier.</p>
+</dd>
+<dt>Size</dt><dd><p>Alternative size for the projected shape. If zero,
+it is defined by the initial shape and the control object, if any.</p>
+</dd>
+<dt>Size from Radius</dt><dd><p>If activated, calculate <em>Size</em> from <em>Radius</em>, for smoother results.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>If set, restrict the effect to the only vertices in that vertex group.
+This allows selective, real-time casting, by painting vertex weights.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+<dt>Object</dt><dd><p>The name of an object to control the effect.
+The location of this object’s origin defines the center of the projection.
+Also, its size and rotation transform the projected vertices.</p>
+<div>
+<p>Hint</p>
+<p>Animating (keyframing) this control object also animates the modified object’s casting deformation.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id2">
+<figcaption>
+<p>Top: Suzanne without modifiers. Middle: Suzanne with each type of Cast Modifier (Sphere, Cylinder and Cuboid).
+Bottom: Same as above, but now only X axis is enabled.
+Sample blend-file.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

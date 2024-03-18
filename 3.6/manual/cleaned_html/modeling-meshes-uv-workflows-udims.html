@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Uv &gt; Workflows &gt; Udims</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">UVs</a></li>
+<li><a href="index.html">Workflows</a></li>
+<li>UDIMs</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="udims">
+<h1>UDIMs</h1>
+<p>Using UV maps can have one disadvantage, they consist of one texture for the entire mesh.
+Most of the time this is sufficient but the disadvantage is that the texture is one resolution for the entire mesh.
+This causes issues if you have a very large mesh with geometry of different importance.
+When using a singular texture, the resolution might be too low to cover larger UV islands
+while being inefficient for smaller, less important islands.</p>
+<p>UDIM offers a solution to this by being able to spread UV islands across several different textures.
+UDIM which stands for U DIMension is based on a tile system
+where each tile is a different texture in the overall UDIM texture array.
+Basically each tile consists of its own UV space (0-1, 1-2, 2-3) and have its own image assigned to that tile.
+Tiles are managed in the <a href="#udim-tiles">UDIM Tiles</a> panel where they can have a generated image assigned to them.
+Generally, you create several textures of different resolutions;
+for example, you may have a 4k resolution texture for the major details,
+and 2k and/or 1k textures for less important details.</p>
+<p>The UDIM array consists of one main tile, this tile is given the index number of <code>1001</code>.
+The next tile that gets added will be <code>1002</code> and will be placed to the right of the main tile.
+The overall UDIM array is ten tiles wide, so tiles <code>1001</code> through <code>1010</code> are created on the first row.
+After ten tiles a new row of tiles is started above the main tile; so <code>1011</code> will be place directly above <code>1001</code>.</p>
+<section id="workflow">
+<h2>Workflow</h2>
+<p>To start using a UDIM workflow, you should unwrap a mesh as you would for any other UV map.
+After that you should decide how many textures you want to split your UV map into.
+This will be different for every mesh and workflow but a good minimum is 3: one 4k, one 2k, and one 1k image.
+Then create the desired textures to match how many textures you want.</p>
+<p>After this it is the same process of moving UVs to the appropriate tile
+and scaling and managing them like any other UV map.
+See <a href="layout.html">Layout Workflow</a> for information on laying out UVs.</p>
+<p>When the UVs are correctly set up across the multiple UV islands it is time to add proper textures the UDIM array.
+Currently, existing textures cannot be added to a tile,
+to fill a tile with an existing texture you first must:</p>
+<ol>
+<li><p>Create the desired tiles.</p></li>
+<li><p>Save the image.</p></li>
+<li><p>Replace the saved image file with the desire texture by deleting the file
+and replacing it with a new image file, keeping the old file name.
+Or by opening the image in another application and modifying the contents of the image.</p></li>
+</ol>
+<p>Other than using a third-party application to edit the UDIM texture it is possible to paint on UDIM textures.
+This works for either 2D Painting or <a href="../../../../sculpt_paint/texture_paint/index.html">3D Painting</a>.</p>
+</section>
+<section id="file-substitution-tokens">
+<h2>File Substitution Tokens</h2>
+<p>Substitution tokens are special sequences of characters in a filename
+that can be replaced with more meaningful and context aware information.
+In this case, tokens are identified by being text wrapped in angle bracket characters.</p>
+<p>This substitution is used while load loading or saving an image
+to automatically identify the tile associated with a particular texture in the UDIM array.</p>
+<p>The following tokens are supported:</p>
+<ul>
+<li><p><code>&lt;UDIM&gt;</code>: A 4-digit notation calculated as <code>1001 + u-tile + v-tile * 10</code>.</p></li>
+<li><p><code>&lt;UVTILE&gt;</code>: A notation defined as <code>u(u-tile + 1)_v(v-tile + 1)</code>.</p></li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><p><code>monster-basecolor.&lt;UDIM&gt;.png</code> will load/save files like <code>monster-basecolor.1021.png</code> etc.</p></li>
+<li><p><code>monster-basecolor.&lt;UVTILE&gt;.png</code> will load/save files like <code>monster-basecolor.u1_v3.png</code> etc.</p></li>
+</ul>
+</section>
+<section id="udim-tiles">
+<h2>UDIM Tiles</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Image Editor, UV Editor</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Image ‣ UDIM Tiles</p>
+</dd>
+</dl>
+</div>
+<p>In this panel UDIM tiles are managed;
+new tiles can be added, tiles can be removed, or tiles can filled with a generated texture.</p>
+<dl>
+<dt>UDIM Tile List</dt><dd><p>List all UDIM tiles associated with the main index (<code>1000</code> tile).
+Double clicking on the tile name allows you to alter the tiles <em>Label</em>.</p>
+</dd>
+<dt>Add Tile <code>+</code></dt><dd><p>Adds new UDIM tiles to the group.</p>
+<dl>
+<dt>Number</dt><dd><p>The starting tile index number.
+UDIMs must start with the <code>1001</code> tile and typically increase in incremental order.</p>
+</dd>
+<dt>Count</dt><dd><p>The number of tiles to add.</p>
+</dd>
+<dt>Label</dt><dd><p>An optional label can be used instead of the index number.
+These labels are shown in the 2D Viewport.</p>
+</dd>
+<dt>Fill</dt><dd><p>Occupy the UDIM tile with a generated image; see <em>Fill Tile</em> below.</p>
+</dd>
+</dl>
+</dd>
+<dt>Remove Tile <code>-</code></dt><dd><p>Deletes the selected UDIM tile from the group.
+If this tile is not saved and contains data, that data will be lost.</p>
+</dd>
+<dt>Fill Tile</dt><dd><p>Occupy the UDIM tile with a <a href="../../../../editors/image/image_settings.html#image-generated">Generated Image</a>.</p>
+<div>
+<p>Warning</p>
+<p>If a tile is not filled, it will not be saved with the image.</p>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

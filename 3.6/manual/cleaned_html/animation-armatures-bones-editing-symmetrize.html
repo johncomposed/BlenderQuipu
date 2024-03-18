@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Editing &gt; Symmetrize</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Symmetrize</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="symmetrize">
+<h1>Symmetrize</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Symmetrize</p>
+</dd>
+</dl>
+</div>
+<p>This operator will mirror the selected bones along the X axis based on
+Blender’s bone <a href="naming.html#armature-editing-naming-conventions">naming convention</a> for symmetrical armatures,
+either from left to right or right to left, depending on the selection.</p>
+<div>
+<p>Note</p>
+<p>If the side of the bone cannot be determined, it will be ignored.</p>
+</div>
+<p>Bones with the opposite names that don’t yet exist will be created, and already existing ones will be overwritten.
+If matching bones are selected on both sides, mirroring will happen from right to left.</p>
+<p>Symmetrized bone and constraint properties will have the necessary changes to mirror their behaviors.
+When symmetrizing bones with <a href="../../../constraints/relationship/action.html">Action Constraints</a>,
+the necessary keyframes will be added to the target Action to result
+in symmetrical movement when the Action is activated.</p>
+<div>
+<p>Note</p>
+<p>Note that bone or constraint drivers will not be created or affected in any way.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

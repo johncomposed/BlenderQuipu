@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Properties &gt; Display</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Armatures</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Viewport Display</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewport-display">
+<h1>Viewport Display</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Armature ‣ Viewport Display</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-armature-display-type">
+<dt>Display As</dt><dd><p>This controls the way the bones appear in the 3D Viewport.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Octahedral bone display.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Stick bone display.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id4">
+<figcaption>
+<p>B-Bone bone display.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Envelope bone display.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Octahedral</dt><dd><p>This is the default visualization, well suited for most of editing tasks. It materializes:</p>
+<ul>
+<li><p>The bone root (“big” joint) and tip (“small” joint).</p></li>
+<li><p>The bone “size” (its thickness is proportional to its length).</p></li>
+<li><p>The bone roll (as it has a square section).</p></li>
+</ul>
+<figure id="id6">
+<figcaption>
+<p>Note the 40° rolled Bone.001 bone.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Stick</dt><dd><p>This is the simplest and most non-intrusive visualization.
+It just materializes bones by sticks of constant (and small) thickness,
+so it gives you no information about root and tip, nor bone size or roll angle.</p>
+<figure id="id7">
+<figcaption>
+<p>Note that Bone.001 roll angle is not visible (except by its XZ axes).</p>
+</figcaption>
+</figure>
+</dd>
+<dt>B-Bone</dt><dd><p>This visualization shows the curves of “smooth” multi-segmented bones;
+see the <a href="../bones/properties/bendy_bones.html">Bendy Bones</a> for details.</p>
+<table>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>An armature of B-Bones, in Edit Mode.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>The same armature in Object Mode.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Envelope</dt><dd><p>This visualization materializes the bone deformation influence.
+More on this in the <a href="../bones/structure.html#armature-bone-influence">bone page</a>.</p>
+</dd>
+<dt>Wire</dt><dd><p>This simplest visualization shows the curves of “smooth” multi-segmented bones.</p>
+<table>
+<tbody>
+<tr><td><figure id="id10">
+<figcaption>
+<p>An armature of Wire, in Pose Mode.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>The same armature in Edit Mode.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-armature-show">
+<dt>Show</dt><dd><dl>
+<dt>Names</dt><dd><p>Displays the name of each bone.</p>
+</dd>
+<dt>Shapes</dt><dd><p>When enabled, the default standard bone shape is replaced,
+in <em>Object Mode</em> and <em>Pose Mode</em>, by the shape of a chosen object
+(see <a href="../bones/properties/display.html">Shaped Bones</a> for details).</p>
+</dd>
+<dt>Group Colors</dt><dd><p>Use the Bone Group colors to color the bone.
+For more details see <a href="bone_groups.html">Bone Groups</a>.</p>
+</dd>
+<dt>In Front</dt><dd><p>When enabled, the bones of the armature will always be shown on top of
+the solid objects (meshes, surfaces, …). I.e. they will always be visible and selectable
+(this is the same option as the one found in the <em>Display</em> panel of the <em>Object data</em> tab).
+Very useful when not in <em>Wireframe</em> mode.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-armature-show-axes">
+<dt>Axis</dt><dd><p>When enabled, the (local) axes of each bone are displayed (only relevant for <em>Edit Mode</em> and <em>Pose Mode</em>).</p>
+<dl id="bpy-types-armature-axes-position">
+<dt>Position</dt><dd><p>The position for the axes display on the bone.
+Increasing the value moves it closer to the tip; decreasing moves it closer to the root.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

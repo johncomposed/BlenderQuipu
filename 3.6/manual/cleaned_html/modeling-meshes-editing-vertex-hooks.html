@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Vertex &gt; Hooks</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Vertex Tools</a></li>
+<li>Hooks</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="hooks">
+<h1>Hooks</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Vertex ‣ Hooks</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>H</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Adds a <a href="../../../modifiers/deform/hooks.html">Hook Modifier</a>
+(using either a new empty, or the current selected object) linked to the selection.
+Note that even if it appears in the history menu,
+this action cannot be undone in <em>Edit Mode</em> – because it involves other objects…</p>
+<p>When the current object has no hooks associated, only the first two options will appear on the menu.</p>
+<dl>
+<dt>Hook to New Object</dt><dd><p>Creates a new Hook Modifier for the active object and assigns it to the selected vertices;
+it also creates an empty at the center of those vertices, which are hooked to it.</p>
+</dd>
+<dt>Hook to Selected Object</dt><dd><p>Does the same as <em>Hook to New Object</em>, but instead of hooking the vertices to a new empty,
+it hooks them to the selected object (if it exists).
+There should be only one selected object (besides the mesh being edited).</p>
+</dd>
+<dt>Hook to Selected Object Bone</dt><dd><p>Does the same as <em>Hook to New Object</em>,
+but it sets the last selected bone in the also selected armature as a target.</p>
+</dd>
+<dt>Assign to Hook</dt><dd><p>The selected vertices are assigned to the chosen hook. For that to happen,
+a list of the hooks associated to the object is displayed.
+All the unselected vertices are removed from it (if they were assigned to that particular hook).
+One vertex can be assigned to more than one hook.</p>
+</dd>
+<dt>Remove Hook</dt><dd><p>Removes the chosen hook (from the displayed list) from the object.
+Which means that the specific Hook Modifier is removed from its modifier stack.</p>
+</dd>
+<dt>Select Hook</dt><dd><p>Selects all vertices assigned to the chosen hook (from the hook list).</p>
+</dd>
+<dt>Reset Hook</dt><dd><p>It’s equivalent to the <em>Reset</em> button of the specific Hook Modifier (chosen from the hook list).</p>
+</dd>
+<dt>Recenter Hook</dt><dd><p>It’s equivalent to the <em>Recenter</em> button of the specific Hook Modifier (chosen from the hook list).</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

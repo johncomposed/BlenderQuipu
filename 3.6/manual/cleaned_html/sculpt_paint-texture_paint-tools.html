@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Texture Paint &gt; Tools</title></head>
+<body><ul>
+<li><a href="../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="index.html">Texture Paint</a></li>
+<li>Texture Paint Tools</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="texture-paint-tools">
+<h1>Texture Paint Tools</h1>
+<dl>
+<dt>Draw</dt><dd><p>The normal brush, paints a swath of color.</p>
+</dd>
+<dt>Soften</dt><dd><p>Uses a “blur effect” to soften or sharpen the image.</p>
+<dl>
+<dt>Direction</dt><dd><dl>
+<dt>Soften</dt><dd><p>Is used to paint a blur effect.</p>
+<dl>
+<dt>Kernel Radius (2D only)</dt><dd><p>Blur radius in pixels.</p>
+</dd>
+</dl>
+</dd>
+<dt>Sharpen</dt><dd><p>The Sharpen tool enhances the contrast of the image as you paint over it.</p>
+<dl>
+<dt>Sharp Threshold</dt><dd><p>The Threshold will only apply sharpening to only those pixels that
+differ more than the threshold value from their surrounding pixels.</p>
+</dd>
+<dt>Kernel Radius (2D only)</dt><dd><p>The kernel size controls how big an area the tool searches over is while calculating that difference.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Blur Mode</dt><dd><p>The blur kernel type controls how neighboring pixels are weighted when calculating the blur effect.</p>
+<dl>
+<dt>Gaussian</dt><dd><p>Gaussian will sample the pixels near the center of the brush most.</p>
+</dd>
+<dt>Box</dt><dd><p>Box samples all surrounding pixels equally.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Smear</dt><dd><p>When you click, takes the colors under the cursor, and blends them in the direction you move the mouse.
+Similar to the “smudge” tool of <em>Gimp</em>.</p>
+</dd>
+<dt>Clone</dt><dd><p>Copies the colors from the specified image (or location of the same image) to the active image.</p>
+<p>In 3D projective painting the clone cursor can be set with <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd>.
+In 2D painting the clone can be moved dragging it with <kbd>RMB</kbd>.</p>
+<dl>
+<dt>Clone from Paint Slot (3D projective only)</dt><dd><p>Use another image as clone source, instead of using the 3D cursor position as the source in the same image.</p>
+<dl>
+<dt>Source Clone Slot</dt><dd><p>This allows you to select an image as a clone source.</p>
+</dd>
+</dl>
+</dd>
+<dt>Image (2D only)</dt><dd><p>Image used as a clone source.</p>
+</dd>
+<dt>Alpha (2D only)</dt><dd><p>Opacity of the clone image display.</p>
+</dd>
+</dl>
+</dd>
+<dt>Fill</dt><dd><p>It can be used to fill large areas of the image with the brush color.
+The tool fills adjacent pixels that have a color value similar to the pixel you clicked on.</p>
+<dl>
+<dt>Fill Threshold (2D only)</dt><dd><p>Determines how much the color must be similar to the color of pixel you click to be filled.
+A low <em>Threshold</em> only fills very similar in color pixels.
+A higher <em>Threshold</em> fills pixels within a broader range of color.</p>
+</dd>
+</dl>
+<p>The <em>Gradient</em> type of the Color Picker allows the use of a gradient to fill the image.</p>
+<p>To apply the gradient with the <em>Fill</em> brush click <kbd>LMB</kbd> and drag to define
+the gradient line, or radius if a radial gradient is used (depending on the <em>Gradient Fill Mode</em>).</p>
+<dl>
+<dt>Gradient Fill Mode</dt><dd><p>Linear, Radial</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Overrides</p>
+<p>For projective texturing it will bypass some options for projective painting to paint the model.
+This means that occluded, backfacing and normal culled faces will always get filled,
+regardless of whether the options are activated
+in the <a href="tool_settings/options.html">External</a> panel.</p>
+</div>
+</dd>
+<dt>Mask</dt><dd><p>This brush paints gray-scale values on the mask texture
+specified in the <a href="tool_settings/mask.html">Mask panel</a>.
+Any masked surfaces will not be affected by other paint brushes, similar to
+<a href="../sculpting/introduction/visibility_masking_face_sets.html">sculpt mode masking</a>.</p>
+<dl>
+<dt>Mask Value</dt><dd><p>Mask weight, a value of zero means not masked, while one is completely masked.
+Hold <kbd>Ctrl</kbd> to invert the painted mask value.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>A simpler alternative is to use the face selection mask.
+See <a href="../selection_visibility.html#bpy-types-mesh-use-paint-mask">Face Selection Masking</a> for details.</p>
+</div>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

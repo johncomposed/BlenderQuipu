@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Converter &gt; Mix</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Converter</a></li>
+<li>Mix Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mix-node">
+<h1>Mix Node</h1>
+<p>The <em>Mix Node</em> mixes values, colors and vectors inputs
+using a factor to control the amount of interpolation.
+The <em>Color</em> mode has additional blending modes.</p>
+<div>
+<p>Important</p>
+<p>This is a new node as of Blender 3.4. The previous <em>Mix RGB</em> node
+is automatically converted to the Color version of this node in
+Shader and Geometry node editors.
+Files saved with the new node are not forward compatible.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>Controls the amount of mixing between the A and B inputs.</p>
+</dd>
+<dt>A/B</dt><dd><p>The two inputs that are mixed together.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>The data type that is used for mixing. The node supports float,
+vector and color data types.</p>
+</dd>
+<dt>Factor Mode (Vector only)</dt><dd><p>The factor mode can be set to <em>Uniform</em> and <em>Non-Uniform</em>.
+In uniform mode, a single float controls the factor.
+In non-uniform mode, a vector controls the factor for
+each XYZ channel separately.</p>
+</dd>
+<dt>Mix (Color only)</dt><dd><p>The Blend modes can be selected in the select menu.
+See <a href="../../../glossary/index.html#term-Color-Blend-Modes">Color Blend Modes</a> for details on each blending mode.</p>
+<p>Add, Subtract, Multiply, Screen, Divide, Difference,
+Darken, Lighten, Overlay, Color Dodge, Color Burn,
+Hue, Saturation, Value, Color, Soft Light, Linear Light</p>
+</dd>
+<dt>Clamp Factor</dt><dd><p>Limit the factor value between 0.0 and 1.0. If this option is
+unchecked then the node operates using <em>Extrapolation</em>.</p>
+</dd>
+<dt>Clamp Result (Color only)</dt><dd><p>Limit the Result to the range between 0.0 and 1.0.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Result</dt><dd><p>Output the result of the mix using the data type selected.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>See the Color &gt; Mix page for additional examples:
+<a href="../color/mix.html">Mix Color Node</a></p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

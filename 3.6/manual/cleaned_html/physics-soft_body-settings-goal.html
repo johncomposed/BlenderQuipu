@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Soft Body &gt; Settings &gt; Goal</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Soft Body</a></li>
+<li><a href="index.html">Settings</a></li>
+<li>Goal</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="goal">
+<h1>Goal</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Soft Body ‣ Goal</p>
+</dd>
+</dl>
+</div>
+<p>Enabling this tells Blender to use the motion from animations
+(F-Curves, armatures, parents, lattices, etc.) in the simulation.
+The “goal” is the desired end position for vertices based on this animation.</p>
+<p>See <a href="../forces/exterior.html#physics-softbody-forces-exterior-goal">exterior forces</a> for details.</p>
+<dl id="bpy-types-softbodysettings-vertex-group-goal">
+<dt>Vertex Group</dt><dd><p>Use a vertex group to allow per-vertex goal weights (multiplied by the <em>Default</em> goal).</p>
+</dd>
+</dl>
+<section id="settings">
+<h2>Settings</h2>
+<dl id="bpy-types-softbodysettings-goal-spring">
+<dt>Stiffness</dt><dd><p>The spring stiffness for <em>Goal</em>. A low value creates very weak springs
+(more flexible “attachment” to the goal), a high value creates a strong spring
+(a stiffer “attachment” to the goal).</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-goal-friction">
+<dt>Damping</dt><dd><p>The friction coefficient for <em>Goal</em>. Higher values give damping of the spring effect (little jiggle),
+and the movement will soon come to an end.</p>
+</dd>
+</dl>
+</section>
+<section id="strengths">
+<h2>Strengths</h2>
+<dl id="bpy-types-softbodysettings-goal-default">
+<dt>Default</dt><dd><p>Goal weight/strength for all vertices when no <em>Vertex Group</em> is assigned.
+If you use a vertex group the weight of a vertex defines its goal.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-goal-max">
+<dt>Min/Max</dt><dd><p>When you use a vertex group, you can use the <em>Minimum</em> and <em>Maximum</em> to fine-tune (clamp) the weight values.
+The lowest vertex weight will become <em>Minimum</em>, the highest value becomes <em>Maximum</em>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

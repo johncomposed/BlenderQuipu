@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Image &gt; Editing</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Image Editor</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<section id="new">
+<h2>New</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ New</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>N</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Create a new <a href="image_settings.html#image-generated">Generated</a> Image.</p>
+</section>
+<section id="open">
+<h2>Open</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Open</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>O</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Load an image from a file.</p>
+</section>
+<section id="open-cached-render">
+<h2>Open Cached Render</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Open Cached Render</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>R</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Find the render cache file for the current scene and load it into the
+Render Result. This way, you can restore the last render from a previous
+Blender session and continue working in the Compositor without having to
+render the scene again.</p>
+<p>Note that Blender doesn’t create these cache files by default. You
+have to enable <a href="../../render/output/properties/output.html#bpy-types-rendersettings-use-render-cache">Cache Result</a>
+in the scene’s Output options and then render it at least once.</p>
+</section>
+<section id="replace">
+<h2>Replace</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Replace</p>
+</dd>
+</dl>
+</div>
+<p>Replace the current image by another.</p>
+</section>
+<section id="reload">
+<h2>Reload</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Reload</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>R</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Reload the image from the file on drive.</p>
+</section>
+<section id="edit-externally">
+<h2>Edit Externally</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Edit Externally</p>
+</dd>
+</dl>
+</div>
+<p>Open the image in the <em>Image Editor</em> program specified in the
+<a href="../preferences/file_paths.html">File Paths Preferences</a>.</p>
+</section>
+<section id="save">
+<h2>Save</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Save</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Save the image to its current path.</p>
+<div>
+<p>Important</p>
+<p>While animation renders are automatically saved, still renders are not.
+These have to be saved manually.</p>
+</div>
+</section>
+<section id="save-as">
+<h2>Save As</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Save As</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Save the image to a separate file of any type.
+The image output settings can be configured and are the same as the
+<a href="../../render/output/properties/output.html">Render Output Properties</a>.</p>
+</section>
+<section id="save-a-copy">
+<h2>Save a Copy</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Save a Copy</p>
+</dd>
+</dl>
+</div>
+<p>Save the file under a specified name,
+but keep the old one open in the Image editor.</p>
+</section>
+<section id="save-all-images">
+<h2>Save All Images</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Save All Images</p>
+</dd>
+</dl>
+</div>
+<p>Save all modified images. Packed images will be repacked.</p>
+</section>
+<section id="invert">
+<h2>Invert</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Invert</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Invert Image Colors</dt><dd><p>Invert the colors of an image.</p>
+</dd>
+<dt>Invert Red/Green/Blue/Alpha Channel</dt><dd><p>Invert a single color channel.</p>
+</dd>
+</dl>
+</section>
+<section id="resize">
+<h2>Resize</h2>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Resize</p>
+</dd>
+</dl>
+</div>
+<p>Adjust the image size in pixels.</p>
+</section>
+<section id="flip">
+<h2>Flip</h2>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Flip</p>
+</dd>
+</dl>
+</div>
+<p>Mirror the image across an axis.</p>
+<dl>
+<dt>Horizontally</dt><dd><p>Mirrors the image so the left side becomes the right side.</p>
+</dd>
+<dt>Vertically</dt><dd><p>Mirrors the image so the top becomes the bottom.</p>
+</dd>
+</dl>
+</section>
+<section id="pack">
+<h2>Pack</h2>
+<div id="id14">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Pack</p>
+</dd>
+</dl>
+</div>
+<p>Pack the image into the blend-file.
+See <a href="../../files/blend/packed_data.html#pack-unpack-data">Packed Data</a>.</p>
+</section>
+<section id="unpack">
+<h2>Unpack</h2>
+<div id="id15">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Unpack</p>
+</dd>
+</dl>
+</div>
+<p>Unpack the image to a drive.</p>
+</section>
+<section id="extract-palette">
+<h2>Extract Palette</h2>
+<div id="id16">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Extract Palette</p>
+</dd>
+</dl>
+</div>
+<p>Extract a <a href="../../interface/controls/templates/color_palette.html#bpy-types-palettecolor">Color Palette</a> from the image for use by painting tools.</p>
+</section>
+<section id="generate-grease-pencil">
+<h2>Generate Grease Pencil</h2>
+<div id="id17">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Image ‣ Generate Grease Pencil</p>
+</dd>
+</dl>
+</div>
+<p>Create a <a href="../../grease_pencil/index.html">Grease Pencil</a> object using the currently selected image as a source.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

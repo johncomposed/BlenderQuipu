@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Particle Info</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Particle Info Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="particle-info-node">
+<h1>Particle Info Node</h1>
+<p>Cycles Only</p>
+<p>The <em>Particle Info</em> node can be used in the material node tree for objects that are used as the instancing objects,
+when you use <em>Object</em> or <em>Group</em> <a href="../../../physics/particles/emitter/render.html">Render mode</a> of a particle system.</p>
+<p>This node gives access to the data of the particle that spawned the object instance.
+It can be useful to give some variation to a single material assigned to multiple instances of instancing object.</p>
+<div>
+<p>Note</p>
+<p>This node currently only supports parent particles. Info from child particles is not available.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Index</dt><dd><p>Index number of the particle (from 0 to number of particles).</p>
+</dd>
+<dt>Random</dt><dd><p>A random per-particle value in the range from 0 to 1.
+It can for example be used in combination with a color ramp, to randomize the particle color.</p>
+</dd>
+<dt>Age</dt><dd><p>Age of the particle in frames.</p>
+</dd>
+<dt>Lifetime</dt><dd><p>Total lifespan of the particle in frames.</p>
+</dd>
+<dt>Location</dt><dd><p>Location of the particle.</p>
+</dd>
+<dt>Size</dt><dd><p>Size of the particle.</p>
+</dd>
+<dt>Velocity</dt><dd><p>Velocity of the particle.</p>
+</dd>
+<dt>Angular Velocity</dt><dd><p>Angular velocity of the particle.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

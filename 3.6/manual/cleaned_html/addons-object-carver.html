@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Object &gt; Carver</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Object</a></li>
+<li>Carver</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="carver">
+<h1>Carver</h1>
+<p>Cut and Boolean objects directly in the 3D Viewport.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Object then Carver to enable the script.</p></li>
+</ul>
+</section>
+<section id="description">
+<h2>Description</h2>
+<p>If you have an active bevel on the object to be cut,
+it will update automatically as well as objects that will be created.</p>
+<p>To begin, select one or more objects, depending on the number of objects, the add-on will adjust to that.
+One object, you can cut (basic operation) and use the default patterns.
+Multiple objects, you can also cut, use patterns, and the last selected object serves as a “brush”.
+If you enter in the <em>Profile Brush</em> mode.
+It works on all selected objects, so you can cut two objects or apply a “brush” to all objects at the same time.</p>
+<p>The add-on is more accurate on orthographic view for basic Boolean operations.
+For others operations you can use the view if you wish.</p>
+<ul>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>X</kbd></kbd> to call the add-on.</p></li>
+<li><p><kbd>RMB</kbd> to exit.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Z</kbd></kbd> to Undo (there are no limits, so be careful to not overload it).</p></li>
+<li><p><kbd>H</kbd> to have the help when the screen is large enough to display.</p></li>
+</ul>
+<section id="basic-boolean-operations">
+<h3>Basic Boolean Operations</h3>
+<p>This mode is active when you run the add-on at start.</p>
+<dl>
+<dt>Rebool <kbd>Shift</kbd></dt><dd><p>Holding <kbd>Shift</kbd> allows to make a rebool.</p>
+</dd>
+<dt>Move All <kbd>Alt</kbd></dt><dd><p>Allows you to move the cut.</p>
+</dd>
+<dt>Cursor Depth <kbd>D</kbd></dt><dd><p>To use the position of the cursor as depth.</p>
+</dd>
+<dt>Move Cursor <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd></dt><dd><p>You can move the cursor with <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd>.</p>
+</dd>
+<dt>Tool Type <kbd>Spacebar</kbd></dt><dd><p>To change the tool.</p>
+<dl>
+<dt>Rectangle</dt><dd><p>The <em>Rectangle</em> tool. Click, move and then click again to confirm the operation.</p>
+</dd>
+<dt>Line</dt><dd><p>The <em>Line</em> tool to polygonal cuts. It also allows you to bisect one or more objects.
+Click to the start point, move to the desired end point and then press <kbd>Spacebar</kbd> to confirm the cutting.</p>
+<p>Holding <kbd>Ctrl</kbd> allows to move incrementally.</p>
+</dd>
+<dt>Circle</dt><dd><p>The <em>Circle</em> tool, click then move to change the radius (vertical axis) or rotation (horizontal axis).</p>
+<dl>
+<dt>Subdivision <kbd>W</kbd>, <kbd>X</kbd></dt><dd><p>Allows to change the circle subdivisions.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Create Geometry <kbd>C</kbd></dt><dd><p>Switch to Create Mode. It reacts in the same way as above for shortcuts.
+Once validated, the add-on stops and selects the object created.</p>
+</dd>
+</dl>
+</section>
+<section id="profile-brush">
+<h3>Profile Brush</h3>
+<p>When in profile mode, flat objects are present by default.
+You can add your own with the <code>ProfilCreate.py</code> file that will be explain after (ToDo).</p>
+<p><kbd>B</kbd> to enter this mode when you are in basic Boolean operations.
+If you move your mouse over the object, you will see an overview of the pattern that
+you can use and a preview at the bottom right.</p>
+<dl>
+<dt>Rebool <kbd><kbd>Shift</kbd>-<kbd>Spacebar</kbd></kbd></dt><dd><p>For the rebool.</p>
+</dd>
+<dt>Duplicate <kbd><kbd>Alt</kbd>-<kbd>Spacebar</kbd></kbd></dt><dd><p>To create the object.</p>
+</dd>
+<dt>Scale <kbd>S</kbd></dt><dd><p>Todo.</p>
+</dd>
+<dt>Rotation <kbd>LMB</kbd></dt><dd><p><kbd>LMB</kbd> and move the mouse to rotate.</p>
+</dd>
+<dt>Step Angle <kbd>Ctrl</kbd></dt><dd><p>Hold <kbd>Ctrl</kbd> to rotate with 45° degree steps.</p>
+</dd>
+<dt>Tool Type <kbd>W</kbd>, <kbd>X</kbd></dt><dd><p>To change the tool type.</p>
+</dd>
+<dt>Instantiate <kbd>L</kbd></dt><dd><p>For instances when you duplicate the object (with holding <kbd>Alt</kbd>).</p>
+</dd>
+<dt>Thickness <kbd>D</kbd></dt><dd><p>To change the thickness of the pattern. Then move your mouse on the horizontal axis.</p>
+</dd>
+<dt>Axis Locking <kbd>Ctrl</kbd></dt><dd><p>Hold <kbd>Ctrl</kbd> to constraint axis.</p>
+</dd>
+<dt>Brush Type <kbd>T</kbd></dt><dd><dl>
+<dt>Difference</dt><dd><p>To make a difference.</p>
+</dd>
+<dt>Union</dt><dd><p>To do a union Boolean (does not work with multiple objects).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Object</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Multiple tools to carve or to create objects.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>X</kbd></kbd></p>
+</dd>
+<dt>File:</dt>
+<dd><p>object_carver folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Pixivore, Cedric LEPILLER, Ted Milker, Clarkx</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

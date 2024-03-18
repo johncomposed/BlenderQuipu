@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Color Spill</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Color Spill Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="color-spill-node">
+<h1>Color Spill Node</h1>
+<p>The <em>Color Spill</em> node reduces one of the RGB channels so that it is not greater
+than any of the others.</p>
+<p>This is common when compositing images that were shot in front of a green or blue screen.
+In some cases, if the foreground object is reflective, it will show the green or blue color;
+that color has “spilled” onto the foreground object. If there is light from the side or back,
+and the foreground actor is wearing white, it is possible to get “spill” green (or blue)
+light from the background onto the foreground objects,
+coloring them with a tinge of green or blue. To remove the green (or blue) light,
+you use this fancy node.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Factor</dt><dd><p>Standard Factor.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Despill Channel</dt><dd><p>R, G, B</p>
+</dd>
+<dt>Algorithm</dt><dd><p>Simple, Average</p>
+</dd>
+<dt>Limiting Channel</dt><dd><p>R, G, B</p>
+</dd>
+<dt>Ratio</dt><dd><p>Scale limit by value.</p>
+</dd>
+<dt>Unspill</dt><dd><p>Allows you to reduce the selected channel’s input to the image
+greater than the color spill algorithm normally allows.
+This is useful for exceptionally high amounts of the color spill.</p>
+<p>R, G, B</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>The image with the corrected channels.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>Results with the nodes applied to an image from
+the <a href="https://mango.blender.org/">Mango Open Movie</a>.</p>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Before: green border and green reflections.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>After: no unwanted green.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

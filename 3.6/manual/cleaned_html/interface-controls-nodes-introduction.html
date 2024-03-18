@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Nodes &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li><a href="index.html">Nodes</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Blender contains different node-based editors with different purposes,
+so this section only explains how to work with nodes in general.
+The list below shows the different types of nodes and where they’re documented.</p>
+<figure id="id2">
+<figcaption>
+<p>Example of a node editor.</p>
+</figcaption>
+</figure>
+<table id="tab-node-tree-types">
+<thead>
+<tr><th><p>Icon</p></th>
+<th><p>Name</p></th>
+<th><p>Documentation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><p>Shader Nodes</p></td>
+<td><p>Documentation is in the <a href="../../../render/shader_nodes/index.html">Render</a> section.</p></td>
+</tr>
+<tr>
+<td><p>Composite Nodes</p></td>
+<td><p>Documentation can be found in the <a href="../../../compositing/index.html">Compositing</a> section.</p></td>
+</tr>
+<tr>
+<td><p>Texture Nodes</p></td>
+<td><p>Texture Nodes are covered
+in the <a href="../../../editors/texture_node/introduction.html">UV editor</a> docs.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="editor-interface">
+<h2>Editor Interface</h2>
+<section id="header">
+<h3>Header</h3>
+<p>The <em>Header</em> contains various menus, buttons and options, partially based on the current node tree type.</p>
+<figure id="id3">
+<figcaption>
+<p>Common node editor header options.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>View</dt><dd><p>This menu changes your view of the editor.</p>
+</dd>
+<dt>Select</dt><dd><p>This menu allows you to select a node or groups of nodes.</p>
+</dd>
+<dt>Add</dt><dd><p>This menu allows you to add nodes.</p>
+</dd>
+<dt>Node</dt><dd><p>This menu allows you to do things with selected nodes.</p>
+</dd>
+<dt>Use Nodes</dt><dd><p>Tells the render engine to use the node tree when computing the material color or rendering the final image,
+or not. If not, the tree is ignored. For materials, this is mostly a legacy option, because in the past
+materials could not be created with node trees.</p>
+</dd>
+<dt>Use Pinned</dt><dd><p>When enabled, the editor will retain the material or texture, even when the user selects a different object.
+A node tree can then be edited independent of the object selection in the 3D Viewport.</p>
+</dd>
+<dt>Parent Node Tree</dt><dd><p>Leaves the current <a href="groups.html">node group</a> and returns to the parent node group/tree.</p>
+</dd>
+<dt>Snapping</dt><dd><p>Change options for snapping node positions to achieve a cleaner node tree layout.</p>
+</dd>
+</dl>
+<section id="overlays">
+<h4>Overlays</h4>
+<p>Overlays are information that is displayed on top of the nodes and node trees.
+There is a toggle to show or hide all overlays for the node editor next to the overlay popover.</p>
+<dl id="bpy-types-spacenodeoverlay-show-wire-color">
+<dt>Wire Colors</dt><dd><p>Color node links based on their connected sockets.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacenodeoverlay-show-context-path">
+<dt>Context Path</dt><dd><p>Display breadcrumbs in the upper left corner indicating the hierarchy location
+of the node tree/group that’s currently being displayed.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacenodeeditor-show-annotation">
+<dt>Annotations</dt><dd><p>Displays <a href="../../annotate_tool.html">Annotations</a> in the preview region.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="toolbar">
+<h3>Toolbar</h3>
+<p>The <em>Toolbar</em> contains a set of tools that can be used in the node editor.</p>
+</section>
+<section id="sidebar">
+<h3>Sidebar</h3>
+<p>The <a href="sidebar.html">Sidebar</a> region contains properties for
+the currently selected node as well as node editor-specific settings.</p>
+</section>
+</section>
+<section id="navigating">
+<h2>Navigating</h2>
+<p>Navigating the node editors is done with the use of both mouse movement and keyboard shortcuts.</p>
+<dl>
+<dt>Pan <kbd>MMB</kbd></dt><dd><p>Move the view up, down, left and right.</p>
+</dd>
+<dt>Zoom <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd>, <kbd>Wheel</kbd></dt><dd><p>Move the camera forwards and backwards.</p>
+</dd>
+<dt>Frame Selected <kbd>NumpadPeriod</kbd></dt><dd><p>Adjusts the zooms to fit only the selected nodes in the view.</p>
+</dd>
+<dt>Frame All <kbd>Home</kbd></dt><dd><p>Adjusts the zoom to fit all nodes in the view.</p>
+</dd>
+</dl>
+</section>
+<section id="adding-nodes">
+<h2>Adding Nodes</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Add</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Nodes are added via the <em>Add</em> menu in the editor’s header or using a keyboard shortcut.</p>
+<p>Nodes can also be added by dragging a connection from an existing node’s input or output socket
+and dropping the connection above an empty space instead of connecting to another socket.
+This action will open a search menu with a list of compatible nodes
+and their sockets that can be added and connected to the existing node.
+Confirming the menu selection will add the node which can then be moved and placed.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

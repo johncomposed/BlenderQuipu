@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Shape Keys &gt; Workflow</title></head>
+<body><ul>
+<li><a href="../index.html">Animation &amp; Rigging</a></li>
+<li><a href="index.html">Shape Keys</a></li>
+<li>Workflow</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="workflow">
+<h1>Workflow</h1>
+<section id="relative-shape-keys">
+<h2>Relative Shape Keys</h2>
+<ol>
+<li><p>In <em>Object Mode</em>, add a new shape key via the <em>Shape Key</em> panel with the <code>+</code> button.</p></li>
+<li><p>“Basis” is the rest shape. “Key 1”, “Key 2”, etc. will be the new shapes.</p></li>
+<li><p>Switch to <em>Edit Mode</em>, select “Key 1” in the <em>Shape Key</em> panel.</p></li>
+<li><p>Deform mesh as you want (do not remove or add vertices).</p></li>
+<li><p>Select “Key 2”, the mesh will be changed to the rest shape.</p></li>
+<li><p>Transform “Key 2” and keep going for other shape keys.</p></li>
+<li><p>Switch back to <em>Object Mode</em>.</p></li>
+<li><p>Set the <em>Value</em> for “Key 1”, “Key 2”, etc. to see the transformation between the shape keys.</p></li>
+</ol>
+<p>In the figure below, from left to right shows: “Basis”, “Key 1”, “Key 2”
+and mix (“Key 1” <code>1.0</code> and “Key 2” <code>0.8</code>) shape keys in Object Mode.</p>
+<figure id="id1">
+<figcaption>
+<p>Relative shape keys example.</p>
+</figcaption>
+</figure>
+<p>For more practical examples, see
+<a href="../drivers/workflow_examples.html#shapekey-driver-example">how to combine shape keys and drivers</a>.</p>
+</section>
+<section id="absolute-shape-keys">
+<h2>Absolute Shape Keys</h2>
+<ol>
+<li><p>Add sequence of shape keys as described above for relative shape keys.</p></li>
+<li><p>Uncheck the <em>Relative</em> checkbox.</p></li>
+<li><p>Click the <em>Reset Timing</em> button.</p></li>
+<li><p>Switch to <em>Object Mode</em>.</p></li>
+<li><p>Drag <em>Evaluation Time</em> to see how the shapes succeed one to the next.</p></li>
+</ol>
+<figure id="id2">
+<figcaption>
+<p>Absolute shape keys workflow.</p>
+</figcaption>
+</figure>
+<p>By adding a <a href="../drivers/index.html">driver</a> or
+setting <a href="../keyframes/introduction.html">keyframes</a>
+to <em>Evaluation Time</em> you can create an animation.</p>
+<div>
+<p>See also</p>
+<p>Shape Key Operators</p>
+<p>There are two modeling tools used to control shape keys and
+are found in <a href="../../modeling/meshes/editing/vertex/blend_shape.html#modeling-meshes-editing-vertices-shape-keys">Edit Mode</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

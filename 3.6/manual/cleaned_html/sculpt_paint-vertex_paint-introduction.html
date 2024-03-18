@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Vertex Paint &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="index.html">Vertex Paint</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Vertex Painting is a simple way of painting color onto an object, by directly
+manipulating the color of vertices, rather than textures, and is fairly straightforward.
+Vertex Painting stores the color information as a
+<a href="../../modeling/meshes/properties/object_data.html#modeling-meshes-properties-object-data-color-attributes">Color Attribute</a>
+which can be used by different render engines.</p>
+<figure id="id1">
+<figcaption>
+<p>Vertex Painting Mode.</p>
+</figcaption>
+</figure>
+<p>When a vertex is painted, the color of the vertex is modified according to
+the settings of the brush. The color of all visible planes and edges attached to
+the vertex are then modified with a gradient to the color of the other connected vertices.
+Note that the color of occluded faces is not modified.</p>
+<div>
+<p>See also</p>
+<p><a href="../../physics/dynamic_paint/introduction.html">Dynamic Paint</a>
+can create Color Attribute information while using physics or animation.</p>
+</div>
+<section id="viewing-color-attributes">
+<h2>Viewing Color Attributes</h2>
+<p>Color Attributes can be used in a material node tree using the <a href="../../render/shader_nodes/input/vertex_color.html">Color Attribute Node</a>.</p>
+<p>Color Attributes can be viewed in the 3D viewport using the Workbench render engine.
+To use such feature, set the 3D Viewport to <a href="../../editors/3dview/display/shading.html#dview-shading-solid">Solid Shading</a>
+and select the <em>Attribute</em> Color option.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Materials &gt; Components &gt; Surface</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Materials</a></li>
+<li><a href="index.html">Components</a></li>
+<li>Surfaces</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="surfaces">
+<h1>Surfaces</h1>
+<p>The surface shader defines the light interaction at the surface of the mesh.
+One or more <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>s specify
+if incoming light is reflected back, refracted into the mesh, or absorbed.</p>
+<p>Emission defines how light is emitted from the surface,
+allowing any surface to become a light source.</p>
+<section id="terminology">
+<h2>Terminology</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Stands for Bidirectional Scattering Distribution Function.
+It defines how light is reflected and refracted at a surface.</p>
+</dd>
+<dt>Reflection</dt><dd><p>BSDFs reflect an incoming ray on the same side of the surface.</p>
+</dd>
+<dt>Transmission</dt><dd><p>BSDFs transmit an incoming ray through the surface, leaving on the other side.</p>
+</dd>
+<dt>Refraction</dt><dd><p>BSDFs are a type of <em>Transmission</em>, transmitting an incoming ray and
+changing its direction as it exits on the other side of the surface.</p>
+</dd>
+</dl>
+</section>
+<section id="bsdf-parameters">
+<h2>BSDF Parameters</h2>
+<p>A major difference from non-physically-based renderers is that direct light reflection from
+lights and indirect light reflection of other surfaces are not decoupled, but rather handled
+using a single <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>.
+This limits the possibilities a bit, but we believe overall it is helpful in creating
+consistent-looking renders with fewer parameters to tune.</p>
+<dl>
+<dt>Roughness</dt><dd><p>For the glossy <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>s,
+the <em>roughness</em> parameter controls the sharpness of the reflection, from 0.0 (perfectly sharp)
+to 1.0 (very soft).</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

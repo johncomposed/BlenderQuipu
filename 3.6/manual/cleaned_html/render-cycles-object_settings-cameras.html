@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Object Settings &gt; Cameras</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Object Settings</a></li>
+<li>Cameras</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cameras">
+<h1>Cameras</h1>
+<section id="panoramic-cameras">
+<h2>Panoramic Cameras</h2>
+<p>Cycles supports several types of panoramic cameras which are described in detail below.
+Note that these cannot be displayed in non-rendered modes in the viewport,
+i.e. <em>Solid</em> mode; they will only work for the final render.</p>
+<section id="equirectangular">
+<h3>Equirectangular</h3>
+<p>Render a panoramic view of the scenes from the camera location and use an equirectangular projection,
+always rendering the full 360° over the X axis and 180° over the Y axis.</p>
+<p>This projection is compatible with the environment texture as used for world shaders,
+so it can be used to render an environment map. To match the default mapping,
+set the camera object rotation to (90, 0, -90) or pointing along the positive X axis.
+This corresponds to looking at the center of the image using the default environment texture mapping.</p>
+<dl id="bpy-types-cyclescamerasettings-latitude">
+<dt>Latitude Min, Max</dt><dd><p>Limits of the vertical field of view angles.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclescamerasettings-longitude">
+<dt>Longitude Min, Max</dt><dd><p>Limits of the horizontal field of view angles.</p>
+</dd>
+</dl>
+</section>
+<section id="equiangular-cubemap-face">
+<h3>Equiangular Cubemap Face</h3>
+<p>Improves on <em>Equirectangular</em> by providing a more uniform distribution of rendered pixel of the spherical environment.
+This results in an image that has little variation in visual resolution for the entire spherical projection.
+This is in contrast to <em>Equirectangular</em> which can lose detail in the poles of the image.
+This is also in contrast to cube map projections which lose detail near the edges of each face.</p>
+<p>This panorama type is great for virtual reality use cases
+where providing as much visual detail for a limited resolution is important.</p>
+<p>A limitation over <em>Equirectangular</em> is that this method does not have longitude or latitude limits.</p>
+</section>
+<section id="fisheye">
+<h3>Fisheye</h3>
+<p>Fisheye lenses are typically wide angle lenses with strong distortion,
+useful for creating panoramic images for e.g. dome projection, or as an artistic effect.</p>
+<p>The <em>Fisheye Equisolid</em> lens will best match real cameras.
+It provides a lens focal length and field of view angle,
+and will also take the sensor dimensions into account.</p>
+<p>The <em>Fisheye Equidistant</em> lens does not correspond to any real lens model;
+it will give a circular fisheye that does not take any sensor information into account
+but rather uses the whole sensor. This is a good lens for full-dome projections.</p>
+<dl id="bpy-types-cyclescamerasettings-fisheye-lens">
+<dt>Lens</dt><dd><p>Lens focal length in millimeters.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclescamerasettings-fisheye-fov">
+<dt>Field of View</dt><dd><p>Field of view angle, going to 360 and more to capture the whole environment.</p>
+</dd>
+</dl>
+</section>
+<section id="fisheye-lens-polynomial">
+<h3>Fisheye Lens Polynomial</h3>
+<p>Match a real world camera by specifying the coordinates of a 4th degree polynomial.</p>
+<p>The projection works as follows.
+Pixels in the image are mapped to positions \((x, y)\) on the camera sensor in mm.
+A position on the sensor is mapped to a direction with spherical coordinates
+\((1, \theta, \phi)\) in radians as follows:</p>
+<div>
+\[\begin{split}&amp; r = \sqrt{x^2 + y^2}\\
+&amp; \theta = k_0 + k_1 r + k_2 r^2 + k_3 r^3 + k_4 r^4\\
+&amp; \phi = acos(x/r)\end{split}\]</div>
+<p>Incoming light from this direction is then projected onto the corresponding pixel.</p>
+<p>This can be used to model both fisheye and perspective cameras.</p>
+</section>
+<section id="mirror-ball">
+<h3>Mirror Ball</h3>
+<p>Render as if taking a photo of a reflective mirror ball.
+This can be useful in rare cases to compare with a similar photo taken to capture an environment.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

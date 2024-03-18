@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Input &gt; Track Position</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Input Nodes</a></li>
+<li>Track Position Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="track-position-node">
+<h1>Track Position Node</h1>
+<p>The <em>Track Position node</em> is used to return information about a tracking marker to the Compositor.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node as no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Movie Clip</dt><dd><p>Used to select a Movie Clip data-block to use, for controls see <a href="../../../interface/controls/templates/data_block.html#ui-data-block">Data-Block Menu</a>.</p>
+</dd>
+<dt>Tracking Object</dt><dd><p>Camera object to get track information from.</p>
+</dd>
+<dt>Track Name</dt><dd><p>The name of the track to get track information from.</p>
+</dd>
+<dt>Position</dt><dd><p>Which marker position to use for output.</p>
+<dl>
+<dt>Absolute:</dt>
+<dd><p>Outputs an absolute position of a marker.</p>
+</dd>
+<dt>Relative Start:</dt>
+<dd><p>Outputs the positions of a marker relative to the first marker of a track.</p>
+</dd>
+<dt>Relative Frame:</dt>
+<dd><p>Outputs the positions of a marker relative to the markers of the given <em>Frame</em>.</p>
+</dd>
+<dt>Absolute Frame:</dt>
+<dd><p>Outputs the absolute positions of a marker at the given <em>Frame</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>X/Y</dt><dd><p>The marker’s X and Y location.</p>
+</dd>
+<dt>Speed</dt><dd><p>The velocity of the marker, measured in pixels per frame.
+This could be used to fake effects like motion blur by connecting it to the Vector Blur Node.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

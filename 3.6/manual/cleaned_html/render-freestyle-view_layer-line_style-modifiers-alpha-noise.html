@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Freestyle &gt; View Layer &gt; Line Style &gt; Modifiers &gt; Alpha &gt; Noise</title></head>
+<body><ul>
+<li><a href="../../../../../index.html">Rendering</a></li>
+<li><a href="../../../../index.html">Freestyle</a></li>
+<li><a href="../../../index.html">View Layer Properties</a></li>
+<li><a href="../../index.html">Line Style</a></li>
+<li><a href="index.html">Alpha Modifiers</a></li>
+<li>Noise</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="noise">
+<h1>Noise</h1>
+<p>The <em>Noise</em> modifier uses a pseudo-random number generator to variably distribute the property along the stroke.</p>
+<dl>
+<dt>Amplitude</dt><dd><p>The maximum value of the noise. A higher amplitude means a less transparent (more solid) stroke.</p>
+</dd>
+<dt>Period</dt><dd><p>The period of the noise. This means how quickly the property value can change.
+A higher value means a more smoothly changing color along the stroke.</p>
+</dd>
+<dt>Seed</dt><dd><p>Seed used by the pseudo-random number generator.</p>
+</dd>
+<dt>Asymmetric Thickness only</dt><dd><p>Allows the thickness to be distributed unevenly at every point.
+Internally, the stroke is represented as a backbone with a thickness to the right and left side.
+All other thickness shaders make sure that the left and right thickness values are equal.
+For the Noise shader however, a meaningful (and good-looking) result
+can be created by assigning different values to either side of the backbone.</p>
+</dd>
+</dl>
+<figure id="id1">
+<figcaption>
+<p>Effect generated with a noise thickness modifier using asymmetric thickness.</p>
+</figcaption>
+</figure>
+</section>
+</div>
+</div></body>
+</html>

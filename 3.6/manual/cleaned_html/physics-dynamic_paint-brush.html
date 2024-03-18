@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Dynamic Paint &gt; Brush</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Dynamic Paint</a></li>
+<li>Brush</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="brush">
+<h1>Brush</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Brush</p>
+</dd>
+</dl>
+</div>
+<p>The Brush type makes object apply paint on the canvas.</p>
+<figure id="id5">
+<figcaption>
+<p>Brush main panel.</p>
+</figcaption>
+</figure>
+<p>From the first brush panel you can define how brush affects canvas color surfaces.</p>
+<dl>
+<dt>Paint Color</dt><dd><p>Color of the paint.</p>
+</dd>
+<dt>Alpha</dt><dd><p>Defines brush alpha or visibility. Final wetness is also affected by alpha.</p>
+</dd>
+<dt>Wetness</dt><dd><p>Defines how “wet” new paint is. Wetness is visible on “Paint” surface “wetmap”.
+Speed of “Drip” and “Spread” effects also depends on how wet the paint is.</p>
+</dd>
+<dt>Absolute Alpha</dt><dd><p>This setting limits brush alpha influence.
+Without it, brush is “added” on surface over and over again each frame,
+increasing alpha and therefore influence of brush on canvas. In many cases however,
+it is preferred to not increase brush alpha if it already is on brushes level.</p>
+</dd>
+<dt>Erase Paint</dt><dd><p>Makes brush dissolve existing paint instead of adding it.</p>
+</dd>
+</dl>
+<section id="source">
+<h2>Source</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Brush</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint ‣ Source</p>
+</dd>
+</dl>
+</div>
+<p><em>Paint</em> source setting lets you define how brush influence/intersection is defined.</p>
+<p>Mesh Volume</p>
+<p>The Brush affects all surface point inside the mesh volume.</p>
+<figure id="id6">
+<figcaption>
+<p>Source: Mesh Volume.</p>
+</figcaption>
+</figure>
+<p>Proximity</p>
+<p>Only uses defined distance to the closest point on brush mesh surface.
+Note that inside of the volume is not necessarily affected because it is not close to the surface.</p>
+<figure id="id7">
+<figcaption>
+<p>Source: Proximity. Brush affects all canvas pixels around it.</p>
+</figcaption>
+</figure>
+<p>Mesh Volume + Proximity</p>
+<p>Same as volume type, but also has influence over defined distance.</p>
+<dl>
+<dt>Inner Proximity</dt><dd><p>Applies proximity inside the mesh volume.</p>
+</dd>
+<dt>Negate Volume</dt><dd><p>Negates brush alpha within mesh volume.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>The Volume + Proximity brush with no additional settings.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Inner Proximity. Proximity falloff is now visible inside the volume.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id10">
+<figcaption>
+<p>Negate Volume. Inner side of the volume has become completely transparent.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Inner Proximity and Negate Volume enabled together.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Object Center</p>
+<p>Instead of calculating proximity to the brush object mesh, which can be quite slow in some cases,
+only distance to only center is calculated. This is much faster and often good enough.</p>
+<figure id="id12">
+<figcaption>
+<p>Source: Object Center.</p>
+</figcaption>
+</figure>
+<p>Particle System</p>
+<p>Brush influence is defined by particles from a selected particle system.</p>
+<dl>
+<dt>Effect Solid Radius</dt><dd><p>Defines the distance, inside which paint is solid color.</p>
+</dd>
+<dt>Use Particle Radius</dt><dd><p>Uses the settings in the particle panel to determine solid radius size.
+Solid Radius size disabled while Particle Radius enabled.</p>
+</dd>
+<dt>Smooth Radius</dt><dd><p>An additional radius outside Solid Radius to add a smooth falloff.</p>
+<p>If you set “Smooth Radius” to zero, particle will be painted as a solid sphere.
+If you set “Solid Radius” to zero, it gets painted as a smooth halo.</p>
+<figure id="id13">
+<figcaption>
+<p>Source: Particle System.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<section id="common-options">
+<h3>Common Options</h3>
+<dl>
+<dt>Paint Distance</dt><dd><p>The maximum distance to mesh surface to affect paint.</p>
+</dd>
+<dt>Project</dt><dd><p>Projects brush to the canvas from a defined direction.
+Basically this can be considered as “direction aligned” proximity.</p>
+<figure id="id14">
+<figcaption>
+<p>The Project option enabled. See how brush only affects canvas in normal direction.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Falloff</dt><dd><dl>
+<dt>Sharp:</dt>
+<dd><p>Paints solid paint within the defined distance.</p>
+</dd>
+<dt>Smooth:</dt>
+<dd><p>Makes paint to linearly fade out until becoming completely invisible
+when it reaches the maximum distance.</p>
+</dd>
+<dt>Color Ramp:</dt>
+<dd><p>Allows you to manually make a custom falloff behavior.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="velocity">
+<h2>Velocity</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Brush</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint ‣ Velocity</p>
+</dd>
+</dl>
+</div>
+<p>This panel shows brush options that are based on object velocity.</p>
+<p>On top you have a color ramp and several related settings.
+Basically the color ramp represents brush velocity values:
+left side being zero velocity and right side being the “Max velocity”.
+Speed is measured in “units per frame”.</p>
+<p>Checkboxes above can be used to define color ramp influence.</p>
+<dl>
+<dt>Multiply Alpha</dt><dd><p>Uses color ramp’s alpha value depending on current velocity and multiplies brush alpha with it.</p>
+</dd>
+<dt>Replace Color</dt><dd><p>Replaces the brush color with the values from the <a href="../../interface/controls/templates/color_ramp.html#ui-color-ramp-widget">Color Ramp Widget</a>.</p>
+</dd>
+<dt>Multiply Depth</dt><dd><p>Multiplies brushes “depth intersection” effect.
+Basically you can adjust displace and wave strength depending on brush speed.</p>
+</dd>
+<dt>Do Smudge</dt><dd><p>Enabling Smudge makes the brush “smudge” (or “smear”) existing colors on the surface as it moves.
+The strength of this effect can be defined from the <em>Smudge Strength</em> property.</p>
+<p>Even when smudge is enabled brush still does its normal paint effect.
+If you want a purely smudging brush use zero alpha.
+It is also possible to have <em>Erase</em> option enabled together with smudge.</p>
+</dd>
+</dl>
+</section>
+<section id="waves">
+<h2>Waves</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Brush</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Dynamic Paint ‣ Waves</p>
+</dd>
+</dl>
+</div>
+<p>This panel is used to adjust brush influence to “Wave” surfaces.</p>
+<dl id="bpy-types-dynamicpaintbrushsettings-wave-type">
+<dt>Wave Type</dt><dd><p>Select what effect the brush creates in the wave simulation.</p>
+<dl>
+<dt>Depth Change:</dt>
+<dd><p>The brush create waves when the intersection depth with the surface is <em>changed</em> on that point.
+If the brush is not moved, it will have no effect.</p>
+<p>Using a negative “Factor” with this type can create a nice looking “wake” for moving objects like ships.</p>
+</dd>
+<dt>Obstacle:</dt>
+<dd><p>Constantly affects surface whenever intersecting.
+Waves are also reflected off this brush type.
+However, due the nature of wave simulation algorithm this type creates
+an unnatural “dent” in the surface if the brush is not moved.</p>
+</dd>
+<dt>Force:</dt>
+<dd><p>Directly affects the velocity of wave motion.
+Therefore the effect is not one-to-one with brush intersection depth, yet the force strength depends on it.</p>
+</dd>
+<dt>Reflect Only:</dt>
+<dd><p>This type has no visible effect on the surface alone but reflects waves that are already on the surface.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-dynamicpaintbrushsettings-wave-factor">
+<dt>Factor</dt><dd><p>Adjusts how strongly brush “depth” affects the simulation.
+You can also use negative values to make brush pull water up instead of down.</p>
+</dd>
+</dl>
+<dl id="bpy-types-dynamicpaintbrushsettings-wave-clamp">
+<dt>Clamp Waves</dt><dd><p>In some cases the brush goes very deep inside the surface messing whole simulation up.
+You can use this setting to “limit” influence to only certain depth.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

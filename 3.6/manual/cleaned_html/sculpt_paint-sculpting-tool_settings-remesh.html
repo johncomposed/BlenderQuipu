@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tool Settings &gt; Remesh</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tool Settings</a></li>
+<li>Remesh</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="remesh">
+<h1>Remesh</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Paint Modes</p>
+</dd>
+<dt>Header:</dt>
+<dd><p>Tool Settings ‣ Remesh</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Tool ‣ Remesh</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>R</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>For a general explanation to remeshing, visit the <a href="../introduction/adaptive.html">Introduction</a>.</p>
+<dl>
+<dt>Voxel Size <kbd>R</kbd></dt><dd><p>The resolution or the amount of detail the remeshed mesh will have.
+The value is used to define the size, in object space, of the <a href="../../../glossary/index.html#term-Voxel">Voxel</a>.
+These voxels are assembled around the mesh and are used to determine the new geometry.
+For example a value of 0.5m will create topological patches that are about 0.5m
+(assuming <em>Preserve Volume</em> is enabled).
+Lower values preserve finer details but will result in a mesh with a much more dense topology.</p>
+<p>The voxel size also be adjusted from the 3D Viewport using <kbd>R</kbd>.
+Using the shortcut displays an interactive grid overlay showing the resulting voxel size.
+Moving the mouse closer to center of the grid decreases the voxel size
+while moving away from the center increase the voxel size.
+Holding <kbd>Shift`</kbd> increases the precision; adjusting the voxel size in small increments.
+Holding <kbd>Ctrl</kbd> adjusts the voxel size relative to the current voxel size.</p>
+<dl>
+<dt>Sample Voxel Size</dt><dd><p>Used to adjust the <em>Voxel Size</em> by picking an area of the mesh
+to match the denseness of polygons after the remesh operation.</p>
+</dd>
+</dl>
+</dd>
+<dt>Adaptivity</dt><dd><p>Reduces the final face count by simplifying geometry where detail is not needed.
+This introduce triangulation to faces that do not need as much detail.
+Note, an <em>Adaptivity</em> value greater than zero disables <em>Fix Poles</em>.</p>
+</dd>
+<dt>Fix Poles</dt><dd><p>Tries to produce less <a href="../../../glossary/index.html#term-Pole">poles</a> at the cost of some performance to produce a better topological flow.</p>
+</dd>
+<dt>Preserve</dt><dd><dl>
+<dt>Volume</dt><dd><p>Tells the algorithm to try to preserve the original volume of the mesh.
+Enabling this could make the operator slower depending on the complexity of the mesh.</p>
+</dd>
+<dt>Paint Mask</dt><dd><p>Reprojects the <a href="../editing/mask.html#sculpt-mask-menu">paint mask</a> onto the new mesh.</p>
+</dd>
+<dt>Face Sets</dt><dd><p>Reprojects <a href="../editing/face_sets.html#sculpting-editing-facesets">Face Sets</a> onto the new mesh.</p>
+</dd>
+<dt>Color Attributes</dt><dd><p>Reprojects the <a href="../../../modeling/meshes/properties/object_data.html#modeling-meshes-properties-object-data-color-attributes">Color Attributes</a> onto the
+new mesh.</p>
+</dd>
+</dl>
+</dd>
+<dt>Voxel Remesh</dt><dd><p>Performs the remeshing operation to create a new manifold mesh based on the volume of the current mesh.
+Performing this will lose all mesh object data layers associated with the original mesh.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p><a href="../../../modeling/modifiers/generate/remesh.html">Remesh modifier</a></p>
+</div>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<ul>
+<li><p>Remeshing only works on the original mesh data and
+ignores generated geometry from modifiers, shape keys, rigging, etc.</p></li>
+<li><p>Remeshing will not work with the <a href="../../../modeling/modifiers/generate/multiresolution.html">Multiresolution Modifier</a>.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

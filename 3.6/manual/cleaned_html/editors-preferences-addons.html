@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Preferences &gt; Addons</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Preferences</a></li>
+<li>Add-ons</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="add-ons">
+<h1>Add-ons</h1>
+<p>The <em>Add-ons</em> section lets you manage secondary scripts, called “Add-ons” that extends Blender’s functionality.
+In this section you can search, install, enable and disable Add-ons.</p>
+<figure id="id1">
+<figcaption>
+<p>Blender Preferences Add-ons section.</p>
+</figcaption>
+</figure>
+<section id="finding-add-ons">
+<h2>Finding Add-ons</h2>
+<dl>
+<dt>Searching</dt><dd><p>Blender comes with some preinstalled Add-ons already, ready to be enabled.
+But you can also add your own, or any interesting ones you find on the web.</p>
+</dd>
+<dt>Supported Level</dt><dd><p>Blender’s add-ons are split into two groups depending on who writes/supports them:</p>
+<ul>
+<li><p>Official: Add-ons that are written by Blender developers.</p></li>
+<li><p>Community: Add-ons that are written by people in the Blender community.</p></li>
+</ul>
+</dd>
+<dt>Enabled Add-ons Only</dt><dd><p>Shows only enabled add-ons for the current <em>Category</em>.</p>
+</dd>
+<dt>Category</dt><dd><p>Add-ons are divided into categories by what areas of Blender they affect.</p>
+</dd>
+</dl>
+</section>
+<section id="installing-add-ons">
+<h2>Installing Add-ons</h2>
+<p>There are hundreds of add-ons that are not distributed with Blender and are developed by others.
+To add them to the list of other add-ons, they must be installed into Blender.</p>
+<p>To install these, use the <em>Install…</em> button and
+use the File Browser to select the <code>.zip</code> or <code>.py</code> add-on file.</p>
+<p>Now the add-on will be installed, however not automatically enabled.
+The search field will be set to the add-on’s name (to avoid having to look for it),
+Enable the add-on by checking the enable checkbox.</p>
+<dl>
+<dt>Refresh</dt><dd><p>Scans the <a href="../../advanced/blender_directory_layout.html">Add-on Directory</a> for new add-ons.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>User-Defined Add-on Path</p>
+<p>You can also create a personal directory containing new add-ons and configure your files path in
+the <em>File Paths</em> section of the <em>Preferences</em>. To create a personal script directory:</p>
+<ol>
+<li><p>Create an empty directory in a location of your choice (e.g. <code>my_scripts</code>).</p></li>
+<li><p>Add a subdirectory under <code>my_scripts</code> called <code>addons</code>
+(it <em>must</em> have this name for Blender to recognize it).</p></li>
+<li><p>Open the <em>File Paths</em> section of the <em>Preferences</em>.</p></li>
+<li><p>Set the <em>Scripts</em> file path to point to your script directory (e.g. <code>my_scripts</code>).</p></li>
+<li><p>Save the preferences and restart Blender for it to recognize the new add-on location.</p></li>
+</ol>
+<p>Now when you install add-ons you can select the <em>Target Path</em> when installing 3rd party scripts.
+Blender will copy newly installed add-ons under the directory selected in your Preferences.</p>
+</div>
+</section>
+<section id="enabling-disabling-add-ons">
+<h2>Enabling &amp; Disabling Add-ons</h2>
+<p>To enable or disable an add-on check or uncheck the box to the right
+of the add-ons shown in the figure below.</p>
+<figure id="id2">
+<figcaption>
+<p>Enabling an add-on.</p>
+</figcaption>
+</figure>
+<p>The add-on functionality should be immediately available.</p>
+<div>
+<p>Note</p>
+<p>Add-ons that activate or change multiple hotkeys have a special system of activation.
+For example, with the <a href="../../addons/interface/viewport_pies.html">3D Viewport Pie Menus</a> add-on
+for each menu there is a selection box to activate the menu and its hotkey.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>If the Add-on does not activate when enabled,
+check the <a href="../../advanced/command_line/introduction.html">Console window</a>
+for any errors that may have occurred.</p>
+</div>
+</section>
+<section id="add-on-information">
+<h2>Add-on Information</h2>
+<p>You can click the arrow at the left of the add-on box to see more information, such as
+its location, a description and a link to the documentation.
+Here you can also find a button to report a bug specific of this add-on.</p>
+<section id="add-on-preferences">
+<h3>Add-on Preferences</h3>
+<p>Some add-ons may have their own preferences which can be found
+in the <em>Preferences</em> section of the add-on information box.</p>
+<p>Some add-ons use this section for example to enable/disable
+certain functions of the add-on. Sometimes these might even all default to off.
+So it is important to check if the enabled add-on has any particular preferences.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Emitter &gt; Rotation</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Particle System</a></li>
+<li><a href="index.html">Emitter</a></li>
+<li>Rotation</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="rotation">
+<h1>Rotation</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Rotation</p>
+</dd>
+</dl>
+</div>
+<p>These parameters specify how the individual particles are rotated during their travel.
+To visualize the rotation of a particle, display particles as <em>Axis</em>
+in the <a href="display.html">Viewport Display</a> panel.</p>
+<dl>
+<dt>Orientation Axis</dt><dd><p>Sets the initial rotation of the particle by aligning the X axis in the direction of:</p>
+<dl>
+<dt>None</dt><dd><p>The global X axis.</p>
+</dd>
+<dt>Normal</dt><dd><p>Orient to the emitter’s surface normal, the objects Y axis points outwards.</p>
+</dd>
+<dt>Normal-Tangent</dt><dd><p>As with normal, orient the Y axis to the surface normal.
+Also orient the X axis to the tangent for control over the objects rotation about the normal.
+requires UV coordinates, the UV rotation effects the objects orientation, currently uses the active UV map.
+This allow deformation without the objects rotating in relation to their surface.</p>
+</dd>
+<dt>Velocity</dt><dd><p>The particle’s initial velocity.</p>
+</dd>
+<dt>Global X, Y, Z</dt><dd><p>One of the global axes.</p>
+</dd>
+<dt>Object X, Y, Z</dt><dd><p>One of the emitter object axes.</p>
+</dd>
+<dt>Random</dt><dd><p>Randomizes rotation.</p>
+</dd>
+</dl>
+</dd>
+<dt>Phase</dt><dd><p>Initial rotation phase.</p>
+</dd>
+<dt>Randomize Phase</dt><dd><p>Adds a random variation to the <em>Phase</em>.</p>
+</dd>
+<dt>Dynamic</dt><dd><p>If Dynamic is enabled, only initializes particles to the chosen rotation and angular velocity and
+let the physics simulation handle the rest.
+Particles then change their angular velocity if they collide with other objects
+(like in the real world due to friction between the colliding surfaces).
+Otherwise the angular velocity is predetermined at all times (i.e. set rotation to dynamic/constant).</p>
+</dd>
+</dl>
+<section id="angular-velocity">
+<h2>Angular Velocity</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Rotation ‣ Angular Velocity</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Axis</dt><dd><p>The selector specifies the axis of angular velocity to be.</p>
+<dl>
+<dt>None</dt><dd><p>A zero vector (no rotation).</p>
+</dd>
+<dt>Spin</dt><dd><p>The particles velocity vector.</p>
+</dd>
+<dt>Random</dt><dd><p>A random vector.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>Curve Guide</p>
+<p>If you use a Curve Guide and want the particles to follow the curve,
+you have to set Angular Velocity to Spin and leave the rotation on Constant
+(i.e. do not turn on Dynamic). Curve Follow does not work for particles.</p>
+</div>
+</dd>
+<dt>Amount</dt><dd><p>The magnitude of angular velocity.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

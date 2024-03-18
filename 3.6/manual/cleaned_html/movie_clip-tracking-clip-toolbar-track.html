@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Tracking &gt; Clip &gt; Toolbar &gt; Track</head>
+<body><ul>
+<li><a href="../../../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="../../index.html">Motion Tracking</a></li>
+<li><a href="../index.html">Clip View</a></li>
+<li><a href="index.html">Toolbar</a></li>
+<li>Track</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="track">
+<h1>Track</h1>
+<section id="clip">
+<h2>Clip</h2>
+<dl>
+<dt>Set Scene Frames</dt><dd><p>See <a href="../editing/clip.html#bpy-ops-clip-set-scene-frames">Set Scene Frames</a>.</p>
+</dd>
+<dt>Prefetch</dt><dd><p>See <a href="../editing/clip.html#bpy-ops-clip-prefetch">Prefetch</a>.</p>
+</dd>
+<dt>Reload</dt><dd><p>See <a href="../editing/clip.html#bpy-ops-clip-reload">Reload Clip</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="marker">
+<h2>Marker</h2>
+<dl>
+<dt>Add</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-add-marker-move">Add Marker</a>.</p>
+</dd>
+<dt>Delete</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-delete-track">Delete Track</a>.</p>
+</dd>
+<dt>Detect Features</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-detect-features">Detect Features</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="tracking-settings">
+<h2>Tracking Settings</h2>
+<p>This panel contains all settings for the 2D tracking algorithms.
+Preset tracking settings can be configured in the panel header.
+These presets are based on tracking experience of real footage and
+provides good start values to begin working with a specific footage.</p>
+<dl>
+<dt>Pattern Size, Search Size</dt><dd><p>Defines size of a newly created tracks.</p>
+</dd>
+<dt>Motion Model</dt><dd><p>Defines which possible motions tracking feature has. This option should be set depending on
+which motion a particular feature has and it will make tracking most accurate for such a motion.</p>
+<p>Location, Location &amp; Rotation, Location &amp; Scale, Location, Rotation &amp; Scale, Affine</p>
+<dl>
+<dt>Perspective</dt><dd><p>Is usually used to track a planar feature,
+but often <em>Affine</em> is a good enough approximation and may have more stable tracks.</p>
+</dd>
+</dl>
+</dd>
+<dt>Match</dt><dd><p>Controls which patterns get tracked; to be more precise,
+the pattern from which frame is getting tracked. Here is an example which should make things clearer.</p>
+<p>The tracker algorithm receives two images inside the search area and the position of a point
+to be tracked in the first image.
+The tracker tries to find the position of that point from the first image in the second image.</p>
+<p>Now, this is how tracking of the sequence happens.
+The second image is always from a frame at which the position of marker is not known
+(next tracking frame). But a different first image
+(instead of the one that immediately precedes the second image in the footage)
+can be sent to the tracker.</p>
+<dl>
+<dt>Keyframe</dt><dd><p>An image created from a frame on which the track was keyframed.
+This configuration prevents sliding from the original position
+(because the position which best corresponds to the original pattern is returned by the tracker),
+but it can lead to small jumps and can lead to failures when the feature point is deformed due to camera motion
+(perspective transformation, for example).</p>
+</dd>
+<dt>Previous Frame</dt><dd><p>Keyframes for tracks are creating every frames,
+and tracking between keyframed image and next image is used.
+In this configuration the pattern is tracking between two neighboring frames.
+It allows dealing with cases of large transformations of the feature point
+but can lead to sliding from the original position, so it should be controlled.</p>
+</dd>
+</dl>
+</dd>
+<dt>Prepass</dt><dd><p>Enables a two pass tracking, where the first pass is a brute force tracking of location only, and
+the second pass will use tracking of the full motion model refining the first pass.</p>
+</dd>
+<dt>Normalize</dt><dd><p>Means patterns will be normalized by their average intensity while tracking,
+to make them invariant to illumination changes. An example where this is useful is a scene where
+a marker moves in the shadow of an object.</p>
+</dd>
+<dt>R, G, B</dt><dd><p>Defines color channels which will be used by a tracking algorithm.
+Disabling some colors might increase the contrast to enhance the feature detection.</p>
+</dd>
+<dt>Copy from Active Track</dt><dd><p>Copies all settings from active track. Allows to ease creation of new tracks with the same setting.</p>
+</dd>
+</dl>
+<section id="tracking-extra-settings">
+<h3>Tracking Extra Settings</h3>
+<dl>
+<dt>Weight</dt><dd><p>See Track <a href="../sidebar/track/track.html#bpy-types-movietrackingtrack-weight">Weight</a>.</p>
+</dd>
+<dt>Correlation</dt><dd><p>This value defines the minimal correlation between
+a matched pattern and a reference to be considered a successful tracking.
+If the tracker is stops too early, decrease this value, or if the track is slipping too much
+when it should stop sooner, increase this value.</p>
+</dd>
+<dt>Margin</dt><dd><p>Can be used disable tracks when they become too close to the image boundary.
+This slider sets “too close” in pixels.</p>
+</dd>
+<dt>Use Mask</dt><dd><p>Allows to use annotation tool to mask part of a pattern, narrowing down what the tracker algorithm is
+attempting to match across frames.</p>
+</dd>
+<dt>Frames Limit</dt><dd><p>Controls how many frames can be tracked when the Track Sequence operator is called.
+So, each Track Sequence operation would track maximum <em>Frames Limit</em> frames.
+This also helps to notice a slide-off of tracks and correct them.</p>
+</dd>
+<dt>Speed</dt><dd><p>Marker settings only – Can be used to control the speed of sequence tracking.
+This option does not affect the quality of tracking; it just helps to control if tracking happens accurately.
+In most cases tracking happens much faster than real-time, and it is difficult to notice when a track began
+to slide out of position. In such cases <em>Speed</em> can be set to Double or Half to add some delay between
+tracking two frames, so a slide-off would be noticed earlier and the tracking process can be canceled to
+adjust positions of tracks.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="id1">
+<h2>Track</h2>
+<dl>
+<dt>Track</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-track-markers">Track Motion</a>.</p>
+</dd>
+<dt>Clear</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-clear-track-path">Before</a>.</p>
+</dd>
+<dt>Refine</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-refine-markers">Refine</a>.</p>
+</dd>
+<dt>Merge</dt><dd><dl>
+<dt>Join Tracks</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-join-tracks">Join Tracks</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Soft Body &gt; Settings &gt; Solver</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Soft Body</a></li>
+<li><a href="index.html">Settings</a></li>
+<li>Solver</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="solver">
+<h1>Solver</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Soft Body ‣ Solver</p>
+</dd>
+</dl>
+</div>
+<p>The settings in the <em>Soft Body Solver</em> panel determine the accuracy of the simulation.</p>
+<dl id="bpy-types-softbodysettings-step-min">
+<dt>Step Size Min</dt><dd><p>Minimum simulation steps per frame. Increase this value, if the soft body misses fast-moving collision objects.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-step-max">
+<dt>Max</dt><dd><p>Maximum simulation steps per frame.
+Normally the number of simulation steps is set dynamically
+(with the <em>Error Limit</em>) but you have probably a good reason to change it.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-use-auto-step">
+<dt>Auto-Step</dt><dd><p>Use velocities for automatic step sizes.
+Helps the Solver figure out how much work it needs to do based on how fast things are moving.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-error-threshold">
+<dt>Error Limit</dt><dd><p>Rules the overall quality of the solution delivered.
+The most critical setting that defines how precise the solver should check for collisions.
+Start with a value that is half the average edge length.
+If there are visible errors, jitter, or over-exaggerated responses, decrease the value.
+The solver keeps track of how “bad” it is doing and the <em>Error Limit</em> causes the solver to
+do some “adaptive step sizing”.</p>
+</dd>
+</dl>
+<section id="diagnostics">
+<h2>Diagnostics</h2>
+<dl id="bpy-types-softbodysettings-use-diagnose">
+<dt>Print Performance to Console</dt><dd><p>Prints on the console how the solver is doing.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-use-estimate-matrix">
+<dt>Estimate Transforms</dt><dd><p>Estimate matrix, split to <code>COM</code>, <code>ROT</code>, <code>SCALE</code>.</p>
+</dd>
+</dl>
+</section>
+<section id="helpers">
+<h2>Helpers</h2>
+<p>These settings control how the soft body will react (deform)
+once it either gets close to or actually intersects (cuts into) another collision object on the same layer.</p>
+<dl id="bpy-types-softbodysettings-choke">
+<dt>Choke</dt><dd><p>Calms down (reduces the exit velocity of) a vertex or edge once it penetrates a collision mesh.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-fuzzy">
+<dt>Fuzzy</dt><dd><p>Fuzziness while on collision, high values make collision handling faster but less stable.
+Simulation is faster, but less accurate.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

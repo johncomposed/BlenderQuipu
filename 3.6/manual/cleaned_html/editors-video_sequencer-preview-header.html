@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Preview &gt; Header</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Video Sequencer</a></li>
+<li><a href="index.html">Preview</a></li>
+<li>Header</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="header">
+<h1>Header</h1>
+<figure id="id1">
+<figcaption>
+<p>Sequencer Display header.</p>
+</figcaption>
+</figure>
+<section id="view-menu">
+<h2>View Menu</h2>
+<dl>
+<dt>Sidebar <kbd>N</kbd></dt><dd><p>Show or hide the <a href="../../../interface/window_system/regions.html#ui-region-sidebar">Sidebar</a>.</p>
+</dd>
+<dt>Toolbar <kbd>T</kbd></dt><dd><p>Show or hide the <a href="../../../interface/tool_system.html#ui-region-toolbar">Toolbar</a>.</p>
+</dd>
+<dt>Preview During Transform</dt><dd><p>Show a preview of the start or end frame while transforming a strip’s start/end handles.</p>
+</dd>
+<dt>Frame Selected</dt><dd><p>Zoom and position the bounding box of the selected image into the center of the preview.</p>
+</dd>
+<dt>Fit Preview in Window <kbd>Home</kbd></dt><dd><p>Resize the preview so that it fits in the area.</p>
+</dd>
+<dt>Zoom <kbd><kbd>Shift</kbd>-<kbd>B</kbd></kbd></dt><dd><p>Click and drag to draw a rectangle and zoom to this rectangle.</p>
+</dd>
+<dt>Fractional Zoom</dt><dd><p>Resize the preview in steps from 1:8 to 8:1.</p>
+</dd>
+<dt>Refresh All</dt><dd><p>To force Blender to re-read in files, and to force a re-render of the 3D Viewport,
+click the <em>Refresh Sequencer</em> button.
+Blender will update and synchronize all cached images and compute the current frame.</p>
+<p>Certain operations, like moving an object in the 3D Viewport, may not force the <em>Sequencer</em>
+to call for a refresh of the rendered image (since the movement may not affect the rendered image).
+If an image or video, used as a strip, is changed by some application outside of Blender,
+Blender has no real way of being notified from your operating system.</p>
+</dd>
+<dt>Sequence Render Image</dt><dd><p>Render the image at the current frame.</p>
+</dd>
+<dt>Sequence Render Animation</dt><dd><p>Render timeline from Preview Start to Preview End Frame to a Video file or series of images.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-export-subtitles">
+<dt>Export Subtitles</dt><dd><p>Exports <a href="../../../video_editing/edit/montage/strips/text.html">Text strips</a>,
+which can act as subtitles, to a <a href="https://en.wikipedia.org/wiki/SubRip">SubRip</a> file (<code>.srt</code>).
+The exported file contains all Text strips in the video sequence.</p>
+</dd>
+<dt>Toggle Sequencer/Preview <kbd><kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd></dt><dd><p>Switch the editor display type between Sequencer and Preview.</p>
+</dd>
+</dl>
+</section>
+<section id="display-mode">
+<h2>Display Mode</h2>
+<p>See <a href="display/display_mode.html">Display Mode</a>.</p>
+</section>
+<section id="display-channels">
+<h2>Display Channels</h2>
+<dl>
+<dt>Color &amp; Alpha</dt><dd><p>Display preview image with transparency over checkerboard pattern.</p>
+</dd>
+<dt>Color</dt><dd><p>Ignore transparency of preview image (fully transparent areas will be black).</p>
+</dd>
+</dl>
+</section>
+<section id="overlays">
+<h2>Overlays</h2>
+<p>See <a href="display/overlays.html">Preview Overlays</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

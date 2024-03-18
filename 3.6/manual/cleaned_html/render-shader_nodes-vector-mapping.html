@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Vector &gt; Mapping</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Vector</a></li>
+<li>Mapping Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mapping-node">
+<h1>Mapping Node</h1>
+<p>The <em>Mapping</em> node transforms the input vector by applying translation, rotation, and scaling.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>The inputs of the node are dynamic. In particular, the <em>Location</em> input is only available in
+the <em>Texture</em> and <em>Point</em> vector types.</p>
+<dl>
+<dt>Vector</dt><dd><p>The vector to be transformed.</p>
+</dd>
+<dt>Location</dt><dd><p>The amount of translation along each axis.</p>
+</dd>
+<dt>Rotation</dt><dd><p>The amount of rotation along each axis. XYZ order.</p>
+</dd>
+<dt>Scale</dt><dd><p>The amount of scaling along each axis.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Vector Type</dt><dd><p>The node applies the transformation differently depending on the semantic type of the input vector.</p>
+<dl>
+<dt>Point:</dt>
+<dd><p>For this vector type, the node performs a straightforward transformation.</p>
+<p>Transforming a texture coordinates is analogous to transforming a UV map.
+For instance, translating the texture coordinates along the <strong>positive</strong> X axis would result
+in the evaluated texture to move in the <strong>negative</strong> X axis, much like if one translated a UV map.
+Similarly, scaling the texture coordinates <strong>up</strong> would result in the evaluated texture to scale <strong>down</strong>.
+So transforming the texture coordinates would appear to have the opposite effect on the evaluated texture.</p>
+<p>The order of transformation is: Scale –&gt; Rotate –&gt; Translate, which means:</p>
+<ul>
+<li><p>Translation moves the input along the local rotation axis.</p></li>
+<li><p>Rotation rotates the input around the origin of the space.</p></li>
+<li><p>Scaling scales the input along the global axis.</p></li>
+</ul>
+</dd>
+<dt>Texture:</dt>
+<dd><p>For this vector type, the node performs an inverse transformation.</p>
+<p>Inverse transforming a texture coordinates would, as opposed to the <em>Point</em> type,
+transform the evaluated texture itself. For instance, translating the texture coordinates along
+the positive X axis would result in the evaluated texture to move in the positive X axis,
+as one would expected. Similarly, scaling the texture coordinates up would result in
+the evaluated texture to scale up, as one would expect.</p>
+<p>The order of transformation is: Translate –&gt; Rotate –&gt; Scale, which means:</p>
+<ul>
+<li><p>Translation moves the input along the global axis.</p></li>
+<li><p>Rotation rotates the input around the translation vector.</p></li>
+<li><p>Scaling scales the input along the local rotation axis.</p></li>
+</ul>
+</dd>
+<dt>Vector:</dt>
+<dd><p>For this vector type, a <em>Point</em> transformation is performed, but with zero translation.</p>
+</dd>
+<dt>Normal:</dt>
+<dd><p>For this vector type, the node performs the inverse transpose of the transformation and normalize the result.
+Such transformation ensures correct normals after non-uniform scaling.
+So this type should be used when transforming normals.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>The input vector after transformation.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Mapping node example.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

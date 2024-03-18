@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Texture &gt; Image</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Texture Nodes</a></li>
+<li>Image Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="image-texture-node">
+<h1>Image Texture Node</h1>
+<div>
+<p>Note</p>
+<p>Unlike the other texture nodes, this node operates differently
+in geometry nodes compared to the equivalent shader node.
+When not connected the Vector input has an implicit <code>position</code> attribute value.</p>
+</div>
+<p>The <em>Image Texture</em> node is used to add an image file as a texture.
+The image data is sampled with the input Vector and outputs a Color and Alpha value.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>The image socket can be used to connect to the Group Input node.
+If this is not connected the image can be opened or selected from the node.</p>
+</dd>
+<dt>Vector</dt><dd><p>Texture coordinate for texture look-up. If this socket is left unconnected,
+the Position attribute is used.</p>
+</dd>
+<dt>Frame</dt><dd><p>If the Image supports animation, the frame can be set here.
+This can be keyframed so that the image changes between frames.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Interpolation</dt><dd><p>Method to scale images up or down for sampling.</p>
+<dl>
+<dt>Linear:</dt>
+<dd><p>Regular quality interpolation.</p>
+</dd>
+<dt>Cubic:</dt>
+<dd><p>Smoother, better quality interpolation. For bump maps this should be used to get best results.</p>
+</dd>
+<dt>Closest:</dt>
+<dd><p>No interpolation, use only closest pixel for rendering pixel art.</p>
+</dd>
+</dl>
+</dd>
+<dt>Extension</dt><dd><p>Extension defines how the image is extrapolated past the original bounds:</p>
+<dl>
+<dt>Repeat:</dt>
+<dd><p>Will repeat the image horizontally and vertically giving tiled-looking result.</p>
+</dd>
+<dt>Extend:</dt>
+<dd><p>Will extend the image by repeating pixels on its edges.</p>
+</dd>
+<dt>Clip:</dt>
+<dd><p>Clip to the original image size and set all the exterior pixels values to transparent black.</p>
+</dd>
+<dt>Mirror:</dt>
+<dd><p>Repeatedly flip the image horizontally and vertically.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>RGBA color from the image.</p>
+</dd>
+<dt>Alpha</dt><dd><p>Alpha channel from image.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Image Texture displacing a plane.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

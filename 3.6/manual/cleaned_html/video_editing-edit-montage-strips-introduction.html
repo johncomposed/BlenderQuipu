@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Video Editing &gt; Edit &gt; Montage &gt; Strips &gt; Introduction</head>
+<body><ul>
+<li><a href="../../../index.html">Video Editing</a></li>
+<li><a href="../../index.html">Edit Your Project</a></li>
+<li><a href="../index.html">Montage</a></li>
+<li><a href="index.html">Strips</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>A strip is a container which carries frames provided by one or more sources (input).
+It is defined by a <em>Start Frame</em> and a <em>Length</em>, and is displayed as a colored horizontal rectangle.</p>
+<figure id="id2">
+<figcaption>
+<p>Strip schematic.</p>
+</figcaption>
+</figure>
+<section id="adding-strips">
+<h2>Adding Strips</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Add</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<figure id="id3">
+<figcaption>
+<p>The Add Menu.</p>
+</figcaption>
+</figure>
+<p>The Add menu is the main menu you will be using to add content to the Video Sequencer.
+In general, you load up your strips, create strips of special transition effects,
+and then animate out your sequence by selecting “Do Sequence” and clicking the <em>Animation</em> button.
+You can use the Add menu in the header,
+or hover your mouse cursor over the Sequence workspace and press <kbd><kbd>Shift</kbd>-<kbd>A</kbd></kbd>.</p>
+<p>Blender does not care which of these you use; you can freely mix and match any of them.
+When you choose to add one of these, it lets you either choose a data-block or
+the editor area will switch to a File Browser for you to select what you want to add.
+Supported files are filtered by default.</p>
+<p>The start frame of the newly created strips will be placed at the position of the frame indicator.
+When loading multiple files (movie and sound) at the same time each will be added one after the other.</p>
+<section id="adding-effects-transitions">
+<h3>Adding Effects &amp; Transitions</h3>
+<p>Blender offers a set of effects that can be added to your sequence.</p>
+<p>To add an effect strip, select one base strip (image, movie, or scene) by <kbd>LMB</kbd> clicking on it.
+For some effects, like the Cross transition effect,
+you will need to <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> a second overlapping strip (it depends on the effect you want).
+From Add menu pick the effect you want.
+When you do, the Effect strip will be shown above the source strips. If it is an independent effect,
+like the <a href="color.html">Color Generator</a>,
+it will be placed at the position of the frame indicator.</p>
+<div>
+<p>Note</p>
+<p>Since most Effects strips depend on one or two source strips,
+their frame location and duration depends on their source strips. Thus,
+you may not be able to move it; you have to move the source strips in order to affect the effect strip.</p>
+</div>
+<p>With some effects, like the
+<a href="effects/alpha_over_under_overdrop.html">Alpha Over</a>,
+the order in which you select the strips is important.
+You can also use one effect strip as the input or source strip with another strip,
+thus layering effects on top of one another.</p>
+<p>If you picked the wrong effect from the menu,
+you can always exchange it using <a href="../editing.html#sequencer-edit-change">Effect Strip</a>.</p>
+</section>
+</section>
+<section id="visualization">
+<h2>Visualization</h2>
+<p>They all become a color-coded strip in the Video Sequencer:</p>
+<ul>
+<li><p>Scene strip: Light green.</p></li>
+<li><p>Clip strip: Dark blue.</p></li>
+<li><p>Mask strip: Red.</p></li>
+<li><p>Movie strip: Aquamarine.</p></li>
+<li><p>Image strip: Purple.</p></li>
+<li><p>Sound strip: Turquoise.</p></li>
+</ul>
+<p>Each of the effect strips has its own color.</p>
+<p>Besides each of these default colors you can also assign individual strips an alternative color in
+the <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-ops-sequencer-strip-color-tag-set">Strip Properties</a>.</p>
+<div>
+<p>Note</p>
+<p>These colors are dependent on the user interface <a href="../../../../editors/preferences/themes.html">Theme</a>.
+The colors described above are in reference to Blender’s default theme.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

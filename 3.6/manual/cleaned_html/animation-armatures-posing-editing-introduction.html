@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Posing &gt; Editing &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Posing</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>In <em>Pose Mode</em>, bones behave like objects. So the transform actions
+(move, rotate, scale, etc.) are very similar to the same ones in Object Mode
+(all available ones are regrouped in the Pose ‣ Transform submenu). However,
+there are some important specifics:</p>
+<ul>
+<li><p>Bones’ relationships are crucial (see <a href="../../bones/properties/relations.html#bpy-types-editbone-parent">Bone Parenting</a>).</p></li>
+<li><p>The “transform center” of a given bone
+(i.e. its default pivot point, when it is the only selected one) is <em>its root</em>.
+Note by the way that some pivot point options seem to not work properly. In fact,
+except for the <em>3D Cursor</em> one, all others appear to always use the median point of the selection
+(and not e.g. the active bone’s root when <em>Active Object</em> is selected, etc.).</p></li>
+</ul>
+<section id="basic-posing">
+<h2>Basic Posing</h2>
+<p>As previously noted, bones’ transformations are performed based on the <em>Rest Position</em> of
+the armature, which is its state as defined in <em>Edit Mode</em>. This means that in
+rest position, in <em>Pose Mode</em>, each bone has a scale of 1.0, and null rotation
+and position (as you can see it in the <em>Transform</em> panel, in the 3D Viewport’s Sidebar).</p>
+<figure id="id1">
+<figcaption>
+<p>An example of a rotation locked to the local Y axis, with two bones selected.</p>
+<div>
+<p>Note that the two green lines materializing the axes are centered on the armature’s center,
+and not each bone’s root…</p>
+</div>
+</figcaption>
+</figure>
+<p>Moreover, the local space for these actions is the bone’s own one
+(visible when you enable the <em>Axes</em> option of the <em>Armature</em> panel).
+This is especially important when using axis locking, for example,
+there is no specific “bone roll” tool in <em>Pose Mode</em>,
+as you can rotate around the bone’s main axis just by locking on the local Y axis
+<kbd><kbd>R</kbd> <kbd>Y</kbd> <kbd>Y</kbd></kbd>… This also works with several bones selected;
+each one is locked to its own local axis!</p>
+<p>When you pose your armature,
+you are supposed to have one or more objects skinned on it! And obviously,
+when you transform a bone in <em>Pose Mode</em>,
+its related objects or object’s shape is moved/deformed accordingly, in real-time.
+Unfortunately, if you have a complex rig set-up and/or a heavy skin object,
+this might produce lag during interactive editing.
+If you experience such troubles, try enabling the <em>Delay Deform</em> button in
+the <em>Armature</em> panel the skin objects will only be updated once you confirm
+the transform operation.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

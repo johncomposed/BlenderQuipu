@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Brush &gt; Stroke</title></head>
+<body><ul>
+<li><a href="../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="index.html">Brush</a></li>
+<li>Stroke</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="stroke">
+<h1>Stroke</h1>
+<p>The stroke settings define the behavior of the sculpted/painted stroke.
+Any other brush behavior and effect is applied on top of the stroke.</p>
+<figure id="id1">
+<figcaption>
+<p>Stroke panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-brush-stroke-method">
+<dt>Stroke Method <kbd>E</kbd></dt><dd><p>Defines the way brush strokes are applied to the canvas.</p>
+<dl>
+<dt>Dots:</dt>
+<dd><p>Apply paint on each mouse move step. This is regardless of their distance to each other,
+and instead depends on the stroke speed.
+This means that a slower stroke will have more accumulative strength applied.</p>
+</dd>
+<dt>Drag Dot:</dt>
+<dd><p>Leaves only one dab on the canvas which can be placed by dragging.</p>
+</dd>
+<dt>Space:</dt>
+<dd><p>Creates brush stroke as a series of dots,
+whose distance (spacing) is determined by the <em>Spacing</em> setting.</p>
+<dl id="bpy-types-brush-use-pressure-spacing">
+<dt>Spacing</dt><dd><p>Limits brush application to the distance specified by the percentage of the brush radius.</p>
+</dd>
+</dl>
+</dd>
+<dt>Airbrush:</dt>
+<dd><p>Flow of the brush continues as long as the mouse click is held (spray),
+determined by the <em>Rate</em> setting.</p>
+<dl id="bpy-types-brush-rate">
+<dt>Rate</dt><dd><p>Interval for how frequent the brush is applied during the stroke.</p>
+</dd>
+</dl>
+</dd>
+<dt>Anchored:</dt>
+<dd><p>Creates a single dab at the brush location.
+Clicking and dragging will resize the dab diameter.</p>
+<dl id="bpy-types-brush-use-edge-to-edge">
+<dt>Edge to Edge</dt><dd><p>The brush location and orientation are determined by a two point circle,
+where the first click is one point, and dragging places the second point, opposite from the first.</p>
+</dd>
+</dl>
+</dd>
+<dt>Line:</dt>
+<dd><p>Clicking and dragging lets you define a line in screen space.
+The line dabs are separated by <em>Spacing</em>, similar to space strokes.
+With <kbd>Alt</kbd> the line stroke is constrained to 45 degree increments.</p>
+</dd>
+<dt>Curve:</dt>
+<dd><p>Defines the stroke curve with a Bézier curve (dabs are separated according to <em>Spacing</em>).
+This Bézier curve is stored in Blender as a “Paint Curve” data-block.</p>
+<p>Use <kbd><kbd>Ctrl</kbd>-<kbd>RMB</kbd></kbd> to create the initial control point of the curve.</p>
+<dl>
+<dt>Paint Curves</dt><dd><p>Paint Curves are reusable and can be stored and selected by using the <a href="../../interface/controls/templates/data_block.html#ui-data-block">Data-Block Menu</a> menu.</p>
+</dd>
+</dl>
+<ul id="bpy-ops-paintcurve-new">
+<li><dl>
+<dt><strong>Add Points</strong></dt><dd><p>You can define additional curve control points by using <kbd><kbd>Ctrl</kbd>-<kbd>RMB</kbd></kbd>.
+The handles can be defined by dragging the mouse.
+The stroke flows in the direction of the first control point to the second control point, and so on.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Transforming Points</strong></dt><dd><p>The control points and handles can be dragged with <kbd>RMB</kbd> (In right click select with <kbd>LMB</kbd>).
+To make sure that the handles of a control point are symmetrical,
+drag them using <kbd><kbd>Shift</kbd>-<kbd>RMB</kbd></kbd>.
+A few transform operators are supported such as moving(<kbd>G</kbd>), rotating(<kbd>R</kbd>) and scaling (<kbd>S</kbd>).</p>
+</dd>
+</dl>
+</li>
+<li id="bpy-ops-paintcurve-select"><dl>
+<dt><strong>Selection</strong></dt><dd><p>The handles can be selected individually by using <kbd>LMB</kbd> (In right click select with <kbd>RMB</kbd>),
+extend the selection by <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> and deselect/select all by using <kbd>A</kbd>.</p>
+</dd>
+</dl>
+</li>
+<li id="bpy-ops-paintcurve-delete-point"><dl>
+<dt><strong>Delete Points :kbd:`X`</strong></dt><dd><p>To delete a curve point, use <kbd>X</kbd>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl id="bpy-ops-paintcurve-draw">
+<dt>Draw Curve <kbd>Return</kbd></dt><dd><p>To confirm and execute the curved stroke,
+press <kbd>Return</kbd> or use the Draw Curve button.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-scene-spacing">
+<dt>Spacing Distance Sculpt Mode Only</dt><dd><p>Method used to calculate the distance to generate a new brush step.</p>
+<dl>
+<dt>View:</dt>
+<dd><p>Calculates the brush spacing relative to the view.</p>
+</dd>
+<dt>Scene:</dt>
+<dd><p>Calculates the brush spacing relative to all three dimensions of the scene using the stroke location.
+This avoids artifacts when sculpting across curved surfaces and keeps the spacing much more consistent.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-space-attenuation">
+<dt>Adjust Strength for Spacing</dt><dd><p>Keep the brush strength consistent, even if the spacing changes.
+Available for the <em>Space</em>, <em>Line</em>, and <em>Curve</em> stroke methods.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-dash-ratio">
+<dt>Dash Ratio</dt><dd><p>Ratio of samples in a cycle that the brush is enabled.
+This is useful to create dashed lines in texture paint or stitches in Sculpt Mode.
+Available for the <em>Space</em>, <em>Line</em>, and <em>Curve</em> stroke methods.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-dash-samples">
+<dt>Dash Length</dt><dd><p>Length of a dash cycle measured in stroke samples.
+This is useful to create dashed lines in texture paint or stitches in Sculpt Mode.
+Available for the <em>Space</em>, <em>Line</em>, and <em>Curve</em> stroke methods.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-jitter">
+<dt>Jitter</dt><dd><p>Jitter the position of each step in the brush stroke.</p>
+<dl id="bpy-types-brush-use-pressure-jitter">
+<dt>Jitter Pressure</dt><dd><p>Brush <em>Jitter</em> can be affected by enabling the pressure sensitivity icon,
+if you are using a <a href="../../getting_started/configuration/hardware.html#hardware-tablet">Graphics Tablet</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-jitter-unit">
+<dt>Jitter Unit</dt><dd><p>Controls how the brush <em>Jitter</em> is measured.</p>
+<dl>
+<dt>View:</dt>
+<dd><p>The <em>Jitter</em> is relative to the view direction i.e. “screen space”.</p>
+</dd>
+<dt>Scene:</dt>
+<dd><p>The <em>Jitter</em> is measured relative to all three dimensions of the scene.
+The unit type and scaling can be configured in the <a href="../../scene_layout/scene/properties.html#bpy-types-unitsettings">Scene Units</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-paint-input-samples">
+<dt>Input Samples</dt><dd><p>Recent mouse locations (input samples) are averaged together to smooth brush strokes.</p>
+</dd>
+</dl>
+<section id="stabilize-stroke">
+<h2>Stabilize Stroke</h2>
+<p><em>Stabilize Stroke</em> makes the stroke lag behind the cursor
+and creates a smoothed curve to the path of the cursor.
+This can be enabled pressing <kbd><kbd>Shift</kbd> <kbd>S</kbd></kbd> or by clicking the checkbox found in the header.</p>
+<dl id="bpy-types-brush-smooth-stroke-radius">
+<dt>Radius</dt><dd><p>Minimum distance from the last point before the stroke continues.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-smooth-stroke-factor">
+<dt>Factor</dt><dd><p>A smooth factor, where higher values result in smoother strokes but the drawing sensation
+feels like as if you were pulling the stroke.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

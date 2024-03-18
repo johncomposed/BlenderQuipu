@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Transform &gt; Control &gt; Numeric Input</title></head>
+<body><ul>
+<li><a href="../../../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../../../index.html">Objects</a></li>
+<li><a href="../../index.html">Editing</a></li>
+<li><a href="../index.html">Transform</a></li>
+<li><a href="index.html">Transform Control</a></li>
+<li>Numeric Input</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="numeric-input">
+<h1>Numeric Input</h1>
+<p>Using the mouse for transformations is convenient, but if you require more precise control,
+you can also enter numeric values. After pressing the shortcut type a number
+to indicate the magnitude of the transformation. Then confirm or cancel.
+E.g. pressing <kbd><kbd>S</kbd> <kbd>2</kbd></kbd>, <kbd>Return</kbd> will double the scale of an object.</p>
+<dl>
+<dt>Move <kbd>G</kbd></dt><dd><p>By default and with no other key presses, the translation will occur along the X axis.</p>
+</dd>
+<dt>Rotation <kbd>R</kbd></dt><dd><p>The rotation is in clockwise direction for positive values.</p>
+</dd>
+<dt>Scale <kbd>S</kbd></dt><dd><p>Scaling works in almost identical fashion to translation.
+The primary difference is that by default, scaling applies equally to all three axes.</p>
+</dd>
+</dl>
+<p>You can see the numbers you enter in the 3D Viewport footer.</p>
+<figure id="id1">
+<figcaption>
+<p>Numeric input displayed in the footer.</p>
+</figcaption>
+</figure>
+<div>
+<p>Tip</p>
+<p>Numeric input can also be inputted in
+the <a href="../../../properties/transforms.html">Properties</a> region.</p>
+</div>
+<section id="simple-mode">
+<h2>Simple Mode</h2>
+<p>Blender has two “modes” a simple and an advanced one. Simple mode only accepts
+simple numbers. You can use basic <a href="../../../../../interface/keymap/introduction.html#ui-text-editing">text editing</a> except selection.</p>
+<dl>
+<dt>Decimals <kbd>Period</kbd></dt><dd><p>Decimals can be entered by pressing <kbd>Period</kbd>.</p>
+</dd>
+<dt>Negate <kbd>Minus</kbd></dt><dd><p>Negate the whole value by pressing <kbd>Minus</kbd>.</p>
+</dd>
+<dt>Inverse <kbd>Slash</kbd></dt><dd><p>Hitting <kbd>Slash</kbd> during number entry switches the number being entered to
+its reciprocal, e.g. <code>2 /</code> results in 0.5 (1/2); <code>20 /</code> results in 0.05 (1/20).</p>
+</dd>
+<dt>Reset <kbd>Backspace</kbd></dt><dd><p>Hitting <kbd>Backspace</kbd> after having deleted all leading chars
+will first reset the edited value to initial state, and on second press,
+the whole number editing will be canceled, going back to usual transform with mouse.</p>
+</dd>
+<dt>Next/Previous Component <kbd>Tab</kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd></dt><dd><p>To enter numeric values for multiple axes, use <kbd>Tab</kbd> or <kbd><kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd>.
+E.g. To move an object, one unit on all three axes press: <kbd><kbd>G</kbd> <kbd>1</kbd></kbd>
+and <kbd><kbd>Tab</kbd> <kbd>1</kbd></kbd> and <kbd><kbd>Tab</kbd> <kbd>1</kbd></kbd>.</p>
+</dd>
+<dt>Non-number Inputs</dt><dd><p>You can also combine numeric input with
+<a href="axis_locking.html">Axis Locking</a>
+to limit movement to a particular axis or tool specific shortcuts.</p>
+</dd>
+</dl>
+</section>
+<section id="advanced-mode">
+<h2>Advanced Mode</h2>
+<p>In advanced mode you can additionally enter expressions and units.</p>
+<p>Use <kbd>=</kbd> or <kbd>NumpadAsterisk</kbd> to enable advanced mode,
+and <kbd><kbd>Ctrl</kbd>-<kbd>=</kbd></kbd> or <kbd><kbd>Ctrl</kbd>-<kbd>NumpadAsterisk</kbd></kbd> to switch back to simple mode.</p>
+<p>It features:</p>
+<ul>
+<li><p>Units (<code>cm</code>, <code>"</code>, <code>deg</code>, etc.).
+See <a href="../../../../scene/properties.html#bpy-types-unitsettings">unit system</a>.</p></li>
+<li><p>Basic operations from Python (<code>+</code>, <code>*</code>, <code>/</code>, <code>**</code>, etc.).</p></li>
+<li><p>Math constants and functions (<code>pi</code>, <code>sin</code>, <code>sqrt</code>, etc.).
+See Python’s <a href="https://docs.python.org/3.8/library/math.html">math</a> module.</p></li>
+</ul>
+<p>You can still use the negate and inverse shortcuts (<kbd>Minus</kbd>, <kbd>Slash</kbd>),
+as well as non-number inputs, but you have to hold <kbd>Ctrl</kbd> to activate them.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

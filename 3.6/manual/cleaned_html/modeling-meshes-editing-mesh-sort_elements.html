@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Sort Elements</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Sort Elements</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sort-elements">
+<h1>Sort Elements</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Sort Elements…</p>
+</dd>
+</dl>
+</div>
+<p>This tool (available from the context menu, <em>Vertices</em>, <em>Edges</em> and <em>Faces</em> menus)
+allows you to reorder the matching selected mesh elements, following various methods.
+Note that when called from the context menu,
+the affected element types are the same as the active select modes.</p>
+<dl>
+<dt>View Z Axis</dt><dd><p>Sort along the active view’s Z axis, from farthest to nearest by default
+(use <em>Reverse</em> if you want it the other way).</p>
+</dd>
+<dt>View X Axis</dt><dd><p>Sort along the active view’s X axis, from left to right by default (again, there is the <em>Reverse</em> option).</p>
+</dd>
+<dt>Cursor Distance</dt><dd><p>Sort from nearest to farthest away from the 3D cursor position (<em>Reverse</em> also available).</p>
+</dd>
+<dt>Material</dt><dd><p>Sort faces, and faces only, from those having the lowest material’s index to those having the highest.
+Order of faces inside each of those “material groups” remains unchanged.
+Note that the <em>Reverse</em> option only reverses the order of the materials,
+<em>not</em> the order of the faces inside them.</p>
+</dd>
+<dt>Selected</dt><dd><p>Move all selected elements to the beginning (or end, if <em>Reverse</em> enabled),
+without affecting their relative orders.
+Warning: This option will also affect <strong>unselected</strong> elements’ indices!</p>
+</dd>
+<dt>Randomize</dt><dd><p>Randomizes indices of selected elements (<em>without</em> affecting those of unselected ones).
+The seed option allows you to get another randomization –
+the same seed over the same mesh or set of selected elements will always give the same result!</p>
+</dd>
+<dt>Reverse</dt><dd><p>Simply reverse the order of the selected elements.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>Enabling the Display Indices Option</p>
+<p>Enable the <em>Developer Extras</em> Option in Preferences ‣ Interface ‣ Display panel,
+a checkbox will appear in Display &amp; Shading Menu ‣ Viewport Overlay ‣ Developer ‣ Indices.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

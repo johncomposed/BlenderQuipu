@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Realtime Compositor</title></head>
+<body><ul>
+<li><a href="index.html">Compositing</a></li>
+<li>Realtime Compositor</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="realtime-compositor">
+<h1>Realtime Compositor</h1>
+<p>The Realtime Compositor is a new GPU accelerated compositor introduced in Blender 3.5 and is
+currently used for <a href="../editors/3dview/display/shading.html#viewport-compositing">viewport compositing</a>. This compositor is currently
+more limited and not all <a href="index.html#compositor-nodes">Compositor Nodes</a> are supported, such nodes are
+marked with the CPU Compositor Only label along with notes about other limitations.
+Moreover, MacOS is not supported due to missing support for modern OpenGL.</p>
+<section id="data">
+<h2>Data</h2>
+<section id="dimensionality">
+<h3>Dimensionality</h3>
+<p>Compositing nodes operate on data that is either an image or a dimensionless single value. For
+instance, the <a href="types/output/levels.html#bpy-types-compositornodelevels">Levels node</a> outputs a single value, while the
+<a href="types/input/render_layers.html#bpy-types-compositornoderlayers">Render Layers node</a> outputs an image. Node inputs that
+expect a single value assume a default value if an image is given and ignore the image completely,
+for instance, the <a href="types/distort/transform.html#bpy-types-compositornodetransform">Transform node</a> expects single values
+for its inputs and will assume default values if images were given to those inputs. The default
+values are those that are considered identity and thus have no effect on the output, so for the
+<a href="types/distort/transform.html#bpy-types-compositornodetransform">Transform node</a>, the <em>X</em>, <em>Y</em>, and <em>Angle</em> inputs will
+have a default value of zero, while the <em>Scale</em> input will have a default value of one. On the other
+hand, if node inputs that expect an image are given a single value, the single value will be assumed
+to cover the whole compositing space. For instance, the <a href="types/filter/filter_node.html#bpy-types-compositornodefilter">Filter node</a> expect its <em>Factor</em> input to be an image, but if a single value is
+given, it will be assumed to be the same for all pixels.</p>
+</section>
+<section id="type">
+<h3>Type</h3>
+<p>Three types of data exist, all of which are stored in half precision formats:</p>
+<dl>
+<dt>Float</dt><dd><p>A signed floating-point number. Integer data is also stored as floats because no integer type
+exist.</p>
+</dd>
+<dt>Vector</dt><dd><p>A 4D vector. While it is 4D, it can have different interpretations depending on the node that uses
+it. It can be treated as a 2D vector with the last two components ignored, for instance, the
+<em>Vector</em> input of the <a href="types/distort/displace.html#bpy-types-compositornodedisplace">Displace node</a> is treated as a 2D
+vector. It can be treated as a 3D vector with the last component ignored, for instance, the
+<em>Vector</em> input of the <a href="types/converter/separate_xyz.html#bpy-types-compositornodeseparatexyz">Seperate XYZ node</a> is treated as
+a 3D vector. It can be treated as two consecutive 2D vectors. For instance the <em>Velocity Pass</em> as
+expected by the <a href="types/filter/vector_blur.html#bpy-types-compositornodevecblur">Vector Blur node</a> is assumed to have the
+<em>2D Previous Velocity</em> in the X and Y components of the vector and the <em>2D Next Velocity</em> in the
+Z and W components of the vector.</p>
+</dd>
+<dt>Color</dt><dd><p>A 4D vector storing the Red, Green, Blue, and Alpha of the color. The color is free form and does
+not conform to a specific color space or alpha storage model, instead, appropriate nodes will have
+settings to control the representation of their output and nodes exist to convert between the
+different representations.</p>
+</dd>
+</dl>
+<section id="implicit-conversion">
+<h4>Implicit Conversion</h4>
+<p>In case a node input is given data of type other than its own type, the following implicit
+conversions are performed:</p>
+<table>
+<thead>
+<tr><th><p>Source</p></th>
+<th><p>Target</p></th>
+<th><p>Conversion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>Float</p></td>
+<td><p>Vector</p></td>
+<td><p>f =&gt; Vector(f, f, f, 0)</p></td>
+</tr>
+<tr><td><p>Float</p></td>
+<td><p>Color</p></td>
+<td><p>f =&gt; Color(f, f, f, 1)</p></td>
+</tr>
+<tr><td><p>Vector</p></td>
+<td><p>Float</p></td>
+<td><p>(x, y, z, w) =&gt; Average(x, y, z)</p></td>
+</tr>
+<tr><td><p>Vector</p></td>
+<td><p>Color</p></td>
+<td><p>(x, y, z, w) =&gt; Color(x, y, z, 1)</p></td>
+</tr>
+<tr><td><p>Color</p></td>
+<td><p>Float</p></td>
+<td><p>(r, g, b, a) =&gt; Average(r, g, b)</p></td>
+</tr>
+<tr><td><p>Color</p></td>
+<td><p>Vector</p></td>
+<td><p>(r, g, b, a) =&gt; Vector(r, g, b, 0)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The following example demonstrates implicit conversion between a color type and a float type, since
+the <a href="types/converter/math.html#bpy-types-compositornodemath">Math node</a> expect float inputs.</p>
+<figure id="id2">
+<figcaption>
+<p>An example that demonstrates implicit conversion between a color type and a float type, since the
+Math node expects float inputs.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<section id="compositing-space">
+<h2>Compositing Space</h2>
+<section id="image-domain">
+<h3>Image Domain</h3>
+<p>The compositor is designed in such a way as to allow compositing in an infinite compositing space.
+Consequently, images are not only represented by their size, but also by their transformation in
+that space, much like 3D objects have transformations. An identity transformation represents an
+image that is centered in space. The rectangular area occupied by an image in that space as defined
+by its transformation and size is called the <em>Domain</em> of the image. The figure below demonstrates
+the domains of two example images.</p>
+<figure id="id3">
+<figcaption>
+<p>The domains of two example images are illustrated on the compositing space. One of the images is
+centered in space and the other is scaled down and translated such that it lies in the upper
+right quadrant of the space. Notice that both images have similar sizes in pixels, yet their
+apparent sizes are different.</p>
+</figcaption>
+</figure>
+<p>Images can be transformed using nodes like the <a href="types/distort/transform.html#bpy-types-compositornodetransform">Transform</a>,
+<a href="types/distort/translate.html#bpy-types-compositornodetranslate">Translate</a>, and <a href="types/distort/rotate.html#bpy-types-compositornoderotate">Rotate</a> nodes.</p>
+</section>
+<section id="operation-domain">
+<h3>Operation Domain</h3>
+<p><a href="index.html#compositor-nodes">Compositor Nodes</a> operate on a specific rectangular area of the compositing
+space called the <em>Operation Domain</em>. The nodes only consider the area of the input images that
+overlap the operation domain and ignores the rest of the images. If an input image doesn’t
+completely overlap the operation domain, the rest of the operation domain for that input will be
+assumed to be a zero value, a zero vector, or a transparent zero color depending on the type. This
+behavior can be changed to an extent, see the section about <em>Wrapping</em> below.</p>
+<p>For instance, the figure below illustrates a case where the operation domain of a node is the large
+blue area and the domain of an input image is the small red area. In that case, the input image
+doesn’t completely overlap the operation domain, so the rest of the blue area for that input image
+is assumed to be zero.</p>
+<figure id="id4">
+<figcaption>
+<p>An example case where the operation domain of a node is shown in blue and the domain of an input
+image is shown in red. Since the input image doesn’t completely cover the operation domain of the
+node, the rest of the blue area for that input image is assumed to be zero.</p>
+</figcaption>
+</figure>
+<p>The previous illustration is a representation of a real world example where one uses the <a href="types/color/alpha_over.html#bpy-types-compositornodealphaover">Alpha
+Over</a> node to overlay a small logo on an image, as shown in the
+figure below. In that case, the operation domain covers the entirety of the viewport — as will later
+be demonstrated, but the logo covers only a small area of it, so the rest of the area is assumed to
+be a zero transparent color, which is convenient for the use case.</p>
+<figure id="id5">
+<figcaption>
+<p>A real world example where the Alpha Over node is used to over a small logo on an image. The logo
+only covers a small area of the operation domain, which is the whole viewport in this case, so
+the rest of the area is assumed to be a zero transparent color.</p>
+</figcaption>
+</figure>
+<section id="interpolation">
+<h4>Interpolation</h4>
+<p>If an input image to a node is not perfectly aligned with the operation domain of the node or have a
+different size in pixels, the node would typically need to do a process called Interpolation, where
+the input image is read at the exact positions of the pixels of the operation domain. This can be
+done using different interpolation methods, including Nearest-Neighbor, Bilinear, and Bicubic
+interpolations. Those interpolation methods are demonstrated in the following <a href="https://en.wikipedia.org/wiki/Comparison_gallery_of_image_scaling_algorithms">Wikipedia gallery</a>. Transformation
+nodes like the <a href="types/distort/transform.html#bpy-types-compositornodetransform">Transform</a> and <a href="types/distort/rotate.html#bpy-types-compositornoderotate">Rotate</a> nodes include an interpolation option to set how they prefer their
+output image to be read and interpolated.</p>
+<p>Note that the transform nodes don’t do any interpolations themselves, they merely record the
+preferred interpolation method for the output image and latter nodes that read that image will be
+the node that does the actual interpolation. It follows that latter transform nodes will overwrite
+the interpolation methods set by former transform nodes if no interpolation took place in-between.</p>
+</section>
+<section id="wrapping">
+<h4>Wrapping</h4>
+<p>While it was previously stated that areas of the input images that do not overlap the operation
+domain are assumed to be zero, this is only the default behavior. The alternative behavior is to
+instruct the compositor to repeat the input image to fill the missing areas along the horizontal
+direction, vertical direction, or both. This can be set in the <em>Wrap</em> option of the <a href="types/distort/translate.html#bpy-types-compositornodetranslate">Translate
+node</a>. Much like the aforementioned interpolation method, the
+<em>Translate</em> node doesn’t do any wrapping itself, it merely sets the preferred method of filling
+empty spaces and latter nodes that read the image will be the node that does the actual wrapping.</p>
+<p>For instance, the previous <em>Alpha Over</em> example but with <em>Both Axis Wrapping</em> enabled is shown in
+the figure below.</p>
+<figure id="id6">
+<figcaption>
+<p>The previous example with Alpha Over example but with Both Axis Wrapping enabled.</p>
+</figcaption>
+</figure>
+</section>
+<section id="determining-operation-domain">
+<h4>Determining Operation Domain</h4>
+<p>The question remains on how nodes determine their operation domain. Different node types can have
+different mechanisms for determining their operation domain. But generally, three classes of nodes
+exist when it comes to the mechanism of determining the operation domain, each of which is presented
+in one of the following sections.</p>
+<section id="input-nodes">
+<h5>Input Nodes</h5>
+<p>The operation domain of input nodes like the <a href="types/input/image.html#bpy-types-compositornodeimage">Image node</a> is a
+domain with an identity transformation and the same size as their outputs, so for the <em>Image</em> node,
+the operation domain will be the domain whose size is the size of the image and whose transformation
+is an identity one.</p>
+</section>
+<section id="output-nodes">
+<h5>Output Nodes</h5>
+<p>The operation domain of output nodes like the <a href="types/output/viewer.html#bpy-types-compositornodeviewer">Viewer node</a> is
+a domain with an identity transformation and the same size as the final compositor output. For
+<a href="../editors/3dview/display/shading.html#viewport-compositing">viewport compositing</a>, that size would be the viewport size, and for
+final render compositing, that size would be the scene render size.</p>
+</section>
+<section id="other-nodes">
+<h5>Other Nodes</h5>
+<p>Unless stated otherwise in their respective documentation pages, all other nodes use the following
+mechanism. One of the inputs of the nodes is designated as the <em>Domain Input</em> of the node, and the
+operation domain of the node is identical to the domain of that designated input. For many nodes,
+the domain input can be intuitively identified as the main input of the node, for instance, the
+domain input for the <a href="types/filter/filter_node.html#bpy-types-compositornodefilter">Filter node</a> is the <em>Image</em> input. But
+there are some caveats to note, which requires a deeper understanding of the mechanism.</p>
+<p>Each input in the node has the so called <em>Domain Priority</em> property, the operation domain of the
+node is the domain of the non single value input with the highest domain priority. So for instance,
+the <a href="types/filter/filter_node.html#bpy-types-compositornodefilter">Filter node</a> has two inputs, the domain priority of the
+<em>Image</em> input is higher than that of the <em>Factor</em> input, and there are four possible configurations:</p>
+<ul>
+<li><p>Both the <em>Image</em> and factor inputs are connected to images. In this case, the <em>Image</em> input is the
+domain input because it has the highest priority and is connected to an image.</p></li>
+<li><p>The <em>Image</em> input is connected to an image, but the <em>Factor</em> input isn’t. In this case, the
+<em>Image</em> input is the domain input because it it is the only input connected to an image regardless
+of its priority.</p></li>
+<li><p>The <em>Image</em> input is not connected to an image but the <em>Factor</em> input is. In this case, the
+<em>Factor</em> input is the domain input because it is the only input connected to an image regardless
+of its priority.</p></li>
+<li><p>Neither the <em>Image</em> nor the <em>Factor</em> inputs are connected to images, in this case, there isn’t
+a domain input because the node is evaluated on single values.</p></li>
+</ul>
+</section>
+</section>
+<section id="considerations">
+<h4>Considerations</h4>
+<p>The aforementioned mechanism for determining the operation domain has a number of consequences that
+needs to be considered as they might be undesirable, each of which is presented in one of the
+following sections.</p>
+<section id="clipping">
+<h5>Clipping</h5>
+<p>The output of nodes will be intuitively clipped to the operation domain, or rather, the domain of
+the domain input. For instance, if the <em>Foreground</em> input is bigger than the <em>Background</em> input in
+the <a href="types/color/alpha_over.html#bpy-types-compositornodealphaover">Alpha Over node</a>, the output will be clipped to the
+<em>Background</em> input because it is the domain input, as shown in the following figure.</p>
+<figure id="id7">
+<figcaption>
+<p>The Foreground input is bigger than the Background input in the Alpha Over node, so the
+output is intuitively clipped to the Background input because it is the domain input.</p>
+</figcaption>
+</figure>
+<p>The <a href="types/color/alpha_over.html#bpy-types-compositornodealphaover">Alpha Over node</a> currently doe not support changing
+the domain priority for its inputs, so as a workaround, one can use a <a href="types/color/mix.html#bpy-types-compositornodemixrgb">Mix node</a> to achieved the desired behavior, noting that the first <em>Image</em>
+input in the <em>Mix</em> node has the highest domain priority, as shown in the following figure.</p>
+<figure id="id8">
+<figcaption>
+<p>Working around the clipping behavior of the Alpha Over node using a Mix node, noting that the
+first Image input in the Mix node has the highest domain priority</p>
+</figcaption>
+</figure>
+</section>
+<section id="pixelation">
+<h5>Pixelation</h5>
+<p>If the domain input of the node is very large, other inputs will look pixelated. That’s because the
+resolution of the domain input is the same, while its apparent size is greatly increased, so the
+number of pixels covered by other inputs is much fewer.</p>
+<figure id="id9">
+<figcaption>
+<p>An example case where pixelation happens due to very large domain inputs.</p>
+</figcaption>
+</figure>
+</section>
+<section id="pixel-space-operations">
+<h5>Pixel Space Operations</h5>
+<p>Nodes operate on their input images in local pixel space irrespective of their transformation in the
+compositing space. For instance, if an image that is rotated by 90 degrees is blurred along the
+horizontal direction using the <a href="types/filter/blur_node.html#bpy-types-compositornodeblur">Blur node</a>, the blurring will
+apparently take place along the vertical direction instead, because the node is applied in the local
+pixel space of the input.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="output">
+<h2>Output</h2>
+<p>The realtime compositor only supports a single active output target, that is, only one of the
+<a href="types/output/composite.html#bpy-types-compositornodecomposite">Composite nodes</a>, <a href="types/output/viewer.html#bpy-types-compositornodeviewer">Viewer nodes</a>, or <a href="types/output/split_viewer.html#bpy-types-compositornodesplitviewer">Split Viewer nodes</a> in the node tree will be considered active and the rest will
+be ignored. In particular, the compositor searches the <em>Active Node Tree Context</em> and falls back to
+the <em>Root Node Tree Context</em> if no active output was found in the active node tree context. The
+active node tree context is the node tree of an expanded node group, that is, when the users selects
+a node group node and edits its underlying tree, while the root node tree context is the top level
+node tree without any expanded node groups. The compositor searches for the active <em>Composite</em> node,
+if non was found, it searches for the active <em>Viewer</em> node, be it a <em>Viewer</em> or a <em>Split Viewer</em>
+node, if non was found, the compositor doesn’t run altogether. Consequently, note that adding a
+<em>Viewer</em> node will have no effect if there is a <em>Composite</em> node, since the priority is given to
+<em>Composite</em> nodes.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

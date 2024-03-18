@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Tracking &gt; Clip &gt; Editing &gt; Reconstruction</head>
+<body><ul>
+<li><a href="../../../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="../../index.html">Motion Tracking</a></li>
+<li><a href="../index.html">Clip View</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Reconstruction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="reconstruction">
+<h1>Reconstruction</h1>
+<p>Scene orientation tools can be used for orienting object to bundles.</p>
+<section id="set-origin">
+<h2>Set Origin</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Tracking</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Reconstruction ‣ Set Origin</p>
+</dd>
+</dl>
+</div>
+<p>Transform camera in a way which makes active track to be moved to a scene origin.
+Only translation is applied to the camera.</p>
+</section>
+<section id="set-floor">
+<h2>Set Floor</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Tracking</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Reconstruction ‣ Set Floor</p>
+</dd>
+</dl>
+</div>
+<p>Use selected three markers to define a floor.
+Camera will be transformed in a way which makes the selected markers to be flat (have Z = 0).</p>
+</section>
+<section id="set-wall">
+<h2>Set Wall</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Tracking</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Reconstruction ‣ Set Wall</p>
+</dd>
+</dl>
+</div>
+<p>Similar to the floor orientation, but defines a wall (selected tracks are placed onto the XZ plane).</p>
+</section>
+<section id="set-x-y-axis">
+<h2>Set X/Y Axis</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Tracking</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Reconstruction ‣ Set X/Y Axis</p>
+</dd>
+</dl>
+</div>
+<p>Transform camera in a way which makes active track to become on X or Y axis.
+No translation is applied, meaning scene origin which was specified before will be preserved.</p>
+</section>
+<section id="set-scale">
+<h2>Set Scale</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Tracking</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Reconstruction ‣ Set Scale</p>
+</dd>
+</dl>
+</div>
+<p>Scale camera or tracking object in a way which makes distance
+between two selected tracks match the given value in <em>Distance</em>.</p>
+</section>
+<section id="apply-solution-scale">
+<h2>Apply Solution Scale</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Tracking</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Reconstruction ‣ Apply Solution Scale</p>
+</dd>
+</dl>
+</div>
+<p>Similar to <a href="#bpy-ops-clip-set-scale">Set Scale</a>, but actually modifies the tracking data.</p>
+</section>
+<section id="link-empty-to-track">
+<h2>Link Empty to Track</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Tracking</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Reconstruction ‣ Link Empty to Track</p>
+</dd>
+</dl>
+</div>
+<p>Creates new empty in 3D Viewport and appends constraint which parts it to the active track.</p>
+</section>
+<section id="d-markers-to-mesh">
+<h2>3D Markers to Mesh</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Tracking</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Reconstruction ‣ 3D Markers to Mesh</p>
+</dd>
+</dl>
+</div>
+<p>Creates a mesh which vertices matches positions of reconstructed tracks.
+It is required to have motion solved first before using this operator.
+Only tracks from the current tracking object will be used.
+The intention of this operator is to give a nice starting point for a manual mesh reconstruction.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

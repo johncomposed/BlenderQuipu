@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Snap Symmetry</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Snap to Symmetry</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="snap-to-symmetry">
+<h1>Snap to Symmetry</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Snap to Symmetry</p>
+</dd>
+</dl>
+</div>
+<p>The Snap to Symmetry tool lets you snap a mesh vertices to their mirrored neighbors.</p>
+<p>Useful when dealing with meshes which are mostly symmetrical,
+but have vertices which have been moved enough that Blender
+does not detect them as mirrored (when X Mirror option is enabled for example).</p>
+<p>This can be caused by accident when editing without X Mirror enabled. Sometimes models
+imported from other applications are asymmetrical enough that mirror fails too.</p>
+<dl>
+<dt>Direction</dt><dd><p>Specify the axis and direction to snap. Can be any of the three axes,
+and either positive to negative, or negative to positive.</p>
+</dd>
+<dt>Threshold</dt><dd><p>Specify the search radius to use when finding matching vertices.</p>
+</dd>
+<dt>Factor</dt><dd><p>Support for blending mirrored locations from one side to the other (0.5 is an equal mix of both).</p>
+</dd>
+<dt>Center</dt><dd><p>Snap vertices along the center axis to zero.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Before Snap to Symmetry.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>After Snap to Symmetry.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div></body>
+</html>

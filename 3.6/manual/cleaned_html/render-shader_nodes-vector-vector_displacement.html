@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Vector &gt; Vector Displacement</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Vector</a></li>
+<li>Vector Displacement Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="vector-displacement-node">
+<h1>Vector Displacement Node</h1>
+<p>The <em>Vector Displacement</em> node is used to displace the surface along arbitrary directions,
+unlike the regular Displacement node which only displaces along the surface normal.</p>
+<p>It is typically used to apply vector displacement maps created by other sculpting
+software. Vector displacement maps can fully represent the high resolution detail to
+be applied on a smooth base mesh, unlike regular displacement maps.</p>
+<p>For best results the mesh must be subdivided finely to bring out
+the detail in the displacement texture.</p>
+<div>
+<p>See also</p>
+<p><a href="../../materials/components/displacement.html">Material Displacement</a>
+for more details on displacement workflows.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Vector specifying the displacement along three axes.
+This is where a texture node can be connected.</p>
+<p>Typically a baked vector displacement image texture is used.
+For Object Space, RGB colors in the image are interpreted as an XYZ offset in object space.
+For Tangent Space, R is an offset along the tangent, G along the normal and B along the bitangent.</p>
+</dd>
+<dt>Midlevel</dt><dd><p>Neutral displacement value that causes no displacement.
+With the default 0.0, any lower values will cause the surfaces to be pushed inwards,
+and any higher values will push them outwards.</p>
+</dd>
+<dt>Scale</dt><dd><p>Increase or decrease the amount of displacement.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Space</dt><dd><p>Object Space maps work for static meshes, and will render slightly faster with less memory usage.
+Tangent Space maps can be used for meshes that will be deformed, like animated characters,
+so the displacement follows the deformation.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Displacement</dt><dd><p>Displacement offset to be connected into the Material Output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Regular and exaggerated vector displacement on a smooth base mesh.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

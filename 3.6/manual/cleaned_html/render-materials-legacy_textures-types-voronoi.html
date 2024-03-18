@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Materials &gt; Legacy Textures &gt; Types &gt; Voronoi</title></head>
+<body><ul>
+<li><a href="../../../index.html">Rendering</a></li>
+<li><a href="../../index.html">Materials</a></li>
+<li><a href="../index.html">Legacy Textures</a></li>
+<li>Voronoi</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="voronoi">
+<h1>Voronoi</h1>
+<p>The Voronoi texture is used to generate very convincing Metal,
+especially the “Hammered” effect. Organic shaders (e.g. scales, veins in skin).</p>
+<figure id="id1">
+<figcaption>
+<p>Voronoi Texture panels.</p>
+</figcaption>
+</figure>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Distance Metric</dt><dd><p>This procedural texture has seven Distance Metric options.
+These determine the algorithm to find the distance between cells of the texture. These options are:</p>
+<ul>
+<li><p>Minkowski</p></li>
+<li><p>Minkowski 4</p></li>
+<li><p>Minkowski 1/2</p></li>
+<li><p>Chebychev</p></li>
+<li><p>Manhattan</p></li>
+<li><p>Distance Squared</p></li>
+<li><p>Actual Distance</p></li>
+</ul>
+<p>The <em>Minkowski</em> setting has a user definable value (the <em>Exponent</em> button)
+which determines the Minkowski exponent <em>e</em> of the distance function:</p>
+<blockquote>
+<div><p>(<em>x</em><sup>e</sup> + <em>y</em><sup>e</sup> + <em>z</em><sup>e</sup>)<sup>1/e</sup></p>
+</div></blockquote>
+<p>A value of one produces the <em>Manhattan</em> distance metric, a value less than one produces stars
+(at 0.5, it gives a <em>Minkowski 1/2</em>), and higher values produce square cells
+(at 4.0, it gives a <em>Minkowski 4</em>, at 10.0, a <em>Chebychev</em>).
+So nearly all Distance Settings are basically the same – a variation of <em>Minkowski</em>.</p>
+<p>You can get irregularly-shaped rounded cells with
+the <em>Actual Distance</em> / <em>Distance Squared</em> options.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Minkowski Exponent: 0.5 (Minkowski 1/2).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Minkowski Exponent: 1 (Manhattan).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Minkowski Exponent: 2 (Actual Distance).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Minkowski Exponent: 4 (Minkowski 4).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Minkowski Exponent: 10 (Chebychev).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Distance Squared (more contrast than Actual Distance).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Feature Weights</dt><dd><p>These four sliders at the bottom of the Voronoi panel represent the values of the four Worley constants,
+which are used to calculate the distances between each cell in the texture based on the distance metric.
+Adjusting these values can have some interesting effects on the end result…</p>
+</dd>
+</dl>
+<dl>
+<dt>Coloring</dt><dd><p>Four settings (<em>Intensity</em>, <em>Position</em>, <em>Position and Outline</em>, and <em>Position, Outline, and Intensity</em>)
+that can use four different noise basis as methods to calculate color and intensity of the texture output.
+This gives the Voronoi texture you create with the “Worley Sliders”
+a completely different appearance and is the equivalent of the noise basis setting found on the other textures.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Curve</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Curve Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve-modifier">
+<h1>Curve Modifier</h1>
+<p>The <em>Curve</em> modifier provides a simple but efficient method of deforming a mesh along a curve object.</p>
+<p>It works on a (global) dominant axis, X, Y, or Z.
+This means that when you move your mesh in the dominant direction (by default, the X axis),
+the mesh will traverse along the curve, as if it was a train following and deforming along rails.
+Moving the mesh perpendicularly to this axis, the object will move closer or further away from the curve.</p>
+<p>When you move the object beyond the curve’s ends, the object will continue
+to deform based on the direction vector at those ends.</p>
+<div>
+<p>Note</p>
+<p>This modifier works in global space, in other words, the actual position of the geometry
+relative to the curve is determinant to get a correct result.</p>
+<p>Typically, you’ll want your object’s origin to be at the center of your geometry (not offset far away from it,
+you can e.g. <a href="../../../scene_layout/object/origin.html#bpy-ops-object-origin-set">Set Origin to Geometry</a>).</p>
+<p>And then you’ll want to start with your object’s origin at the same location as your curve object’s origin
+(you may use <a href="../../../scene_layout/object/editing/snap.html#bpy-ops-view3d-snap">snap tools</a> for that…).</p>
+</div>
+<p>If the curve is 3D, the <em>Tilt</em> value of its control points will be used to twist the deformed object.
+And the <em>Radius</em> property controls the size of the object as well.
+Those options are in the <em>Shape</em> panel, under <a href="../../curves/properties/shape.html#curve-shape-path-curve-deform">Path/Curve-Deform</a>.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Curve modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Curve Object</dt><dd><p>The name of the curve object that will affect the deformed object.</p>
+</dd>
+<dt>Deformation Axis</dt><dd><p>This is the axis that the curve deforms along.</p>
+<p>X/Y/Z/-X/-Y/-Z</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>If set, restrict the effect to the only vertices in that vertex group.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Edit curve.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Monkey on a curve.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Monkey deformations.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

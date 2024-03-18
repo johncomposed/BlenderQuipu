@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Texture &gt; Magic</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Texture Nodes</a></li>
+<li>Magic Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="magic-texture-node">
+<h1>Magic Texture Node</h1>
+<div>
+<p>Note</p>
+<p>This node is ported from shader nodes. The manual and images are
+referencing the shader version of the node.
+This node accepts field inputs and outputs.
+When not connected the Vector input has an implicit <code>position</code> attribute value.</p>
+</div>
+<p>The <em>Magic Texture</em> node is used to add a psychedelic color texture.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate to sample texture at;
+defaults to Generated texture coordinates if the socket is left unconnected.</p>
+</dd>
+<dt>Scale</dt><dd><p>Scale of the texture.</p>
+</dd>
+<dt>Distortion</dt><dd><p>Amount of distortion.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Depth</dt><dd><p>Number of iterations.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Texture color output.</p>
+</dd>
+<dt>Factor</dt><dd><p>Texture intensity output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Magic texture: Depth 10, Distortion 2.0.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Render &gt; Povray</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Render</a></li>
+<li>POV-Ray 3.7</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="pov-ray-3-7">
+<h1>POV-Ray 3.7</h1>
+<p>POV-Ray is an SDL based (Scene Description Language) render engine with a long history
+that makes it very stable and feature rich.
+The latest version of POV-Ray 3.7 can be found at the <a href="http://www.povray.org/download/">project site</a>.</p>
+<section id="features">
+<h2>Features</h2>
+<p>Some key features of the exporter include:</p>
+<ul>
+<li><p>Geometry import and export with their modifiers, keyed and physics animation</p></li>
+<li><p>Add POV-Ray specific non-mesh primitives (never show tessellation)</p></li>
+<li><p>Instances</p></li>
+<li><p>Hair particles</p></li>
+<li><p>Smoke simulations</p></li>
+<li><p>Atmospheric media (volume fog)</p></li>
+<li><p>HDRI environment mapping</p></li>
+<li><p>Aperture depth of field</p></li>
+<li><p>Material properties such as filtering, emission, translucency, subsurface scattering,
+glass fog (tinted absorption), blurry/glossy reflections…</p></li>
+<li><p>Procedural textures (emulated from Blender and POV-Ray native)</p></li>
+<li><p>Image textures</p></li>
+<li><p>Texture influence channels: Alpha, Diffuse, Bump, Specular, Mirror (uses same channel as specular)</p></li>
+<li><p>Global illumination: Radiosity (indirect lighting), photons caustics (reflect/refract), mesh lights</p></li>
+<li><p>Custom POV-Ray code input giving access to any POV-Ray feature not supported by the exporter.</p></li>
+</ul>
+<p>POV-Ray 3.7 features</p>
+<p>Volumetrics and media (scattering/absorption), blurry reflections (uberPOV), ghosting for motion blur (uberPOV),
+micropolygon displacement (HGPOV), etc.</p>
+</section>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Of course, don’t forget to <a href="http://www.povray.org/download/">download</a> and install POV-Ray itself!</p></li>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Render then POV-3.7 to enable the script.</p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<section id="quick-start">
+<h3>Quick Start</h3>
+<ol>
+<li><p>Choose POV-Ray 3.7 from render engine selector. Then you can render as usual with the <em>Render</em> button.</p></li>
+<li><p>The image will be rendered according to parameters set in the Properties.</p></li>
+</ol>
+<p>Main global render settings for instance can be changed in the Render tab.
+But there are also properties for environment, material (textures), object, etc. all accessible in other tabs
+depending on the selected object (geometry, camera, light…).</p>
+</section>
+<section id="pov-ray-branches">
+<h3>POV-Ray Branches</h3>
+<p>Below is a comparison of some features of the two engines available to this exporter:</p>
+<table>
+<thead>
+<tr><th><p>Feature/Engine/Support</p></th>
+<th><p>POV-Ray</p></th>
+<th><p>UberPOV</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>Full Spectral Resolution</p></td>
+<td><p>✗</p></td>
+<td><p>✓ (under development)</p></td>
+</tr>
+<tr><td><p>Supersampling</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Alpha Mapping</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Bump Mapping</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Normal Mapping</p></td>
+<td><p>✗</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr><td><p>Displacement Mapping</p></td>
+<td><p>✗</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr><td><p>Motion Blur</p></td>
+<td><p>✗</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Subsurface Scattering (SSS)</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Volumetric Scattering (Medium)</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Blurred Reflections</p></td>
+<td><p>✓ (very tricky)</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Clay Render</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Depth of Field</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Material Layering</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Thin Film Coating</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Dispersion</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Anisotropy</p></td>
+<td><p>✗</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr><td><p>Thin Film Interference</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Complex IOR Files</p></td>
+<td><p>✗</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr><td><p>Coating Thickness Absorption</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Custom Reflectance 90</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Custom Fresnel Curve</p></td>
+<td><p>✓ (tricky)</p></td>
+<td><p>✓ (tricky)</p></td>
+</tr>
+<tr><td><p>Sigma Texture</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Sun-Pool Caustics</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Ambient Occlusion</p></td>
+<td><p>✗ (tricky)</p></td>
+<td><p>✓ (under development)</p></td>
+</tr>
+<tr><td><p>Lens Shift</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Diaphragm Circular/Polygonal</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Per-Object Texture Coordinates</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Texture Projection Modes</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Front/Camera Mapping</p></td>
+<td><p>✓ (tricky)</p></td>
+<td><p>✓ (tricky)</p></td>
+</tr>
+<tr><td><p>Multiple UV Channels</p></td>
+<td><p>✗</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr><td><p>Texture Tone Mapping</p></td>
+<td><p>✓ (tricky)</p></td>
+<td><p>✓ (tricky)</p></td>
+</tr>
+<tr><td><p>Procedural Textures</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Texture Layering</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Synthesis Texture Layering</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Point Lighting</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Mesh Lighting</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Image-based Lighting</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Physical Sun/Sky</p></td>
+<td><p>✓ (tricky)</p></td>
+<td><p>✓ (tricky)</p></td>
+</tr>
+<tr><td><p>HDRI Support</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>IES Texture Support</p></td>
+<td><p>✗</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr><td><p>Instance Support</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Resume/Merge Render</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Interactive Render</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Vignetting / Bloom / Glare (Post)</p></td>
+<td><p>✓ (tricky)</p></td>
+<td><p>✓ (tricky)</p></td>
+</tr>
+<tr><td><p>Camera Response Function (CRF) (Post)</p></td>
+<td><p>✗</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr><td><p>Color Balance (Post)</p></td>
+<td><p>✗</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr><td><p>Multithreading</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Region Rendering</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Passive Emitter</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Invisible Emitter</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Invisible Object</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Shadowless Object</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Shadowless Point Lights</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr><td><p>Bucket Rendering</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="exported-ui-properties">
+<h2>Exported UI Properties</h2>
+<section id="render-properties">
+<h3>Render Properties</h3>
+<section id="radiosity">
+<h4>Radiosity</h4>
+<p>In POV-Ray, “Radiosity” is diffuse interreflection which has nothing to do with vertex color based radiosity.
+In fact, it is more similar to final gathering of irradiance samples and provides a noise free indirect light.</p>
+<p>Some presets to radiosity are included, their names and settings are those of
+the <code>rad_def</code> include file shipped with POV-Ray, they set up the properties
+so you don’t need to include the <code>rad_def.inc</code> in the exported pov-file,
+it’s one of the many examples of what an interface like Blender can bring to
+all POV-Ray users who are not used to have one.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/HowTo:Use_radiosity">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="anti-aliasing">
+<h4>Anti-Aliasing</h4>
+<p>Three sampling methods are supported:</p>
+<ul>
+<li><p>Non-recursive</p></li>
+<li><p>Recursive</p></li>
+<li><p>Stochastic (Monte Carlo)
+Only available for UberPOV.</p></li>
+</ul>
+<section id="sampling-depth">
+<h5>Sampling Depth</h5>
+<p>Values must be comprised between 1 and 9.
+Higher values increase render time and may even introduce some undesired blur.</p>
+</section>
+<section id="anti-alias-threshold">
+<h5>Anti-Alias Threshold</h5>
+<p>In the simple, non-recursive method, POV-Ray initially traces one ray per pixel.
+If the color of a pixel differs from its neighbors (to the left or above) by at least the set threshold value,
+then the pixel is supersampled by casting a given, fixed number of additional rays.
+The default threshold is 0.3 but it may be changed using this <code>Antialias_Threshold=n.n</code> option.</p>
+<div>
+<p>See also</p>
+<p>More details on
+<a href="https://wiki.povray.org/content/Reference:Tracing_Options#Anti-Aliasing_Options">POV-Ray Wiki</a>.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Depth of Field Without Anti-Aliasing</p>
+<p>Using no anti-aliasing when camera depth of field is on will speed up rendering and
+often provide decent enough images.</p>
+</div>
+</section>
+</section>
+<section id="bounding-method">
+<h4>Bounding Method</h4>
+<p>Also called acceleration, it is set to automatic BSP (Binary Space Partitioning) by the exporter
+as it’s generally the most efficient (POV-Ray 3.7 only) but other acceleration methods are available in POV-Ray.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Tracing_Options#BSP_Bounding">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="command-line-switches">
+<h4>Command Line Switches</h4>
+<p>Some command line arguments can be passed to POV-Ray. Arguments are separated by spaces.
+Command line switches consist of a <code>/</code> (Slash), <code>+</code> (plus) or <code>-</code> (minus) sign, followed by
+one or more alphabetic characters and possibly a numeric value.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Category:Command-Line_and_INI-File_Options">POV-Ray Wiki</a>.</p>
+</div>
+<p>Some Commonly Used Commands:</p>
+<dl>
+<dt><code>-D</code>: Hide image while rendering</dt><dd><p>Use this command line switch to not show the rendered image in POV-Ray
+(slightly faster and lighter on memory).
+The image will be sent back to Blender after completion
+(on Linux this is a hidden default switch to avoid OS-specific editor problems).</p>
+</dd>
+<dt><code>+WT</code>: Limit the number of threads used</dt><dd><p>Limits POV-Ray to using only one single render thread.
+(Likewise, <code>+WT2</code> would instruct POV-Ray to use two render threads.)</p>
+</dd>
+<dt><code>+C</code>: Continue an interrupted render</dt><dd><p>For “Continue trace” is able to recover the point at which your last render stopped and
+continue it from there (even if you switched off your computer).</p>
+</dd>
+<dt><code>/EXIT</code>: Close POV-Ray after rendering the image</dt><dd><p>There is an option in POV-Ray for Windows interface to do the same:
+The “On Completion” option to “Exit POV-Ray for Windows” (in the <em>Render</em> menu).</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Fast Preview Renders</p>
+<p>When first setting up your scene, and for fast preview rendering, turn off anti-aliasing, depth of field,
+photons, Radiosity, expensive material features, and in the scene Shading panel, turn off shadows.
+(Other features might get turned off from this panel in future versions of the exporter.)</p>
+<p>Alternatively, use
+the <a href="https://wiki.povray.org/content/Reference:Tracing_Options#Quality_Settings">Quality</a> command line switches
+<code>+q1</code> to <code>+q11</code>. These allow you to easily disable most of the CPU-intensive features.</p>
+</div>
+</section>
+<section id="formatting">
+<h4>Formatting</h4>
+<p>The exported POV-Ray file can be customized:</p>
+<ul>
+<li><p>Different indentation characters to choose from.</p></li>
+<li><p>Option to add comments to POV-Ray file.</p></li>
+<li><p>Option to write long lists of coordinates in one line for easier browsing of the pov-file
+(and slightly faster parsing by the renderer).</p></li>
+</ul>
+</section>
+</section>
+<section id="scene-properties">
+<h3>Scene Properties</h3>
+<section id="color-management">
+<h4>Color Management</h4>
+<p>sRGB is supposed to be always used currently.</p>
+</section>
+</section>
+<section id="world-properties">
+<h3>World Properties</h3>
+<section id="background">
+<h4>Background</h4>
+<p>Blender <em>World</em> gets exported:</p>
+<ul>
+<li><p>As POV-Ray <code>background{}</code> if flat colored.</p></li>
+<li><p>Using Blender’s <em>Blend Sky</em> options triggers its export as a POV-Ray <code>sky_sphere{}</code>.</p></li>
+</ul>
+<p>(Sky texture currently appears a little different because of its mapping).</p>
+</section>
+<section id="atmospheric-media">
+<h4>Atmospheric Media</h4>
+<p>(To create volume lights):</p>
+<ul>
+<li><p>Number of samples for media calculation</p></li>
+<li><p>Atmospheric media color</p></li>
+</ul>
+</section>
+</section>
+<section id="object-properties">
+<h3>Object Properties</h3>
+<section id="importance-sampling">
+<h4>Importance Sampling</h4>
+<p>It is a priority value between 0 and 1 that can be set per object in the <em>Object</em> properties tab
+for Radiosity to cast more rays at objects that require them most.
+Touch this rather carefully when trying to improve render times.</p>
+</section>
+</section>
+<section id="data-properties">
+<h3>Data Properties</h3>
+<p>The script exports sky, lights, hair particles, smoke, fluids, meshes, blobs (metaballs).</p>
+<section id="camera">
+<h4>Camera</h4>
+<section id="depth-of-field">
+<h5>Depth of Field</h5>
+<p>It has to be enabled for below property to act:</p>
+<p>The focal point of depth of field is based on Blender UI <em>Distance</em> field, or <em>Object</em> field.</p>
+</section>
+<section id="aperture">
+<h5>Aperture</h5>
+<p>Sets the blur amount (increase to get more).</p>
+</section>
+<section id="perturbation">
+<h5>Perturbation</h5>
+<p>Normal map for camera plane, native POV procedural patterns can be used with variable:</p>
+<ul>
+<li><p>Strength</p></li>
+<li><p>Turbulence</p></li>
+<li><p>Scale</p></li>
+</ul>
+</section>
+</section>
+<section id="lights">
+<h4>Lights</h4>
+<p>No Shadows toggle button can be used to deactivate tracing of shadows for specific lights only.</p>
+<div>
+<p>Tip</p>
+<p>For Realistic Light Attenuation</p>
+<p>Use Inverse square falloff, and a small falloff distance value with a higher light intensity
+will give the best results with POV-Ray’s implementation of inverse square law. See this
+<a href="http://news.povray.org/povray.general/thread/%3Cweb.4d77b443f36cbfe281c811d20%40news.povray.org%3E/">discussion</a>.</p>
+</div>
+</section>
+<section id="smoke">
+<h4>Smoke</h4>
+<p>A DF3-file (POV-Ray voxel format) is exported and used with a POV-Ray media container with
+the same dimension and resolution as Blender smoke domain.</p>
+</section>
+<section id="hair">
+<h4>Hair</h4>
+<p>A union of POV-Ray <code>sphere_sweep</code> is exported and used for each strand.
+They can take the color of a texture applied to emitting object,
+and shape of sphere sweep tries to emulate shape of strands.</p>
+</section>
+</section>
+<section id="material-properties">
+<h3>Material Properties</h3>
+<section id="emission">
+<h4>Emission</h4>
+<div>
+<p>Tip</p>
+<p>Mesh Lights</p>
+<p>When used together with Radiosity, the Emit property will allow you to create light bulbs or any luminous form
+that really illuminates other objects.</p>
+</div>
+</section>
+<section id="sss-sslt">
+<h4>SSS / SSLT</h4>
+<p>Note that SSS in POV-Ray (called SSLT) is very sensitive and will give different results
+if the mesh normals are smooth shaded or flat.</p>
+</section>
+<section id="translucency">
+<h4>Translucency</h4>
+<p>Illumination from the back of a surface.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Finish#Diffuse">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="ior-mirror">
+<h4>IOR Mirror</h4>
+<p>This option is for using one consistent IOR for ray-traced reflection and refraction and
+not breaking the law of conservation of energy between the two.</p>
+</section>
+<section id="iridescence">
+<h4>Iridescence</h4>
+<p>(Newton’s thin film coating.)</p>
+</section>
+<section id="caustics">
+<h4>Caustics</h4>
+<ul>
+<li><p>Chromatic dispersion for refractive caustics</p></li>
+<li><p>Fast fake caustics (somewhat like Blender Ray Transparency)</p></li>
+<li><p>Refractive caustics using photons</p></li>
+<li><p>Reflective caustics using photons (high IOR or no mirror IOR for easier effect.)</p></li>
+</ul>
+<div>
+<p>Tip</p>
+<p>Faster Photons</p>
+<p>To set up some caustics, try moving from the smallest photon depth value to a minimum at
+which you start to see the effect you are after. Check off the <em>Receive Photons</em> object property
+for any object that does not really need it.
+(A glass object casting caustics often doesn’t need to receive any itself.)
+Then you can balance other parameters to tune photons distribution and smoothing (gathering).
+Don’t set the global spacing too fine in scene settings,
+because then you can still make it finer on each object using its spacing multiplier.
+If your system has several threads, they can be used in the photons stage:
+one thread per light, so you can then make your scene lighting more complex without overhead.</p>
+</div>
+</section>
+<section id="shaders">
+<h4>Shaders</h4>
+<p>Emulation is attempted from Blender for:</p>
+<ul>
+<li><p>Specular and diffuse toon (no edges yet)</p></li>
+<li><p>Phong and Cook Torrance (both the same)</p></li>
+<li><p>Blinn (not perfectly matched)</p></li>
+<li><p>Ward isotropic</p></li>
+<li><p>Fresnel and Minnaert, started but not finished yet</p></li>
+</ul>
+<div>
+<p>Tip</p>
+<p>Glass Like Materials</p>
+<p>When trying to achieve some glass like material, keep low diffuse value, dark or totally black to
+avoid a dull surface and keep a clear transparency.</p>
+</div>
+</section>
+</section>
+<section id="texture-properties">
+<h3>Texture Properties</h3>
+<section id="uv-coordinates">
+<h4>UV Coordinates</h4>
+<p>Best with planar projection for now. (Silvio Falcinelli)</p>
+</section>
+<section id="texture-channels">
+<h4>Texture Channels</h4>
+<p>Texture influences currently exported are: Alpha, Diffuse, Bump, Specular, Mirror (uses same channel as specular).
+(No other channel because of POV-Ray non-uniform syntax for them.)</p>
+</section>
+<section id="custom-gamma">
+<h4>Custom Gamma</h4>
+<p>For image textures (read POV-Ray 3.7 docs before using since it generally needs not be used).</p>
+<div>
+<p>See also</p>
+<p>More details on
+<a href="https://wiki.povray.org/content/Documentation:Tutorial_Section_3.3#Gamma_Handling">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="custom-pov-code">
+<h2>Custom POV Code</h2>
+<p>POV-Ray files are not just pure data files (unlike with most other renderers).
+They are programs, with loops, functions, etc.
+This means that no matter how many features this exporter could support,
+POV-Ray will always have much more under the hood.</p>
+<section id="step-by-step">
+<h3>Step by Step</h3>
+<p>You can add custom POV code directly in Blender’s Text editor,
+all you have to do is to make sure this POV code has directly or indirectly a <code>#declare</code> keyword,
+followed by the name of your choice and the POV item you want to use.
+(Current POV syntax is closer to C than Python, so anything that follows two slash character (<code>//</code>) is a comment.)</p>
+<section id="adding-pov-code-directly">
+<h4>Adding POV Code Directly</h4>
+<p>POV items can be anything but for now only the equivalent of Blender materials can be replaced with this method.
+In POV-Ray, it is called <code>texture {}</code> don’t get confused, it really includes all the material properties.</p>
+<p>Though you can directly specify a <code>texture {}</code> block in POV-Ray files,
+the <code>#declare</code> directive allows to assign it to a variable and reuse it more easily.
+The exporter makes use of this feature by default, so you won’t be able to use your custom texture,
+unless you declare it. Here is an example:</p>
+<div><div><pre>#declare MyTexture =
+texture{
+    pigment{
+        brick color rgb&lt; 0.99, 0.99, 0.99&gt;  // color mortar
+        color rgb&lt; 0.75, 0.5, 0.30&gt;*0.75  // color brick
+        brick_size &lt;0.25, 0.0525, 0.125&gt; // format in X, Y and Z-direction
+        mortar 0.01                      // size of the mortar
+        scale 3
+    } // end of pigment
+    normal {wrinkles 0.75 scale 0.01}
+    finish {ambient 0.15 diffuse 0.95 phong 0.2}
+    rotate&lt;0,0,0&gt;  translate&lt; 0.01, 0.00, 0.00&gt;
+} // end of texture
+</pre></div>
+</div>
+<ol>
+<li><p>Open the Text editor’s Sidebar.</p></li>
+<li><p>In the text view properties option, you can chose to render 3D View and/or text. Enable <em>Both</em>.</p></li>
+<li><p>Syntax highlight detects <code>pov/inc/mcr/ini</code> extensions.</p></li>
+<li><p>Some complete POV-Ray scenes are available to Templates header menu.</p></li>
+<li><p>And an Insert menu to add just some POV code snippets at cursor’s location.</p></li>
+<li><p>Then you have to go into the material properties to the <em>Custom POV Code</em> field,
+and just type in the name of your declared item to use: “MyTexture” in the example given.
+Then you can render your image normally and the material will be replaced.</p></li>
+</ol>
+<p>Blender and POV-Ray do not have the same coordinates systems: POV is Y up while Blender is Z up,
+so it is to be expected that text generated content is not turned the same as exported UI items
+since the exporter adds a transform matrix to all exported entities.
+So if you want to specify orientations more intuitively by looking at the interface,
+some transforms have to be specified at the end of your custom blocks, for instance as follows:</p>
+<div><div><pre>scale &lt;-1, 1, 1&gt;
+rotate &lt;90, 0, -90&gt;
+}
+</pre></div>
+</div>
+</section>
+<section id="adding-pov-code-from-include-files">
+<h4>Adding POV Code from Include Files</h4>
+<p>In any POV-Ray scene you can use the <code>#include</code> directive to add items from an external POV-Ray file.
+It’s like the import function in Python. The files to be included have <code>.inc</code> as their name extension.
+Then in the replacement field, you can type in any of the declared names available in the include file.
+“Out of the box”, POV-Ray ships with a lot of include files.
+So you can use them for your textures, but you can also use them for some of their elements.
+For instance a very often used include file is one that allows to call colors by their names
+instead of numbers called <code>colors.inc</code>, so the previous example could also be written:</p>
+<div><div><pre>#include "colors.inc"
+#declare MyTexture =
+texture{
+    pigment{
+        brick color White*0.99  // color mortar
+        color rgb&lt; 0.75, 0.5, 0.30&gt;*0.75  // color brick
+        brick_size &lt;0.25, 0.0525, 0.125&gt; // format in x, y and z- direction
+        mortar 0.01                      // size of the mortar
+        scale 3
+    } // end of pigment
+    normal {wrinkles 0.75 scale 0.01}
+    finish {ambient 0.15 diffuse 0.95 phong 0.2}
+    rotate&lt;0,0,0&gt;  translate&lt; 0.01, 0.00, 0.00&gt;
+} // end of texture
+</pre></div>
+</div>
+<p>Some other POV-Ray specific objects are also available:
+In POV-Ray a triangle mesh is just one primitive among many.
+You can explore the POV-Ray language by modifying the output file and
+with the same method, add these primitives by hand, or you can just pick some from the <em>Add</em> menu.</p>
+</section>
+</section>
+<section id="pov-ray-primitives">
+<h3>POV-Ray Primitives</h3>
+<p>The Add menu in the 3D Viewport allows you to add POV-Ray specific objects in addition to native Blender objects.</p>
+<p>They are mathematically defined shapes as opposed to meshes.
+The sphere, torus, cylinder or cone side will always be round and smooth when rendered,
+no matter how close you get, and regardless of their appearance in the 3D Viewport, which is only a proxy.</p>
+<p>These objects are the type of objects that get created when you import a POV-Ray file,
+so that ideally, you could “exchange” data back and forth between POV-Ray and Blender.</p>
+<section id="infinite-plane">
+<h4>Infinite Plane</h4>
+<p>The rendered plane is actually infinite, but represented by a proxy in the 3D Viewport,
+which is just very big, but still finite.
+Please report if you would rather have a different default scale.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Plane">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="box">
+<h4>Box</h4>
+<p>Based on a mesh cube the object can be transformed using move/rotate/scale</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Box">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="sphere">
+<h4>Sphere</h4>
+<p>The sphere has a radius parameter, a location and a scale.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Sphere">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="cylinder">
+<h4>Cylinder</h4>
+<p>In POV-Ray, cylinders are defined by radius, base point and end point.
+For convenience, move/rotate/scale can be used to the same effect.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Cylinder">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="cone">
+<h4>Cone</h4>
+<p>Cones have a basis radius and end radius.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Cone">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="torus">
+<h4>Torus</h4>
+<p>Torus has a main radius and a section radius.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Torus">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="parametric">
+<h4>Parametric</h4>
+<p>This is a surface generated from the combination of three mathematical equations.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Parametric">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="rainbow">
+<h4>Rainbow</h4>
+<p>The rainbow is a view dependent effect.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Rainbow">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="lathe">
+<h4>Lathe</h4>
+<p>This object behaves like the Blender Screw modifier to create surfaces by revolving a spline
+except instead of being tessellated beforehand, it follows the mathematical curvature of the spline
+so you won’t see any polygons no matter how close you zoom.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Lathe">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="prism">
+<h4>Prism</h4>
+<p>This is a POV-Ray primitive that simply extrudes a shape.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Prism">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="superquadric-ellipsoid">
+<h4>Superquadric Ellipsoid</h4>
+<p>A quite versatile tool that can provide quick models for cushion or star-shaped objects.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Superquadric_Ellipsoid">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="height-field">
+<h4>Height Field</h4>
+<p>This is a displacement of a surface following a texture. Tessellation also happens at render time,
+so you don’t need to subdivide anything before.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Height_Field">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="sphere-sweep">
+<h4>Sphere Sweep</h4>
+<p>This POV-Ray primitive sweeps a sphere a long as spline to create an interpolated form
+that can have variations of radius along the spline. It is also used to export hair strands.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Sphere_Sweep">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="blob-sphere">
+<h4>Blob Sphere</h4>
+<p>Like Blender metaballs.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Blob">POV-Ray Wiki</a>.</p>
+</div>
+</section>
+<section id="isosurfaces">
+<h4>Isosurfaces</h4>
+<p>In POV-Ray isosurfaces are objects that can combine and be deformed using pigments or equations.</p>
+<div>
+<p>See also</p>
+<p>More details on <a href="https://wiki.povray.org/content/Reference:Isosurface">POV-Ray Wiki</a>.</p>
+</div>
+<dl>
+<dt>Isosurface Box</dt><dd><p>An isosurface component shaped as a box.</p>
+</dd>
+<dt>Isosurface Sphere</dt><dd><p>An isosurface component shaped as a sphere.</p>
+</dd>
+<dt>Supertorus</dt><dd><p>An isosurface shaped as a torus with deforming parameters equivalent to those of the superellipsoid.</p>
+</dd>
+</dl>
+<p>Parameters (POV-Ray names):</p>
+<dl>
+<dt><code>MajorRadius</code>, <code>MinorRadius</code></dt><dd><p>Base radii for the torus.</p>
+</dd>
+<dt><code>MajorControl</code>, <code>MinorControl</code></dt><dd><p>Controls for the roundness of the supertorus. Use numbers in the range [0, 1].</p>
+</dd>
+<dt><code>Accuracy</code></dt><dd><p>The accuracy parameter.</p>
+</dd>
+<dt><code>MaxGradient</code></dt><dd><p>The max_gradient parameter.</p>
+</dd>
+</dl>
+</section>
+<section id="macro-based-primitives">
+<h4>Macro Based Primitives</h4>
+<p>Two primitives are actually macros that generate a mesh from curves before render time:</p>
+<ul>
+<li><p>Polygon to Circle Blending</p></li>
+<li><p>Loft</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="importing-pov-ray-files">
+<h2>Importing POV-Ray Files</h2>
+<ol>
+<li><p>From the same Add menu, you can also import POV-Ray files.</p></li>
+<li><p>Or otherwise, clicking File ‣ Import from the Topbar menu.</p></li>
+<li><p>You can then select one or several files.</p></li>
+</ol>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Render</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>POV-Ray 3.7 integration for Blender.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Render ‣ Engine ‣ POV-Ray 3.7</p>
+</dd>
+<dt>File:</dt>
+<dd><p>render_povray folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Campbell Barton, Maurice Raybaud, Leonid Desyatkov, Bastien Montagne, Constantin Rahn, Silvio Falcinelli</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

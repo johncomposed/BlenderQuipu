@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Utilities &gt; Field &gt; Evaluate On Domain</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Utilities Nodes</a></li>
+<li><a href="index.html">Field Utility Nodes</a></li>
+<li>Evaluate on Domain Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="evaluate-on-domain-node">
+<h1>Evaluate on Domain Node</h1>
+<p>The <em>Evaluate on Domain</em> allows evaluating a field for a different <a href="../../attributes_reference.html#attribute-domains">attribute domain</a>
+than the domain from the <a href="../../fields.html#field-context">field context</a>. For example, the face index could be used instead
+of the face corner index, when setting the values of a <a href="../../../../glossary/index.html#term-UV-Map">UV Map</a></p>
+<div>
+<p>Note</p>
+<p>This node is not necessary to retrieve data from other attribute domains; that is done automatically.
+Its utility comes from the fact that it’s possible to control <em>when</em> the domain interpolation happens.
+Normally, input nodes interpolate their data to the current context’s domain as soon as they create
+their output.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>It may be preferable to use this node over the <a href="../../attribute/capture_attribute.html">Capture Attribute Node</a>,
+since it allows using a specific attribute domain without requiring a geometry socket input,
+which allows creating more reusable node groups.</p>
+</div>
+<div>
+<p>See also</p>
+<p>The method of retrieving data from another domain is somewhat similar to the
+<a href="evaluate_at_index.html">Evaluate at Index Node</a>.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Value</dt><dd><p>The field to evaluate on the chosen attribute domain.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Domain</dt><dd><p>The <a href="../../attributes_reference.html#attribute-domains">attribute domain</a> used for evaluation of the <em>Value</em> input.</p>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Value</dt><dd><p>The values from the input, evaluated on the chosen domain, then interpolated to the domain from
+the <a href="../../fields.html#field-context">field context</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

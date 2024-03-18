@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Draw &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Draw Mode</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Draw Mode is the mode in Grease Pencil that allows you to draw in the 3D Viewport.
+This mode is actually the only one in which new strokes can be created.</p>
+<p>Already made strokes can not be selected in Draw Mode, for editing strokes you must use
+the <a href="../edit/introduction.html">Edit Mode</a> or
+<a href="../sculpting/introduction.html">Sculpt Mode</a>.</p>
+<section id="draw-mode">
+<h2>Draw Mode</h2>
+<figure id="id1">
+<figcaption>
+<p>3D Viewport Mode selector: Draw Mode.</p>
+</figcaption>
+</figure>
+<p>Draw Mode is selected with the <em>Mode</em> menu in the 3D Viewport header.
+Once Draw Mode is activated, the Toolbar of the 3D Viewport will change to Draw Mode specific panels.
+Also a circle with the same color as the active material will appear and
+follow the location of the cursor in the 3D Viewport.</p>
+<p>To create new strokes you have to select one of the drawing tools in the Toolbar.
+The most common one is the <a href="tools.html">Draw tool</a>
+for free-hand drawings but there are many other tools for drawing, filling areas and erasing strokes.
+There are also some tools to create primitives shapes like lines, arcs, curves, boxes and circles.</p>
+<p>See <a href="tools.html">Toolbar</a> for more details.</p>
+</section>
+<section id="strokes-location-and-orientation-controls">
+<h2>Strokes Location and Orientation Controls</h2>
+<p>Drawing in a 3D space is not the same as drawing on a flat canvas.
+When drawing with Grease Pencil you have to define
+the location and orientation of the new strokes in the 3D space.</p>
+<figure id="id2">
+<figcaption>
+<p>3D Viewport header Controls for strokes.</p>
+</figcaption>
+</figure>
+<section id="stroke-placement">
+<h3>Stroke Placement</h3>
+<p>The Stroke Placement selector defines the new strokes location in 3D space.</p>
+<p>See <a href="stroke_placement.html">Stroke Placement</a> for more information.</p>
+</section>
+<section id="drawing-planes">
+<h3>Drawing Planes</h3>
+<p>The Drawing Planes selector defines the plane (orientation) to which the new strokes will be restricted.</p>
+<p>See <a href="drawing_planes.html">Drawing Planes</a> for more information.</p>
+</section>
+<section id="guides">
+<h3>Guides</h3>
+<p>Different Guides types can be activated to assist you when drawing new strokes.</p>
+<p>See <a href="guides.html">Guides</a> for more information.</p>
+</section>
+</section>
+<section id="drawing-options">
+<h2>Drawing Options</h2>
+<figure id="id3">
+<figcaption>
+<p>General drawing options.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Draw on Back</dt><dd><p>When enabled, new strokes are drawn below of all strokes in the layer.
+For example when you want to paint with a fill material below line strokes on a character and
+they are on the same layer.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-gpencil-weight-data-add">
+<dt>Add Weight Data</dt><dd><p>When enabled, weight data is added to new strokes according to the current vertex group and weight.
+If there is no vertex group selected, no weight data is added.</p>
+<p>Useful for example in cut-out animation for adding new drawing
+on the same vertex group without the need to creating it afterwards.</p>
+<p>See <a href="../weight_paint/introduction.html">Weight Paint Mode</a> for more information.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-gpencil-draw-onback">
+<dt>Additive Drawing</dt><dd><p>When creating new frames adding strokes with drawing tools,
+the strokes from the previous/active frame are include as a basis for the new one.
+When erasing existing strokes using Additive Drawing a new keyframe will be added.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-gpencil-automerge-strokes">
+<dt>AutoMerge</dt><dd><p>Joins new strokes with the beginning or end of previously drawn strokes in the active layer.</p>
+</dd>
+<dt>Multiframe</dt><dd><p>Allows to draw on several frames at the same time.</p>
+<p>See <a href="../../multiframe.html">Multiframe</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

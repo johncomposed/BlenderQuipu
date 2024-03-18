@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Emitter &gt; Physics &gt; Boids</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Particle System</a></li>
+<li><a href="../index.html">Emitter</a></li>
+<li><a href="index.html">Physics</a></li>
+<li>Boids</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="boids">
+<h1>Boids</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Boids</p>
+</dd>
+</dl>
+</div>
+<p>Boids particle systems are controlled by a limited artificial intelligence,
+which can be programmed to follow basic rules and behaviors.
+They are ideal for simulating flocks, swarms, herds and schools of various kind of animals,
+insects and fishes or predators vs. preys simulations.
+They can react on the presence of other objects and on the members of their own system.
+Boids can handle only a certain amount of information,
+therefore the sequence of the <em>Boid Brain</em> rules is very important.
+In certain situations only the first three parameter are evaluated.</p>
+<section id="movement">
+<h2>Movement</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Movement</p>
+</dd>
+</dl>
+</div>
+<p>Boids try to avoid objects with activated Collision.
+They try to reach goal objects, and fly from “predators” according to the <em>Boid Brain</em> settings.</p>
+<p>Boids can have different physics depending on whether they are in the air,
+or on land (on collision object).</p>
+<dl>
+<dt>Allow Flight</dt><dd><p>Allow boids to move in the air.</p>
+</dd>
+<dt>Allow Land</dt><dd><p>Allow boids to move on land.</p>
+</dd>
+<dt>Allow Climbing</dt><dd><p>Allow boids to climb goal objects.</p>
+</dd>
+<dt>Max Air Speed</dt><dd><p>Set the Maximum velocity in the air.</p>
+</dd>
+<dt>Min Air Speed</dt><dd><p>Set the Minimum velocity in the air.</p>
+</dd>
+<dt>Max Air Acceleration</dt><dd><p>Lateral acceleration in air, percentage of the max velocity (turn).
+Defines how fast a boid is able to change direction.</p>
+</dd>
+<dt>Max Air Angular Velocity</dt><dd><p>Tangential acceleration in air, percent 180 degrees.
+Defines how much the boid can suddenly accelerate in order to fulfill a rule.</p>
+</dd>
+<dt>Air Personal Space</dt><dd><p>Radius of boids personal space in air. Percentage of particle size.</p>
+</dd>
+<dt>Landing Smoothness</dt><dd><p>How smoothly the boids land.</p>
+</dd>
+<dt>Max Land Speed</dt><dd><p>Set the Maximum velocity on land.</p>
+</dd>
+<dt>Jump Speed</dt><dd><p>Maximum speed for jumping.</p>
+</dd>
+<dt>Max Land Acceleration</dt><dd><p>Lateral acceleration on land, percent of max velocity (turn). Defines how fast a boid is able to change direction.</p>
+</dd>
+<dt>Max Land Angular Velocity</dt><dd><p>Tangential acceleration on land, percent 180 degrees.
+Defines how much the boid can suddenly accelerate in order to fulfill a rule.</p>
+</dd>
+<dt>Land Personal Space</dt><dd><p>Radius of boids personal space on land. Percentage of particle size.</p>
+</dd>
+<dt>Land Stick Force</dt><dd><p>How strong a force must be to start effecting a boid on land.</p>
+</dd>
+<dt>Collision Collection</dt><dd><p>Only collide with objects in this collection.</p>
+</dd>
+</dl>
+</section>
+<section id="battle">
+<h2>Battle</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Battle</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Health</dt><dd><p>Initial boid health when born.</p>
+</dd>
+<dt>Strength</dt><dd><p>Maximum caused damage per second on attack.</p>
+</dd>
+<dt>Aggression</dt><dd><p>Boid will fight this time stronger than enemy.</p>
+</dd>
+<dt>Accuracy</dt><dd><p>Accuracy of attack.</p>
+</dd>
+<dt>Range</dt><dd><p>Maximum distance of which a boid can attack.</p>
+</dd>
+</dl>
+</section>
+<section id="misc">
+<h2>Misc</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Misc</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Banking</dt><dd><p>Amount of rotation around velocity vector on turns. Banking of 1.0 gives a natural banking effect.</p>
+</dd>
+<dt>Pitch</dt><dd><p>Amount of rotation around side vector.</p>
+</dd>
+<dt>Height</dt><dd><p>Boid height relative to particle size.</p>
+</dd>
+</dl>
+</section>
+<section id="relations">
+<h2>Relations</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Relations</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Target</dt><dd><p>This <a href="../../../../interface/controls/templates/list_view.html#ui-list-view">list view</a> allows you to set up other particle systems to react with the boids.</p>
+</dd>
+<dt>Target Object</dt><dd><p>A <a href="../../../../interface/controls/templates/data_block.html#ui-data-id">data ID</a> to select an object with a particle system set on.</p>
+</dd>
+<dt>System</dt><dd><p>Index of the <em>Object</em>‘s particle system as set in the list view in the particle panel.</p>
+</dd>
+<dt>Mode</dt><dd><dl>
+<dt>Enemy</dt><dd><p>Setting the type to <em>Enemy</em> will cause the systems to fight with each other.</p>
+</dd>
+<dt>Friend</dt><dd><p>Will make the systems work together.</p>
+</dd>
+<dt>Neutral</dt><dd><p>Will not cause them to align or fight with each other.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="deflection">
+<h3>Deflection</h3>
+<p>Boids will try to avoid deflector objects according to the Collision rule’s weight.
+It works best for convex surfaces (some work needed for concave surfaces).</p>
+</section>
+<section id="force-fields">
+<h3>Force Fields</h3>
+<p>As other physics types, Boids is also influenced by external force fields.</p>
+<p>In addition, special <em>Boid</em> force fields can be used with the Boids physics.
+These effectors could be predators (positive Strength) that boids try to avoid,
+or targets (negative Strength) that boids try to reach
+according to the (respectively) <em>Avoid</em> and <em>Goal</em> rules of the <em>Boid Brain</em>.</p>
+</section>
+</section>
+<section id="boid-brain">
+<h2>Boid Brain</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Boid Brain</p>
+</dd>
+</dl>
+</div>
+<p>The Boid Brain panel controls how the boids particles will react with each other.
+The boids’ behavior is controlled by a list of rules.
+Only a certain amount of information in the list can be evaluated.
+If the memory capacity is exceeded, the remaining rules are ignored.</p>
+<p>The rules are by default parsed from top-list to bottom-list
+(thus giving explicit priorities),
+and the order can be modified using the little arrows buttons on the right side.</p>
+<dl>
+<dt>Rule Evaluation</dt><dd><p>There are three ways to control how rules are evaluated:</p>
+<dl>
+<dt>Average</dt><dd><p>All rules are averaged.</p>
+</dd>
+<dt>Random</dt><dd><p>A random rule is selected for each boid.</p>
+</dd>
+<dt>Fuzzy</dt><dd><p>Uses fuzzy logic to evaluate rules. Rules are gone through top to bottom.
+Only the first rule that affect above the <em>Rule Fuzziness</em> threshold is evaluated.
+The value should be considered how hard the boid will try to respect a given rule
+(a value of 1 means the Boid will always stick to it, a value of 0 means it will never).
+If the boid meets more than one conflicting condition at the same time,
+it will try to fulfill all the rules according to the respective weight of each.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>A given boid will try as much as it can to comply to each of the rules it is given,
+but it is more than likely that some rule will take precedence on other in some cases.
+For example, in order to avoid a predator, a boid could probably “forget” about Collision,
+Separate and Flock rules, meaning that “while panicked” it could well run into obstacles,
+e.g. even if instructed not to, most of the time.</p>
+</div>
+</dd>
+<dt>In Air</dt><dd><p>The current rule affects boids while they are flying.</p>
+</dd>
+<dt>On Land</dt><dd><p>The current rule affects boids while they are not flying.</p>
+</dd>
+</dl>
+<section id="goal-rule">
+<h3>Goal Rule</h3>
+<p>Seek goal.</p>
+<dl>
+<dt>Object</dt><dd><p>Specifies the goal object. If not specified, Boid force fields with negative Strength are used as goals.</p>
+</dd>
+<dt>Predict</dt><dd><p>Predict target’s movements.</p>
+</dd>
+</dl>
+</section>
+<section id="avoid-rule">
+<h3>Avoid Rule</h3>
+<p>Avoid “predators”.</p>
+<dl>
+<dt>Object</dt><dd><p>Specifies the object to avoid.
+If not specified, Boid force fields with positive Strength are used as predators.</p>
+</dd>
+<dt>Predict</dt><dd><p>Predict target’s movements.</p>
+</dd>
+<dt>Fear Factor</dt><dd><p>Avoid object if danger from it is above this threshold.</p>
+</dd>
+</dl>
+</section>
+<section id="avoid-collision-rule">
+<h3>Avoid Collision Rule</h3>
+<p>Avoid objects with activated Deflection.</p>
+<dl>
+<dt>Boids</dt><dd><p>Avoid collision with other boids.</p>
+</dd>
+<dt>Deflectors</dt><dd><p>Avoid collision with deflector objects.</p>
+</dd>
+<dt>Look Ahead</dt><dd><p>Time to look ahead in seconds.</p>
+</dd>
+</dl>
+</section>
+<section id="separate-rule">
+<h3>Separate Rule</h3>
+<p>Boids move away from each other.</p>
+</section>
+<section id="flock-rule">
+<h3>Flock Rule</h3>
+<p>Copy movements of neighboring boids, but avoid each other.</p>
+</section>
+<section id="follow-leader-rule">
+<h3>Follow Leader Rule</h3>
+<p>Follows a leader object instead of a boid.</p>
+<dl>
+<dt>Distance</dt><dd><p>Distance behind leader to follow.</p>
+</dd>
+<dt>Line</dt><dd><p>Follow the leader in a line.</p>
+<dl>
+<dt>Queue Size</dt><dd><p>How many boids that are allowed to follow in a line.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="average-speed-rule">
+<h3>Average Speed Rule</h3>
+<p>Maintain average velocity.</p>
+<dl>
+<dt>Speed</dt><dd><p>Percentage of maximum speed.</p>
+</dd>
+<dt>Wander</dt><dd><p>How fast velocity’s direction is randomized.</p>
+</dd>
+<dt>Level</dt><dd><p>How much velocity’s Z component is kept constant.</p>
+</dd>
+</dl>
+</section>
+<section id="fight-rule">
+<h3>Fight Rule</h3>
+<p>Move toward nearby boids.</p>
+<dl>
+<dt>Fight Distance</dt><dd><p>Attack boids at a maximum of this distance.</p>
+</dd>
+<dt>Flee Distance</dt><dd><p>Flee to this distance.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Light Path</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Light Path Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="light-path-node">
+<h1>Light Path Node</h1>
+<p>The <em>Light Path</em> node is used to find out for which kind of incoming ray the shader is being executed;
+particularly useful for non-physically-based tricks. More information about the meaning of each type
+is in the <a href="../../cycles/render_settings/light_paths.html">Light Paths</a> documentation.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Is Camera Ray</dt><dd><p>1.0 if shading is executed for a camera ray, otherwise 0.0.</p>
+</dd>
+<dt>Is Shadow Ray</dt><dd><p>1.0 if shading is executed for a shadow ray, otherwise 0.0.</p>
+</dd>
+<dt>Is Diffuse Ray</dt><dd><p>1.0 if shading is executed for a diffuse ray, otherwise 0.0.</p>
+</dd>
+<dt>Is Glossy Ray</dt><dd><p>1.0 if shading is executed for a glossy ray, otherwise 0.0.</p>
+</dd>
+<dt>Is Singular Ray Cycles Only</dt><dd><p>1.0 if shading is executed for a singular ray, otherwise 0.0.</p>
+</dd>
+<dt>Is Reflection Ray Cycles Only</dt><dd><p>1.0 if shading is executed for a reflection ray, otherwise 0.0.</p>
+</dd>
+<dt>Is Transmission Ray Cycles Only</dt><dd><p>1.0 if shading is executed for a transmission ray, otherwise 0.0.</p>
+</dd>
+<dt>Ray Length Cycles Only</dt><dd><p>Distance traveled by the light ray from the last bounce or camera.</p>
+</dd>
+<dt>Ray Depth</dt><dd><p>Number of times the ray has been reflected or transmitted on interaction with a surface.</p>
+<div>
+<p>Note</p>
+<p>Passing through a transparent shader
+<a href="../../cycles/render_settings/light_paths.html#render-cycles-light-paths-transparency">does not count as a normal “bounce”</a>.</p>
+</div>
+</dd>
+<dt>Diffuse Depth Cycles Only</dt><dd><p>Number of times the ray has gone through diffuse reflection or transmission.</p>
+</dd>
+<dt>Glossy Depth Cycles Only</dt><dd><p>Number of times the ray has gone through glossy reflection or transmission.</p>
+</dd>
+<dt>Transparent Depth Cycles Only</dt><dd><p>Returns the number of transparent surfaces passed through.</p>
+</dd>
+<dt>Transmission Depth Cycles Only</dt><dd><p>Replace a Transmission light path after X bounces with another shader, e.g. a Diffuse one.
+This can be used to avoid black surfaces, due to low amount of max bounces.</p>
+</dd>
+</dl>
+</section>
+<section id="eevee-support">
+<h2>Eevee Support</h2>
+<p>Eevee has no real concept of rays. But in order to ease the workflow between Cycles and Eevee
+some of the outputs are only supported in particular cases.
+This node makes it possible to tweak indirect lighting in the shader.</p>
+<p>Only a subset of the outputs are supported and the ray depth does not exactly have the same meaning.
+In order for the <em>Is Camera</em>, <em>Is Shadow</em>, <em>Is Diffuse</em>, and <em>Is Glossy</em> outputs to work,
+the object must be inside an <a href="../../eevee/light_probes/irradiance_volumes.html">Irradiance Volume</a>
+and <a href="../../eevee/render_settings/indirect_lighting.html">Indirect Lighting</a> must be baked.</p>
+<ul>
+<li><p><em>Is Camera</em>: Supported.</p></li>
+<li><p><em>Is Shadow</em>: Supported.</p></li>
+<li><p><em>Is Diffuse</em>: Supported.</p></li>
+<li><p><em>Is Glossy</em>: Supported.</p></li>
+<li><p><em>Is Singular</em>: Not supported. Same as Is Glossy.</p></li>
+<li><p><em>Is Reflection</em>: Not supported. Same as Is Glossy.</p></li>
+<li><p><em>Is Transmission</em>: Not supported. Same as Is Glossy.</p></li>
+<li><p><em>Ray Length</em>: Not supported. Defaults to 1.0.</p></li>
+<li><p><em>Ray Depth</em>: Indicates the current bounce when baking the light cache.</p></li>
+<li><p><em>Diffuse Depth</em>: Same as Ray Depth but only when baking diffuse light.</p></li>
+<li><p><em>Glossy Depth</em>: Same as Ray Depth but only when baking specular light.</p></li>
+<li><p><em>Transparent Depth</em>: Not supported. Defaults to 0.</p></li>
+<li><p><em>Transmission Depth</em>: Not supported. Same as Glossy Depth.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p><em>Is Glossy</em> does not work with Screen Space Reflections/Refractions
+but does work with reflection planes (whether used with SSR or not).</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Rigid Body &gt; Constraints &gt; Types &gt; Motor</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Rigid Body</a></li>
+<li><a href="../index.html">Rigid Body Constraints</a></li>
+<li><a href="index.html">Types</a></li>
+<li>Motor Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="motor-constraint">
+<h1>Motor Constraint</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Rigid Body Constraint</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Motor</p>
+</dd>
+</dl>
+</div>
+<p>The motor constraint causes translation and/or rotation between two entities.
+It can drive two objects apart or together.
+It can drive simple rotation, or rotation and translation
+(although it will not be constrained like a screw since the translation
+can be blocked by other physics without preventing rotation).</p>
+<p>The rotation axis is the X axis of the object hosting the constraint.
+This is in contrast with the Hinge which uses the Z axis.
+Since the Motor is vulnerable to confusing perturbations without a matching Hinge constraint,
+special care must be taken to align the axes.
+Without proper alignment, the motor will appear to have no effect
+(because the hinge is preventing the motion of the motor).</p>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Linear Motor/Angular Motor</dt><dd><dl>
+<dt>Enable</dt><dd><p>Enable linear or angular motor respectively.</p>
+<dl>
+<dt>Target Velocity</dt><dd><p>Target linear or angular motor velocity respectively.</p>
+</dd>
+<dt>Max Impulse</dt><dd><p>Maximum linear or angular motor impulse respectively.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

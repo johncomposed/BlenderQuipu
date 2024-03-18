@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Attributes Reference</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Geometry Nodes</a></li>
+<li>Attributes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="attributes">
+<h1>Attributes</h1>
+<p>An <em>attribute</em> is a generic term to describe data stored per-element in a geometry data-block.
+For example, every vertex can have an associated number or vector.
+Attributes can be altered by connecting a value to the <em>Group Output</em> node,
+but also many nodes can change the values of specific attributes.</p>
+<div>
+<p>Note</p>
+<p>Attribute data types and domains are converted implicitly where possible, just like node sockets.</p>
+</div>
+<section id="named-attributes">
+<h2>Named Attributes</h2>
+<p>Named attributes are created and used in other areas of Blender like shaders, painting, and UV mapping.
+In the <a href="../modifiers/generate/geometry_nodes.html">modifier panel</a>, a named attribute can
+be used for input by clicking the icon to the right of the value button. The string input input
+allows you to search and choose existing attributes from the modifier’s input geometry.</p>
+<figure id="id4">
+<figcaption>
+<p>Attribute Search.</p>
+</figcaption>
+</figure>
+<p>The attribute search gives a bit of context about each attribute.
+To the left of the menu, the attribute domain is shown followed by the attribute name.
+To the right of the menu, the attribute data type is shown.</p>
+</section>
+<section id="anonymous-attributes">
+<h2>Anonymous Attributes</h2>
+<figure id="id5">
+<figcaption>
+<p>The Normal and Rotation outputs are examples of attribute fields,
+which refer to an attribute stored on a geometry.</p>
+</figcaption>
+</figure>
+<p>An anonymous attribute is a set of generic data stored on a geometry that doesn’t have a name.
+Usually, attributes exposed in Blender’s interface all have names. However,
+in geometry nodes, attributes can be passed around with node sockets.
+In these cases, an <em>Attribute Field</em> output is created, which is used by
+nodes to find attribute data in an input geometry.</p>
+<p>Anonymous attributes are still stored on the geometry like other attributes, and they are even
+automatically interpolated when the geometry changes with other nodes, except for a few cases.
+So generally, if the node link is still accessible, the attribute it references will be available
+too. However, anonymous attributes cannot be connected to a completely separate geometry
+that was created from a different source. To transfer attributes between separate geometries,
+the <a href="geometry/sample/sample_index.html">Sample Index Node</a> or other similar nodes like the
+<a href="mesh/sample/sample_nearest_surface.html">Sample Nearest Surface Node</a> can be used.</p>
+</section>
+<section id="attribute-data-types">
+<h2>Attribute Data Types</h2>
+<p>The type of an attribute is the kind of data stored at each element.</p>
+<blockquote>
+<div><dl>
+<dt>Boolean:</dt>
+<dd><p>True or false value</p>
+</dd>
+<dt>Integer:</dt>
+<dd><p>32-bit integer</p>
+</dd>
+<dt>8-Bit Integer:</dt>
+<dd><p>Smaller integer with a range from -128 to 127</p>
+</dd>
+<dt>Float:</dt>
+<dd><p>Floating-point value</p>
+</dd>
+<dt>Vector:</dt>
+<dd><p>3D vector with floating-point values</p>
+</dd>
+<dt>2D Vector:</dt>
+<dd><p>2D vector with floating-point values</p>
+</dd>
+<dt>Color:</dt>
+<dd><p>RGBA color with 32-bit floating-point values</p>
+</dd>
+<dt>Byte Color:</dt>
+<dd><p>RGBA color with 8-bit positive integer values</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The above list is in the order of least to most “complex” (An integer can contain more data than a
+boolean, so it is more complicated). When joining separate geometries together, the more complex data
+type is preferred when there are matching names. This is particularly important when joining geometry
+with named attributes with the <a href="geometry/join_geometry.html">Join Geometry Node</a></p>
+<p>To store 2D Vectors (UV maps) and Byte Colors the
+<a href="attribute/store_named_attribute.html">Store Named Attribute Node</a> must be
+used because there are no sockets for those types.</p>
+</section>
+<section id="attribute-domains">
+<h2>Attribute Domains</h2>
+<p>The domain of an attribute refers to what type of geometry element the attribute corresponds to.
+Knowing the domain of an attribute is important because it defines how it may be interpolated and
+used in nodes and shading. You can use the <a href="../../editors/spreadsheet.html">Spreadsheet Editor</a>
+to determine the domains of attributes.</p>
+<ul>
+<li><p><strong>Point</strong> domain attributes are associated with single locations in space with a position:</p>
+<blockquote>
+<div><ul>
+<li><p>Vertices of a mesh</p></li>
+<li><p>Points of a point cloud</p></li>
+<li><p>Curve control points</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Edge</strong> domain attributes are associated with the edges of a mesh.</p></li>
+<li><p><strong>Face</strong> domain attributes are associated with the faces of a mesh.</p></li>
+<li><p><strong>Face Corner</strong> domain attributes are associated with the corners of the faces of the mesh.
+An example is a UV map attribute.</p></li>
+<li><p><strong>Spline</strong> domain attributes are associated with a group of connected
+curve control points.</p></li>
+<li><p><strong>Instance</strong> domain attributes exist on the <a href="instances.html">Instances</a> in a geometry.
+They can be used to store different values on copies of geometry data. Instance domain attributes are
+only supported in geometry nodes.</p></li>
+</ul>
+<p>Attributes are automatically interpolated to other domains. For example, when the
+<a href="geometry/read/position.html">Position Node</a> is connected to the selection input of
+the <a href="material/set_material.html">Set Material Node</a> node, the values are interpolated
+from the <em>Point</em> domain to the <em>Face</em> domain. Normally, domain conversions use simple averages
+for values, but <em>Boolean</em> data type attributes have special rules for interpolation:</p>
+<section id="boolean-domain-interpolation">
+<h3>Boolean Domain Interpolation</h3>
+<table>
+<thead>
+<tr><th><p>From</p></th>
+<th><p>To</p></th>
+<th><p>Conversion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>Point</p></td>
+<td><p>Edge</p></td>
+<td><p>An edge is selected if both of its vertices were selected.</p></td>
+</tr>
+<tr><td><p>Point</p></td>
+<td><p>Face</p></td>
+<td><p>A face is selected if all of its vertices were selected too.</p></td>
+</tr>
+<tr><td><p>Point</p></td>
+<td><p>Corner</p></td>
+<td><p>Each corner’s value is simply a copy of the value at its vertex.</p></td>
+</tr>
+<tr><td><p>Point</p></td>
+<td><p>Spline</p></td>
+<td><p>A spline is selected if all of its control points were selected.</p></td>
+</tr>
+<tr><td><p>Edge</p></td>
+<td><p>Point</p></td>
+<td><p>A vertex is selected if any connected edge was selected.</p></td>
+</tr>
+<tr><td><p>Edge</p></td>
+<td><p>Face</p></td>
+<td><p>A face is selected if all of its edges are selected</p></td>
+</tr>
+<tr><td><p>Edge</p></td>
+<td><p>Corner</p></td>
+<td><p>A corner is selected if its two adjacent edges were selected.</p></td>
+</tr>
+<tr><td><p>Face</p></td>
+<td><p>Point</p></td>
+<td><p>A vertex is selected if any of the connected faces were selected.</p></td>
+</tr>
+<tr><td><p>Face</p></td>
+<td><p>Edge</p></td>
+<td><p>An edge is selected if any connected face was selected.</p></td>
+</tr>
+<tr><td><p>Face</p></td>
+<td><p>Corner</p></td>
+<td><p>Each corner’s value is simply a copy of the value at its face.</p></td>
+</tr>
+<tr><td><p>Corner</p></td>
+<td><p>Point</p></td>
+<td><p>A vertex is selected if all connected face corners were selected and it is not a loose vertex.</p></td>
+</tr>
+<tr><td><p>Corner</p></td>
+<td><p>Edge</p></td>
+<td><p>An edge is selected if all corners on adjacent faces were selected.</p></td>
+</tr>
+<tr><td><p>Corner</p></td>
+<td><p>Face</p></td>
+<td><p>A face is selected if all of its corners were selected.</p></td>
+</tr>
+<tr><td><p>Spline</p></td>
+<td><p>Point</p></td>
+<td><p>Each point’s value is simply a copy of the corresponding value of the spline.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="built-in-attributes">
+<h2>Built-In Attributes</h2>
+<p>Built-in attributes always exist, and cannot be removed. Their data type and domain cannot be changed.</p>
+<table>
+<thead>
+<tr><th><p>Name</p></th>
+<th><p>Type</p></th>
+<th><p>Domain</p></th>
+<th><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p><code>position</code></p></td>
+<td><p><em>Vector</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>Built-in attribute describing vertex or point locations, in the local space of a geometry.
+Any node that changes the location of points will adjust this attribute,
+like the <a href="geometry/operations/transform_geometry.html">Transform Geometry Node</a>
+and the <a href="geometry/write/set_position.html">Set Position Node</a>.</p></td>
+</tr>
+<tr><td><p><code>radius</code></p></td>
+<td><p><em>Float</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>A built-in attribute on point clouds used to set the size for the points in the viewport.
+Also built-in on curves, where it controls the size of each curve control point when
+converted to a mesh, or for other operations.</p></td>
+</tr>
+<tr><td><p><code>id</code></p></td>
+<td><p><em>Integer</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>Created by the <a href="point/distribute_points_on_faces.html">Distribute Points on Faces</a>
+to provide stability when the shape of the input mesh changes,
+and used on instances to create motion blur.
+Values are expected to be large, with no order. This attribute is used by nodes
+that generate randomness, like the <a href="utilities/random_value.html">Random Value Node</a>.
+Unlike other built-in attributes, this attribute is not required, and can be removed.</p></td>
+</tr>
+<tr><td><p><code>material_index</code></p></td>
+<td><p><em>Integer</em></p></td>
+<td><p><em>Face</em></p></td>
+<td><p>Used to specify the material slot for every face in a mesh.</p></td>
+</tr>
+<tr><td><p><code>crease</code></p></td>
+<td><p><em>Float</em></p></td>
+<td><p><em>Edge</em></p></td>
+<td><p>Edge attribute used by the Subdivision Surface modifier.
+The values are limited to a range of 0 and 1.</p></td>
+</tr>
+<tr><td><p><code>sharp_face</code></p></td>
+<td><p><em>Boolean</em></p></td>
+<td><p><em>Face</em></p></td>
+<td><p>Attribute determining if a face should have sharp (rather than smooth) shading enabled
+in the viewport or a render.</p></td>
+</tr>
+<tr><td><p><code>resolution</code></p></td>
+<td><p><em>Integer</em></p></td>
+<td><p><em>Spline</em></p></td>
+<td><p>Determines the number of evaluated points between two control points of a spline.
+Only NURBS and Bézier splines have this attribute, for poly splines, the value is always one.</p></td>
+</tr>
+<tr><td><p><code>cyclic</code></p></td>
+<td><p><em>Boolean</em></p></td>
+<td><p><em>Spline</em></p></td>
+<td><p>Determines whether the spline has a segment that connects its first and last control points.</p></td>
+</tr>
+<tr><td><p><code>handle_left</code></p></td>
+<td><p><em>Vector</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>Describes the location of the left handle of a curve control point, on the side
+of the curve’s start. Only exists when the curve contains a Bézier spline.</p></td>
+</tr>
+<tr><td><p><code>handle_right</code></p></td>
+<td><p><em>Vector</em></p></td>
+<td><p><em>Point</em></p></td>
+<td><p>Describes the location of the right handle of a curve control point, on the side
+of the curve’s end. Only exists when the curve contains a Bézier spline.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="naming-conventions">
+<h2>Naming Conventions</h2>
+<p>These attributes do not exist by default, but are used implicitly by certain parts of Blender.
+The data type of these attributes can be changed, just like any attribute besides the built-in attributes.
+However, the attributes might be expected by Blender to have a certain type.</p>
+<table>
+<thead>
+<tr><th><p>Name</p></th>
+<th><p>Type</p></th>
+<th><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p><code>velocity</code></p></td>
+<td><p><em>Vector</em></p></td>
+<td><p>Used to create motion blur when rendering animations.</p></td>
+</tr>
+<tr><td><p><code>rest_position</code></p></td>
+<td><p><em>Vector</em></p></td>
+<td><p>Holds the position of points or vertices from before a geometry is deformed procedurally.
+Can be created automatically before <a href="../../animation/shape_keys/index.html">Shape Keys</a> and
+<a href="../modifiers/introduction.html">Modifiers</a> are evaluated with the
+<a href="../../animation/shape_keys/shape_keys_panel.html#bpy-types-object-add-rest-position-attribute">Add Rest Position</a> option.</p></td>
+</tr>
+<tr><td><p><code>surface_uv_coordinate</code></p></td>
+<td><p><em>2D Vector</em></p></td>
+<td><p>Used to describe curve attachment locations on a mesh surface, typically used for hair use cases.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="custom-attributes">
+<h2>Custom Attributes</h2>
+<p>Vertex groups, UV maps and Color Attributes are available as attributes in geometry nodes.
+They are referred to by their name.
+Naming collisions (e.g. a vertex group and a UV map with the same name) should be avoided.
+If there is a naming collision, only one of the attributes is accessible in geometry nodes.</p>
+<p>Attributes with any other name can also be created by nodes, when the name is used for the first time.</p>
+<p>Note that geometry nodes does not always produce e.g. vertex groups if a node like
+<a href="geometry/join_geometry.html">Join Geometry</a> is used.
+Similarly, if the data type of a vertex group attribute is changed from the initial “Float” type,
+the attribute will no longer be a vertex group.</p>
+</section>
+<section id="attribute-conversion-operator">
+<h2>Attribute Conversion Operator</h2>
+<p>This operator found in the <em>Attributes</em> panel of the property editor can change the
+domain or data type of an attribute.</p>
+<p>Due to ongoing development in the area of attributes, many areas of Blender can not yet work with
+the generic (identified with a name, stored on any domain with any data type) attributes used by
+geometry nodes. That makes this operator an essential workaround in some cases where existing
+tools must be used with data generated from geometry nodes.</p>
+<dl>
+<dt>Mode</dt><dd><dl>
+<dt>Generic:</dt>
+<dd><p>Interpolate and convert the attribute between the domains and data types described on this page.</p>
+</dd>
+<dt>Vertex Group:</dt>
+<dd><p>Create a <a href="../meshes/properties/vertex_groups/index.html">Vertex Group</a>
+from the attribute, which corresponds to a float attribute on the point domain.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>This operator only works on <em>original</em> object data, not including the results of modifiers,
+so any attributes added or changed by geometry nodes will not be affected. To change the type
+of an attribute generated procedurally, modifiers must be applied.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

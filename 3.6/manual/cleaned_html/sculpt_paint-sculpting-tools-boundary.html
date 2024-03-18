@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Boundary</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Boundary</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="boundary">
+<h1>Boundary</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Boundary</p>
+</dd>
+</dl>
+</div>
+<p>Similar to the <a href="pose.html">Pose</a> brush
+but deforms the open boundaries of a mesh.
+The tool detects the mesh boundary closest to the active vertex and
+propagates the deformation using the brush <a href="../../brush/falloff.html">Falloff</a> into the mesh.</p>
+<p>The main use cases of this brush are the <em>Bend</em> and <em>Expand</em> geometry,
+which leads to the best results on evenly distributed quad based topology.
+Use the <em>Inflate</em>, <em>Grab</em>, <em>Twist</em>, and <em>Smooth</em> deformation modes,
+to further adjustments and tweaks to the result
+(which do not depend that much on a clean topology).</p>
+<div>
+<p>Tip</p>
+<p>Boundaries to hidden geometry will also be counted as an open boundary.</p>
+</div>
+<p>The boundary origin is displayed via a white line, which indicates the reach of the deformation.
+The targeted boundary that will be deformed is highlighted in the brush cursor color.</p>
+<p>If the <a href="../../brush/brush_settings.html#bpy-types-brush-deform-target">Deformation Target</a>
+is changed, the brush can also be used for cloth sculpting.</p>
+<div>
+<p>Note</p>
+<p>Evenly distributed and quad based topology will lead to much better results.
+Triangles and N-gons are also supported but may lead to unpredictable outcomes.</p>
+</div>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<section id="general">
+<h3>General</h3>
+<div>
+<p>Note</p>
+<p>More info at <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-general">General</a> brush settings
+and on <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-advanced">Advanced</a> brush settings.</p>
+</div>
+</section>
+<section id="unique">
+<h3>Unique</h3>
+<dl id="bpy-types-brush-boundary-deform-type">
+<dt>Deformation</dt><dd><p>Deformation type that is used by the brush.</p>
+<dl>
+<dt>Bend</dt><dd><p>Rotates the boundary around the local Y axis.
+Useful for creating folding shapes, like sleeves.</p>
+</dd>
+<dt>Expand</dt><dd><p>Moves/extends the mesh boundary in the local X direction.
+Useful for extending the boundaries along the surface.</p>
+</dd>
+<dt>Inflate</dt><dd><p>Works similar to the <a href="inflate.html">Inflate</a> tool but,
+the vertices that are inflated are constrained to the mesh boundary.</p>
+</dd>
+<dt>Grab</dt><dd><p>Works similar to the <a href="grab.html">Grab</a> tool but,
+the vertices that are grabbed are constrained to the mesh boundary.</p>
+</dd>
+<dt>Twist</dt><dd><p>Rotates the active boundary around the local Z axis.
+Useful for creating folds like on a skirt.</p>
+</dd>
+<dt>Smooth</dt><dd><p>Works similar to the <a href="smooth.html">Grab</a> tool but,
+the vertices that are smoothed are constrained to the mesh boundary.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-boundary-falloff-type">
+<dt>Boundary Falloff</dt><dd><p>How the brush <a href="../../brush/falloff.html">Falloff</a> is applied across the boundary.</p>
+<dl>
+<dt>Constant</dt><dd><p>Applies the same deformation in the entire boundary.</p>
+</dd>
+<dt>Brush Radius</dt><dd><p>Applies the deformation only within the brush radius.</p>
+</dd>
+<dt>Loop</dt><dd><p>Applies the brush falloff in a loop pattern along the boundary.</p>
+</dd>
+<dt>Loop and Invert</dt><dd><p>Applies the falloff radius in a loop pattern,
+inverting the direction back &amp; forth.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-boundary-offset">
+<dt>Boundary Origin Offset</dt><dd><p>Offset of the boundary origin in relation to the brush radius.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

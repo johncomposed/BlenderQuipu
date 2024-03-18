@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Object Settings &gt; Object Data</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Object Settings</a></li>
+<li>Object</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="object">
+<h1>Object</h1>
+<section id="visibility">
+<h2>Visibility</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Object Properties ‣ Visibility</p>
+</dd>
+</dl>
+</div>
+<div>
+<p>See also</p>
+<p>There are several other <a href="../../../scene_layout/object/properties/visibility.html">general visibility</a> properties.</p>
+</div>
+<dl id="bpy-types-object-is-shadow-catcher">
+<dt>Mask</dt><dd><dl>
+<dt>Shadow Catcher</dt><dd><p>Enables the object to only receive shadow rays. It is to be noted that,
+shadow catcher objects will interact with other CG objects via indirect light interaction.
+This simplifies compositing <abbr title="Computer-Generated Imagery">CGI</abbr> elements into real-world footage.</p>
+<div>
+<p>Note</p>
+<p>The <em>Shadow Catcher</em> outputs different results depending on if the <em>Shadow Catcher</em> pass is enabled in
+<a href="../../layers/passes.html#render-layers-passes-data">Render Layer</a> settings. With the <em>Shadow Catcher</em> pass enabled, all
+indirect light interactions are captured. With it disabled, a simple approximation is used instead.
+The simple approximation is used in viewport rendering.</p>
+</div>
+<figure id="id4">
+<figcaption>
+<p>Example of the shadow catcher. Note how the material of the plane can still be viewed in the spheres.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="ray-visibility">
+<h3>Ray Visibility</h3>
+<p>Objects can be set to be invisible to particular ray types.
+This can be used, for example, to make an emitting mesh invisible to camera rays.
+For instanced objects, visibility is inherited; if the parent object is hidden for some ray types,
+the children will be hidden for these too.</p>
+<p>In terms of performance, using these options is more efficient that using a shader node setup
+that achieves the same effect.
+Objects invisible to a certain ray will be skipped in ray traversal already,
+leading to fewer ray casts and shader executions.</p>
+<dl id="bpy-types-object-visible-camera">
+<dt>Camera</dt><dd><p>Makes the object visible in camera rays.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-visible-diffuse">
+<dt>Diffuse</dt><dd><p>Makes the object visible in diffuse rays.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-visible-glossy">
+<dt>Glossy</dt><dd><p>Makes the object visible in glossy rays.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-visible-transmission">
+<dt>Transmission</dt><dd><p>Makes the object visible in transmission rays.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-visible-volume-scatter">
+<dt>Volume Scatter</dt><dd><p>Makes the object visible in volumetric scatter rays.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-visible-shadow">
+<dt>Shadow</dt><dd><p>Enables the object to cast shadows.</p>
+</dd>
+</dl>
+</section>
+<section id="culling">
+<h3>Culling</h3>
+<p>In order to activate these options the respectively camera cull options have to be enabled
+in the scene <a href="../render_settings/simplify.html#render-cycles-settings-scene-simplify-culling">simplify panel</a>.</p>
+<dl id="bpy-types-cyclesobjectsettings-use-camera-cull">
+<dt>Use Camera Cull</dt><dd><p>Ignore and this way make objects invisible to rays outside of the camera frustum.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesobjectsettings-use-distance-cull">
+<dt>Use Distance Cull</dt><dd><p>Will cull any objects further from the camera than a given distance. When used in combination with
+camera frustum culling, this can be used to avoid culling nearby objects that are outside the camera frustum,
+but still visible in reflections. It is also useful to cull small objects far from the camera.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="motion-blur">
+<h2>Motion Blur</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Properties ‣ Motion Blur</p>
+</dd>
+</dl>
+</div>
+<p>Each object has its own motion blur settings along with
+the <a href="../render_settings/motion_blur.html">Scene Level Motion Blur</a>.
+These settings can be found in the Object Properties tab of the Properties.</p>
+<dl id="bpy-types-cyclesobjectsettings-motion-steps">
+<dt>Steps</dt><dd><p>Controls accuracy of deformation motion blur, more steps uses more memory.
+The actual number of time steps is \(2^{steps -1}\).</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesobjectsettings-use-deform-motion">
+<dt>Deformation</dt><dd><p>Enables motion blur for deformed meshes such as animated characters, including hair.</p>
+<div>
+<p>Warning</p>
+<p>An object modifier setup that changes mesh topology over time can not render
+deformation motion blur correctly. Deformation blur should be disabled for such objects.
+Common examples of this are animated Booleans, Deformation
+before Edge Split, Remesh, Skin or Decimate modifiers.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="shading">
+<h2>Shading</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Properties ‣ Shading</p>
+</dd>
+</dl>
+</div>
+<section id="shadow-terminator">
+<h3>Shadow Terminator</h3>
+<dl id="bpy-types-cyclesobjectsettings-shadow-terminator-geometry-offset">
+<dt>Geometry Offset</dt><dd><p>Offset rays from the surface to reduce shadow terminator artifacts on low-poly geometry.
+Higher values affect more triangles, a value of one affecting all triangles and zero having no affect.
+The default value only affects triangles at grazing angles to light and should eliminate most artifacts.</p>
+<p>Unlike the <em>Shading Offset</em>, this option has little affect on the lighting
+making it the preferable method to handle shadow terminator artifacts.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesobjectsettings-shadow-terminator-offset">
+<dt>Shading Offset</dt><dd><p>Pushes the shadow terminator (the line that divides the light and dark) towards the light
+to hide artifacts on low-poly geometry such as the ones below:</p>
+<table>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Shadow Terminator Artifacts.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Result of using an offset of 0.15.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>Note</p>
+<p>This property artificially alters the scene’s lighting
+and is not energy conserving and consequently not physically accurate (see <em>Geometry Offset</em> instead).</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="fast-gi-approximation">
+<h3>Fast GI Approximation</h3>
+<dl id="bpy-types-cyclesobjectsettings-ao-distance">
+<dt>AO Distance</dt><dd><p>Override for the world’s <a href="../render_settings/light_paths.html#bpy-types-cyclesrendersettings-use-fast-gi">AO Distance</a>,
+if the value is zero the world’s distance is used.</p>
+</dd>
+</dl>
+</section>
+<section id="caustics">
+<h3>Caustics</h3>
+<p>Mark objects as caustic casters or receivers. This is used in conjunction with a
+<a href="../light_settings.html#bpy-types-cycleslightsettings-is-caustics-light">Light</a> or
+<a href="../world_settings.html#bpy-types-cyclesworldsettings-is-caustics-light">World Shader</a> with <em>Shadow Caustics</em> enabled
+to selectively speed up caustic rendering of objects in your scene.</p>
+<div>
+<p>Note</p>
+<p>The rendering technique used to speed up the rendering of caustics is based on
+<abbr title="Manifold Next Event Estimation">MNEE</abbr>. There are a number of limitations with this technique
+and it’s implementation in Cycles:</p>
+<ul>
+<li><p>Only refractive caustics in the shadows of objects work. Caustics from reflections or caustics that
+fall outside shadows are not rendered with this technique.</p></li>
+<li><p>MNEE Caustics are an approximation of caustics and will produce physically inaccurate results
+in many situations. Examples include incorrect brightnesses and the incorrect representation of
+caustics caused by rough or curved surfaces.</p></li>
+<li><p>In complex materials with multiple refractive BSDFs, MNEE will only generate caustics for one of
+the BSDFs.</p></li>
+<li><p><a href="../render_settings/light_paths.html#bpy-types-cyclesrendersettings-blur-glossy">Filter Glossy</a> settings are ignored when using
+MNEE for refractive caustics.</p></li>
+<li><p>MNEE Caustic rays can pass through up to 6 Caustic Caster surfaces between a Caustic Receiver and a
+Shadow Caustic light before the ray is terminated and caustics are ignored.</p></li>
+<li><p>The <a href="../../shader_nodes/input/ao.html#bpy-types-shadernodeambientocclusion">Ambient Occlusion</a> and
+<a href="../../shader_nodes/input/bevel.html#bpy-types-shadernodebevel">Bevel</a> nodes will not produce a valid result on objects that are
+a Caustic caster or Caustic receiver while the scene contains a active Caustic caster,
+Caustic receiver, and <a href="../light_settings.html#bpy-types-cycleslightsettings-is-caustics-light">Shadow Caustic Light</a>.</p></li>
+<li><p>MNEE Caustics only work if the caustic caster has smooth normals.</p></li>
+<li><p>Volumetric materials are not considered when calculating MNEE caustics.</p></li>
+<li><p>Bump and normal maps are ignored when calculating caustics.</p></li>
+</ul>
+</div>
+<dl id="bpy-types-cyclesobjectsettings-is-caustics-caster">
+<dt>Cast Shadow Caustics</dt><dd><p>Mark an object as a caustic caster.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesobjectsettings-is-caustics-receiver">
+<dt>Receive Shadow Caustics</dt><dd><p>Mark an object as a caustic receiver.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Rendering caustics inside an eye without MNEE at 32 samples per pixel.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Rendering caustics inside an eye using MNEE at 32 samples per pixel.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="light-group">
+<h3>Light Group</h3>
+<dl id="bpy-types-object-lightgroup">
+<dt>Light Group</dt><dd><p>Select the <a href="../../layers/passes.html#bpy-types-viewlayer-active-lightgroup-index">Light Group</a> to add the
+current <em>Object</em> or <em>Light</em> too.</p>
+<dl>
+<dt>Add Light Group</dt><dd><p>If the name input into the <em>Light Group</em> field does not align with an existing
+Light Group, then pressing this button will create a <em>Light Group</em> with that name
+and assign the selected <em>Object</em> or <em>Light</em> to it.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

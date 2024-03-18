@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Input &gt; Scene &gt; Collection Info</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Input Nodes</a></li>
+<li><a href="index.html">Input Scene Data Nodes</a></li>
+<li>Collection Info Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="collection-info-node">
+<h1>Collection Info Node</h1>
+<p>The <em>Collection Info</em> node gets information from collections.
+This can be useful to control parameters in the geometry node tree with an external collection.</p>
+<div>
+<p>Tip</p>
+<p>A <em>Collection Info</em> node can be added quickly by dragging a collection into the node editor.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Collection</dt><dd><p>Collection to get the properties from.</p>
+</dd>
+<dt>Separate Children</dt><dd><p>Output each child of the collection as a separate instance. The list of instances will be sorted
+alphabetically with the objects and child collections sorted together. This can be used with
+the <em>Pick Instance</em> option in the <a href="../../instances/instance_on_points.html">Instance on Points Node</a> to
+choose between collection children at each point.</p>
+</dd>
+<dt>Reset Children</dt><dd><p>Remove the transform of each of the collection’s children when converting them to instances.
+This is useful in order to keep child objects visually separate in the viewport,
+while keeping every instance located directly at the location of the point it was added for.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Transform Space</dt><dd><p>The transformation of the output instances. The instances are transformed, but not the geometry of the
+collection in them.</p>
+<dl>
+<dt>Original:</dt>
+<dd><p>Output the instances relative to the collection offset.</p>
+</dd>
+<dt>Relative:</dt>
+<dd><p>Join the input collection instances with the modified object as geometry,
+maintaining the relative position between the objects in the scene.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Instances</dt><dd><p>Instances of the collection in world space with all modifiers applied and represented as geometry in instances.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

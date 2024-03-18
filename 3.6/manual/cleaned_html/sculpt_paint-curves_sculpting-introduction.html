@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Curves Sculpting &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="index.html">Curves Sculpting</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p><em>Curves Sculpt Mode</em> allows working with curves using various brushes.
+It is commonly used for hair grooming, but can be used with all kinds of curves.</p>
+<p>The curves’ surface object plays an important role in many curves sculpting brushes.
+Most brushes such as <a href="tools/add_curves.html">Add Curves</a>
+require the surface to be set already.</p>
+<div>
+<p>Note</p>
+<p>Curves Sculpt tools only use the original mesh of the surface object and don’t take its modifiers into account.</p>
+</div>
+<section id="curves-menu">
+<h2>Curves Menu</h2>
+<dl id="bpy-ops-curves-snap-curves-to-surface">
+<dt>Snap to Deformed Surface</dt><dd><p>Re-attach curves to a deformed surface using the existing attachment information.
+This only works when the topology of the surface mesh has not changed.</p>
+</dd>
+<dt>Snap to Nearest Surface</dt><dd><p>Find the closest point on the surface for the root point of every curve and move the root there.
+This needs to be run after the surface mesh topology changed</p>
+</dd>
+</dl>
+<dl id="bpy-ops-curves-convert-to-particle-system">
+<dt>Convert to Particle System</dt><dd><p>Add a new hair particle system, or update an system on the surface object.
+The operator is used for backwards compatibility with the old
+<a href="../../physics/particles/hair/introduction.html">hair type particle system</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="selection-modes">
+<h2>Selection Modes</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>3D Viewport Header ‣ Select Mode</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>1</kbd>, <kbd>2</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Selection modes limits selection operators to certain curve domains.
+This feature is makes it easy to select whole segments at once, or to give more granular control over editing.</p>
+<dl>
+<dt>Control Points:</dt>
+<dd><p>Allows selection of individual control points.</p>
+</dd>
+<dt>Curve:</dt>
+<dd><p>Limits selection to whole curve segments.</p>
+</dd>
+</dl>
+</section>
+<section id="select-menu">
+<h2>Select Menu</h2>
+<dl id="bpy-ops-curves-select-all">
+<dt>All</dt><dd><p>Select all control points or curves.</p>
+</dd>
+<dt>None</dt><dd><p>Deselect all control points or curves.</p>
+</dd>
+<dt>Invert</dt><dd><p>Invert the selection.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sculpt-curves-select-random">
+<dt>Random</dt><dd><p>Randomizes inside the existing selection or create new random selection if nothing is selected already.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sculpt-curves-select-end">
+<dt>Endpoints</dt><dd><p>Select endpoints of curves.
+Only supported in the Control Point selection mode.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sculpt-curves-select-grow">
+<dt>Grow</dt><dd><p>Select points or curves which are close to already selected elements.</p>
+</dd>
+</dl>
+</section>
+<section id="controls">
+<h2>Controls</h2>
+<p>Sculpt mode provides several properties that give advanced control of the tool’s behavior.
+These options can be found in the right-hand side of the 3D Viewport’s Header.</p>
+<dl id="bpy-types-curves-use-mirror-z">
+<dt>Mirror</dt><dd><p>Allows tools to affect curves symmetrically according to the chosen axis.</p>
+</dd>
+</dl>
+<dl id="bpy-types-curves-use-sculpt-collision">
+<dt>Use Sculpt Collision</dt><dd><p>Prevents the curve segments from passing through the <a href="../../modeling/curves/primitives.html#bpy-types-curves-surface">Surface Object</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="display">
+<h2>Display</h2>
+<section id="overlays">
+<h3>Overlays</h3>
+<dl id="bpy-types-view3doverlay-sculpt-curves-cage-opacity">
+<dt>Cage Opacity</dt><dd><p>Shows the original curves that are currently being edited
+which is useful with when procedural deformations or child curves are used.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

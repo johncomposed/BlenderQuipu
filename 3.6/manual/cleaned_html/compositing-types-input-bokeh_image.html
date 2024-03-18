@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Input &gt; Bokeh Image</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Input Nodes</a></li>
+<li>Bokeh Image Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bokeh-image-node">
+<h1>Bokeh Image Node</h1>
+<p>The <em>Bokeh Image</em> node generates a special input image for use with
+the <a href="../filter/bokeh_blur.html">Bokeh Blur</a> filter node.</p>
+<p>The <em>Bokeh Image</em> node is designed to create a reference image which simulates optical parameters
+such as aperture shape and lens distortions which have important impacts on bokeh in real cameras.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no input sockets.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>The first three settings simulate the aperture of the camera.</p>
+<dl>
+<dt>Flaps</dt><dd><p>Sets an integer number of blades for the cameras iris diaphragm.</p>
+</dd>
+<dt>Angle</dt><dd><p>Gives these blades an angular offset relative to the image plane.</p>
+</dd>
+<dt>Rounding</dt><dd><p>Sets the curvature of the blades with (0 to 1) from straight to bringing them to a perfect circle.</p>
+</dd>
+<dt>Catadioptric</dt><dd><p>Provides a type of distortion found in mirror lenses and some telescopes.
+This can be useful to produce a visual complex bokeh.</p>
+</dd>
+<dt>Lens Shift</dt><dd><p>Introduces chromatic aberration into the blur such as would be caused by a tilt-shift lens.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>The generated bokeh image.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>In the example below the <em>Bokeh Image</em> is used to define the shape of the bokeh for
+the <a href="../filter/bokeh_blur.html">Bokeh Blur</a> node.</p>
+<figure id="id1">
+<figcaption>
+<p>Example of Bokeh Image node.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

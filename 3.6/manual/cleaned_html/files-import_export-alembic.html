@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Import Export &gt; Alembic</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="../import_export.html">Importing &amp; Exporting Files</a></li>
+<li>Alembic</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="alembic">
+<h1>Alembic</h1>
+<p>From the <a href="https://www.alembic.io/">Alembic home page</a>:</p>
+<blockquote>
+<div><p>Alembic is an open computer graphics interchange framework. Alembic distills complex, animated
+scenes into a non-procedural, application-independent set of baked geometric results.
+This ‘distillation’ of scenes into baked geometry is exactly analogous to the distillation of
+lighting and rendering scenes into rendered image data.</p>
+<p>Alembic is focused on efficiently storing the computed results of complex procedural geometric constructions.
+It is very specifically <strong>not</strong> concerned with storing the complex dependency graph
+of procedural tools used to create the computed results.
+For example, Alembic will efficiently store the animated vertex positions and
+animated transforms that result from an arbitrarily complex animation and simulation process
+which could involve enveloping, corrective shapes, volume-preserving simulations,
+cloth and flesh simulations, and so on.
+Alembic will not attempt to store a representation of the network of computations (rigs, basically)
+which are required to produce the final, animated vertex positions and animated transforms.</p>
+</div></blockquote>
+<p>In brief, Alembic can be used to write an animated mesh to a drive, and read it back quickly and efficiently.
+This means that a mesh can be animated with a very CPU-intensive rig and then ‘baked’ to an Alembic file.
+Finally it can be load into the shot file for shading and lighting with only moderate CPU usage.</p>
+<p>Due to the Open Source nature of the Alembic standard as well as
+the C++ library implementing that standard, <strong>Blender can be used in a hybrid pipeline</strong>.
+For example, other software, such as Houdini or Maya, can export files to Alembic,
+which can then be loaded, shaded, and rendered in Blender.
+It is also possible to animate characters (or other models) in Blender, export to Alembic, and
+load those files into other software for further processing.</p>
+<section id="exporting-to-alembic-files">
+<h2>Exporting to Alembic Files</h2>
+<p>This section describes the effect of the different export options.</p>
+<section id="manual-transform">
+<h3>Manual Transform</h3>
+<figure id="id1">
+<figcaption>
+<p>Generic and Scene Alembic Export options.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Scale</dt><dd><p>This sets the global scale of the Alembic file. Keep it at the default value of 1.0 to use
+Blender’s units.</p>
+</dd>
+</dl>
+</section>
+<section id="scene-options">
+<h3>Scene Options</h3>
+<dl>
+<dt>Frame Start, End</dt><dd><p>Sets the frame range to export to Alembic. This defaults to the current scene frame range.</p>
+</dd>
+<dt>Sub-frame Sampling</dt><dd><p>These options control the sub-frame sampling of animations.</p>
+<dl>
+<dt>Samples Transform</dt><dd><p>Transform Samples sets the number of times per frame at which animated transformations
+are sampled and written to Alembic.</p>
+</dd>
+<dt>Geometry</dt><dd><p>Geometry Samples sets the same, but then for animated geometry.</p>
+</dd>
+<dt>Shutter Open, Close</dt><dd><p>Shutter Open/Close define the interval [open, close] over which those samples are taken.
+The valid range is -1 to 1, where -1 indicates the previous frame,
+0 indicates the current frame, and 1 indicates the next frame.</p>
+<p>For example, if information for detailed mesh motion blur is desired, some subframes around
+the current frame can be written to Alembic by using a sample count of 5,
+Shutter Open at -0.25 and Shutter Close at 0.25.
+This mimics a “180 degree” shutter, opening 90 degrees before the frame
+and closing 90 degrees after the frame.</p>
+</dd>
+</dl>
+</dd>
+<dt>Flatten Hierarchy</dt><dd><p>When disabled, parent/child relations between objects are exported too. Any parent object that
+is not exported itself, but with children that <em>are</em> exported, is replaced by an empty.
+When enabled, parent/child relations are not exported, and transformations are all written in world coordinates.</p>
+</dd>
+<dt>Use Instancing</dt><dd><p>Exports data of <a href="../../scene_layout/object/editing/duplicate_linked.html">duplicated</a>
+or <a href="../../scene_layout/object/properties/instancing/index.html">instanced</a> objects as Alembic instances;
+speeds up the export and can be disabled for compatibility with other software.</p>
+</dd>
+<dt>Custom Properties</dt><dd><p>When enabled (which it is by default), custom properties are exported to Alembic as well.
+The following custom property types are supported:</p>
+<ul>
+<li><p>Numbers (<code>int</code>, <code>float</code>) and strings. These are exported as arrays of
+a single element, so <code>47</code> will be exported as <code>[47]</code> to Alembic,
+and <code>"Agent"</code> to <code>["Agent"]</code>. This matches the behavior of
+many other <abbr title="Digital Content Creator">DCCs</abbr>.</p></li>
+<li><p>Lists of numbers and strings. These are exported as-is, so <code>[327, 47]</code> is exported as <code>[327, 47]</code>.</p></li>
+<li><p>Matrices and nested arrays of numbers. These are flattened into one long list,
+so a 3×2 matrix of numbers will become a list of 6 numbers. Similarly,
+nested lists <code>[[1, 2, 3], [4, 5], [6]]</code> will be exported as <code>[1, 2, 3, 4, 5, 6]</code>.</p></li>
+<li><p>Numbers can be animated as well.</p></li>
+</ul>
+</dd>
+<dt>Only</dt><dd><dl>
+<dt>Selected Objects</dt><dd><p>When enabled, exports only the selected objects. When disabled, all objects are exported.</p>
+</dd>
+<dt>Visible Objects</dt><dd><p>Limits the export to scene collections that are currently visible.</p>
+</dd>
+</dl>
+</dd>
+<dt>Use Settings For</dt><dd><p>Determines visibility of objects, modifier settings,
+and other areas where there are different settings for viewport and rendering.</p>
+<dl>
+<dt>Render:</dt>
+<dd><p>Use Render settings for object visibility, modifier settings, etc.</p>
+</dd>
+<dt>Viewport:</dt>
+<dd><p>Use Viewport settings for object visibility, modifier settings, etc.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="object-options">
+<h3>Object Options</h3>
+<figure id="id2">
+<figcaption>
+<p>Object options.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>UVs</dt><dd><p>When enabled, UV maps are exported. Although the Alembic standard only supports
+a single UV map, Blender exports all UV maps in a way that should be readable by other software.</p>
+</dd>
+<dt>Pack UV Islands</dt><dd><p>Generates an optimized UV layout with non-overlapping islands
+that tries to efficiently fill the <a href="../../glossary/index.html#term-Texture-Space">Texture Space</a>.
+See the <a href="../../modeling/meshes/uv/editing.html#bpy-ops-uv-pack-islands">Pack Islands operator</a>
+that works with the same principle for more information.</p>
+</dd>
+<dt>Normals</dt><dd><p>When enabled, an object’s <a href="../../glossary/index.html#term-Normal">Normals</a> are exported.
+See <a href="#custom-split-normals-of-meshes">Custom Split Normals of Meshes</a> below for more information.</p>
+</dd>
+<dt>Color Attributes</dt><dd><p>When enabled, exports Color Attributes.</p>
+</dd>
+<dt>Face Sets</dt><dd><p>Exports the material names per face. The material data is not exported but only material names.</p>
+</dd>
+<dt>Subdivisions</dt><dd><dl>
+<dt>Apply</dt><dd><p>Applies any <a href="../../modeling/modifiers/generate/subdivision_surface.html">Subdivision Surface modifiers</a>
+before writing to Alembic.</p>
+</dd>
+<dt>Use Schema</dt><dd><p>Writes polygonal meshes using the “SubD” Alembic schema, rather than the “PolyMesh” schema.
+This sets an import option for the program, with which the file is opened,
+to apply its form of a non-destructive subdivision.</p>
+</dd>
+</dl>
+</dd>
+<dt>Triangulate</dt><dd><p>Triangulates the mesh before writing to Alembic. For more detail on the specific option see
+the <a href="../../modeling/modifiers/generate/triangulate.html">Triangulate modifier</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="particle-systems">
+<h3>Particle Systems</h3>
+<figure id="id3">
+<figcaption>
+<p>Particle Systems options.</p>
+</figcaption>
+</figure>
+<p>Alembic has no support for Particle Systems, in the same way that it does not support armatures.
+Hair is exported as animated zero-width curves. Particles are exported as animated points.</p>
+</section>
+</section>
+<section id="importing-alembic-files">
+<h2>Importing Alembic Files</h2>
+<p>When importing an Alembic file, <a href="../../modeling/modifiers/modify/mesh_sequence_cache.html">Mesh Sequence Cache modifiers</a>
+are automatically added to time-varying meshes. For time-varying object transforms
+(so animation of rotation, location, or scale)
+the <a href="../../animation/constraints/transform/transform_cache.html#bpy-types-transformcacheconstraint">Transform Cache Constraint</a> is used.</p>
+</section>
+<section id="custom-split-normals-of-meshes">
+<h2>Custom Split Normals of Meshes</h2>
+<p>Blender supports the import and export of <a href="../../modeling/meshes/structure.html#modeling-meshes-normals-custom">custom normals</a> to
+Alembic files. As a basic rule of thumb, a completely smooth mesh will be exported without normals
+and thus produce the smallest Alembic file. This is reflected in the importer; an Alembic mesh
+without normals is loaded as a smooth mesh.</p>
+<p>On export, for every mesh:</p>
+<ul>
+<li><p>If it has <em>Custom Loop Normals</em> then the loop normals are exported.</p></li>
+<li><p>If one or more polygons are marked flat then loop normals are also exported.</p></li>
+<li><p>Otherwise, no normals are exported.</p></li>
+</ul>
+<p>On import, when the Alembic mesh contains:</p>
+<ul>
+<li><p>Loop normals (<code>kFacevaryingScope</code>) are used as custom loop normals, and enable <em>Auto Smooth</em> to have
+Blender actually use them.</p></li>
+<li><p>Vertex normals (<code>kVertexScope</code> or <code>kVaryingScope</code>) are convert to loop normals, and handle as above.</p></li>
+<li><p>If there are no normals then the mesh is marked as smooth.</p></li>
+<li><p>Unsupported normal types (<code>kConstantScope</code>, <code>kUniformScope</code>, <code>kUnknownScope</code>) are handled as <em>no normals</em>.</p></li>
+</ul>
+<p>When an imported mesh does not contain normals, the final look can be controlled by enabling
+the <a href="../../modeling/meshes/structure.html#auto-smooth">Auto Smooth</a> checkbox and altering the threshold angle.</p>
+</section>
+<section id="handling-time">
+<h2>Handling Time</h2>
+<p>Unlike Blender and many other applications and file formats, Alembic files don’t have any concept of frames.
+Alembic works purely with time, and values that are sampled over time. For example,
+there is no way to distinguish 30 FPS with 2 samples per frame, and 60 FPS with 1 sample per frame.
+This has caused many developers to just
+<a href="https://projects.blender.org/blender/blender/issues/55288">hard-coded 24 FPS</a>
+when reading Alembic files.</p>
+<p>Blender uses the current scene frame rate to convert a frame number (in Blender) to a time
+in seconds (in Alembic). As a result, you can import an Alembic file that was produced at 120 FPS into
+a Blender scene that is 30 FPS and still not see any time stretching.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

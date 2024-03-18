@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Face &gt; Extrude Faces</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Face Tools</a></li>
+<li>Extrude Faces</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="extrude-faces">
+<h1>Extrude Faces</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Face ‣ Extrude Faces</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>E</kbd></p>
+</dd>
+</dl>
+</div>
+<p><em>Extrude Faces</em> duplicate faces, while keeping the new geometry connected with the original vertices.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Single vertex extruded.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Single edge extruded.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This tool is of paramount importance for creating new geometry.
+It allows you to create parallelepipeds from rectangles and cylinders from circles,
+as well as easily creating such things as tree limbs.</p>
+<p>The axis on which faces are extruded along can be set interactively.
+Faces are extruded by default along their averaged normal.
+The extrusion can be limited to a single axis by specifying an axis;
+see <a href="../../../../scene_layout/object/editing/transform/control/axis_locking.html">Axis Locking</a>.</p>
+<p>The extrude tools differentiate in how the new geometry is connected in itself.
+Only the border loop gets extruded.
+The inner region of the selection gets moved unchanged with the extrusion.</p>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Selected face.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>During extrude.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Set to Z axis.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Flip Normals</dt><dd><p>Only the <em>normals</em> of the new faces created from the extrusion will be flipped.</p>
+</dd>
+<dt>Dissolve Orthogonal Edges</dt><dd><p>Removes and connects edges whose faces form a flat surface and intersect new edges.</p>
+</dd>
+<dt>Orientation</dt><dd><p>Aligns the transformation axes to a specified orientation constraint.
+See <a href="../../../../editors/3dview/controls/orientation.html">Transform Orientations</a> for more information.</p>
+</dd>
+<dt>Proportional Editing</dt><dd><p>The extruded face will affect nearby geometry.
+See <a href="../../../../editors/3dview/controls/proportional_editing.html">Proportional Editing</a> for a full reference.</p>
+<div>
+<p>Note</p>
+<p>Even with the <em>Proportional Size</em> set to it’s minimum,
+it will extrude the selected face as well as the new geometry and they will be layered on top of each other.</p>
+</div>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

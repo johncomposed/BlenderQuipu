@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Lattice</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Lattice Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="lattice-modifier">
+<h1>Lattice Modifier</h1>
+<p>The <em>Lattice</em> modifier deforms the base object according to
+the shape of a <a href="../../../animation/lattice.html">Lattice</a> object.
+Objects to be deformed can be meshes, curves,
+surfaces, text, lattices and even particles.</p>
+<div>
+<p>Tip</p>
+<p>A <em>Lattice</em> modifier can quickly be added to selected objects by
+<a href="../../../scene_layout/object/editing/parent.html#bpy-ops-object-parent-set">parenting</a> them using the <em>Lattice Deform</em> option.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Lattice modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Object</dt><dd><p>The <a href="../../../animation/lattice.html">Lattice</a> object with which to deform the base object.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>An optional vertex group name which lets you limit the modifier’s effect to a part of the base mesh.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+<dt>Strength</dt><dd><p>A factor to control blending between original and deformed vertex positions.</p>
+</dd>
+</dl>
+</section>
+<section id="hints">
+<h2>Hints</h2>
+<p>Why would you use a lattice to deform a mesh instead of deforming the mesh itself in Edit Mode?
+There are a couple of reasons for that:</p>
+<ul>
+<li><p>If your object has a large number of vertices, it would be difficult to edit portions of it quickly in Edit Mode.
+Using a lattice will allow you to deform large portions efficiently.</p></li>
+<li><p>The smooth deformation you get from a <em>Lattice</em> modifier can be hard to achieve manually.</p></li>
+<li><p>Multiple objects can use the same lattice, thus allowing you to edit multiple objects at once.</p></li>
+<li><p>Like all modifiers, it is non-destructive. Meaning all changes happen on top of the original geometry,
+which you can still go back to and edit without affecting the deformation.</p></li>
+<li><p>A lattice does not affect the texture coordinates of a mesh’s surface.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>When using a lattice to deform particles, order in the <a href="../introduction.html#modifier-stack">modifier stack</a> matters.
+You need to place the <em>Lattice</em> modifier after the <em>Particle System</em> one.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

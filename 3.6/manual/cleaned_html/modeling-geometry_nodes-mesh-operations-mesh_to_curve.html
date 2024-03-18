@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Operations &gt; Mesh To Curve</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Operation Nodes</a></li>
+<li>Mesh to Curve Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh-to-curve-node">
+<h1>Mesh to Curve Node</h1>
+<p>The <em>Mesh to Curve</em> node generates a curve from a mesh.
+The result is a poly spline, with a point for every selected vertex on the mesh.
+Any intersection of more than two selected edges will cause a break in the spline.
+Meaning that if a the mesh has grid-like topology and
+a continuous spline is desired, the <em>Selection</em> input is very important.</p>
+<p>Attributes will be transferred to the resulting curve, including named attributes.
+If the mesh has attributes with the names of built-in curve attributes like <code>radius</code> and <code>cyclic</code>,
+they will be copied as well.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard mesh input.</p>
+</dd>
+<dt>Selection</dt><dd><p>A field input evaluated on the edge domain to determine whether each edge will be included in the result.</p>
+<div>
+<p>Tip</p>
+<p>Using this input is more efficient than deleting parts of the geometry before or after the conversion.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Generated curve.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

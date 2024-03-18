@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Write &gt; Set Spline Resolution</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Write Curve Nodes</a></li>
+<li>Set Spline Resolution Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="set-spline-resolution-node">
+<h1>Set Spline Resolution Node</h1>
+<p>The <em>Set Spline Resolution</em> node sets the value for how many evaluated points should be generated on the curve for
+every control point. It only has an effect on <a href="../../../../glossary/index.html#term-NURBS">NURBS</a>, <a href="../../../../glossary/index.html#term-Bezier">Bézier</a>, and Catmull Rom splines. In case of
+Bézier splines, the resolution does not have an effect on segments between vector handles.</p>
+<p>The evaluated points are displayed in the viewport, used in the
+<a href="../operations/curve_to_mesh.html">Curve to Mesh Node</a> node,
+and optionally used in the <a href="../operations/resample_curve.html">Resample Curve Node</a>.</p>
+<p>The input node for this data is the <a href="../read/spline_resolution.html">Spline Resolution Node</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>Whether or not to change the resolution value on each spline. True values mean the value will be changed,
+false values mean the resolution will remain the same.</p>
+</dd>
+<dt>Resolution</dt><dd><p>The number of evaluated points generated for each control point in NURBS and Bézier splines.
+It controls the accuracy of operations like trimming or sampling a curve.
+Higher resolutions are more accurate, but slower.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

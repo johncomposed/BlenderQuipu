@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Introduction &gt; Adaptive</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Introduction</a></li>
+<li>Adaptive Resolution</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="adaptive-resolution">
+<h1>Adaptive Resolution</h1>
+<p>In order for sculpting to give accurate and predictable results, Blender needs enough geometry.
+Instead of starting out with a highly subdivided mesh, add geometry dynamically
+by using either of the following adaptive sculpting methods.</p>
+<section id="voxel-remesher">
+<h2>Voxel Remesher</h2>
+<p>“Voxel remeshing” rebuilds the geometry with a perfectly even distributed topology.
+Depending on the set voxel size, this will lead to a lower or higher resolution.</p>
+<p>This technique is especially useful to block out the initial shape of an object.
+It also has the advantage of removing any overlapping geometry and creating a manifold volume as a result.</p>
+<p>Any currently used mask, face sets and color attributes will be re-projected on the remeshed result.
+Reaching high vertex counts should still be achievable with this technique, depending on the used hardware.</p>
+<div>
+<p>Note</p>
+<p>This technique will not work on objects that do not have an enclosed volume.
+Make sure to fill any holes in the mesh before remeshing.
+Or avoid any holes in the mesh/volume that are larger than the defined voxel size.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>If in doubt, you can fill all holes in edit mode or by using the
+<a href="../editing/mask.html#bpy-ops-mesh-paint-mask-slice">Mask Slice and Fill Holes</a>
+operation to fill all holes in the mesh. If nothing is masked, it only fills any holes.</p>
+</div>
+<p>To more easily access this feature, use the shortcuts <kbd>R</kbd> to define the resolution,
+and <kbd><kbd>Ctrl</kbd>-<kbd>R</kbd></kbd> to execute the remeshing.</p>
+<div>
+<p>See also</p>
+<p>More information at <a href="../tool_settings/remesh.html">Remesh</a>.</p>
+</div>
+</section>
+<section id="dyntopo">
+<h2>Dyntopo</h2>
+<p>Dynamic topology (aka Dyntopo) is a dynamic tessellation
+sculpting method that automatically adds and removes topology under the brush.</p>
+<p>Unlike the Voxel Remesher, this makes it possible to sculpt complex shapes
+without thinking about the resolution or topology.
+It also allows to define a different resolution wherever necessary.
+Much more complex base mesh sculpting is especially useful with this technique.</p>
+<p>The disadvantages of this technique are a slower performance and limited support for some sculpt mode features.
+Custom attributes like Color Attributes, UV Maps and Face Sets are also lost or corrupted when using Dyntopo.</p>
+<p>To more easily access this feature, use the shortcuts <kbd><kbd>Ctrl</kbd>-<kbd>D</kbd></kbd> to enabled Dyntopo
+and <kbd>R</kbd> to define the resolution.</p>
+<div>
+<p>Note</p>
+<p>Because Dyntopo and the Voxel Remesher are mutually exclusive and cannot be used at the same time,
+both use the same shortcut to define the remeshing resolution.</p>
+</div>
+<p>Brushes like <a href="../tools/simplify.html">Simplify</a>,
+<a href="../tools/snake_hook.html">Snake Hook</a>
+and <a href="../tools/clay_strips.html">Clay Strips</a> work especially well with this feature.</p>
+<div>
+<p>See also</p>
+<p>More information at <a href="../tool_settings/dyntopo.html">Dyntopo</a>.</p>
+</div>
+</section>
+<section id="multiresolution">
+<h2>Multiresolution</h2>
+<p>The Multiresolution Modifier can be used for subdivision based sculpting.
+This means the object will be subdivided, similar to the
+<a href="../../../modeling/modifiers/generate/subdivision_surface.html">Subdivision Surface Modifier</a>,
+only that the subdivisions can be freely sculpted for very high resolution detailing.</p>
+<div>
+<p>Note</p>
+<p>For this technique it is highly recommended to use on a clean topology base mesh.
+This means the base mesh should be only made of quads
+and avoid non-manifold faces, as well as poles with two connected edges.
+More information at <a href="../../../modeling/meshes/retopology.html#bpy-ops-object-quadriflow-remesh">Quad</a> Remeshing for an automatic retopology method.</p>
+</div>
+<p>This technique has the advantage of sculpting with multiple resolutions,
+meaning you have the ability to sculpt on any level of subdivision.
+This allows to add a much higher resolution of details for rendering and sculpting,
+while displaying lower resolutions for better viewport performance.
+It also allows sculpting on lower resolutions any time for broader changes.</p>
+<p>As an example, you can sculpt general proportions in subdivision level 1,
+add high resolution details in level 4 and switch back to subdivision 1 to correct the shape further.</p>
+<p>The disadvantages are that you may end up with some mesh distortions
+because the topology is not dynamic like voxel remeshing and dyntopo.
+The topology should also not be changed once already subdivided,
+since any edits to the base mesh will result in corrupted subdivision details.</p>
+<div>
+<p>Tip</p>
+<p>Pay attention to the topology that you sculpt and how much it gets stretched.
+If more resolution is needed you can always subdivide another time,
+but there will be worse performance and slower level switching once more than 5 subdivisions are used.
+Alternatively use the <a href="../tools/slide_relax.html">Slide Relax</a>
+brush to slide topology to where it is needed.</p>
+</div>
+<p>Additional brushes like the <a href="../tools/multires_displacement_eraser.html">Multires Eraser</a> and
+<a href="../tools/multires_displacement_smear.html">Multires Smear</a> are recommended for adjustments.</p>
+<p>Here are general shortcuts to use the feature.</p>
+<ul>
+<li><p>Step up one multires level <kbd>PageUp</kbd></p></li>
+<li><p>Step down one multires level <kbd>PageDown</kbd></p></li>
+<li><p>Set multires level / Create multires modifier <kbd><kbd>Ctrl</kbd>-<kbd>0</kbd></kbd> to <kbd><kbd>Ctrl</kbd>-<kbd>5</kbd></kbd></p></li>
+</ul>
+<div>
+<p>See also</p>
+<p>More information at <a href="../../../modeling/modifiers/generate/multiresolution.html">Multiresolution Modifier</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

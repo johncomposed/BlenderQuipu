@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Instances &gt; Realize Instances</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Instances Nodes</a></li>
+<li>Realize Instances Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="realize-instances-node">
+<h1>Realize Instances Node</h1>
+<p>The <em>Realize Instances</em> node makes any instances (efficient duplicates of the same geometry)
+into real geometry data. This makes it possible to affect each instance individually,
+whereas without this node, the exact same changes are applied to every instance of
+the same geometry. However, performance can become much worse when the input
+contains many instances of complex geometry, which is a fundamental limitation
+when procedurally processing geometry.</p>
+<div>
+<p>Note</p>
+<p>If the input contains multiple volume instances, only the first volume component is moved to the output.</p>
+</div>
+<section id="attributes">
+<h2>Attributes</h2>
+<p>When merging attributes from multiple geometry inputs, the highest complexity data type is chosen
+for the output attribute. In other words, if a <code>weight</code> attribute has a Boolean type on one geometry input
+and a vector data type on another geometry, the <code>weight</code> attribute on the output geometry will have
+a vector data type.</p>
+<p>Named and anonymous attributes are propagated from the <a href="../attributes_reference.html#attribute-domains">instance domain</a>
+to the realized geometry. If the same attribute exists on the geometry and on an instance,
+the attribute values from the geometry has precedence over the values on the instances.</p>
+<p>In order to avoid creating duplicate values, the <code>id</code> attribute has special handling.
+The <code>id</code> values or indices of each instance are combined with id values from the points on
+geometry data.</p>
+<div>
+<p>Warning</p>
+<p>Like other geometry nodes, this node always outputs generic typed attributes. So instead of a
+<a href="../../../glossary/index.html#term-Vertex-Group">Vertex Group</a> attribute, it will create a “Float” attribute on the result, and it will
+create a generic 2D vector attribute instead of a special “UV Map” attribute. Some other areas
+of Blender don’t properly handle generic attributes in version 3.0.</p>
+<p>Custom face corner normals are also not transferred currently.</p>
+</div>
+</section>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Output &gt; Aov</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Output</a></li>
+<li>AOV Output Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="aov-output-node">
+<h1>AOV Output Node</h1>
+<p>Shader AOVs (Arbitrary Output Variables) provide custom render passes for arbitrary shader node components.
+As an artist this can be a good way to debug or tweak very fine details of a scene in post-processing.
+To use shader AOVs create the pass in the <a href="../../layers/passes.html#bpy-types-aov">Shader AOV</a> panel
+then reference that pass with the <em>AOV Output</em> shading node.
+Shader AOVs can be added or removed in the <em>Shader AOV</em> panel.</p>
+<div>
+<p>Tip</p>
+<p>The <em>AOV Output</em> node can be used in Material and World shader nodes.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Output a color variable; as the name suggest can be used for a color but also a normal value.</p>
+</dd>
+<dt>Value</dt><dd><p>Output a single numerical value.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Name</dt><dd><p>The name of the render pass to assign the input value to.
+This property has the same <em>Name</em> that is specified in the <a href="../../layers/passes.html#bpy-types-aov">Shader AOV</a> panel.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p>This node has no outputs.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

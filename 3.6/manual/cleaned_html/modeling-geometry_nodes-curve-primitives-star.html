@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Primitives &gt; Star</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Primitive Nodes</a></li>
+<li>Star Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="star-node">
+<h1>Star Node</h1>
+<p>The <em>Star</em> node generates a poly spline in a star pattern by connecting alternating points of two circles.
+The points on the inner circle are offset by a rotation so that they lie in between the points on the outer circle.
+This offset can be changed with the twist input.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Points</dt><dd><p>Number of points on each of the circles.</p>
+</dd>
+<dt>Inner Radius, Outer Radius</dt><dd><p>Radii of the two circles on which to place the control points.
+The inner radius can be larger than the outer radius.</p>
+</dd>
+<dt>Twist</dt><dd><p>Angle offset of the inner circle.
+The twist value rotates the points on the circle corresponding with the inner radius
+counterclockwise by the given angle.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Poly spline generated from the inputs.</p>
+</dd>
+<dt>Outer Points</dt><dd><p>A boolean attribute field with a selection of the points on the <em>Outer Radius</em>, which is every
+other point.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

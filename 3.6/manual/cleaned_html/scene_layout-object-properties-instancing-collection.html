@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Properties &gt; Instancing &gt; Collection</title></head>
+<body><ul>
+<li><a href="../../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../../index.html">Objects</a></li>
+<li><a href="../index.html">Properties</a></li>
+<li><a href="index.html">Instancing</a></li>
+<li>Collection</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="collection">
+<h1>Collection</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Properties ‣ Instancing ‣ Collection</p>
+</dd>
+</dl>
+</div>
+<p><em>Instance Collections</em> allows you to create an instance of a collection for each instance of another object.
+Collections may contain animations, objects with physics simulations and even other nested collections.</p>
+<section id="basic-usage">
+<h2>Basic Usage</h2>
+<dl>
+<dt>Create a Collection:</dt><dd><ul>
+<li><p>Create a new collection (this can be done via the Outliner).</p></li>
+<li><p>Link the objects that need to be instanced as part of the newly created collection.</p></li>
+</ul>
+</dd>
+<dt>Create a new Collection Instance:</dt><dd><ul>
+<li><p>Add ‣ Collection Instance</p></li>
+</ul>
+</dd>
+</dl>
+<p>At this point, an instance of the collection and an <a href="../../../../modeling/empties.html">empty object</a> will appear.
+You can duplicate the empty, and the <em>Instance Collections</em> settings will be preserved for each empty.
+This way, you can get multiple copies of linked data very easily.</p>
+</section>
+<section id="collections-and-dynamic-linking">
+<h2>Collections and Dynamic Linking</h2>
+<p>See <a href="../../../../files/linked_libraries/index.html">Appending and Linking</a>
+to understand how to dynamically link data from another blend-file into the current file.
+You can dynamically link collections from one blend-file to another.
+When you do so, the linked collection does not appear anywhere in your scene
+until you create an object controlling where the collection instance appears.</p>
+</section>
+<section id="making-an-instanced-collection-real">
+<h2>Making an Instanced Collection Real</h2>
+<p>If you want to make further edits on an instanced collection select the <em>Instance Collection</em>.
+Then call <a href="../../editing/apply.html#bpy-ops-object-duplicates-make-real">Make Instances Real</a> to convert
+the collection into regular objects that can be transformed and animated normally.</p>
+<div>
+<p>Note</p>
+<p>Note that if the instanced collection was linked from an external file, the Object Data
+(mesh, materials, textures, transforms) will also still be linked from the original collection.
+However, the various object’s parent-child relationships do not carry over.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

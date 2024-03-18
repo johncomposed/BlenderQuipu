@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Filter &gt; Blur Node</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Filter Nodes</a></li>
+<li>Blur Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="blur-node">
+<h1>Blur Node</h1>
+<p>The Blur node blurs an image, providing several blur modes.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Size</dt><dd><p>The optional Size input will be multiplied with the X and Y blur radius values.
+It also accepts a value image, to control the blur radius with a mask.
+The values should be mapped between (0 to 1) for an optimal effect.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Type</dt><dd><p>The difference between the types is in the way they handle sharp edges,
+smooth gradients and preserve the highs and the lows.</p>
+<dl>
+<dt>Flat:</dt>
+<dd><p>Simply blurs everything uniformly.</p>
+</dd>
+<dt>Tent:</dt>
+<dd><p>Preserves the high and the lows better by making a linear falloff.</p>
+</dd>
+<dt>Quadratic:</dt>
+<dd><p>Looks similar to <em>Gaussian</em> but can be a little faster but slightly worse looking.</p>
+</dd>
+<dt>Cubic:</dt>
+<dd><p>Preserve the highs, but give an almost out-of-focus blur while smoothing sharp edges.</p>
+</dd>
+<dt>Gaussian:</dt>
+<dd><p>Gives the best looking results but tends to be the slowest.</p>
+</dd>
+<dt>Fast Gaussian:</dt>
+<dd><p>An approximation of the Gaussian.</p>
+</dd>
+<dt>Catmull-Rom:</dt>
+<dd><p>Catmull-Rom keeps sharp contrast edges crisp.</p>
+</dd>
+<dt>Mitch:</dt>
+<dd><p>Preserve the highs, but give an almost out-of-focus blur while smoothing sharp edges.</p>
+</dd>
+</dl>
+</dd>
+<dt>Variable Size</dt><dd><p>Allows a variable blur radius, if the size input is an image.</p>
+<dl>
+<dt>Bokeh</dt><dd><p>The Bokeh button will force the Blur node to use a circular blur filter.
+This gives higher quality results, but is slower than using a normal filter.</p>
+</dd>
+</dl>
+</dd>
+<dt>Gamma</dt><dd><p>The Gamma button applies a gamma correction on the image before blurring it.</p>
+</dd>
+<dt>Relative</dt><dd><p>Percentage Value of the blur radius relative to the image size.</p>
+<dl>
+<dt>Aspect Correction</dt><dd><p>None, Y, X</p>
+</dd>
+</dl>
+</dd>
+<dt>X, Y</dt><dd><p>Values set the ellipsoid radius in numbers of pixels over which to spread the blur effect.</p>
+</dd>
+<dt>Extend Bounds</dt><dd><p>Allows the image, that is being blurred, to extend past its original dimension.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table id="id1">
+<caption>Blur node blur modes using 20% of image size as XY, no Bokeh/Gamma.</caption>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Original image.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Flat.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Tent.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Quadratic.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Cubic.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Gaussian.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Fast Gaussian.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Catmull-Rom.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Mitch.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Materials &gt; Assignment</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Materials</a></li>
+<li>Assignment</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="assignment">
+<h1>Assignment</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Material ‣ Material Slots</p>
+</dd>
+</dl>
+</div>
+<p>Materials are data-blocks that can be created and then assigned to one or more objects.
+An object can also have multiple materials assigned in different material slots,
+which correspond to different parts of an object. If a smooth transition between
+materials is desired, then mixing shader nodes with a <a href="../shader_nodes/shader/mix.html">Mix shader</a>
+is a better solution.</p>
+<section id="material-slots">
+<h2>Material Slots</h2>
+<p>Material slots link materials to objects and meshes.
+By default objects only have a single material slot, which assigns a material to the entire object.
+If different parts of the mesh need different materials, multiple material slots can be created.</p>
+<figure id="id2">
+<figcaption>
+<p>Material slots panel.</p>
+</figcaption>
+</figure>
+<section id="slot-list">
+<h3>Slot List</h3>
+<p>The object’s material slots and active material displayed in a <a href="../../interface/controls/templates/list_view.html#ui-list-view">List View</a>.</p>
+<dl id="bpy-ops-material-new">
+<dt>Add Material Slot</dt><dd><p>Add a new material slot on the object.</p>
+</dd>
+<dt>Remove Material Slot</dt><dd><p>Remove a material slot from the object.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-material-copy">
+<dt>Copy Material</dt><dd><p>Copy material shader nodes and settings to clipboard.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-material-paste">
+<dt>Paste Material</dt><dd><p>Paste material shader nodes and settings from clipboard.</p>
+</dd>
+<dt>Copy Material to Selected</dt><dd><p>Copy the same material assignment from the active to other selected objects.</p>
+</dd>
+<dt>Remove Unused Slots</dt><dd><p>Removes all material slots not assigned to the object.</p>
+</dd>
+</dl>
+</section>
+<section id="data-block">
+<h3>Data-Block</h3>
+<dl>
+<dt>Material</dt><dd><p>The Material <a href="../../interface/controls/templates/data_block.html#ui-data-block">Data-Block Menu</a> for the selected material slot.
+Here new materials can be created, or existing materials can to the material slot.</p>
+</dd>
+</dl>
+<dl id="bpy-types-materialslot-link">
+<dt>Link</dt><dd><p>Specifies whether the material is to be linked to the object or to the object data.</p>
+<p>The Link selector has two choices, Data and Object.
+These two menu choices determine whether the material is linked to the object or to the data
+(e.g. a mesh or curve). The Data menu item determines that this material will be linked to the mesh’s
+data-block which is linked to the object’s data-block.
+The Object menu item determines that the material will be linked to the object’s data-block directly.</p>
+<p>This has consequences of course. For example, different objects may share the same mesh data-block.
+Since this data-block defines the shape of the object any change in Edit Mode
+will be reflected on all of those objects.
+Moreover, anything linked to that mesh data-block will be shared by every object that shares that mesh.
+So, if the material is linked to the mesh, every object will share it.</p>
+<p>On the other hand, if the material is linked directly to the object data-block, the objects can have
+different materials and still share the same mesh.</p>
+<p>Short explanation: If connected to the object, you can have several instances of the same Object Data using
+different materials. If linked to mesh data, you cannot.
+See <a href="../../files/introduction.html">Data System</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="edit-mode">
+<h3>Edit Mode</h3>
+<p>To assign materials to different parts of a mesh, enter Edit Mode on the mesh.
+Additional buttons will then appear in the material slots panel.</p>
+<figure id="id3">
+<figcaption>
+<p>Material slots panel in Edit Mode.</p>
+</figcaption>
+</figure>
+<dl id="bpy-ops-object-material-slot-assign">
+<dt>Assign</dt><dd><p>Assign active material slot and material to the selected faces in the mesh,
+strokes in a Grease Pencil, and similar for other object types.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-material-slot-select">
+<dt>Select</dt><dd><p>Select faces assigned to the active material slot.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-material-slot-deselect">
+<dt>Deselect</dt><dd><p>Deselect faces assigned to the active material slot.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="reusing-existing-materials">
+<h2>Reusing Existing Materials</h2>
+<p>Blender is built to allow you to reuse <em>anything</em>, including material settings,
+between many objects. Instead of creating duplicate materials,
+you can simply reuse an existing material.
+There are several ways to do this using the Material’s data-block menu:</p>
+<p><em>Single Object</em> – With the object selected, click the sphere located to the left of the Material name.
+A pop-up appears showing all the materials available in the current blend-file.
+To use one, just click on it.</p>
+<div>
+<p>Tip</p>
+<p>Searching for Materials</p>
+<p>The search field at the bottom of the material list allows you to search the names in the list.
+For example, by entering “wood” all existent materials are filtered so that
+only materials containing “wood” are displayed in the list.</p>
+</div>
+<p><em>Multiple Objects</em> – In the 3D Viewport, with <kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd>
+you can quickly link all selected objects to the material (and other aspects)
+of the <a href="../../scene_layout/object/selecting.html#object-active">active object</a>.
+Very useful if you need to set a large number of objects to the same material;
+just select all of them,
+then the object that has the desired material, and <kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd> links them to that “parent”.</p>
+</section>
+<section id="deleting-a-material">
+<h2>Deleting a Material</h2>
+<p>To delete a material, select the material and click X in the Available Materials List entry.</p>
+<p>Although the material will seem to disappear immediately,
+the Delete action can depend on how the material is used elsewhere.</p>
+<p>If the material is linked to the object and there are other objects which use this material,
+then the material will be removed from that object (but remain on all its other objects).</p>
+<p>If the “Fake User” button has been lit in the Available Materials list,
+then the material will be retained when the file is saved, even if it has no users.</p>
+<p>Only if it has 0 “real” users, and no “Fake” user, will the material be permanently deleted.
+Note that it will still remain in the Materials list until the blend-file is saved,
+but will have disappeared when the file is reloaded.</p>
+</section>
+<section id="multiple-materials">
+<h2>Multiple Materials</h2>
+<p>Normally, different colors or patterns on an object are achieved by adding textures to your materials.
+However, in some applications you can obtain multiple colors on an object by assigning
+different materials to the individual faces of the object.</p>
+<p>To apply several materials to different faces of the same object,
+you use the Material Slots options in the Materials header panel.</p>
+<p>The workflow for applying a second material to some faces of an object covered by
+a base material is as follows:</p>
+<ol>
+<li><p>In Object Mode, create a base material.</p></li>
+<li><p>Go into Edit Mode and Face Select (a new list will appear below
+the Active Material list with <em>Assign</em>, <em>Select</em>, <em>Deselect</em> buttons).</p></li>
+<li><p>Select the faces to be colored with the second material.</p></li>
+<li><p>In the Object Material Slots list, click the <code>+</code> button to create a new slot or select an existing material.</p></li>
+<li><p>Click the <em>Assign</em> button, and the material will appear on the selected object faces.</p></li>
+</ol>
+</section>
+</section>
+</div>
+</div></body>
+</html>

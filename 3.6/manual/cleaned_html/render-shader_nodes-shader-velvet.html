@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Velvet</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Velvet BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="velvet-bsdf">
+<h1>Velvet BSDF</h1>
+<p>Cycles Only</p>
+<p>The <em>Velvet</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+is used to add reflection to materials such as cloth.
+It is meant to be used together with other shaders (such as a <em>Diffuse Shader</em>)
+and is not particularly useful on its own.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the surface, or physically speaking, the probability that light is reflected for each wavelength.</p>
+</dd>
+<dt>Sigma</dt><dd><p>Variance of the normal distribution,
+controlling the sharpness of the peak. It can be thought of as a kind of <em>roughness</em>.</p>
+</dd>
+<dt>Normal</dt><dd><p>Normal used for shading; if nothing is connected the default shading normal is used.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>The Velvet shader example.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>The Velvet shader behavior.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

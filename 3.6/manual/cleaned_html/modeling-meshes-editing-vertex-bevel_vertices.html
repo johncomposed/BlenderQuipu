@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Vertex &gt; Bevel Vertices</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Vertex Tools</a></li>
+<li>Bevel Vertices</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bevel-vertices">
+<h1>Bevel Vertices</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Edge ‣ Bevel Edges</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>B</kbd></kbd> (Bevel Edges)</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Vertex ‣ Bevel Vertices</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>B</kbd></kbd> (Bevel Vertices)</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Bevel</em> tool rounds off edges or corners of a mesh at the point of the selected vertices.
+In “vertex only” mode, the <em>Bevel Vertices</em> tool works on selected vertices
+but the option to switch to <em>Bevel Edges</em> is available.
+By doing so, more vertices are added in order to smooth out profiles with a specified number of <em>segments</em>
+(see the options below for details about the bevel algorithm).</p>
+<figure id="id2">
+<figcaption>
+<p>Cubes with and without bevel.</p>
+</figcaption>
+</figure>
+<div>
+<p>Note</p>
+<p>With the Vertex Only option active, some of the other options available will not work.
+However, they will work with <a href="../edge/bevel.html">Bevel Edges</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Affect <kbd>V</kbd></dt><dd><dl>
+<dt>Vertices:</dt>
+<dd><p>Only the areas near vertices are beveled, the edges remain unchanged.</p>
+</dd>
+<dt>Edges:</dt>
+<dd><p>Bevel the edges, creating intersections at vertices.</p>
+</dd>
+</dl>
+</dd>
+<dt>Offset <kbd>A</kbd></dt><dd><p>You can change the bevel amount by moving the mouse towards and away from the object,
+like with transform tools.
+The exact meaning of the value depends on the <em>Amount Type</em> option (see below).</p>
+</dd>
+<dt>Width Type <kbd>M</kbd></dt><dd><p>Selects how the <em>Amount</em> value controls the size of the bevel. According to the selection, the amount is:</p>
+<dl>
+<dt>Offset:</dt>
+<dd><p>The relative distance from the new edge to the original.</p>
+</dd>
+<dt>Width:</dt>
+<dd><p>The distance between the two new edges formed by the bevel
+(or the edges on either side of the bevel if there is more than one segment).</p>
+</dd>
+<dt>Depth:</dt>
+<dd><p>The perpendicular distance from the original edge to the bevel face.</p>
+</dd>
+<dt>Percent:</dt>
+<dd><p>The percentage of the length of adjacent edges that the new edges are slid along.</p>
+</dd>
+<dt>Absolute:</dt>
+<dd><p>The exact distance along edges adjacent to the beveled edge.
+A difference from <em>Offset</em> is visible when the unbeveled edges
+attached to beveled edges meet at an angle besides a right angle.</p>
+</dd>
+</dl>
+<p>For vertex-only bevels, the Offset and Depth types measure from the original vertex,
+and the Width type is measured from a new vertex to the center of the new face (as half the amount).</p>
+</dd>
+<dt>Segments <kbd>S</kbd></dt><dd><p>The number of segments in the bevel can be defined by
+scrolling the mouse <kbd>Wheel</kbd> to increase or decrease this value.
+The greater the number of segments, the smoother the bevel.
+Or press <kbd>S</kbd> to change the number with mouse movements, as well as numeric input.</p>
+<p>Alternatively, you can manually enter a segment number value while using the tool,
+or in the Mesh Tool options panel after using the tool.</p>
+<figure id="id3">
+<figcaption>
+<p>Bevel with four segments.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Shape <kbd>P</kbd></dt><dd><p>This is a number between 0 and 1 that controls the shape of the profile (side view of a beveled edge).
+The default value, 0.5, gives a circular arc (if the faces meet at right angles).
+Values less than that give a flatter profile, with 0.25 being exactly flat,
+and values less than that giving a concave bevel. Values more than 0.5 give a more convex profile.
+Similarly as <em>Segments</em> it can be set with mouse movements and numeric input after toggling <kbd>P</kbd>.</p>
+</dd>
+<dt>Material Index</dt><dd><p>The <em>Material</em> number specifies which material should be assigned to the new faces created by the <em>Bevel</em> tool.
+With the default, -1, the material is inherited from the closest existing face (“closest” can be a bit ambiguous).
+Otherwise, the number is the slot index of the material to use for all newly created faces.</p>
+</dd>
+<dt>Harden Normals <kbd>H</kbd></dt><dd><p>When enabled, the per-vertex face normals of the bevel faces are adjusted to
+match the surrounding faces, and the normals of the surrounding faces are not affected.
+This will keep the surrounding faces flat (if they were before),
+with the bevel faces shading smoothly into them. For this effect to work,
+custom split normals need to be enabled, which requires <em>Auto Smooth</em> to be enabled
+(see <a href="../mesh/normals.html">Normals</a>).
+As a convenience, that option will be enabled for you if it is not already when you enable Harden Normals here.</p>
+</dd>
+<dt>Clamp Overlap <kbd>C</kbd></dt><dd><p>Limits the width of each beveled edge so that vertices do not overlap with other geometry.</p>
+</dd>
+<dt>Loop Slide</dt><dd><p>If there are un-beveled edges along with beveled edges into a vertex,
+the bevel tries to slide along those edges when possible.
+Turning the option off can lead to more even bevel widths.</p>
+</dd>
+<dt>Face Strength Mode</dt><dd><p>Set <em>Face Strength</em> on the faces involved in the bevel, according to the specified mode.
+This can be used in conjunction with
+a <a href="../../../modifiers/modify/weighted_normal.html">Weight Normals Modifier</a>
+(with the <em>Face Influence</em> option checked).</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Do not set face strength.</p>
+</dd>
+<dt>New:</dt>
+<dd><p>Set the face strength of new faces along edges to <em>Medium</em>,
+and the face strength of new faces at vertices to <em>Weak</em>.</p>
+</dd>
+<dt>Affected:</dt>
+<dd><p>In addition to those set for the <em>New</em> case,
+also set the faces adjacent to new faces to have strength <em>Strong</em>.</p>
+</dd>
+<dt>All:</dt>
+<dd><p>In addition to those set for the <em>Affected</em> option,
+also set all the rest of the faces of the model to have strength <em>Strong</em>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Profile Type <kbd>Z</kbd></dt><dd><dl>
+<dt>Superellipse:</dt>
+<dd><p>Creates a bevel with a uniform concave or convex curve.</p>
+</dd>
+<dt>Custom:</dt>
+<dd><figure id="id4">
+<figcaption>
+<p>The custom profile widget.</p>
+</figcaption>
+</figure>
+<p>This widget allows the creation of a user-defined profile with more complexity than
+with the single profile parameter. The modal tool allows toggling the custom profile,
+but the shape of the profile is only editable in the options panel after the operation is confirmed.</p>
+<p>The profile starts at the bottom right of the widget and ends at the top left, as if it
+were between two edges intersecting at a right angle. Control points are created in the widget and
+then the path is sampled with the number of segments from the Bevel modifier.</p>
+<dl>
+<dt>Presets</dt><dd><p>The <em>Support Loops</em> and <em>Steps</em> presets are built dynamically depending on the number
+of segments in the bevel. If the number of segments is changed, the preset will have to be re-applied.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>Sampling</dt><dd><p>Samples will first be added to each control point, then if there are enough samples,
+they will be divided evenly between the edges. The <em>Sample Straight Edges</em> option toggles
+whether the samples are added to edges with sharp control points on either side.
+If there aren’t enough samples to give each edge the same number of samples,
+they will just be added to the most curved edges.
+So it is recommended to use at least as many segments as there are control points.</p>
+</dd>
+</dl>
+<table id="id5">
+<caption>Bevel with Custom Profile on.</caption>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Edge Bevel.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Vertex Bevel.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>The <a href="../../../modifiers/generate/bevel.html">Bevel Modifier</a>
+is a non-destructive alternative to the Bevel tool.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Nodes &gt; Parts</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li><a href="index.html">Nodes</a></li>
+<li>Node Parts</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="node-parts">
+<h1>Node Parts</h1>
+<p>All nodes in Blender are based on a similar construction.
+This applies to <a href="introduction.html#tab-node-tree-types">any type of node</a>.
+These parts include the Title, Sockets, Preview and more.</p>
+<section id="title">
+<h2>Title</h2>
+<p>The title shows the name/type of the node;
+it can be overridden by changing the node’s <a href="sidebar.html#bpy-types-node-label">Label</a>.
+On the left side of the title is the <em>collapse</em> toggle
+which can be used to collapse the node. This can also be done with <kbd>H</kbd>.</p>
+<figure id="id1">
+<figcaption>
+<p>How a node appears when collapsed.</p>
+</figcaption>
+</figure>
+</section>
+<section id="sockets">
+<h2>Sockets</h2>
+<p>Sockets are input and output values for the node.
+They appear as little colored circles on either side of the node.
+Unused sockets can be hidden with <kbd><kbd>Ctrl</kbd>-<kbd>H</kbd></kbd>.</p>
+<p>Each socket is color-coded depending on what type of data it handles.</p>
+<p>Built-in</p>
+<dl>
+<dt>Shader (bright green)</dt><dd><p>Used for shaders in <a href="../../../render/cycles/index.html">Cycles</a> and <a href="../../../render/eevee/index.html">Eevee</a>.</p>
+</dd>
+<dt>Geometry (turquoise)</dt><dd><p>Used in <a href="../../../modeling/geometry_nodes/index.html">Geometry Nodes</a>.</p>
+</dd>
+</dl>
+<p>Data</p>
+<dl>
+<dt>Boolean (pink)</dt><dd><p>Used to pass a true or false value.</p>
+</dd>
+<dt>Color (yellow)</dt><dd><p>Indicates that the socket accepts/produces color information.
+The colors may or may not have an alpha component depending on the node tree type.</p>
+</dd>
+<dt>Float (gray)</dt><dd><p>Indicates that the socket accepts/produces floating-point numbers.
+It can either be a single value or a so-called “value map”.
+(You can think of a value map as a grayscale image where the brightness of a pixel represents its value.)
+If a single value is used as an input for a “value map” socket, all points of the map are set to this same value.</p>
+</dd>
+<dt>Integer (lime green)</dt><dd><p>Used to pass an integer value (a number without a fractional component).</p>
+</dd>
+<dt>String (light blue)</dt><dd><p>Used to pass a text value.</p>
+</dd>
+<dt>Vector (dark blue)</dt><dd><p>Indicates vector, coordinate and normal information.</p>
+</dd>
+</dl>
+<p>Data-Blocks</p>
+<dl>
+<dt>Collection (white)</dt><dd><p>Used to pass a collection data-block.</p>
+</dd>
+<dt>Object (orange)</dt><dd><p>Used to pass an object data-block.</p>
+</dd>
+<dt>Material (salmon)</dt><dd><p>Used to pass a material data-block.</p>
+</dd>
+<dt>Texture (pink)</dt><dd><p>Used to pass a texture data-block.</p>
+</dd>
+<dt>Image (apricot)</dt><dd><p>Used to pass an image data-block.</p>
+</dd>
+</dl>
+<section id="inputs">
+<h3>Inputs</h3>
+<p>The inputs are located on the bottom left side of the node,
+and provide the data the node needs to perform its function.
+Each input socket, except for the green shader input, when disconnected,
+has a default value which can be edited via a color, numeric, or vector interface input.
+In the screenshot of the node above, the second color option is set by a color interface input.</p>
+<p>Some nodes have special sockets that can accept multiple inputs.
+These sockets will have an ellipsis shape rather than a circle to indicate their special behavior.</p>
+</section>
+<section id="outputs">
+<h3>Outputs</h3>
+<p>The outputs are located on the top right side of the node,
+and can be connected to the input of nodes further down the node tree.</p>
+</section>
+<section id="conversion">
+<h3>Conversion</h3>
+<p>Some socket types can be converted to others either implicitly or explicitly.
+Implicit conversion happens automatically without the need of a conversion node.
+For example, Float sockets and Color sockets can be linked to each other.</p>
+<p>Once a socket conversion is made, data may be lost and cannot be retrieved later down the node tree.
+Implicit socket conversion can sometimes change the data units as well.
+When plugging a <em>Value</em> input node into an angle socket, it’ll default to use radians
+regardless of the scene’s <a href="../../../scene_layout/scene/properties.html#bpy-types-unitsettings">Units</a>.
+This happens because the Value node has no unit while the angle input does.</p>
+<p>Valid conversions:</p>
+<ul>
+<li><p>Between color and vector – mapping between color channels and vector components.</p></li>
+<li><p>Between color and float – the color data is converted to its grayscale equivalent.</p></li>
+<li><p>Color/float/vector to Shader – implicitly converts to color and gives the result of using an Emission node.</p></li>
+</ul>
+<p>Explicit conversion requires the use of a conversion node such as
+the <a href="../../../render/shader_nodes/converter/shader_to_rgb.html">Shader To RGB</a> node
+or the <a href="../../../render/shader_nodes/converter/rgb_to_bw.html">RGB to BW Node</a> node.
+The <a href="../../../render/shader_nodes/converter/math.html">Math Node</a> node also contains
+some functions to convert between degrees and radians.</p>
+</section>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>Many nodes have settings which can affect the way they interact with inputs and outputs.
+Node settings are located below the outputs and above any inputs.</p>
+<figure id="id2">
+<figcaption>
+<p>An example of the controls on the Chroma Key node.</p>
+</figcaption>
+</figure>
+<section id="preview">
+<h3>Preview</h3>
+<p>Some nodes can show an image that previews their result.
+The preview can be toggled using the icon on the very top right-hand corner of the node, next to the title.</p>
+<figure id="id3">
+<figcaption>
+<p>How a node appears without the preview.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

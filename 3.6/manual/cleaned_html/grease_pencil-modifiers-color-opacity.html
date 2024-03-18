@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modifiers &gt; Color &gt; Opacity</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li><a href="index.html">Color</a></li>
+<li>Opacity Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="opacity-modifier">
+<h1>Opacity Modifier</h1>
+<p>The <em>Opacity</em> Modifier change the opacity (alpha) value of the stroke points.</p>
+<p>The alpha value in Grease Pencil is stored per-point.
+The modifier can alter these values to go from totally transparent points to totally opaque points.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Opacity Modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mode</dt><dd><p>The color transformation will be applied to the stroke/fill color or stroke Hardness.
+When Hardness is selected the opacity affects the stroke’s transparency (alpha) from the center to the border.</p>
+<p>Stroke &amp; Fill, Stroke, Fill, or Hardness</p>
+</dd>
+<dt>Uniform Opacity</dt><dd><p>When enabled, makes the opacity equal for the entire strokes.</p>
+<dl>
+<dt>Strength</dt><dd><p>Absolute opacity for the stroke points.</p>
+</dd>
+</dl>
+</dd>
+<dt>Opacity Factor</dt><dd><p>Controls the opacity value of the stroke points.
+A value of 1.0 respect the original alpha value of the points,
+a shift less than 1.0 make the points more transparent than originally,
+and a shift greater than 1.0 make the points more opaque than originally.</p>
+<p>Sets value to 2.0 makes the points alpha fully opaque.</p>
+</dd>
+</dl>
+<section id="influence">
+<h3>Influence</h3>
+<p>See <a href="../introduction.html#grease-pencil-modifier-influence-filters">Influence Filters</a>.</p>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table id="id2">
+<caption>Opacity Factor samples.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Opacity Factor: 0.3.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Opacity Factor: 1.0 (original alpha).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Opacity Factor: 2.0 (fully opaque).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

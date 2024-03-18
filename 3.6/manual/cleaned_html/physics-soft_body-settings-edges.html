@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Soft Body &gt; Settings &gt; Edges</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Soft Body</a></li>
+<li><a href="index.html">Settings</a></li>
+<li>Edges</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="edges">
+<h1>Edges</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Soft Body ‣ Edges</p>
+</dd>
+</dl>
+</div>
+<p>Allow the edges in a mesh object to act like springs.
+See <a href="../forces/interior.html">interior forces</a>.</p>
+<dl id="bpy-types-softbodysettings-vertex-group-spring">
+<dt>Springs</dt><dd><p>Use a specified vertex group for spring strength values.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-pull">
+<dt>Pull</dt><dd><p>The spring stiffness for edges (how much the edges are allowed to stretch).
+A low value means very weak springs (a very elastic material),
+a high value is a strong spring (a stiffer material) that resists being pulled apart.</p>
+<p>A value of 0.5 is latex, 0.9 is like a sweater, 0.999 is a highly-starched napkin or leather.
+The soft body simulation tends to get unstable if you use a value of 0.999,
+so you should lower this value a bit if that happens.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-push">
+<dt>Push</dt><dd><p>How much the soft body resists being scrunched together, like a compression spring.
+Low values for fabric, high values for inflated objects and stiff material.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-damping">
+<dt>Damp</dt><dd><p>The friction for edge springs. High values (max of 50) dampen the <em>Push</em>/<em>Pull</em> effect and calm down the cloth.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-plastic">
+<dt>Plasticity</dt><dd><p>Permanent deformation of the object after a collision.
+The vertices take a new position without applying the modifier.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-bend">
+<dt>Bending</dt><dd><p>This option creates virtual connections between a vertex and the vertices connected to its neighbors.
+This includes diagonal edges. Damping also applies to these connections.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-spring-length">
+<dt>Length</dt><dd><p>The edges can shrink or be blown up. This value is given in percent,
+0 disables this function. 100% means no change, the body keeps 100% of its size.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-use-face-collision">
+<dt>Collision</dt><dd><dl>
+<dt>Edge</dt><dd><p>Checks for edges of the soft body mesh colliding.</p>
+</dd>
+<dt>Face</dt><dd><p>Checks for any portion of the face of the soft body mesh colliding (which is computationally intensive).
+While <em>Face</em> enabled can solve collision errors, there does not seem to be any dampening settings for it.
+So parts of the soft body object near a collision mesh tend to “jitter” as they bounce off and fall back,
+even when there is no motion of any meshes. Edge collision has dampening, so that can be controlled,
+but Deflection dampening value on a collision object does not seem to affect the face collision.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="aerodynamics">
+<h2>Aerodynamics</h2>
+<p>Force from surrounding media.
+See <a href="../forces/exterior.html#physics-softbody-forces-exterior-aerodynamics">exterior forces</a> for details.</p>
+<dl id="bpy-types-softbodysettings-aerodynamics-type">
+<dt>Type</dt><dd><dl>
+<dt>Simple:</dt>
+<dd><p>Edges receive a drag force from the surrounding media.</p>
+</dd>
+<dt>Lift Force:</dt>
+<dd><p>Edges receive a lift force when passing through the surrounding media.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-aero">
+<dt>Factor</dt><dd><p>How much aerodynamic force to use. Try a value of 30 at first.</p>
+</dd>
+</dl>
+</section>
+<section id="stiffness">
+<h2>Stiffness</h2>
+<p>For quad faces, the diagonal edges are used as springs.
+This stops quad faces to collapse completely on collisions (what they would do otherwise).</p>
+<dl id="bpy-types-softbodysettings-shear">
+<dt>Shear</dt><dd><p>Stiffness of the virtual springs created for quad faces.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Posing &gt; Editing &gt; Copy Paste</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Posing</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Copy/Paste Pose</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="copy-paste-pose">
+<h1>Copy/Paste Pose</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ Copy Pose,
+Pose ‣ Paste Pose,
+Pose ‣ Paste Pose Flipped</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd>,
+<kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd>,
+<kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>V</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Blender allows you to copy and paste a pose, either through the <em>Pose</em> menu, or
+by using hotkeys.</p>
+<dl>
+<dt>Copy Pose</dt><dd><p>Copy the current pose of selected bones into the pose buffer.</p>
+</dd>
+<dt>Paste Pose</dt><dd><p>Paste the buffered pose to the currently posed armature.</p>
+</dd>
+<dt>Paste Pose Flipped</dt><dd><p>Paste the <em>X axis mirrored</em> buffered pose to the currently posed armature.</p>
+</dd>
+</dl>
+<p>Here are important points:</p>
+<ul>
+<li><p>This tool works at the <a href="../../../../glossary/index.html#term-Blender-Session">Blender session</a> level, which means you can use it across
+armatures, scenes, and even files. However, the pose buffer is not saved, so you lose it when you
+close Blender.</p></li>
+<li><p>There is only one pose buffer.</p></li>
+<li><p>Only the selected bones are taken into account during copying (i.e. you copy only selected bones’ pose).</p></li>
+<li><p>During pasting, on the other hand, bone selection has no importance.
+The copied pose is applied on a per-name basis
+(i.e. if you had a <code>forearm</code> bone selected when you copied the pose,
+the <code>forearm</code> bone of the current posed armature will get its pose when you paste it –
+and if there is no such named bone, nothing will happen…).</p></li>
+<li><p>What is copied and pasted is in fact the position, rotation or scale of each bone, in its own space.
+This means that the resulting pasted pose might be very different from the originally copied one, depending on:</p>
+<ul>
+<li><p>The rest position of the bones.</p></li>
+<li><p>And the current pose of their parents.</p></li>
+</ul>
+</li>
+</ul>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>The rest position of the original armature.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>The rest position of the destination armature.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id4">
+<caption>Examples of pose copy/paste.</caption>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>The first copied pose (note that only two bones are selected and hence copied).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>The pose pasted on the destination armature.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>The pose mirror-pasted on the destination armature.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id8">
+<figcaption>
+<p>The same pose as above is copied, but this time with all bones selected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>The pose pasted on the destination armature.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>The pose mirror-pasted on the destination armature.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div></body>
+</html>

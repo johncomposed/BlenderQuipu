@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Properties &gt; Relations</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Relations</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="relations">
+<h1>Relations</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Bone ‣ Relations</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Relations panel.</p>
+</figcaption>
+</figure>
+<p>In this panel you can arrange sets of bones in different layers for easier manipulation.</p>
+<section id="bone-layers">
+<h2>Bone Layers</h2>
+<section id="moving-bones-between-layers">
+<h3>Moving Bones between Layers</h3>
+<p>Obviously, you have to be in <em>Edit Mode</em> or <em>Pose Mode</em> to move bones between layers.
+Note that as with objects, bones can lay in several layers at once,
+just use the usual <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> clicks…
+First of all, you have to select the chosen bone(s)!</p>
+<ul>
+<li><p>In the Properties, use the “layer buttons” of each selected bone Relations panel (<em>Bones</em> tab)
+to control in which layer(s) it lays.</p></li>
+<li><p>In the <em>3D Viewport</em>, use the menu Armature ‣ Move Bone To Layer or
+Pose ‣ Move Bone To Layer or press <kbd>M</kbd> to show the usual pop-up layers menu.
+Note that this way, you assign the same layers to all selected bones.</p></li>
+</ul>
+</section>
+</section>
+<section id="parenting">
+<h2>Parenting</h2>
+<dl id="bpy-types-editbone-parent">
+<dt>Parent</dt><dd><p>A <a href="../../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> to select the bone to set as a parent.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bone-use-relative-parent">
+<dt>Relative Parenting Pose Mode Only</dt><dd><p>Changes how transformation of the bone is applied to its child Objects.</p>
+</dd>
+</dl>
+<dl id="bpy-types-posebone-bone-group">
+<dt>Bone Group Pose Mode Only</dt><dd><p>To assign a selected bone to a given bone group use the <em>Bone Group</em> data ID.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-use-connect">
+<dt>Connected</dt><dd><p>The <em>Connected</em> checkbox set the head of the bone to be connected with its parent root.</p>
+</dd>
+</dl>
+<section id="transformations">
+<h3>Transformations</h3>
+<p>Bones relationships have effects on transformations behavior.</p>
+<p>By default, children bones inherit:</p>
+<ul>
+<li><p>Their parent position, with their own offset of course.</p></li>
+<li><p>Their parent rotation (i.e. they keep a constant rotation relatively to their parent).</p></li>
+<li><p>Their parent scale, here again with their own offset.</p></li>
+</ul>
+<table id="id3">
+<caption>Examples of transforming parented/connected bones.</caption>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>The armature in its rest position.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Rotation of a root bone.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Scaling of a root bone.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Exactly like standard children objects. You can modify this behavior on a per-bone basis,
+using the Relations panel in the <em>Bones</em> tab:</p>
+<dl id="bpy-types-editbone-use-local-location">
+<dt>Local Location</dt><dd><p>When disabled, the location transform property is evaluated in the parent bone’s local space,
+rather than using the bone’s own <em>rest pose</em> local space orientation.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-use-inherit-rotation">
+<dt>Inherit Rotation</dt><dd><p>When disabled, this will “break” the rotation relationship to the bone’s parent.
+This means that the child will keep its rotation in the armature object space when its parent is rotated.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-inherit-scale">
+<dt>Inherit Scale</dt><dd><p>Specifies which effects of parent scaling the bone inherits:</p>
+<dl>
+<dt>Full:</dt>
+<dd><p>The bone inherits all effects of parent scaling and shear.</p>
+</dd>
+<dt>Fix Shear:</dt>
+<dd><p>Full parent effects are applied to the rest state of the child, after which any shear is
+removed in a way that preserves the bone direction, length and volume, and minimally affects
+roll on average. The result is combined with the local transformation of the child.</p>
+<p>If the inherited scale is non-uniform, this does not prevent shear from reappearing due to
+local rotation of the child bone, or of its children.</p>
+</dd>
+<dt>Aligned:</dt>
+<dd><p>Parent scaling is inherited as if the child was oriented the same as the parent, always
+applying parent X scale over child X scale, and so on.</p>
+</dd>
+<dt>Average:</dt>
+<dd><p>Inherits a uniform scaling factor that is the total change in the volume of the parent.</p>
+</dd>
+<dt>None:</dt>
+<dd><p>Ignores all scaling and shear of the parent.</p>
+</dd>
+<dt>None (Legacy):</dt>
+<dd><p>Ignores all scaling, provided the parent is not sheared. If it is, there are no guarantees.</p>
+<p>This choice replicates the behavior of the old Inherit Scale checkbox, and may be removed in a future release.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>These inheriting behaviors propagate along the bones’ hierarchy.
+So when you scale down a bone, all its descendants are by default scaled down accordingly.
+However, if you disable one bone’s <em>Inherit Scale</em> or <em>Inherit Rotation</em>
+property in this “family”, this will break the scaling propagation,
+i.e. this bone <em>and all its descendants</em> will no longer be affected when you scale one of its ancestors.</p>
+<div>
+<p>Tip</p>
+<p>The various <em>Inherit Scale</em> options are provided as tools in avoiding shear that is caused
+by non-uniform scaling combined with parenting and rotation. There is no obvious best way
+to achieve that, so different options are useful for different situations.</p>
+<dl>
+<dt>None</dt><dd><p>Useful for gaining full control over the scaling of the child in order
+to e.g. manually overwrite it with constraints.</p>
+</dd>
+<dt>Average</dt><dd><p>Useful to block squash and stretch propagation between sub-rigs, while
+allowing uniform changes in the size and volume to pass through.</p>
+</dd>
+<dt>Aligned</dt><dd><p>Can be used within bone chains, e.g. tentacles, in order to propagate
+lengthwise scaling as lengthwise, and sideways as sideways, no matter
+how the tentacle bends. Similar to using <em>None</em> with
+<a href="../../../constraints/transform/copy_scale.html">Copy Scale</a> from parent.</p>
+</dd>
+<dt>Fix Shear</dt><dd><p>May be useful at the base of an appendage in order to reallocate squash and stretch
+between axes based on the difference in rest pose orientations of the parent and child.
+It behaves closest to <em>Full</em> while suppressing shear.</p>
+</dd>
+</dl>
+</div>
+<table id="id7">
+<caption>Examples of transforming parented/connected bones with Inherit Rotation disabled.</caption>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>The yellow outlined Inherit Rotation disabled bone in the armature.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Rotation of a bone with an Inherit Rotation disabled bone among its descendants.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Scaling of a bone with an Inherit Rotation disabled bone among its descendants.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Connected bones have another specificity: they cannot be moved. Indeed,
+as their root must be at their parent’s tip, if you do not move the parent,
+you cannot move the child’s root, but only its tip, which leads to a child rotation.
+This is exactly what happens, when you press <kbd>G</kbd> with a connected bone selected,
+Blender automatically switches to rotation operation.</p>
+<p>Bones relationships also have important consequences on how selections of multiple bones
+behave when transformed. There are many different situations which may not be included on this list,
+however, this should give a good idea of the problem:</p>
+<ul>
+<li><p>Non-related selected bones are transformed independently, as usual.</p></li>
+<li><p>When several bones of the same “family” are selected,
+<em>only</em> the “most parent” ones are really transformed –
+the descendants are just handled through the parent relationship process, as if they were not selected
+(see Fig. <a href="#fig-rig-pose-edit-scale">Scaling bones, some of them related.</a> the third tip bone,
+outlined in yellow, was only scaled down through the parent relationship,
+exactly as the unselected ones, even though it is selected and active.
+Otherwise, it should have been twice smaller!)</p>
+<figure id="id11">
+<figcaption>
+<p>Scaling bones, some of them related.</p>
+</figcaption>
+</figure>
+</li>
+<li><p>When connected and unconnected bones are selected,
+and you start a move operation, only the unconnected bones are affected.</p></li>
+<li><p>When a child connected hinge bone is in the selection,
+and the “most parent” selected one is connected, when you press <kbd>G</kbd>,
+nothing happens, because Blender remains in move operation, which of course has no effect on a connected bone.</p></li>
+</ul>
+<p>So, when posing a chain of bones, you should always edit its elements from the root bone to the tip bone.
+This process is known as <a href="../../../../glossary/index.html#term-Forward-Kinematics">Forward Kinematics</a> (FK).
+We will see in a <a href="../../posing/bone_constraints/index.html#bone-constraints-inverse-kinematics">later page</a>
+that Blender features another pose method, called <a href="../../../../glossary/index.html#term-Inverse-Kinematics">Inverse Kinematics</a> (IK),
+which allows you to pose a whole chain just by moving its tip.</p>
+<div>
+<p>Note</p>
+<p>This feature is somewhat extended/completed by
+the <a href="../../posing/editing/pose_library.html">pose library</a>.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

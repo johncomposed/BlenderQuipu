@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Contribute &gt; Install &gt; Macos</title></head>
+<body><ul>
+<li><a href="../index.html">Contribute Documentation</a></li>
+<li><a href="index.html">Installing Dependencies</a></li>
+<li>Installation on macOS</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="installation-on-macos">
+<h1>Installation on macOS</h1>
+<p>This guide covers the following topics:</p>
+<ol>
+<li><p><a href="#installing-dependencies">Installing Dependencies</a></p></li>
+<li><p><a href="#downloading-the-repository">Downloading the Repository</a></p></li>
+<li><p><a href="#setting-up-the-build-environment">Setting up the Build Environment</a></p></li>
+</ol>
+<div>
+<p>Note</p>
+<p>This guide relies heavily on command-line tools.
+It assumes you are the least familiar with the macOS Terminal application.</p>
+</div>
+<section id="installing-dependencies">
+<h2>Installing Dependencies</h2>
+<p>Install those packages or make sure you have them in your system.</p>
+<ul>
+<li><p><a href="https://pip.pypa.io/en/latest/installing/">PIP</a></p></li>
+<li><p><a href="https://git-scm.com/download/mac">Git</a></p></li>
+<li><p><a href="https://git-lfs.com">Git LFS</a></p></li>
+</ul>
+<p>When using <a href="https://brew.sh">Homebrew</a>, run the following commands in the terminal:</p>
+<div><div><pre>python3 -m ensurepip
+brew install git git-lfs
+git lfs install
+</pre></div>
+</div>
+</section>
+<section id="downloading-the-repository">
+<h2>Downloading the Repository</h2>
+<p>Simply check out the Blender Manual’s repository using:</p>
+<div><div><pre>cd ~
+git clone https://projects.blender.org/blender/blender-manual.git
+</pre></div>
+</div>
+<p>The repository will now be downloaded which may take a few minutes depending on your internet connection.</p>
+</section>
+<section id="setting-up-the-build-environment">
+<h2>Setting up the Build Environment</h2>
+<ul>
+<li><p>Open a Terminal window.</p></li>
+<li><p>Enter the <code>blender-manual</code> folder which was just added by <code>git clone</code>:</p>
+<div><div><pre>cd ~/blender-manual
+</pre></div>
+</div>
+</li>
+<li><p>Inside that folder is a file called <code>requirements.txt</code> which contains a list of all the dependencies we need.
+To install these dependencies, we can use the <code>pip</code> command:</p>
+<div><div><pre>pip install -r requirements.txt
+</pre></div>
+</div>
+</li>
+</ul>
+<div>
+<p>Note</p>
+<p>Every now and then you may want to make sure your dependencies are up to date using:</p>
+<div><div><pre>pip install -r requirements.txt --upgrade
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

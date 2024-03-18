@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Read &gt; Edge Vertices</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Read Mesh Nodes</a></li>
+<li>Edge Vertices Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="edge-vertices-node">
+<h1>Edge Vertices Node</h1>
+<p>The <em>Edge Vertices</em> node outputs the position and index of the two vertices of each of a mesh’s edges.</p>
+<div>
+<p>Note</p>
+<p>The order of the two vertices of an edge is arbitrary. In some cases it may be predictable
+based on the internals of the algorithm that created the mesh, but in general the order should
+not be relied upon.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Vertex Index 1/2</dt><dd><p>The <a href="../../geometry/read/input_index.html">index</a> of the two vertices of the edge.</p>
+</dd>
+<dt>Position 1/2</dt><dd><p>The <a href="../../geometry/read/position.html">position</a> of each of the edge’s vertices.
+This output is for convenience, it is the same as using index output to retrieve the position from the
+<a href="../../utilities/field/evaluate_at_index.html">Evaluate at Index Node</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

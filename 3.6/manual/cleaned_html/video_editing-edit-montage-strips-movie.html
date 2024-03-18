@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Video Editing &gt; Edit &gt; Montage &gt; Strips &gt; Movie</head>
+<body><ul>
+<li><a href="../../../index.html">Video Editing</a></li>
+<li><a href="../../index.html">Edit Your Project</a></li>
+<li><a href="../index.html">Montage</a></li>
+<li><a href="index.html">Strips</a></li>
+<li>Movie Strip</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="movie-strip">
+<h1>Movie Strip</h1>
+<p>To add a movie (with or without audio) select a movie file(s) in the File Browser
+e.g. in the Audio-Video Interleaved format (<code>*.avi</code> file).</p>
+<div>
+<p>Note</p>
+<p>Clips can be Huge</p>
+<p>A three minute QuickTime <code>.mov</code> file can be 140MB.
+Loading it, even over a high-speed LAN can take some time.
+Do not assume your computer or Blender has locked up if nothing happens for awhile.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Movie strips can display thumbnails in the Sequencer overlaid on their strips
+by enabling the <a href="../../../../editors/video_sequencer/sequencer/display.html#bpy-types-sequencertimelineoverlay-show-thumbnails">Thumbnails</a> overlay.</p>
+</div>
+<section id="add-movie-strip">
+<h2>Add Movie Strip</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Movie</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Relative Path</dt><dd><p>Store the location of the image file relative to the blend-file.</p>
+</dd>
+<dt>Start Frame</dt><dd><p>The <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequence-frame-start">Start Frame</a> to place the left handle of the strip.</p>
+</dd>
+<dt>Channel</dt><dd><p>The <a href="../../../../editors/video_sequencer/sequencer/channels.html">Channel</a> to place the strip.</p>
+</dd>
+<dt>Replace Selection</dt><dd><p>Replaces the currently selected strips with the new strip.</p>
+</dd>
+<dt>Fit Method</dt><dd><p>Determines how images with an aspect ratio different than the scene’s
+<a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a> are scaled to fit inside the render area.</p>
+<dl>
+<dt>Scale to Fit:</dt>
+<dd><p>Adjusts the strips <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a> so the visual contents of
+the strip to fit exactly within the project’s <a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a>
+while maintaining the original aspect ratio.</p>
+<p>This may mean that the transparent areas may be added
+along the content’s border to fit the content in the rendered area.</p>
+</dd>
+<dt>Scale to Fill:</dt>
+<dd><p>Adjusts the strips <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a>
+so the visual contents of the strip to span the project’s
+<a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a> while maintaining the original aspect ratio.</p>
+<p>This may mean that portions of the original image no longer fit the content inside the rendered area.</p>
+</dd>
+<dt>Stretch to Fill:</dt>
+<dd><p>Adjusts the strips <a href="../../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a> so the visual contents of
+the strip to fill the project’s <a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a>. Note, unlike
+the other two methods described above, <em>Stretch to Fill</em> does not maintaining the original aspect ratio.</p>
+<p>This may mean that the original image becomes distorted to fit the content inside the rendered area.</p>
+</dd>
+</dl>
+</dd>
+<dt>Set View Transform</dt><dd><p>Automatically sets an appropriate <a href="../../../../render/color_management.html#bpy-types-colormanagedviewsettings-view-transform">View Transform</a>
+based on the <a href="../../../../glossary/index.html#term-Color-Space">Color Space</a> of the imported media. In most cases, the <em>Standard</em> should be used;
+using the wrong transform could result in inaccurate colors or degraded rendering performance.</p>
+</dd>
+<dt>Adjust Playback Rate</dt><dd><p>Automatically adjusts the video’s speed to playback at the original speed regardless of the scene’s framerate.</p>
+</dd>
+<dt>Sound</dt><dd><p>Add a <a href="sound.html">Sound Strip</a> that contains the movie’s audio track.</p>
+</dd>
+<dt>Use Movie Frame Rate</dt><dd><p>Sets the <a href="../../../../render/output/properties/format.html#bpy-types-rendersettings-fps">Scene Frame Rate</a> to the frame rate encoded in the movie file.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id2">
+<figcaption>
+<p>Imported Movie strip with audio track underneath.</p>
+</figcaption>
+</figure>
+<p>In the strip itself, you can see strip name, path to source file, and strip length.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

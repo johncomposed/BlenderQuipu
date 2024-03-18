@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Structure</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Armatures</a></li>
+<li><a href="index.html">Bones</a></li>
+<li>Structure</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="structure">
+<h1>Structure</h1>
+<figure id="id1">
+<figcaption>
+<p>The elements of a bone.</p>
+</figcaption>
+</figure>
+<p>They have three elements:</p>
+<ol>
+<li><p>The “start joint” named <em>root</em> or <em>head</em>.</p></li>
+<li><p>The “body” itself.</p></li>
+<li><p>And the “end joint” named <em>tip</em> or <em>tail</em>.</p></li>
+</ol>
+<p>With the default armature in Edit Mode,
+you can select the root and the tip, and move them as you do with mesh vertices.</p>
+<p>Both root and tip (the “joints”) define the bone by their respective position.</p>
+<p>They also have a radius property, only useful for the envelope deformation method (see below).</p>
+<section id="roll">
+<h2>Roll</h2>
+<p>Activating the <a href="../properties/display.html#bpy-types-armature-show-axes">Axes</a>
+checkbox will show local axes for each bone’s tip. The Y axis is always aligned along the bone,
+oriented from root to tip, this is the “roll” axis of the bones.</p>
+</section>
+<section id="bones-influence">
+<h2>Bones Influence</h2>
+<figure id="id2">
+<figcaption>
+<p>A bone in Envelope visualization, in Edit Mode.</p>
+</figcaption>
+</figure>
+<p>Basically, a bone controls a geometry when vertices “follow” the bone. This is like how
+the muscles and skin of your finger follow your finger-bone when you move a finger.</p>
+<p>To do this, you have to define the strength of <em>influences</em> a bone has on a certain vertex.</p>
+<p>The simplest way is to have each bone affecting those parts of the geometry that are within
+a given range from it. This is called the <em>envelope technique</em>,
+because each bone can control only the geometry “enveloped” by its own influence area.</p>
+<p>If a bone is visualized as <em>Envelope</em>, in <em>Edit Mode</em> and in <em>Pose Mode</em>
+you can see the area of influence, which depends on:</p>
+<ul>
+<li><p>The <em>distance</em> property and</p></li>
+<li><p>the root’s radius and the tip’s radius.</p></li>
+</ul>
+<figure id="id3">
+<figcaption>
+<p>Our armature in Envelope visualization, in Pose Mode.</p>
+</figcaption>
+</figure>
+<p>All these influence parameters are further detailed
+in the <a href="../skinning/index.html">skinning pages</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Output &gt; File</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Output Nodes</a></li>
+<li>File Output Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="file-output-node">
+<h1>File Output Node</h1>
+<p>CPU Compositor Only</p>
+<p>This node writes out an image, for each frame range specified,
+to the filename entered, as part of a frameset sequence.</p>
+<p>This node can be used as a way to automatically save the image after a render;
+In addition, since this node can be hooked in anywhere in the node tree,
+it can also save intermediate images automatically.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>The image(s) will be saved on rendering, writing to the current frame.
+An entire sequence of images will be saved, when an animation is rendered.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Base Path</dt><dd><p>Unlike the render output filepath, this node uses a base directory and an image name,
+by default the output path is composed of:
+<code>{base path}/{file name}{frame number}.{extension}</code>.</p>
+<p>Besides being split into two settings, in all other respects,
+this setting is treated the same as the <a href="../../../render/output/properties/output.html#bpy-types-rendersettings-filepath">render output path</a>.</p>
+</dd>
+<dt>File Format</dt><dd><p>Label that shows the selected file format.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>More options can be set in the Sidebar region.</p>
+</div>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p>This node has no output sockets.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

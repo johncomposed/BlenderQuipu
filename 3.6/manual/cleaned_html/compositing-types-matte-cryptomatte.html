@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Cryptomatte</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Cryptomatte Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cryptomatte-node">
+<h1>Cryptomatte Node</h1>
+<p>CPU Compositor Only</p>
+<p>The Cryptomatte node uses the Cryptomatte standard to efficiently create mattes for compositing.
+Cycles and Eevee output the required render passes, which can then be used in the Compositor
+or another compositor with Cryptomatte support to create masks for specified objects.</p>
+<p>Unlike the Material and Object Index passes, the objects to isolate are selected in compositing,
+and mattes will be anti-aliased and take into account effects like motion blur and transparency.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Source</dt><dd><p>The source of the Cryptomatte data.</p>
+<dl>
+<dt>Render:</dt>
+<dd><p>Use Cryptomatte data that are stored as part of the render.</p>
+</dd>
+<dt>Image:</dt>
+<dd><p>Use Cryptomatte data that are stored inside a multilayered OpenEXR image.</p>
+</dd>
+</dl>
+</dd>
+<dt>Scene</dt><dd><p>Scene selector.
+Only available when Render Source is selected.</p>
+</dd>
+<dt>Image</dt><dd><p>Image selector.
+Only available when Image Source is selected.</p>
+</dd>
+<dt>Cryptomatte Layer</dt><dd><p>Selector of the Cryptomatte layer.</p>
+</dd>
+<dt>Matte ID</dt><dd><p>List of object and material crypto IDs to include in matte.
+This can be used for example to quickly clear all mattes by deleting the text
+or used to copy-and-paste crypto IDs from other software.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>A colored output of the input image with the matte applied to only include selected layers.</p>
+</dd>
+<dt>Matte</dt><dd><p>A black-and-white alpha mask of all the selected crypto layers.</p>
+</dd>
+<dt>Pick</dt><dd><p>A colored representation of the Cryptomatte pass which can be used as a higher contrast
+image for color picking.</p>
+</dd>
+</dl>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<ol>
+<li><p>Enable Cryptomatte Object render pass in the Passes panel, and render.</p></li>
+<li><p>In the compositing nodes, create a Cryptomatte node and select the Cryptomatte layer.</p></li>
+<li><p>Attach a Viewer node to the combined pass of the render layers.</p></li>
+<li><p>Use the Cryptomatte Add/Remove button to sample objects from the Compositor backdrop.</p></li>
+<li><p>Use the Matte output of the Cryptomatte node to get the alpha mask.</p></li>
+</ol>
+<p>The Image editor, UV editor, node backdrop or Movie Clip editor can be used to pick a Cryptomatte sample.
+They don’t need to show any Cryptomatte layer. The node will use the sample image coordinate to
+sample in the Cryptomatte layer that is selected in the node.</p>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>In the example below, you can see the pass output on the right side.
+On the left side you can see a couple of objects that were selected through the <em>Cryptomatte</em> node.
+Notice how the cube on the left has a sphere-shaped cut-out from a sphere that was not selected in the node.</p>
+</section>
+<section id="limitations">
+<h2>Limitations</h2>
+<ul>
+<li><p>Cryptomatte sidecars (metadata files) are not supported.</p></li>
+<li><p>Cryptomatte node cannot be used in node groups.</p></li>
+<li><p><a href="../../../modeling/volumes/introduction.html">Volume Objects</a> are not supported.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Motion Tracking &gt; Follow Track</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Follow Track Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="follow-track-constraint">
+<h1>Follow Track Constraint</h1>
+<p>By default the Follow Track constraint is making objects have the same position at a frame as the track has.
+The motion of this object happens on a single plane defined by the camera and the original position of the object.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Follow Track Constraint panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Active Clip</dt><dd><p>Receive tracking data from the scene’s <a href="../../../scene_layout/scene/properties.html#bpy-types-scene-active-clip">Active Clip</a>.
+If unchecked, an option appears to choose from the other clips.</p>
+</dd>
+<dt>3D Position</dt><dd><p>Use the 3D position of the track to parent to.</p>
+</dd>
+<dt>Undistorted</dt><dd><p>Parent to the undistorted position of the 2D track.</p>
+</dd>
+<dt>Frame Method</dt><dd><p>Defines how the footage is fitted in the camera frame.</p>
+</dd>
+<dt>Camera</dt><dd><p>Select the camera to which the motion is parented to (if empty, the active scene camera is used).</p>
+</dd>
+<dt>Depth Object</dt><dd><p>If this object is set, constrained objects will be projected onto the surface
+of this depth object which can be used to create facial makeup visual effects.</p>
+</dd>
+<dt>Constraint to F-Curve</dt><dd><p>Creates F-Curves for the object that copies the movement caused by the constraint.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p><a href="https://www.youtube.com/watch?v=KZalGrjGKSA">Follow Track Example Video</a></p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

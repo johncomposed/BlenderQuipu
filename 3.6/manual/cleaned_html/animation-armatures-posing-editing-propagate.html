@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Posing &gt; Editing &gt; Propagate</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Posing</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Propagate</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="propagate">
+<h1>Propagate</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ Propagate</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The Propagate tool copies the pose of the selected bones on the current frame over
+to the keyframes delimited by the <em>Termination Mode</em>.
+It automates the process of copying and pasting.</p>
+<dl>
+<dt>Termination Mode</dt><dd><p>Modes which determine how it decides when to stop overwriting keyframes.</p>
+<dl>
+<dt>To Next Keyframe</dt><dd><p>Simply copies the pose to the first keyframe after (but not including any keyframe on) the current frame.</p>
+</dd>
+<dt>To Last Keyframe</dt><dd><p>Will simply replace the last keyframe (i.e. making action cyclic).</p>
+</dd>
+<dt>Before Frame</dt><dd><p>To all keyframes between current frame and the <em>End frame</em> option.
+This option is best suited for use from scripts due to the difficulties in setting this frame value,
+though it is possible to set this manually
+via the <a href="../../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel if necessary.</p>
+</dd>
+<dt>Before Last Keyframe</dt><dd><p>To all keyframes from current frame until no more are found.</p>
+</dd>
+<dt>On Selected Keyframes</dt><dd><p>Will apply the pose of the selected bones to all selected keyframes.</p>
+</dd>
+<dt>On Selected Markers</dt><dd><p>To all keyframes occurring on frames with Scene Markers after the current frame.</p>
+</dd>
+</dl>
+</dd>
+<dt>End Frame</dt><dd><p>Defines the upper-bound for the frame range within which keyframes
+will be affected (with the lower bound being the current frame).</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

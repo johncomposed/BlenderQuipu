@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Viewport Render</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">3D Viewport</a></li>
+<li>Viewport Render</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewport-render">
+<h1>Viewport Render</h1>
+<p>Viewport rendering lets you create quick preview renders from the current viewpoint
+(rather than from the active camera, as would be the case with a regular render).</p>
+<p>You can use <em>Viewport Render</em> to render both images and animations.</p>
+<p>Below is a comparison between the Viewport render and a final render using
+the Cycles Renderer.</p>
+<table id="id1">
+<caption>Model by © 2016 pokedstudio.com</caption>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Viewport render using Solid Mode.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Viewport render using Material Preview Mode.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Full render.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>Note</p>
+<p>Viewport rendering only works for the Workbench and Eevee render engines.
+It’s not supported for Cycles.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Disable overlays to get a render without “clutter” like rigs, empties and so on.</p>
+</div>
+<section id="settings">
+<h2>Settings</h2>
+<p>For the most part, <em>Viewport Render</em> uses the current viewport settings.
+Some settings are located in the properties of the render engine
+that is used to render the view.</p>
+<p>Solid mode uses the render settings of Workbench;
+Material Preview mode uses the render settings of Eevee.</p>
+<p>Additionally, some output settings are used too:</p>
+<ul>
+<li><p>Resolution</p></li>
+<li><p>Aspect</p></li>
+<li><p>Output path</p></li>
+<li><p>File format</p></li>
+</ul>
+</section>
+<section id="rendering">
+<h2>Rendering</h2>
+<p>Activating <em>Viewport Render</em> will render from the current active view.
+This means that if you are not in an active camera view,
+a virtual camera is used to match the current perspective.
+To get an image from the camera point of view,
+enter the active camera view with <kbd>Numpad0</kbd>.</p>
+<p>As with a normal render, you can abort it with <kbd>Esc</kbd>.</p>
+<dl id="bpy-ops-render-opengl">
+<dt>Render a Still Image</dt><dd><p>To render a still image, use 3D Viewport ‣ View ‣ Viewport Render Image.</p>
+</dd>
+<dt>Render an Animation</dt><dd><p>To render an animation, use 3D Viewport ‣ View ‣ Viewport Render Animation.</p>
+</dd>
+<dt>Render Keyframes</dt><dd><p>To render an animation, but only those frames that have a keyframe,
+use 3D Viewport ‣ View ‣ Viewport Render Keyframes.
+This only renders those frames for which the selected objects have an animation key.
+The other frames are still written to the output, but will simply repeat the last-rendered frame.</p>
+<p>For example, when a six-frame animation is rendered, and the selected objects
+have a key on frames 3 and 5, the following frames will be output:</p>
+<ol>
+<li><p>The 1st frame is always rendered.</p></li>
+<li><p>The 1st frame is repeated because there is no key on this frame.</p></li>
+<li><p>The 3rd frame is rendered.</p></li>
+<li><p>The 3rd frame is repeated because there is no key on this frame.</p></li>
+<li><p>The 5th frame is rendered.</p></li>
+<li><p>The 5th frame is repeated because there is no key on this frame.</p></li>
+</ol>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>You can limit the viewport render to a particular region with
+<a href="navigate/regions.html#editors-3dview-navigate-render-region">Render Regions</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

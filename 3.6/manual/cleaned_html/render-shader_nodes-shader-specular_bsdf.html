@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Specular Bsdf</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Specular BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="specular-bsdf">
+<h1>Specular BSDF</h1>
+<p>Eevee Only</p>
+<p>The <em>Specular</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+combines multiple layers into a single easy to use node.</p>
+<p>It is similar to the <a href="principled.html">Principled BSDF</a> node
+but uses the <em>specular</em> workflow instead of the metallic.
+It has far fewer parameters and supports less features. Both might be merged into one node in the future.</p>
+<p>The specular workflow functions by specifying the facing (along normal) reflection color.
+The result may not be physically plausible because there is no energy conservation.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Base Color</dt><dd><p>Diffuse surface color. For conductor materials (metals) it should be black.</p>
+</dd>
+<dt>Specular</dt><dd><p>Amount of specular reflection. Specifies facing (along normal)
+reflectivity. Conductor materials (metals) can have colored specular reflection.</p>
+<div>
+<p>Hint</p>
+<p>To compute this value for a realistic material with a known index of
+refraction, you may use this special case of the Fresnel formula:
+\(specular = ((ior - 1)/(ior + 1))^2\)</p>
+<p>For example:</p>
+<ul>
+<li><p>water: ior = 1.33, specular = 0.02</p></li>
+<li><p>glass: ior = 1.5, specular = 0.04</p></li>
+<li><p>diamond: ior = 2.417, specular = 0.17</p></li>
+</ul>
+</div>
+</dd>
+<dt>Roughness</dt><dd><p>Specifies microfacet roughness of the surface for diffuse and specular reflection.</p>
+<div>
+<p>Hint</p>
+<p>When converting from the older <em>Glossy BSDF</em> node, use the square root of the original value.</p>
+</div>
+</dd>
+<dt>Emissive Color</dt><dd><p>Color of the emitted light. This light is added to the BSDF result.</p>
+</dd>
+<dt>Transparency</dt><dd><p>Transparency factor. This is the inverse of the alpha channel (1 - alpha) you find in an image.
+Use an Invert node to convert alpha to transparency.
+This will only have an effect if the material uses a blend mode other than opaque.</p>
+</dd>
+<dt>Normal</dt><dd><p>Controls the normals of the base layers.</p>
+</dd>
+<dt>Clear Coat</dt><dd><p>Extra white specular layer on top of others.
+This is useful for materials like car paint and the like.</p>
+</dd>
+<dt>Clear Coat Roughness:</dt><dd><p>Roughness of clear coat specular.</p>
+</dd>
+<dt>Clear Coat Normal</dt><dd><p>Controls the normals of the <em>Clear Coat</em> layer.</p>
+</dd>
+<dt>Ambient Occlusion</dt><dd><p>Amount of occlusion to apply to indirect lighting. Usually a bake ambient occlusion map.
+The final occlusion factor is the minimum of this input and the runtime ambient occlusion effect.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

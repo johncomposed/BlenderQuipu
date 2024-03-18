@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Lights &gt; Light Object</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Lights</a></li>
+<li>Light Objects</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="light-objects">
+<h1>Light Objects</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Light and Shader Editor ‣ Sidebar ‣ Settings</p>
+</dd>
+</dl>
+</div>
+<section id="common-settings">
+<h2>Common Settings</h2>
+<dl id="bpy-types-light-type">
+<dt>Type</dt><dd><p>Defines the type of light.</p>
+</dd>
+<dt>Color</dt><dd><p>Color tint of the emitted light.</p>
+</dd>
+</dl>
+</section>
+<section id="renderer-settings">
+<h2>Renderer Settings</h2>
+<ul>
+<li><p><a href="../eevee/lighting.html">Eevee specific settings</a></p></li>
+<li><p><a href="../cycles/light_settings.html">Cycles specific settings</a></p></li>
+</ul>
+</section>
+<section id="point-light">
+<h2>Point Light</h2>
+<figure id="id2">
+<figcaption>
+<p>Point light.</p>
+</figcaption>
+</figure>
+<p>The point light is an omni-directional point of light,
+that is, a point radiating the same amount of light in all directions.
+It’s visualized by a plain, circled dot.
+Being a point light source, the direction of the light hitting an object’s surface
+is determined by the line joining the light and the point on the surface of the object itself.
+It can be used as simple model of e.g. a light bulb.</p>
+<p>Light intensity/energy decays based on (among other variables)
+distance from the point light to the object. In other words,
+surfaces that are further away will be rendered darker.</p>
+<dl id="bpy-types-pointlight-energy">
+<dt>Power</dt><dd><p>Power of the light in Watts. Higher values increase the intensity of the light.
+Negative values can be set, but should be avoided for predictable and physically based result.</p>
+</dd>
+</dl>
+<dl id="bpy-types-pointlight-shadow-soft-size">
+<dt>Radius</dt><dd><p>When larger than zero, light will be emitted from a spherical surfaces with the specified radius.
+Lights with larger size have softer shadows and specular highlights, and they will also appear dimmer
+because their power is distributed over a larger area.</p>
+</dd>
+</dl>
+</section>
+<section id="spot-light">
+<h2>Spot Light</h2>
+<p>A spot light emits a cone-shaped beam of light from the tip of the cone,
+in a given direction.</p>
+<dl id="bpy-types-spotlight-energy">
+<dt>Power</dt><dd><p>Power of the light in Watts. Higher values increase the intensity of the light.
+Negative values can be set, but should be avoided for predictable and physically based result.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spotlight-shadow-soft-size">
+<dt>Radius</dt><dd><p>When larger than zero, light will be emitted from a spherical surfaces with the specified radius.
+Lights with larger size have softer shadows and specular highlights.</p>
+</dd>
+</dl>
+<section id="beam-spot-shape">
+<h3>Beam/Spot Shape</h3>
+<figure id="id3">
+<figcaption>
+<p>Changing the spot options also changes the appearance of the spotlight as displayed in the 3D Viewport.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-spotlight-spot-size">
+<dt>Size</dt><dd><p>The size of the outer cone of a spot,
+which largely controls the circular area a spot light covers.
+This slider in fact controls the angle at the top of the lighting cone,
+and can be between (1.0 to 180.0).</p>
+<table id="id4">
+<caption>Changing the spot Size option.</caption>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-spotlight-spot-blend">
+<dt>Blend</dt><dd><p>The <em>Blend</em> slider controls the inner cone of the spot.
+The <em>Blend</em> value can be between (0.0 to 1.0).
+The value is proportional and represents that amount of space that the inner cone should
+occupy inside the outer cone <em>Size</em>.</p>
+<p>The inner cone boundary line indicates the point at which light from the spot will start to blur/soften;
+before this point its light will mostly be full strength.
+The larger the value of <em>Blend</em> the more blurred/soft the edges of the spotlight will be,
+and the smaller the inner cone’s circular area will be (as it starts to blur/soften earlier).</p>
+<p>To make the spot have a sharper falloff rate and therefore less blurred/soft edges,
+decrease the value of <em>Blend</em>.
+Setting <em>Blend</em> to 0.0 results in very sharp spotlight edges, without any transition between light and shadow.</p>
+<p>The falloff rate of the spot light is a ratio between the <em>Blend</em> and <em>Size</em> values;
+the larger the circular gap between the two, the more gradual the light fades between <em>Blend</em> and <em>Size</em>.</p>
+<p><em>Blend</em> and <em>Size</em> only control the spot light cone’s aperture and softness (“radial” falloff);
+they do not control the shadow’s softness as shown below.</p>
+<figure id="id5">
+<figcaption>
+<p>Render showing the soft edge spotlighted area and the sharp/hard object shadow.</p>
+</figcaption>
+</figure>
+<p>Notice in the picture above that the object’s shadow is sharp as a result of the ray tracing,
+whereas the spotlight edges are soft.
+If you want other items to cast soft shadows within the spot area, you will need to alter other shadow settings.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spotlight-show-cone">
+<dt>Show Cone</dt><dd><p>Displays a transparent cone in 3D Viewport to visualize which objects are contained in it.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="area-light">
+<h2>Area Light</h2>
+<p>The area light simulates light originating from a surface (or surface-like) emitter.
+For example, a TV screen, office neon lights, a window,
+or a cloudy sky are just a few types of area light. The area light produces shadows with
+soft borders by sampling a light along a grid the size of which is defined by the user.
+This is in direct contrast to point-like artificial lights which produce sharp borders.</p>
+<dl id="bpy-types-arealight-energy">
+<dt>Power</dt><dd><p>Power of the light in Watts. Higher values increase the intensity of the light.
+Negative values can be set, but should be avoided for predictable and physically based result.</p>
+</dd>
+</dl>
+<dl id="bpy-types-arealight-shape">
+<dt>Shape</dt><dd><p>Shape of the light.</p>
+<dl>
+<dt>Rectangle:</dt>
+<dd><p>The shape of the light can be represented as a rectangle and changed with the “X” and “Y” values.</p>
+</dd>
+<dt>Square:</dt>
+<dd><p>The shape of the light can be represented as a square and changed with the <em>Size</em> property.</p>
+</dd>
+<dt>Disk:</dt>
+<dd><p>The shape of the light can be represented as a disk and changed with the <em>Size</em> property.</p>
+</dd>
+<dt>Ellipse:</dt>
+<dd><p>The shape of the light can be represented as an ellipse and changed with the X and Y values.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Choosing the appropriate shape for your area light will enhance the believability of your scene.
+For example, you may have an indoor scene and would like to simulate light entering through a window.
+You could place a <em>Rectangular</em> area light in a window (vertical) or from neon lights (horizontal)
+with proper ratio for <em>Size X</em> and <em>Size Y</em>. For the simulation of the light emitted by
+a TV screen, a vertical <em>Square</em> area light would be better in most cases.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-arealight-size">
+<dt>Size / Size X / Size Y</dt><dd><p>Dimensions for the <em>Square</em> or <em>Rectangle</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="sun-light">
+<h2>Sun Light</h2>
+<p>A sun light provides light of constant intensity emitted in a single direction from infinitely far away.
+It can be very handy for a uniform clear daylight open-space illumination. In the 3D Viewport,
+the sun light is represented by an encircled black dot with rays emitting from it,
+plus a dashed line indicating the direction of the light.</p>
+<div>
+<p>Note</p>
+<p>This direction can be changed by rotating the sun light, like any other object,
+but because the light is emitted from a location considered infinitely far away,
+the location of a sun light does not affect the rendered result.</p>
+</div>
+<dl id="bpy-types-sunlight-energy">
+<dt>Strength</dt><dd><p>Strength of the lights in Watts per square meter. Typical values are
+around 250 for an overcast day and 1000 or more for direct sunlight.
+See more details at <a href="#power-of-lights">Power of Lights</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-sunlight-angle">
+<dt>Angle</dt><dd><p>The size of the sun light according to its
+<a href="https://en.wikipedia.org/wiki/Angular_diameter#Use_in_astronomy">angular diameter</a>
+as seen from earth.</p>
+</dd>
+</dl>
+</section>
+<section id="power-of-lights">
+<h2>Power of Lights</h2>
+<p>The power of sun lights is specified in Watts per square meter.
+The power of point lights, spot lights, and area lights is specified in Watts.
+But this is not the electrical Watts that consumer light bulbs are rated at.
+It is <a href="https://en.wikipedia.org/wiki/Radiant_flux">Radiant Flux or Radiant Power</a> which is also measured in Watts.
+It is the energy radiated from the light in the form of visible light.</p>
+<p>If you want to set the power to real world values, you have to convert the wattage of consumer bulbs
+or <abbr title="Light-Emitting Diode">LED</abbr> lights to radiant flux, but it is not a straightforward process.
+The wattage of bulbs means the electrical power required to power them. LED lights have
+a “Watt equivalent” which is neither the electrical power they require nor the amount of light they put out.
+Some consumer lights specify <a href="https://en.wikipedia.org/wiki/Lumen_(unit)">lumens or luminous flux</a>
+which is the radiant flux weighted with the wavelengths perceived by the human eye.</p>
+<p>To save you from doing the conversion, here is a table of typical power values for point, spot, and area lights:</p>
+<table>
+<thead>
+<tr><th><p>Real world light</p></th>
+<th><p>Power</p></th>
+<th><p>Suggested Light Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>Candle</p></td>
+<td><p>0.05 W</p></td>
+<td><p>Point</p></td>
+</tr>
+<tr><td><p>800 lm LED bulb</p></td>
+<td><p>2.1 W</p></td>
+<td><p>Point</p></td>
+</tr>
+<tr><td><p>1000 lm light bulb</p></td>
+<td><p>2.9 W</p></td>
+<td><p>Point</p></td>
+</tr>
+<tr><td><p>1500 lm PAR38 floodlight</p></td>
+<td><p>4 W</p></td>
+<td><p>Area, Disk</p></td>
+</tr>
+<tr><td><p>2500 lm fluorescent tube</p></td>
+<td><p>4.5 W</p></td>
+<td><p>Area, Rectangle</p></td>
+</tr>
+<tr><td><p>5000 lm car headlight</p></td>
+<td><p>22 W</p></td>
+<td><p>Spot, size 125 degrees</p></td>
+</tr>
+</tbody>
+</table>
+<p>And a table of typical Strength values for sun lights:</p>
+<table>
+<thead>
+<tr><th><p>Sun type</p></th>
+<th><p>Strength</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>Clear sky</p></td>
+<td><p>1000 W/m<sup>2</sup></p></td>
+</tr>
+<tr><td><p>Cloudy sky</p></td>
+<td><p>500 W/m<sup>2</sup></p></td>
+</tr>
+<tr><td><p>Overcast sky</p></td>
+<td><p>200 W/m<sup>2</sup></p></td>
+</tr>
+<tr><td><p>Moonlight</p></td>
+<td><p>0.001 W/m<sup>2</sup></p></td>
+</tr>
+</tbody>
+</table>
+<p>These values will likely produce much brighter or dimmer lights than you would expect,
+because our eyes adapt while a render engine does not. So to compensate,
+adjust the <em>Exposure</em> in Render ‣ Film.</p>
+<p>To get realistic results, remember to also set the light size and color to realistic values.
+The color of your lights will also influence how bright they appear to the human visual system.
+If you leave the power unchanged, a green light will seem the brightest, red darker and blue the darkest.
+Thus you might want to manually compensate for these perceived differences.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

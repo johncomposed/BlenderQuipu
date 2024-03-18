@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modifiers &gt; Generate &gt; Simplify</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li><a href="index.html">Generate</a></li>
+<li>Simplify Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="simplify-modifier">
+<h1>Simplify Modifier</h1>
+<p>The <em>Simplify</em> modifier allows you to reduce the amount of points in the strokes.
+The goal of this modifier is reduce points while maintaining the lines shape.</p>
+<p>Apply the modifier can help to obtain a better performance (more FPS) while animating.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Simplify modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mode</dt><dd><p>Determines how to reduce points in the strokes.</p>
+<dl>
+<dt>Fixed</dt><dd><p>Deletes alternated points in the strokes, except the start and end points.</p>
+<dl>
+<dt>Iterations</dt><dd><p>Number of times to repeat the procedure.</p>
+</dd>
+</dl>
+</dd>
+<dt>Adaptive</dt><dd><p>Uses the RDP algorithm (Ramer-Douglas-Peucker algorithm) for points deletion.
+The algorithm try to obtain a similar line shape with fewer points.</p>
+<dl>
+<dt>Factor</dt><dd><p>Controls the amount of recursively simplifications applied by the algorithm.</p>
+</dd>
+</dl>
+</dd>
+<dt>Sample</dt><dd><p>Recreates the stroke geometry with a predefined length between points.</p>
+<dl>
+<dt>Length</dt><dd><p>The distance between points on the recreated stroke.
+Smaller values will require more points to recreate the stroke,
+while larger values will result in fewer points needed to recreate the curve.</p>
+</dd>
+<dt>Sharp Threshold</dt><dd><p>Preserve corners that have sharper angle than this threshold.</p>
+</dd>
+</dl>
+</dd>
+<dt>Merge</dt><dd><p>Simplifies the strokes by merging points that are closer than a specified distance to each other.</p>
+<dl>
+<dt>Distance</dt><dd><p>Sets the distance threshold for merging points.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="influence">
+<h3>Influence</h3>
+<p>See <a href="../introduction.html#grease-pencil-modifier-influence-filters">Influence Filters</a>.</p>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table id="id2">
+<caption>Fixed Mode sample.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Original Model.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Iteration: 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Iteration: 2.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Iteration: 3.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id7">
+<caption>Adaptive Mode sample.</caption>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Original Model.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Factor: 0.1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Factor: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Factor: 1.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

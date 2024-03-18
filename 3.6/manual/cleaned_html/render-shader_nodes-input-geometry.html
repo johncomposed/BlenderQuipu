@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Geometry</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Geometry Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="geometry-node">
+<h1>Geometry Node</h1>
+<p>The <em>Geometry</em> node gives geometric information about the current shading point.
+All vector coordinates are in <em>World Space</em>. For volume shaders,
+only the position and incoming vector are available.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Position</dt><dd><p>Position of the shading point.</p>
+</dd>
+<dt>Normal</dt><dd><p>Shading normal at the surface (includes smooth normals and bump mapping).</p>
+</dd>
+<dt>Tangent</dt><dd><p>Tangent at the surface.</p>
+</dd>
+<dt>True Normal</dt><dd><p>Geometry or flat normal of the surface.</p>
+</dd>
+<dt>Incoming</dt><dd><p>Vector pointing towards the point the shading point is being viewed from.</p>
+</dd>
+<dt>Parametric</dt><dd><p>Parametric coordinates of the shading point on the surface.
+To area lights it outputs its UV coordinates in planar mapping and
+in spherical coordinates to point lights.</p>
+</dd>
+<dt>Backfacing</dt><dd><p>1.0 if the face is being viewed from the back side, 0.0 for the front side.</p>
+</dd>
+<dt>Pointiness Cycles Only</dt><dd><p>An approximation of the curvature of the mesh per vertex.
+Lighter values indicate convex angles, darker values indicate concave angles.
+It allows you to do effects like dirt maps and wear-off effects.</p>
+</dd>
+<dt>Random per Island Cycles Only</dt><dd><p>A random value for each connected component (island) of the mesh.
+It is useful to add variations to meshes composed of separated units
+like tree leaves, wood planks, or curves of multiple splines.</p>
+<figure id="id1">
+<figcaption>
+<p>Get a random value for each instance of the mesh when using an Array modifier.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

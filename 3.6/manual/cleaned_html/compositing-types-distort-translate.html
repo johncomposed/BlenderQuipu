@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Distort &gt; Translate</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Distort Nodes</a></li>
+<li>Translate Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="translate-node">
+<h1>Translate Node</h1>
+<p>The Translate node moves an image.</p>
+<p>Could also be used to add a 2D camera shake.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>X, Y</dt><dd><p>Used to move the input image horizontally and vertically.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Relative</dt><dd><p>Percentage translation values relative to the input image size.</p>
+</dd>
+<dt>Wrapping</dt><dd><p>Repeat pixels on the other side when they extend over the image dimensions, making endless translating possible.</p>
+<p>None, X Axis, Y Axis, Both Axis</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Individual axis wrapping is only supported in the CPU compositor.</p>
+</div>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

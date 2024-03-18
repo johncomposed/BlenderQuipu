@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Draw &gt; Tools &gt; Fill</title></head>
+<body><ul>
+<li><a href="../../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Draw Mode</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Fill Tool</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="fill-tool">
+<h1>Fill Tool</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Draw Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Fill</p>
+</dd>
+</dl>
+</div>
+<p>The Fill tool is used to automatically fill closed strokes areas.</p>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<p>You can also configure the brush main settings exposed on the Tool Settings for convenience.</p>
+<dl id="bpy-types-brushgpencilsettings-fill-direction">
+<dt>Direction <kbd>Ctrl</kbd></dt><dd><p>The portion of area to fill.</p>
+<dl>
+<dt>Normal:</dt>
+<dd><p>Fills the area inside the shape under the cursor.</p>
+</dd>
+<dt>Inverted:</dt>
+<dd><p>Fills the area outside the shape under the cursor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-fill-factor">
+<dt>Precision</dt><dd><p>Multiplier for fill boundary accuracy.
+Higher values are more accurate but slower.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-dilate">
+<dt>Dilate/Contract</dt><dd><p>Size in pixels to expand or shrink the fill area from the strokes boundary.</p>
+</dd>
+<dt>Thickness</dt><dd><p>The thickness radius of the boundary stroke in pixels.</p>
+</dd>
+</dl>
+<section id="advanced">
+<h3>Advanced</h3>
+<dl id="bpy-types-brushgpencilsettings-fill-draw-mode">
+<dt>Boundary</dt><dd><p>Sets the type of fill boundary limits calculation to perform.</p>
+<dl>
+<dt>All:</dt>
+<dd><p>Use the thickness of the strokes and the editing lines together.</p>
+</dd>
+<dt>Strokes:</dt>
+<dd><p>Use only the thickness of the strokes (ignore edit lines).</p>
+</dd>
+<dt>Edit Lines:</dt>
+<dd><p>Use only the edit lines (ignore strokes).</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-show-fill-boundary">
+<dt>Show Lines (eye icon)</dt><dd><p>Toggle show auxiliary lines to see the fill boundary.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-fill-layer-mode">
+<dt>Layers</dt><dd><p>Determines which <a href="../../../properties/layers.html">Layers</a> are used for boundary strokes.</p>
+<dl>
+<dt>Visible:</dt>
+<dd><p>Calculates boundaries based on all visible layers.</p>
+</dd>
+<dt>Active:</dt>
+<dd><p>Calculates boundaries based on the active layer.</p>
+</dd>
+<dt>Layer Above:</dt>
+<dd><p>Calculates boundaries based on the layer above the active layer.</p>
+</dd>
+<dt>Layer Below:</dt>
+<dd><p>Calculates boundaries based on the layer below the active layer.</p>
+</dd>
+<dt>All Above:</dt>
+<dd><p>Calculates boundaries based on all layers above the active layer.</p>
+</dd>
+<dt>All Below:</dt>
+<dd><p>Calculates boundaries based on all layers below the active layer.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-fill-simplify-level">
+<dt>Simplify</dt><dd><p>Number of simplify steps to apply to the boundary line.
+Higher values reduce the accuracy of the final filled area.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-fill-threshold">
+<dt>Ignore Transparent</dt><dd><p>When enabled, strokes with transparency does not take into account on fill boundary calculations.</p>
+<p>The value slider controls the threshold to consider a material transparent.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-use-fill-limit">
+<dt>Limit to Viewport</dt><dd><p>When enabled, fill only visible areas in the viewport.</p>
+</dd>
+</dl>
+<section id="gap-closure">
+<h4>Gap Closure</h4>
+<p>Gap closure lines are automatic temporarily lines that help to close gaps on the strokes.</p>
+<dl id="bpy-types-brushgpencilsettings-extend-stroke-factor">
+<dt>Size</dt><dd><p>Control the Size of the line extension or the circumference to use to calculate the lines that will close the gaps.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-fill-extend-mode">
+<dt>Mode <kbd>S</kbd></dt><dd><p>Sets the type of Gap closure method to use.</p>
+<dl>
+<dt>Radius:</dt>
+<dd><p>Uses the Radius of circumference of opened nearest points to calculate a line that close the gap.</p>
+</dd>
+<dt>Extend:</dt>
+<dd><p>Extends the opened strokes to close gaps.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-show-fill-extend">
+<dt>Visual Aids</dt><dd><p>Toggle show closure lines helper.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-use-collide-strokes">
+<dt>Strokes Collision <kbd>D</kbd></dt><dd><p>Check if extend lines collide with strokes, stopping the extension if a collision is detected.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brushgpencilsettings-use-collide-only">
+<dt>Only Collide Lines</dt><dd><p>Use for closing gaps only if the extend strokes collide.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<section id="selecting-a-brush-and-material">
+<h3>Selecting a Brush and Material</h3>
+<p>In the Tool Settings select the brush, material and color type to use with the tool.
+The Fill tool uses <em>Fill Brush</em> types.
+See <a href="../tool_settings/brush_settings.html#grease-pencil-draw-common-options">Brush Settings</a> for more information.</p>
+</section>
+<section id="filling-areas">
+<h3>Filling Areas</h3>
+<p>Click <kbd>LMB</kbd> in a closed stroke area. The tool will automatically calculate
+the boundary and create a new closed stroke filled with the material selected.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Original Drawing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Use the fill tool to leak materials on closed areas.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Final filled drawing.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="boundary-strokes">
+<h3>Boundary Strokes</h3>
+<p>If you have a large gap in an area that you want fill,
+you can add boundary strokes manually, a temporary auxiliary lines for closing open shapes.
+To create a boundary stroke use <kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> and draw a line to close the desired area.</p>
+<table>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Original drawing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Add boundary strokes to close open areas (red lines).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Use the Fill tool to leak material on the new closed area.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>When you are satisfied with the fill result you can delete the boundary strokes using
+the <em>Clean Up</em> tool in the <a href="../../edit/grease_pencil_menu.html">Grease Pencil Menu</a> in Edit Mode.</p>
+</section>
+<section id="automatic-gap-closure">
+<h3>Automatic Gap Closure</h3>
+<p>A more automatic way to close gaps in an area that you want fill is using temporarily helper lines.
+There are two method to use “Radius” or “Extend”</p>
+<p><em>Radius</em> use temporary auxiliary lines calculated from the radius of nearby open points to close open shapes.
+Set the size more than zero to control the circle size over opened points
+(the circle will disappear when the line close the gap).
+Click over the area you want to be filled and change the length of the strokes using
+<kbd>PageUp</kbd> <kbd>PageDown</kbd> or <kbd>Wheel</kbd>.
+When you are satisfied with the length and you are sure the temporarily strokes cross each other,
+click again to fill the area.</p>
+<table>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Original Drawing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Use Radius mode to close open areas (Red circles and cyan lines).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Use Fill Tool to leak material on the new closed area.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>Extend</em> use temporary auxiliary lines extending the actual strokes ends for closing open shapes.
+Set the size more than zero to use the extended lines, click over the area you want to be filled
+and change the length of the strokes using <kbd>PageUp</kbd>/<kbd>PageDown</kbd>, <kbd>Wheel</kbd> or a pen’s <kbd>MMB</kbd>.
+When you are satisfied with the length and you are sure the temporarily strokes cross each other,
+click again to fill the area.</p>
+<table>
+<tbody>
+<tr><td><figure id="id11">
+<figcaption>
+<p>Original Drawing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id12">
+<figcaption>
+<p>Use Extend mode to close open areas (cyan lines).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id13">
+<figcaption>
+<p>Use Fill Tool to leak material on the new closed area.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="switch-to-draw-tool">
+<h3>Switch to Draw Tool</h3>
+<p>Use <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> to change temporary to the active draw tool.
+For example to manually cover small areas difficult to reach for the Fill tool.
+See <a href="draw.html">Draw Tool</a> for more information.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

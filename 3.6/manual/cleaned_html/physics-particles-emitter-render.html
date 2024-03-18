@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Emitter &gt; Render</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Particle System</a></li>
+<li><a href="index.html">Emitter</a></li>
+<li>Render</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="render">
+<h1>Render</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Render</p>
+</dd>
+</dl>
+</div>
+<p>The Render Panel controls how particles appear when they are rendered.</p>
+<div>
+<p>Note</p>
+<p>Cycles supports only Object and Collection render types.</p>
+</div>
+<section id="common-settings">
+<h2>Common Settings</h2>
+<dl>
+<dt>Scale</dt><dd><p>Todo.</p>
+</dd>
+<dt>Scale Randomness</dt><dd><p>Todo.</p>
+</dd>
+<dt>Material</dt><dd><p>Set which of the object’s materials is used to shade the particles.</p>
+</dd>
+<dt>Coordinates System</dt><dd><p>Use a different object’s coordinates to determine the birth of particles.</p>
+</dd>
+<dt>Show Emitter</dt><dd><p>When disabled, the emitter is no longer rendered. Activate the button <em>Emitter</em> to also render the mesh.</p>
+</dd>
+</dl>
+</section>
+<section id="render-as">
+<h2>Render As</h2>
+<section id="none">
+<h3>None</h3>
+<p>When set to <em>None</em>, particles are not rendered.
+This is useful if you are using the particles to duplicate objects.</p>
+</section>
+<section id="halo">
+<h3>Halo</h3>
+<p>Halos are rendered as glowing dots or a little cloud of light.
+Although they are not really lights because they do not cast light into the scene like a light object.
+They are called <em>Halos</em> because you can see them, but they do not have any substance.</p>
+</section>
+<section id="path">
+<h3>Path</h3>
+<p>The <em>Path</em> visualization needs a <a href="../hair/index.html">Hair</a> particle system or
+<a href="physics/keyed.html">Keyed</a> particles.</p>
+<dl>
+<dt>B-Spline</dt><dd><p>Interpolate hair using B-splines.
+This may be an option for you if you want to use low <em>Render</em> values.
+You loose a bit of control but gain smoother paths.</p>
+</dd>
+<dt>Steps</dt><dd><p>Set the number of subdivisions of the rendered paths (the value is a power of 2).
+You should set this value carefully,
+because if you increase the render value by two you need four times more memory to render.
+Also the rendering is faster if you use low render values (sometimes drastically).
+But how low you can go with this value depends on the waviness of the hair (the value is a power of 2).
+This means 0 steps give 1 subdivision,
+1 give 2 subdivisions, 2 –&gt; 4, 3 –&gt; 8, 4 –&gt; 16, … <em>n</em> –&gt; <em>n</em><sup>2</sup>.</p>
+</dd>
+</dl>
+</section>
+<section id="timing">
+<h3>Timing</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Render ‣ Timing</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Hair</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Absolute Path Time</dt><dd><p>Path timing is in absolute frames.</p>
+</dd>
+<dt>End</dt><dd><p>End time of the practical path.</p>
+</dd>
+<dt>Random</dt><dd><p>Give the path length a random variation.</p>
+</dd>
+</dl>
+</section>
+<section id="object">
+<h3>Object</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Render ‣ Object</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Instance Object</dt><dd><p>The specified object is instanced in place of each particle.</p>
+</dd>
+<dt>Global Coordinates</dt><dd><p>Use object’s global coordinates for instancing.</p>
+</dd>
+<dt>Object Rotation</dt><dd><p>Use the rotation of the object.</p>
+</dd>
+<dt>Object Scale</dt><dd><p>Use the size of the object.</p>
+</dd>
+</dl>
+</section>
+<section id="collection">
+<h3>Collection</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Render ‣ Collection</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Instance Collection</dt><dd><p>The objects that belong to a collection are instanced sequentially in the place of the particles.</p>
+</dd>
+<dt>Whole Collection</dt><dd><p>Use the whole group at once, instead of one of its elements, the group being displayed in place of each particle.</p>
+</dd>
+<dt>Pick Random</dt><dd><p>The objects in the group are selected in a random order, and only one object is displayed in place of a particle.
+Please note that this mechanism fully replaces old Blender particles system using parentage
+and <em>Instancing Vertices</em> to replace particles with actual geometry.
+This method is fully deprecated and does not work anymore.</p>
+</dd>
+<dt>Global Coordinates</dt><dd><p>Use object’s global coordinates for instancing.</p>
+</dd>
+<dt>Object Rotation</dt><dd><p>Use the rotation of the objects.</p>
+</dd>
+<dt>Object Scale</dt><dd><p>Use the size of the objects.</p>
+</dd>
+</dl>
+<section id="use-count">
+<h4>Use Count</h4>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Render ‣ Collection ‣ Use Count</p>
+</dd>
+</dl>
+</div>
+<p>Use objects multiple times in the same groups.
+Specify the order and number of times to repeat each object with the <a href="../../../interface/controls/templates/list_view.html#ui-list-view">list view</a> that appears.
+You can duplicate an object in the list with the <code>+</code> button, or remove a duplicate with the <code>-</code> button.</p>
+</section>
+</section>
+</section>
+<section id="extra">
+<h2>Extra</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Render ‣ Extra</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-particlesettings-use-parent-particles">
+<dt>Parents Particles</dt><dd><p>Render also parent particles if child particles are used.
+Children have a lot of different deformation options,
+so the straight parents would stand between their curly children.
+So by default <em>Parents</em> are not rendered if you activate <em>Children</em>.
+See <a href="children.html">Children</a>.</p>
+</dd>
+<dt>Unborn</dt><dd><p>Render particles before they are born.</p>
+</dd>
+<dt>Dead</dt><dd><p>Render particles after they have died.
+This is very useful if particles die in a collision <em>Die on hit</em>, so you can cover objects with particles.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

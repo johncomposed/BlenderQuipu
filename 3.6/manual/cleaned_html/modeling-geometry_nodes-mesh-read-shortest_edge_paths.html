@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Read &gt; Shortest Edge Paths</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Read Mesh Nodes</a></li>
+<li>Shortest Edge Paths Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="shortest-edge-paths-node">
+<h1>Shortest Edge Paths Node</h1>
+<p>The <em>Shortest Edge Paths</em> node finds paths along mesh edges to a selection of end vertices.
+The cost used to define “shortest” can be set to anything. By default there is a constant cost
+for every edge, but a typical input would be the length of each edge.</p>
+<p>The output is encoded with vertex indices, and is meant to be used on the vertex domain.
+For each vertex, the <em>Next Vertex Input</em> output stores the index of the following vertex
+in the path to the “closest” endpoint.</p>
+<p>The node is implemented with <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra’s algorithm</a>.</p>
+<div>
+<p>Tip</p>
+<p>The edge length is a natural input to the <em>Edge Cost</em>. It can be implemented with the
+<a href="edge_vertices.html">Edge Vertices Node</a> and the
+<a href="../../utilities/vector/vector_math.html">Vector Math Node</a> set to the <em>Distance</em> operation.</p>
+</div>
+<div>
+<p>See also</p>
+<p>This node can be used with the <a href="../operations/edge_paths_to_selection.html">Edge Paths to Selection Node</a>
+or the <a href="../operations/edge_paths_to_curves.html">Edge Paths to Curves Node</a> to generate new geometry
+based on the paths.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>End Vertex</dt><dd><p>A selection of the goal vertices that terminate the edge paths.</p>
+</dd>
+<dt>Edge Cost</dt><dd><p>The weight for each edge, used to determine the meaning of “shortest.”</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Next Vertex Index</dt><dd><p>The following vertex on the shortest path from every vertex to the closest endpoint
+(as defined by the cost input).</p>
+</dd>
+<dt>Total Cost</dt><dd><p>The remaining cost before an end vertex is reached by following the next vertex indices</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

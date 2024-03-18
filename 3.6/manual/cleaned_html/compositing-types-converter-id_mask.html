@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Converter &gt; Id Mask</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Converter Nodes</a></li>
+<li>ID Mask Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bpy-types-compositornodeidmask">
+<h1>ID Mask Node</h1>
+<p>The <em>ID Mask Node</em> can be used to access an alpha mask per object or per material.</p>
+<div>
+<p>See also</p>
+<p>The ID Mask node is superseded by the <a href="../matte/cryptomatte.html">Cryptomatte Node</a>.
+Cryptomatte is more feature complete and supported by Cycles and Eevee.
+It is recommended to use this feature moving forward.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>ID Value</dt><dd><p>Input for the <em>Object Index</em> or <em>Material Index</em> render pass.
+Which is an output of the <a href="../input/render_layers.html">Render Layers node</a> or
+the <a href="../input/render_layers.html">Image node</a> with a multi-layer format.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Index</dt><dd><p>Selection of the previously specified index.</p>
+</dd>
+<dt>Anti-Aliasing</dt><dd><p>This post-processing filter smooths the mask edges. See <a href="../../../glossary/index.html#term-Anti-Aliasing">Anti-Aliasing</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Alpha</dt><dd><p>The mask is white where the object is and black where it is not.
+If the object is transparent, the alpha mask represent that with gray values.</p>
+</dd>
+</dl>
+</section>
+<section id="setup">
+<h2>Setup</h2>
+<p>An index can be specify for any object or material in the scene.
+The Object Index can be set in Properties ‣ Object Properties ‣ Relations ‣ Pass Index
+and Material ‣ Settings ‣ Pass Index for the Material Index.
+To be accessible after rendering, the Render Engine must be Cycles,
+and <em>Object Index</em> or <em>Material Index</em> render pass has to be enabled.</p>
+<figure id="id1">
+<figcaption>
+<p>Object Pass Index.</p>
+</figcaption>
+</figure>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>In this example, the left rear red cube is assigned Pass Index 1, and the right cube Pass Index 2.
+Where the two cubes intersect, there is going to be noticeable pixelation because they come together
+at a sharp angle and are different colors. Using the mask from object 1,
+which is smoothed (anti-aliased) at the edges, we use a <em>Mix Node</em> set on <em>Multiply</em>
+to multiply the smoothed edges of the image, thus removing those nasty lines, thus, being smoothed out.</p>
+<figure id="id2">
+<figcaption>
+<p>ID Mask node example.</p>
+</figcaption>
+</figure>
+</section>
+<section id="limitations">
+<h2>Limitations</h2>
+<ul>
+<li><p><a href="../../../modeling/volumes/introduction.html">Volume Objects</a> are not supported.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

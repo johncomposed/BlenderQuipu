@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Development &gt; Edit Operator</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Development</a></li>
+<li>Edit Operator Source</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="edit-operator-source">
+<h1>Edit Operator Source</h1>
+<p>This add-on allows searching for operator names (<code>bl_idname</code>) and opens source files containing them.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Development then Edit Operator Source to enable the script.</p></li>
+</ul>
+</section>
+<section id="description">
+<h2>Description</h2>
+<p>In the Text Editor ‣ Sidebar on the left find the Edit Operator panel and
+press the <em>Edit Operator</em> button. A searchable menu will show up. Scroll down until the operator is found.
+Enter the keywords in the search field to narrow down the available options.
+The source file containing the operator will open pointing to it’s line.</p>
+<p>To access the previously opened text files, select them from the header data-block menu.</p>
+<div>
+<p>Note</p>
+<p>Similar to the <em>Operator Cheat Sheet</em>, the script will produce a small memory leak (~0.03mb)
+when enabled by accessing the Operator attributes from Python.
+It is a conscious trade-off made by Blender developers, as the needed setting/call
+in the source C code for this purpose, would increase the size of every Python instance by 4 bytes.
+In case of complex scenes, the increased memory footprint would be nontrivial compared to
+the few usage cases where it is currently needed.</p>
+</div>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Development</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Opens source file of chosen operator or call locations, if source not available.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Text Editor ‣ Sidebar ‣ Edit Operator</p>
+</dd>
+<dt>File:</dt>
+<dd><p>development_edit_operator.py</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>scorpion81</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>scorpion81</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

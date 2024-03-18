@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Actions</title></head>
+<body><ul>
+<li><a href="index.html">Animation &amp; Rigging</a></li>
+<li>Actions</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="actions">
+<h1>Actions</h1>
+<p>When animating objects and properties in Blender, Actions record and contain the data.
+As everything else in Blender, Actions are data-blocks.</p>
+<figure id="id1">
+<figcaption>
+<p>Actions.</p>
+</figcaption>
+</figure>
+<p>So when you animate an object by changing its location with keyframes,
+the animation is saved to the Action.</p>
+<p>Each property has a channel which it is recorded to, for example,
+<code>Cube.location.x</code> is recorded to Channel X Location.
+The <em>X location</em> and <em>Y location</em> properties can be shared across multiple objects,
+if all objects have <em>X location</em> and <em>Y location</em> properties beneath them.</p>
+<figure id="id2">
+<figcaption>
+<p>Graph Editor. Each channel has an F-Curve represented by the lines between the keyframes.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Actions</dt><dd><p>Record and contain animation data.</p>
+</dd>
+<dt>Groups</dt><dd><p>Are groups of channels.</p>
+</dd>
+<dt>Channels</dt><dd><p>Record properties.</p>
+</dd>
+<dt>F-Curves</dt><dd><p><a href="../editors/graph_editor/fcurves/introduction.html">F-Curves</a> are used to
+interpolate the difference between the keyframes.</p>
+</dd>
+<dt>Keyframes</dt><dd><p><a href="keyframes/introduction.html">Keyframes</a> are used to
+set the values of properties bound to a point in time.</p>
+</dd>
+</dl>
+<section id="working-with-actions">
+<h2>Working with Actions</h2>
+<figure id="id3">
+<figcaption>
+<p>The Action data-block menu.</p>
+</figcaption>
+</figure>
+<p>When you first animate an object by adding keyframes,
+Blender creates an <em>Action</em> to record the data.</p>
+<p><em>Actions</em> can be managed with the <em>Action data-block menu</em>
+in the Dope Sheet <a href="../editors/dope_sheet/action.html">Action Editor</a> header,
+or the Sidebar region of the <a href="../editors/nla/sidebar.html">NLA Editor</a>.</p>
+<p>If you are making multiple actions for the same object,
+press the shield button for each action.
+This will give the actions a <em>Fake User</em> and will make Blender save the unlinked actions.</p>
+<p>Objects can only use one <em>Action</em> at a time for editing.
+The <a href="../editors/nla/index.html">NLA Editor</a> is used to blend multiple actions together.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<figure id="id4">
+<figcaption>
+<p>Actions with and without a Manual Frame Range in Dope Sheet.</p>
+</figcaption>
+</figure>
+<p>It is possible to manually specify the intended useful frame range of an action via a panel
+available in the <a href="../editors/dope_sheet/introduction.html">Dope Sheet</a> or the <a href="../editors/nla/sidebar.html">NLA Editor</a>
+when a channel or NLA track is selected.</p>
+<dl id="bpy-types-action-use-frame-range">
+<dt>Manual Frame Range</dt><dd><p>Manually specify the intended playback frame range for the action
+(this range is used by some tools, but does not affect animation evaluation).
+The manual frame range feature can be toggled with the checkbox.</p>
+<p>When the range is set, it is used instead of the actual range occupied by key frames
+when adding a new track based on the action to NLA. It can also be used by exporters
+to determine the range of frames to export.</p>
+<p>The range is displayed in the background of the editor as diagonal hash fill, to
+distinguish it from the solid fill of the current playback range.</p>
+<p>The frame values are most commonly expected to be integers, but can be fractional.</p>
+</dd>
+</dl>
+<dl id="bpy-types-action-use-cyclic">
+<dt>Cyclic Animation</dt><dd><p>Specifies that the action is intended to be cyclic over the specified range. The first and last
+frames of the range should represent the same pose of the cycle one loop apart, i.e. the range
+should include the duplicated initial key of the loop.</p>
+<div>
+<p>Note</p>
+<p>This option signifies intent and does <strong>not</strong> make the action cycle on its own. However,
+if <a href="../editors/timeline.html#bpy-types-toolsettings-use-keyframe-cycle-aware">Cycle-Aware Keying</a> is enabled,
+it will automatically enable cyclic extrapolation and set up the loop period for curves
+newly added to the action.</p>
+</div>
+</dd>
+</dl>
+<section id="custom-properties">
+<h3>Custom Properties</h3>
+<p>Create and manage your own properties to store data in the action’s data block.
+See the <a href="../files/custom_properties.html#files-data-blocks-custom-properties">Custom Properties</a> page for more information.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

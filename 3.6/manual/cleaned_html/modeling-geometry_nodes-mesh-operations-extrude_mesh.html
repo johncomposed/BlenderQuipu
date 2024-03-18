@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Operations &gt; Extrude Mesh</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Operation Nodes</a></li>
+<li>Extrude Mesh Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="extrude-mesh-node">
+<h1>Extrude Mesh Node</h1>
+<p>The <em>Extrude Mesh Node</em> generates new vertices, edges, or faces, on selected geometry
+and transforms them based on an offset.</p>
+<p>The operations are similar to the <a href="../../../meshes/editing/mesh/extrude.html">extrude tools</a>
+in mesh edit mode, though there are some differences. Most importantly, the node never keeps the back-faces
+of the extrusion in place, they are always removed. Attribute propagation rules may also be different.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>Whether to extrude each element.
+True values mean elements will be extruded, false values mean elements will remain unchanged.</p>
+</dd>
+<dt>Offset</dt><dd><p>The amount to translate the new geometry on each axis. The default value of the “Offset” input
+is the mesh’s <a href="../../geometry/read/normal.html">normals</a>. To change the distance,
+the <em>Scale</em> input can be used. However, when an input is computed for this directly, the length
+of the input vectors is used.</p>
+<div>
+<p>Tip</p>
+<p>Because the default input is the mesh’s normals, they may need to be calculated just for this node.
+If the extrusion is only in one direction anyway, a potential performance improvement is to connect
+a <a href="../../input/constant/vector.html">Vector Node</a> instead.</p>
+</div>
+</dd>
+<dt>Scale</dt><dd><p>The factor used to scale elements or groups of elements.</p>
+</dd>
+<dt>Individual Face Mode Only</dt><dd><p>Whether to extrude each face individually rather than extruding connected groups of faces together as regions.
+A quad side face will be generated on each side of every selected face.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><dl>
+<dt>Vertices:</dt>
+<dd><p>This mode is quite simple, it just attaches new edges and vertices to the selected vertices.</p>
+</dd>
+<dt>Edges:</dt>
+<dd><p>Attach new quad faces to the selected edges. Vertices shared by the
+original selected vertices are also shared in the duplicated edges.</p>
+<div>
+<p>Note</p>
+<p>Depending on the situation, the normals of the new faces may be arbitrary. If the selected
+edges only have one selected face, then the node can pick a consistent orientation for the
+new faces, but if there is more than one connected face, or no connected faces, the normals
+may have to be adjusted afterwards.</p>
+</div>
+</dd>
+<dt>Faces:</dt>
+<dd><p>Extrudes contiguous regions of selected faces, or each selected face individually,
+depending on the <em>Individual</em> boolean input.</p>
+<p>When the <em>Individual</em> input is false, the node will find regions of connected faces and generate
+new “side” faces on the boundaries of those regions. If the whole mesh is selected and it is already
+a <a href="../../../../glossary/index.html#term-Manifold">Manifold</a> shape, then result will just be that the whole mesh moves. Any vertices, edges
+or faces on the <em>inside</em> of the face regions are just moved, they are not duplicated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry output.</p>
+</dd>
+<dt>Top</dt><dd><p>A boolean field output containing the top new top geometry. The <a href="../../attributes_reference.html#attribute-domains">domain</a>
+depends on the selected mode. In <em>Vertex</em> mode, this is a selection of the new vertices.
+In <em>Edge</em> mode, this is a selection of the duplicated edges
+and in <em>Face</em> mode, it is a selection of the new faces.</p>
+</dd>
+<dt>Side</dt><dd><p>A boolean field output containing the “side” of the new geometry. In <em>Vertex</em> mode, it selects
+the new edges, in <em>Edge</em> mode, the new faces, and in <em>Face</em> mode, the new side faces are selected,
+which are all of the new faces that aren’t in the <em>Top</em> selection.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Here, the selection outputs are used to set materials on certain faces of the mesh.
+A <a href="../../utilities/random_value.html">Random Value Node</a> node can be used to limit the
+extrusion to a random set of faces.</p>
+</section>
+<section id="attribute-propagation">
+<h2>Attribute Propagation</h2>
+<p>Attributes are transferred to the new elements with specific rules.
+An attribute will never change domains on the resulting mesh.
+The <code>id</code> attribute does not have any special handling.</p>
+<p>Generally boolean attributes are propagated with “or”, meaning any connected
+“true” value that is mixed in for other types will cause the new value
+to be “true” as well.</p>
+<p>The following sections describe:</p>
+<section id="vertex-mode">
+<h3>Vertex Mode</h3>
+<figure id="id1">
+<figcaption>
+<p>The new edges created in vertex mode use the average value of all connected edges.</p>
+</figcaption>
+</figure>
+<ul>
+<li><p>New <strong>vertices</strong> have copied values from their original vertices</p></li>
+<li><p>New <strong>edges</strong> have the average value of any connected original edges.
+For boolean attributes, edges are selected if any connected edges were selected.</p></li>
+</ul>
+</section>
+<section id="edge-mode">
+<h3>Edge Mode</h3>
+<figure id="id2">
+<figcaption>
+<p>Attribute propagation for new connecting edges (the vertical yellow edge).
+The final value is a mix of the values from the two middle blue edges.
+The darker maroon edges lower on the image are not used.</p>
+</figcaption>
+</figure>
+<ul>
+<li><p>New <strong>vertices</strong> have copied values from their original vertices.</p></li>
+<li><p>Vertical connecting <strong>edges</strong> get the average value
+from any connected extruded edges. For booleans, the edges are selected if any connected extruded
+edges were selected. (<em>Propagation rules are shown in the figure above</em>.)</p></li>
+<li><p>Horizontal duplicate <strong>edges</strong> have copied values from their original edges.</p></li>
+<li><p>New <strong>faces</strong> get the average values of all faces connected to the selected edge.
+For booleans, faces are selected if any connected original faces were selected.</p></li>
+<li><p>New <strong>face corners</strong> get the averaged value of corresponding corners in all faces connected to selected edges.
+For booleans, corners are selected if one of those corners are selected.</p></li>
+</ul>
+</section>
+<section id="face-mode">
+<h3>Face Mode</h3>
+<figure id="id3">
+<figcaption>
+<p>Attribute propagation for new connecting edges (the vertical yellow edge).
+The final value is a mix of the values from the two middle blue edges.
+The values from the darker maroon edges between unselected faces and
+on top of the extruded region are not used.</p>
+</figcaption>
+</figure>
+<ul>
+<li><p>New <strong>vertices</strong> have copied values from their original vertices.</p></li>
+<li><p>Vertical connecting <strong>edges</strong> get the average value from any connected extruded edges,
+not including the edges “on top” of extruded regions. For booleans,
+the edges are selected if any of those connected edges were selected.
+(<em>Propagation rules are shown in the figure above</em>.)</p></li>
+<li><p>Horizontal duplicate <strong>edges</strong> have copied values from their original edges.</p></li>
+<li><p>New <strong>faces</strong> have copied values from the corresponding extruded faces.</p></li>
+<li><p>New <strong>face corners</strong> have copied values from the corresponding corresponding corners of extruded faces.</p></li>
+</ul>
+</section>
+<section id="individual-face-mode">
+<h3>Individual Face Mode</h3>
+<figure id="id4">
+<figcaption>
+<p>Attribute propagation for new connecting edge. Each edge uses the average values of the two neighboring
+edges on its extruded face.</p>
+</figcaption>
+</figure>
+<ul>
+<li><p>New <strong>vertices</strong> have copied values from their original vertices.</p></li>
+<li><p>Vertical connecting <strong>edges</strong> get the average value of the two neighboring edges on each extruded face.
+For booleans, the edges are selected when at least one neighbor on the extruded face was selected.</p></li>
+<li><p>Horizontal duplicate <strong>edges</strong> have copied values from their original edges.</p></li>
+<li><p>New side <strong>faces</strong> have copied values from their corresponding selected face.</p></li>
+<li><p>New <strong>face corners</strong> have copied values from the corresponding corners of selected faces.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

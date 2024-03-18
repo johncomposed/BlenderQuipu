@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Sample &gt; Sample Nearest Surface</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Sample Nodes</a></li>
+<li>Sample Nearest Surface Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sample-nearest-surface-node">
+<h1>Sample Nearest Surface Node</h1>
+<p>The <em>Sample Nearest Surface</em> node finds values at the closest points on
+the surface of a source mesh geometry. Non-face attributes are interpolated
+across the surface.</p>
+<p>This node is similar to the <a href="../../geometry/sample/geometry_proximity.html">Geometry Proximity Node</a>,
+but it gives the value of any attribute at the closest surface point, not just its position.</p>
+<div>
+<p>Warning</p>
+<p>Because the node samples the <em>surface</em> of a mesh rather than its edges or vertices,
+values from loose points and edges are ignored.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>The geometry to retrieve the attribute from.</p>
+</dd>
+<dt>Value</dt><dd><p>A field to evaluate on the <em>Source</em> geometry for use with the transfer method.</p>
+</dd>
+<dt>Sample Position</dt><dd><p>The position to start from when finding the closest location on the target mesh.
+By default, this is the same as if the <a href="../../geometry/read/position.html">Position Node</a> was connected.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>The <a href="../../attributes_reference.html#attribute-data-types">data type</a> to use for the retrieved values.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>The data retrieved and interpolated from the <em>Source</em> geometry, mapped based on the node’s settings and inputs.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

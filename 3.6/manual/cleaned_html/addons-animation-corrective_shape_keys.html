@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Animation &gt; Corrective Shape Keys</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Animation</a></li>
+<li>Corrective Shape Keys</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="corrective-shape-keys">
+<h1>Corrective Shape Keys</h1>
+<p>From the Author(s):</p>
+<p>I merged and converted two old scripts, to let you make corrective shape keys.
+The first <a href="http://www.apexbow.com/randd.html">script</a> was created by Tal Trachtman in 2007 and
+the second one I believe was done by Brecht. That one works with any combination of modifiers,
+but it is very slow (like three minutes for a mesh with 4,000 points).
+The other one works only with objects that have no more than one armature.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Animation then Corrective Shape Keys to enable the script.</p></li>
+</ul>
+</section>
+<section id="interface">
+<h2>Interface</h2>
+<p>Located in the Properties ‣ Object Data ‣ Shape Keys Specials.</p>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<ol>
+<li><p>Select a posed character object and click on <em>Create duplicate for editing</em> in the shape keys panel.
+This will create a copy of the mesh that you can edit/sculpt.</p></li>
+<li><p>Select your sculpted copy and then the character object.
+Click on the little black arrow in the shape keys panel and choose one of the options shown in the image.
+If your object has only Armature modifiers, choose the faster method.
+If other (more complex?) modifiers are involved, or you want to incorporate dual quaternion skinning
+(now called <em>Preserve Volume</em> in the UI) you will have to use the slower method.</p></li>
+</ol>
+<p>If all went right, your character or object should have the new shape key for your pose.
+If not, double check that your mesh and armature object have no translation or rotation and try again.</p>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<ul>
+<li><p>Target mesh may not have any transformation at object level, it will be set to zero.</p></li>
+<li><p>Fast/Armature method does not work with Bone envelopes or dual quaternions,
+both settings will be disabled in the modifier.</p></li>
+</ul>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Animation</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Creates a corrective shape key for the current pose.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Properties ‣ Object Data ‣ Shape Keys Specials</p>
+</dd>
+<dt>File:</dt>
+<dd><p>animation_corrective_shape_key.py</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Ivo Grigull (loolarge), Tal Trachtman, Tokikake</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>to do</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

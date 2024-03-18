@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Materials &gt; Nodes Support</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Materials</a></li>
+<li>Supported Nodes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="supported-nodes">
+<h1>Supported Nodes</h1>
+<p>Most nodes are taken from Cycles. However, some features are missing and
+may (or may not) be implemented in Eevee in the future.</p>
+<div>
+<p>See also</p>
+<p><a href="../../shader_nodes/index.html">Shader Nodes</a>.</p>
+</div>
+<section id="eevee-only-nodes">
+<h2>Eevee only Nodes</h2>
+<p>These nodes are only available if Eevee is the active render engine. These nodes will not work in Cycles.</p>
+<section id="shader-to-rgb">
+<h3>Shader to RGB</h3>
+<p>Eevee supports the conversion of BSDF outputs into color inputs to make any kind of custom shading.
+This is supported using the <a href="../../shader_nodes/converter/shader_to_rgb.html">Shader to RGB</a> node.</p>
+</section>
+<section id="specular-bsdf">
+<h3>Specular BSDF</h3>
+<p>This <a href="../../shader_nodes/shader/specular_bsdf.html">node</a> implements the specular workflow
+found in other render engines.</p>
+</section>
+</section>
+<section id="other-nodes-support">
+<h2>Other Nodes Support</h2>
+<p>If something is not listed here, it is supported.</p>
+<section id="shader-nodes">
+<h3>Shader Nodes</h3>
+<p>In the general case, shader nodes should behave more or less like in Cycles.
+So be sure to check out the Cycles section of this manual for that.</p>
+<div>
+<p>See also</p>
+<p><a href="../../shader_nodes/shader/index.html">Materials</a>.</p>
+</div>
+<p>Although most BSDFs are supported, many of them are approximations and are not feature complete.</p>
+<dl>
+<dt>Diffuse BSDF</dt><dd><p>Roughness is not supported. Only Lambertian diffusion is supported.</p>
+</dd>
+<dt>Emission</dt><dd><p>Treated as indirect lighting and will only show up in <abbr title="Screen Space Reflection">SSR</abbr>s and Probes.</p>
+</dd>
+<dt>Glass / Refraction BSDF</dt><dd><p>Does not refract lights. Does not support Beckmann distribution.
+See <a href="../limitations.html#eevee-limitations-refraction">Refraction limitations</a>.</p>
+</dd>
+<dt>Glossy BSDF</dt><dd><p>Does not support Beckmann and Ashikhmin-Shirley distributions.</p>
+</dd>
+<dt>Subsurface Scattering</dt><dd><p>Random Walk sampling is not supported. Per color channel Radius is specified by the default socket value.
+Any link plugged into this socket gets ignored.
+Texture Blur is not accurate for any value other than 0.0 and 1.0.</p>
+</dd>
+<dt>Transparent BSDF</dt><dd><p>Transparency will only have an effect if the Material blend mode is not Opaque.
+Colored and additive transparency are only compatible with “Alpha Blend” mode.</p>
+</dd>
+<dt>Translucent BSDF</dt><dd><p>Does not diffuse the light inside the object. It only lights the object with reversed normals.</p>
+</dd>
+<dt>Principled BSDF</dt><dd><p>Cumulative limitations from Diffuse BSDF, Glossy BSDF, Refraction BSDF and Subsurface Scattering.
+Anisotropy is not supported. Transmission Roughness is not supported. The Sheen layer is a crude approximation.</p>
+</dd>
+<dt>Volume Absorption</dt><dd><p>See <a href="../limitations.html#eevee-limitations-volumetrics">Volume Limitation</a>.</p>
+</dd>
+<dt>Volume Scatter</dt><dd><p>The anisotropy parameter will be mixed and averaged for all overlapping volumetric objects,
+which is not physically correct and differs from Cycles.
+Also see <a href="../limitations.html#eevee-limitations-volumetrics">Volume Limitation</a>.</p>
+</dd>
+<dt>Principled Volume</dt><dd><p>Same as Volume Scatter. See <a href="../limitations.html#eevee-limitations-volumetrics">Volume Limitation</a>.</p>
+</dd>
+<dt>Holdout</dt><dd><p>Partially supported, using <a href="settings.html#bpy-types-material-blend-method">Blend Modes</a>
+other than <em>Alpha</em> may give incorrect results.</p>
+</dd>
+<dt>Anisotropic BSDF</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Toon BSDF</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Hair BSDF</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Velvet BSDF</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Principled Hair BSDF</dt><dd><p>Not supported.</p>
+</dd>
+</dl>
+</section>
+<section id="input-nodes">
+<h3>Input Nodes</h3>
+<dl>
+<dt>Ambient Occlusion</dt><dd><p>The sample count is not used.</p>
+</dd>
+<dt>Camera Data</dt><dd><p>EveHair Inforything is compatible.</p>
+</dd>
+<dt>Geometry</dt><dd><p>Pointiness is not supported.</p>
+</dd>
+<dt>Random per Island</dt><dd><p>Random per Island is not supported.</p>
+</dd>
+<dt>Attribute</dt><dd><p>Defaults to active UV layer. Only “density”, “color”, “flame” and “temperature” built-in Geometry attributes
+are supported. UVs and Color Attributes are supported.
+Only up to 8 Object or Instancer attributes per material (both types share the same limit), and 512 View Layer
+attributes per scene are supported.</p>
+</dd>
+<dt>Bevel</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Fresnel</dt><dd><p>Everything is compatible.</p>
+</dd>
+<dt>Curves Info</dt><dd><p>The Random output uses a different <abbr title="Random Number Generator">RNG</abbr> algorithm.
+Range and statistical distribution of the values should be the same but the values will be different.</p>
+</dd>
+<dt>Layer Weight</dt><dd><p>Everything is compatible.</p>
+</dd>
+<dt>Light Path</dt><dd><p>Eevee has no real concept of rays. But in order to ease the workflow between Cycles and Eevee
+some of the outputs are only supported in particular cases.
+This node makes it possible to tweak indirect lighting in the shader.</p>
+<p>Only a subset of the outputs are supported and the ray depth does not exactly have the same meaning.
+In order for the <em>Is Camera</em>, <em>Is Shadow</em>, <em>Is Diffuse</em>, and <em>Is Glossy</em> outputs to work,
+the object must be inside an <a href="../light_probes/irradiance_volumes.html">Irradiance Volume</a>
+and <a href="../render_settings/indirect_lighting.html">Indirect Lighting</a> must be baked.</p>
+<ul>
+<li><p><em>Is Camera</em>: Supported.</p></li>
+<li><p><em>Is Shadow</em>: Supported.</p></li>
+<li><p><em>Is Diffuse</em>: Supported.</p></li>
+<li><p><em>Is Glossy</em>: Supported.</p></li>
+<li><p><em>Is Singular</em>: Not supported. Same as Is Glossy.</p></li>
+<li><p><em>Is Reflection</em>: Not supported. Same as Is Glossy.</p></li>
+<li><p><em>Is Transmission</em>: Not supported. Same as Is Glossy.</p></li>
+<li><p><em>Ray Length</em>: Not supported. Defaults to 1.0.</p></li>
+<li><p><em>Ray Depth</em>: Indicates the current bounce when baking the light cache.</p></li>
+<li><p><em>Diffuse Depth</em>: Same as Ray Depth but only when baking diffuse light.</p></li>
+<li><p><em>Glossy Depth</em>: Same as Ray Depth but only when baking specular light.</p></li>
+<li><p><em>Transparent Depth</em>: Not supported. Defaults to 0.</p></li>
+<li><p><em>Transmission Depth</em>: Not supported. Same as Glossy Depth.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p><em>Is Glossy</em> does not work with Screen Space Reflections/Refractions
+but does work with reflection planes (whether used with SSR or not).</p>
+</div>
+</dd>
+<dt>Object Info</dt><dd><p>Everything is compatible.</p>
+</dd>
+<dt>Particle Info</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Tangent</dt><dd><p>Everything is compatible.</p>
+</dd>
+<dt>Texture Coordinate</dt><dd><p><em>From Instancer</em> is not supported.</p>
+</dd>
+<dt>UV Map</dt><dd><p><em>From Instancer</em> is not supported.</p>
+</dd>
+<dt>Wireframe</dt><dd><p>Pixel size option does not give exactly the same output as Cycles. The width can be a bit different.</p>
+</dd>
+</dl>
+</section>
+<section id="texture-nodes">
+<h3>Texture Nodes</h3>
+<p>Most texture nodes are supported except for the exceptions listed below:</p>
+<dl>
+<dt><abbr title="Illuminating Engineering Society">IES</abbr> Texture</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Image Texture</dt><dd><p>Smart Interpolation always uses Cubic interpolation.
+Artifact present using Tube or Sphere projection with linear interpolation.
+This is due to hardware mip-mapping and Anisotropic filtering.
+This kind of artifact will be also visible if the texture coordinates provided are not continuous.
+Using Box projection with <em>Extend type</em> set to Clip or Extend is not supported.
+Instead, it will always use Repeat.</p>
+</dd>
+<dt>Point Density</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Sky Texture</dt><dd><p>In Nishita mode, the <em>Sun Disc</em> property is not supported.</p>
+</dd>
+</dl>
+</section>
+<section id="other-nodes">
+<h3>Other Nodes</h3>
+<dl>
+<dt>Light Falloff</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Bump</dt><dd><p>Imprecision due to less precise derivatives.</p>
+</dd>
+<dt>Displacement/Vector Displacement</dt><dd><p>Not supported.</p>
+</dd>
+<dt>Material Output</dt><dd><p>Displacement output behavior is broken compared to Cycles.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

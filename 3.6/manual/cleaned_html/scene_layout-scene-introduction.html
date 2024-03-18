@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Scene &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Scenes &amp; Objects</a></li>
+<li><a href="index.html">Scenes</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Scenes are a way to organize your work.
+Each blend-file can contain multiple scenes, which share other data such as objects and materials.</p>
+<p>Scene management and library appending/linking are based on Blender’s
+<a href="../../files/index.html">Library and Data System</a>,
+so it is a good idea to read that manual page first,
+if you are not familiar with the basics of that system.</p>
+<section id="controls">
+<h2>Controls</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Topbar ‣ Scene</p>
+</dd>
+</dl>
+</div>
+<p>You can select and create scenes with the <em>Scene</em> data-block menu
+in the <a href="../../interface/window_system/topbar.html">Topbar</a>.</p>
+<figure id="id2">
+<figcaption>
+<p>Scene data-block menu.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Scenes</dt><dd><p>A list of available scenes.</p>
+</dd>
+<dt>Add</dt><dd><dl>
+<dt>New</dt><dd><p>Creates an empty scene with default values.</p>
+</dd>
+<dt>Copy Settings</dt><dd><p>Creates an empty scene, but also copies
+the settings from the active scene into the new one.</p>
+</dd>
+<dt>Linked Copy</dt><dd><p>This option creates a new scene with the same settings and contents as the active scene.
+However, instead of copying the objects,
+the new scene contains links to the collections in the old scene.
+Therefore, changes to objects in the new scene will result in the same
+changes to the original scene, because the objects used are literally the same.
+The reverse is also true.</p>
+</dd>
+<dt>Full Copy</dt><dd><p>Using this option, nothing is shared.
+This option creates a fully independent scene with copies of the active scene’s contents.
+Every object in the original scene is duplicated, and a duplicate,
+private copy of its object-data is made as well.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>To choose between these options,
+it is useful to understand the difference between <em>Object</em> and <em>Object Data</em>.
+The choices for adding a scene, therefore, determine just how much of this information will be
+<em>copied from</em> the active scene to the new one, and how much will be <em>shared</em> (linked).</p>
+</div>
+</dd>
+<dt>Delete <code>X</code></dt><dd><p>You can delete the current scene by clicking the <em>X</em>
+next to the name in the <a href="../../interface/window_system/topbar.html">Topbar</a>.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>Linking to a Scene</p>
+<p>You can <a href="../object/editing/link_transfer/link_scene.html#bpy-ops-object-make-links-scene">link</a> any object from one scene to another.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

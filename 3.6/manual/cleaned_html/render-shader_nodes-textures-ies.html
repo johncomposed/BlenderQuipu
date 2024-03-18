@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Textures &gt; Ies</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Texture</a></li>
+<li>IES Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="ies-texture-node">
+<h1>IES Texture Node</h1>
+<p>The <em>IES Texture</em> is used to match real world lights based on IES files
+(<abbr title="Illuminating Engineering Society of North America">IES</abbr>).
+IES files store the directional intensity distribution of light sources.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate for lookup in the light distribution.
+Defaults to the normal.</p>
+</dd>
+<dt>Strength</dt><dd><p>Light strength multiplier.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><p>The location to load the IES file from.</p>
+<dl>
+<dt>Internal:</dt>
+<dd><p>Use IES profile from a file embedded in a text data-block in the blend-file, for easy distribution.</p>
+</dd>
+<dt>External:</dt>
+<dd><p>Load IES profile from a file on the drive.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>Light intensity, typically plugged into the Strength input of an Emission node.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Lights with different IES profiles.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

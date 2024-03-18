@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Preferences &gt; File Paths</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Preferences</a></li>
+<li>File Paths</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="file-paths">
+<h1>File Paths</h1>
+<p>The <em>File</em> section in <em>Preferences</em> allows you to configure auto-save preferences
+and set default file paths for blend-files, rendered images, and more.</p>
+<p>Locations for various external files can be set for the following options:</p>
+<figure id="id1">
+<figcaption>
+<p>Preferences File Paths section.</p>
+</figcaption>
+</figure>
+<div>
+<p>Hint</p>
+<p>The default path <code>//</code> refers to the folder of the currently open blend-file
+(see <a href="../../files/blend/open_save.html#files-blend-relative-paths">Relative Paths</a> for details).</p>
+</div>
+<section id="data">
+<h2>Data</h2>
+<dl>
+<dt>Fonts</dt><dd><p>Default location to browse for <a href="../../modeling/texts/index.html">text object</a> font files.</p>
+</dd>
+<dt>Textures</dt><dd><p>Default location to browse for image textures.</p>
+</dd>
+<dt>Sounds</dt><dd><p>Default location to browse for sound files.</p>
+</dd>
+<dt>Temporary Files</dt><dd><p>The location where temporary files are stored,
+leave blank to use the systems temporary directory
+(see <a href="../../advanced/blender_directory_layout.html#temp-dir">Temporary Directory</a> for details).</p>
+</dd>
+</dl>
+</section>
+<section id="script-directories">
+<h2>Script Directories</h2>
+<p>Additional locations to search for Python scripts.</p>
+<p>Each path can be given a <em>Name</em> to signify to purpose of that script directory.</p>
+<p>By default, Blender looks in several directories (platform dependent) for scripts.
+By adding a user script path in the preferences an additional directory is used.
+This can be used to store your own scripts and add-ons independently of the current Blender version.</p>
+<p>You will need to create specific subfolders in this path which match the structure of the <code>scripts</code>
+folder found in Blender’s installation directory.</p>
+<p>The following subdirectories will be used when present:</p>
+<dl>
+<dt><code>startup/</code></dt><dd><p>Modules in this folder will be imported on startup.</p>
+</dd>
+<dt><code>addons/</code></dt><dd><p>Add-ons located here will be listed in the add-ons preferences.</p>
+</dd>
+<dt><code>modules/</code></dt><dd><p>Modules in this folder can be imported by other scripts.</p>
+</dd>
+<dt><code>presets/</code></dt><dd><p>Presets in this folder will be added to existing presets.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>You have to restart Blender for all changes to the users scripts to take effect.</p>
+</div>
+</section>
+<section id="render">
+<h2>Render</h2>
+<dl>
+<dt>Render Output</dt><dd><p>Where rendered images/videos are saved.</p>
+</dd>
+<dt>Render Cache</dt><dd><p>The location where cached render images are stored.</p>
+</dd>
+</dl>
+</section>
+<section id="applications">
+<h2>Applications</h2>
+<dl>
+<dt>Image Editor</dt><dd><p>The path to an external program to use for image editing.</p>
+</dd>
+</dl>
+<dl id="prefs-file-paths-animation-player">
+<dt>Animation Player</dt><dd><p>The program used for playing back rendered animations via
+<a href="../../interface/window_system/topbar.html#topbar-render-view-animation">View Animation</a>.</p>
+<p>By default this is set to <em>Internal</em> which uses Blender’s built-in
+<a href="../../render/output/animation_player.html#bpy-ops-render-play-rendered-anim">animation player</a>.</p>
+<p>This has the advantage that all image formats supported by Blender can be played back
+and no 3rd party application needs to be installed.</p>
+</dd>
+</dl>
+</section>
+<section id="development">
+<h2>Development</h2>
+<p>Only visible when <a href="interface.html#prefs-interface-dev-extras">Developer Extras</a> are enabled.</p>
+<dl>
+<dt>I18n Branches</dt><dd><p>The path to the <code>/branches</code> directory of your local SVN translation copy, to allow translating from the UI.</p>
+</dd>
+</dl>
+</section>
+<section id="asset-libraries">
+<h2>Asset Libraries</h2>
+<p>Name and on-drive directory paths of asset libraries.
+To make Blender aware of an asset library, add it to this list.
+The name is for your reference only, and will appear in asset library selectors.
+The path should point to the location of the asset library.</p>
+<figure id="id2">
+<figcaption>
+<p>Name and Location of asset libraries in the Preferences.</p>
+</figcaption>
+</figure>
+<p>To create a new asset library, just create an empty directory and add it to the <a href="../../interface/controls/templates/list_view.html#ui-list-view">List View</a>.
+Any asset from any blend-file contained in that directory
+(or subdirectories thereof) will appear in the <a href="../asset_browser.html">Asset Browser</a>.</p>
+<dl>
+<dt>Import Method</dt><dd><p>Determines how data is managed when an asset is imported,
+unless overridden by the <a href="../asset_browser.html#bpy-types-fileassetselectparams-import-type">Asset Browser</a>.</p>
+<dl>
+<dt>Link:</dt>
+<dd><p><em>Same as</em> File ‣ Link…</p>
+<p>The asset will be linked to the current blend-file, and thus be read-only.
+Later changes to the asset file will be reflected in all files that link it in.</p>
+</dd>
+<dt>Append:</dt>
+<dd><p><em>Same as</em> File ‣ Append…</p>
+<p>All of the asset and all its dependencies will be appended to the current file.
+Dragging a material into the scene three times will result in three independent copies.
+Dragging an object into the scene three times will also result in three independent copies.</p>
+<p>“Dependencies” in this case means everything the asset refers to.
+For an object, this can be its mesh and materials, but also other objects
+used by modifiers, constraints, or drivers.</p>
+<p>Since the file now has its own copy of the asset, later changes to
+the asset file will not be reflected in the file it’s appended to.</p>
+</dd>
+<dt>Append (Reuse Data):</dt>
+<dd><p><em>Specific to the Asset Browser</em>.</p>
+<p>The first time an asset is used, it will be appended, including its dependencies,
+just like described previously. However, Blender will keep track of where it originated,
+and the next time the asset is used, as much data as possible will be reused.
+Dragging a material into the scene three times will only load it once,
+and just assign the same material three times.
+Dragging an object into the scene three times will create three copies of the object,
+but all copies will share their mesh data, materials, etc.</p>
+<p>Since the file now has its own copy of the asset, later changes to
+the asset file will not be reflected in the file it’s appended to.</p>
+</dd>
+</dl>
+</dd>
+<dt>Relative Path</dt><dd><p>Use relative path when linking assets from this asset library.</p>
+</dd>
+</dl>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<section id="permissions-on-windows">
+<h3>Permissions on Windows</h3>
+<p>Be sure that you have the right privileges for running the executable accessing the path defined.
+On Windows for instance, if the option “Run this program as an administrator” is enabled for the executable,
+it will lead to a failure to open the editor due to a limitation within the OS User Account Control.
+Running a program with elevated privileges is potentially dangerous!</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

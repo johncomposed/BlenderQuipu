@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Filter &gt; Anti Aliasing</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Filter Nodes</a></li>
+<li>Anti-Aliasing Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="anti-aliasing-node">
+<h1>Anti-Aliasing Node</h1>
+<p>The Anti-Aliasing node removes distortion artifacts around edges known as aliasing.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Threshold</dt><dd><p>Controls edge detection sensitivity across the whole image.</p>
+</dd>
+<dt>Contrast Limit</dt><dd><p>Controls contrast level to consider when detecting edges.</p>
+<p>The human eye does not perceive all edges equally. For instance,
+it tends to mask low contrast edges in the presence of much higher contrasts in the surrounding area.
+Therefore, applying anti-aliasing to unperceived edges will produce artifacts.
+This option quantifies the difference between low contrast and high contrast neighboring edges.</p>
+</dd>
+<dt>Corner Rounding</dt><dd><p>Detect corners to help preserve the original shape.
+Setting <em>Corner Rounding</em> to 0 means no corner detection and no corner rounding will take place.
+The higher the value the better corners will be preserved, i.e. resemble original image.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table id="id1">
+<caption>The Anti-Aliasing node has three properties shown here.</caption>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Changing threshold affects all edges.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Changing contrast limit affects neighboring edges below contrast limit.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id4">
+<caption>The effect of corner rounding.</caption>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Corner detection and rounding off (set to 0).
+Notice how corners are smoothed because they are treated as artifacts.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Full corner detection and rounding preserves the sharp edges around the corner.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Hair &gt; Display</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Particle System</a></li>
+<li><a href="index.html">Hair</a></li>
+<li>Viewport Display</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewport-display">
+<h1>Viewport Display</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Display</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Rendered</dt><dd><p>Display hair as curves.</p>
+</dd>
+<dt>Path</dt><dd><p>Display just the end points of the hairs.</p>
+</dd>
+<dt>Steps</dt><dd><p>The number of segments (control points minus 1) of the hair strand.
+In between the control points the segments are interpolated. The number of control points is important:</p>
+<ul>
+<li><p>For the soft body animation, because the control points are animated like vertices,
+so more control points mean longer calculation times.</p></li>
+<li><p>For the interactive editing, because you can only move the control points
+(but you may recalculate the number of control points in <em>Particle Edit Mode</em>).</p></li>
+</ul>
+<div>
+<p>Hint</p>
+<p>Segments</p>
+<p>Ten Segments should be sufficient even for very long hair,
+five Segments are enough for shorter hair, and two or three segments should be enough for short fur.</p>
+</div>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

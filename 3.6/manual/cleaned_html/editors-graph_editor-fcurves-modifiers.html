@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Graph Editor &gt; Fcurves &gt; Modifiers</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Graph Editor</a></li>
+<li><a href="index.html">F-Curves</a></li>
+<li>F-Curve Modifiers</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="f-curve-modifiers">
+<h1>F-Curve Modifiers</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ Modifiers ‣ Modifiers</p>
+</dd>
+</dl>
+</div>
+<p>F-Curve modifiers are similar to object modifiers, in that they add non-destructive effects,
+that can be adjusted at any time, and layered to create more complex effects.
+Like object modifiers, F-Curve modifiers are evaluated from the top down.
+In other words, the top modifier is calculated first and consequent modifiers are calculated in order.
+Modifiers can be moved by dragging the modifier box from the top right.</p>
+<section id="interface">
+<h2>Interface</h2>
+<dl id="bpy-types-fmodifier-name">
+<dt>Name</dt><dd><p>By default modifiers are named by their function, however, the name can be changed by double clicking the name.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fmodifier-mute">
+<dt>Mute</dt><dd><p>Modifiers can be muted or hidden by toggling the checkbox in the modifier’s panel header.</p>
+</dd>
+<dt>Delete</dt><dd><p>Modifiers can be removed using the delete button in the modifier’s panel header.</p>
+</dd>
+</dl>
+</section>
+<section id="adding-a-modifier">
+<h2>Adding a Modifier</h2>
+<figure id="id8">
+<figcaption>
+<p>Modifiers panel.</p>
+</figcaption>
+</figure>
+<p>The F-Curve modifier panel is located in the Sidebar region.
+Select a curve by selecting one of its curve points, or by selecting the channel list.
+Click on the <em>Add Modifier</em> menu to select a modifier.</p>
+</section>
+<section id="types-of-modifiers">
+<h2>Types of Modifiers</h2>
+<section id="generator-modifier">
+<h3>Generator Modifier</h3>
+<p>Generator creates a polynomial function.
+These are basic mathematical formulas that represent lines, parabolas,
+and other more complex curves, depending on the values used.</p>
+<dl>
+<dt>Mode</dt><dd><p>Method used to represent the equation.</p>
+<dl>
+<dt>Expanded Polynomial:</dt>
+<dd><p>Equation in the form \(y = x^1 + x^2 + ... + x^n\).</p>
+</dd>
+<dt>Factorized Polynomial:</dt>
+<dd><p>Equation in the form \(y = (Ax + B)(Cx + D)\).</p>
+</dd>
+</dl>
+</dd>
+<dt>Additive</dt><dd><p>This option causes the modifier to be added to the curve, instead of replacing it by default.</p>
+</dd>
+<dt>Order</dt><dd><p>Specify the order of the polynomial, or the highest power of <code>X</code> for this polynomial.
+(Number of coefficients: 1.)</p>
+<p>Change the Coefficient values to reshape the curve.</p>
+<div>
+<p>See also</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Polynomial">Wikipedia Page</a>
+for more information on polynomials.</p>
+</div>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the modifier has on the F-Curve.</p>
+</dd>
+</dl>
+<section id="restrict-frame-range">
+<h4>Restrict Frame Range</h4>
+<dl>
+<dt>Start/End</dt><dd><p>The frame on which the modifier’s effect starts/ends.</p>
+</dd>
+<dt>Blend In, Out</dt><dd><p>The number of frames, relative the start/end values above, the modifier takes to fade in/out.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="built-in-function-modifier">
+<h3>Built-in Function Modifier</h3>
+<p>These are additional formulas, each with the same options to control their shape.
+Consult mathematics reference for more detailed information on each function:</p>
+<dl>
+<dt>Type</dt><dd><p>The built-in function to use.</p>
+<dl>
+<dt>Sine:</dt>
+<dd><p><a href="https://en.wikipedia.org/wiki/Sine">Sine</a>.</p>
+</dd>
+<dt>Cosine:</dt>
+<dd><p><a href="https://en.wikipedia.org/wiki/Trigonometric_functions">Cosine</a>.</p>
+</dd>
+<dt>Tangent:</dt>
+<dd><p><a href="https://en.wikipedia.org/wiki/Trigonometric_functions">Tangent</a>.</p>
+</dd>
+<dt>Square Root:</dt>
+<dd><p>The square root of the value.</p>
+</dd>
+<dt>Natural Logarithm:</dt>
+<dd><p>The natural log of the value.</p>
+</dd>
+<dt>Normalized Sine:</dt>
+<dd><p>\(sin(x)/x\).</p>
+</dd>
+</dl>
+</dd>
+<dt>Additive</dt><dd><p>This option causes the modifier to be added to the curve, instead of replacing it by default.</p>
+</dd>
+<dt>Amplitude</dt><dd><p>Adjusts the Y scaling.</p>
+</dd>
+<dt>Phase Multiplier</dt><dd><p>Adjusts the X scaling.</p>
+</dd>
+<dt>Phase Offset</dt><dd><p>Adjusts the X offset.</p>
+</dd>
+<dt>Value Offset</dt><dd><p>Adjusts the Y offset.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the modifier has on the F-Curve.</p>
+</dd>
+</dl>
+<section id="id2">
+<h4>Restrict Frame Range</h4>
+<dl>
+<dt>Start/End</dt><dd><p>The frame on which the modifier’s effect starts/ends.</p>
+</dd>
+<dt>Blend In, Out</dt><dd><p>The number of frames, relative the start/end values above, the modifier takes to fade in/out.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="envelope-modifier">
+<h3>Envelope Modifier</h3>
+<p>Allows you to adjust the overall shape of a curve with control points.</p>
+<dl>
+<dt>Reference</dt><dd><p>Set the Y value the envelope is centered around.</p>
+</dd>
+<dt>Min</dt><dd><p>Lower distance from Reference Value for <code>1:1</code> default influence.</p>
+</dd>
+<dt>Max</dt><dd><p>Upper distance from Reference Value for <code>1:1</code> default influence.</p>
+</dd>
+<dt>Add Control Point</dt><dd><p>Add a set of control points. They will be created at the current frame.</p>
+</dd>
+<dt>Point</dt><dd><dl>
+<dt>Frame</dt><dd><p>Set the frame number for the control point.</p>
+</dd>
+<dt>Min</dt><dd><p>Specifies the lower control point’s position.</p>
+</dd>
+<dt>Max</dt><dd><p>Specifies the upper control point’s position.</p>
+</dd>
+</dl>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the modifier has on the F-Curve.</p>
+</dd>
+</dl>
+<section id="id3">
+<h4>Restrict Frame Range</h4>
+<dl>
+<dt>Start/End</dt><dd><p>The frame on which the modifier’s effect starts/ends.</p>
+</dd>
+<dt>Blend In, Out</dt><dd><p>The number of frames, relative the start/end values above, the modifier takes to fade in/out.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="cycles-modifier">
+<h3>Cycles Modifier</h3>
+<p>Cycles allows you add cyclic motion to a curve that has two or more control points.
+The options can be set for before and after the curve.</p>
+<div>
+<p>Note</p>
+<p>The Cycles Modifier can only be the first modifier.</p>
+</div>
+<dl>
+<dt>Before/After Mode</dt><dd><dl>
+<dt>No Cycles:</dt>
+<dd><p>Do not repeat curve data before/after.</p>
+</dd>
+<dt>Repeat Motion:</dt>
+<dd><p>Repeats the curve data, while maintaining their values each cycle.</p>
+</dd>
+<dt>Repeat with Offset:</dt>
+<dd><p>Repeats the curve data, but offsets the value of the first point to the value of the last point each cycle.</p>
+</dd>
+<dt>Repeat Mirrored:</dt>
+<dd><p>Each cycle the curve data is flipped across the X axis.</p>
+</dd>
+</dl>
+</dd>
+<dt>Count</dt><dd><p>Set the number of times to cycle the data. A value of 0 cycles the data infinitely.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the modifier has on the F-Curve.</p>
+</dd>
+</dl>
+<section id="id4">
+<h4>Restrict Frame Range</h4>
+<dl>
+<dt>Start/End</dt><dd><p>The frame on which the modifier’s effect starts/ends.</p>
+</dd>
+<dt>Blend In, Out</dt><dd><p>The number of frames, relative the start/end values above, the modifier takes to fade in/out.</p>
+</dd>
+</dl>
+</section>
+<section id="trivially-cyclic-curves">
+<h4>Trivially Cyclic Curves</h4>
+<p>When the <em>Cycle Mode</em> for both ends is set to either <em>Repeat Motion</em> or
+<em>Repeat with Offset</em>, and no other options of the modifier are
+changed from their defaults, it defines a simple infinite cycle.</p>
+<p>This special case receives some additional support from other areas of Blender:</p>
+<ul>
+<li><p>Automatic Bézier handle placement is aware of the cycle and adjusts to achieve a smooth transition.</p></li>
+<li><p>The <a href="../../timeline.html#timeline-keying">Cycle-Aware Keying</a> option can be enabled to take
+the cycle into account when inserting new keyframes.</p></li>
+</ul>
+</section>
+</section>
+<section id="noise-modifier">
+<h3>Noise Modifier</h3>
+<p>Modifies the curve with a noise formula.
+This is useful for creating subtle or extreme randomness to animated movements,
+like camera shake.</p>
+<dl>
+<dt>Blend Type</dt><dd><dl>
+<dt>Replace:</dt>
+<dd><p>Adds a -0.5 to 0.5 range noise function to the curve.</p>
+</dd>
+<dt>Add:</dt>
+<dd><p>Adds a 0 to 1 range noise function to the curve.</p>
+</dd>
+<dt>Subtract:</dt>
+<dd><p>Subtracts a 0 to 1 range noise function to the curve.</p>
+</dd>
+<dt>Multiply:</dt>
+<dd><p>Multiplies a 0 to 1 range noise function to the curve.</p>
+</dd>
+</dl>
+</dd>
+<dt>Scale</dt><dd><p>Adjust the overall size of the noise. Values further from 0 give less frequent noise.</p>
+</dd>
+<dt>Strength</dt><dd><p>Adjusts the Y scaling of the noise function.</p>
+</dd>
+<dt>Offset</dt><dd><p>Offsets the noise in time.</p>
+</dd>
+<dt>Phase</dt><dd><p>Adjusts the random seed of the noise.</p>
+</dd>
+<dt>Depth</dt><dd><p>Adjusts how detailed the noise function is.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the modifier has on the F-Curve.</p>
+</dd>
+</dl>
+<section id="id5">
+<h4>Restrict Frame Range</h4>
+<dl>
+<dt>Start/End</dt><dd><p>The frame on which the modifier’s effect starts/ends.</p>
+</dd>
+<dt>Blend In, Out</dt><dd><p>The number of frames, relative the start/end values above, the modifier takes to fade in/out.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="limits-modifier">
+<h3>Limits Modifier</h3>
+<p>Limit curve values to specified X and Y ranges.</p>
+<dl>
+<dt>Minimum X, Y</dt><dd><p>Cuts a curve off at these frames ranges, and sets their minimum value at those points.</p>
+</dd>
+<dt>Minimum X, Y</dt><dd><p>Truncates the curve values to a range.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the modifier has on the F-Curve.</p>
+</dd>
+</dl>
+<section id="id6">
+<h4>Restrict Frame Range</h4>
+<dl>
+<dt>Start/End</dt><dd><p>The frame on which the modifier’s effect starts/ends.</p>
+</dd>
+<dt>Blend In, Out</dt><dd><p>The number of frames, relative the start/end values above, the modifier takes to fade in/out.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="stepped-interpolation-modifier">
+<h3>Stepped Interpolation Modifier</h3>
+<p>Gives the curve a stepped appearance by rounding values down within a certain range of frames.</p>
+<dl>
+<dt>Step Size</dt><dd><p>Specify the number of frames to hold each frame.</p>
+</dd>
+<dt>Offset</dt><dd><p>Reference number of frames before frames get held.
+Use to get hold for (1-3) vs (5-7) holding patterns.</p>
+</dd>
+<dt>Start Frame</dt><dd><p>Restrict modifier to only act before its “end” frame.</p>
+</dd>
+<dt>End Frame</dt><dd><p>Restrict modifier to only act after its “start” frame.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the modifier has on the F-Curve.</p>
+</dd>
+</dl>
+<section id="id7">
+<h4>Restrict Frame Range</h4>
+<dl>
+<dt>Start/End</dt><dd><p>The frame on which the modifier’s effect starts/ends.</p>
+</dd>
+<dt>Blend In, Out</dt><dd><p>The number of frames, relative the start/end values above, the modifier takes to fade in/out.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

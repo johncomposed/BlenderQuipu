@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Window System &gt; Topbar</title></head>
+<body><ul>
+<li><a href="../index.html">User Interface</a></li>
+<li>Topbar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="topbar">
+<h1>Topbar</h1>
+<section id="menus">
+<h2>Menus</h2>
+<section id="blender-menu">
+<h3>Blender Menu</h3>
+<dl>
+<dt>Splash Screen</dt><dd><p>Open the <a href="splash.html#splash">Splash Screen</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-wm-splash-about">
+<dt>About Blender</dt><dd><p>Opens a menu displaying the following information about Blender:</p>
+<ul>
+<li><p><strong>Version</strong>: The Blender version.</p></li>
+<li><p><strong>Date</strong>: Date when Blender was compiled.</p></li>
+<li><p><strong>Hash</strong>: The Git Hash of the build.
+This can be useful to give to support personnel when diagnosing a problem.</p></li>
+<li><p><strong>Branch</strong>: Optional branch name.</p></li>
+<li><p><strong>Windowing Environment</strong>: On Linux, this will show either Wayland or X11 depending
+on the windowing environment that Blender is running on.</p></li>
+<li><p><strong>Release Notes</strong>: Open the latest release notes.</p></li>
+<li><p><strong>Credits</strong>: Open credits website.</p></li>
+<li><p><strong>License</strong>: Open License website.</p></li>
+<li><p><strong>Blender Website</strong>: Open main Blender website.</p></li>
+<li><p><strong>Blender Store</strong>: Open the Blender store.</p></li>
+<li><p><strong>Development Fund</strong>: Open the developer fund website.</p></li>
+</ul>
+</dd>
+<dt>Install Application Template</dt><dd><p>Install a new <a href="../../advanced/app_templates.html#app-templates">application template</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="file-menu">
+<h3>File Menu</h3>
+<p>The options to manage files are:</p>
+<dl>
+<dt>New <kbd><kbd>Ctrl</kbd>-<kbd>N</kbd></kbd></dt><dd><p>Clears the current scene and loads the selected application template.</p>
+</dd>
+<dt>Open <kbd><kbd>Ctrl</kbd>-<kbd>O</kbd></kbd></dt><dd><p><a href="../../files/blend/open_save.html#bpy-ops-wm-open-mainfile">Open</a> a blend-file.</p>
+</dd>
+<dt>Open Recent <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>O</kbd></kbd></dt><dd><p>Displays a list of the most <a href="../../files/blend/open_save.html#other-file-open-options">recently opened</a> blend-files.
+Select any of the file names in the list to open that blend-file.</p>
+</dd>
+<dt>Revert</dt><dd><p>Reopens the current file to its last saved version.</p>
+</dd>
+<dt>Recover</dt><dd><dl>
+<dt>Recover Last Session</dt><dd><p>This will load a blend-file that Blender automatically saves just before exiting.
+So this option enables you to <a href="../../troubleshooting/recover.html">recover</a>
+your last work <a href="../../glossary/index.html#term-Session">session</a>, e.g. if you closed Blender by accident.</p>
+</dd>
+<dt>Recover Auto Save</dt><dd><p>This will open an automatically saved file
+to <a href="../../troubleshooting/recover.html">recover</a> it.</p>
+</dd>
+</dl>
+</dd>
+<dt>Save <kbd><kbd>Ctrl</kbd>-<kbd>S</kbd></kbd></dt><dd><p><a href="../../files/blend/open_save.html#bpy-ops-wm-save-mainfile">Save</a> the current blend-file.</p>
+</dd>
+<dt>Save As… <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>S</kbd></kbd></dt><dd><p>Opens the File Browser to specify file name and location of <a href="../../files/blend/open_save.html#bpy-ops-wm-save-mainfile">save</a>.</p>
+</dd>
+<dt>Save Copy…</dt><dd><p><a href="../../files/blend/open_save.html#bpy-ops-wm-save-mainfile">Saves</a> a copy of the current file.</p>
+</dd>
+<dt>Link…</dt><dd><p>Links data from an external blend-file (library) to the current one.
+The editing of that data is only possible in the external library.
+<em>Link</em> and <em>Append</em> are used to load in only selected parts from another file.
+See <a href="../../files/linked_libraries/index.html">Linked Libraries</a>.</p>
+</dd>
+<dt>Append…</dt><dd><p>Appends data from an external blend-file to the current one.
+The new data is copied from the external file, and completely unlinked from it.</p>
+</dd>
+<dt>Data Previews</dt><dd><p>Tools for managing <a href="../../files/blend/previews.html">data-block previews</a>.</p>
+</dd>
+<dt>Import</dt><dd><p>Blender can use information stored in a variety of other format files which are created by
+other graphics programs. See <a href="../../files/import_export.html">Import/Export</a>.</p>
+</dd>
+<dt>Export</dt><dd><p>Normally you save your work in a blend-file,
+but you can export some or all of your work to a format that can be processed by other graphics programs.
+See <a href="../../files/import_export.html">Import/Export</a>.</p>
+</dd>
+<dt>External Data</dt><dd><p>External data, like texture images and other resources,
+can be stored inside the blend-file (packed) or as separate files (unpacked).
+Blender keeps track of all unpacked resources via a relative or absolute path.
+See <a href="../../files/blend/packed_data.html#pack-unpack-data">pack or unpack external data</a>.</p>
+<dl>
+<dt>Automatically Pack Into .blend</dt><dd><p>This option activates the file packing.
+If enabled, every time the blend-file is saved, all external files will be saved (packed) in it.</p>
+</dd>
+<dt>Pack All Into .blend</dt><dd><p>Pack all used external files into the blend-file.</p>
+</dd>
+<dt>Unpack Into Files</dt><dd><p>Unpack all files packed into this blend-file to external ones.</p>
+</dd>
+<dt>Make All Paths Relative</dt><dd><p>Make all paths to external files <a href="../../files/blend/open_save.html#files-blend-relative-paths">Relative Paths</a> to current blend-file.</p>
+</dd>
+<dt>Make All Paths Absolute</dt><dd><p>Make all paths to external files absolute (= full path from the system’s root).</p>
+</dd>
+<dt>Report Missing Files</dt><dd><p>This option is useful to check if there are links to unpacked files that no longer exist.
+After selecting this option, a warning message will appear in the Info editor’s header.
+If no warning is shown, there are no missing external files.</p>
+</dd>
+<dt>Find Missing Files</dt><dd><p>In case you have broken links in a blend-file, this can help you to fix the problem.
+A File Browser will show up. Select the desired directory (or a file within that directory),
+and a search will be performed in it, recursively in all contained directories.
+Every missing file found in the search will be recovered.
+Those recoveries will be done as absolute paths,
+so if you want to have relative paths you will need to select <em>Make All Paths Relative</em>.</p>
+<div>
+<p>Note</p>
+<p>Recovered files might need to be reloaded. You can do that one by one, or
+you can save the blend-file and reload it again, so that all external files are reloaded at once.</p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Clean Up</dt><dd><dl>
+<dt>Unused Data-Blocks</dt><dd><p>Remove unused data-blocks from both the current blend-file and any
+<a href="../../files/linked_libraries/link_append.html">Linked Data</a> (cannot be undone).
+See the <a href="../../editors/outliner/interface.html#bpy-ops-outliner-orphans-purge">Outliner</a> for more information.</p>
+</dd>
+<dt>Recursive Unused Data-Blocks</dt><dd><p>Remove all unused data-blocks from both the current blend-file and any
+<a href="../../files/linked_libraries/link_append.html">Linked Data</a>
+including any indirectly used data-blocks i.e. those only used by unused data-blocks.</p>
+</dd>
+<dt>Unused Linked Data-Blocks</dt><dd><p>Remove unused data-blocks from only <a href="../../files/linked_libraries/link_append.html">Linked Data</a>.</p>
+</dd>
+<dt>Recursive Unused Linked Data-Blocks</dt><dd><p>Remove all unused data-blocks from only <a href="../../files/linked_libraries/link_append.html">Linked Data</a>
+including any indirectly used data-blocks i.e. those only used by unused data-blocks.</p>
+</dd>
+<dt>Unused Local Data-Blocks</dt><dd><p>Remove all unused data-blocks from only the current blend-file.</p>
+</dd>
+<dt>Recursive Unused Local Data-Blocks</dt><dd><p>Remove all unused data-blocks from only the current blend-file
+including any indirectly used data-blocks i.e. those only used by unused data-blocks.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="startup-file">
+<dt>Defaults</dt><dd><p>This menu manages the startup file which is used to store the default scene,
+workspace, and interface displayed when creating a new file.</p>
+<p>Initially this contains the <a href="../../editors/3dview/startup_scene.html">startup scene</a> included with Blender.
+This can be replaced by your own customized setup.</p>
+<dl id="bpy-ops-wm-save-homefile">
+<dt>Save Startup File</dt><dd><p>Saves the current blend-file as the startup file.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-wm-read-factory-settings">
+<dt>Load Factory Settings</dt><dd><p>Restores the default startup file and preferences.</p>
+</dd>
+</dl>
+<p>When an <a href="../../advanced/app_templates.html">Application Templates</a> is in use the following operators are shown:</p>
+<dl>
+<dt>Load Factory Blender Settings</dt><dd><p>Loads the default settings to the original Blender settings without
+the changes made from the current application template.</p>
+</dd>
+<dt>Load Factory (Application Template Name) Settings</dt><dd><p>Loads the default settings to the original application template.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p><a href="../../editors/preferences/introduction.html#prefs-menu">Managing Preferences</a>.</p>
+</div>
+</dd>
+<dt>Quit <kbd><kbd>Ctrl</kbd>-<kbd>Q</kbd></kbd></dt><dd><p>Closes Blender. The current scene is saved to a file called “quit.blend” in Blender’s temporary directory
+(which can be found on the “File Paths” tab of the <a href="../../editors/preferences/file_paths.html">Preferences</a>).</p>
+</dd>
+</dl>
+</section>
+<section id="edit-menu">
+<h3>Edit Menu</h3>
+<dl>
+<dt>Undo/Redo/History</dt><dd><p>See <a href="../undo_redo.html">Undo &amp; Redo</a>.</p>
+</dd>
+<dt>Menu Search</dt><dd><p>Find a menu based on its name.</p>
+</dd>
+<dt>Operator Search</dt><dd><p>Execute an operator based on its name (<a href="../../editors/preferences/interface.html#prefs-interface-dev-extras">Developer Extras</a> only).</p>
+</dd>
+<dt>Rename Active Item</dt><dd><p>Rename the active object or node;
+see <a href="../../files/blend/rename.html#tools-rename-active">Rename tool</a> for more information.</p>
+</dd>
+<dt>Batch Rename</dt><dd><p>Renames multiple data types at once;
+see <a href="../../files/blend/rename.html#bpy-ops-wm-batch-rename">Batch Rename tool</a> for more information.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-lock-object-mode">
+<dt>Lock Object Modes</dt><dd><p>Prevents selecting objects that are in a different mode than the current one.</p>
+<div>
+<p>Note</p>
+<p>This option can prevent accidental mode changes, such as when you’re
+trying to select a bone in Pose Mode to animate it, but instead
+click a piece of background scenery (which would normally select that
+piece and switch to Object Mode).</p>
+<p>You may want to disable <em>Lock Object Modes</em> for example when weighting rigged objects
+or sculpting/painting where you intentionally want to switch between objects in different modes.</p>
+</div>
+</dd>
+<dt>Preferences</dt><dd><p>Open the Preferences window.</p>
+</dd>
+</dl>
+</section>
+<section id="render-menu">
+<h3>Render Menu</h3>
+<dl>
+<dt>Render Image <kbd>F12</kbd></dt><dd><p>Render the active scene at the current frame.</p>
+</dd>
+<dt>Render Animation <kbd><kbd>Ctrl</kbd>-<kbd>F12</kbd></kbd></dt><dd><p>Render the animation of the active scene.</p>
+<div>
+<p>See also</p>
+<ul>
+<li><p><a href="../../render/output/animation.html">Rendering Animations</a> for details.</p></li>
+</ul>
+</div>
+</dd>
+<dt>Render Audio</dt><dd><p>Mix the scene’s audio to a sound file.</p>
+<div>
+<p>See also</p>
+<ul>
+<li><p><a href="../../render/output/audio/introduction.html">Rendering audio</a> for details.</p></li>
+</ul>
+</div>
+</dd>
+<dt>View Render <kbd>F11</kbd></dt><dd><p>Show the Render window. (Press again to switch back to the main Blender window.)</p>
+</dd>
+</dl>
+<dl id="topbar-render-view-animation">
+<dt>View Animation <kbd><kbd>Ctrl</kbd>-<kbd>F11</kbd></kbd></dt><dd><p>Playback rendered animation in a separate player.</p>
+<div>
+<p>See also</p>
+<ul>
+<li><p><a href="../../render/output/animation_player.html#bpy-ops-render-play-rendered-anim">Animation player</a> for details.</p></li>
+<li><p><a href="../../editors/preferences/file_paths.html#prefs-file-paths-animation-player">Preferences</a> for selecting a
+different animation player than the default one.</p></li>
+</ul>
+</div>
+</dd>
+<dt>Lock Interface</dt><dd><p>Lock interface during rendering in favor of giving more memory to the renderer.</p>
+</dd>
+</dl>
+</section>
+<section id="window-menu">
+<h3>Window Menu</h3>
+<dl>
+<dt>New Window</dt><dd><p>Create a new window by copying the current window.</p>
+</dd>
+<dt>New Main Window</dt><dd><p>Create a new window with its own workspace and scene selection.</p>
+</dd>
+<dt>Toggle Window Fullscreen</dt><dd><p>Toggle the current window fullscreen.</p>
+</dd>
+<dt>Next Workspace</dt><dd><p>Switch to the next workspace.</p>
+</dd>
+<dt>Previous Workspace</dt><dd><p>Switch to the previous workspace.</p>
+</dd>
+</dl>
+<dl id="bpy-types-screen-show-statusbar">
+<dt>Show Status Bar</dt><dd><p>Choose whether the <a href="status_bar.html">Status Bar</a>
+at the bottom of the window should be displayed.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-screen-screenshot">
+<dt>Save Screenshot</dt><dd><p>Capture a picture of the current Blender window.
+A File Browser will open to choose where the screenshot is saved.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-screen-screenshot-area">
+<dt>Save Screenshot (Editor)</dt><dd><p>Capture a picture of the selected Editor.
+Select the Editor by clicking <kbd>LMB</kbd> within its area after running the operator.
+A File Browser will open to choose where the screenshot is saved.</p>
+</dd>
+</dl>
+</section>
+<section id="help-menu">
+<h3>Help Menu</h3>
+<p>See <a href="../../getting_started/help.html">Help System</a>.</p>
+</section>
+</section>
+<section id="workspaces">
+<h2>Workspaces</h2>
+<p>This set of tabs is used to switch between <a href="workspaces.html">Workspaces</a>,
+which are essentially predefined window layouts.</p>
+</section>
+<section id="scenes-layers">
+<h2>Scenes &amp; Layers</h2>
+<p>These <a href="../controls/templates/data_block.html#ui-data-block">data-block menus</a> are used to select
+the current <a href="../../scene_layout/scene/index.html">Scene</a> and <a href="../../scene_layout/view_layers/index.html">View Layer</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

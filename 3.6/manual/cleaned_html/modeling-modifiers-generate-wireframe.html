@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Wireframe</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Wireframe Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="wireframe-modifier">
+<h1>Wireframe Modifier</h1>
+<p>The <em>Wireframe</em> modifier transforms a mesh into a wireframe by iterating over its
+faces, collecting all edges and turning those edges into four-sided polygons.
+Be aware of the fact that your mesh needs to have faces to be wireframed.
+You can define the thickness, the material and several other parameters of the generated
+wireframe dynamically via the given modifier options.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Wireframe modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Thickness</dt><dd><p>The depth or size of the wireframes.</p>
+</dd>
+<dt>Offset</dt><dd><p>A value between (-1 to 1) to change whether the wireframes are
+generated inside or outside of the original mesh.
+Set to zero, <em>Offset</em> will center the wireframes around the original edges.</p>
+</dd>
+<dt>Boundary</dt><dd><p>Creates wireframes on mesh island boundaries.</p>
+</dd>
+<dt>Replace Original</dt><dd><p>If this option is enabled, the original mesh is replaced by the generated wireframe.
+If not, the wireframe is generated on top of it.</p>
+</dd>
+<dt>Thickness</dt><dd><dl>
+<dt>Even</dt><dd><p>Maintain thickness by adjusting for sharp corners.
+Sometimes improves quality but also increases computation time.</p>
+</dd>
+<dt>Relative</dt><dd><p>Determines the edge thickness by the length of the edge. Longer edges will be thicker.</p>
+</dd>
+</dl>
+</dd>
+<dt>Crease Edges</dt><dd><p>This option is intended for usage with
+the <a href="subdivision_surface.html">Subdivision</a> modifier.
+Enable this option to crease edges on their junctions and prevent large curved intersections.</p>
+<dl>
+<dt>Crease Weight</dt><dd><p>Define how much crease (0 to 1, nothing to full) the junctions should receive.</p>
+</dd>
+</dl>
+</dd>
+<dt>Material Offset</dt><dd><p>Uses the chosen material index as the material for the wireframe;
+this is applied as an offset from the first material.</p>
+</dd>
+</dl>
+<div>
+<p>Warning</p>
+<p>Wireframe thickness is an approximation. While <em>Even Thickness</em> should yield good results in many cases,
+skinny faces can cause ugly spikes. In this case you can either reduce the extreme angles in the geometry
+or disable the <em>Even Thickness</em> option.</p>
+</div>
+<section id="vertex-group">
+<h3>Vertex Group</h3>
+<p>The weights of the selected vertex group are multiplied onto the <em>Thickness</em>,
+so vertices with lower weights will be less thick. The vertices which are not part
+of the vertex group will be used as if their weight was zero.</p>
+<dl>
+<dt>Invert</dt><dd><p>Reverses the vertex group weights, so that the used weight is one minus the actual weight.</p>
+</dd>
+<dt>Factor</dt><dd><p>How much the vertex weights are taken into account.</p>
+<ul>
+<li><p>On 0.0 , vertices with zero weight will have no thickness at all.</p></li>
+<li><p>On 0.5 , vertices with zero weight will be half as thick as those with full weight.</p></li>
+<li><p>On 1.0 , the weights are ignored and the <em>Thickness</em> value is used for every vertex.</p></li>
+</ul>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>If the final thickness of a vertex is zero, it will still generate a wireframe.
+Therefore creating duplicate geometry, which sometimes needs extra care.</p>
+</div>
+</section>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id2">
+<figcaption>
+<p>Wireframes on a displaced plane.</p>
+</figcaption>
+</figure>
+<p>In this example, the wireframes carry a second (dark) material while the displaced plane uses its original one.</p>
+<figure id="id3">
+<figcaption>
+<p>Vertex group weighting.</p>
+</figcaption>
+</figure>
+<p>The weights of the vertex group gradually change from 0 to 1.</p>
+<figure id="id4">
+<figcaption>
+<p>Wireframe and Subdivision Surface modifier.</p>
+</figcaption>
+</figure>
+<p>Cube with enabled <em>Crease Edges</em> option. The <em>Crease Weight</em> is set to 0, 0.5 and 1.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

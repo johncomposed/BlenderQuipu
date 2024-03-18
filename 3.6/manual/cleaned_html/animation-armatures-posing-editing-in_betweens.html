@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Posing &gt; Editing &gt; In Betweens</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Posing</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>In-Betweens</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="in-betweens">
+<h1>In-Betweens</h1>
+<figure id="id7">
+<figcaption>
+<p>In-Betweens Tools.</p>
+</figcaption>
+</figure>
+<p>There are several tools for editing poses in an animation.</p>
+<p>There are also in <em>Pose Mode</em> a bunch of armature-specific editing options/tools,
+like <a href="../../bones/editing/naming.html#armature-editing-naming-bones">auto-bones naming</a>,
+<a href="../../bones/editing/properties.html#armature-bone-properties">properties switching/enabling/disabling</a>, etc.,
+that were already described in the armature editing pages. See the links above…</p>
+<section id="push-pose-from-rest-pose">
+<h2>Push Pose from Rest Pose</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ In-Betweens ‣ Push Pose from Rest Pose</p>
+</dd>
+</dl>
+</div>
+<p>Similar to <em>Push Pose from Breakdown</em> but interpolates the pose to the rest position instead.
+Only one keyframe is needed for this tool unlike two for the other.</p>
+</section>
+<section id="relax-pose-to-rest-pose">
+<h2>Relax Pose to Rest Pose</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ In-Betweens ‣ Relax Pose to Rest Pose</p>
+</dd>
+</dl>
+</div>
+<p>Similar to <em>Relax Pose to Breakdown</em> but works to bring the pose back to the rest position instead.
+Only one keyframe is needed for this tool unlike two for the other.</p>
+</section>
+<section id="push-pose-from-breakdown">
+<h2>Push Pose from Breakdown</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ In-Betweens Tools ‣ Push</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ In-Betweens ‣ Push Pose from Breakdown</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>E</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p><em>Push Pose</em> interpolates the current pose by making it closer to the next keyframed position.</p>
+</section>
+<section id="relax-pose-to-breakdown">
+<h2>Relax Pose to Breakdown</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ In-Betweens Tools ‣ Relax</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ In-Betweens ‣ Relax Pose to Breakdown</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>E</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Relax pose is somewhat related to the above topic, but it is only useful with keyframed bones.
+When you edit such a bone (and hence take it “away” from its “keyed position”),
+using this tool will progressively “bring it back” to its “keyed position”,
+with smaller and smaller steps as it comes near it.</p>
+</section>
+<section id="pose-breakdowner">
+<h2>Pose Breakdowner</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar region ‣ In-Betweens Tools ‣ Breakdowner</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ In-Betweens ‣ Pose Breakdowner</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>LMB</kbd>-drag</p>
+</dd>
+</dl>
+</div>
+<p>Creates a suitable breakdown pose on the current frame.</p>
+<p>The Breakdowner tool can be constrained to work on specific transforms and axes,
+by pressing the following keys while the tool is active:</p>
+<ul>
+<li><p><kbd>G</kbd>, <kbd>R</kbd>, <kbd>S</kbd>: move, rotate, scale</p></li>
+<li><p><kbd>B</kbd>: Bendy bones</p></li>
+<li><p><kbd>C</kbd>: custom properties</p></li>
+<li><p><kbd>X</kbd>, <kbd>Y</kbd>, <kbd>Z</kbd>: to the corresponding axes</p></li>
+</ul>
+</section>
+<section id="blend-to-neighbor">
+<h2>Blend to Neighbor</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ In-Betweens ‣ Blend to Neighbor</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>E</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Transitions the current pose with the neighboring keyframes in the timeline.
+In order for this operator to work, there must be a keyframe before and after the current frame.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

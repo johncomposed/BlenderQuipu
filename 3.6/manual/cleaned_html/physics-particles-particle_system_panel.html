@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Particle System Panel</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Particle System</a></li>
+<li>Particle System Panel</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="particle-system-panel">
+<h1>Particle System Panel</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Particle System</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Particle System panel.</p>
+</figcaption>
+</figure>
+<p>These are the basic settings.</p>
+<dl>
+<dt>Active Particle System</dt><dd><p>The <a href="../../interface/controls/templates/list_view.html#ui-list-view">List View</a> of the objects Particle Modifier(s).</p>
+<dl>
+<dt>Specials</dt><dd><dl>
+<dt>Copy Active to Selected Objects</dt><dd><p>Copies the active particle system to all selected objects.</p>
+</dd>
+<dt>Copy All to Selected Objects</dt><dd><p>Copies all particle systems from the active object to all selected objects.</p>
+</dd>
+<dt>Duplicate Particle Systems</dt><dd><p>Duplicates the particle system within the active object.
+The <em>Duplicate Settings</em> option (in the <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel) will duplicate
+settings as well, so the new particle system uses its own settings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Particle Settings</dt><dd><p>The <a href="../../interface/controls/templates/data_block.html#ui-data-block">Data-Block menu</a> for settings.</p>
+</dd>
+<dt>Type</dt><dd><p>Main selector of the system type.</p>
+<dl>
+<dt>Emitter</dt><dd><p>In such a system, particles are <a href="emitter/index.html">emitted</a> from the object.</p>
+</dd>
+<dt>Hair</dt><dd><p>Use <a href="hair/index.html">Hair</a> type, rendered as strands.</p>
+<dl>
+<dt>Regrow</dt><dd><p>Regrows the hair for each frame. This is useful when you are animating properties.</p>
+</dd>
+<dt>Advanced</dt><dd><p>Enables advanced settings which reflect the same ones as working in Emitter mode.</p>
+<div>
+<p>Note</p>
+<p>This manual assumes that this option is enabled.</p>
+</div>
+</dd>
+<dt>Segments</dt><dd><p>Controls the number of parts a hair is made of.
+Increasing this value will improve the quality of animations.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="workflow">
+<h2>Workflow</h2>
+<p>The process for working with standard particles is:</p>
+<ol>
+<li><p>Create the mesh which will emit the particles.</p></li>
+<li><p>Create one or more Particle Systems to emit from the mesh. Many times, multiple
+particle systems interact or merge with each other to achieve the overall desired effect.</p></li>
+<li><p>Tailor each Particle System’s settings to achieve the desired effect.</p></li>
+<li><p>Animate the base mesh and other particle meshes involved in the scene.</p></li>
+<li><p>Define and shape the path and flow of the particles.</p></li>
+<li><p>For <a href="hair/index.html">Hair</a> particle systems: Sculpt the emitter’s flow
+(cut the hair to length and comb it for example).</p></li>
+<li><p>Make final render and do physics simulation(s), and tweak as needed.</p></li>
+</ol>
+<section id="creating-a-particle-system">
+<h3>Creating a Particle System</h3>
+<p>To add a new particle system to an object, go to the <em>Particles</em> tab of the Properties
+editor and click the small <code>+</code> button. An object can have many Particle Systems.</p>
+<p>Each particle system has separate settings attached to it.
+These settings can be shared among different particle systems, so one does not have to copy
+every setting manually and can use the same effect on multiple objects.</p>
+<section id="types-of-particle-systems">
+<h4>Types of Particle Systems</h4>
+<p>After you have created a particle system,
+the Properties fills with many panels and buttons.
+But do not panic! There are two different types of particle systems,
+and you can change between these two with the <em>Type</em> selector:
+Emitter and Hair.</p>
+<p>The settings in the <em>Particle System</em> tab are partially different for each system type.</p>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

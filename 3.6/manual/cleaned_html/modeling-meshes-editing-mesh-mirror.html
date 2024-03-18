@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Mirror</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Mirror</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mirror">
+<h1>Mirror</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Mirror</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The Mirror tool mirrors a selection across a selected axis.</p>
+<p>The Mirror tool in <em>Edit Mode</em> is similar to
+<a href="../../../../scene_layout/object/editing/mirror.html">Mirroring in Object Mode</a>.
+It is exactly equivalent to scaling vertices by -1 around one chosen pivot point
+and in the direction of one chosen axis, only it is faster/handier.</p>
+<p>After this tool becomes active, select an axis to mirror the selection
+by pressing <kbd>X</kbd>, <kbd>Y</kbd>, or <kbd>Z</kbd>.</p>
+<p>You can also interactively mirror the geometry by holding the <kbd>MMB</kbd> and dragging in
+the desired mirror direction.</p>
+<section id="axis-of-symmetry">
+<h2>Axis of Symmetry</h2>
+<p>For each transformation orientation,
+you can choose one of its axes along which the mirroring will occur.</p>
+<p>As you can see, the possibilities are infinite and the freedom complete:
+You can position the pivot point at any location around which we want the mirroring to occur,
+choose one transformation orientation and then one axis on it.</p>
+</section>
+<section id="pivot-point">
+<h2>Pivot Point</h2>
+<p><a href="../../../../editors/3dview/controls/pivot_point/index.html">Pivot points</a> must be set first.
+Pivot points will become the center of symmetry.
+If the widget is turned on it will always show where the pivot point is.</p>
+<p>In Fig. <a href="#fig-mesh-deform-mirror-origins">Mirror around the individual origins.</a> the pivot point default to
+median point of the selection of vertices in <em>Edit Mode</em>.
+This is a special case of the <em>Edit Mode</em> as explained on
+the <a href="../../../../editors/3dview/controls/pivot_point/index.html">pivot point page</a>.</p>
+<table id="id2">
+<caption>Mirror around the individual origins.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Mesh before mirror.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Mesh after mirrored along X axis.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Fig. <a href="#fig-mesh-deform-mirror-cursor">Mirror around the 3D Cursor.</a> the pivot point is the <em>3D Cursor</em>,
+the transformation orientation is <em>Local</em>, a.k.a. the object space,
+and the axis of transformation is X.</p>
+<table id="id5">
+<caption>Mirror around the 3D Cursor.</caption>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Mesh before mirror.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Mesh after mirrored along X axis using the 3D cursor as a pivot point.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transformation-orientations">
+<h2>Transformation Orientations</h2>
+<p><a href="../../../../editors/3dview/controls/orientation.html">Transformation Orientations</a>
+are found on the 3D Viewport header, next to the <em>Widget</em> buttons.
+They decide which coordinate system will rule the mirroring.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

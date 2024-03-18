@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Controls &gt; Pivot Point &gt; Bounding Box Center</title></head>
+<body><ul>
+<li><a href="../../../index.html">Editors</a></li>
+<li><a href="../../index.html">3D Viewport</a></li>
+<li><a href="../index.html">Controls</a></li>
+<li><a href="index.html">Pivot Point</a></li>
+<li>Bounding Box Center</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bounding-box-center">
+<h1>Bounding Box Center</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Edit Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p> Pivot Point ‣ Bounding Box Center</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Period</kbd></p>
+</dd>
+</dl>
+</div>
+<p>In this mode, the pivot point lies at the center of the bounding box, which is a box that’s
+wrapped as tightly as possible around the selection while still being aligned to the world axes.</p>
+<section id="in-object-mode">
+<h2>In Object Mode</h2>
+<p>The pivot point becomes the center of the bounding box <em>around the selected objects’
+origin points</em>, not their geometry.</p>
+<p>This means that, if you have a single object selected, the pivot point is the same
+as the object’s <a href="../../../../scene_layout/object/origin.html">origin point</a> – which can be customized
+and doesn’t have to be in the center. In the example below, the orange rectangle
+has it in a corner instead.</p>
+<figure id="id2">
+<figcaption>
+<p>Single object rotation.</p>
+</figcaption>
+</figure>
+<p>If you have multiple objects selected, the pivot point becomes the center
+of an imaginary box around their origins.</p>
+<p>The image below shows the difference between Bounding Box Center
+and <a href="median_point.html">Median Point</a>.
+The latter calculates the average position of the origins,
+meaning that the pivot point shifts towards the area with the most objects.</p>
+<figure id="id3">
+<figcaption>
+<p>Difference between “Bounding Box Center” (left) and “Median Point” (right).</p>
+</figcaption>
+</figure>
+</section>
+<section id="in-edit-mode">
+<h2>In Edit Mode</h2>
+<p>The pivot point becomes the center of the bounding box around the selected mesh elements.</p>
+<figure id="id4">
+<figcaption>
+<p>The effects of rotation in different mesh selection modes.
+The pivot point is shown by a yellow circle.</p>
+</figcaption>
+</figure>
+<p>Median Point may again give a different result.</p>
+<figure id="id5">
+<figcaption>
+<p>Difference between “Bounding Box Center” (left) and “Median Point” (right).</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

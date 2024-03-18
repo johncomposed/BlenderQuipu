@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Mode</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Particle System</a></li>
+<li>Particle Edit Mode</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="particle-edit-mode">
+<h1>Particle Edit Mode</h1>
+<p>Using <em>Particle Edit Mode</em> you can edit the keyed points (keyframes)
+and paths of <a href="hair/index.html">Hair</a>,
+<a href="index.html">Particle</a>, <a href="../cloth/index.html">Cloth</a>, and
+<a href="../soft_body/index.html">Soft Body</a> simulations. (You can also edit and style hair before baking.)</p>
+<p>Since working in Particle Edit Mode is pretty easy and very similar
+to working with vertices in the 3D Viewport, we will show how to set up
+a particle system and then give a reference of the various functions.</p>
+<div>
+<p>Important</p>
+<p>Particle Edit Mode, specifically for hair is deprecated;
+please use the new <a href="../../modeling/curves/primitives.html#bpy-ops-object-curves-empty-hair-add">Empty Hair</a>
+object with its associated <a href="../../sculpt_paint/curves_sculpting/introduction.html">Sculpt Mode</a> instead.</p>
+</div>
+<section id="usage">
+<h2>Usage</h2>
+<div>
+<p>Tip</p>
+<p>Only Frames Baked to Memory are Editable!</p>
+<p>If you cannot edit the particles, check that you are not baking to
+a <a href="emitter/cache.html">Disk Cache</a>.</p>
+</div>
+<section id="setup-for-hair-particles">
+<h3>Setup for Hair Particles</h3>
+<ol>
+<li><p>Create a <em>Hair</em> particle system.</p></li>
+<li><p>Give it an initial velocity in the <em>Normal</em> direction.</p></li>
+<li><p>Create a simulation.</p></li>
+<li><p>Check the <em>Hair Dynamics</em> box.</p></li>
+</ol>
+<figure id="id6">
+<figcaption>
+<p>Editing hair strands in Particle Edit Mode.</p>
+</figcaption>
+</figure>
+</section>
+<section id="setup-for-particle-cloth-and-soft-body-simulations">
+<h3>Setup for Particle, Cloth, and Soft Body Simulations</h3>
+<ol>
+<li><p>Use <em>Emitter</em> particles, or a cloth/soft body simulation.</p></li>
+<li><p>Create a simulation by setting up objects and or emitters,
+set your time range (use a small range if you are just starting out and experimenting),
+set up the simulation how you want it, using <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd> to preview it.</p></li>
+</ol>
+</section>
+<section id="bake-the-simulation">
+<h3>Bake the Simulation</h3>
+<p>Once you are happy with the general simulation, <a href="emitter/cache.html">bake</a>
+the simulation from Object Mode. The simulation must be baked to enable editing.</p>
+</section>
+<section id="edit-the-simulation">
+<h3>Edit the Simulation</h3>
+<p>Switch to <em>Particle Edit</em> from the <em>Mode</em> select menu in the header of the 3D Viewport
+to edit the particle’s paths/Keyframes. You may need to press <kbd>T</kbd> from within the 3D Viewport
+to see the <em>Particle Edit</em> panel. Move to the frame you want to edit and use the various <em>Particle Edit</em>
+tools to edit your simulation. Work slowly, previewing your changes with <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd>,
+and save often so that you can go back to the previous version should something happen,
+or that you do not like the latest changes you have made.</p>
+<div>
+<p>Tip</p>
+<p>To be able to clearly see what you are working on:</p>
+<ol>
+<li><p>Open the Options panel in the Toolbar.</p></li>
+<li><p>Select <em>Point select mode</em> (see below) in the header of the 3D Viewport.
+This will display key points along the particle path.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="selecting">
+<h2>Selecting</h2>
+<ul>
+<li><p>Single: <kbd>LMB</kbd>.</p></li>
+<li><p>All: <kbd>A</kbd>.</p></li>
+<li><p>Linked: Move the mouse over a keypoint and press <kbd>L</kbd>.</p></li>
+<li><p>Box select: <kbd>B</kbd>.</p></li>
+<li><p>Circle Select <kbd>C</kbd>.</p></li>
+<li><p>Lasso Select <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd>.</p></li>
+<li><p>Root/Tips: Select ‣ Roots / Tips.</p></li>
+</ul>
+<p>You may also use the <em>Select</em> Menu.</p>
+<div>
+<p>Tip</p>
+<p>Selections</p>
+<p>Selections are extremely useful for modifying only the particles that you want.
+Hover over a particle path and press <kbd>L</kbd> to link-select it,
+hover over the next and press <kbd>L</kbd> to add that path to the selection.
+To remove a path, hold <kbd>Shift</kbd> and press <kbd>L</kbd>. To Deselect all press <kbd>A</kbd>.</p>
+<p>The method to select individual points is the same as in Edit Mode.
+<kbd>RMB</kbd> to select, <kbd><kbd>Shift</kbd>-<kbd>RMB</kbd></kbd> to add/remove a point from the selection.</p>
+</div>
+<section id="select-random">
+<h3>Select Random</h3>
+<p>Randomly selects particles.</p>
+<dl>
+<dt>Percent</dt><dd><p>Percent of particles to randomly select.</p>
+</dd>
+<dt>Random Seed</dt><dd><p>Seed value to use for the selection.</p>
+</dd>
+<dt>Action</dt><dd><p>Select random can be either used to select or deselect particles.</p>
+</dd>
+<dt>Type</dt><dd><p>Selects either hair or points. Here these terms can be confusing because
+hair/point does not refer to the particle type but the path/points of the hair/particle.</p>
+</dd>
+</dl>
+</section>
+<section id="select-modes">
+<h3>Select Modes</h3>
+<figure id="id7">
+<figcaption>
+<p>Select Modes.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Path</dt><dd><p>No keypoints are visible, you can select/deselect only all particles.</p>
+</dd>
+<dt>Point</dt><dd><p>You see all of the keypoints.</p>
+</dd>
+<dt>Tip</dt><dd><p>You can see and edit (including the brushes) only the tip of the particles, i.e. the last keypoint.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="tools">
+<h2>Tools</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Particle Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar</p>
+</dd>
+</dl>
+</div>
+<section id="comb">
+<h3>Comb</h3>
+<p>Moves the keypoints (similar to the Proportional Editing tool).</p>
+<dl>
+<dt>Deflect Emitter</dt><dd><p>Hair particles only – Do not move keypoints through the emitting mesh.</p>
+<dl>
+<dt>Distance</dt><dd><p>The distance to keep from the Emitter.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="smooth">
+<h3>Smooth</h3>
+<p>Parallels visually adjacent segments.</p>
+</section>
+<section id="add">
+<h3>Add</h3>
+<p>Adds new particles.</p>
+<dl>
+<dt>Count</dt><dd><p>The number of new particles per step.</p>
+</dd>
+<dt>Interpolate</dt><dd><p>Interpolate the shape of new hairs from existing ones.</p>
+</dd>
+<dt>Steps</dt><dd><p>Amount of brush steps.</p>
+</dd>
+<dt>Keys</dt><dd><p>How many keys to make new particles with.</p>
+</dd>
+</dl>
+</section>
+<section id="length">
+<h3>Length</h3>
+<p>Scales the segments, so it makes the hair longer with <em>Grow</em> or shorter with <em>Shrink</em>.</p>
+<dl>
+<dt>Grow/Shrink</dt><dd><p>Sets the brush to add the effect or reverse it.</p>
+</dd>
+</dl>
+</section>
+<section id="puff">
+<h3>Puff</h3>
+<p>Rotates the hair around its first keypoint (root).
+So it makes the hair stand up with <em>Add</em> or lay down with <em>Sub</em>.</p>
+<dl>
+<dt>Puff Volume</dt><dd><p>Apply puff to unselected end points, (Helps to maintain the hair volume when puffing the root.)</p>
+</dd>
+</dl>
+</section>
+<section id="cut">
+<h3>Cut</h3>
+<p>Scales the segments until the last keypoint reaches the brush.</p>
+</section>
+<section id="weight">
+<h3>Weight</h3>
+<p>This is especially useful for soft body animations, because the weight defines the soft body <em>Goal</em>.
+A keypoint with a weight of 1 will not move at all,
+a keypoint with a weight of 0 subjects fully to soft body animation.
+This value is scaled by the Strength <em>Min</em> to <em>Max</em> range of soft body goals…</p>
+</section>
+<section id="common-options">
+<h3>Common Options</h3>
+<p>Below the brush types, their settings appear:</p>
+<dl>
+<dt>Radius <kbd>F</kbd></dt><dd><p>Set the radius of the brush.</p>
+</dd>
+<dt>Strength <kbd><kbd>Shift</kbd>-<kbd>F</kbd></kbd></dt><dd><p>Set the strength of the brush effect (not for Add brush).</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="options">
+<h2>Options</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Particle Edit Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Tool Settings ‣ Options</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Auto-Velocity Emitter</dt><dd><p>Recalculate velocities of particles according to their edited paths.
+Otherwise, the original velocities values remains unchanged
+regardless of the actual distance that the particles moves.</p>
+</dd>
+<dt>Mirror X</dt><dd><p>Enable mirror editing across the local X axis.</p>
+</dd>
+<dt>Preserve</dt><dd><dl>
+<dt>Strand Length</dt><dd><p>Keep the length of the segments between the keypoints when combing or smoothing the hair.
+This is done by moving all the other keypoints.</p>
+</dd>
+<dt>Root Positions</dt><dd><p>Keep first key unmodified, so you cannot transplant hair.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="cut-particles-to-shape">
+<h3>Cut Particles to Shape</h3>
+<dl>
+<dt>Shape Object</dt><dd><p>A mesh object which boundary is used by the <em>Shape Cut</em> tool.</p>
+</dd>
+<dt>Cut</dt><dd><p>This grooming tool trims hairs to a shape defined by the <em>Shape Object</em>.
+This is a quicker way of avoiding protruding hair sections from lengthening than using the Cutting tool.
+It works especially well for characters with extensive fur,
+where working in a single plane with the Cutting tool becomes tedious.</p>
+</dd>
+</dl>
+<table id="id8">
+<caption>Shape Cut example.</caption>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>After.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="viewport-display">
+<h3>Viewport Display</h3>
+<dl>
+<dt>Path Steps</dt><dd><p>The number of steps used to draw the path; improves the smoothness of the particle path.</p>
+</dd>
+<dt>Children Hair</dt><dd><p>Displays the children of the particles too.
+This allows to fine-tune the particles and see their effects on the result,
+but it may slow down your system if you have many children.</p>
+</dd>
+<dt>Particles Emitter</dt><dd><p>Displays the actual particles on top of the paths.</p>
+</dd>
+<dt>Fade Time</dt><dd><p>Fade out paths and keys further away from current time.</p>
+<dl>
+<dt>Frames</dt><dd><p>How many frames to fade.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="editing">
+<h2>Editing</h2>
+<section id="moving-keypoints-or-particles">
+<h3>Moving Keypoints or Particles</h3>
+<ul>
+<li><p>To move selected keypoints press <kbd>G</kbd>, or use one of the various other methods to move vertices.</p></li>
+<li><p>To move a particle root you have to turn off Keep <em>Root</em> in the Toolbar.</p></li>
+<li><p>You can do many of the things like with vertices, including scaling,
+rotating and removing (complete particles or single keys).</p></li>
+<li><p>You may not duplicate or extrude keys or particles,
+but you can subdivide particles which adds new keypoints
+Particle ‣ Subdivide.</p></li>
+<li><p>Alternatively you can re-key a particle
+Particle ‣ Rekey.</p></li>
+</ul>
+<p>How smoothly the hair and particle paths are displayed depends on the <em>Path Steps</em>
+setting in the Toolbar. Low settings produce blocky interpolation between points,
+while high settings produce a smooth curve.</p>
+</section>
+<section id="mirror">
+<h3>Mirror</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Particle Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Particle ‣ Mirror</p>
+</dd>
+</dl>
+</div>
+<p>If you want to create an X axis symmetrical haircut you have to do following steps:</p>
+<ol>
+<li><p>Select all particles with <kbd>A</kbd>.</p></li>
+<li><p>Mirror the particles with Particle ‣ Mirror.</p></li>
+<li><p>Turn on <em>X Mirror</em> in Sidebar Region ‣ Tool ‣ Options.</p></li>
+</ol>
+<p>It may happen that after mirroring two particles occupy nearly the same place.
+Since this would be a waste of memory and render time,
+you can use <em>Merge by Distance</em> from the <em>Particle</em> menu.</p>
+</section>
+<section id="unify-length">
+<h3>Unify Length</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Particle Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Particle ‣ Unify Length</p>
+</dd>
+</dl>
+</div>
+<p>This tool is used to make all selected hair uniform length by finding the average length.</p>
+</section>
+<section id="show-hide">
+<h3>Show/Hide</h3>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Particle Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Particle ‣ Show/Hide</p>
+</dd>
+</dl>
+</div>
+<p>Hiding and unhiding of particles works similar as with vertices in the 3D Viewport.
+Select one or more keypoints of the particle you want to hide and press <kbd>H</kbd>.
+The particle in fact does not vanish, only the key points.</p>
+<p>Hidden particles (i.e. particles whose keypoints are hidden)
+do not react on the various brushes. But:</p>
+<p>If you use <em>Mirror Editing</em> even particles with hidden keypoints may be moved,
+if their mirrored counterpart is moved.</p>
+<p>To unhide all hidden particles press <kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd>.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

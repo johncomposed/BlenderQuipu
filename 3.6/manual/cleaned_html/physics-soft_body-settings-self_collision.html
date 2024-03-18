@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Soft Body &gt; Settings &gt; Self Collision</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Soft Body</a></li>
+<li><a href="index.html">Settings</a></li>
+<li>Self Collision</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="self-collision">
+<h1>Self Collision</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Soft Body ‣ Self Collision</p>
+</dd>
+</dl>
+</div>
+<div>
+<p>Note</p>
+<p><em>Self-Collision</em> is working only if you have activated <em>Use Edges</em>.</p>
+</div>
+<p>When enabled, allows you to control how Blender will prevent the soft body from intersecting with itself.
+Every vertex is surrounded with an elastic virtual ball.
+Vertices may not penetrate the balls of other vertices.
+If you want a good result you may have to adjust the size of these balls.
+Normally it works pretty well with the default options.</p>
+<dl id="bpy-types-softbodysettings-collision-type">
+<dt>Calculation Type</dt><dd><dl>
+<dt>Manual:</dt>
+<dd><p>The <em>Ball Size</em> directly sets the ball size.</p>
+</dd>
+<dt>Average:</dt>
+<dd><p>The average length of all edges attached to the vertex is calculated and then multiplied
+with the <em>Ball Size</em> setting. Works well with evenly distributed vertices.</p>
+</dd>
+<dt>Minimal/Maximal:</dt>
+<dd><p>The ball size is as large as the smallest/largest spring length of the vertex multiplied with the <em>Ball Size</em>.</p>
+</dd>
+<dt>Average Min Max:</dt>
+<dd><p>Size = ((Min + Max)/2) × <em>Ball Size</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-ball-size">
+<dt>Ball Size</dt><dd><p>Fraction of the length of attached edges.
+The edge length is computed based on the chosen algorithm.
+This setting is the factor that is multiplied by the spring length.
+It is a spherical distance (radius) within which, if another vertex of the same mesh enters,
+the vertex starts to deflect in order to avoid a self-collision.</p>
+<p>Set this value to the fractional distance between vertices that you want them to have their own “space”.
+Too high of a value will include too many vertices at all times and slow down the calculation.
+Too low of a level will let other vertices get too close and thus possibly intersect because
+there will not be enough time to slow them down.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-ball-stiff">
+<dt>Stiffness</dt><dd><p>How elastic that ball of personal space is.
+A high stiffness means that the vertex reacts immediately to another vertex enters their space.</p>
+</dd>
+</dl>
+<dl id="bpy-types-softbodysettings-ball-damp">
+<dt>Dampening</dt><dd><p>How the vertex reacts.
+A low value just slows down the vertex as it gets too close. A high value repulses it.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Collisions with other objects are set in the (other) <a href="../../collision.html">Collision panel</a>.
+To collide with another object they have to share at least one common layer.</p>
+</div>
+</section>
+</div>
+</div></body>
+</html>

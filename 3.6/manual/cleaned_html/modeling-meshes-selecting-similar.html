@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Selecting &gt; Similar</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Selecting</a></li>
+<li>Select Similar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="select-similar">
+<h1>Select Similar</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Similar</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Select geometry that has similar certain properties to the ones selected,
+based on a threshold that can be set in tool properties after activating the tool.
+Tool options change depending on the selection mode:</p>
+<dl>
+<dt>Vertex Selection Mode:</dt><dd><dl>
+<dt>Normal</dt><dd><p>Selects all vertices that have normals pointing in similar directions to those currently selected.</p>
+</dd>
+<dt>Amount of Adjacent Faces</dt><dd><p>Selects all vertices that have the same number of faces connected to them.</p>
+</dd>
+<dt>Vertex Groups</dt><dd><p>Selects all vertices in the same <a href="../properties/vertex_groups/index.html">vertex group</a>.</p>
+</dd>
+<dt>Amount of Connecting Edges</dt><dd><p>Selects all vertices that have the same number of edges connected to them.</p>
+</dd>
+</dl>
+</dd>
+<dt>Edge Selection Mode:</dt><dd><dl>
+<dt>Length</dt><dd><p>Selects all edges that have a similar length as those already selected.</p>
+</dd>
+<dt>Direction</dt><dd><p>Selects all edges that have a similar direction (angle) as those already selected.</p>
+</dd>
+<dt>Amount of Faces Around an Edge</dt><dd><p>Selects all edges that belong to the same number of faces.</p>
+</dd>
+<dt>Face Angles</dt><dd><p>Selects all edges that are between two faces forming a similar angle, as with those already selected.</p>
+</dd>
+<dt>Crease</dt><dd><p>Selects all edges that have a similar <a href="../editing/mesh/transform/basic.html#modeling-edges-crease-subdivision">Crease</a>
+value as those already selected.</p>
+</dd>
+<dt>Bevel</dt><dd><p>Selects all edges that have the same <em>Bevel Weight</em> as those already selected.</p>
+</dd>
+<dt>Seam</dt><dd><p>Selects all edges that have the same <em>Seam</em> state as those already selected.
+<em>Seam</em> is a mark used in <a href="../../../editors/uv/index.html#editors-uv-index">UV texturing</a>.</p>
+</dd>
+<dt>Sharpness</dt><dd><p>Selects all edges that have the same <em>Sharp</em> state as those already selected.
+<em>Sharp</em> is a mark used by the <a href="../../modifiers/generate/edge_split.html">Edge Split Modifier</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Face Selection Mode:</dt><dd><dl>
+<dt>Material</dt><dd><p>Selects all faces that use the same material as those already selected.</p>
+</dd>
+<dt>Area</dt><dd><p>Selects all faces that have a similar area as those already selected.</p>
+</dd>
+<dt>Polygon Sides</dt><dd><p>Selects all faces that have the same number of edges.</p>
+</dd>
+<dt>Perimeter</dt><dd><p>Selects all faces that have a similar perimeter (added values of its edge lengths).</p>
+</dd>
+<dt>Normal</dt><dd><p>Selects all faces that have a similar normal as those selected.
+This is a way to select faces that have the same orientation (angle).</p>
+</dd>
+<dt>Co-planar</dt><dd><p>Selects all faces that are (nearly) in the same plane as those selected.</p>
+</dd>
+<dt>Flat/Smooth</dt><dd><p>Selects all faces with similar <a href="../editing/face/shading.html">face shading</a>.</p>
+</dd>
+<dt>Face-Map</dt><dd><p>Selects all faces belonging to a <a href="../properties/object_data.html#bpy-types-facemaps">Face-Map</a>.</p>
+</dd>
+<dt>Freestyle Face Marks</dt><dd><p>Selects all faces with similar <a href="../editing/face/face_data.html#bpy-ops-mesh-mark-freestyle-face">Freestyle Face Marks</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Compare</dt><dd><p>For quantitative properties, this property selects the type of comparison to between the two numerical values.</p>
+<dl>
+<dt>Equal:</dt>
+<dd><p>Select items with the same value as the active item’s chosen property.</p>
+</dd>
+<dt>Greater:</dt>
+<dd><p>Select items with a larger value as the active item’s chosen property.</p>
+</dd>
+<dt>Less:</dt>
+<dd><p>Select items with a smaller value as the active item’s chosen property.</p>
+</dd>
+</dl>
+</dd>
+<dt>Threshold</dt><dd><p>For quantitative properties, this property controls how
+close the property’s values have to be in the comparison.</p>
+</dd>
+</dl>
+<section id="face-regions">
+<h2>Face Regions</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Similar ‣ Face Regions</p>
+</dd>
+</dl>
+</div>
+<p>Select matching features on a mesh that has multiple similar areas based on the topology.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

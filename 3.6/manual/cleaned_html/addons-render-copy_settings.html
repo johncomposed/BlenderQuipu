@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Render &gt; Copy Settings</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Render</a></li>
+<li>Copy Render Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="copy-render-settings">
+<h1>Copy Render Settings</h1>
+<p>This is a simple tool that adds in the Render properties a new panel with a big <em>Copy Render Settings</em> button,
+and some options to control what to copy, and to which scenes…</p>
+<p>I wrote it as I often have tens of scenes all edited/gathered in a single “main” scene sequence.
+When I want to make preview renders of that main scene,
+I had to manually set all other scenes’ preview scale – long and boring.
+And even worse, I often forgot to put them back to full resolution before final rendering!</p>
+<p>So, with this add-on, I just have to set the preview scale in the main scene,
+enable or disable <a href="../../glossary/index.html#term-Anti-Aliasing">Anti-Aliasing</a>, and hit <em>Copy Render Settings</em>!</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Render then Copy Render Settings to enable the script.</p></li>
+</ul>
+</section>
+<section id="description">
+<h2>Description</h2>
+<dl>
+<dt>Render Settings</dt><dd><p>This lists all render settings. The checkbox to the right controls whether that setting will be copied or not.
+So if you want to copy a specific setting, hover your mouse over its control,
+note its Python name (e.g. <code>resolution_x</code> for the X resolution, etc.),
+and enable the corresponding item in this list.</p>
+<div>
+<p>Important</p>
+<p>This will only work if you have a Blender patched with <code>ui_template_list diff</code>,
+see <a href="https://archive.blender.org/wiki/index.php/User:Mont29/UI_Template_List_Enhancement/">UI Template List Enhancement</a>.</p>
+</div>
+</dd>
+<dt>Presets</dt><dd><p>The column of buttons to the right of the list are a set of presets
+which set or clear one or more settings at once.
+<em>This will work even without the UI template list patch.</em></p>
+<dl>
+<dt>Set Scale/Clear Scale</dt><dd><p>Copy the render scale setting (below resolution controls, in <em>Format</em> panel).
+Highly useful to do preview renders!</p>
+</dd>
+<dt>Set Resolution/Clear Resolution</dt><dd><p>Copy the render resolution and aspect ratio settings.
+Beware of side effects if you modify the aspect of your render (e.g. switching from: 4/3 to 16/9…).</p>
+</dd>
+<dt>Set OSA/Clear OSA</dt><dd><p>Copy the global <abbr title="Oversampling">OSA</abbr> usage, and OSA level settings.
+Together with <em>Render Scale</em>, this is most useful for preview renders.</p>
+</dd>
+<dt>Set Threads/Clear Threads</dt><dd><p>Copy the settings (auto/fixed, and number) of threads used during rendering.
+Might be useful when e.g. you render your blend-files on various computers
+(even though the <em>Auto</em> option should work good in general…).</p>
+</dd>
+<dt>Set Fields/Clear Fields</dt><dd><p>Copy all fields settings.
+Allows you to easily switch from progressive to interlaced…</p>
+</dd>
+<dt>Set Stamp/Clear Stamp</dt><dd><p>Copy whether to render stamps or not (i.e. the global stamp switch setting).</p>
+</dd>
+</dl>
+</dd>
+<dt>Affected Scenes:</dt><dd><dl>
+<dt>Filter Scene</dt><dd><p>You can type in this text field a regex (using Python syntax), and only scene
+which name matches this regex will be available. Quite useful when you have tens of scenes in a file…</p>
+<p>E.g. if you only want to copy some of your current render settings to scenes
+having “rabbit” in their name, type <code>.*rabbit.*</code> in this field.</p>
+</dd>
+<dt>Columns of buttons</dt><dd><p>These toggle buttons represent all scenes of the blend-file
+(optionally filtered through the <em>Filter Scene</em> regex),
+except the current one. Only enabled scenes will receive the copied settings!</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Render</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Allows to copy a selection of render settings from current scene to others.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Properties ‣ Render tab</p>
+</dd>
+<dt>File:</dt>
+<dd><p>render_copy_settings folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Bastien Montagne</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Preferences &gt; Keymap</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Preferences</a></li>
+<li>Keymap</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="keymap">
+<h1>Keymap</h1>
+<p>The keymap editor lets you adjust your keymap via:</p>
+<dl>
+<dt>Presets:</dt>
+<dd><p>Predefined keymaps which come with Blender and can be added to.</p>
+</dd>
+<dt>Preferences:</dt>
+<dd><p>Keymaps may define their own preferences to change the functionality or add additional key bindings.</p>
+</dd>
+<dt>Key Map Items:</dt>
+<dd><p>You may add/remove/edit individual keymap entries.</p>
+</dd>
+</dl>
+<figure id="id1">
+<figcaption>
+<p>Blender Preferences Keymap section.</p>
+</figcaption>
+</figure>
+<section id="preset-management">
+<h2>Preset Management</h2>
+<dl>
+<dt>Keymap Presets</dt><dd><p>Select the keymap from a list of predefined keymaps.</p>
+</dd>
+<dt>Import</dt><dd><p>Importing opens a File Browser to select a <code>.py</code> file to add to the list of keymap presets.</p>
+</dd>
+<dt>Export</dt><dd><p>Saves the current keymap configuration as a preset others may use.</p>
+<dl>
+<dt>All Keymaps</dt><dd><p>When disabled, only the keymaps and categories that have been modified by the user will be exported.
+In addition, add-ons may register keymaps to their respective functions,
+however, these keymaps are not exported unless changed by the user.
+This exported file may be thought of as a <em>“keymap delta”</em> instead of a full keymap export.</p>
+<p>When enabled, the entire keymap is written.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="filtering">
+<h3>Filtering</h3>
+<dl id="bpy-types-spacepreferences-filter-type">
+<dt>Filter Type</dt><dd><dl>
+<dt>Name</dt><dd><p>Search the keymap item by the operator name it runs.</p>
+</dd>
+<dt>Key Binding</dt><dd><p>Search the keymap item by the key used to activate it.</p>
+<div>
+<p>Hint</p>
+<p>You could for example search with <code>Ctrl Shift C</code> for keymap items that use all these keys.</p>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-spacepreferences-filter-text">
+<dt>Search</dt><dd><p>The text to search (leave blank to disable).</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="preferences">
+<h2>Preferences</h2>
+<p>Keymaps may define their own preferences, these are predefined adjustments to the keymap you can make
+without having to manually adjust individual keymap items which can cause problems with newer <a href="#blender-versions">Blender Versions</a>.</p>
+<p>See the <a href="../../interface/keymap/blender_default.html#keymap-blender-default-prefs">default keymap preferences</a>
+for options available in the default keymap.</p>
+</section>
+<section id="editor">
+<h2>Editor</h2>
+<p>The Keymap editor lets you change the default hotkeys. You can change keymaps for each of Blender’s editors.</p>
+<figure id="id2">
+<figcaption>
+<p>Keymap editor.</p>
+</figcaption>
+</figure>
+<p>Usage</p>
+<ol>
+<li><p>Select the keymap you want to change and click on the white arrows to open up the keymap tree.</p></li>
+<li><p>Select which Input will control the function.</p></li>
+<li><p>Change hotkeys as you want. Just click on the shortcut input and enter the new shortcut.</p></li>
+</ol>
+<dl>
+<dt>Active</dt><dd><p>Uncheck to disable this keymap item.</p>
+</dd>
+<dt>Map Type</dt><dd><dl>
+<dt>Keyboard</dt><dd><p>Single hotkey or key combination.</p>
+</dd>
+<dt>Mouse</dt><dd><p>Actions from mouse buttons, tablet or touchpad input.</p>
+</dd>
+<dt>NDOF</dt><dd><p>Movement from a 3D mouse (<a href="../../glossary/index.html#term-NDOF">NDOF</a>) device.</p>
+</dd>
+<dt>Tweak</dt><dd><p>Mouse click and drag <em>(optionally map drag direction to different actions)</em>.</p>
+</dd>
+<dt>Text Input</dt><dd><p>Use this function by entering a text.</p>
+</dd>
+<dt>Timer</dt><dd><p>Used to control actions based on a time period.
+E.g. by default, <em>Animation Step</em> uses “Timer 0”, <em>Smooth View</em> uses “Timer 1”.</p>
+</dd>
+</dl>
+</dd>
+<dt>Operator ID Name</dt><dd><p>The identifier for the operator to call.</p>
+<div>
+<p>Hint</p>
+<p>See <a href="https://docs.blender.org/api/3.6/bpy.ops.html#module-bpy.ops" title="(in Blender 3.6.10 Release Candidate Python API v3.6)"><code>bpy.ops</code></a> for a list of operators (remove the <code>bpy.</code> prefix for the identifier).</p>
+</div>
+</dd>
+<dt>Event</dt><dd><dl>
+<dt>Type</dt><dd><p>The key or button that activates this keymap item (depending on the map type).</p>
+</dd>
+<dt>Value</dt><dd><p>The action (such as press, release, click, drag, etc.), (depending on the map type).</p>
+</dd>
+<dt>Modifier</dt><dd><p>Additional keys to hold (such as <kbd>Ctrl</kbd>, <kbd>Shift</kbd>, <kbd>Alt</kbd>).</p>
+</dd>
+</dl>
+</dd>
+<dt>Operator Properties</dt><dd><p>Changes to the defaults properties this operator is activated with</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p><a href="../../advanced/keymap_editing.html#keymap-customize">Keymap Customization</a> for more information on keymap editing.</p>
+</div>
+<section id="restoring">
+<h3>Restoring</h3>
+<p>If you want to restore the default settings for a keymap,
+just click on the <em>Restore</em> button at the top right of this keymap.</p>
+<div>
+<p>Tip</p>
+<p>Instead of deleting the default keymap to create your custom one,
+you can just add a new <em>Preset</em> for both the mouse and keyboard.</p>
+</div>
+</section>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<section id="blender-versions">
+<h3>Blender Versions</h3>
+<p>A problem with modifying your own keymap is newer Blender versions key change the way tools are accessed,
+breaking your customized keymap.</p>
+<p>While the keymap can be manually updated, the more customizations you make, the higher the chance of conflicts
+in newer Blender versions is.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Apply</title></head>
+<body><ul>
+<li><a href="../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../index.html">Objects</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Apply</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="apply">
+<h1>Apply</h1>
+<p>These operations lets you apply several transformations to the selected objects.
+The object transformation coordinates are transferred to the object data.
+If the objects have hierarchical descendants, it also applies those transformations to their children.</p>
+<section id="transforms">
+<h2>Transforms</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Apply ‣ Location / Rotation / Scale / Rotation &amp; Scale</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Applying transform values essentially resets the values of object’s location, rotation or scale,
+while visually keeping the object data in-place.
+The object origin point is moved to the global origin, the rotation is cleared and scale values are set to 1.</p>
+<p>For simple cases you won’t notice any difference the 3D Viewport or rendered output,
+yet modifiers and constraints may depend on object transformation.</p>
+<div>
+<p>Warning</p>
+<p>Armature Objects</p>
+<p>While applying transformations to armatures is supported,
+this does <strong>not</strong> apply to their pose location, animation curves or constraints.
+This tool should be used before rigging and animation.</p>
+</div>
+<p>When applying transforms to an object that shares Object Data between multiple objects,
+the object must first be made a <a href="../../../files/data_blocks.html#data-system-datablock-make-single-user">Single User</a>
+which can be performed by confirming the pop-up message.</p>
+<p>When running <em>Apply Transform</em>, the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel lets you choose
+the combination of transformations to apply.</p>
+<section id="options">
+<h3>Options</h3>
+<dl>
+<dt>Location</dt><dd><p>Apply (set) the location of the selection.
+This will make Blender consider the current location to be equivalent to 0 in each plane
+i.e. the selection will not move, the current location will be considered to be the “default location”.
+The object origin will be set to actual (0, 0, 0) (where the colored axis lines intersect in each view).</p>
+</dd>
+<dt>Rotation</dt><dd><p>Apply (set) the rotation of the selection.
+This will make Blender consider the current rotation to be equivalent to 0 degrees in each plane
+i.e. the selection will not rotated, the current rotation will be considered to be the “default rotation”.</p>
+</dd>
+<dt>Scale</dt><dd><p>Apply (set) the scale of the selection.
+This will make Blender consider the current scale to be equivalent to 0 in each plane
+i.e. the selection will not scaled, the current scale will be considered to be the “default scale”.</p>
+</dd>
+<dt>Rotation and Scale</dt><dd><p>Apply (set) the rotation and scale of the selection. Do the above two applications simultaneously.</p>
+</dd>
+<dt>Apply Properties</dt><dd><p>Modify properties such as curve vertex radius, font size and bone envelope
+according to the applied transformation. (Found in the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel)</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="transforms-to-deltas">
+<h2>Transforms to Deltas</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Apply ‣ Location / Rotation / Scale to Deltas</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Converts primary object transformations to <a href="../properties/transforms.html#bpy-types-object-delta">delta transforms</a>,
+any existing delta transforms will be included as well.</p>
+<ul>
+<li><p>Location to Deltas</p></li>
+<li><p>Rotation to Deltas</p></li>
+<li><p>Scale to Deltas</p></li>
+</ul>
+<dl>
+<dt>All Transforms to Deltas</dt><dd><p>Converts all primary transformations to delta transforms.</p>
+</dd>
+<dt>Animated Transform to Deltas</dt><dd><p>Converts the primary transformation animations
+(of the translation, scale, and, rotation values) to delta transforms.</p>
+</dd>
+</dl>
+<section id="id3">
+<h3>Options</h3>
+<dl>
+<dt>Reset Values</dt><dd><p>Clear primary transform values after transferring to deltas.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="visual-transform">
+<h2>Visual Transform</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Apply ‣ Visual Transform</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Apply (set) the result of a constraint and apply this back to the object’s location, rotation and scale.</p>
+</section>
+<section id="visual-geometry-as-mesh">
+<h2>Visual Geometry as Mesh</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Apply ‣ Visual Geometry to Mesh</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Apply the visual state of all selected objects (modifiers, shape keys, hooks, etc.) to object data.
+This is a way to freeze all object data into static meshes, as well as converts non-mesh types to mesh.</p>
+<p>For details, see the <a href="convert.html#object-convert-to">Convert</a> mesh.</p>
+</section>
+<section id="make-instances-real">
+<h2>Make Instances Real</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Apply ‣ Make Instances Real</p>
+</dd>
+</dl>
+</div>
+<p><em>Make Instances Real</em> creates a new object for each
+<a href="../properties/instancing/index.html">instance</a> generated by the selected ones,
+and removes any direct instancing from those.</p>
+<p>In the end, each instance becomes a real object.</p>
+<div>
+<p>Warning</p>
+<p>This applies to both direct (from verts or faces…) and indirect (from particle system…) instancing.
+In case you have tens of thousands of instances (from particles for example),
+this can significantly slow down Blender, which does not always deal well with that many objects in a scene.</p>
+</div>
+<section id="id7">
+<h3>Options</h3>
+<p>By default, new objects will be added to the same collection as the one containing their instancer,
+without keeping any hierarchy relationships. This behavior can be altered with the following options.</p>
+<dl>
+<dt>Parent</dt><dd><p>If <em>Keep Hierarchy</em> is not set, parents all the generated objects to the former instancer.</p>
+<p>Otherwise, parents all the generated objects <em>which are not already parented</em> to their respective instancer,
+or its matching new copy (this is important in case of recursive instancing, see the note below).</p>
+</dd>
+<dt>Keep Hierarchy</dt><dd><p>Preserves internal hierarchies (i.e. parent relationships) in the newly generated objects.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Usually, to get a new hierarchy as close as possible from the instancing one,
+you’ll want to enable both of these options.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Preserving relationships in recursive instancing cases (instancers instancing other instancer objects, etc.)
+is only supported to some extent currently.</p>
+<p>Simple cases (like an empty instancing a collection containing instances of some other collections)
+will usually work, but more complex cases will fail to fully reproduce the whole instancing hierarchy.</p>
+</div>
+</section>
+</section>
+<section id="parent-inverse">
+<h2>Parent Inverse</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Apply ‣ Parent Inverse</p>
+</dd>
+</dl>
+</div>
+<p>Applies the object’s <a href="parent.html#parent-inverse-matrix">Parent Inverse</a> transform to the object data.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

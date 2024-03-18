@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Converter &gt; Set Alpha</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Converter Nodes</a></li>
+<li>Set Alpha Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="set-alpha-node">
+<h1>Set Alpha Node</h1>
+<p>The <em>Set Alpha Node</em> adds an alpha channel to an image.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Alpha</dt><dd><p>The amount of Alpha can be set for the whole image by using the input field or
+per pixel by connecting to the socket.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl id="bpy-types-compositornodesetalpha-mode">
+<dt>Mode</dt><dd><p>Method to mix the alpha with the input <em>Image</em>.</p>
+<dl>
+<dt>Apply Mask:</dt>
+<dd><p>Multiply the input images RGBA channels by the <em>Alpha</em> input value.
+In this cases, the output is using <a href="../../../glossary/index.html#term-Premultiplied-Alpha">Premultiplied Alpha</a>.</p>
+</dd>
+<dt>Replace Alpha:</dt>
+<dd><p>Replace the inputs alpha channel with the <em>Alpha</em> input value.
+In this cases, the output is using <a href="../../../glossary/index.html#term-Straight-Alpha">Straight Alpha</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>This is not, and is not intended to be,
+a general-purpose solution to the problem of compositing an image that does not contain alpha information.
+You might wish to use “chroma keying” or “difference keying” (as discussed elsewhere) if you can.
+This node is most often used (with a suitable input being provided by means of the socket)
+in those troublesome cases when you <em>cannot</em>, for some reason, use those techniques directly.</p>
+</div>
+</section>
+<section id="example">
+<h2>Example</h2>
+<section id="fade-to-black">
+<h3>Fade To Black</h3>
+<p>To transition the audience from one scene or shot to another,
+a common technique is to “fade to black”. As its name implies,
+the scene fades to a black screen. You can also “fade to white” or whatever color you wish,
+but black is a good neutral color that is easy on the eyes and intellectually “resets” the viewer’s mind.
+The node tree below shows how to do this using the Set Alpha node.</p>
+<figure id="id1">
+<figcaption>
+<p>Fade to black.</p>
+</figcaption>
+</figure>
+<p>In the example above, the alpha channel of the swirl image is ignored.
+Instead, a <a href="../input/time_curve.html">Time Curve node</a>
+introduces a factor from 0.0 to 1.0 over 60 frames, or about 2 seconds,
+to the Set Alpha node. Note that the time curve is exponentially-shaped,
+so that the overall blackness will fade in slowly and then accelerate toward the end.
+The Set Alpha node does not need an input image; instead, the flat (shadeless) black color is used.
+The Set Alpha Node uses the input factor and color to create a black image that has an alpha
+set which goes from 0.0 to 1.0 over 60 frames, or completely transparent to completely opaque.
+Think of alpha as a multiplier for how vivid you can see that pixel.
+These two images are combined by the Alpha Over node completely (a <em>Factor</em> of 1.0)
+to produce the composite image. The Set Alpha node will thus, depending on the frame being rendered,
+produce a black image that has some amount of transparency.
+Setup and animate, and you have an image sequence that fades to black over a two-second period.</p>
+<div>
+<p>Note</p>
+<p>No Scene Information Used</p>
+<p>This example node tree does not use the Render Layer node.
+To produce this 2-second animation, no Blender scene information was used.
+This is an example of using Blender’s powerful compositing abilities
+separate from its modeling and animation capabilities.
+(A Render Layer could be substituted for the Image layer,
+and the “fade-network” effect will still produce the same effect.)</p>
+</div>
+</section>
+<section id="fade-in-a-title">
+<h3>Fade In a Title</h3>
+<p>To introduce your animation,
+you will want to present the title of your animation over a background.
+You can have the title fly in, or fade it in. To fade it in,
+use the Set Alpha node with the Time Curve node as shown below.</p>
+<figure id="id2">
+<figcaption>
+<p>Using Set Alpha to fade in a title.</p>
+</figcaption>
+</figure>
+<p>In the above example, a Time curve provides the Alpha value to the input socket.
+The current Render Layer node, which has the title in view, provides the image. As before,
+the Alpha Over node mixes (using the alpha values)
+the background swirl and the alpha title to produce the composite image.</p>
+</section>
+<section id="colorizing-a-bw-image">
+<h3>Colorizing a BW Image</h3>
+<figure id="id3">
+<figcaption>
+<p>Using Set Alpha to colorize an image.</p>
+</figcaption>
+</figure>
+<p>In the example above, notice how the blue tinge of the render input colors the swirl.
+You can use the Set Alpha node’s color field with this kind of node tree to add a consistent color to a BW image.</p>
+<p>In the example tree to the right,
+use the <em>Alpha</em> value of the Set Alpha node to give a desired degree of colorization.
+Thread the input image and the Set Alpha node into an Alpha Over node to colorize
+any black-and-white image in this manner.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

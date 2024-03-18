@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Introduction</title></head>
+<body><ul>
+<li><a href="index.html">Compositing</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Compositing Nodes allow you to assemble and enhance an image (or movie). Using composition nodes,
+you can glue two pieces of footage together and colorize the whole sequence all at once.
+You can enhance the colors of a single image or an entire movie clip in a static manner or
+in a dynamic way that changes over time (as the clip progresses). In this way,
+you use composition nodes to both assemble video clips together and enhance them.</p>
+<div>
+<p>Note</p>
+<p>Term: Image</p>
+<p>The term <em>Image</em> may refer to a single picture, a picture in
+a numbered sequence of images, or a frame of a movie clip.
+The Compositor processes one image at a time, no matter what kind of input you provide.</p>
+</div>
+<p>To process your image, you use nodes to import the image into Blender, change it,
+optionally merge it with other images, and finally, save it.</p>
+<figure id="id1">
+<figcaption>
+<p>An example of a composition.</p>
+</figcaption>
+</figure>
+<figure id="id2">
+<figcaption>
+<p>An example of color correction.</p>
+</figcaption>
+</figure>
+<section id="getting-started">
+<h2>Getting Started</h2>
+<p>Access the <em>Compositor</em> and activate nodes for compositing by clicking the <em>Use Nodes</em> checkbox in the header
+(see <a href="../interface/controls/nodes/introduction.html">Introduction</a>).</p>
+<div>
+<p>Note</p>
+<p>After clicking <em>Use Nodes</em> the Compositor is enabled, however,
+it can also be disabled in the <a href="../render/output/properties/post_processing.html#render-output-postprocess">Post Processing</a>.</p>
+</div>
+<p>You now have your first node setup, from here you can add and connect many types of
+<a href="index.html">Compositing Nodes</a>, in a sort of map layout,
+to your heart’s content (or physical memory constraints, whichever comes first).</p>
+<div>
+<p>Note</p>
+<p>Nodes and node concepts are explained in more detail
+in the <a href="../interface/controls/nodes/index.html">Nodes</a> reference.</p>
+</div>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>You can do just about anything with images using nodes.</p>
+<p>Raw footage from a foreground actor in front of a blue screen,
+or a rendered object doing something, can be layered on top of a background.
+Composite both together, and you have composited footage.</p>
+<p>You can change the mood of an image:</p>
+<ul>
+<li><p>To make an image ‘feel’ colder, a blue tinge is added.</p></li>
+<li><p>To convey a flashback or memory, the image may be softened.</p></li>
+<li><p>To convey hatred and frustration, add a red tinge or enhance the red.</p></li>
+<li><p>A startling event may be sharpened and contrast-enhanced.</p></li>
+<li><p>To convey a happy feeling add yellow (equal parts red and green, no blue).</p></li>
+<li><p>Dust and airborne dirt are often added as a cloud texture over the image to give a little more realism.</p></li>
+</ul>
+</section>
+<section id="image-size">
+<h2>Image Size</h2>
+<p>It is recommended to pay attention to image resolution and color depth when mixing and
+matching images. <a href="../glossary/index.html#term-Aliasing">Aliasing</a>, color <em>flatness</em>,
+or distorted images can all be traced to mixing inappropriate resolutions and color depths.</p>
+<p>The Compositor can mix images with any size,
+and will only perform operations on pixels where images have an overlap.
+When nodes receive inputs with differently sized Images, these rules apply:</p>
+<ul>
+<li><p>The first/top Image input socket defines the output size.</p></li>
+<li><p>The composite is centered by default,
+unless a translation has been assigned to a buffer using a <em>Translate</em> node.</p></li>
+</ul>
+<p>So each node in a composite can operate on different sized images as defined by its inputs.
+Only the <em>Composite</em> output node has a fixed size,
+as defined by the settings in Output Properties ‣ Render ‣ Format.
+The <em>Viewer</em> node always shows the size from its input, but when not linked
+(or linked to a value) it shows a small 320×256 pixel image.</p>
+</section>
+<section id="saving-your-composite-image">
+<h2>Saving your Composite Image</h2>
+<p>The <em>Render</em> button renders a single frame or image.
+Save your image using Image ‣ Save Image or <kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd>.
+The image will be saved using the image format settings on the Render panel.</p>
+<p>To save a sequence of images, for example,
+if you input a movie clip or used a Time node with each frame in its own file,
+use the <em>Animation</em> button and its settings. If you might want to later overlay them,
+be sure to use an image format that supports an Alpha channel (such as <code>PNG</code>).
+If you might want to later arrange them front to back or create a depth of field effect,
+use a format that supports a Z-depth channel (such as <code>EXR</code>).</p>
+<p>To save a composition as a movie clip (all frames in a single file),
+use an <code>AVI</code> or <code>QuickTime</code> format, and use the <em>Animation</em> button and its settings.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Sculpting &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Sculpt Mode</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p><em>Sculpt Mode</em> is similar to <em>Edit Mode</em> in that it is used to alter the shape of a drawing,
+but Sculpt Mode uses a very different workflow:
+Instead of dealing with individual elements (points and edit lines),
+an area of the model is altered using a brush.
+In other words, instead of selecting a group of points,
+Sculpt Mode manipulates the drawing in the brush region of influence.</p>
+<section id="sculpt-mode">
+<h2>Sculpt Mode</h2>
+<figure id="id2">
+<figcaption>
+<p>3D Viewport Mode selector: Sculpt Mode.</p>
+</figcaption>
+</figure>
+<p>Sculpt Mode is selected from the <em>Mode</em> menu in the 3D Viewport header.
+Once Sculpt Mode is activated, the Toolbar of the 3D Viewport will change to
+Sculpt Mode specific panels.
+A red circle will appear and follow the location of the cursor in the 3D Viewport.</p>
+</section>
+<section id="sculpting-options">
+<h2>Sculpting Options</h2>
+<figure id="id3">
+<figcaption>
+<p>General sculpting options.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Selection Mask</dt><dd><p>Sculpt Mode in Grease Pencil allows you to select points or strokes to restrict the effect
+of the sculpting tools to only a certain areas of your drawing.</p>
+<p>You can use the selection tools in the Toolbar for a quick selection.
+You can restrict sculpting only on the selected points or strokes with the Selection mode buttons.</p>
+</dd>
+<dt>Multiframe</dt><dd><p>Sometimes you may need to modify several frames at the same time with the sculpting tools.</p>
+<p>You can activate multiframe edition with the Multiframe button next to the modes selector (faded lines icon).
+See <a href="../../multiframe.html">Multiframe</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="auto-masking">
+<h2>Auto-Masking</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Header ‣ Auto-Masking</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<figure id="id4">
+<figcaption>
+<p>Auto-Masking settings.</p>
+</figcaption>
+</figure>
+<p>These properties automatically mask geometry based on stroke, layers and materials under the cursor.
+It’s an quick alternative to frequent manual masking.
+These masks are initialized on every new tool usage. They are also never visible as an overlay.</p>
+<p>These properties can be accessed via a <a href="../../../interface/controls/buttons/menus.html#bpy-types-uipiemenu">Pie Menus</a> by pressing <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>A</kbd></kbd>.</p>
+<p>All auto-masking modes can be combined, which makes the generated auto-mask more specific.
+For example it’s possible to auto-mask strokes that use specific layer and material while excluding others.</p>
+<dl id="bpy-types-gpencilsculptsettings-use-automasking-stroke">
+<dt>Strokes</dt><dd><p>Only strokes that are under the cursor when you started the tool are affected.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencilsculptsettings-use-automasking-layer-stroke">
+<dt>Layer</dt><dd><p>Only strokes on the same layers that are under the cursor when you started the tool are affected.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencilsculptsettings-use-automasking-material-stroke">
+<dt>Material</dt><dd><p>Only materials with the same material that are under the cursor when you started the tool are affected.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencilsculptsettings-use-automasking-layer-active">
+<dt>Active Layer</dt><dd><p>Only the strokes on the active layer are affected.</p>
+</dd>
+</dl>
+<dl id="bpy-types-gpencilsculptsettings-use-automasking-material-active">
+<dt>Active Material</dt><dd><p>Only the strokes with the active material are affected.</p>
+</dd>
+</dl>
+</section>
+<section id="keyboard-shortcuts">
+<h2>Keyboard Shortcuts</h2>
+<ul>
+<li><p>Invert stroke toggle <kbd>Ctrl</kbd></p></li>
+<li><p>Change active material <kbd>U</kbd></p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Light Settings</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Cycles</a></li>
+<li>Light Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="light-settings">
+<h1>Light Settings</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Light and Shader Editor ‣ Sidebar ‣ Settings</p>
+</dd>
+</dl>
+</div>
+<p>Next to lighting from the background and any object with an emission shader,
+lights are another way to add light into the scene.
+The difference is that they are not directly visible in the rendered image,
+and can be more easily managed as objects of their own type.</p>
+<section id="common">
+<h2>Common</h2>
+<p><a href="../lights/light_object.html">Light settings</a> for all renderers.</p>
+</section>
+<section id="cycles">
+<h2>Cycles</h2>
+<dl id="bpy-types-cycleslightsettings-max-bounces">
+<dt>Max Bounces</dt><dd><p>Maximum number of times light from the light is allowed to <a href="../../glossary/index.html#term-Light-Bounces">Bounce</a>.
+Limited by <a href="render_settings/light_paths.html#bpy-types-cyclesrendersettings-max-bounces">scene-wide bounce settings</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cycleslightsettings-cast-shadow">
+<dt>Cast Shadow</dt><dd><p>By disabling this option, light from lights will not be blocked by objects in between.
+This can speed up rendering by not having to trace rays to the light source.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cycleslightsettings-use-multiple-importance-sampling">
+<dt>Multiple Importance Sample</dt><dd><p>By default lights use only direct light sampling. For area lights and sharp glossy reflections, however,
+this can be noisy,
+and enabling this option will enable indirect light sampling to be used in addition to reduce noise.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cycleslightsettings-is-caustics-light">
+<dt>Shadow Caustics</dt><dd><p>Mark a light as a refractive caustic caster. This setting can be used in conjunction with the
+<a href="object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-caster">Cast and Receive caustics object settings</a>
+to selectively speed up refractive caustic rendering of select objects.</p>
+</dd>
+</dl>
+</section>
+<section id="area-lights">
+<h2>Area Lights</h2>
+<dl id="render-cycles-lights-area-portals">
+<dt>Portals</dt><dd><p>Area lights can also function as light portals to help sample the environment light,
+and significantly reduce noise in interior scenes.
+Note that rendering with portals is usually slower, but as it converges more quickly, less samples are required.</p>
+<p>Light portals work by enabling the <em>Portal</em> option, and placing areas lights in
+windows, door openings, and any place where light will enter the interior.</p>
+<p>In outdoor scenes most rays do not bounce much and just fly off into the sky and therefore,
+light portals are not helpful for outdoor scenes.</p>
+<figure id="id2">
+<figcaption>
+<p>White Room model by Jay Hardy.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<section id="beam-shape">
+<h3>Beam Shape</h3>
+<dl id="bpy-types-arealight-spread">
+<dt>Spread</dt><dd><p>How wide the emitted light fans out controlling how diffused the light is.
+Larger values create soft shadows while smaller values create sharper light
+simulating a <a href="https://en.wikipedia.org/wiki/Softbox">gridded softbox</a>.</p>
+<figure id="id3">
+<figcaption>
+<p>Example of Spread at different angles.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

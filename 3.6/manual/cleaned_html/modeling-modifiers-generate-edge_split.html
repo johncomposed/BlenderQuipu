@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Edge Split</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Edge Split Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="edge-split-modifier">
+<h1>Edge Split Modifier</h1>
+<p>The <em>Edge Split</em> modifier splits, duplicates edges within a mesh,
+breaking ‘links’ between faces around those split edges.</p>
+<p>The edges to split can be determined from the edge angle (i.e. angle between faces forming that edge),
+and/or edges marked as sharp.</p>
+<p>Splitting an edge affects vertex normal generation at that edge, making the edge appear sharp.
+Hence, this modifier can be used to achieve the same effect as <a href="../../meshes/structure.html#auto-smooth">Auto Smooth</a>,
+making edges appear sharp when their angle is above a certain threshold.
+It can also be used for manual control of the smoothing process,
+where the user defines which edges should appear smooth or sharp
+(see <a href="../../meshes/editing/mesh/shading.html#modeling-meshes-editing-normals-shading">Mesh Smoothing</a> for other ways to do this).
+If desired, both modes can be active at once.</p>
+<div>
+<p>Note</p>
+<p>This modifier is kept mostly for historical/compatibility reasons.
+Everything it can do in shading, and much more,
+can now be achieved using <a href="../../meshes/structure.html#modeling-meshes-normals-custom">custom normals</a>.</p>
+<p>Unless you really need the topology changes it generates, it is not advised to use it in new projects.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Splitting edges can also be <a href="../../meshes/editing/mesh/split.html#bpy-ops-mesh-edge-split">performed manually</a> in Edit Mode.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Edge Split modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Edge Angle</dt><dd><p>When enabled, an edge will be split if the angle between its
+two adjacent faces is greater than the <em>Split Angle</em>.</p>
+<dl>
+<dt>Split Angle</dt><dd><p>On 0: all edges are split. On 180: no edges are split.</p>
+</dd>
+</dl>
+</dd>
+<dt>Sharp Edges</dt><dd><p>When enabled, edges will be split if they were <a href="../../meshes/editing/edge/edge_data.html#bpy-ops-mesh-mark-sharp">marked as sharp</a>.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p><a href="../../../glossary/index.html#term-Non-manifold">Non-manifold</a> edges will always be split.</p>
+</div>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Flat shading.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Smooth shading.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Smooth shading with Edge Split.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Smooth shading with Edge Split and Subdivision Surface.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

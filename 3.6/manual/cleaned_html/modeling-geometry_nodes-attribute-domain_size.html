@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Attribute &gt; Domain Size</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Attribute Nodes</a></li>
+<li>Domain Size Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="domain-size-node">
+<h1>Domain Size Node</h1>
+<p>The <em>Domain Size</em> outputs the size of an attribute domain on the selected geometry type,
+for example, the number of edges in a mesh, or the number of points in a point cloud.</p>
+<p>For more information about attribute domains, see the <a href="../attributes_reference.html#attribute-domains">geometry attributes page</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Component</dt><dd><p>Which geometry type to retrieve the domain sizes from.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Point Count</dt><dd><p>The size of the <em>Point</em> domain on any supported geometry.</p>
+</dd>
+<dt>Edge Count</dt><dd><p>The size of the <em>Edge</em> domain on meshes.</p>
+</dd>
+<dt>Face Count</dt><dd><p>The size of the <em>Face</em> domain on meshes.</p>
+</dd>
+<dt>Face Corner Count</dt><dd><p>The size of the <em>Face Corner</em> domain on meshes.</p>
+</dd>
+<dt>Spline Count</dt><dd><p>The size of the <em>Spline</em> domain on curves.</p>
+</dd>
+<dt>Instance Count</dt><dd><p>The number of top-level instances in the geometry. <a href="../instances.html#geometry-nodes-nested-instancing">Nested instances</a>
+are not considered.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

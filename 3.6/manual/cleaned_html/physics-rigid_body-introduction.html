@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Rigid Body &gt; Introduction</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Rigid Body</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>The rigid body simulation can be used to simulate the motion of solid objects.
+It affects the position and orientation of objects and does not deform them.</p>
+<p>Unlike the other simulations in Blender, the rigid body simulation works closer with the animation system.
+This means that rigid bodies can be used like regular objects and be part of parent-child relationships,
+animation constraints and drivers.</p>
+<section id="creating-a-rigid-body">
+<h2>Creating a Rigid Body</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Physics ‣ Rigid Body</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Rigid Body</p>
+</dd>
+</dl>
+</div>
+<p>Only mesh objects can be part of a rigid body simulation.
+To create rigid bodies, either click on the <em>Rigid Body</em> button in the <em>Physics</em> tab of
+the Properties or use <em>Add Active</em>/<em>Add Passive</em> in the Object ‣ Rigid Body menu.</p>
+<p>There are two types of rigid bodies: active and passive. <em>Active</em> bodies are dynamically simulated, while <em>passive</em>
+bodies remain static. Both types can be driven by the animation system when using the <em>Animated</em> option.</p>
+<p>During the simulation,
+the rigid body system will override the position and orientation of dynamic rigid body objects.
+Note however, that the location and rotation of the objects are not changed,
+so the rigid body simulation acts similar to a constraint.
+To apply the rigid body transformations you can use
+the <em>Apply Object Transform</em> operator.</p>
+<p>The scale of the rigid body object also influences the simulation, but is always controlled by the animation system.</p>
+<p>Rigid body physics on the object can be <em>removed</em> with the <em>Rigid Body</em> button
+in the <em>Physics</em> tab in the Properties or in the Object ‣ Rigid Body menu.</p>
+</section>
+<section id="working-with-rigid-bodies">
+<h2>Working with Rigid Bodies</h2>
+<p>Several object operators exist for working with rigid bodies,
+these operators can be found in the <a href="../../scene_layout/object/editing/rigid_body.html">Rigid Body</a> object menu.
+These operators include functions to add/remove rigid bodies, modify their properties,
+and add <a href="constraints/index.html">Rigid Body Constraints</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

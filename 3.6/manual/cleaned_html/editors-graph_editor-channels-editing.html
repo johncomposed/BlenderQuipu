@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Graph Editor &gt; Channels &gt; Editing</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Graph Editor</a></li>
+<li><a href="index.html">Channels</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<section id="delete-channels">
+<h2>Delete Channels</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Delete Channels</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Deletes the whole channel from the current action
+(i.e. unlink the underlying F-Curve data-block from this action data-block).</p>
+<div>
+<p>Warning</p>
+<p>The <kbd>X</kbd> shortcut is area-dependent: if you use it in the left list part,
+it will delete the selected channels, whereas if you use it in the main area,
+it will delete the selected keyframes.</p>
+</div>
+</section>
+<section id="un-group-channels">
+<h2>Un/Group Channels</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Un/Group Channels</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>G</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Un/Groups the selected channels into a collection that can be renamed by double clicking on the group name.
+For example, this helps to group channels that relate a part of an armature to keep the editor more organized.</p>
+</section>
+<section id="toggle-enable-disable-channel-settings">
+<h2>Toggle/Enable/Disable Channel Settings</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Toggle/Enable/Disable Channel Settings</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>W</kbd></kbd>, <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>W</kbd></kbd>, <kbd><kbd>Alt</kbd>-<kbd>W</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Enable/disable a channel’s setting (selected in the menu that pops up).</p>
+<dl>
+<dt>Protect, Mute</dt><dd><p>Todo.</p>
+</dd>
+</dl>
+</section>
+<section id="toggle-channel-editability">
+<h2>Toggle Channel Editability</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Toggle Channel Editability</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Tab</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Locks or unlocks a channel for editing.</p>
+</section>
+<section id="extrapolation-mode">
+<h2>Extrapolation Mode</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Extrapolation Mode</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>E</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Change the extrapolation between selected keyframes.</p>
+<p>Extrapolation defines the behavior of a curve before the first and after the last keyframes.</p>
+<p>There are two basic extrapolation modes:</p>
+<dl>
+<dt>Constant:</dt>
+<dd><figure id="id15">
+<figcaption>
+<p>Constant extrapolation.</p>
+</figcaption>
+</figure>
+<p>The default one, curves before their first keyframe and after their last one have a constant value
+(the one of these first and last keyframes).</p>
+</dd>
+<dt>Linear:</dt>
+<dd><figure id="id16">
+<figcaption>
+<p>Linear extrapolation.</p>
+</figcaption>
+</figure>
+<p>Curves ends are straight lines (linear), as defined by the slope of their first and last keyframes.</p>
+</dd>
+</dl>
+<p>Additional extrapolation methods (e.g. the <em>Cycles</em> modifier)
+are located in the <a href="../fcurves/modifiers.html">F-Curve Modifiers</a>.</p>
+</section>
+<section id="add-f-curve-modifier">
+<h2>Add F-Curve Modifier</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Add F-Curve Modifier</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Opens a pop-up allowing you to add modifiers to the active F-Curve.
+Settings for the <a href="../fcurves/modifiers.html">modifier</a> can be found in
+the Sidebar ‣ Modifiers tab.</p>
+</section>
+<section id="show-hide">
+<h2>Show/Hide</h2>
+<dl>
+<dt>Hide Selected Curves <kbd>H</kbd></dt><dd><p>Hides the selected curves.</p>
+</dd>
+<dt>Hide Unselected <kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Show only the selected curve (and hide everything else).</p>
+</dd>
+<dt>Reveal Curves <kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Show all previous hidden curves.</p>
+</dd>
+</dl>
+</section>
+<section id="expand-collapse-channels">
+<h2>Expand/Collapse Channels</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Expand/Collapse Channels</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>NumpadPlus</kbd>, <kbd>NumpadMinus</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Expands or collapses selected channels.</p>
+</section>
+<section id="move">
+<h2>Move</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Move…</p>
+</dd>
+</dl>
+</div>
+<p>This allows you to move selected channels up/down <kbd>PageUp</kbd>, <kbd>PageDown</kbd>,
+or directly to the top/bottom <kbd><kbd>Shift</kbd>-<kbd>PageUp</kbd></kbd>, <kbd><kbd>Shift</kbd>-<kbd>PageDown</kbd></kbd>.</p>
+</section>
+<section id="revive-disabled-f-curves">
+<h2>Revive Disabled F-Curves</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Revive Disabled F-Curves</p>
+</dd>
+</dl>
+</div>
+<p>Clears “disabled” tag from all F-Curves to get broken F-Curves working again.</p>
+</section>
+<section id="frame-selected-channels">
+<h2>Frame Selected Channels</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Frame Selected Channels</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>NumpadPeriod</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Reset viewable area to show the selected channels.
+To frame the channel that is under the mouse cursor, use <kbd><kbd>Alt</kbd>-<kbd>MMB</kbd></kbd>.</p>
+<dl>
+<dt>Include Handles</dt><dd><p>Include handles of keyframes when calculating extents.</p>
+</dd>
+<dt>Use Preview Range</dt><dd><p>Ignore frames outside of the preview range.</p>
+</dd>
+</dl>
+</section>
+<section id="bake-curve">
+<h2>Bake Curve</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Bake Curve</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>C</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Baking a curve replaces it with a set of sampled points, and removes the ability to edit the curve.</p>
+</section>
+<section id="un-bake-curve">
+<h2>Un-Bake Curve</h2>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Un-Bake Curve</p>
+</dd>
+</dl>
+</div>
+<p>Unbaking a curve replaces the baked curve with an unbaked curve, adding the ability to edit it.</p>
+</section>
+<section id="bake-sound-to-f-curves">
+<h2>Bake Sound to F-Curves</h2>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Bake Sound to F-Curves</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Bake Sound to F-Curves</em> operator takes a sound file and uses its sound wave to create the animation data.</p>
+<dl>
+<dt>Lowest Frequency</dt><dd><p>Cutoff frequency of a high-pass filter that is applied to the audio data.</p>
+</dd>
+<dt>Highest Frequency</dt><dd><p>Cutoff frequency of a low-pass filter that is applied to the audio data.</p>
+</dd>
+<dt>Attack Time</dt><dd><p>Value for the hull curve calculation that tells how fast the hull curve can rise.
+The lower the value the steeper it can rise.</p>
+</dd>
+<dt>Release Time</dt><dd><p>Value for the hull curve calculation that tells how fast the hull curve can fall.
+The lower the value the steeper it can fall.</p>
+</dd>
+<dt>Threshold</dt><dd><p>Minimum amplitude value needed to influence the hull curve.</p>
+</dd>
+<dt>Accumulate</dt><dd><p>Only the positive differences of the hull curve amplitudes are summarized to produce the output.</p>
+</dd>
+<dt>Additive</dt><dd><p>The amplitudes of the hull curve are summarized. If <em>Accumulate</em> is enabled,
+both positive and negative differences are accumulated.</p>
+</dd>
+<dt>Square</dt><dd><p>Gives the output as a square curve.
+Negative values always result in -1, and positive ones in 1.</p>
+<dl>
+<dt>Square Threshold</dt><dd><p>All values lower than this threshold result in 0.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="discontinuity-euler-filter">
+<h2>Discontinuity (Euler) Filter</h2>
+<div id="id14">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Channel ‣ Discontinuity (Euler) Filter</p>
+</dd>
+</dl>
+</div>
+<p>Todo.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

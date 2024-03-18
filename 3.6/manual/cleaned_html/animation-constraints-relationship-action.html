@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Relationship &gt; Action</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Action Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="action-constraint">
+<h1>Action Constraint</h1>
+<p>The <em>Action</em> constraint is powerful.
+It allows you control
+an <a href="../../../editors/dope_sheet/action.html">Action</a> using the transformations of another object.</p>
+<p>The underlying idea of the <em>Action</em> constraint is very similar to the one behind
+the <a href="../../drivers/index.html">Drivers</a>, except that the former uses a whole action
+(i.e. multiple F-Curves of the same type), while the latter controls a single F-Curve of their “owner”…</p>
+<p>Note that even if the constraint accepts the <em>Mesh</em> action type,
+only the <em>Object</em>, <em>Pose</em> and <em>Constraint</em> types are really working,
+as constraints can only affect objects’ or bones’ transform properties, and not meshes’ shapes.
+Also note that only the object transformation (location, rotation, scale) is affected by the action,
+if the action contains keyframes for other properties they are ignored, as constraints do not influence those.</p>
+<p>As an example, let us assume you have defined an <em>Object</em> action
+(it can be assigned to any object, or even no object at all),
+and have mapped it on your owner through an <em>Action</em> constraint,
+so that moving the target in the (0.0 to 2.0)
+range along its X axis maps the action content on the owner in the (0 to 100)
+frame range. This will mean that when the target’s <em>X</em> property is 0.0
+the owner will be as if in frame 0 of the linked action;
+with the target’s <em>X</em> property at 1.0
+the owner will be as if in frame 50 of the linked action, etc.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Action panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Target</dt><dd><p><a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> used to select the constraints target, and is not functional (red state) when it has none.
+See <a href="../interface/common.html#rigging-constraints-interface-common-target">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Evaluation Time</dt><dd><p>This property allows objects to be driven without a constraint target
+by interpolating between the <em>Action Start</em> and <em>End</em> frames.
+The relative position between the start and end frame can be controlled using the value slider.</p>
+<p>This is very helpful for more complex rigging and mechanical rigs, as it means the Action constraint
+can be controlled directly with a <a href="../../drivers/index.html">Driver</a>
+or <a href="../../../files/custom_properties.html#files-data-blocks-custom-properties">Custom Property</a>.</p>
+</dd>
+<dt>Mix</dt><dd><p>Specifies how the keyframed transformation from the action is combined with the existing transformation.
+These modes are the same as in the <a href="../transform/copy_transforms.html">Copy Transforms</a>
+constraint.</p>
+<dl>
+<dt>Before/After Original (Full)</dt><dd><p>The keyframed transformation is added before/after the existing transformation, as if it was
+applied to an imaginary parent/child of the constraint owner. Scale is handled like in
+the most basic <a href="../../armatures/bones/properties/relations.html#bpy-types-editbone-inherit-scale">Full Inherit Scale</a> mode of bones,
+so combining non-uniform scale and rotation will create shear.</p>
+</dd>
+<dt>Before/After Original (Aligned)</dt><dd><p>The keyframed transformation is added before/after the existing transformation, as if it was
+applied to an imaginary parent/child of the constraint owner. Scale is handled like in
+the <a href="../../armatures/bones/properties/relations.html#bpy-types-editbone-inherit-scale">Aligned Inherit Scale</a> mode of bones to
+avoid creating shear.</p>
+<p>This is equivalent to using the <em>Split Channels</em> option, but replacing the location component with
+the result of <em>Full</em>. If only uniform scale is used, the result is identical to <em>Full</em>.</p>
+</dd>
+<dt>Before/After Original (Split Channels)</dt><dd><p>Combines location, rotation and scale components of the transformation separately, similar
+to a sequence of three <a href="../transform/copy_location.html">Copy Location</a>,
+<a href="../transform/copy_rotation.html">Copy Rotation</a> and
+<a href="../transform/copy_scale.html">Copy Scale</a> (with Offset)
+constraints bundled together in one operation; the result may be slightly different
+in case of sheared inputs.</p>
+<p>Unlike <em>Aligned</em>, in this mode location channels are simply added together, so rotation
+and scale components of the input transformations cannot affect the resulting location.</p>
+</dd>
+</dl>
+<div>
+<p>Warning</p>
+<p>For technical reasons modes other than <em>After Original (Full)</em> and <em>After Original (Aligned)</em> may
+not work as expected for constraints on <em>objects</em> (not bones) without a parent.</p>
+</div>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+<section id="target">
+<h3>Target</h3>
+<dl>
+<dt>Channel</dt><dd><p>This selector controls which transform property
+(location, rotation or scale along/around one of its axes) from the target to use as “action driver”.</p>
+</dd>
+<dt>Target</dt><dd><p>This constraint allows you to choose in which space to evaluate its target’s transform properties.</p>
+</dd>
+<dt>Range Min, Max</dt><dd><p>The lower and upper bounds of the driving transform property value.</p>
+<div>
+<p>Warning</p>
+<p>Unfortunately, here again we find the constraint’s limitations:</p>
+<ul>
+<li><p>When using a rotation property as “driver”,
+these values are “mapped back” to the (-180.0 to 180.0) range.</p></li>
+<li><p>When using a scale property as “driver”, these values are limited to null or positive values.</p></li>
+</ul>
+</div>
+</dd>
+</dl>
+</section>
+<section id="action">
+<h3>Action</h3>
+<dl>
+<dt>Action</dt><dd><p>Select the name of the action you want to use.</p>
+<div>
+<p>Warning</p>
+<p>Even though it might not be in red state (UI refresh problems…),
+this constraint is obviously not functional when this field does not contain a valid action.</p>
+</div>
+</dd>
+<dt>Object Action</dt><dd><p>Bones <strong>only</strong>, when enabled,
+this option will make the constrained bone use the “object” part of the linked action,
+instead of the “same-named pose” part. This allows you to apply the action of an object to a bone.</p>
+</dd>
+<dt>Frame Start, End</dt><dd><p>The starting and ending frames of the action to be mapped.</p>
+<div>
+<p>Note</p>
+<ul>
+<li><p>These values must be strictly positive.</p></li>
+<li><p>By default, both values are set to 0, which disables the mapping
+(i.e. the owner just gets the properties defined at frame 0 of the linked action…).</p></li>
+</ul>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+<section id="notes">
+<h2>Notes</h2>
+<ul>
+<li><p>When the object or bone already has Action constraints, the next constraint using
+a newly keyframed action should be added before all others in order to get
+the same final combined transformation. This fact is not affected by the Mix mode.</p></li>
+<li><p>Unlike usual, you can have a <em>Start</em> value higher than the <em>End</em> one,
+or a <em>Min</em> one higher than a <em>Max</em> one: this will reverse the mapping of the action
+(i.e. it will be “played” reversed…), unless you have both sets reversed, obviously!</p></li>
+<li><p>When using a <em>Constraint</em> action, it is the constraint <em>channel’s names</em>
+that are used to determine to which constraints of the owner apply the action.
+E.g. if you have a constraint channel named “trackto_empt1”,
+its keyed <em>Influence</em> and/or <em>Head/Tail</em> values (the only ones you can key)
+will be mapped to the ones of the owner’s constraint named “trackto_empt1”.</p></li>
+<li><p>Similarly, when using a <em>Pose</em> action
+(which is obviously only meaningful and working when constraining a bone!),
+it is the bone’s name that is used to determine which bone <em>channel’s names</em> from the action to use
+(e.g. if the constrained bone is named “arm”, it will use and only use the action’s bone channel named “arm”…).
+Unfortunately, using a <em>Pose</em> action on a whole armature object
+(to affect all the keyed bones in the action at once) will not work…</p></li>
+<li><p>Actions can also be marked as <a href="../../../glossary/index.html#term-Asset">Asset</a>, but with certain limitations.
+For more info, see <a href="../../armatures/posing/editing/pose_library.html">Pose Library</a>.</p></li>
+</ul>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

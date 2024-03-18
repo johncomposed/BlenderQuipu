@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Light Probes &gt; Irradiance Volumes</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Light Probes</a></li>
+<li>Irradiance Volumes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="irradiance-volumes">
+<h1>Irradiance Volumes</h1>
+<p>Diffuse indirect lighting is stored in volumetric arrays.
+These arrays are defined by the user using Irradiance Volume objects.
+They control how arrays are placed in the world as well as their resolution.</p>
+<p>Lighting is computed at the dot positions visible when the Irradiance Volume object is selected.</p>
+<div>
+<p>See also</p>
+<p><a href="../render_settings/indirect_lighting.html">Indirect Lighting</a>.</p>
+</div>
+<p>If Ambient Occlusion is enabled, it will be applied onto diffuse indirect lighting.
+If both Ambient Occlusion and “Bent Normals” are enabled
+the indirect lighting will be sampled from the least occluded direction and appear more correct.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Object Data ‣ Probe</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Distance</dt><dd><p>A probe object only influences the lighting of nearby surfaces.
+This influence zone is defined by the Distance parameter and object scaling.
+The influence distance varies a bit, depending on the probe type.</p>
+<p>For Irradiance Volumes, the influence inside the volume is always 100%.
+The influence decays only outside of the volume until
+the distance to the volume reaches the Distance parameter value (in local space).</p>
+</dd>
+<dt>Falloff</dt><dd><p>Percentage of the influence distance during which the influence of a probe fades linearly.</p>
+</dd>
+<dt>Intensity</dt><dd><p>Intensity factor of the recorded lighting.
+Making this parameter anything other than 1.0 is not physically correct. Use it for tweaking or artistic purposes.</p>
+</dd>
+<dt>Resolution</dt><dd><p>Spatial resolution for Irradiance Volumes is determined per probe.
+The local volume is divided into a regular grid of the specified dimensions.
+One irradiance sample will be computed for each cell in this grid.</p>
+</dd>
+<dt>Clipping</dt><dd><p>Defines the near and far clip distances when capturing the scene.</p>
+<div>
+<p>Warning</p>
+<p>Clipping distances are applied at the samples positions and <em>not</em> at the grid origin.</p>
+</div>
+</dd>
+<dt>Visibility Collection</dt><dd><p>In some cases, it is useful to limit which objects appear in the light probe’s captured lighting.
+For instance, an object that is too close to a capture point might be better excluded.
+This is what the visibility collection does.
+Only objects that are in this collection will be visible when this probes captures the scene.</p>
+<p>There is also an option to invert this behavior and effectively hide the objects in this collection.</p>
+<div>
+<p>Note</p>
+<p>This is only a filtering option. That means that if an object is not visible at render time
+it won’t be visible during the probe render.</p>
+</div>
+</dd>
+</dl>
+<section id="visibility">
+<h2>Visibility</h2>
+<p>For every grid point a small Variance Shadow Map is rendered.
+This visibility cubemap is used to reduce light leaking behind occluders.
+You can tweak the size of this map inside the render settings and
+tweak the bias and blur factors per grid inside the Probe Properties tab.</p>
+<blockquote>
+<div><dl>
+<dt>Bias</dt><dd><p>Reduces self-shadowing.</p>
+</dd>
+<dt>Bleed Bias</dt><dd><p>Increases the “contrast” of the depth test result.</p>
+</dd>
+<dt>Blur</dt><dd><p>Amount of blur to apply when filtering the visibility shadow map.
+Does not increase runtime cost but has a small effect on baking time.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="blending">
+<h2>Blending</h2>
+<p>The lighting values from an Irradiance Volume will fade outwards until the volume bounds are reached.
+They will fade into the world’s lighting or another Irradiance Volume’s lighting.</p>
+<p>If multiple Irradiance Volumes overlap, smaller (in volume) ones will always have more priority.</p>
+<p>If an object is not inside any Irradiance Volume, or if the indirect lighting has not been baked,
+the world’s diffuse lighting will be used to shade it.</p>
+<div>
+<p>Tip</p>
+<ul>
+<li><p>When lighting indoor environments, try to align grids with the room shape.</p></li>
+<li><p>Try not to put too much resolution in empty areas or areas with a low amount of lighting variation.</p></li>
+<li><p>You can fix bad samples by adding a smaller grid near the problematic area.</p></li>
+</ul>
+</div>
+</section>
+<section id="viewport-display">
+<h2>Viewport Display</h2>
+<dl>
+<dt>Influence</dt><dd><p>Show the influence bounds in the 3D Viewport. The inner sphere is where the falloff starts.</p>
+</dd>
+<dt>Clipping</dt><dd><p>Show the clipping distance in the 3D Viewport.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

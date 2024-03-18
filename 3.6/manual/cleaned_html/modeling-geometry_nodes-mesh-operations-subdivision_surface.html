@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Operations &gt; Subdivision Surface</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Operation Nodes</a></li>
+<li>Subdivision Surface Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="subdivision-surface-node">
+<h1>Subdivision Surface Node</h1>
+<p>The <em>Subdivision Surface</em> node adds new faces to mesh geometry using a Catmull-Clark subdivision method.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Level</dt><dd><p>The number of subdivisions to apply to the input geometry.</p>
+</dd>
+<dt>Edge Crease</dt><dd><p>Controls how smooth edges should be with <a href="../../../modifiers/generate/subdivision_surface.html#modifiers-generate-subsurf-creases">Weighted Edge Creases</a>.</p>
+</dd>
+<dt>Vertex Crease</dt><dd><p>Controls how much the subdivision surface should be pulled towards the vertex.
+Similar to edge creases, but allows individual vertices to be creased.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>UV Smooth</dt><dd><p>Controls how subdivision smoothing is applied to UVs.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>UVs remain unchanged.</p>
+</dd>
+<dt>Keep Corners:</dt>
+<dd><p>UV islands are smoothed, but their boundary remain unchanged.</p>
+</dd>
+<dt>Keep Corners, Junctions:</dt>
+<dd><p>UVs are smoothed, corners on discontinuous boundary and junctions of three or more regions are kept sharp.</p>
+</dd>
+<dt>Keep Corners, Junctions, Concave:</dt>
+<dd><p>UVs are smoothed, corners on discontinuous boundary,
+junctions of three or more regions and darts and concave corners are kept sharp.</p>
+</dd>
+<dt>Keep Boundaries:</dt>
+<dd><p>UVs are smoothed, boundaries are kept sharp.</p>
+</dd>
+<dt>All:</dt>
+<dd><p>UVs and their boundaries are smoothed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Boundary Smooth</dt><dd><p>Controls how open boundaries (and corners) are smoothed.</p>
+<dl>
+<dt>All:</dt>
+<dd><p>Smooth boundaries, including corners.</p>
+</dd>
+<dt>Keep Corners:</dt>
+<dd><p>Smooth boundaries, but corners are kept sharp.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

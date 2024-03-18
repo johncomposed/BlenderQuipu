@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Mesh &gt; Tinycad</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Mesh</a></li>
+<li>tinyCAD Mesh Tools</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="tinycad-mesh-tools">
+<h1>tinyCAD Mesh Tools</h1>
+<p>The add-on is a combination of several scripts which should be useful to anyone
+who has used other <abbr title="Computer-Aided Design">CAD</abbr> software for drafting with some level of precision.
+The context menu has the tinyCAD functions prepended to it.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Mesh then tinyCAD Mesh tools to enable the script.</p></li>
+</ul>
+</section>
+<section id="description">
+<h2>Description</h2>
+<section id="vtx">
+<h3>VTX</h3>
+<p>Automatically extends, projects or intersects the two selected edges if they are co-planar.
+For auto VTX you must be in (Edit Mode and edge mode) and have two edges selected.
+When invoked the add-on will detect if you are trying to intersect, project or extend two edges.
+It will internally pick from V, T or X. It will also notify you if the edge are not co-planar / do not intersect.</p>
+<ul>
+<li><p>V: Extending two edges towards their calculated intersection point.</p></li>
+<li><p>T: Extending the path of one edge towards another edge.</p></li>
+<li><p>X: Two edges intersect, their intersection gets a weld vertex. You now have four edges and five vertices.</p></li>
+</ul>
+</section>
+<section id="v2x">
+<h3>V2X</h3>
+<p>Places a new separate vertex at projected intersection of two selected edges.</p>
+</section>
+<section id="xall">
+<h3>XALL</h3>
+<p>This mass intersects a collection of edges. Pick a collection of edges and invoke XALL.
+It will deselect any edge that doesn’t intersect other edges first.
+Then it goes through all combinations of the remaining edges to see if there are intersections.
+Each intersection is dealt with and the result is added to the collection of edges to check.
+This process continues until no more intersections are found.</p>
+</section>
+<section id="bix">
+<h3>BIX</h3>
+<p>Given two selected edges, this script creates the bisector of these edges.
+The edges are first checked for co-planarity.</p>
+</section>
+<section id="ccen">
+<h3>CCEN</h3>
+<p>Construct a circle and its center.
+Pick three vertices that once made up a circle, then W ‣ CCEN,
+the script adds a Grease Pencil representation of the circle.
+To add a mesh of that constructed circle you can press <kbd>F6</kbd> straight afterwards and
+adjust the circle’s vertex count. Then press <em>Make Circle Mesh</em> to add a new circle.
+This is a little bit experimental, but works fine.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Mesh</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Mesh modeling toolkit. Several tools to aid modeling.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport Edit Mode ‣ context menu</p>
+</dd>
+<dt>File:</dt>
+<dd><p>tiny_cad folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>zeffii (Dealga McArdle)</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

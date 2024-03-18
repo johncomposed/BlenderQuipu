@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Weight Paint &gt; Editing</title></head>
+<body><ul>
+<li><a href="../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="index.html">Weight Paint</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode and Weight Paint Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Weights</p>
+</dd>
+</dl>
+</div>
+<figure id="id3">
+<figcaption>
+<p>Weight Paint Tools.</p>
+</figcaption>
+</figure>
+<p>Blender provides a set of helper tools for Weight Painting.</p>
+<p id="sculpt-paint-weight-paint-editing-subset">The Subset Option</p>
+<p>Some of the tools also provide a Subset filter to restrict their functionality to only specific vertex groups
+(in the <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel, displayed after the tool is called)
+with following options:</p>
+<ul>
+<li><p>Active Group</p></li>
+<li><p>Selected Pose Bones</p></li>
+<li><p>Deform Pose Bones</p></li>
+<li><p>All Groups</p></li>
+</ul>
+<p>All tools also work with Vertex Selection Masking and Face Selection Masking.
+In these modes the tools operate only on selected vertices or faces.</p>
+<section id="assign-from-bone-envelopes">
+<h2>Assign from Bone Envelopes</h2>
+<p>Apply the envelope weight of the selected bone(s) to the selected vertex group.</p>
+</section>
+<section id="assign-automatic-from-bone">
+<h2>Assign Automatic from Bone</h2>
+<p>Apply from the selected bone(s) to the vertex group the same “auto-weighting” methods
+as available in the Parent armature menu.</p>
+</section>
+<section id="normalize-all">
+<h2>Normalize All</h2>
+<p>For each vertex, this tool makes sure that the sum of the weights across
+all vertex groups is equal to 1. This tool normalizes all of the vertex groups,
+except for locked groups, which keep their weight values untouched.</p>
+<dl>
+<dt>Lock Active</dt><dd><p>Keep the values of the active group while normalizing all the others.</p>
+</dd>
+</dl>
+</section>
+<section id="normalize">
+<h2>Normalize</h2>
+<p>This tool only works on the active vertex group. All vertices keep their relative weights,
+but the entire set of weights is scaled up such that the highest weight value is 1.0.</p>
+<figure id="id4">
+<figcaption>
+<p>Normalize example.</p>
+</figcaption>
+</figure>
+</section>
+<section id="mirror">
+<h2>Mirror</h2>
+<p>The <em>Mirror Vertex Group</em> tool mirrors the weights
+from one side of a perfectly symmetrical mesh to the opposite side.
+Those vertices that have no corresponding vertex on the other side will not be affected.
+But note, the weights are not transferred to the corresponding opposite bone weight group.</p>
+<div>
+<p>Note</p>
+<p>Mirroring only works when the object’s rest pose is perfectly symmetrical across the X axis.</p>
+</div>
+<figure id="id5">
+<figcaption>
+<p>Mirror example.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mirror Weights</dt><dd><p>With this option checked, every selected vertex receives
+the weight information of its symmetrical counterpart.
+If both vertices are selected, it will be a weight information exchange;
+if only one is selected, information from the unselected will overwrite the selected one.
+Information on weight is passed for the active group only,
+unless <em>All Groups</em> is checked, in which case it is passed for all groups.</p>
+</dd>
+<dt>Flip Group Names</dt><dd><p>Works with selected vertices that belong to vertex groups with “symmetrical names”
+(with components like “L”, “R”, “right”, “left”).
+All selected vertices that belong to the active group, or to the symmetrical of the active group,
+will have their assignation to that group replaced by an assignation to the symmetrical one;
+however, its weight will be preserved.
+If <em>All Groups</em> is checked, all assignations to these kind of groups
+will be replaced by the symmetrical counterpart, also keeping the old weights.</p>
+</dd>
+<dt>All Groups</dt><dd><p>Operate on all vertex groups, instead of the active one.</p>
+</dd>
+<dt>Topology Mirror</dt><dd><p>Mirror for meshes which are not fully symmetric (approximate mirror).
+See <a href="../../modeling/meshes/tools/tool_settings.html#bpy-types-mesh-use-mirror-topology">here</a> for more information.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Mirror to Opposite Bone</p>
+<p>If you want to create a mirrored weight group for the opposite bone
+(of a symmetric character), then you can do this:</p>
+<ol>
+<li><p>Delete the target vertex group (where the mirrored weights will be placed).</p></li>
+<li><p>Create a copy of the source bone vertex group
+(the group containing the weights which you want to copy).</p></li>
+<li><p>Rename the new vertex group to the name of the target vertex group
+(the group you deleted above).</p></li>
+<li><p>Select the target vertex group and call the Mirror tool
+(use only the Mirror weights option and optionally <em>Topology Mirror</em> if your mesh is not symmetric).</p></li>
+</ol>
+</div>
+</section>
+<section id="invert">
+<h2>Invert</h2>
+<p>Replaces each Weight of the selected weight group by × -1.0 weight.</p>
+<p>Examples:</p>
+<ul>
+<li><p>Original 1.0 converts to 0.0</p></li>
+<li><p>Original 0.5 remains 0.5</p></li>
+<li><p>Original 0.0 converts to 1.0</p></li>
+</ul>
+<figure id="id6">
+<figcaption>
+<p>Invert.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Subset</dt><dd><p>Restrict the tool to a subset.
+See above <a href="#sculpt-paint-weight-paint-editing-subset">The Subset Option</a> about how subsets are defined.</p>
+</dd>
+<dt>Add Weights</dt><dd><p>Add vertices that have no weight before inverting (these weights will all be set to 1.0).</p>
+</dd>
+<dt>Remove Weights</dt><dd><p>Remove vertices from the vertex group if they are 0.0 after inverting.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Locked vertex groups are not affected.</p>
+</div>
+</section>
+<section id="clean">
+<h2>Clean</h2>
+<p>Clean Vertex Group Weights unassigns vertices from
+<a href="../../modeling/meshes/properties/vertex_groups/index.html">Vertex Groups</a>
+whose weights are below the <em>Limit</em>. Removes weights below a given threshold.
+This tool is useful for clearing your weight groups of very low (or zero) weights.</p>
+<p>In the example shown, a cutoff value of 0.2 is used (see operator options below)
+so all blue parts are cleaned out.</p>
+<p>Note, the images use the <em>Show Zero weights</em> Active option
+so that unreferenced Weights are shown in Black.</p>
+<figure id="id7">
+<figcaption>
+<p>Clean example.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Subset</dt><dd><p>Restrict the tool to a subset.
+See above <a href="#sculpt-paint-weight-paint-editing-subset">The Subset Option</a> for how subsets are defined.</p>
+</dd>
+<dt>Limit</dt><dd><p>This is the minimum weight value that will be kept in the group.
+Weights below this value will be removed from the group.</p>
+</dd>
+<dt>Keep Single</dt><dd><p>Ensure that the <em>Clean</em> tool will not create completely unreferenced vertices
+(vertices which are not assigned to any vertex group), so each vertex will
+keep at least one weight, even if it is below the limit value!</p>
+</dd>
+</dl>
+</section>
+<section id="quantize">
+<h2>Quantize</h2>
+<p>This operator uses a process known as <a href="https://en.wikipedia.org/wiki/Quantization">Quantization</a>
+which takes the input weights and clamps each weight to a number of steps between (0 - 1),
+so there is no longer a smooth gradient between values.</p>
+<figure id="id8">
+<figcaption>
+<p>Quantize example (Steps = 2).</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Steps</dt><dd><p>The number of steps between 0 and 1 to quantize the weights into.
+For example 5 would allow the following weights <code>[0.0, 0.2, 0.4, 0.6, 0.8, 1.0]</code>.</p>
+</dd>
+</dl>
+</section>
+<section id="levels">
+<h2>Levels</h2>
+<p>Adds an offset and a scale to all weights of the selected weight groups.
+with this tool you can raise or lower the overall “heat” of the weight group.</p>
+<div>
+<p>Note</p>
+<p>No weight will ever be set to values above 1.0 or below 0.0 regardless of the settings.</p>
+</div>
+<figure id="id9">
+<figcaption>
+<p>Levels example.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Subset</dt><dd><p>Restrict the tool to a subset.
+See above <a href="#sculpt-paint-weight-paint-editing-subset">The Subset Option</a> for how subsets are defined.</p>
+</dd>
+<dt>Offset</dt><dd><p>A value from the range (-1.0 - 1.0) to be added to all weights in the vertex group.</p>
+</dd>
+<dt>Gain</dt><dd><p>All weights in the Subset are multiplied with the gain.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Whichever <em>Gain</em> and <em>Offset</em> you choose,
+in all cases the final value of each weight will be clamped to the range
+(0.0 - 1.0). So you will never get negative weights or overheated areas
+(weight &gt; 1.0) with this tool.</p>
+</div>
+</section>
+<section id="smooth">
+<h2>Smooth</h2>
+<div>
+<p>Tip</p>
+<p>The Smooth tool only works when “Vertex selection masking for painting” is enabled.
+Otherwise the tool button is grayed out.</p>
+</div>
+<p>Blends the weights of selected vertices with adjacent unselected vertices.
+This tool only works in vertex select mode.</p>
+<p>To understand what the tool really does, let us take a look at a simple example.
+The selected vertex is connected to four adjacent vertices
+(marked with a gray circle in the image). All adjacent vertices are unselected.
+Now the tool calculates the average weight of all connected <strong>and</strong> unselected vertices.
+In the example this is:</p>
+<p>\((1 + 0 + 0 + 0) / 4 = 0.25\)</p>
+<p>This value is multiplied by the factor given in the Operator options (see below).</p>
+<ul>
+<li><p>If the factor is 0.0 then actually nothing happens at all and the vertex just keeps its value.</p></li>
+<li><p>If the factor is 1.0 then the calculated average weight is taken (0.25 here).</p></li>
+<li><p>Dragging the factor from 0 to 1 gradually changes from the old value to the calculated average.</p></li>
+</ul>
+<p>Now let us see what happens when we select all
+but one of the neighbors of the selected vertex as well.
+Again all connected and unselected vertices are marked with a gray circle.
+When we call the Smooth tool now and set the Factor to 1.0,
+then we see different results for each of the selected vertices:</p>
+<ul>
+<li><p>The top-most and bottom-most selected vertices:</p>
+<p>are surrounded by three unselected vertices, with an average weight of \((1 + 0 + 0) / 3 = 0.333\)
+So their color has changed to light green.</p>
+</li>
+<li><p>The middle vertex:</p>
+<p>is connected to one unselected vertex with <code>weight = 1</code>.
+So the average weight is 1.0 in this case, thus the selected vertex has changed to red.</p>
+</li>
+<li><p>The right vertex:</p>
+<p>is surrounded by three unselected vertices with average weight = \((0 + 0 + 0) / 3 = 0.0\)
+So the average weight is 0, thus the selected vertex has not changed at all
+(it was already blue before Smooth was applied).</p>
+</li>
+</ul>
+<p>Finally let us look at a practical example.
+The middle edge loop has been selected
+and it will be used for blending the left side to the right side of the area.</p>
+<ul>
+<li><p>All selected vertices have two unselected adjacent vertices.</p></li>
+<li><p>The average weight of the unselected vertices is \((1 + 0) / 2 = 0.5\)</p></li>
+<li><p>Thus when the <em>Factor</em> is set to 1.0 then the edge loop turns to
+green and finally does blend the cold side (right) to the hot side (left).</p></li>
+</ul>
+<dl>
+<dt>Factor</dt><dd><p>The effective amount of blending.
+When Factor is set to 0.0 then the <a href="#smooth">Smooth</a> tool does not do anything.
+For Factor &gt; 0 the weights of the affected vertices gradually shift from their original value
+towards the average weight of all connected <strong>and</strong> unselected vertices (see examples above).</p>
+</dd>
+<dt>Iterations</dt><dd><p>Number of times to repeat the smoothing operation.</p>
+</dd>
+<dt>Expand/Contract</dt><dd><p>Positive values expand the selection to neighboring vertices while contract limits to the selection.</p>
+</dd>
+<dt>Source</dt><dd><p>The vertices to mix with.</p>
+<dl>
+<dt>All</dt><dd><p>Smoothing will smooth both selected and deselected vertices.</p>
+</dd>
+<dt>Only Selected</dt><dd><p>Smoothing will only smooth with selected vertices.</p>
+</dd>
+<dt>Only Deselected</dt><dd><p>Smoothing will only smooth with deselected vertices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="transfer-weights">
+<h2>Transfer Weights</h2>
+<p>Copy weights from other objects to the vertex groups of the active object.</p>
+<p>By default this tool copies only the active (selected) vertex group of the source object
+to the active vertex group of target object or creates a new one if the group does not exist.
+However, you can change the tool’s behavior in the <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel.</p>
+<p>For example, to transfer all existing vertex groups from the source objects to the target,
+change the <em>Source Layers Selection</em> option to <em>By Name</em>.</p>
+<div>
+<p>Note</p>
+<p>This tool uses the generic “data transfer”, but transfers from all selected objects to active one.
+Please refer to the <a href="../../scene_layout/object/editing/link_transfer/transfer_mesh_data.html">Data Transfer</a>
+docs for options details and explanations.</p>
+</div>
+<section id="prepare-the-copy">
+<h3>Prepare the Copy</h3>
+<p>You first select all source objects, and finally the target object
+(the target object must be the active object).</p>
+<p>It is important that the source objects and the target object are at the same location.
+If they are placed side-by-side, then the weight transfer will not work. (See the <em>Vertex Mapping</em> option.)
+You can place the objects on different layers,
+but you have to ensure that all objects are visible when you call the tool.</p>
+<p>Now ensure that the target object is in Weight Paint Mode.
+Open the Toolbar and call the <em>Transfer Weights</em> tool in the <em>Weight Tools</em> panel.</p>
+</section>
+<section id="adjust-last-operation-panel-confusion">
+<h3>Adjust Last Operation Panel Confusion</h3>
+<p>You may notice that the <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel stays available
+after the weight transfer is done. The panel only disappears
+when you call another Operator that has its own <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel.
+This can lead to confusion when you use Transfer weights repeatedly after you changed your vertex groups.
+If you then use the still-visible <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel,
+then Blender will reset your work to its state right before you initially called the <em>Transfer Weights</em> tool.</p>
+<p>So when you want to call the <em>Transfer Weights</em> tool again after you made some changes to your
+vertex groups, then <strong>always</strong> use the <em>Transfer Weights</em> button,
+even if the <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel is still available.
+Unless you really want to reset your changes to the initial call of the tool.</p>
+</section>
+</section>
+<section id="limit-total">
+<h2>Limit Total</h2>
+<p>Reduce the number of weight groups per vertex to the specified Limit.
+The tool removes lowest weights first until the limit is reached.</p>
+<div>
+<p>Hint</p>
+<p>The tool can only work reasonably when more than one weight group is selected.</p>
+</div>
+<dl>
+<dt>Subset</dt><dd><p>Restrict the tool to a subset.
+See above <a href="#sculpt-paint-weight-paint-editing-subset">The Subset Option</a> for how subsets are defined.</p>
+</dd>
+<dt>Limit</dt><dd><p>Maximum number of weights allowed on each vertex.</p>
+</dd>
+</dl>
+</section>
+<section id="locks">
+<h2>Locks</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode and Weight Paint Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Weights ‣ Locks</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>K</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Vertex groups can be locked to prevent undesired edits to a particular vertex group.</p>
+<div>
+<p>Tip</p>
+<p>Bones that belong to a locked vertex group are displayed in red the 3D Viewport.</p>
+</div>
+<dl>
+<dt>Lock All</dt><dd><p>Locks all vertex groups.</p>
+</dd>
+<dt>Lock Selected</dt><dd><p>Locks selected vertex groups.</p>
+</dd>
+<dt>Lock Unselected</dt><dd><p>Locks unselected vertex groups.</p>
+</dd>
+<dt>Lock Only Selected</dt><dd><p>Lock selected and unlock selected vertex groups.</p>
+</dd>
+<dt>Lock Only Unselected</dt><dd><p>Unlock selected and lock unselected vertex groups.</p>
+</dd>
+<dt>Unlock All</dt><dd><p>Unlocks all vertex groups.</p>
+</dd>
+<dt>Unlock Selected</dt><dd><p>Unlocks selected vertex groups.</p>
+</dd>
+<dt>Unlock Unselected</dt><dd><p>Unlocks Unselected vertex groups.</p>
+</dd>
+<dt>Invert Locks</dt><dd><p>Inverts the locks on all vertex groups.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

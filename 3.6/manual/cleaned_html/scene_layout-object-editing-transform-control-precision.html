@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Transform &gt; Control &gt; Precision</title></head>
+<body><ul>
+<li><a href="../../../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../../../index.html">Objects</a></li>
+<li><a href="../../index.html">Editing</a></li>
+<li><a href="../index.html">Transform</a></li>
+<li><a href="index.html">Transform Control</a></li>
+<li>Precision</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="precision">
+<h1>Precision</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object and Edit Modes</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Ctrl</kbd> and/or <kbd>Shift</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Holding <kbd>Ctrl</kbd> during a transform operation (such as move, rotate or scale)
+will toggle <a href="../../../../../editors/3dview/controls/snapping.html#transform-snap">Transform Snapping</a>.
+When using <a href="../../../../../editors/3dview/controls/snapping.html#bpy-types-toolsettings-snap-elements">Increment Snap</a>
+this allows the transformation to be performed in discrete amounts.</p>
+<p>Holding <kbd>Shift</kbd> during a transform operation will transform
+the object at 1/10th the speed, allowing much finer control.</p>
+<p>The magnitude of the transformation can be viewed in the 3D Viewport header.
+Releasing <kbd>Ctrl</kbd> or <kbd>Shift</kbd> during the transformation will cause
+the movement to revert back to its normal mode of operation.</p>
+<div>
+<p>Note</p>
+<p>The snapping behaviors described on this page <strong>only</strong> apply
+when <a href="../../../../../editors/3dview/controls/snapping.html#bpy-types-toolsettings-snap-elements">Increment Snap</a> is selected.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>It is possible to enable both snapping and precision mode,
+simply hold <kbd>Ctrl</kbd> and <kbd>Shift</kbd>. This has the following effects:</p>
+<dl>
+<dt>Move</dt><dd><p>Changes in 0.1 unit increments, regardless of zoom level.</p>
+</dd>
+<dt>Rotation</dt><dd><p>Changes in 1 unit increments.</p>
+</dd>
+<dt>Scale</dt><dd><p>Changes in 0.01 unit increments.</p>
+</dd>
+</dl>
+</div>
+<section id="usage">
+<h2>Usage</h2>
+<section id="with-hotkeys">
+<h3>With Hotkeys</h3>
+<p>Press <kbd>G</kbd>, <kbd>R</kbd> or <kbd>S</kbd> and then hold either <kbd>Ctrl</kbd>,
+<kbd>Shift</kbd> or <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd></kbd>.</p>
+</section>
+<section id="with-the-transform-gizmo">
+<h3>With the Transform Gizmo</h3>
+<p>Select the gizmo handle then while moving the mouse hold <kbd>Ctrl</kbd>, <kbd>Shift</kbd> or <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd></kbd>
+to activate precision control or snapping.</p>
+<div>
+<p>See also</p>
+<p><a href="../../../../../editors/3dview/display/gizmo.html">Read more about the Transform Gizmo</a>.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Combining with Other Controls</p>
+<p>All of the precision controls detailed on the page can be combined with
+the <a href="axis_locking.html">Axis Locking</a> controls and
+used with the different <a href="../../../../../editors/3dview/controls/pivot_point/index.html">Pivot Points</a>.</p>
+</div>
+</section>
+</section>
+<section id="snapping">
+<h2>Snapping</h2>
+<section id="move">
+<h3>Move</h3>
+<figure id="id3">
+<figcaption>
+<p>One unit (default zoom level).</p>
+</figcaption>
+</figure>
+<p>Snapping while moving objects changes the object location in 1 unit increments.
+While in an <a href="../../../../../editors/3dview/navigate/align.html">aligned view</a>,
+The increment amount is changed based on the <a href="../../../../../editors/3dview/navigate/navigation.html#bpy-ops-view3d-zoom">zoom level</a>.
+For example, at a base zoom level objects are moved in increments of 1 unit (i.e. between the two light gray lines).
+Zooming in enough to see the next set of gray lines will snap in increments of 1/10 of a unit.
+Zooming in further until will snap in increments of 1/100 of a unit and so on until the zoom limit is reached.
+Zooming out will have the opposite effect and
+cause movement to happen by increments of 10, 100 units, etc.</p>
+</section>
+<section id="rotation">
+<h3>Rotation</h3>
+<p>Holding <kbd>Ctrl</kbd> will cause rotations of 5 degrees.</p>
+</section>
+<section id="scale">
+<h3>Scale</h3>
+<p>Holding <kbd>Ctrl</kbd> will cause size changes in increments of 0.1 units.</p>
+<div>
+<p>Note</p>
+<p>Snapping Modes</p>
+<p>Note that when you are <a href="../../../../../editors/3dview/controls/snapping.html#bpy-types-toolsettings-snap-elements">Snapping To</a> something other than <em>Increment</em>,
+holding <kbd>Ctrl</kbd> will cause the selection to snap to that nearest element.</p>
+<p>Read more about <a href="../../../../../editors/3dview/controls/snapping.html">snapping</a>.</p>
+</div>
+</section>
+</section>
+<section id="id2">
+<h2>Precision</h2>
+<p>Holding <kbd>Shift</kbd> during transformations allows for very fine control that does not
+rely on fixed increments. Rather, large movements of the mouse across
+the screen only result in small transformations of the selection.</p>
+<p>In rotation mode the selected element will be rotate in 0.01 degree increments.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

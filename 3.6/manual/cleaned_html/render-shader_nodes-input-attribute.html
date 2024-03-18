@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Attribute</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Attribute Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="attribute-node">
+<h1>Attribute Node</h1>
+<p>The <em>Attribute</em> node allows you to retrieve attributes attached to an object or mesh.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Name</dt><dd><p>Name of the attribute.</p>
+</dd>
+<dt>Type</dt><dd><p>Specifies the type of the attribute.</p>
+<dl>
+<dt>Geometry:</dt>
+<dd><p>The attribute is associated with the geometry of the object, and its value varies from
+vertex to vertex, or within the volume of the object.</p>
+<p>Most geometry attributes are directly accessible through the various input nodes, except for these:</p>
+<dl>
+<dt>Ocean Foam</dt><dd><p>Gives a scalar defining where foam might appear when using
+an <a href="../../../modeling/modifiers/physics/ocean.html">Ocean Modifier</a>.
+This depends on the name you give this property.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>For a full list of options see <a href="https://blender.stackexchange.com/questions/14262#14267">This Thread</a>
+on the Blender Stack Exchange.</p>
+</div>
+</dd>
+<dt>Object:</dt>
+<dd><p>The attribute name specifies a <a href="../../../files/custom_properties.html#files-data-blocks-custom-properties">custom property</a> name,
+or an RNA path to a built-in property (like the single property <a href="../../../animation/drivers/drivers_panel.html#drivers-variables">driver variables</a>).</p>
+<p>The values of attributes of this type are defined once per object. The name or path is looked up
+first in the object data-block, followed by the mesh data-block if not found.
+Custom properties have priority over built-in ones.</p>
+<p>The property value must be an integer, float, boolean, or a vector of 1 to 4 floats or ints; properties of other
+types are ignored. If a suitable property is not found, all sockets of the node, including <em>Alpha</em>, output 0.</p>
+<div>
+<p>Tip</p>
+<p>The <code>color</code> attribute will output the value of the Color field in
+the <a href="../../workbench/display_settings.html#properties-object-viewport-display">Viewport Display</a> panel of
+the object, unless overridden by a custom property.</p>
+</div>
+</dd>
+<dt>Instancer:</dt>
+<dd><p>Similar to <em>Object</em>, but the attribute is looked up in the instancer particle system settings,
+followed by <a href="../../../modeling/geometry_nodes/instances.html">Geometry Node instance</a> attributes
+(searching from the innermost instancing layer to outer ones), and finally in the instancer object.
+If the current object is not instanced, or the property is not found, it falls back to the <em>Object</em> mode.</p>
+<div>
+<p>Warning</p>
+<p>Currently only up to 4 layers of Geometry Node instancing are searched.</p>
+</div>
+</dd>
+<dt>View Layer:</dt>
+<dd><p>The attribute is looked up in the current <a href="../../../scene_layout/view_layers/introduction.html">View Layer</a>,
+<a href="../../../scene_layout/scene/introduction.html">Scene</a> and <a href="../../lights/world.html">World</a>, using the same lookup
+logic as <em>Object</em>. Attributes of this type have the same uniform value throughout the whole Render Layer.</p>
+<div>
+<p>Tip</p>
+<p>This gives access to a number of useful built-in properties, for example:</p>
+<dl>
+<dt><code>color</code> or <code>world.color</code></dt><dd><p>Outputs the value of the <a href="../../lights/world.html#bpy-types-world-color">Color</a> field in the Viewport Display
+panel of the World properties.</p>
+</dd>
+<dt><code>render.resolution_x</code>, <code>render.resolution_y</code></dt><dd><p>Outputs the current <a href="../../output/properties/format.html">rendering resolution</a>.</p>
+</dd>
+<dt><code>camera.data.angle_x</code>, <code>camera.data.angle_y</code>,</dt><dd><p>Outputs the effective field of view of the active <a href="../../cameras.html">Camera</a>.</p>
+</dd>
+</dl>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>RGB color interpolated from the attribute.</p>
+</dd>
+<dt>Vector</dt><dd><p>XYZ vector interpolated from the attribute.</p>
+</dd>
+<dt>Factor</dt><dd><p>Scalar value interpolated from the attribute.</p>
+</dd>
+<dt>Alpha</dt><dd><p>Alpha channel of the attribute, when available. If the attribute has no alpha channel, generally defaults to 1.</p>
+</dd>
+</dl>
+<div>
+<p>Warning</p>
+<p>Currently, only <em>View Layer</em> attributes are supported in shaders used for the <a href="../../lights/world.html">World</a>
+or <a href="../../lights/light_object.html">Light Objects</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Scripting &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Advanced</a></li>
+<li><a href="index.html">Scripting &amp; Extending Blender</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Python is an interpreted, interactive, object-oriented programming language.
+It incorporates modules, exceptions, dynamic typing, very high-level dynamic data types, and classes.
+Python combines remarkable power with very clear syntax.</p>
+<p>Python scripts are a versatile way to extend Blender functionality.
+Most areas of Blender can be scripted, including animation, rendering, import and export,
+object creation and automating repetitive tasks.</p>
+<p>To interact with Blender, scripts can make use of
+the tightly integrated <abbr title="Application Programming Interface">API</abbr>.</p>
+<section id="general-information">
+<h2>General Information</h2>
+<p>Links that are useful while writing scripts:</p>
+<ul>
+<li><p><a href="https://www.python.org/">Python.org</a>
+– General information about Python.</p></li>
+<li><p><a href="https://docs.blender.org/api/current/">Blender Python API</a>
+– Official API documentation. Use this for referencing while writing scripts.</p></li>
+<li><p><a href="https://docs.blender.org/api/current/info_quickstart.html">API Introduction</a>
+– A short introduction to get you started with the API. Contains examples.</p></li>
+</ul>
+<p>Links that deal with distributing your scripts:</p>
+<ul>
+<li><p><a href="https://wiki.blender.org/wiki/Process/Addons">Sharing scripts</a>
+– Information on how to share your scripts and get them included in the official Blender distribution.</p></li>
+<li><p><a href="https://wiki.blender.org/wiki/Process/Addons/Guidelines">Creating Add-ons</a>
+– Add-ons are used to encapsulate and distribute scripts.</p></li>
+<li><p><a href="https://projects.blender.org/blender/blender-addons">Add-ons project</a>
+– Project to maintain a central repository of extensions to Blender.</p></li>
+</ul>
+</section>
+<section id="getting-started">
+<h2>Getting Started</h2>
+<p>Manual links</p>
+<p>The following links take you from the basics to the more advanced
+concepts of Python scripting for Blender.</p>
+<ul>
+<li><p><a href="../../editors/text_editor.html">Text Editor</a></p></li>
+<li><p><a href="../../editors/python_console.html">Python Console</a></p></li>
+<li><p><a href="../../editors/info_editor.html">Info Editor</a></p></li>
+</ul>
+<p>External links</p>
+<p>Here are external links containing a lot of good information
+to start learning how to write scripts for Blender:</p>
+<ul>
+<li><p><a href="https://docs.blender.org/api/current/info_quickstart.html">Python API: Quickstart</a></p></li>
+<li><p><a href="https://cgcookie.com/posts/blender-2-8-python-scripting-superpowers-for-non-programmers">CG Cookie: Blender 2.8 Python Scripting Superpowers for Non-Programmers</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=rHzf3Dku_cE">Olav3D Tutorials: 3D Programming for Beginners Using Python</a></p></li>
+<li><p><a href="https://blenderartists.org/c/coding/python-support">Blender Artists: Python Support Forum</a></p></li>
+</ul>
+</section>
+<section id="extending-blender">
+<h2>Extending Blender</h2>
+<section id="add-ons">
+<h3>Add-ons</h3>
+<p>Add-ons are scripts that enable Blender to gain extra functionality;
+they can be enabled from the <a href="../../editors/preferences/addons.html">Preferences</a>.</p>
+<p>Outside of the Blender executable, there are hundreds of add-ons written by many people:</p>
+<ul>
+<li><p>Officially supported add-ons are bundled with Blender.</p></li>
+<li><p>Other <em>Testing</em> add-ons are included in <a href="https://builder.blender.org/download/">development builds</a>
+of Blender but not official releases.
+Many of them work reliably and are very useful but are not yet ensured to be stable for release.</p></li>
+</ul>
+<div>
+<p>See also</p>
+<p>See <a href="../../addons/index.html">Add-ons</a> for documentation on add-ons included with Blender.</p>
+</div>
+</section>
+<section id="scripts">
+<h3>Scripts</h3>
+<p>Apart from add-ons, there are several other types of scripts that extend Blender’s functionality:</p>
+<dl>
+<dt>Modules:</dt>
+<dd><p>Utility libraries for import into other scripts.</p>
+</dd>
+<dt>Presets:</dt>
+<dd><p>Settings for Blender’s tools and key configurations.</p>
+</dd>
+<dt>Startup:</dt>
+<dd><p>These files are imported when starting Blender.
+They define most of Blender’s UI, as well as some additional core operators.</p>
+</dd>
+<dt>Custom Scripts:</dt>
+<dd><p>In contrast to add-ons, they are typically intended for one-time execution via
+the <a href="../../editors/text_editor.html">Text Editor</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="saving-your-own-scripts">
+<h3>Saving your own Scripts</h3>
+<section id="file-location">
+<h4>File Location</h4>
+<p>All scripts are loaded from the <code>scripts</code> folder of
+the <a href="../blender_directory_layout.html#blender-directory-layout">local, system and user paths</a>.</p>
+<p>You can setup an additional search path for scripts in
+<a href="../../editors/preferences/file_paths.html#prefs-file-paths">File Paths</a> Preferences ‣ File Paths.</p>
+</section>
+<section id="installation">
+<h4>Installation</h4>
+<p>Add-ons are conveniently installed through Blender in the <a href="../../editors/preferences/addons.html">Preferences</a>.
+Click the Install… button and select the <code>.py</code> or <code>.zip</code> file.</p>
+<p>To manually install scripts or add-ons, place them in the <code>addons</code>, <code>modules</code>, <code>presets</code>,
+or <code>startup</code> directory according to their type. See the description above.</p>
+<p>You can also run scripts by loading them in the <a href="../../editors/text_editor.html">Text Editor</a>.</p>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

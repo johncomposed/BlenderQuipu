@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Matte &gt; Difference Key</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Matte Nodes</a></li>
+<li>Difference Key Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="difference-key-node">
+<h1>Difference Key Node</h1>
+<p>This node produces a matte that isolates foreground content by comparing it with a reference background image.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Contains foreground content against the background that is to be removed.</p>
+</dd>
+<dt>Image</dt><dd><p>The reference background image.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Tolerance</dt><dd><p>Where pixels match the reference background to within the specified threshold, the matte is made transparent.</p>
+</dd>
+<dt>Falloff</dt><dd><p>Increase to make nearby pixels partially transparent producing a smoother blend along the edges.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Image with its alpha channel adjusted for the keyed selection.</p>
+</dd>
+<dt>Matte</dt><dd><p>A black-and-white alpha mask of the key.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

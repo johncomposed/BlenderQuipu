@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Interface &gt; Collection Manager</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Interface</a></li>
+<li>Collection Manager</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="collection-manager">
+<h1>Collection Manager</h1>
+<p>This add-on adds new functionality for the management of collections via a pop-up
+and a QCD (Quick Content Display) system in the 3D Viewport. It also offers simple display
+and modification of the relationship of objects with collections.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Interface then Collection Manager to enable the script.</p></li>
+</ul>
+</section>
+<section id="description">
+<h2>Description</h2>
+<section id="pop-up">
+<h3>Pop-up</h3>
+<p>Use <kbd>M</kbd> to call up the main Collection Manager pop-up in the 3D Viewport when in Object Mode.
+It can also be found in the Object ‣ Collection menu.</p>
+<dl>
+<dt>View Layer</dt><dd><dl>
+<dt>Render</dt><dd><p>Enable/disable rendering of this view layer with this checkbox.</p>
+</dd>
+<dt>View Layer</dt><dd><p><a href="../../interface/controls/templates/data_block.html#ui-data-block">Data-Block Menu</a> of the current view layer.</p>
+</dd>
+</dl>
+</dd>
+<dt>Expand All Items</dt><dd><p>Toggle all collections expanded or collapsed. Only enabled when you have subcollections.</p>
+</dd>
+<dt>Renumber QCD Slots</dt><dd><p>Shown only if QCD is enabled in the preferences.</p>
+<ul>
+<li><p><kbd>LMB</kbd> – Renumber the QCD slots from the root slot (the slot designated 1)
+down to the bottom, for each depth level
+(<a href="https://en.wikipedia.org/wiki/Breadth-first_search">breadth first search</a>).</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> – Renumber from the first top-level collection in
+a <a href="https://en.wikipedia.org/wiki/Breadth-first_search">breadth first search</a> pattern.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Switch the renumber pattern to linear.
+This pattern will renumber straight down the list regardless of hierarchy.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Constrain renumbering to the branch under the root slot.</p></li>
+</ul>
+<div>
+<p>Hint</p>
+<p>All options can be combined with each other.</p>
+</div>
+</dd>
+<dt>Undo</dt><dd><p>Undoes the previous action.</p>
+<div>
+<p>Note</p>
+<p>Clears any in progress copy or swap actions.</p>
+</div>
+</dd>
+<dt>Redo</dt><dd><p>Redoes the previously undone action.</p>
+</dd>
+<dt>Specials</dt><dd><dl>
+<dt>Remove Empty Collections</dt><dd><p>Remove all collections that have no subcollections or objects.</p>
+</dd>
+<dt>Purge All Collections Without Objects</dt><dd><p>Remove all collections that have no objects regardless of whether they have subcollections.</p>
+</dd>
+<dt>Select All Cumulative Objects</dt><dd><p>Select all objects that are in more than one collection.</p>
+</dd>
+</dl>
+</dd>
+<dt>Display Options (funnel icon)</dt><dd><p>Choose which restriction toggles are shown in the interface
+and whether the restriction toggles are aligned to the right in
+the tree view.</p>
+</dd>
+<dt>Scene Collection</dt><dd><dl>
+<dt>Set Active Collection</dt><dd><p>Sets the active collection to the Scene Collection.</p>
+</dd>
+<dt>Name</dt><dd><p>This is static and can’t be edited.</p>
+</dd>
+<dt>Select All Objects in the Collection (multiple icons)</dt><dd><ul>
+<li><p><kbd>LMB</kbd> – Select all objects in the collection (deselects all other objects).</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Add/Remove all objects in the collection to/from the selection.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Select all objects in the collection and all of its subcollections
+(deselects all other objects).</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Add/Remove all objects in the collection
+and all its subcollections to/from the selection.</p></li>
+</ul>
+<p>Icons and button highlights are used to show the selection state:</p>
+<ul>
+<li><p><code>no icon</code> – No objects are present in this collection to be selected.</p></li>
+<li><p><code>no highlight</code> – No objects are selected in this collection.</p></li>
+<li><p><code>Diamond outline</code> – Objects are present in the collection.</p></li>
+<li><p><code>highlight</code> – One or more objects are selected in this collection.</p></li>
+<li><p><code>Filled diamond</code> – All objects are selected in this collection.</p></li>
+<li><p><code>small dot and grayed out</code> – No objects can be selected in this collection
+(the collection is hidden or marked as not selectable or all objects are marked as not selectable, etc.).
+<em>Note</em>: The button isn’t disabled to allow selecting subcollections; however, if you <kbd>LMB</kbd> click on
+it it will deselect all objects.</p></li>
+</ul>
+<div>
+<p>Hint</p>
+<p>If you try to select all the objects in the collection but the diamond doesn’t fill,
+that means you have one or more unselectable objects in the collection.</p>
+</div>
+</dd>
+<dt>Send Objects to Collection (multiple icons)</dt><dd><ul>
+<li><p><kbd>LMB</kbd> – Move selected object(s) to collection.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Add/Remove selected object(s) to/from collection.</p></li>
+</ul>
+<p>Icons are used to show the object/selection state:</p>
+<ul>
+<li><p><code>Import</code> – No objects are present in this collection.</p></li>
+<li><p><code>Box outline</code> – Objects are present, but none are selected in this collection.</p></li>
+<li><p><code>3 boxes with dashed outline</code> – The collection contains objects that are selected,
+but does not contain the active object in the selection.</p></li>
+<li><p><code>Filled box</code> – The collection contains the active object in the selection.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>The active object must also be selected to be indicated/moved.</p>
+<p>If no objects are selected the button is disabled.</p>
+</div>
+</dd>
+<dt>Global Restrictions (checkbox, cursor, eye, screen, camera, holdout, indirect only icons)</dt><dd><p>See the Outliner page for information about
+<a href="../../editors/outliner/interface.html#editors-outliner-interface-restriction-columns">Restrictions</a>.</p>
+<ul>
+<li><p><kbd>LMB</kbd> – Enable the restriction for all collections. Click again to restore the previous state.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Invert the restriction state on all collections.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Isolate collections with selected objects.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> – Disable collections with selected objects.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Copy/paste the restriction state on all collections.
+Click on an RTO to copy the restriction state, then click on
+another RTO to paste it.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> – Swap the restriction state on all collections with that of another restriction.
+Click on an RTO to copy the restriction state, then click on another RTO to swap the two.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> – Discard the previous state, and anything that has been stored for Copy/Paste or Swap.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>Tree View</dt><dd><p>Shows the collections within the current selected scene.</p>
+<dl>
+<dt>Disclosure (small triangle icon)</dt><dd><ul>
+<li><p><kbd>LMB</kbd> – Expand/collapse subcollections.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Isolate the tree. Collapses everything but the current item,
+and it’s parents/descendants. Click again to restore the previous state.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Expand/collapse subcollections and their descendants.</p></li>
+</ul>
+</dd>
+<dt>Set Active Collection</dt><dd><p>Click to set the active collection to this collection.</p>
+</dd>
+<dt>QCD Slot</dt><dd><p>Set which QCD slot the collection corresponds to.
+(Shown only if QCD is enabled in the preferences.)</p>
+</dd>
+<dt>Name</dt><dd><p>Double <kbd>LMB</kbd>-click to rename the collection.</p>
+</dd>
+<dt>Select All Objects in the Collection (multiple icons)</dt><dd><ul>
+<li><p><kbd>LMB</kbd> – Select all objects in the collection (deselects all other objects).</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Add/Remove all objects in the collection to/from the selection.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Select all objects in the collection and all of its subcollections
+(deselects all other objects).</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Add/Remove all objects in the collection
+and all its subcollections to/from the selection.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>See the section in the Scene Collection for more details.</p>
+</div>
+</dd>
+<dt>Send Objects to Collection (multiple icons)</dt><dd><ul>
+<li><p><kbd>LMB</kbd> – Move selected object(s) to collection.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Add/Remove selected object(s) to/from collection.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>See the section in the Scene Collection for more details.</p>
+</div>
+</dd>
+<dt>Local Restrictions (checkbox, cursor, eye, screen, camera, holdout, indirect only icons)</dt><dd><ul>
+<li><p><kbd>LMB</kbd> – Toggle the collection’s restriction on/off.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Isolate the collection’s restriction, preserving parents if need be.
+Click again to restore the previous state.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Isolate the collection and
+it’s descendants’ restrictions, preserving parents if need be.
+Click again to restore the previous state.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Toggle the restrictions of the collection and it’s descendants on/off.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> – Discard the previous state.</p></li>
+</ul>
+</dd>
+<dt>Remove <code>X</code></dt><dd><p>Remove the collection.</p>
+</dd>
+<dt>Filtering</dt><dd><dl>
+<dt>By Name</dt><dd><p>A text field to filter collections by name.</p>
+</dd>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Invert filtering (inverts the collections shown in the tree view so that what is
+shown is hidden and what was hidden is shown).</p>
+</dd>
+<dt>By Selected (3 boxes with dashed outline icon)</dt><dd><p>Filter collections by selected objects (show only collections that contain
+the selected objects).</p>
+</dd>
+<dt>By QCD Slots (Q key icon)</dt><dd><p>Filter collections by those designated as QCD slots (show only collections that
+correspond to a QCD slot). Shown only if QCD is enabled in the preferences.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>All options can be combined with each other.</p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Add Collection, Add Subcollection</dt><dd><p>Self-explanatory.</p>
+<div>
+<p>Note</p>
+<p>If the tree view is filtered when adding collections,
+new collections that do not fit the filter rules will be displayed
+until the filtering changes.</p>
+</div>
+</dd>
+<dt>Phantom Mode</dt><dd><p>All visibility changes made in this mode will be discarded when it’s disabled.</p>
+<p>Enabling Phantom Mode saves the current state of the restrictions and
+allows you to edit them without fear of losing their current state.
+When finished, disabling Phantom Mode will restore the saved state.</p>
+<p>Note: You will be unable to edit anything other than the restrictions while in Phantom Mode.</p>
+</dd>
+<dt>Apply Phantom Mode (check mark icon)</dt><dd><p>Applies all changes made to RTOs while in Phantom Mode and exits the mode.</p>
+</dd>
+</dl>
+</section>
+<section id="qcd">
+<h3>QCD</h3>
+<p>The Quick Content Display system provides a way to rapidly interact with
+collections by allowing you to designate up to 20 collections as QCD slots.
+You can then interact with these slots by using hotkeys or the widget
+to view or move objects to them.</p>
+<section id="d-viewport-header-widget">
+<h4>3D Viewport Header Widget</h4>
+<p>The header widget is composed of the Quick View Toggles button and 20 QCD slots.</p>
+<dl>
+<dt>Quick View Toggles (eye icon)</dt><dd><ul>
+<li><p>Create All QCD Slots. (Creates any missing QCD slots so you end up with a full 20)</p></li>
+<li><p>Enable All QCD Slots.</p></li>
+<li><p>Enable All QCD Slots Isolated. (Enables all QCD slots and disables any non QCD slots)</p></li>
+<li><p>Isolate Selected Objects Collections.</p></li>
+<li><p>Disable Selected Objects Collections.</p></li>
+<li><p>Disable All Non QCD Slots.</p></li>
+<li><p>Disable All Collections.</p></li>
+<li><p>Select All QCD Objects. (Select all objects that belong to enabled QCD slots)</p></li>
+<li><p>Discard QCD History. (Discards previous QCD slot states)</p></li>
+</ul>
+<p>Hotkeys:</p>
+<ul>
+<li><p><kbd>LMB</kbd> – Enable All QCD Slots.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> – Select All QCD Objects.</p></li>
+<li><p><kbd>LMB</kbd> hold down – Opens a menu with all Quick View Toggles.</p></li>
+</ul>
+</dd>
+<dt>QCD Slots</dt><dd><p>20 buttons in two rows in groups of five
+where the first row starts with slot 1 and the second with slot 11.</p>
+<p>The state of each slot is shown with a combination of the following indicators:</p>
+<ul>
+<li><p><code>x</code> – Unassigned slot.</p></li>
+<li><p><code>non-highlighted</code> – non-visible slot.</p></li>
+<li><p><code>highlighted</code> – visible slot.</p></li>
+<li><p><code>no icon</code> – no objects in the slot.</p></li>
+<li><p><code>horizontal line icon</code> – objects are present in this slot.</p></li>
+<li><p><code>circle icon</code> – one or more objects in this slot are selected.</p></li>
+<li><p><code>dot icon</code> – the active object is in this slot.</p></li>
+</ul>
+<p>Assigned Slot Hotkeys:</p>
+<ul>
+<li><p><kbd>LMB</kbd> – View single slot excluding all others.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Add/remove slot to/from view.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Move selected objects to slot.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Add/remove selected objects to/from slot.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> – Replace selection with objects in this slot.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd> – Add/remove slot objects to/from the selection.</p></li>
+</ul>
+<p>Unassigned Slot Hotkeys:</p>
+<ul>
+<li><p><kbd>LMB</kbd> – Create the slot.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Create the slot and isolate it, excluding all others from view.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Create the slot and move the selected objects to it.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> – Create the slot and add the selected objects to it.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>The slot number and its associated collection name, as well as all the relevant hotkeys,
+are shown in the tooltip when hovering over the slot.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="move-widget">
+<h4>Move Widget</h4>
+<p>Use <kbd>V</kbd> to call up the Move widget in the 3D Viewport when in Object Mode.
+It can also be found in the Object -&gt; Collection menu.</p>
+<p>The Move Widget shares its layout and indicators with the 3D Viewport header widget.</p>
+<p>Hotkeys</p>
+<ul>
+<li><p><kbd>LMB</kbd> – Move selected objects to slot.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> – Add/remove selected objects to/from slot.</p></li>
+<li><p><kbd>0</kbd> - <kbd>9</kbd> – Move selected objects to slot 1-10 (0 is slot 10).</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>0</kbd></kbd> - <kbd><kbd>Alt</kbd>-<kbd>9</kbd></kbd> – Move selected objects to slot 11-20 (0 is slot 20).</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>0</kbd></kbd> - <kbd><kbd>Shift</kbd>-<kbd>9</kbd></kbd> – Add/remove selected objects to/from slot 1-10 (0 is slot 10).</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>0</kbd></kbd> - <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>9</kbd></kbd> – Add/remove selected objects to/from slot 11-20 (0 is slot 20).</p></li>
+</ul>
+</section>
+</section>
+<section id="d-viewport-hotkeys">
+<h3>3D Viewport Hotkeys</h3>
+<p>Object Mode</p>
+<dl>
+<dt>QCD</dt><dd><ul>
+<li><p><kbd>0</kbd> - <kbd>9</kbd> – View slot 1-10 (0 is slot 10). Excludes all others.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>0</kbd></kbd> - <kbd><kbd>Alt</kbd>-<kbd>9</kbd></kbd> – View slot 11-20 (0 is slot 20). Excludes all others.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>0</kbd></kbd> - <kbd><kbd>Shift</kbd>-<kbd>9</kbd></kbd> – Add/remove slot 1-10 (0 is slot 10) to/from view.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>0</kbd></kbd> - <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>9</kbd></kbd> – Add/remove slot 11-20 (0 is slot 20) to/from view.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>=</kbd></kbd> – Enable All QCD Slots.</p></li>
+<li><p><kbd>=</kbd> – Isolate Selected Objects Collections.</p></li>
+<li><p><kbd>Minus</kbd> – Disable Selected Objects Collections.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>=</kbd></kbd> – Disable All Non QCD Slots.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>=</kbd></kbd> – Disable All Collections.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>=</kbd></kbd> – Select All QCD Objects.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>=</kbd></kbd> – Discard QCD History.</p></li>
+</ul>
+</dd>
+<dt>Disable Objects (only available if enabled in the preferences.)</dt><dd><ul>
+<li><p><kbd>H</kbd> – Disable Selected.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd> – Disable Unselected.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd> – Restore Disabled Objects.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Edit Mode</p>
+<p>All Object Mode hotkeys except for Select All QCD Objects and the Disable Objects hotkeys.
+(Only available if enabled in the preferences.)</p>
+<ul>
+<li><p><kbd>AccentGrave</kbd> – Mesh Select Mode menu.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>Slots with objects not in Object Mode can not be excluded.</p>
+</div>
+</section>
+</section>
+<section id="preferences">
+<h2>Preferences</h2>
+<dl>
+<dt>Disable objects instead of hiding</dt><dd><p>Replaces the object hiding hotkeys with hotkeys to disable objects instead and adds these options to
+the Object ‣ Show/Hide menu.</p>
+<p>Disabling objects prevents them from being shown again
+when a collection’s exclude checkbox is toggled off and on,
+and so will preserve the object’s visibility when switching QCD slots.</p>
+</dd>
+<dt>QCD</dt><dd><p>Enable the QCD system.</p>
+</dd>
+<dt>QCD Hotkeys</dt><dd><p>Enable 3D Viewport hotkeys in Object Mode.</p>
+</dd>
+<dt>QCD Edit Mode Hotkeys</dt><dd><p>Enable 3D Viewport hotkeys in Edit Mode.</p>
+</dd>
+<dt>QCD 3D Viewport Header Widget</dt><dd><p>Enable the widget containing the QVT menu and a graphical representation of
+the 20 QCD slots in the right-hand corner of the 3D Viewport header.</p>
+<div>
+<p>Note</p>
+<p>Create All QCD Slots and Enable All QCD Slots Isolated (from the QVT menu)
+currently don’t have hotkeys and are only available through this widget.</p>
+</div>
+</dd>
+<dt>QCD Move Widget:</dt><dd><dl>
+<dt>Tool Theme Overrides</dt><dd><p>Enable overrides in this section to change the color of individual elements
+in the QCD Move Widget (colors default to the current theme).</p>
+<dl>
+<dt>Icon Alpha</dt><dd><p>Opacity of the icons for selected (but not active) objects and unselected objects.</p>
+<div>
+<p>Note</p>
+<p>The values for icon alpha are not overrides and always affect the QCD Move Widget.</p>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="known-issues">
+<h2>Known Issues</h2>
+<ul>
+<li><p>Linked collections are not supported.</p></li>
+<li><p>Two QCD slots can swap collections if the collections are under the same parent and
+you rename one collection with the name of the other, then undo the rename and redo the rename.</p></li>
+</ul>
+</section>
+<section id="glossary">
+<h2>Glossary</h2>
+<dl>
+<dt>General</dt><dd><dl>
+<dt>Chaining:</dt>
+<dd><p>Dependent on parents for whether an RTO can be active.</p>
+</dd>
+<dt>QCD:</dt>
+<dd><p>Quick Content Display.</p>
+</dd>
+<dt>QVT:</dt>
+<dd><p>Quick View Toggles.</p>
+</dd>
+<dt>RTO:</dt>
+<dd><p>Restriction Toggle Option.</p>
+</dd>
+</dl>
+</dd>
+<dt>RTO Short Forms</dt><dd><dl>
+<dt>EC:</dt>
+<dd><p>Exclude Checkbox. (Excludes the collection from the current view layer –
+affects both 3D Viewport and render – non-chaining.)</p>
+</dd>
+<dt>SS:</dt>
+<dd><p>Selectability. (Disables selection for the collection in all view layers –
+affects 3D Viewport – chaining.)</p>
+</dd>
+<dt>VV:</dt>
+<dd><p>Visibility. (Hides the collection from the current view layer – affects 3D Viewport – chaining.)</p>
+</dd>
+<dt>DV:</dt>
+<dd><p>Disable Viewports. (Disables the collection in all view layers – affects 3D Viewport – chaining.)</p>
+</dd>
+<dt>RR:</dt>
+<dd><p>Renderability. (Disables the collection from being rendered in all view layers –
+affects render – chaining.)</p>
+</dd>
+<dt>HH:</dt>
+<dd><p>Holdout. (Masks out the collection from the view layer – affects render – non-chaining.)</p>
+</dd>
+<dt>IO:</dt>
+<dd><p>Indirect Only. (Makes the collection only contribute indirectly (shadows/reflections) to the render
+for the current view layer – affects render – non-chaining – <em>Cycles only</em>.)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Interface</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Collection management system.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport</p>
+</dd>
+<dt>File:</dt>
+<dd><p>object_collection_manager folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Imaginer (Ryan Inch)</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>Imaginer</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

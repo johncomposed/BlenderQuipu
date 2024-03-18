@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Templates &gt; Data Block</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li>Data-Block Menu</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="data-block-menu">
+<h1>Data-Block Menu</h1>
+<p>Lets you select a <a href="../../../files/data_blocks.html">Data-Block</a> (such as a material)
+in order to link it to something else (such as an object).</p>
+<figure id="id1">
+<figcaption>
+<p>A data-block menu with a search field.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Type</dt><dd><p>Shows an icon indicating the data-block type. Clicking the image or the down arrow opens the popup menu.
+Dragging the image lets you apply the data-block to something else (for example, you can drag
+a material onto an object in the 3D Viewport, or onto a <a href="#ui-data-id">Data ID</a> field).</p>
+<dl>
+<dt>List</dt><dd><p>A list of data-blocks available in the current blend-file, or a link to select an item from.
+The menu may show a preview besides the items and
+a search field to search the items in the list by name.</p>
+</dd>
+</dl>
+</dd>
+<dt>Name</dt><dd><p>Displays, and allows editing of, the name of the selected data-block.
+If a name is already in use by a different data-block, Blender will append a number like “.001”.</p>
+</dd>
+<dt>User Count</dt><dd><p>Displays the number of <a href="../../../glossary/index.html#term-Data-User">users</a> of the data (if there’s more than one user).
+Clicking it will create a single-user copy.</p>
+<p>As an example, if three separate objects referenced the same material, the material’s user count would be 3.
+Changing the material would affect all three objects. If you now selected an object and clicked the user count,
+the object would receive its very own copy of the material, which can be modified independently of the original
+that’s still used by the other two.</p>
+</dd>
+<dt>Fake User (shield icon)</dt><dd><p>If a data-block has no <a href="../../../glossary/index.html#term-Real-User">real users</a>, it’ll normally be cleaned up
+(deleted) when saving the blend-file. To prevent this, you can give it a fake user;
+that way, it’s guaranteed to “survive.” Data-blocks with a fake user have an “F”
+prefix in the drop-down list.</p>
+<p>The <a href="../../../editors/outliner/introduction.html">Outliner</a> can show an overview of all data-blocks
+without real users in the blend-file. Simply change its Display Mode to Orphan Data.</p>
+</dd>
+<dt>New/Add (files icon)</dt><dd><p>Creates a new data-block (or duplicates the current one) and selects it.</p>
+</dd>
+<dt>Open File (folder icon)</dt><dd><p>Opens the <a href="../../../editors/file_browser.html">File Browser</a>, for importing an image for example.</p>
+</dd>
+<dt>Unpack File (bin icon)</dt><dd><p><a href="../../../files/blend/packed_data.html#pack-unpack-data">Unpack</a> the file packed into the current blend-file to an external one.</p>
+</dd>
+<dt>Unlink Data-block <code>X</code></dt><dd><p>Clears the link. <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> to set the users to zero
+allowing the data to be fully deleted from the blend-file.</p>
+</dd>
+</dl>
+<p>Sometimes there is a <a href="list_view.html#ui-list-view">list</a> of applied data-blocks
+(such as a list of materials used on the object).</p>
+<div>
+<p>See also</p>
+<p>Data-blocks are discussed further in the <a href="../../../files/data_blocks.html">Data System chapter</a>.</p>
+</div>
+<section id="preview">
+<h2>Preview</h2>
+<figure id="id2">
+<figcaption>
+<p>A Data-Block menu with preview.</p>
+</figcaption>
+</figure>
+<p>Some data-block menus have large preview images in their drop-down
+instead of just icons and names.</p>
+</section>
+<section id="data-id">
+<h2>Data ID</h2>
+<figure id="id3">
+<figcaption>
+<p>A Data ID field.</p>
+</figcaption>
+</figure>
+<p>A Data ID field is similar to a Data Block Menu, but is only for selecting
+(and not for other features like creating new data or managing users).</p>
+<p>It can show the following elements:</p>
+<dl>
+<dt>Type</dt><dd><p>The icon on the left specifies the accepted data-block type.</p>
+</dd>
+<dt>Name</dt><dd><p>The text field functions as a search field by matching elements in the list.
+Press <kbd>Tab</kbd> to auto-complete names up to the level where a match is found.
+If more than one match exists, you have to continue typing.
+If you type an invalid name, the value will remain unchanged.</p>
+</dd>
+<dt>List</dt><dd><p>Lets you select the data-block directly.</p>
+</dd>
+<dt>Eyedropper</dt><dd><p>In some Data IDs there is an <a href="../buttons/eyedropper.html#ui-eyedropper">Eyedropper</a>
+available through the pipette icon on the right side.</p>
+</dd>
+<dt>Remove <code>X</code></dt><dd><p>Click the <code>X</code> button on the right to clear the reference.</p>
+</dd>
+</dl>
+<section id="sub-ids">
+<h3>Sub IDs</h3>
+<p>Related types of IDs may become available to select a property or child object,
+depending on the object type.</p>
+<figure id="id4">
+<figcaption>
+<p>Sub ID Example.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Vertex Group</dt><dd><p>If the selected object in the <em>Target</em> field is a mesh or a lattice,
+an additional field is displayed where a vertex group can be selected.</p>
+</dd>
+<dt>Bone</dt><dd><p>If the selected object in the <em>Target</em> field is an armature,
+an additional field is displayed where a bone can be selected.</p>
+<dl>
+<dt>Head/Tail</dt><dd><p>Once a bone is selected, a numeric field becomes available for specifying a point on the bone.
+A value of 0 corresponds to the bone’s head, while a value of 1 corresponds to its tail.
+Any values between these will result in linear interpolation (so a value of 0.5 matches
+the bone’s center).</p>
+<dl>
+<dt>Use B-Bone Shape</dt><dd><p>If the bone is a <a href="../../../animation/armatures/bones/properties/bendy_bones.html">bendy bone</a>,
+clicking on this button will make the point follow the curvature of the B-spline between head and tail,
+rather than simply going in a straight line.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

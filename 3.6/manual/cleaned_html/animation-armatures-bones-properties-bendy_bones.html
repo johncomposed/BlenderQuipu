@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Properties &gt; Bendy Bones</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Bendy Bones</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bendy-bones">
+<h1>Bendy Bones</h1>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Bone ‣ Bendy Bones</p>
+</dd>
+</dl>
+</div>
+<p>Bendy Bones (B-Bones) are an easy way to replace long chains of many small rigid bones.
+A common use case for curved bones is to model spine columns or facial bones.</p>
+<section id="technical-details">
+<h2>Technical Details</h2>
+<p>Blender treats the bone as a section of a Bézier curve passing through the bones’ joints.
+Each of the <em>Segments</em> will bend and roll to follow this invisible curve
+representing a tessellated point of the Bézier curve.
+The control points at each end of the curve are the endpoints of the bone.
+The shape of the B-Bones can be controlled using a series of properties or
+indirectly through the neighboring bones (i.e. first child and parent).
+The properties construct handles on either end of the bone to control the curvature.</p>
+<p>When using the B-bone as a constraint target <a href="../../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> offers an option to follow the curvature.</p>
+<div>
+<p>Note</p>
+<p>However, if the bone is used as a target rather than to deform geometry,
+only <em>Armature</em> and <em>Copy Transforms</em> constraints will use the full
+transformation including roll and scale.</p>
+</div>
+</section>
+<section id="display">
+<h2>Display</h2>
+<p>You can see these segments only if bones are visualized as <em>B-bones</em>.</p>
+<p>When not visualized as <em>B-Bone</em>s, bones are always shown as rigid sticks,
+even though the bone segments are still present and effective.
+This means that even in e.g. <em>Octahedron</em> visualization,
+if some bones in a chain have several segments,
+they will nonetheless smoothly deform their geometry.</p>
+</section>
+<section id="rest-pose">
+<h2>Rest Pose</h2>
+<p>The initial shape of a B-Bone can be defined in Edit Mode as a rest pose of that bone.
+This is useful for curved facial features like curved eyebrows or mouths.</p>
+<p>B-Bones have two sets of the Bendy Bone properties – one for Edit Mode (i.e. the Rest Pose/Base Rig) and
+another for Pose Mode – adding or multiplying together their values to get the final transforms.</p>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Bones with just one segment in Edit Mode.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>The Bézier curve superposed to the chain, with its handles placed at bones’ joints.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id5">
+<figcaption>
+<p>The same armature in Object Mode.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Fig. <a href="#fig-rig-bone-intro-bbone">Bones with just one segment in Edit Mode.</a> we connected three bones,
+each one made of five segments.</p>
+<p>Look at Fig. <a href="#fig-rig-bone-intro-same">The same armature in Object Mode.</a>,
+we can see how the bones’ segments smoothly “blend” into each other, even for roll.</p>
+<figure id="id6">
+<figcaption>
+<p>An armature in Pose Mode, B-Bone visualization: Bone.003 has one segment,
+Bone.004 has four, and Bone.005 has sixteen.</p>
+</figcaption>
+</figure>
+</section>
+<section id="options">
+<h2>Options</h2>
+<figure id="id7">
+<figcaption>
+<p>Bendy Bones panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-editbone-bbone-segments">
+<dt>Segments</dt><dd><p>The number of segments, which the given bone is subdivided into.
+Segments are small, rigid linked child bones that interpolate between the root and the tip.
+The higher this setting, the smoother “bends” the bone, but the heavier the pose calculations.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-bbone-z">
+<dt>Display Size X, Z</dt><dd><p>Controls the visible thickness of the bone segments when the armature is rendered in the <em>B-Bones</em> mode.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-bbone-curveinz">
+<dt>Curve In/Out X, Y, Z</dt><dd><p>Applies offsets to the curve handle positions on the plane perpendicular to the bone’s primary (Y) axis.
+As a result, the handle moves per axis (XZ) further from its original location, causing the curve to bend.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-bbone-rollout">
+<dt>Roll In, Out</dt><dd><p>The roll value (or twisting around the main Y axis of the bone) is interpolated per segment,
+between the start and end roll values.
+It is applied as a rotational offset on top of the rotation defined by the handle bones.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-use-endroll-as-inroll">
+<dt>Inherit End Roll</dt><dd><p>If enabled, the <em>Roll Out</em> value of the <em>Start Handle</em> bone (connected parent by default)
+will be implicitly added to the <em>Roll In</em> setting of the current bone.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-bbone-scaleout">
+<dt>Scale In/Out X, Y, Z</dt><dd><p>Scaling factors that adjust the thickness of each segment for the X and Z axes,
+or introduce non-uniform spacing along the Y axis. Similar to <em>Roll</em> it is
+interpolated per segment.</p>
+<p>Since all segments are still uniformly scaled in the Y direction to fit the actual length of the curve,
+only the ratio between <em>Scale In Y</em> and <em>Scale Out Y</em> actually matters.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-bbone-easeout">
+<dt>Ease In, Out</dt><dd><p>The <em>Ease In/Out</em> number fields, change the “length” of the <a href="../../../../modeling/curves/structure.html#curve-handle-type-auto">“auto”</a> Bézier handle
+to control the “root handle” and “tip handle” of the bone, respectively.
+These values are proportional to the default length,
+which of course automatically varies depending on bone length,
+angle with the reference handle, and so on.</p>
+<p>Although easing is a scale-like value, the Edit Mode and Pose Mode versions of the values are added,
+so they get corresponding start values of 1 and 0 by default.</p>
+<table id="id8">
+<caption>Ease In/Out settings example, with a materialized Bézier curve.</caption>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>Bone.004 with default In and Out (1.0).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Bone.004 with In at 2.0, and Out at 0.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-use-scale-easing">
+<dt>Scale Easing</dt><dd><p>If enabled, the final easing values are implicitly multiplied by the corresponding <em>Scale Y</em> values.</p>
+</dd>
+</dl>
+<section id="custom-handles">
+<h3>Custom Handles</h3>
+<p>B-Bones can use custom bones as their reference bone handles, instead of only using the connected parent/child bones.</p>
+<dl id="bpy-types-editbone-bbone-handle-type-end">
+<dt>Start/End Handle</dt><dd><p>Specifies the type of the handle from the following choices:</p>
+<dl>
+<dt>Automatic:</dt>
+<dd><p>The connected parent (or first connected child) of the bone is chosen as the handle.
+Calculations are done according to the <em>Absolute</em> handle type below.</p>
+</dd>
+<dt>Absolute:</dt>
+<dd><p>The Bézier handle is controlled by the <strong>position</strong> of the head (tail)
+of the handle bone relative to the head (tail) of the current bone.
+Note that for this to work, there must be a nonzero distance between these bones.
+If the handle is also a B-Bone, additional processing is applied to further
+smooth the transition, assuming that the bones in effect form a chain.</p>
+</dd>
+<dt>Relative:</dt>
+<dd><p>The Bézier handle is controlled by the <strong>offset</strong> of the head (tail) of the handle bone from its rest pose.
+The use of this type is not recommended due to numerical stability issues near zero offset.</p>
+</dd>
+<dt>Tangent:</dt>
+<dd><p>The Bézier handle is controlled by the <strong>orientation</strong> of the handle bone, independent of its location.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-bbone-custom-handle-end">
+<dt>Custom Handle</dt><dd><p>For types other than <em>Automatic</em>, a bone to use as handle has to be manually selected.
+Switching to a custom handle type without selecting a bone can be used to effectively disable the handle.</p>
+<p>It is valid for two bones to refer to each other as handles – this correlation is applied
+in connected chains with <em>Automatic</em> handles.</p>
+</dd>
+</dl>
+<dl id="bpy-types-editbone-bbone-handle-use-ease-end">
+<dt>Scale X/Y/Z/Ease</dt><dd><p>If enabled, the final Scale and/or Ease values are multiplied by the corresponding local scale
+channels of the handle bone. This step is applied independently of <em>Scale Easing</em> and doesn’t
+interact with it, i.e. enabling <em>Y</em> and <em>Scale Easing</em> doesn’t replace the <em>Ease</em> toggle.
+These toggles are a more efficient replacement for up to eight trivial drivers passing segment scale data
+from the handle bones into the B-Bone option properties.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>Keying Set</p>
+<p>The “BBone Shape” <a href="../../../keyframes/keying_sets.html">Keying Set</a> includes all Bendy Bones properties.</p>
+</div>
+<figure id="id11">
+<figcaption>
+<p>Visualization of the Bendy Bones properties.</p>
+<div>
+<p>From Left: 1) Curve X/Y offsets, 2) Scale In/Out, 3) Roll In/Out</p>
+</div>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

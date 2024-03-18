@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Laplacian Smooth</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Smooth Laplacian Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="smooth-laplacian-modifier">
+<h1>Smooth Laplacian Modifier</h1>
+<p>The <em>Smooth Laplacian</em> modifier allows you to reduce noise on a mesh’s surface with minimal changes to its shape.</p>
+<p>It can also exaggerate the shape using a negative <em>Factor</em>.</p>
+<p>The <em>Smooth Laplacian</em> is useful for objects that have been reconstructed from
+the real world and contain undesirable noise. It removes noise while still
+preserving desirable geometry as well as the shape of the original model.</p>
+<p>This modifier is based on a curvature flow <em>Laplace Beltrami</em> operator in a diffusion equation.</p>
+<div>
+<p>Hint</p>
+<p>Meshes with a great number of vertices, more than ten thousand (10,000),
+may take several minutes for processing. You can use small portions of the mesh for testing
+before executing the modifier on the entire model.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Smooth Laplacian modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Repeat</dt><dd><p>Repetitions allow you to run the smoothing operation multiple times.
+Each repetition causes the flow curvature of the mesh to be recalculated again,
+and as a result it removes more noise with every new iteration using a small <em>Factor</em> &lt; 1.0.</p>
+<p>When on 0, no smoothing is done.</p>
+<div>
+<p>Note</p>
+<p>More repetitions will take longer to calculate.
+So beware of doing so on meshes with a large number of vertices.</p>
+</div>
+<table id="id2">
+<caption>With a factor of 0.5.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Repeat: 0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Repeat: 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Repeat: 5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Repeat: 10.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id7">
+<caption>With a factor of 2.0.</caption>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Repeat: 0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Repeat: 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Repeat: 5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Repeat: 10.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id12">
+<caption>With a factor of -0.5.</caption>
+<tbody>
+<tr><td><figure id="id13">
+<figcaption>
+<p>Repeat: 0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id14">
+<figcaption>
+<p>Repeat: 1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id15">
+<figcaption>
+<p>Repeat: 5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id16">
+<figcaption>
+<p>Repeat: 10.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Axis</dt><dd><p>Toggle buttons to enable/disable deforming vertices in the X, Y and/or Z axes directions.</p>
+<table>
+<tbody>
+<tr><td><figure id="id17">
+<figcaption>
+<p>X, Y, Z: Unselected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id18">
+<figcaption>
+<p>X, Y, Z: Selected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id19">
+<figcaption>
+<p>X, Z: Selected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id20">
+<figcaption>
+<p>X: Selected.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id21">
+<figcaption>
+<p>X, Y, Z: Unselected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id22">
+<figcaption>
+<p>X, Y, Z: Selected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id23">
+<figcaption>
+<p>X, Z: Selected.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id24">
+<figcaption>
+<p>X: Selected.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Lambda Factor</dt><dd><p>Controls the amount of displacement of every vertex along the flow curvature.</p>
+<ul>
+<li><p>Using a small <em>Factor</em>, you can remove noise from the shape without affecting desirable geometry.</p></li>
+<li><p>Using a large <em>Factor</em>, you get smoothed versions of the shape at the cost of fine geometry details.</p></li>
+<li><p>Using a negative <em>Factor</em>, you can enhance the shape, preserving desirable geometry.</p></li>
+<li><p>When the <em>Factor</em> is negative, multiple iterations can magnify the noise.</p></li>
+</ul>
+<table>
+<tbody>
+<tr><td><figure id="id25">
+<figcaption>
+<p>Factor: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id26">
+<figcaption>
+<p>Factor: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id27">
+<figcaption>
+<p>Factor: 2.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id28">
+<figcaption>
+<p>Factor: 5.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id29">
+<figcaption>
+<p>Factor: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id30">
+<figcaption>
+<p>Factor: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id31">
+<figcaption>
+<p>Factor: 10.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id32">
+<figcaption>
+<p>Factor: 50.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id33">
+<figcaption>
+<p>Factor: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id34">
+<figcaption>
+<p>Factor: -20.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id35">
+<figcaption>
+<p>Factor: -50.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id36">
+<figcaption>
+<p>Factor: -300.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Lambda Border</dt><dd><p>Since there is no way to calculate the curvature flow on border edges, they must be controlled separately.
+Border edges are smoothed using a much simpler method, using this property to control the influence.</p>
+<p>Positive values will smooth the vertex positions,
+while negative values will “enhance” them by transforming them in the opposite direction.</p>
+<table id="id37">
+<caption>With a factor of 2.5.</caption>
+<tbody>
+<tr><td><figure id="id38">
+<figcaption>
+<p>Border: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id39">
+<figcaption>
+<p>Border: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id40">
+<figcaption>
+<p>Border: 2.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id41">
+<figcaption>
+<p>Border: 10.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id42">
+<caption>With a factor of 20.0.</caption>
+<tbody>
+<tr><td><figure id="id43">
+<figcaption>
+<p>Border: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id44">
+<figcaption>
+<p>Border: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id45">
+<figcaption>
+<p>Border: 5.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id46">
+<figcaption>
+<p>Border: 20.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id47">
+<caption>With a factor of -30.0.</caption>
+<tbody>
+<tr><td><figure id="id48">
+<figcaption>
+<p>Border: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id49">
+<figcaption>
+<p>Border: -20.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id50">
+<figcaption>
+<p>Border: -50.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id51">
+<figcaption>
+<p>Border: -200.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Preserve Volume</dt><dd><p>The smoothing process can produce shrinkage.
+That is significant for large <em>Factor</em> or large <em>Repeat</em> values.
+You can use that option to reduce that effect.</p>
+<table>
+<tbody>
+<tr><td><figure id="id52">
+<figcaption>
+<p>Off.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id53">
+<figcaption>
+<p>On.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id54">
+<figcaption>
+<p>Off.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id55">
+<figcaption>
+<p>On.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Normalized</dt><dd><p>When enabled, the results will depend on face sizes. When disabled, geometry spikes may occur.</p>
+<table>
+<tbody>
+<tr><td><figure id="id56">
+<figcaption>
+<p>Original Geometry.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id57">
+<figcaption>
+<p>On.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id58">
+<figcaption>
+<p>Off.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id59">
+<figcaption>
+<p>Off, High Factor.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Vertex Group</dt><dd><p>A vertex group name, to constrain the effect to a group of vertices only.
+Allows for selective, real-time smoothing or enhancing, by painting vertex weights.</p>
+<table>
+<thead>
+<tr><th><p>Original Geometry</p></th>
+<th><p>No Group Chosen</p></th>
+<th><p>Vertex Weights</p></th>
+<th><p>Result</p></th>
+</tr>
+</thead>
+</table>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id60">
+<figcaption>
+<p>Femme front view
+blend-file.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id61">
+<figcaption>
+<p>Femme side view
+blend-file.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id62">
+<figcaption>
+<p>Cube smooth
+blend-file.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id63">
+<figcaption>
+<p>Shape enhanced
+blend-file.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>See also</p>
+<p><a href="smooth.html">Smooth Modifier</a>.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

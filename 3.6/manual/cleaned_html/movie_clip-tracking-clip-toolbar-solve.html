@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Tracking &gt; Clip &gt; Toolbar &gt; Solve</head>
+<body><ul>
+<li><a href="../../../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="../../index.html">Motion Tracking</a></li>
+<li><a href="../index.html">Clip View</a></li>
+<li><a href="index.html">Toolbar</a></li>
+<li>Solve</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="solve">
+<h1>Solve</h1>
+<section id="plane-track">
+<h2>Plane Track</h2>
+<p>See <a href="../editing/track.html#bpy-ops-clip-create-plane-track">Create Plane Track</a>.</p>
+</section>
+<section id="id1">
+<h2>Solve</h2>
+<dl id="bpy-types-movietrackingsettings-use-tripod-solver">
+<dt>Tripod</dt><dd><p>Tripod Motion can be used for footage where the camera does not move and only rotates.
+Such footage can’t be tracked with a generic solver approach, and
+it is impossible to determine the actual feature points in space due to a lack of information.
+So this solver will solve only the relative camera rotation and then reproject the feature points into a sphere,
+with the same distance between feature and camera for all feature points.</p>
+<div>
+<p>Note</p>
+<p>This is special type of camera solver and it behaves different from regular solver.
+It means using more tracks doesn’t imply more accurate solution.
+Having 5-10 tracks on frame is likely what shall be commonly used for this kind of solver.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-movietrackingsettings-use-keyframe-selection">
+<dt>Keyframe</dt><dd><p>Automatically select keyframes for initial reconstruction.
+This option enables complex algorithms which tries to find a keyframe pair
+with minimal reconstruction error and best scene scale guess.</p>
+</dd>
+</dl>
+<dl id="bpy-types-movietrackingobject-keyframe-b">
+<dt>Keyframe A/B</dt><dd><p>Start (A) and End (B) frame of the range used for reconstruction.</p>
+</dd>
+<dt>Refine</dt><dd><p>Specifies which parameters should be refined during solve.
+Such refining is useful when you are not sure about some camera intrinsics,
+and solver should try to find the best parameter for those intrinsics.
+But you still have to know approximate initial values –
+it will fail to find correct values if they were set completely incorrectly initially.</p>
+<dl id="bpy-types-movietrackingsettings-refine-intrinsics-focal-length">
+<dt>Focal Length</dt><dd><p>Refine the camera’s <a href="../sidebar/track/camera.html#bpy-types-movietrackingcamera-focal-length">Focal Length</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-movietrackingsettings-refine-intrinsics-principal-point">
+<dt>Optical Center</dt><dd><p>Refine the camera’s <a href="../sidebar/track/camera.html#bpy-types-movietrackingcamera-principal">Optical Center</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-movietrackingsettings-refine-intrinsics-radial-distortion">
+<dt>Radial Distortion</dt><dd><p>Refine the camera’s <a href="../sidebar/track/camera.html#bpy-types-movietrackingcamera-k">Radial Distortion Parameters</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-movietrackingsettings-refine-intrinsics-tangential-distortion">
+<dt>Tangential Distortion</dt><dd><p>Refine the camera’s <a href="../sidebar/track/camera.html#bpy-types-movietrackingcamera-brown-p">Tangential Distortion Parameters</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="editors-movie-clip-tracking-clip-solve-motion">
+<dt>Solve Camera/Object Motion</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-solve-camera">Solve Solution</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="cleanup">
+<h2>Cleanup</h2>
+<p>This panel contains operators and their settings which are needed to clean up bad tracks:
+tracks which are not tracked long enough or which failed to reconstruct accurately.</p>
+<dl>
+<dt>Frames</dt><dd><p>Tracks or tracked segments shorter than this number of frames will be removed.</p>
+</dd>
+<dt>Error</dt><dd><p>Tracks which has reprojection error higher than this value will be removed.</p>
+</dd>
+<dt>Type</dt><dd><p>Several actions can be performed for bad tracks:</p>
+<dl>
+<dt>Select</dt><dd><p>They can simply be selected.</p>
+</dd>
+<dt>Delete Track</dt><dd><p>The whole track can be deleted.</p>
+</dd>
+<dt>Delete Segments</dt><dd><p>Bad segments of tracked sequence can be removed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Clean Tracks</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-clean-tracks">Clean Tracks</a>.</p>
+</dd>
+<dt>Filter Tracks</dt><dd><p>See <a href="../editing/track.html#bpy-ops-clip-filter-tracks">Filter Tracks</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="geometry">
+<h2>Geometry</h2>
+<dl>
+<dt>3D Markers to Mesh</dt><dd><p>See <a href="../editing/reconstruction.html#bpy-ops-clip-bundles-to-mesh">3D Markers to Mesh</a>.</p>
+</dd>
+<dt>Link Empty to Track</dt><dd><p>See <a href="../editing/reconstruction.html#bpy-ops-clip-track-to-empty">Link Empty to Track</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="orientation">
+<h2>Orientation</h2>
+<p>Scene orientation tools can be used for orienting object to bundles.</p>
+<dl>
+<dt>Floor</dt><dd><p>See <a href="../editing/reconstruction.html#bpy-ops-clip-set-origin">Set Origin</a>.</p>
+</dd>
+<dt>Wall</dt><dd><p>See <a href="../editing/reconstruction.html#bpy-ops-clip-set-plane">Set Floor</a>.</p>
+</dd>
+<dt>Set Origin</dt><dd><p>See <a href="../editing/reconstruction.html#bpy-ops-clip-set-plane">Set Floor</a>.</p>
+</dd>
+<dt>Set X, Y Axis</dt><dd><p>See <a href="../editing/reconstruction.html#bpy-ops-clip-set-axis">Set X/Y Axis</a>.</p>
+</dd>
+<dt>Set Scale</dt><dd><p>See <a href="../editing/reconstruction.html#bpy-ops-clip-set-scale">Set Scale</a>.</p>
+</dd>
+<dt>Apply Scale</dt><dd><p>See <a href="../editing/reconstruction.html#bpy-ops-clip-apply-solution-scale">Apply Solution Scale</a>.</p>
+</dd>
+<dt>Distance</dt><dd><p>Distance in active scene units which is used by Set/Apply scale.</p>
+</dd>
+</dl>
+</section>
+<section id="scene-setup">
+<h2>Scene Setup</h2>
+<dl>
+<dt>Set as Background</dt><dd><p>See <a href="../editing/clip.html#bpy-ops-clip-set-viewport-background">Set as Background</a>.</p>
+</dd>
+<dt>Setup Tracking Scene</dt><dd><p>See <a href="../editing/clip.html#bpy-ops-clip-setup-tracking-scene">Setup Tracking Scene</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

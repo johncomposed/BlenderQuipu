@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Edge &gt; Bridge Edge Loops</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Edge Tools</a></li>
+<li>Bridge Edge Loops</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bridge-edge-loops">
+<h1>Bridge Edge Loops</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Edge ‣ Bridge Edge Loops</p>
+</dd>
+</dl>
+</div>
+<p><em>Bridge Edge Loops</em> connects multiple edge loops with faces.</p>
+<dl>
+<dt>Connect Loops</dt><dd><dl>
+<dt>Open Loop:</dt>
+<dd><p>Loops connected with open ends.</p>
+</dd>
+<dt>Closed Loop:</dt>
+<dd><p>Tries to connect to a circular loop (where the start and end are merged).</p>
+</dd>
+<dt>Loop Pairs:</dt>
+<dd><p>Connects each even count of loops individually.</p>
+</dd>
+</dl>
+</dd>
+<dt>Merge</dt><dd><p>Merges edge loops rather than creating a new face.</p>
+</dd>
+<dt>Merge Factor</dt><dd><p>Which edge loop the edges are merged to, a value of 0.5 will merge at a half-way point.</p>
+</dd>
+<dt>Twist</dt><dd><p>Determines which vertices in both loops are connected to each other.</p>
+</dd>
+<dt>Number of Cuts</dt><dd><p>The number of intermediate edge loops used to bridge the distance between two loops.</p>
+</dd>
+<dt>Interpolation</dt><dd><p>Linear, Blend Path, Blend Surface</p>
+</dd>
+<dt>Smoothness</dt><dd><p>Smoothness of the <em>Blend Path</em> and <em>Blend Surface</em>.</p>
+</dd>
+<dt>Profile Factor</dt><dd><p>How much intermediary new edges are shrunk/expanded.</p>
+</dd>
+<dt>Profile Shape</dt><dd><p>The shape of the new edges.
+See the <a href="../../../../editors/3dview/controls/proportional_editing.html#bpy-types-toolsettings-proportional-edit-falloff">Proportional Editing</a> page
+for a description of each option.</p>
+</dd>
+</dl>
+<section id="examples">
+<h2>Examples</h2>
+<p>Simple example showing two closed edge loops.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Input.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Bridge result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example of the Bridge tool between edge loops with different numbers of vertices.</p>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Input.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Bridge result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example using the Bridge tool to cut holes in face selections and connect them.</p>
+<table>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Input.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Bridge result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example showing how Bridge tool can detect multiple loops and connect them in one step.</p>
+<table>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Input.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Bridge result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example of the subdivision option and surface blending with UVs.</p>
+<table>
+<tbody>
+<tr><td><figure id="id10">
+<figcaption>
+<p>Input.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Bridge result.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

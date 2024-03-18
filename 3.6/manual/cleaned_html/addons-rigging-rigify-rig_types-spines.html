@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Rigging &gt; Rigify &gt; Rig Types &gt; Spines</title></head>
+<body><ul>
+<li><a href="../../../index.html">Add-ons</a></li>
+<li><a href="../../index.html">Rigging</a></li>
+<li><a href="../index.html">Rigify</a></li>
+<li><a href="index.html">Rig Types</a></li>
+<li>Spines</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="spines">
+<h1>Spines</h1>
+<p>These rigs are used to generate spine structures, including the head and tail.</p>
+<section id="spines-super-spine">
+<h2><code>spines.super_spine</code></h2>
+<p>Will create a complete bendy and stretchy b-bones spine system based on bone numbers of
+your bone chain and user defined options.</p>
+<p>Requirement: A chain of at least three connected bones (base system).</p>
+<figure id="id1">
+<figcaption>
+<p>Spine required bones.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Pivot Position (integer)</dt><dd><p>Defines the pivot position for torso and hips.</p>
+</dd>
+<dt>Head (Boolean)</dt><dd><p>When checked neck and head systems will be added to your spine rig.</p>
+<dl>
+<dt>Neck Position (integer)</dt><dd><p>Defines the bone where the neck system starts. The last bone will always be the head system.
+If neck position is the last bone of the chain, then only the head system will be created ignoring the neck.</p>
+</dd>
+</dl>
+</dd>
+<dt>Tail (Boolean)</dt><dd><p>When checked tail system will be added to your spine rig.</p>
+<dl>
+<dt>Tail Position (integer)</dt><dd><p>Defines the bone where the tail system starts. The next bone will always be the hips system.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<figure id="id2">
+<figcaption>
+<p>Spine default bones.</p>
+</figcaption>
+</figure>
+<figure id="id3">
+<figcaption>
+<p>Spine with tail bones.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

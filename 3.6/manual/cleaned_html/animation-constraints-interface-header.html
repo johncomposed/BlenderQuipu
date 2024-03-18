@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Interface &gt; Header</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Header</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="header">
+<h1>Header</h1>
+<p>Every constraint has a header.
+The interface elements of the header are explained below using a Copy Location constraint as an example.</p>
+<figure id="id1">
+<figcaption>
+<p>A Header sits at the top of every constraint.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Expand (down/right arrow icon)</dt><dd><p>Show or Hide the settings of the constraint.
+Tidy up the <a href="stack.html">constraint stack</a>
+by hiding constraints that do not currently need attention.
+Constraints will continue to affect the scene even when hidden.</p>
+</dd>
+<dt>Icon</dt><dd><p>The constraint type icon.</p>
+</dd>
+</dl>
+<dl id="bpy-types-constraint-name">
+<dt>Name</dt><dd><p>Give the constraint a meaningful name in this text field, which describes its purpose.
+Meaningful names help you and your team members understand what each constraint is supposed to do.</p>
+<p>The <em>red</em> background is a warning that the constraint is not yet functional.
+The background will turn <em>gray</em> when the constraint is functioning.
+When this Copy Location constraint has a valid target in the <em>target field</em>
+it will turn gray and begin to function.</p>
+</dd>
+</dl>
+<dl id="bpy-types-constraint-enabled">
+<dt>Mute (eye icon)</dt><dd><p>Enable or Disable the constraint. Disabling a constraint will stop its affect on the scene.</p>
+<p>Disabling a constraint is useful for turning off a constraint without losing all of its settings.
+Disabling means you can enable the constraint at a later time with the settings intact.
+Disabling is similar to setting the <a href="common.html#bpy-types-constraint-influence">Influence</a> to 0.0.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-constraint-apply">
+<dt>Extras</dt><dd><dl>
+<dt>Apply <kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd></dt><dd><p>Makes the constraint “real” by applying any transformations caused by the constraint
+to make the original object to match the results of the constraint and deletes the constraint.</p>
+<div>
+<p>Warning</p>
+<p>Applying a constraint that is not first in the stack will ignore the stack order
+(it will be applied as if it was the first one), and may produce undesired results.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-ops-constraint-copy">
+<dt>Duplicate <kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></dt><dd><p>Creates a duplicate of the constraint just below current one in the stack.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-constraint-copy-to-selected">
+<dt>Copy to Selected</dt><dd><p>Copies the constraint from the <a href="../../../glossary/index.html#term-Active">Active</a> object to all selected objects.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-constraint-move-to-index">
+<dt>Move to First/Last</dt><dd><p>Moves the constraint to the first or last position in the constraint stack.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-constraint-delete">
+<dt>Delete <code>X</code> <kbd>X</kbd>, <kbd>Delete</kbd></dt><dd><p>Delete the constraint from the stack.
+The settings will be lost.
+The constraint will no longer affect the final outcome of the stack.</p>
+</dd>
+<dt>Move <code>::::</code></dt><dd><p>Move a constraint up or down in the <a href="stack.html">constraint stack</a>.
+Since the stack is evaluated from top to bottom,
+moving a constraint in the stack can significantly affect the final outcome of the stack.</p>
+<ul>
+<li><p>If there is only one constraint in the stack, the arrows will not be displayed.</p></li>
+<li><p>If the constraint is at the top of the stack, only the down arrow will be displayed.</p></li>
+<li><p>If the constraint is at the bottom of the stack, only the up arrow will be displayed.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

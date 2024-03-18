@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Instances &gt; Rotate Instances</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Instances Nodes</a></li>
+<li>Rotate Instances Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="rotate-instances-node">
+<h1>Rotate Instances Node</h1>
+<p>The <em>Rotate Instances</em> node rotates geometry instances in local or global space.</p>
+<p>The <a href="../instances.html">Instances</a> page contains more information about geometry instances.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>Boolean field used to determine if an instance will be rotated.</p>
+</dd>
+<dt>Rotation</dt><dd><p>The <a href="../../../glossary/index.html#term-Euler">Euler</a> rotation to rotate the instances by.</p>
+</dd>
+<dt>Pivot Point</dt><dd><p>The position around which each instance is rotated. If the <em>Local Space</em> input is true,
+the location is relative to the initial transform of the instance.</p>
+</dd>
+<dt>Local Space</dt><dd><p>If enabled, the instances are rotated in local space. In other words,
+they are rotated around the axes described by the initial transform of each instance.
+When the input is disabled, the pivot point and rotation are specified in
+the local space of the modifier object.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

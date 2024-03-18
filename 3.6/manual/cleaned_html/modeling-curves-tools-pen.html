@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Tools &gt; Pen</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Curves</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Curve Pen</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve-pen">
+<h1>Curve Pen</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Curve Pen</p>
+</dd>
+</dl>
+</div>
+<p>The Curve Pen tool allows you to construct and edit curves rapidly.</p>
+<section id="usage">
+<h2>Usage</h2>
+<figure id="id2">
+<figcaption>
+<p>Curve Pen Preferences</p>
+</figcaption>
+</figure>
+<p>The following preferences can be configured from:
+Preferences ‣ Keymap ‣ 3D View ‣ Curve ‣ 3D View Tool: Edit Curve, Curve Pen.</p>
+<dl>
+<dt>Extrude Point</dt><dd><p><kbd>LMB</kbd> click to add a new point connected to an existing point.</p>
+</dd>
+<dt>Extrude Handle Type</dt><dd><p>The <a href="../structure.html#curve-bezier-handle-type">handle type</a> of the extruded points.
+Can be either <em>Vector</em> or <em>Auto</em>.
+However, the handle type switches to <em>Align</em> when handles are moved (See <em>Move Point</em>).</p>
+</dd>
+<dt>Delete Point</dt><dd><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> click on an existing point to delete it.</p>
+</dd>
+<dt>Insert Point</dt><dd><p><kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> click on a <a href="../../../glossary/index.html#term-Curve-Segment">Curve Segment</a> to insert a new control point between the two
+adjacent control points. <kbd><kbd>Ctrl</kbd>-<kbd>LMB</kbd></kbd> click and drag to control the handles of the inserted points.</p>
+</dd>
+<dt>Move Segment</dt><dd><p><kbd>LMB</kbd> drag on a segment in between two control points to adjust the handles, changing the shape of the
+curve without affecting the location of any control points.</p>
+</dd>
+<dt>Select Point</dt><dd><p><kbd>LMB</kbd> click to select a single point or handle at a time.</p>
+</dd>
+<dt>Move point</dt><dd><p><kbd>LMB</kbd> drag to move existing points or handles. With an endpoint of a spline selected,
+click and drag on empty space to <em>Extrude Point</em> and move the handle at the same time.</p>
+</dd>
+<dt>Close Spline</dt><dd><p>Make the spline <a href="../../../glossary/index.html#term-Cyclic">Cyclic</a> by clicking the endpoints consecutively.</p>
+</dd>
+<dt>Close Spline Method</dt><dd><p>The condition for <em>Close Spline</em> to activate.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Turn off the Close Spline functionality.</p>
+</dd>
+<dt>On Press:</dt>
+<dd><p>Close the spline on mouse down. With this option, you may click and drag to adjust the handles of the endpoint.</p>
+</dd>
+<dt>On Click:</dt>
+<dd><p>Activate on mouse release. With this option, the <em>Close Spline</em> functionality will not be
+triggered on click and drag.</p>
+</dd>
+</dl>
+</dd>
+<dt>Toggle Vector</dt><dd><p>Double <kbd>LMB</kbd> click on a handle to switch handle between <em>Vector</em> and <em>Auto</em> handle types.
+Can be used to easily switch between sharp corners and smooth curves.</p>
+</dd>
+<dt>Cycle Handle Type</dt><dd><p>Double <kbd>LMB</kbd> click on the control point to cycle through all handle types.</p>
+</dd>
+</dl>
+</section>
+<section id="hotkeys">
+<h2>Hotkeys</h2>
+<dl>
+<dt>Free-Align Toggle</dt><dd><p>Hold <kbd>LeftShift</kbd> while dragging a handle to switch between <code>Free</code> and <code>Align</code> handle types.
+Can be used to create sharp corners along the curve.</p>
+</dd>
+<dt>Move Adjacent Handle</dt><dd><p>Hold <kbd>LeftCtrl</kbd> while dragging a handle to move the closer handle of the adjacent control point.
+Can be helpful to make adjustments to newly created curve segments.</p>
+</dd>
+<dt>Move Entire</dt><dd><p>Hold <kbd>Spacebar</kbd> while dragging a handle to move the entire point.</p>
+</dd>
+<dt>Link Handles</dt><dd><p>Press <kbd>RightCtrl</kbd> while dragging a handle to mirror its movement on the opposite handle of the same point.</p>
+</dd>
+<dt>Lock Handle Angle</dt><dd><p>Hold <kbd>LeftAlt</kbd> while dragging a handle to limit the movement of the handle to its current direction,
+so only its length can be adjusted.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

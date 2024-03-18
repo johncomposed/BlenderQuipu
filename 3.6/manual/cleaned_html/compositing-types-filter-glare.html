@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Filter &gt; Glare</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Filter Nodes</a></li>
+<li>Glare Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="glare-node">
+<h1>Glare Node</h1>
+<p>The <em>Glare node</em> is used to add lens flares, fog,
+glows around exposed parts of an image and much more.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Glare Type</dt><dd><dl>
+<dt>Ghosts:</dt>
+<dd><p>Creates a haze over the image.</p>
+</dd>
+<dt>Streaks:</dt>
+<dd><p>Creates bright streaks used to simulate lens flares.</p>
+<dl>
+<dt>Streaks</dt><dd><p>Total number of streaks.</p>
+</dd>
+<dt>Angle Offset</dt><dd><p>The rotation offset factor of the streaks.</p>
+</dd>
+<dt>Fade</dt><dd><p>Fade out factor for the streaks.</p>
+</dd>
+</dl>
+</dd>
+<dt>Fog Glow:</dt>
+<dd><p>Looks similar to <em>Ghost</em>. However, it is much smaller in size
+and gives more of an atmospheric haze or “glow” around the image.</p>
+<div>
+<p>Note</p>
+<p>Viewport compositing results will vary from CPU compositing due to different algorithms.</p>
+</div>
+<dl>
+<dt>Size</dt><dd><p>Scale of the glow relative to the size of the original bright pixels.</p>
+</dd>
+</dl>
+</dd>
+<dt>Simple Star:</dt>
+<dd><p>Works similar to <em>Streaks</em> but gives a simpler shape looking like a star.</p>
+<dl>
+<dt>Fade</dt><dd><p>Fade out factor for the streaks.</p>
+</dd>
+<dt>Rotate 45</dt><dd><p>Rotate the streaks by 45°.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Quality</dt><dd><p>If not set to something other the <em>High</em>,
+then the glare effect will only be applied to a low resolution copy of the image.
+This can be helpful to save render times while only doing preview renders.</p>
+</dd>
+<dt>Iterations</dt><dd><p>The number of times to run through the filter algorithm.
+Higher values will give more accurate results but will take longer to compute.
+Note that, this is not available for <em>Fog Glow</em> as it does not use an iterative-based algorithm.</p>
+</dd>
+<dt>Color Modulation</dt><dd><p>Used for <em>Streaks</em> and <em>Ghosts</em> to create a special dispersion effect.</p>
+<p>Johannes Itten describes this effect, Color Modulation, as subtle variations in tones and chroma.</p>
+</dd>
+<dt>Mix</dt><dd><p>Value to control how much of the effect is added on to the image.
+A value of -1 would give just the original image, 0 gives a 50/50 mix, and 1 gives just the effect.</p>
+</dd>
+<dt>Threshold</dt><dd><p>Pixels brighter than this value will be affected by the glare filter.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

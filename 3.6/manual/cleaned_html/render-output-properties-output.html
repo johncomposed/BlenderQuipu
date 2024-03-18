@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Output &gt; Properties &gt; Output</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Render Output</a></li>
+<li><a href="index.html">Output Properties</a></li>
+<li>Output</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="output">
+<h1>Output</h1>
+<figure id="id2">
+<figcaption>
+<p>Output panel.</p>
+</figcaption>
+</figure>
+<p>This panel provides options for setting the location of rendered frames for animations,
+and the quality of the saved images.</p>
+<dl id="bpy-types-rendersettings-filepath">
+<dt>File Path</dt><dd><p>Choose the location to save rendered frames.</p>
+<p>When rendering an animation,
+the frame number is appended at the end of the file name with four padded zeros (e.g. <code>image0001.png</code>).
+You can set a custom padding size by adding the appropriate number of <code>#</code> anywhere in the file name
+(e.g. <code>image_##_test.png</code> translates to <code>image_01_test.png</code>).</p>
+<p>This setting expands <a href="../../../files/blend/open_save.html#files-blend-relative-paths">Relative Paths</a>
+where a <code>//</code> prefix represents the directory of the current blend-file.</p>
+</dd>
+<dt>Saving</dt><dd><dl id="bpy-types-rendersettings-use-file-extension">
+<dt>File Extensions</dt><dd><p>Adds the correct file extensions per file type to the output files.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-use-render-cache">
+<dt>Cache Result</dt><dd><p>Saves the rendered view layers and their <a href="../../layers/passes.html">passes</a> to a multi-layer OpenEXR image.
+The Compositor can then use this file to improve performance, especially for heavy compositing.</p>
+<p>The image is stored in the <em>Render Cache</em> folder as specified in the
+<a href="../../../editors/preferences/file_paths.html">File Paths Preferences</a>.
+You can also load it back into the Image Editor’s Render Result, even after closing
+and reopening Blender; see <a href="../../../editors/image/editing.html#bpy-ops-image-read-viewlayers">Open Cached Render</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-imageformatsettings-file-format">
+<dt>File Format</dt><dd><p>Choose the file format to save to. Based on which format is used,
+other options such as channels, bit depth and compression level are available.</p>
+<p>For rendering out to images see: <a href="../../../files/media/image_formats.html#bpy-types-imageformatsettings">saving images</a>,
+for rendering to videos see the <a href="#encoding">Encoding</a> panel.</p>
+</dd>
+</dl>
+<dl id="bpy-types-imageformatsettings-color-mode">
+<dt>Color</dt><dd><p>Choose the color format to save the image to.
+Note that <em>RGBA</em> will not be available for all image formats.</p>
+<p>BW, RGB, RGBA</p>
+</dd>
+<dt>Image Sequence</dt><dd><dl id="bpy-types-rendersettings-use-overwrite">
+<dt>Overwrite</dt><dd><p>Overwrite existing files when rendering.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-use-placeholder">
+<dt>Placeholders</dt><dd><p>Create empty placeholder frames while rendering.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>Primitive Render Farm</p>
+<p>An easy way to get multiple machines to share the rendering workload is to:</p>
+<ul>
+<li><p>Set up a shared directory over a network file system.</p></li>
+<li><p>Disable <em>Overwrite</em>, enable <em>Placeholders</em> in the Render <em>Output</em> panel.</p></li>
+<li><p>Start as many machines as you wish rendering to that directory.</p></li>
+</ul>
+</div>
+<section id="color-management">
+<h2>Color Management</h2>
+<p>This panel controls how <a href="../../color_management.html">Color Management</a> is applied when saving images.</p>
+<dl id="bpy-types-imageformatsettings-color-management">
+<dt>Follow Scene:</dt>
+<dd><p>Uses the same color management settings defined by the active Scene.
+These properties are defined in the Render Settings</p>
+</dd>
+<dt>Override:</dt>
+<dd><p>Uses custom color management settings defined by the properties below in the panel;
+disregarding any color management settings set at the Scene level.</p>
+</dd>
+</dl>
+<p>For a detailed description of color management properties,
+see the <a href="../../color_management.html#render-post-color-management">Color Management</a> page.</p>
+</section>
+<section id="encoding">
+<h2>Encoding</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Output ‣ Encoding</p>
+</dd>
+</dl>
+</div>
+<figure id="id3">
+<figcaption>
+<p>Encoding panel.</p>
+</figcaption>
+</figure>
+<p>Here you choose which video container, codec, and compression settings you want to use.
+With all of these compression choices, there is a trade-off between file size,
+compatibility across platforms, and playback quality.
+In the header, you can use the presets, which choose optimum settings for you for that type of output.</p>
+<div>
+<p>Tip</p>
+<p>When you view the <a href="../../../advanced/command_line/introduction.html">System Console</a>,
+you can see some of the output of the encoding process.
+You will see even more output if you execute Blender as <code>blender -d</code>.</p>
+</div>
+<dl id="bpy-types-ffmpegsettings-format">
+<dt>Container</dt><dd><p>Video container or file type. For a list of all available options, see
+<a href="../../../files/media/video_formats.html">video formats</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-use-autosplit">
+<dt>Autosplit Output</dt><dd><p>If your video is huge and exceeds 2GiB, enable Autosplit Output.
+This will automatically split the output into multiple files after the first file is 2GiB in size.</p>
+</dd>
+</dl>
+<section id="video">
+<h3>Video</h3>
+<dl id="bpy-types-ffmpegsettings-codec">
+<dt>Video Codec</dt><dd><p>Chooses the method of compression and encoding.
+For a list of all available options see <a href="../../../files/media/video_formats.html">video formats</a>.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Standards</p>
+<p>Some containers and codecs are not compatible with each other,
+so if you are getting errors check that your container and codec are compatible.
+Like containers and codecs are sometimes not compatible with each other, some codecs
+do not work with arbitrary dimensions. So, try to stick with common dimensions
+or research the limitations of the codec you are trying to use.</p>
+</div>
+<dl id="bpy-types-ffmpegsettings-constant-rate-factor">
+<dt>Output Quality</dt><dd><p>These are preset <a href="#rate">Rate</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-ffmpeg-preset">
+<dt>Encoding Speed</dt><dd><p>Presets to change between a fast encode (bigger file size) and more compression (smaller file size).</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-gopsize">
+<dt>Keyframe Interval</dt><dd><p>The number of pictures per <a href="https://en.wikipedia.org/wiki/Group_of_pictures">Group of Pictures</a>.
+Set to 0 for “intra_only”, which disables <a href="https://en.wikipedia.org/wiki/Inter-frame">inter-frame</a> video.
+A higher number generally leads to a smaller file but needs a higher-powered device to replay it.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-use-max-b-frames">
+<dt>Max B-frames</dt><dd><p>Enables the use of <a href="../../../glossary/index.html#term-Frame-Types">B‑frames</a>.</p>
+<dl id="bpy-types-ffmpegsettings-max-b-frames">
+<dt>Interval</dt><dd><p>The maximum number of <a href="../../../glossary/index.html#term-Frame-Types">B‑frames</a> between non-B-frames.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="rate">
+<h4>Rate</h4>
+<dl id="bpy-types-ffmpegsettings-video-bitrate">
+<dt>Bitrate</dt><dd><p>Sets the average <a href="https://en.wikipedia.org/wiki/Bit_rate">bit rate</a> (quality),
+which is the count of binary digits per frame.
+See also: <a href="https://ffmpeg.org/ffmpeg.html#Description">FFmpeg -b:v</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-maxrate">
+<dt>Minimum / Maximum</dt><dd><p>Video files can use what is called variable bit rate (VBR).
+This is used to give some segments of the video less compressing to frames that need more data
+and less to frames with less data. This can be controlled by the <em>Minimum</em> and <em>Maximum</em> values.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-buffersize">
+<dt>Buffer</dt><dd><p>The <a href="https://en.wikipedia.org/wiki/Video_buffering_verifier">decoder bitstream buffer</a> size.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-muxrate">
+<dt>Mux Rate</dt><dd><p>Maximum bit rate of the multiplexed stream.
+<a href="https://www.afterdawn.com/glossary/term.cfm/multiplexing">Multiplexing</a>
+is the process of combining separate video and audio streams into a single file,
+similar to packing a video file and MP3 audio file in a zip-file.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-packetsize">
+<dt>Mux Packet Size</dt><dd><p>Reduces data fragmentation or muxer overhead depending on the source.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="audio">
+<h3>Audio</h3>
+<p>These settings change how sound is exported while rendering.
+To control how sound is played back from within Blender, see the audio settings
+in the <a href="../../../editors/preferences/system.html#prefs-system-sound">Preferences</a>.</p>
+<dl id="bpy-types-ffmpegsettings-audio-codec">
+<dt>Audio Codec</dt><dd><p>Audio format to use. For a list of all available options, see
+<a href="../../../files/media/video_formats.html">video formats</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-audio-channels">
+<dt>Audio Channels</dt><dd><p>Sets the audio channel count.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-audio-mixrate">
+<dt>Sample Rate</dt><dd><p>Sets the audio <a href="https://en.wikipedia.org/wiki/Sampling_(signal_processing)#Sampling_rate">sampling rate</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-audio-bitrate">
+<dt>Bitrate</dt><dd><p>For each codec, you can control the bit rate (quality) of the sound in the movie.
+Higher bit rates are bigger files that stream worse but sound better.
+Use powers of 2 for compatibility.</p>
+</dd>
+</dl>
+<dl id="bpy-types-ffmpegsettings-audio-volume">
+<dt>Volume</dt><dd><p>Sets the output volume of the audio.</p>
+</dd>
+</dl>
+</section>
+<section id="tips">
+<h3>Tips</h3>
+<div>
+<p>Tip</p>
+<p>The choice of video format depends on what you are planning to do.</p>
+<p>It’s not recommended to render directly to a video format in the first instance.
+If a problem occurs while rendering, the file might become unplayable and you will
+have to re-render all frames from the beginning. If you first render out a set
+of static images such as the default PNG format or the higher-quality OpenEXR
+(which can retain HDR pixel data), you can combine them as
+an <a href="../../../video_editing/edit/montage/strips/image.html">Image Strip</a>
+in the Video Sequencer. This way, you can easily:</p>
+<ul>
+<li><p>Restart the rendering from the place (the frame) where any problem occurred.</p></li>
+<li><p>Try out different video encoding options in seconds,
+rather than minutes or hours as encoding is usually much faster than rendering the 3D scene.</p></li>
+<li><p>Enjoy the rest of the features of the Video Sequencer, such as adding
+<a href="../../../video_editing/edit/montage/strips/image.html">Image Strips</a>
+from previous renders, audio, video clips, etc.</p></li>
+</ul>
+</div>
+<div>
+<p>Tip</p>
+<p>You shouldn’t post-process a lossy-compressed file as the compression artifacts may become visible.
+Lossy compression should be reserved as a final ‘delivery format’.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

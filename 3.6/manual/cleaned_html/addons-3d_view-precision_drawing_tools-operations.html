@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Precision Drawing Tools &gt; Operations</title></head>
+<body><ul>
+<li><a href="../../index.html">Add-ons</a></li>
+<li><a href="../index.html">3D View</a></li>
+<li><a href="index.html">Precision Drawing Tools (PDT)</a></li>
+<li>Operations</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="operations">
+<h1>Operations</h1>
+<p>This section will deal with explaining what the various <strong>Operations</strong> do.
+You can see a full list of available options in the table on the previous page
+(Before You Begin) for both Edit and Object modes.</p>
+<section id="cursor">
+<h2>Cursor:</h2>
+<p>This operation is concerned with placing the <strong>Cursor</strong> according to the various operators.
+it can place the Cursor by <code>Absolute</code> coordinates, <code>Delta</code> Coordinates, <code>Directional</code>
+Coordinates and either relative to its current position or an <code>Active</code> vertex, or Object.</p>
+</section>
+<section id="pivot-point">
+<h2>Pivot Point:</h2>
+<p>This operation is concerned with placing the <strong>Pivot Point</strong> according to the various operators.
+it can place the Cursor by <code>Absolute</code> coordinates, <code>Delta</code> Coordinates, <code>Directional</code>
+Coordinates and either relative to its current position or an <code>Active</code> vertex, or Object.</p>
+</section>
+<section id="move">
+<h2>Move:</h2>
+<p>This operation is concerned with <strong>Moving</strong> Geometry, or Objects according to the various operators.
+geometry can be moved by <code>Absolute</code> coordinates, <code>Delta</code> Coordinates, <code>Directional</code> Coordinates.
+in Edit mode, selected geometry is moved, in Object Mode selected Objects are moved.</p>
+<p><strong>Example 1</strong>: Move selected geometry 0.8 units at 34 degrees in front view, Set Operation to <code>Move</code>,
+set Working Plane to <code>Front(X-Z)</code>, set Distance to 0.8, set angle to 34, select geometry,
+click <code>Direction</code> button.</p>
+<p>You can see the geometry Before and After the move.</p>
+</section>
+<section id="new-vertex">
+<h2>New Vertex:</h2>
+<p>This operation is concerned with placing a <strong>New Vertex</strong> according to the various operators,
+the new vertex is set selected so it can then be manipulated.</p>
+<p><strong>Example 1:</strong> Place a New Vertex and the intersection of two edges, set Operation to <code>New Vertex</code>,
+set Working Plane to <code>Front(X-Z)</code>, select two edges, click <code>Intersect</code> button.</p>
+<p>A new Vertex has been placed at the intersection of the two Edges.</p>
+</section>
+<section id="extrude-vertices">
+<h2>Extrude Vertices:</h2>
+<p>This operation only <strong>Extrudes</strong> the vertices from selected geometry, so if you select a Face,
+and use this operation, only the vertices of the face will be extruded.
+this can also be used to “chase” a single vertex around a path, for example the edge of a complex bracket.</p>
+<p><strong>Example 1</strong>: Extrude the vertices of a face, set operation to <code>Extrude Vertices</code>,
+select the face, set some delta offsets, click <code>Delta</code> button.</p>
+<p>Only the Vertices from the Face have been extruded as edges.</p>
+</section>
+<section id="split-edges">
+<h2>Split Edges:</h2>
+<p>This operation will <strong>Split</strong> edges according to the operator you use.
+It will result in the face having one more vertex per operation, so a quad becomes a 5 sided Ngon.
+This initial split point is halfway along the chosen edge(s). If the system detects that you are
+going to split connecting edges of a face, which would ruin the topology, an error is given
+and the operation does not complete.</p>
+<p><strong>Example 1</strong>: Split the edge of a face at 25% of the way along it, set Operation to <code>Split</code>,
+set Percent to 25, select one edge, click <code>Percent</code> button.</p>
+<p><strong>Example 2</strong>: Split two edges of an extruded prism and move the split 0.8 in X, 0.4 in Z,
+set Operation to <code>Split</code>, set Working Plane to <code>Front(X-Z)</code>, set X to 0.8 &amp; Z to 0.4,
+select two edges, click <code>Delta</code> button.</p>
+<p>You can see Before and after of the two examples described above.</p>
+</section>
+<section id="duplicate-geometry">
+<h2>Duplicate Geometry:</h2>
+<p>This operation will duplicate geometry according to which operator is chosen.</p>
+<p><strong>Example 1</strong>: <strong>Duplicate</strong> selected geometry 3 units at 78 degrees in front view,
+set Operation to <code>Duplicate Geometry</code>, set working plane to <code>Front(X-Z)</code>,
+set Distance to 3 &amp; Angle to 78, click <code>Direction</code> button.</p>
+<p>You can see Before and After states of a Duplication.</p>
+</section>
+<section id="extrude-geometry">
+<h2>Extrude Geometry:</h2>
+<p>This operation will <strong>Extrude</strong> geometry, not just the vertices
+as with Extrude Vertex, but faces and edges as well.</p>
+<p><strong>Example 1</strong>: Extrude selected face 1 in X, 0.5 in Y and 0.6 in Z, set Operation to <code>Extrude Geometry</code>,
+set Working Plane to <code>Front(X-Z)</code>, set X, Y &amp; Z to 1,0.5,0.6 respectively, click <code>Delta</code> button.</p>
+<p>You can see the Top Face has been Extruded in all three axes as one operation.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

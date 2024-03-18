@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Converter &gt; Combine Color</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Converter Nodes</a></li>
+<li>Combine Color Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="combine-color-node">
+<h1>Combine Color Node</h1>
+<p>The <em>Combine Color Node</em> combines an image from its composite color channels.
+The node can combine multiple <a href="../../../glossary/index.html#term-Color-Model">Color Models</a> depending on the Mode property.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>The outputs of this node depends on the Mode property (see below).</p>
+<dl>
+<dt>Alpha</dt><dd><p>The color channel that is responsible for the image’s transparency.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><p>The color model to output.</p>
+<dl>
+<dt>RGB:</dt>
+<dd><p>Combine the three inputs: Red, Green, and Blue color channels into a single image.</p>
+</dd>
+<dt>HSV:</dt>
+<dd><p>Combine the three inputs: Hue, Saturation, and Value color channels into a single image.</p>
+</dd>
+<dt>HSL:</dt>
+<dd><p>Combine the three inputs: Hue, Saturation, and Lightness color channels into a single image.</p>
+</dd>
+<dt>YCbCrA:</dt>
+<dd><p>Combine the three inputs: Luminance, Chrominance Blue, and Chrominance Red color channels into a single image.</p>
+<dl>
+<dt>Color Space</dt><dd><p>ITU 601, ITU 709, JPEG</p>
+</dd>
+</dl>
+</dd>
+<dt>YUV:</dt>
+<dd><p>Combine the three inputs: Luminance, U chrominance, and V chrominance color channels into a single image.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard image output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<section id="blur-alpha">
+<h3>Blur Alpha</h3>
+<figure id="id1">
+<figcaption>
+<p>An example of blurring the alpha channel.</p>
+</figcaption>
+</figure>
+<p>In this first example, we take the Alpha channel and blur it,
+and then combine it back with the colors. When placed in a scene,
+the edges of it will blend in, instead of having a hard edge.
+This is almost like <a href="../../../glossary/index.html#term-Anti-Aliasing">Anti-Aliasing</a> but in a three-dimensional sense.
+Use this node setup, when adding CG elements to live action to remove any hard edges.
+Animating this effect on a broader scale will make the object appear to “phase” in and out,
+as an “out-of-phase” time-traveling sync effect.</p>
+</section>
+<section id="increase-luminance">
+<h3>Increase Luminance</h3>
+<figure id="id2">
+<figcaption>
+<p>An example of the scaling the Luminance channel.</p>
+</figcaption>
+</figure>
+<p>This example has a <em>Math (Multiply)</em> node increasing the luminance channel (Y)
+of the image to make it brighter.</p>
+<div>
+<p>Tip</p>
+<p>If running these channels through a <em>Color Ramp</em> node to adjust value,
+use the Cardinal scale for accurate representation.
+Using the Exponential scale on the luminance channel gives a high-contrast effect.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

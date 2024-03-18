@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Hair</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Hair BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="hair-bsdf">
+<h1>Hair BSDF</h1>
+<p>Cycles Only</p>
+<p>The <em>Hair</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+node is used to add shading for <a href="../../../physics/particles/hair/index.html">Hair</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the hair.</p>
+</dd>
+<dt>Offset</dt><dd><p>Controls the way the light is rotated (angular shift) for the reflection/transmission.</p>
+<figure id="id1">
+<figcaption>
+<p>Reflection Offset.</p>
+</figcaption>
+</figure>
+<figure id="id2">
+<figcaption>
+<p>Transmission Offset.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Roughness U/V</dt><dd><p>Controls the roughness in the direction light is skewed, and perpendicular to it.</p>
+<table>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Reflection Roughness.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Transmission Roughness.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Tangent</dt><dd><p>Input tangent.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Component</dt><dd><p>There are two components that can be used to control the look of the hair.
+Usually you are going to want each of these and use a <a href="mix.html">Mix Node</a>.</p>
+<dl>
+<dt>Reflection:</dt>
+<dd><p>The light that bounces off the surface of the hair.</p>
+</dd>
+<dt>Transmission:</dt>
+<dd><p>The light that passes through the hair and exits on the other side.</p>
+</dd>
+</dl>
+<figure id="id5">
+<figcaption>
+<p>With Mix node: 0 is full Reflection, 1 is full Transmission.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

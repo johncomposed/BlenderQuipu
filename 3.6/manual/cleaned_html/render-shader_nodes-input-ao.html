@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Ao</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Ambient Occlusion</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="ambient-occlusion">
+<h1>Ambient Occlusion</h1>
+<p>The <em>Ambient Occlusion</em> shader computes how much the hemisphere above the shading point is occluded.
+This can be used for procedural texturing, for example to add weathering effects to corners only.</p>
+<p>For Cycles, this is an expensive shader and can slow down render significantly.
+If render time is a concern, using Pointiness from the Geometry node or baking Ambient Occlusion will result
+in faster renders.</p>
+<div>
+<p>Note</p>
+<dl>
+<dt>Cycles Only</dt><dd><dl>
+<dt>The Ambient Occlusion node will not produce a valid result when:</dt><dd><ul>
+<li><p>The object is either a <a href="../../cycles/object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-caster">Caustic caster</a>
+or <a href="../../cycles/object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-receiver">Caustic receiver</a> while the scene
+contains an active <a href="../../cycles/object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-caster">Caustic caster</a>,
+<a href="../../cycles/object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-receiver">Caustic receiver</a>, and
+<a href="../../cycles/light_settings.html#bpy-types-cycleslightsettings-is-caustics-light">Shadow Caustic Light</a>.</p></li>
+<li><p><a href="../osl.html">Open Shading Language</a> is active while using the OptiX rendering backend.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Tint for AO output color.</p>
+</dd>
+<dt>Distance</dt><dd><p>Distance up to which other objects are considered to occlude the shading point.</p>
+</dd>
+<dt>Normal</dt><dd><p>Normal used for ambient occlusion; if nothing is connected the default shading normal is used.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Samples</dt><dd><p>Number of samples to use for ray-traced ambient occlusion sampling.
+Keep as low as possible for optimal performance.</p>
+</dd>
+<dt>Inside</dt><dd><p>Detect convex rather than concave shapes, by computing occlusion inside mesh.</p>
+</dd>
+<dt>Only Local Cycles Only</dt><dd><p>Only detect occlusion from the object itself, and not others.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Ambient occlusion with color tint.</p>
+</dd>
+<dt>AO</dt><dd><p>Ambient occlusion factor without color tint.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id1">
+<figcaption>
+<p>White AO shader.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Write &gt; Set Spline Cyclic</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Write Curve Nodes</a></li>
+<li>Set Spline Cyclic Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="set-spline-cyclic-node">
+<h1>Set Spline Cyclic Node</h1>
+<p>The <em>Set Spline Cyclic</em> controls whether each spline will loop back on itself.
+Each spline has the same number of control points whether or not it is set as cyclic.
+But when displaying in the viewport or for operations with other nodes,
+a connection will be made between the first and last control points.</p>
+<p>The input node for this data is the <a href="../read/is_spline_cyclic.html">Is Spline Cyclic Node</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>Whether or not to change the cyclic value on each spline. True values mean the value will be changed,
+false values mean the value will remain the same.</p>
+</dd>
+<dt>Cyclic</dt><dd><p>Whether or not to join the first and last points of each spline.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

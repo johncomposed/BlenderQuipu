@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Operations &gt; Merge By Distance</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Geometry Operation Nodes</a></li>
+<li>Merge by Distance Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="merge-by-distance-node">
+<h1>Merge by Distance Node</h1>
+<p>The <em>Merge by Distance</em> node merges selected mesh vertices or point cloud points within a given distance,
+merging surrounding geometry where necessary. This operation is similar to the <a href="../../../meshes/editing/mesh/cleanup.html#bpy-ops-mesh-remove-doubles">Merge by Distance</a>
+operator or the <a href="../../../modifiers/generate/weld.html">Weld Modifier</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>Boolean field that is true for parts of the geometry to be deleted.
+Unselected points will be completely unused for the operation–
+they will not be merged into other points, and no points will merge into them either.</p>
+<div>
+<p>Tip</p>
+<p>When possible, using the selection input can be a simple way to speed up the node,
+since searching for nearby points is a relatively expensive operation that gets even
+more expensive when more points are involved.</p>
+</div>
+</dd>
+<dt>Distance</dt><dd><p>The distance to use for searching for nearby points.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><p>Method for choosing which vertices are merged.</p>
+<dl>
+<dt>All:</dt>
+<dd><p>Merge includes all geometry including loose parts.</p>
+</dd>
+<dt>Connected:</dt>
+<dd><p>Merge only includes attached geometry i.e. the modifier will not merge loose parts together.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Using the selection input to only merge some of the points in a point cloud.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

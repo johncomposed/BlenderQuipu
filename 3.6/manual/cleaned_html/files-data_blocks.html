@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Data Blocks</head>
+<body><ul>
+<li><a href="index.html">Assets, Files, &amp; Data System</a></li>
+<li>Data-Blocks</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="data-blocks">
+<h1>Data-Blocks</h1>
+<p>The base unit for any Blender project is the data-block. Examples of data-blocks include:
+meshes, objects, materials, textures, node trees, scenes, texts, brushes, and even Workspaces.</p>
+<figure id="id1">
+<figcaption>
+<p>Blender File view of the Outliner.</p>
+</figcaption>
+</figure>
+<p>A data-block is a generic abstraction of very different kinds of data,
+which features a common set of basic features, properties and behaviors.</p>
+<p>Some common characteristics:</p>
+<ul>
+<li><p>They are the primary contents of the blend-file.</p></li>
+<li><p>They can reference each other, for reuse and instancing.
+(Child/parent, object/object-data, materials/images, in modifiers or constraints too…)</p></li>
+<li><p>Their names are unique within a blend-file, for a given type.</p></li>
+<li><p>They can be added/removed/edited/duplicated.</p></li>
+<li><p>They can be linked between files (only enabled for a limited set of data-blocks).</p></li>
+<li><p>They can have their own animation data.</p></li>
+<li><p>They can have <a href="custom_properties.html">Custom Properties</a>.</p></li>
+</ul>
+<p>User will typically interact with the higher level data types (objects, meshes, etc.).
+When doing more complex projects, managing data-blocks becomes more important,
+especially when inter-linking blend-files.
+The main editor for that is the <a href="../editors/outliner/index.html">Outliner</a>.</p>
+<p>Not all data in Blender is a data-block,
+bones, sequence strips or vertex groups e.g. are not,
+they belong to armature, scene and mesh types respectively.</p>
+<section id="data-block-types">
+<h2>Data-Block Types</h2>
+<figure id="id2">
+<figcaption>
+<p>Data-blocks types with their icon.</p>
+</figcaption>
+</figure>
+<p>For reference, here is a table of data-blocks types stored in blend-files.</p>
+<dl>
+<dt>Link</dt><dd><p>Library Linking, supports being linked into other blend-files.</p>
+</dd>
+<dt>Pack</dt><dd><p>File Packing, supports file contents being packed into the blend-file
+(<strong>not</strong> applicable for most data-blocks which have no file reference).</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th><p>Type</p></th>
+<th><p>Link</p></th>
+<th><p>Pack</p></th>
+<th><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p><a href="../animation/actions.html">Action</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Stores animation F-Curves.</div>
+<div>Used as data-block animation data,</div>
+<div>and the Nonlinear Animation editor.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../animation/armatures/introduction.html">Armature</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Skeleton used to deform meshes.</div>
+<div>Used as data of armature objects, and by the Armature Modifier.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../sculpt_paint/brush/brush.html">Brush</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Used by paint tools.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/cameras.html">Camera</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Used as data by camera objects.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../modeling/modifiers/modify/mesh_sequence_cache.html">Cache File</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Used by Mesh Cache modifiers.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../modeling/curves/introduction.html">Curve</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Used as data by curve, font &amp; surface objects.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../modeling/texts/introduction.html">Font</a></p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td><div>
+<div>References font files.</div>
+<div>Used by curve object-data of text objects.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../grease_pencil/introduction.html">Grease Pencil</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>2D/3D sketch data used by Grease Pencil objects.</div>
+<div>Used as overlay <em>helper</em> info, by the</div>
+<div>3D Viewport, Image, Sequencer &amp; Movie Clip editors.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../scene_layout/collections/introduction.html">Collection</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Group and organize objects in scenes.</div>
+<div>Used to instance objects, and in library linking.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../editors/image/introduction.html">Image</a></p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td><div>
+<div>Image files.</div>
+<div>Used by shader nodes and textures.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../animation/shape_keys/introduction.html">Keys (Shape Keys)</a></p></td>
+<td><p>✗</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Geometry shape storage, which can be animated.</div>
+<div>Used by mesh, curve, and lattice objects.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/lights/light_object.html">Light</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Used as object data by light objects.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="linked_libraries/index.html">Library</a></p></td>
+<td><p>✗</p></td>
+<td><p>✓</p></td>
+<td><div>
+<div>References to an external blend-file.</div>
+<div>Access from the Outliner’s <em>Blender File</em> view.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/freestyle/introduction.html">Line Style</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Used by the Freestyle renderer.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../animation/lattice.html">Lattice</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Grid based lattice deformation.</div>
+<div>Used as data of lattice objects, and by the Lattice Modifier.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../movie_clip/masking/introduction.html">Mask</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>2D animated mask curves.</div>
+<div>Used by compositing nodes &amp; sequencer strip.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/materials/introduction.html">Material</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Set shading and texturing render properties.</div>
+<div>Used by objects, meshes &amp; curves.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../modeling/metas/introduction.html">Metaball</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>An isosurface in 3D space.</div>
+<div>Used as data of metaball objects.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../modeling/meshes/introduction.html">Mesh</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Geometry made of vertices/edges/faces.</div>
+<div>Used as data of mesh objects.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../editors/clip/introduction.html">Movie Clip</a></p></td>
+<td><p>✓</p></td>
+<td><p>✗</p></td>
+<td><div>
+<div>Reference to an image sequence or video file.</div>
+<div>Used in the <em>Movie Clip</em> editor.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/shader_nodes/groups.html">Node Tree</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Groups of re-usable nodes.</div>
+<div>Used in the node editors.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../scene_layout/object/introduction.html">Object</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>An entity in the scene with location,</div>
+<div>scale, rotation.</div>
+<div>Used by scenes &amp; collections.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../sculpt_paint/brush/stroke.html">Paint Curve</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Stores a paint or sculpt stroke.</div>
+<div>Access from the paint tools.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../sculpt_paint/index.html">Palette</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Store color presets.</div>
+<div>Access from the paint tools.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../physics/particles/introduction.html">Particle</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Particle settings.</div>
+<div>Used by particle systems.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/eevee/light_probes/introduction.html">Light Probe</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Help achieve complex real-time lighting in Eevee.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../scene_layout/scene/introduction.html">Scene</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Primary store of all data displayed and animated.</div>
+<div>Used as top-level storage for objects &amp; animation.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/output/audio/speaker.html">Sounds</a></p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td><div>
+<div>Reference to sound files.</div>
+<div>Used as data of speaker objects.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/output/audio/speaker.html">Speaker</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Sound sources for a 3D scene.</div>
+<div>Used as data of speaker object.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../editors/text_editor.html">Text</a></p></td>
+<td><p>✓</p></td>
+<td><p>✗</p></td>
+<td><div>
+<div>Text data.</div>
+<div>Used by Python scripts and OSL shaders.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/materials/legacy_textures/introduction.html">Texture</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>2D/3D textures.</div>
+<div>Used by brushes and modifiers.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../interface/window_system/introduction.html">Window Manager</a></p></td>
+<td><p>✗</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>The overarching manager for all of Blender’s user interface.</div>
+<div>Includes Workspaces, notification system, operators, and keymaps.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../render/lights/world.html">World</a></p></td>
+<td><p>✓</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>Define global render environment settings.</div>
+</div>
+</td>
+</tr>
+<tr><td><p><a href="../interface/window_system/workspaces.html">Workspace</a></p></td>
+<td><p>✗</p></td>
+<td><p>—</p></td>
+<td><div>
+<div>UI layout.</div>
+<div>Used by each window, which has its own workspace.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="life-time">
+<h2>Life Time</h2>
+<p>Every data-block has its usage counted (reference count), when there is more than one,
+you can see the number of current users of a data-block to the right of its name in the interface.
+Blender follows the general rule that unused data is eventually removed.</p>
+<p>Since it is common to add and remove a lot of data while working,
+this has the advantage of not having to manually manage every single data-block.
+This works by skipping zero user data-blocks when writing blend-files.</p>
+<section id="protected">
+<h3>Protected</h3>
+<p>Since zero user data-blocks are not saved,
+there are times when you want to force the data to be kept irrespective of its users.</p>
+<p>If you are building a blend-file to serve as a library of assets that you intend to link to and from other files,
+you will need to make sure that they do not accidentally get deleted from the library file.</p>
+<p>To protect a data-block, use the button with the shield icon next to its name.
+The data-block will then never be silently deleted by Blender,
+but you can still manually remove it if needed.</p>
+</section>
+</section>
+<section id="sharing">
+<h2>Sharing</h2>
+<p>Data-blocks can be shared among other data-blocks.</p>
+<p>Examples where sharing data is common:</p>
+<ul>
+<li><p>Sharing textures among materials.</p></li>
+<li><p>Sharing meshes between objects (instances).</p></li>
+<li><p>Sharing animated actions between objects,
+for example to make all the lights dim together.</p></li>
+</ul>
+<p>You can also share data-blocks between files, see
+<a href="linked_libraries/index.html">linked libraries</a>.</p>
+</section>
+<section id="making-single-user">
+<h2>Making Single User</h2>
+<p>When a data-block is shared between several users, you can make a copy of it for a given user.
+To do so, click on the user count button to the right of its name.
+This will duplicate that data-block and assign the newly created copy to that usage only.</p>
+<div>
+<p>Note</p>
+<p>Objects have a set of more advanced actions to become single-user,
+see <a href="../scene_layout/object/editing/relations/make_single_user.html#bpy-ops-object-make-single-user">their documentation</a>.</p>
+</div>
+</section>
+<section id="removing-data-blocks">
+<h2>Removing Data-Blocks</h2>
+<p>As covered in <a href="#life-time">Life Time</a>, data-blocks are typically removed when they are no longer used.
+They can also be manually <em>unlinked</em> or <em>deleted</em>.</p>
+<p>Unlinking a data-block means that its user won’t use it anymore.
+This can be achieved by clicking on the “X” icon next to a data-block’s name.
+If you unlink a data-block from all of its users,
+it will eventually be deleted by Blender as described above (unless it is a protected one).</p>
+<p>Deleting a data-block directly erases it from the blend-file, automatically unlinking it from all of its users.
+This can be achieved by <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> on the “X” icon next to its name.</p>
+<div>
+<p>Warning</p>
+<p>Deleting some data-blocks can lead to deletion of some of its users, which would become invalid without them.
+The main example is that object-data deletion (like mesh, curve, camera…) will also delete all objects using it.</p>
+</div>
+<p>Those two operations are also available in the context menu
+when <kbd>RMB</kbd>-clicking on a data-block in the <em>Outliner</em>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Video Editing &gt; Edit &gt; Montage &gt; Strips &gt; Effects &gt; Alpha Over Under Overdrop</head>
+<body><ul>
+<li><a href="../../../../index.html">Video Editing</a></li>
+<li><a href="../../../index.html">Edit Your Project</a></li>
+<li><a href="../../index.html">Montage</a></li>
+<li><a href="../index.html">Strips</a></li>
+<li><a href="index.html">Effect Strips</a></li>
+<li>Alpha Over, Under &amp; Over Drop Strips</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="alpha-over-under-over-drop-strips">
+<h1>Alpha Over, Under &amp; Over Drop Strips</h1>
+<p>Using the alpha (transparency channel),
+this effect composites a result based on transparent areas of the dominant image.
+If you use a Scene strip, the areas of the image where there is not anything solid are transparent;
+they have an alpha value of 0. If you use a Movie strip, that movie has an alpha value of 1 (completely opaque).</p>
+<p>So, you can use the <em>Alpha Over</em> / <em>Alpha Under</em> effect to composite the CGI Scene on top of your movie.
+The result is your model doing whatever as if it was part of the movie.
+The Adjust ‣ Compositing ‣ Opacity controls how much
+the foreground is mixed over the background, fading in the foreground on top of the background.
+The colors of transparent foreground image areas are ignored and do not change the color of the background.</p>
+<section id="alpha-over">
+<h2>Alpha Over</h2>
+<p>With <em>Alpha Over</em>, the strips are layered up in the order selected; the first strip selected is the background,
+and the second one goes <em>over</em> the first one selected.
+The <em>Opacity</em> controls the transparency of the <em>foreground</em>, i.e. <em>Opacity</em> of 0.0;
+will only show the background, and an <em>Opacity</em> of 1.0 will completely override the background with the foreground
+(except in the transparent areas of this one, of course!)</p>
+<div>
+<p>Warning</p>
+<p>By clicking the <em>Premultiply Alpha</em> button in the Sidebar of the foreground strip,
+the alpha values of the two strips are not multiplied or added together.
+Use this effect when adding a foreground strip that has a variable alpha channel
+(some opaque areas, some transparent, some in between) over a strip that has a flat opaque
+(alpha=1.0 or greater) channel. If you notice a glow around your foreground objects,
+or strange transparent areas of your foreground object when using <em>Alpha Over</em>,
+enable <em>Premultiply</em>.</p>
+</div>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id1">
+<figcaption>
+<p>Alpha Over Effect.</p>
+</figcaption>
+</figure>
+</section>
+<section id="alpha-under">
+<h2>Alpha Under</h2>
+<p>With <em>Alpha Under</em>, this is the contrary:
+The first strip selected is the foreground, and the second one, the background.
+Moreover, the <em>Opacity</em> controls the transparency of the <em>background</em>, i.e. an <em>Opacity</em> of 0.0;
+will only show the foreground (the background is completely transparent),
+and an <em>Opacity</em> of 1.0 will give the same results as with <em>Alpha Over</em>.</p>
+</section>
+<section id="over-drop">
+<h2>Over Drop</h2>
+<p><em>Over Drop</em> is between the two others: as with <em>Alpha Under</em>,
+the first selected strip will be the foreground, but as with <em>Alpha Over</em>,
+the <em>Opacity</em> controls the transparency of this foreground.</p>
+<p>The <em>Over Drop</em> effect is much like the Cross,
+but puts preference to the top or second image,
+giving more of a gradual overlay effect than a blend like the Cross does. Of course,
+all of the Alpha effects respect the alpha (transparency) channel, whereas Cross does not.</p>
+<p>The degree of Alpha applied, and thus color mixing, can be controlled by an F-Curve.
+Creating a Sine wave could have the effect of the foreground fading in and out.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

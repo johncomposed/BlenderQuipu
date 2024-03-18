@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Drivers &gt; Workflow Examples</title></head>
+<body><ul>
+<li><a href="../index.html">Animation &amp; Rigging</a></li>
+<li><a href="index.html">Drivers</a></li>
+<li>Workflow &amp; Examples</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="workflow-examples">
+<h1>Workflow &amp; Examples</h1>
+<p>Simple Drivers can be configured from the pop-over that appears when adding a new Driver.
+When adding multiple Drivers or for more advanced configurations,
+it is useful to have open the <a href="../../editors/drivers_editor.html">Drivers Editor</a>.</p>
+<section id="transform-driver">
+<h2>Transform Driver</h2>
+<p>Control a property with an object’s transform.
+In this example, the Y rotation of Object 2 will be driven by the X position of Object 1.
+Starting from a simple setup with two objects:</p>
+<ol>
+<li><p>Add a Driver to the <em>Rotation Y</em> property of the second object via the context menu or with <kbd><kbd>Ctrl</kbd>-<kbd>D</kbd></kbd>.</p>
+</li>
+<li><p>Open the <em>Drivers Editor</em> and select the <em>Y Euler Rotation</em> property in the channels region.</p></li>
+<li><p>Open the Sidebar region and select the <em>Drivers</em> tab.</p></li>
+<li><p>Configure the driver to be the <em>Averaged Value</em> of a <em>Transform Channel</em> of the first object.</p>
+</li>
+<li><p>Experiment with moving the first object and notice how it affects the Y rotation of the second object.</p></li>
+</ol>
+</section>
+<section id="scripted-expression-orbit-a-point">
+<h2>Scripted Expression - Orbit a Point</h2>
+<p>Orbit an object’s position around a point with a custom <em>Scripted Expression</em>.
+The object’s position will change when scrubbing the timeline.
+Using trigonometry, circular motion can be defined in 2D using the sine and cosine functions.
+(See <a href="https://en.wikipedia.org/wiki/Unit_circle">Unit Circle</a>.)
+In this example, the current frame is used as the variable that induces the motion.
+<code>frame</code> is a <a href="drivers_panel.html#drivers-simple-expressions">Simple Expression</a> that corresponds to
+<code>bpy.context.scene.frame_current</code>.</p>
+<ol>
+<li><p>Add a driver to the X Location property.</p>
+<ol>
+<li><p>Set the <em>Driver Type</em> to <em>Scripted Expression</em>.</p></li>
+<li><p>Add the expression <code>0 + (sin(frame / 8) * 4)</code>, where:</p>
+<ul>
+<li><p><code>frame/8</code> : is the current frame of the animation, divided by 8 to slow the orbit down.</p></li>
+<li><p><code>(sin( )*4)</code> : multiplies the result of <code>sin(frame/8)</code> by 4 for a bigger circle.</p></li>
+<li><p><code>0 +</code> : is used to control the offset to the orbit center point.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Add a driver to the Y Location property with the expression <code>0 + (cos(frame / 8) * 4)</code>.</p></li>
+<li><p>Scrub the timeline to see the effect.
+Experiment with the variables to control the size and center of the orbit.</p></li>
+</ol>
+</section>
+<section id="custom-function-square-value">
+<h2>Custom Function - Square Value</h2>
+<p>Create a custom function to get the square of a value (i.e. <em>value</em><sup>2</sup>).
+Adding the function to the <em>Driver Namespace</em> allows it to be used from driver expressions.
+The <em>Driver Namespace</em> has a list of built-in functions for use in driver expressions,
+as well as constants such as π and e.
+These can be inspected via the Python Console:</p>
+<div><div><pre>&gt;&gt;&gt; bpy.app.driver_namespace[' &lt;tab&gt;
+                              acos']
+                              acosh']
+                              asin']
+                              asinh']
+                              atan']
+                              ...
+</pre></div>
+</div>
+<p>To add a new function to the <em>Driver Namespace</em>, the function itself needs to be implemented
+and then added to the <code>bpy.app.driver_namespace</code>.</p>
+<ol>
+<li><p>Add the following to the Text Editor inside Blender and press <em>Run Script</em>.</p>
+<div><div><pre>import bpy
+
+def square(val):
+   """Returns the square of the given value"""
+   return val * val
+
+# Add function to driver_namespace.
+bpy.app.driver_namespace['square'] = square
+</pre></div>
+</div>
+</li>
+<li><p>Add a driver with a <em>Scripted Expression</em> such as <code>square(frame)</code>.</p></li>
+<li><p>Observe the effect when scrubbing the timeline.</p></li>
+</ol>
+<p>There are more custom function examples available in Blender’s Text Editor
+Templates ‣ Python ‣ Driver Functions.
+Since <a href="drivers_panel.html#drivers-simple-expressions">Simple Expressions</a> cannot access
+custom functions, using them only makes sense for complex computations.</p>
+</section>
+<section id="shape-key-drivers">
+<h2>Shape Key Drivers</h2>
+<section id="improved-mesh-deformation">
+<h3>Improved Mesh Deformation</h3>
+<p>Fix intersection problems that happen when using armatures and weight painting, especially at joints.
+Shape keys can also be used to tweak and refine a rig, for example to suggest muscle formations.
+In this example, a shape key is used to improve the deformation at the elbow of a rudimentary arm.</p>
+<figure id="id1">
+<figcaption>
+<p>Left: Skeletal mesh deformation without correction.
+Right: Corrective shape key applied</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Setup</dt><dd><ol>
+<li><p>Add a mesh (in this example, a cylinder with loop cuts).</p></li>
+<li><p>Add an armature with a chain of bones.</p></li>
+<li><p>Skin the mesh to the armature using weight painting.</p></li>
+</ol>
+<p>(Note: to parent the mesh to the armature: select the mesh first,
+then the armature and use <kbd><kbd>Ctrl</kbd>-<kbd>P</kbd></kbd> to parent with auto weights.)</p>
+</dd>
+</dl>
+<p>Experiment with posing the armature and observe the deformation at the joint.
+To fix intersection problems or angles that look unsatisfactory,
+you can associate a <a href="../shape_keys/index.html">Shape Key</a> with a pose.</p>
+<dl>
+<dt>Shape Key</dt><dd><ol>
+<li><p>Pose the armature such that the problems are visible.
+Be sure to cover the extreme poses that you want to support for the rig.</p></li>
+<li><p>With the mesh selected, add a new <em>Shape Key</em> in addition to the <em>Basis</em> key.
+Properties ‣ Mesh tab ‣ Shape Keys</p></li>
+<li><p>In order to author the shape key on top of the armature deformation,
+enable both <em>Edit Mode Display</em> and <em>Cage Editing</em> in the Armature modifier.
+Properties ‣ Modifiers tab ‣ Armature Modifier ‣ Header</p></li>
+<li><p>Enter Edit Mode and select the new shape key in the properties panel.
+Adjust the vertices as desired.
+Select the <em>Basis</em> key to toggle between the original mesh and your edits.
+(Note: be careful to apply edits only to your shape and not to
+the original mesh or other existing keys.)</p></li>
+</ol>
+</dd>
+</dl>
+<p>Once you are satisfied with how the deformation looks for the problematic pose,
+you’ll need to configure a driver to activate the shape smoothly when entering that position.</p>
+<dl>
+<dt>Driver</dt><dd><ol>
+<li><p>Add a driver to the <em>Value</em> of the shape key you’ve created.</p></li>
+<li><p>Open the Drivers Editor and select the driver.</p></li>
+</ol>
+<dl>
+<dt>Method 1 – Direct mapping to a bone rotation value</dt><dd><p>A simple way to configure the driver is with a direct correspondence of
+the value of a bone’s rotation channel to the shape key activation <em>Value</em>.
+This method has the disadvantage of relying on a single channel of a bone’s
+rotation which might be insufficient to precisely express the condition
+under which the shape key should be activated.</p>
+<ol>
+<li><p>In the Drivers tab, select the <em>Averaged Value</em> of the rotation of
+the bone you are posing.</p>
+<p>Understand the rotation axis that you are interested in by enabling axes display
+in the armature or by observing the bone’s transform values in the Properties.</p>
+<p>Select the rotation channel and set it to local, meaning, the bone’s
+rotation value relative to its parent bone.</p>
+</li>
+<li><p>Manually set points in the driver curve by selecting a handle and
+dragging it or inserting values in the <em>F-Curve</em> tab.
+The Y axis represents the shape key <em>Value</em>, which should go from 0.0 to 1.0.
+The X axis is usually the frame, but for this driver it represents the rotation value in radians.
+You can have more than two points in the curve and tweak the transitions
+with the handles in the curve view (<kbd>G</kbd> to move).</p></li>
+<li><p>To verify that the driver behaves correctly, deselect the option to
+only show drivers for selected objects. This way, you can pose the armature
+and keep an eye on the driver.</p></li>
+</ol>
+</dd>
+<dt>Method 2 – Rotational difference to a target bone</dt><dd><p>This method requires an additional <em>target</em> or <em>corrective</em> bone, but it
+better expresses the spatial condition in 3D space of the bone that is
+causing the problem.</p>
+<ol>
+<li><p>In armature Edit Mode, add a new bone extruded from Bone 1,
+in the position at which Bone 2 should have the shape key active.
+This type of bones usually follow a naming convention such as
+“TAR-” (target) or “COR-” (corrective).</p></li>
+<li><p>In the Drivers tab, select the <em>Averaged Value</em> of the rotational difference
+between the bone you are rotating and the target bone.
+A rotational difference is the minimum angle between two objects in World Space.
+It is therefore important that the bones have the same root,
+so that the only thing affecting the angle between the bones is the rotation of one of them.
+When the deformation bone (Bone 2) reaches the target rotation (TAR-Bone 2)
+the rotational difference will be 0°.</p>
+</li>
+<li><p>Manually adjust the driver curve handles so that the shape key <em>Value</em>
+(Y axis) is 1.0 when the rotational difference (X axis) is 0°.
+The <em>Value</em> should be 0.0 when the arm is extended, at which point
+the rotational difference should be around 90° or more (in radians).</p></li>
+<li><p>See the steps in Method 1 on how to adjust the curve handles and
+confirm that the functionality is working. Pose the armature to
+verify that the ranges are correct.</p></li>
+</ol>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="chained-relative-shape-keys">
+<h3>Chained Relative Shape Keys</h3>
+<p>Activate different shape keys in succession.
+In this example, moving a single bone will activate first <em>Key 1</em> and then <em>Key 2</em>.
+See also <a href="../shape_keys/introduction.html#animation-shapekeys-relative-vs-absolute">relative shape keys mix additively</a>.</p>
+<dl>
+<dt>Shape Keys</dt><dd><p>Add two shape keys to a mesh, besides the <em>Basis</em>.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Basis.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Key 1: top faces moved up by 1 m.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Key 2: inner top moved up by 1 m.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Drivers</dt><dd><p>Add an armature with a single bone to control the shape keys.
+The goal is to activate the keys in succession as this bone moves up.</p>
+<p>As shown in the picture above, when the bone is halfway up, both <em>Key 1</em> and <em>Key 2</em> have an influence.
+It is a matter of preference if <em>Key 1</em> should be at its maximum <em>Value</em> before <em>Key 2</em> starts to become active,
+or how much they should overlap. This example shows a seamless blend.</p>
+<p>For a seamless blend where there is overlap, <em>Key 1</em> should have a <em>Value</em> of 0.0 when the bone
+is at the bottom and increase linearly to 1.0 until the bone is past the midpoint height.
+<em>Key 2</em> should have a value of 0.0 before the midpoint height and then increase at the same
+rate than <em>Key 1</em> until reaching <em>Value</em> 1.0 when the bone is at maximum height.</p>
+<ol>
+<li><p>Add a driver to the <em>Value</em> of <em>Key 1</em> and <em>Key 2</em>.
+In the <em>Drivers</em> tab, configure both drivers to be the <em>Averaged Value</em> of
+a variable with the bone’s Z location.</p></li>
+<li><p>Determine the range of the bone’s motion in the World Z axis by moving it up so that it is
+aligned with the top of the mesh when both keys are active. Here we will use [0.0, 2.5].</p></li>
+<li><p>Configure the driver functions so that the <em>Value</em> of the shape keys (Y axis) is as
+desired for the bone’s height (X axis).</p>
+<p>The driver functions should be linear, therefore, they can be defined analytically
+with a function of type \(y = a + bx\),
+where \(a\) is an offset in \(y\) and \(b\) is the slope.</p>
+<ol>
+<li><p>In the <em>Modifiers</em> tab, add a <em>Generator</em> of type <em>Extended Polynomial</em> for both drivers.</p></li>
+<li><p>Play with the values of \(a\) and \(b\) so that the curves go from [0.0, 1.0]
+in the Y axis and from [0.0, 2.5] in the X axis.
+The curves should overlap in the mid area of the X axis and they should have the same slope (\(b\)).</p>
+<p>Possible values are <em>Key 1</em>: \(y = 0.0 + 0.6x\) and <em>Key 2</em>: \(y = -0.5 + 0.6x\).</p>
+<p>Note that the functions go outside the range [0.0, 1.0] for the shape keys’ <em>Value</em>,
+but that has no effect because <em>Value</em> is clamped in a <em>Range</em> in the <em>Shape Keys</em> panel.</p>
+</li>
+</ol>
+</li>
+</ol>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

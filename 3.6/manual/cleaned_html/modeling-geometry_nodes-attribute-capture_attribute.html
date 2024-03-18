@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Attribute &gt; Capture Attribute</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Attribute Nodes</a></li>
+<li>Capture Attribute Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="capture-attribute-node">
+<h1>Capture Attribute Node</h1>
+<p>The <em>Capture Attribute</em> node stores the result of a field on a geometry,
+and outputs the data as a node socket so it can be used by other nodes.</p>
+<p>The result is stored on the geometry just like a regular attribute with
+a name, but instead of referencing it with a name, it is retrieved whenever
+the socket is connected to the input of a node. Later on when evaluating the node tree,
+the attribute will be removed automatically if it is no longer used.</p>
+<p>This node is essential because field input nodes like the <a href="../geometry/read/radius.html">Radius Node</a>
+work in the context of the node they are connected to. Meaning that in order to pass data like <code>radius</code>
+to a geometry that doesn’t have radius, an explicit node link with the output of this node must be used.</p>
+<div>
+<p>Note</p>
+<p>Because this node stores an <a href="../attributes_reference.html#anonymous-attributes">anonymous attribute</a> in the geometry,
+it’s essential to use the geometry output for further operations in the node tree.
+The anonymous attribute will not exist for any other geometry besides the output.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Value</dt><dd><p>The input field to evaluate.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>The <a href="../attributes_reference.html#attribute-data-types">data type</a> used for the evaluated data.</p>
+</dd>
+<dt>Domain</dt><dd><p>Which <a href="../attributes_reference.html#attribute-domains">attribute domain</a> to store the evaluated data on.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry output.</p>
+</dd>
+<dt>Attribute</dt><dd><p>The result of the evaluated field, stored on the geometry.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Here, a noise texture is evaluated in along the path of the curve in one dimension
+and rendered with a shader. The capture node is required because the output of
+the <a href="../curve/operations/curve_to_mesh.html">Curve to Mesh Node</a> does not have a “curve parameter”,
+since it is a mesh and not a curve. So, the <a href="../curve/read/spline_parameter.html">Spline Parameter Node</a>
+must be evaluated while the geometry is still a curve.</p>
+<p>Internally, after the noise texture is evaluated on the curve,
+it is automatically copied to the mesh result of the Curve to Mesh node.
+This means that anywhere <em>Attribute</em> output of this node can be connected along
+the same stream of geometry nodes, the internal attribute will be available.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

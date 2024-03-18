@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Volumes &gt; Properties</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Volumes</a></li>
+<li>Properties</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="properties">
+<h1>Properties</h1>
+<section id="grids">
+<h2>Grids</h2>
+<p>OpenVDB can contain multiple grids which represent different “layers” of volume.
+The <a href="../../interface/controls/templates/list_view.html#ui-list-view">List View</a> shows all the grids in the OpenVDB-file along with its name and data type.</p>
+</section>
+<section id="openvdb-file">
+<h2>OpenVDB File</h2>
+<dl id="bpy-types-volume-filepath">
+<dt>File Path</dt><dd><p>Volume sample file used by the volume data-block.</p>
+</dd>
+</dl>
+<dl id="bpy-types-volume-is-sequence">
+<dt>Sequence</dt><dd><p>Loads the OpenVDB-file as an animation loading separate files for individual frames.</p>
+<dl id="bpy-types-volume-frame-duration">
+<dt>Frames</dt><dd><p>Number of frames of the sequence to use.</p>
+</dd>
+</dl>
+<dl id="bpy-types-volume-frame-start">
+<dt>Start</dt><dd><p>Global starting frame of the sequence, assuming the first frame has a 1 in the file name.</p>
+</dd>
+</dl>
+<dl id="bpy-types-volume-frame-offset">
+<dt>Offset</dt><dd><p>Offset the number of the frame to use in the animation.</p>
+</dd>
+</dl>
+<dl id="bpy-types-volume-sequence-mode">
+<dt>Mode</dt><dd><p>Animation setting of the volume sequence before the start frame and after the end frame.</p>
+<dl>
+<dt>Clip:</dt>
+<dd><p>Hides frames outside the specified frame range.</p>
+</dd>
+<dt>Extend:</dt>
+<dd><p>Repeats the start frame before, and the end frame after the frame range.</p>
+</dd>
+<dt>Repeat:</dt>
+<dd><p>Cycles the frames in the sequence; restarting at frame one.</p>
+</dd>
+<dt>Ping-Pong:</dt>
+<dd><p>Repeats the frames, reversing the playback direction on every other cycle.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="viewport-display">
+<h2>Viewport Display</h2>
+<dl id="bpy-types-volumedisplay-wireframe-type">
+<dt>Wireframe</dt><dd><p>Method used to represent volumes in <a href="../../editors/3dview/display/shading.html#dview-shading-rendered">wireframe</a> shading mode.
+For heavy volume data sets, it can be useful to set the object to always display as wireframe.
+This way the 3D Viewport remains responsive but the volume still appears in the final render.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>The volume is not displayed in wireframe mode.</p>
+</dd>
+<dt>Bounds:</dt>
+<dd><p>Displays the volume as <a href="../../glossary/index.html#term-Bounding-Box">Bounding Box</a> for the entire volume grid.</p>
+</dd>
+<dt>Boxes:</dt>
+<dd><p>Displays a bounding boxes for nodes in the volume tree.</p>
+</dd>
+<dt>Points:</dt>
+<dd><p>Displays points for nodes in the volume tree.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-volumedisplay-wireframe-detail">
+<dt>Detail</dt><dd><p>The amount of detail to display for <em>Boxes</em> or <em>Points</em> wireframe mode.</p>
+<dl>
+<dt>Coarse:</dt>
+<dd><p>Display one box or point for each intermediate tree node.</p>
+</dd>
+<dt>Fine:</dt>
+<dd><p>Display a box or point for each leaf node containing 8×8 voxels.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-volumedisplay-density">
+<dt>Density</dt><dd><p>Thickness of the volume in the 3D Viewport.
+The density of the volume in the render is adjusted via
+<a href="../../render/shader_nodes/shader/volume_principled.html">Volume Shading</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-volumedisplay-interpolation-method">
+<dt>Interpolation</dt><dd><p>Interpolation method to use for the visualization of the fluid grid.</p>
+<dl>
+<dt>Linear:</dt>
+<dd><p>Linear interpolation between voxels. Gives good smoothness and speed.</p>
+</dd>
+<dt>Cubic:</dt>
+<dd><p>Cubic interpolation between voxels. Gives smoothed high quality interpolation, but is slower.</p>
+</dd>
+<dt>Closest:</dt>
+<dd><p>No interpolation between voxels. Gives raw voxels.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="slice">
+<h3>Slice</h3>
+<p>Renders only a single 2D section of the domain object.</p>
+<dl id="bpy-types-volumedisplay-slice-axis">
+<dt>Axis</dt><dd><dl>
+<dt>Auto:</dt>
+<dd><p>Adjust slice direction according to the view direction.</p>
+</dd>
+<dt>X/Y/Z:</dt>
+<dd><p>Slice along the X, Y, or Z axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-volumedisplay-slice-depth">
+<dt>Position</dt><dd><p>Position of the slice relative to the length of the respective domain side.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="render">
+<h2>Render</h2>
+<dl id="bpy-types-volumerender-space">
+<dt>Space</dt><dd><p>Specifies how volume density and step size are computed relative either to the object or world.</p>
+<dl>
+<dt>Object:</dt>
+<dd><p>Keeps volume <em>Density</em> and <em>Detail</em> the same regardless of object scale.</p>
+</dd>
+<dt>World:</dt>
+<dd><p>Specify <em>Step Size</em> and <em>Density</em> in world space.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-volumerender-step-size">
+<dt>Step Size Cycles Only</dt><dd><p>Distance between volume samples. Lower values render more detail at the cost of performance.
+If set to zero, the step size is automatically determined based on voxel size.</p>
+</dd>
+</dl>
+<dl id="bpy-types-volumerender-clipping">
+<dt>Clipping Cycles Only</dt><dd><p>Value under which voxels are considered empty space to optimize rendering.</p>
+</dd>
+</dl>
+<dl id="bpy-types-volumerender-precision">
+<dt>Precision Cycles Only</dt><dd><p>Specifies volume data precision, lower values reduce memory consumption at the cost of detail.</p>
+<dl>
+<dt>Full:</dt>
+<dd><p>Full float (Use 32 bit for all data).</p>
+</dd>
+<dt>Half:</dt>
+<dd><p>Half float (Use 16 bit for all data).</p>
+</dd>
+<dt>Variable:</dt>
+<dd><p>Automatically vary the precision and use less precision for less noticeable areas.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

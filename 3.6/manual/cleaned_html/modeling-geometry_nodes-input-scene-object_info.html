@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Input &gt; Scene &gt; Object Info</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Input Nodes</a></li>
+<li><a href="index.html">Input Scene Data Nodes</a></li>
+<li>Object Info Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="object-info-node">
+<h1>Object Info Node</h1>
+<p>The <em>Object Info</em> node gets information from objects.
+This can be useful to control parameters in the geometry node tree with an external object,
+either directly by using its geometry, or via its transformation properties.</p>
+<p>An <em>Object Info</em> node can be added quickly by dragging an object into the node editor.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Object</dt><dd><p>Object to get the properties from.</p>
+</dd>
+<dt>As Instance</dt><dd><p>Output the entire object as single instance instead of realized geometry.
+This allows instancing non-geometry object types, because the output will contain an instance of the object.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Transform Space</dt><dd><p>The transformation of the vector and geometry outputs.</p>
+<dl>
+<dt>Original:</dt>
+<dd><p>Output the geometry relative to the input object transform, and the location,
+rotation and scale relative to the world origin.</p>
+</dd>
+<dt>Relative:</dt>
+<dd><p>Bring the input object geometry, location, rotation and scale into the modified object,
+maintaining the relative position between the two objects in the scene.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Location</dt><dd><p>Location of the object in world space.</p>
+</dd>
+<dt>Rotation</dt><dd><p>Rotation of the object in world space.</p>
+</dd>
+<dt>Scale</dt><dd><p>Scale of the object in world space.</p>
+</dd>
+<dt>Geometry</dt><dd><p>Geometry of the object in world space with all its modifiers applied.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Uv &gt; Uv Texture Spaces</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">UVs</a></li>
+<li>UVs &amp; Texture Space</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="uvs-texture-space">
+<h1>UVs &amp; Texture Space</h1>
+<section id="uv-maps">
+<h2>UV Maps</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Data ‣ UV Maps</p>
+</dd>
+</dl>
+</div>
+<figure id="id4">
+<figcaption>
+<p>The UV Maps panel in the Mesh tab.</p>
+</figcaption>
+</figure>
+<p>If you have an active object, inside the Properties Editor, on the Object Data tab,
+the UV maps panel contains a <a href="../../../interface/controls/templates/list_view.html#ui-list-view">List view</a>
+that lists the UV maps created for this mesh.</p>
+<p>If you have the UV Editor open, you will see the currently selected UV map.</p>
+<dl>
+<dt>Active Render</dt><dd><p>Click the camera icon to enable that UV texture for rendering.
+If no other map is explicitly specified.</p>
+</dd>
+<dt>Add <code>+</code></dt><dd><p>Clicking the <em>Add</em> button duplicates the selected UV map or creates a new UV map if the list is empty.</p>
+</dd>
+<dt>Remove <code>-</code></dt><dd><p>Clicking the <em>Remove</em> button will remove the selected UV map.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>Note that each texture can be mapped to a specific UV layout.</p>
+</div>
+</section>
+<section id="texture-space">
+<h2>Texture Space</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Object Data ‣ Texture Space</p>
+</dd>
+</dl>
+</div>
+<p>These are settings of the <a href="../../../glossary/index.html#term-Texture-Space">Texture Space</a> used by generated texture mapping.
+The visualization of the texture space can be activated in the <a href="../../../scene_layout/object/properties/display.html">Viewport Display</a>.</p>
+<dl>
+<dt>Auto Texture Space</dt><dd><p>Adjusts the active object’s texture space automatically when transforming the object.</p>
+<dl>
+<dt>Location, Size</dt><dd><p>If the texture space is not calculated automatically then you can define
+the location and size of the texture space relative to the base object.
+These can also be adjusted from the 3D Viewport, see <a href="#editing">Editing</a> for more information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>Texture Mesh</dt><dd><p>Use another mesh for texture indices, the vertex of the two objects must be perfectly aligned.
+Otherwise the UV map will be distorted. Note that, this is only for mesh objects.</p>
+</dd>
+<dt>Match Texture Space</dt><dd><p>Modifies the <em>Location</em> and <em>Size</em> to match the objects bounding box.
+This disables Auto Texture Space. Note that, this is only for curve objects.</p>
+</dd>
+</dl>
+<section id="editing">
+<h3>Editing</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Transform ‣ Scale/Move Texture Space</p>
+</dd>
+</dl>
+</div>
+<p>To modify the texture space from the 3D Viewport, enable
+<a href="../../../scene_layout/object/editing/transform/texture_space.html#modeling-transform-edit-texture-space">Edit Texture Space</a> while transforming an object.</p>
+</section>
+<section id="accessing">
+<h3>Accessing</h3>
+<p>The automatically calculated UV map can be accessed by an object’s material through
+the <em>Generated</em> output of the <a href="../../../render/shader_nodes/input/texture_coordinate.html">Texture Coordinate Node</a>.
+This output can then be used to map any texture onto an object.</p>
+<div>
+<p>Tip</p>
+<p>Generated texture spaces do not have rotation support, to overcome this,
+a <a href="../../../render/shader_nodes/vector/mapping.html">Mapping Node</a> can be used to rotate the UV map.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

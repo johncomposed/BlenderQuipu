@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Render Settings &gt; Film</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Film</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="film">
+<h1>Film</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Film</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-cyclesrendersettings-film-exposure">
+<dt>Exposure</dt><dd><p>This can be used to change the brightness of an image.
+Different than the <em>Exposure</em> option found in the <a href="../../color_management.html#render-post-color-management">Color management</a> panel,
+this exposure option works <em>on the data</em> while the Color management exposure is on the <em>view transform</em>.</p>
+</dd>
+</dl>
+<section id="pixel-filter">
+<h2>Pixel Filter</h2>
+<p>Due to limited resolution of images and computer screens, pixel filters are needed to avoid <a href="../../../glossary/index.html#term-Aliasing">Aliasing</a>.
+This is achieved by slightly blurring the image to soften edges.</p>
+<dl id="bpy-types-cyclesrendersettings-pixel-filter-type">
+<dt>Type</dt><dd><p>Pixel Filtering algorithm to use.</p>
+<dl>
+<dt>Box:</dt>
+<dd><p>No filter.</p>
+</dd>
+<dt>Gaussian:</dt>
+<dd><p>Smooth filter.</p>
+</dd>
+<dt>Blackman-Harris:</dt>
+<dd><p>Default filter with a better balance between smoothness and detail preservation.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-filter-width">
+<dt>Width</dt><dd><p>Lower values give more crisp renders, higher values are softer and reduce aliasing.</p>
+</dd>
+</dl>
+</section>
+<section id="transparent">
+<h2>Transparent</h2>
+<p>Render the background transparent, for compositing the image over another background after rendering.</p>
+<dl id="bpy-types-cyclesrendersettings-film-transparent-glass">
+<dt>Transparent Glass</dt><dd><p>Render transmissive surfaces as transparent, for compositing glass over another background.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-film-transparent-roughness">
+<dt>Transparent Roughness</dt><dd><p>For transparent glass, keep surfaces with roughness above the threshold opaque.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

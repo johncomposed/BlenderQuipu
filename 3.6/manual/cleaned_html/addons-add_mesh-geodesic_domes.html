@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Add Mesh &gt; Geodesic Domes</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Add Mesh</a></li>
+<li>Geodesic Domes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="geodesic-domes">
+<h1>Geodesic Domes</h1>
+<p>Original introduction from Andy Houston (Blender 2.4 series)</p>
+<ul>
+<li><p>Geodesic spheres based on icosahedrons, octahedrons and tetrahedrons.</p></li>
+<li><p>Triangular, hexagonal and hex/tri combo face options.</p></li>
+<li><p>A function that turns the current shape into its geometric dual (sort of).</p></li>
+<li><p>Grid, Cylinder, Parabola, Torus and Ball primitives.</p></li>
+<li><p>Hubs and Struts. Fill out those edges and vertices with your custom, decorative meshes.</p></li>
+<li><p>Superformula deforming. Create rounded triangles, wobbly shapes, etc.</p></li>
+</ul>
+<p>Introduction by Brendon Murphy (Blender 2.6/7 series)</p>
+<ul>
+<li><p>This script can be used to create geodesic objects, not limited to domes or spheres.</p></li>
+<li><p>Each mesh type created has it’s own set of editable parameters.</p></li>
+<li><p>By editing the parameters, you can create many simple or complex mesh shapes.</p></li>
+<li><p>Create an equal-sided pyramid, a soccer ball, a wine glass and more.</p></li>
+<li><p>Limited only by your imagination (and some cool math limitations).</p></li>
+<li><p>Create complex mesh deformations with the superformula parameters.</p></li>
+<li><p>In the next section we will cover the menu types and how to use the parameters to “design” your mesh.</p></li>
+</ul>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Add Mesh then Geodesic Domes to enable the script.</p></li>
+</ul>
+</section>
+<section id="instructions">
+<h2>Instructions</h2>
+<dl>
+<dt>Main</dt><dd><p>The <em>Main</em> menu is where you will do most of your work.
+The geodesic default triangle will be shown in the 3D Viewport and
+the Object Creation parameters can be accessed here.
+Please note: I find it’s easier to use the Object Creation parameters first before moving on to
+Faces, Struts and Hubs, these will be explained in the sections below.</p>
+</dd>
+</dl>
+<p>For now, let’s look at the Object Types and their parameters:</p>
+<dl>
+<dt>Objects</dt><dd><p>There are six Object types you can create by default.
+Using the parameters you can build upon these objects to create more object types.
+Object Types have unique parameter sets and share the Superformula parameters (described below).</p>
+</dd>
+</dl>
+</section>
+<section id="geodesic-object-class-types">
+<h2>Geodesic Object Class Types</h2>
+<dl>
+<dt>Geodesic</dt><dd><p>Please note, the <em>Frequency</em> parameters have a high impact on object creation.
+To create a Geodesic Dome you must increase the <em>Frequency</em> or the default Triangle.</p>
+</dd>
+<dt>Subdivide Basic/Triacon</dt><dd><p>Class 1 is the “equilateral triangle”.
+Class 2 is the “cube”.</p>
+</dd>
+<dt>Hedron</dt><dd><p>Choose between Tetrahedron, Octahedron, Icosahedron.</p>
+</dd>
+<dt>Point</dt><dd><p>Point (vertex), edge or face pointing upwards.</p>
+</dd>
+<dt>Shape</dt><dd><p>Choose between tri, hex or star face types.</p>
+</dd>
+<dt>Round</dt><dd><p>Choose between spherical or flat. (May not work for all object types.)</p>
+</dd>
+</dl>
+<section id="geodesic-object-parameters">
+<h3>Geodesic Object Parameters</h3>
+<dl>
+<dt>Frequency</dt><dd><p>Subdivide base triangles.</p>
+</dd>
+<dt>Radius</dt><dd><p>Overall radius.</p>
+</dd>
+<dt>Eccentricity</dt><dd><p>Scaling on the X/Y axis.</p>
+</dd>
+<dt>Squish</dt><dd><p>Scaling on the Z axis.</p>
+</dd>
+<dt>Square (X/Y)</dt><dd><p>Superellipse action in X/Y.</p>
+</dd>
+<dt>Square (Z)</dt><dd><p>Superellipse action in Z.</p>
+</dd>
+<dt>Rotate (X/Y)</dt><dd><p>Rotate superellipse action in X/Y.</p>
+</dd>
+<dt>Rotate (Z)</dt><dd><p>Rotate superellipse action in Z.</p>
+</dd>
+<dt>Dual</dt><dd><p>Faces become vertices, vertices become faces, edges flip.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="geodesic-object-types">
+<h2>Geodesic Object Types</h2>
+<p>There are six Object types you can create.
+Each type has it’s own set of parameters.
+As you can see most menu items are self explanatory.
+The tooltips will give you further information on individual parameters.</p>
+<dl>
+<dt>Gap</dt><dd><p>Shrink faces in direction.
+Add or remove rows of faces based on height (Z) or (X/Y).</p>
+</dd>
+<dt>Phase</dt><dd><p>Rotate around a pivot.
+Useful for rotating deformation or use with <em>Gap</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="import-your-mesh">
+<h2>Import Your Mesh</h2>
+<p>You can import your own mesh into Geodesic Domes for use within the script.
+This is limited to the Faces, Struts and Hubs menus.</p>
+</section>
+<section id="faces">
+<h2>Faces</h2>
+<p>This Section adds extrusions and edits face structures on a mesh.</p>
+</section>
+<section id="struts">
+<h2>Struts</h2>
+<p>This section allows you to extrude an object along the edges of a mesh.</p>
+</section>
+<section id="hubs">
+<h2>Hubs</h2>
+<p>This section allows you to place an object at the vertex on a mesh.</p>
+</section>
+<section id="superformula-menu">
+<h2>Superformula Menu</h2>
+<p>The superformula settings add a variety of settings such as pinching, twisting, inflate and
+more complex edit types.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Add Mesh</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Create Geodesic object types.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport ‣ Add ‣ Mesh</p>
+</dd>
+<dt>File:</dt>
+<dd><p>add_mesh_geodesic_domes folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Andy Housten</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>To Do</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

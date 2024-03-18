@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Add Curve &gt; Curve Tools</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Add Curve</a></li>
+<li>Curve Tools</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve-tools">
+<h1>Curve Tools</h1>
+<p>This add-on provides an extensive set of tools for the manipulating
+and editing of curves. Several <abbr title="Computer-Aided Design">CAD</abbr> style curve tools are included.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Add Curve then Curve Tools to enable the script.</p></li>
+</ul>
+</section>
+<section id="interface">
+<h2>Interface</h2>
+<p>This add-on is split into sub panels with each panel having it’s own specific set of tools.</p>
+<section id="curve-info">
+<h3>Curve Info</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Sidebar ‣ Edit ‣ Curve Info</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Curve</dt><dd><p>Print splines, segments and empty splines information to the Info header and Info editor.</p>
+</dd>
+<dt>Spline</dt><dd><p>Print splines information to the Info header and Info editor.</p>
+</dd>
+<dt>Segment</dt><dd><p>Print segments information to the Info header and Info editor.</p>
+</dd>
+<dt>Length</dt><dd><p>Calculate the length of the curve and show in the add-on’s panel.</p>
+</dd>
+</dl>
+</section>
+<section id="curve-edit">
+<h3>Curve Edit</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Sidebar ‣ Edit ‣ Curve Edit</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Fillet/Chamfer</dt><dd><p>Round or chamfer Bézier point fillets.</p>
+</dd>
+<dt>Outline</dt><dd><p>Create an outline around a selected curve object.</p>
+</dd>
+<dt>Recursive Offset</dt><dd><p>Create an offset array.</p>
+</dd>
+<dt>Separate Offset/Selected</dt><dd><p>Separate the outline mesh from the original.</p>
+</dd>
+<dt>Subdivide</dt><dd><p>Subdivide selection or filleted corners.</p>
+</dd>
+<dt>Multi Subdivide</dt><dd><p>Subdivide with level of details.</p>
+</dd>
+<dt>Split at Vertex</dt><dd><p>Cuts the selected points creating openings.</p>
+</dd>
+<dt>Discretize Curve</dt><dd><p>Disconnect the selected points.</p>
+</dd>
+<dt>Array Splines</dt><dd><p>Create an array of the selected curves in Edit Mode.</p>
+</dd>
+</dl>
+</section>
+<section id="intersect">
+<h3>Intersect</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Sidebar ‣ Edit ‣ Intersect</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>2D Curve Boolean</dt><dd><p>Boolean selected curves on a 2D plane.</p>
+</dd>
+<dt>Intersect Curves</dt><dd><p>Create an intersection between flat curves on the same plane.</p>
+</dd>
+</dl>
+</section>
+<section id="surfaces">
+<h3>Surfaces</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Sidebar ‣ Edit ‣ Surfaces</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Birail</dt><dd><p>It creates a surface from a profile and two paths.
+The order in which you select the curves and its direction is important to make this function properly.</p>
+</dd>
+<dt>Convert Bézier to Surface</dt><dd><p>Convert the selected curve to a NURBS surface.</p>
+</dd>
+<dt>Convert Faces to Bézier</dt><dd><p>Select faces and convert them to Bézier curves.</p>
+</dd>
+</dl>
+<section id="loft">
+<h4>Loft</h4>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Sidebar ‣ Edit ‣ Surfaces ‣ Loft</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Loft</dt><dd><p>Loft a mesh object between two Bézier curves.</p>
+</dd>
+<dt>Auto Loft</dt><dd><p>Turn on to store the loft data if you move or edit the curves.</p>
+</dd>
+<dt>Update Auto Loft</dt><dd><p>Press this button to update the new loft mesh position after moving or editing parent curves.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="sanitize">
+<h3>Sanitize</h3>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Sidebar ‣ Edit ‣ Sanitize</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Set Origin to Spline Start</dt><dd><p>Move the origin of the curve to the first point.</p>
+</dd>
+<dt>Reset Scale</dt><dd><p>Reset the objects scale to (1, 1, 1).</p>
+</dd>
+</dl>
+<p>Cleanup:</p>
+<dl>
+<dt>Remove Doubles</dt><dd><p>Remove doubled points.</p>
+</dd>
+<dt>Short Splines</dt><dd><p>Remove selected splines based on a threshold.</p>
+</dd>
+</dl>
+<p>Join Splines:</p>
+<dl>
+<dt>Join Neighboring Splines</dt><dd><p>Join selected splines based on a threshold.</p>
+</dd>
+</dl>
+</section>
+<section id="utilities">
+<h3>Utilities</h3>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Sidebar ‣ Edit ‣ Utilities</p>
+</dd>
+</dl>
+</div>
+<p>Curve Resolution:</p>
+<dl>
+<dt>Show [ESC]</dt><dd><p>Display the resolution in the interface with a colored overlay.</p>
+</dd>
+</dl>
+<p>Spline Order:</p>
+<dl>
+<dt>Show [ESC]</dt><dd><p>Display and arrange the sequence.</p>
+</dd>
+</dl>
+<section id="path-finder">
+<h4>Path Finder</h4>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Sidebar ‣ Edit ‣ Utilities ‣ Path Finder</p>
+</dd>
+</dl>
+</div>
+<p>Tools for paths.</p>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Add Curve</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Adds functionality for Bézier/NURBS curve/surface modeling.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Sidebar ‣ Edit tab</p>
+</dd>
+<dt>File:</dt>
+<dd><p>curve_tools folder</p>
+</dd>
+<dt>Authors:</dt>
+<dd><p>MacKracken, cwolf3d, Alexander Meißner (Lichtso)</p>
+</dd>
+<dt>Contributors:</dt>
+<dd><p>guy lateur, Alexander Meißner (Lichtso), Dealga McArdle (zeffii), Marvin K. Breuer (MKB)</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>Vladimir Spivak (cwolf3d)</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

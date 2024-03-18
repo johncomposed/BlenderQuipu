@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Converter &gt; Math</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Converter</a></li>
+<li>Math Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="math-node">
+<h1>Math Node</h1>
+<p>The <em>Math Node</em> performs math operations.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>The inputs of the node are dynamic. Some inputs are only available in certain operations.
+For instance, the <em>Addend</em> input is only available in the <em>Multiply Add</em> operator.</p>
+<dl>
+<dt>Value</dt><dd><p>Input Value. Trigonometric functions read this value as radians.</p>
+</dd>
+<dt>Addend</dt><dd><p>Input Addend.</p>
+</dd>
+<dt>Base</dt><dd><p>Input Base.</p>
+</dd>
+<dt>Exponent</dt><dd><p>Input Exponent.</p>
+</dd>
+<dt>Epsilon</dt><dd><p>Input Epsilon.</p>
+</dd>
+<dt>Distance</dt><dd><p>Input Distance.</p>
+</dd>
+<dt>Min</dt><dd><p>Input Minimum.</p>
+</dd>
+<dt>Max</dt><dd><p>Input Maximum.</p>
+</dd>
+<dt>Increment</dt><dd><p>Input Increment.</p>
+</dd>
+<dt>Scale</dt><dd><p>Input Scale.</p>
+</dd>
+<dt>Degrees</dt><dd><p>Input Degrees.</p>
+</dd>
+<dt>Radians</dt><dd><p>Input Radians.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Operation</dt><dd><p>The mathematical operator to be applied to the input values:</p>
+<dl>
+<dt>Functions</dt><dd><dl>
+<dt>Add:</dt>
+<dd><p>The sum of the two values.</p>
+</dd>
+<dt>Subtract:</dt>
+<dd><p>The difference between the two values.</p>
+</dd>
+<dt>Multiply:</dt>
+<dd><p>The product of the two values.</p>
+</dd>
+<dt>Divide:</dt>
+<dd><p>The division of the first value by the second value.</p>
+</dd>
+<dt>Multiply Add:</dt>
+<dd><p>The sum of the product of the two values with <em>Addend</em>.</p>
+</dd>
+<dt>Power:</dt>
+<dd><p>The <em>Base</em> raised to the power of <em>Exponent</em>.</p>
+</dd>
+<dt>Logarithm:</dt>
+<dd><p>The log of the value with a <em>Base</em> as its base.</p>
+</dd>
+<dt>Square Root:</dt>
+<dd><p>The square root of the value.</p>
+</dd>
+<dt>Inverse Square Root:</dt>
+<dd><p>One divided by the square root of the value.</p>
+</dd>
+<dt>Absolute:</dt>
+<dd><p>The input value is read without regard to its sign.
+This turns negative values into positive values.</p>
+</dd>
+<dt>Exponent:</dt>
+<dd><p>Raises <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler’s number</a>
+to the power of the value.</p>
+</dd>
+</dl>
+</dd>
+<dt>Comparison</dt><dd><dl>
+<dt>Minimum:</dt>
+<dd><p>Outputs the smallest of the input values.</p>
+</dd>
+<dt>Maximum:</dt>
+<dd><p>Outputs the largest of two input values.</p>
+</dd>
+<dt>Less Than:</dt>
+<dd><p>Outputs 1.0 if the first value is smaller than the second value. Otherwise the output is 0.0.</p>
+</dd>
+<dt>Greater Than:</dt>
+<dd><p>Outputs 1.0 if the first value is larger than the second value. Otherwise the output is 0.0.</p>
+</dd>
+<dt>Sign:</dt>
+<dd><p>Extracts the sign of the input value. All positive numbers
+will output 1.0. All negative numbers will output -1.0. And 0.0 will output 0.0.</p>
+</dd>
+<dt>Compare:</dt>
+<dd><p>Outputs 1.0 if the difference between the two input values is less than or equal to <em>Epsilon</em>.</p>
+</dd>
+<dt>Smooth Minimum:</dt>
+<dd><p><a href="https://en.wikipedia.org/wiki/Smooth_maximum">Smooth Minimum</a>.</p>
+</dd>
+<dt>Smooth Maximum:</dt>
+<dd><p><a href="https://en.wikipedia.org/wiki/Smooth_maximum">Smooth Maximum</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Rounding</dt><dd><dl>
+<dt>Round:</dt>
+<dd><p>Rounds the input value to the nearest integer.</p>
+</dd>
+<dt>Floor:</dt>
+<dd><p>Rounds the input value down to the nearest integer.</p>
+</dd>
+<dt>Ceil:</dt>
+<dd><p>Rounds the input value up to the nearest integer.</p>
+</dd>
+<dt>Truncate:</dt>
+<dd><p>Outputs the integer part of the <em>value</em>.</p>
+</dd>
+<dt>Fraction:</dt>
+<dd><p>Returns the fractional part of the <em>value</em>.</p>
+</dd>
+<dt>Modulo:</dt>
+<dd><p>Outputs the remainder once the first value is divided by the second value.</p>
+</dd>
+<dt>Wrap:</dt>
+<dd><p>Outputs a value between <em>Min</em> and <em>Max</em> based on the absolute difference between
+the input value and the nearest integer multiple of <em>Max</em> less than the value.</p>
+</dd>
+<dt>Snap:</dt>
+<dd><p>Rounds the input value down to the nearest integer multiple of <em>Increment</em>.</p>
+</dd>
+<dt>Ping-pong:</dt>
+<dd><p>The output value is moved between 0.0 and the <em>Scale</em> based on the input value.</p>
+</dd>
+</dl>
+</dd>
+<dt>Trigonometric</dt><dd><dl>
+<dt>Sine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Sine">Sine</a> of the input value.</p>
+</dd>
+<dt>Cosine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">Cosine</a> of the input value.</p>
+</dd>
+<dt>Tangent:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">Tangent</a> of the input value.</p>
+</dd>
+<dt>Arcsine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arcsine</a> of the input value.</p>
+</dd>
+<dt>Arccosine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arccosine</a> of the input value.</p>
+</dd>
+<dt>Arctangent:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arctangent</a> of the input value.</p>
+</dd>
+<dt>Arctan2:</dt>
+<dd><p>Outputs the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Inverse Tangent</a>
+of the first value divided by the second value measured in radians.</p>
+</dd>
+<dt>Hyperbolic Sine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Sine</a> of the input value.</p>
+</dd>
+<dt>Hyperbolic Cosine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Cosine</a> of the input value.</p>
+</dd>
+<dt>Hyperbolic Tangent:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Tangent</a> of the input value.</p>
+</dd>
+</dl>
+</dd>
+<dt>Conversion</dt><dd><dl>
+<dt>To Radians:</dt>
+<dd><p>Converts the input from degrees to radians.</p>
+</dd>
+<dt>To Degrees:</dt>
+<dd><p>Converts the input from radians to degrees.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Clamp</dt><dd><p>Limits the output to the range (0.0 to 1.0). See <a href="../../../glossary/index.html#term-Clamp">Clamp</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>Numerical value output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Fluid &gt; Type &gt; Domain &gt; Gas &gt; Viewport Display</head>
+<body><ul>
+<li><a href="../../../../index.html">Physics</a></li>
+<li><a href="../../../index.html">Fluid</a></li>
+<li><a href="../../index.html">Type</a></li>
+<li><a href="../index.html">Domain</a></li>
+<li><a href="index.html">Gas Settings</a></li>
+<li>Viewport Display</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewport-display">
+<h1>Viewport Display</h1>
+<dl id="bpy-types-fluiddomainsettings-display-thickness">
+<dt>Thickness</dt><dd><p>Factor that scales the thickness of the grid that is currently being displayed.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-display-interpolation">
+<dt>Interpolation</dt><dd><p>Interpolation method to use for the visualization of the fluid grid.</p>
+<dl>
+<dt>Linear</dt><dd><p>Linear interpolation between voxels. Gives good smoothness and speed.</p>
+</dd>
+<dt>Cubic</dt><dd><p>Cubic interpolation between voxels. Gives smoothed high quality interpolation, but is slower.</p>
+</dd>
+<dt>Closest</dt><dd><p>No interpolation between voxels. Gives raw voxels.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-slice-per-voxel">
+<dt>Slice per Voxel</dt><dd><p>Determines how many slices per voxel should be generated.</p>
+</dd>
+</dl>
+<section id="slice">
+<h2>Slice</h2>
+<p>Renders only a single 2D section of the domain object.</p>
+<dl id="bpy-types-fluiddomainsettings-slice-axis">
+<dt>Axis</dt><dd><dl>
+<dt>Auto</dt><dd><p>Adjust slice direction according to the view direction.</p>
+</dd>
+<dt>X/Y/Z</dt><dd><p>Slice along the X/Y/Z axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-slice-depth">
+<dt>Position</dt><dd><p>Position of the slice relative to the length of the respective domain side.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-show-gridlines">
+<dt>Gridlines Closest Interpolation Only</dt><dd><p>Display gridlines to differentiate the underlying cells in the current slice of the fluid domain.</p>
+</dd>
+</dl>
+</section>
+<section id="grid-display">
+<h2>Grid Display</h2>
+<p>Use a specific color map for the visualization of the simulation field.
+This comes in handy during debugging or when making more advanced
+adjustments to the simulation. For instance, if the actual color of
+a fire simulation is barely visible in the viewport then changing
+the color profile can help to see the real size of the flame.</p>
+<dl id="bpy-types-fluiddomainsettings-color-ramp-field">
+<dt>Field</dt><dd><p>The simulation field used in the display options (e.g. density, fuel, heat).</p>
+<table id="id1">
+<caption>Comparison of a fire simulation with and without color mapping.</caption>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Slice view of “fire” grid without color mapping.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Slice view of “fire” grid with color mapping.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-color-ramp-field-scale">
+<dt>Scale</dt><dd><p>Scale the selected simulation field by this value.</p>
+</dd>
+</dl>
+</section>
+<section id="vector-display">
+<h2>Vector Display</h2>
+<p>Visualization options for the vector fields.</p>
+<dl id="bpy-types-fluiddomainsettings-vector-display-type">
+<dt>Display As</dt><dd><dl>
+<dt>Streamlines</dt><dd><p>Choose to display the vectors as “Streamlines”.</p>
+</dd>
+<dt>Needle</dt><dd><p>Choose to display the vectors as “Needles”.</p>
+</dd>
+<dt>MAC Grid</dt><dd><p>Choose to display the vector field as “Marker-And-Cell Grid”.</p>
+<dl id="bpy-types-fluiddomainsettings-vector-show-mac-z">
+<dt>X/Y/Z</dt><dd><p>Show an individual X/Y/Z component of the MAC grid.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-vector-scale-with-magnitude">
+<dt>Magnitude Streamlines or Needle Only</dt><dd><p>Scale the display vectors by the magnitude of the vectors they represent.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-vector-field">
+<dt>Field</dt><dd><p>The vector field represented by the display vectors (e.g. fluid velocity, external forces).</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-vector-scale">
+<dt>Scale</dt><dd><p>Scale the vectors by this size in the viewport.</p>
+</dd>
+</dl>
+</section>
+<section id="advanced-gridlines-only">
+<h2>Advanced Gridlines Only</h2>
+<p>Advanced coloring options for gridlines.</p>
+<dl id="bpy-types-fluiddomainsettings-gridlines-color-field">
+<dt>Color Gridlines</dt><dd><dl>
+<dt>Flags</dt><dd><p>Color gridlines with flags.</p>
+</dd>
+<dt>Highlight Range Grid Display Only</dt><dd><p>Highlight the cells with values of the displayed grid within the range.
+Values between the <em>Lower Bound</em> and <em>Upper Bound</em> (inclusive) are considered to be within the range.</p>
+<dl id="bpy-types-fluiddomainsettings-gridlines-lower-bound">
+<dt>Lower Bound</dt><dd><p>Lower bound of the highlighting range.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-gridlines-upper-bound">
+<dt>Upper Bound</dt><dd><p>Upper bound of the highlighting range.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-gridlines-range-color">
+<dt>Color</dt><dd><p>Color used to highlight the cells.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-gridlines-cell-filter">
+<dt>Cell Type</dt><dd><p>Choose to highlight only a particular type of cells.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

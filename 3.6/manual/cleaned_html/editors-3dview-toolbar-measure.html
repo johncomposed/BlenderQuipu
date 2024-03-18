@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Toolbar &gt; Measure</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">3D Viewport</a></li>
+<li><a href="index.html">Toolbar</a></li>
+<li>Measure</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="measure">
+<h1>Measure</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Measure</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Measure</em> tool is an interactive tool where you can drag lines in the scene to measure distances or angles.
+Snapping to geometry could be activated for better accuracy or to measure wall thickness.
+The <em>Measure</em> tool can be accessed from the Toolbar.</p>
+<figure id="id2">
+<figcaption>
+<p>Examples of the Measure tool.</p>
+</figcaption>
+</figure>
+<section id="usage">
+<h2>Usage</h2>
+<p>Here are some common steps for using the <em>Measure</em> tool:</p>
+<ol>
+<li><p>Activate the <em>Measure</em> tool from the Toolbar.</p></li>
+<li><p>Click and drag in the viewport to define the initial start and end point for the ruler.
+You can add multiple rulers in the viewport.</p></li>
+<li><p>Drag either end of the ruler to move it.</p>
+<ul>
+<li><p>Holding <kbd>Ctrl</kbd> while moving enables snapping to edges and vertices.</p></li>
+<li><p>Holding <kbd>Shift</kbd> while moving lets you measure the distance between faces.
+This only works well with parallel faces, e.g. walls.</p></li>
+</ul>
+<p>You can always navigate (pan, zoom, …)
+or change the view (orthogonal, perspective) in the viewport to have better access to the ruler.</p>
+</li>
+<li><p>Click on the midpoint of a created ruler to convert it to a protractor.
+The midpoint can then be dragged just like the endpoints.</p></li>
+<li><p>A selected ruler can be deleted with <kbd>Delete</kbd> or <kbd>X</kbd>.
+To delete all measurements, delete the “RulerData3D” layer in
+the Sidebar ‣ View ‣ Annotations panel (see image above).</p></li>
+</ol>
+<p>All measurements are hidden when another tool is selected.
+They are shown when the <em>Measure</em> tool is selected again.
+However, you can do editing operations while the ruler is active.
+For example, you can edit the rotation or scale of the selected object in the Sidebar.</p>
+<p>Measurements do not appear in the Render output.</p>
+<p>Unit settings and scale from the scene are used for displaying dimensions.
+Changing the unit system (metric, imperial), or the units of length (cm, m, …)
+or angle (degrees, radians) will update the measurements.</p>
+<div>
+<p>Tip</p>
+<p>In Edit Mode only, there is also a <em>Measurement</em> group in the
+<a href="../display/overlays.html">Viewport Overlays</a> popover.
+Using the settings in this group, you can have the viewport automatically
+display measurements for selected edges and faces, without the need to
+manually create a ruler.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

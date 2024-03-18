@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Dope Sheet &gt; Grease Pencil</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Dope Sheet</a></li>
+<li>Grease Pencil</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="grease-pencil">
+<h1>Grease Pencil</h1>
+<p>This Mode allows you adjust the timing of the <a href="../../grease_pencil/index.html">Grease Pencil object’s</a>
+animation frames. It is especially useful for animators blocking out shots,
+where the ability to re-time blocking is one of the main purposes of the whole exercise.</p>
+<p>This mode can be accessed by changing the Dope Sheet editor’s <em>Mode</em> selector (found in the header to the far left)
+to Grease Pencil.</p>
+<p>To use this editor mode, make sure you have a <a href="../../grease_pencil/index.html">Grease Pencil object</a> selected.</p>
+<section id="channels-region">
+<h2>Channels Region</h2>
+<dl>
+<dt>Grease Pencil (light blue)</dt><dd><p>The channels’ region shows the Grease Pencil data-blocks containing the layers.
+Multiple blocks are used for each area (e.g. one for the 3D Viewport and the Image editor).</p>
+</dd>
+<dt>Layers (gray)</dt><dd><p>These channels contain the keyframes to which
+the <a href="../../grease_pencil/properties/layers.html">layers</a> are bound.</p>
+<dl>
+<dt>Opacity</dt><dd><p>Controls the layers <a href="../../grease_pencil/properties/layers.html#bpy-types-gpencillayer-opacity">Opacity</a>.</p>
+</dd>
+<dt>Mask (mask icon)</dt><dd><p>Toggle the <a href="../../grease_pencil/properties/masks.html">Masks</a> visibility.</p>
+</dd>
+<dt>Onion Skinning (onion skin icon)</dt><dd><p>Toggle the use the layer for <a href="../../grease_pencil/properties/onion_skinning.html">Onion Skinning</a>.</p>
+</dd>
+<dt>Viewport/Render Visibility (eye icon)</dt><dd><p>Toggle layer visibility in the viewport and in render.</p>
+</dd>
+<dt>Lock Animation (checkbox icon)</dt><dd><p>Toggles playback of animation or keep the channel static.</p>
+</dd>
+<dt>Lock (padlock icon)</dt><dd><p>Toggle layer from being editable.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="header">
+<h2>Header</h2>
+<dl>
+<dt>Layer Move</dt><dd><p>Moves the selected layer/channel up or down in the evaluation stack.</p>
+</dd>
+<dt>Layer Add/Remove</dt><dd><p>Adds/removes Grease Pencil layers/channels.</p>
+</dd>
+</dl>
+<section id="insert-keyframe">
+<h3>Insert Keyframe</h3>
+<p>Insert Keyframe <kbd>I</kbd> can be used for creating blank Grease Pencil frames at a particular frame.
+It will create blank frames if <em>Additive Drawing</em> is disabled, otherwise
+it will make a copy of the active frame on that layer, and use that.</p>
+</section>
+<section id="copying-frames">
+<h3>Copying Frames</h3>
+<p>It is possible to copy frames from one layer to another,
+or from object to object, using the <em>Copy</em> and <em>Paste</em> tools in the <em>Key</em> menu.
+Note that keyframes will be pasted into selected layers, so make sure you have a destination layer selected.</p>
+</section>
+</section>
+<section id="main-view">
+<h2>Main View</h2>
+<p>The keyframes can be manipulated like any other data in the <em>Dope Sheet</em>.
+Interpolated keyframes (alias breakdowns) are visualized as smaller light blue points.</p>
+</section>
+<section id="sidebar">
+<h2>Sidebar</h2>
+<p>The Sidebar contains a copy of the Grease Pencil <a href="../../grease_pencil/properties/layers.html">Layer Properties</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

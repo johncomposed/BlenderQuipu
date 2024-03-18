@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Structure</title></head>
+<body><ul>
+<li><a href="index.html">Grease Pencil</a></li>
+<li>Structure</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="structure">
+<h1>Structure</h1>
+<p>Grease Pencil object has three main basic components: <em>points</em>, <em>edit lines</em> and <em>strokes</em>.</p>
+<figure id="id1">
+<figcaption>
+<p>Example of Grease Pencil structure.</p>
+</figcaption>
+</figure>
+<section id="points">
+<h2>Points</h2>
+<p>The main element used in editing Grease Pencil objects are points.
+Points represent a single point in 3D space.</p>
+<p>Each point stores all the properties that define the final appearance of the strokes
+as its location, thickness, alpha, weight and UV rotation for textures.</p>
+<div>
+<p>Note</p>
+<p>Point (Grease Pencil) and Vertex (meshes) are equivalent names.</p>
+</div>
+</section>
+<section id="edit-lines">
+<h2>Edit Lines</h2>
+<p>Points are always connected by a straight line,
+which you see when you are editing in Edit Mode or when you look at a stroke in wireframe view.
+They are invisible on the rendered image and are used to construct the final stroke.</p>
+</section>
+<section id="strokes">
+<h2>Strokes</h2>
+<p>The stroke is the rendered image of the points and edit lines,
+using a particular <a href="materials/introduction.html">Grease Pencil material</a>.
+(Grease Pencil materials are linked at stroke level.)</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

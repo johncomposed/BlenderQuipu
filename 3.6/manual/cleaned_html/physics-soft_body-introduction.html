@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Soft Body &gt; Introduction</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Soft Body</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Soft body simulation is used for simulating soft deformable objects.
+It was designed primarily for adding secondary motion to animation,
+like jiggle for body parts of a moving character.</p>
+<p>It also works for simulating more general soft objects that bend, deform and
+react to forces like gravity and wind, or collide with other objects.</p>
+<p>While it can simulate cloth and other stiff types of deformable objects to
+an extent, the <a href="../cloth/index.html">Cloth Simulation</a> can do it better
+with a solver specifically designed for this purpose.</p>
+<p>The simulation works by combining existing animation on the object with forces
+acting on it. There are exterior forces like gravity or force fields and
+interior forces that hold the vertices together.
+This way you can simulate the shapes that an object would take on in reality if it had volume,
+was filled with something, and was acted on by real forces.</p>
+<p>Soft bodies can interact with other objects through <em>Collision</em>.
+They can interact with themselves through <em>Self-Collision</em>.</p>
+<p>The result of the soft body simulation can be converted to a static object.
+You can also <em>bake edit</em> the simulation, i.e.
+edit intermediate results and run the simulation from there.</p>
+<section id="typical-scenarios-for-using-soft-bodies">
+<h2>Typical Scenarios for using Soft Bodies</h2>
+<figure id="id1">
+<figcaption>
+<p>The wind cone is a soft body, as the suspension.</p>
+<div>
+<p><a href="https://vimeo.com/1865817">Animation</a></p>
+</div>
+</figcaption>
+</figure>
+<p>Soft bodies are well suited for:</p>
+<ul>
+<li><p>Jiggle on moving characters.</p></li>
+<li><p>Elastic and deformable objects made of materials like rubber or gelatin.</p></li>
+<li><p>Tree branches moving in the wind, swinging ropes, and the like.</p></li>
+<li><p>Flags, wide sleeves, cushions or other simple fabric reacting to forces.</p></li>
+</ul>
+<p>The following videos may give you some more ideas:</p>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=hLnY-OFUBzM">https://www.youtube.com/watch?v=hLnY-OFUBzM</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=qdusMZlBbQ4">https://www.youtube.com/watch?v=qdusMZlBbQ4</a></p></li>
+</ul>
+</section>
+<section id="creating-a-soft-body">
+<h2>Creating a Soft Body</h2>
+<p>Soft body simulation works for all objects that have vertices or control points
+(meshes, curves, surfaces, and lattices).</p>
+<p>To add a soft body simulation to an object,
+go to the <em>Physics</em> tab in the Properties and activate the <em>Soft Body</em> button.
+For a reference of all the settings see <a href="settings/index.html">this page</a>.</p>
+<p>You start a soft body simulation by playback animation with <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd>,
+and stop the simulation with <kbd>Esc</kbd> or <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd>.</p>
+</section>
+<section id="interaction-in-real-time">
+<h2>Interaction in Real-Time</h2>
+<p>To work with a soft body simulation, you will find it handy to use the Timeline editor.
+You can change between frames and the simulation will always be shown in the actual state.
+You can interact in real-time with the simulation,
+e.g. by moving collision objects or shaking a soft body object.</p>
+<p>You can then select the soft body object while running the simulation and <em>Apply</em>
+the modifier in the <em>Modifiers</em> tab of the Properties.
+This makes the deformation permanent.</p>
+</section>
+<section id="tips">
+<h2>Tips</h2>
+<ul>
+<li><p>Soft bodies work especially well if the objects have an even vertex distribution.
+You need enough vertices for good collisions. You change the deformation
+(the stiffness) if you add more vertices in a certain region.</p></li>
+<li><p>The calculation of collisions may take a long time. If something is not visible, why calculate it?</p></li>
+<li><p>To speed up the collision calculation it is often useful to collide with an additional,
+simpler, invisible, somewhat larger object.</p></li>
+<li><p>Use soft bodies only where it makes sense.
+If you try to cover a body mesh with a tight piece of cloth and animate solely with soft body,
+you will have no success. Self-collision of soft body hair may be activated,
+but that is a path that you have to wander alone. We will deal with
+<a href="collision.html">Collisions</a> in detail later.</p></li>
+<li><p>Try and use a <em>Lattice</em> or a <em>Curve Guide</em> soft body instead of the object itself. This may be magnitudes faster.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

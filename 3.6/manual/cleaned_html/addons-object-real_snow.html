@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Object &gt; Real Snow</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Object</a></li>
+<li>Real Snow</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="real-snow">
+<h1>Real Snow</h1>
+<p>This add-on allows you to add snow on top of objects.</p>
+<p>The main principle behind this addon is to add a particle system of metaballs
+on top of the selected object and transform it to mesh.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Object then Real Snow to enable the script.</p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<ol>
+<li><p>Open the <cite>Real Snow</cite> tab available in the N sidebar of the 3D Viewport.</p></li>
+<li><p>Select objects you want to add snow on top.</p></li>
+<li><p>Change the parameters and click on the “Add Snow” button to generate the snow.</p></li>
+</ol>
+<div>
+<p>Note</p>
+<ul>
+<li><p>The snow material use microdisplacement to achieve realistic result.
+You need to change the <cite>render engine</cite> to Cycles and <cite>Feature Set</cite>
+to experimental in order for microdisplacement to be working.</p></li>
+<li><p>You can also add snow only on part of an object by selecting the faces
+in edit mode and activating the “Selected Faces” toggle in the panel.</p></li>
+</ul>
+</div>
+</section>
+<section id="parameters">
+<h2>Parameters</h2>
+<dl>
+<dt>Coverage</dt><dd><p>Percentage of the area to be covered by snow.</p>
+</dd>
+<dt>Height</dt><dd><p>Height of the snow to apply (define the radius of the metaballs).</p>
+</dd>
+<dt>Selected Faces</dt><dd><p>If enabled, only the selected faces will receive snow otherwise every face pointing up will be covered by snow.</p>
+</dd>
+<dt>Add Snow</dt><dd><p>Adds the snow on the selected objects.</p>
+</dd>
+</dl>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Object</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Generate snow mesh.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport ‣ Properties Panel</p>
+</dd>
+<dt>File:</dt>
+<dd><p>real_snow.py</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Marco Pavanello (Wolf), Leon Zandman (Izandman), Drew Perttula</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

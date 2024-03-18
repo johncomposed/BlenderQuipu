@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Filter &gt; Dilate Erode</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Filter Nodes</a></li>
+<li>Dilate/Erode Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="dilate-erode-node">
+<h1>Dilate/Erode Node</h1>
+<p>The <em>Dilate/Erode node</em> provides a morphology (mathematical shape analysis) filter.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mask</dt><dd><p>Single color channel (or a black-and-white image) input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><p>Step, Threshold, Distance, Feather</p>
+</dd>
+<dt>Distance</dt><dd><p>The Distance is the filter radius.
+A positive value of Distance dilates (expands) the influence of a pixel on its surrounding pixels.
+A negative value erodes (shrinks) its influence.</p>
+</dd>
+<dt>Edge</dt><dd><p>Edge to inset.</p>
+</dd>
+<dt>Falloff</dt><dd><p>Falloff type the feather.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mask</dt><dd><p>The filtered mask output.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>In this example, we wanted to take the rather boring array of ball bearings and
+add some variation to it. So, we dilated the red and eroded the green, leaving the blue alone.
+If we had dilated both red and green… (hint: red and green make yellow).
+The amount of influence is increased by increasing the <em>Distance</em> values.
+<a href="https://archive.blender.org/wiki/uploads/5/51/Derotest.blend">Blend-file available here</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

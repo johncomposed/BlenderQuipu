@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Attribute &gt; Blur Attribute</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Attribute Nodes</a></li>
+<li>Blur Attribute Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="blur-attribute-node">
+<h1>Blur Attribute Node</h1>
+<p>The <em>Blur Attribute</em> node smooths attribute values between neighboring geometry elements.</p>
+<p>The goal of each step is mixing values of each element with its neighbors.
+The weight for element is factor for multiplying all neighbor’s values before accumulating them as new primitive
+value.</p>
+<p>Blurring will only work with certain geometry types and <a href="../attributes_reference.html#attribute-domains">attribute domains</a>.
+Therefore, the attribute can only be affected on the <a href="../../meshes/introduction.html">Meshes</a> and
+<a href="../../curves/introduction.html">Curves</a> components.</p>
+<p>The domains this node works on is based on the <a href="../fields.html#field-context">field context</a> of the node’s evaluation.
+Only domains with explicit relations with their neighbors will work with this node.
+Explicit relations for correct blurring are vertices, edges, and faces of meshes, and curve control points.</p>
+<div>
+<p>Note</p>
+<p>Blurring of face corner attributes is not handled by this node,
+because the ideal behavior for mixing face corner values is not clear.</p>
+</div>
+<p>All <a href="../attributes_reference.html#attribute-data-types">attribute data types</a> are supported except
+for boolean attributes.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Value</dt><dd><p>The immediate value of each primitive to blur.</p>
+</dd>
+<dt>Iterations</dt><dd><p>Number of repetitions of mixing value with neighbors. Each iteration is independent.
+Until one iteration is completed, its results are not used as a source for next blurring.</p>
+</dd>
+<dt>Weight</dt><dd><p>Weight of each primitive.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>The <a href="../attributes_reference.html#attribute-data-types">data type</a> used for the evaluated data.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>Values, mixed with neighbors defined number of times.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Input is Mesh Plane. First <a href="../mesh/operations/subdivide_mesh.html">Subdivide Mesh Node</a> add some
+faces for capture color with <a href="../utilities/random_value.html">Random Value Node</a>
+used as hue in <a href="../utilities/color/combine_color.html">Combine Color Node</a> on this.
+Now second <a href="../mesh/operations/subdivide_mesh.html">Subdivide Mesh Node</a> split each face on a lot of new.
+Each one new duplicates original attribute.
+Blur Attribute node mixes all attributes for each face. Due to this, the result is smoothed.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

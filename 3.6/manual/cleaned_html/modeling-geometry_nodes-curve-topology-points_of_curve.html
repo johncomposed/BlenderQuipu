@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Topology &gt; Points Of Curve</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Topology Nodes</a></li>
+<li>Points of Curve Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="points-of-curve-node">
+<h1>Points of Curve Node</h1>
+<p>The <em>Points of Curve</em> node retrieves indices of specific control points in a curve.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curve Index</dt><dd><p>The index of the input curve.</p>
+<div>
+<p>Note</p>
+<p>By default this uses the <a href="../../geometry/read/input_index.html">index</a>
+from the field context, which makes it important that the node is evaluated on
+the curve domain.</p>
+</div>
+</dd>
+<dt>Weights</dt><dd><p>Values used to sort the curve’s control points.
+By default the control points are sorted by index, so the control points with the smallest indices come first.</p>
+</dd>
+<dt>Sort Index</dt><dd><p>Which of the sorted control points to use for the <em>Point Index</em> output. If the value is larger than
+the total number of control points, it will wrap around to the beginning.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Point Index</dt><dd><p>The index of one of the curve’s control points, chosen by the <em>Sort Index</em> input.</p>
+</dd>
+<dt>Total</dt><dd><p>The number of control points in the curve.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

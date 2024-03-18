@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Files &gt; Import Export &gt; Stl</head>
+<body><ul>
+<li><a href="../index.html">Assets, Files, &amp; Data System</a></li>
+<li><a href="../import_export.html">Importing &amp; Exporting Files</a></li>
+<li>STL</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="stl">
+<h1>STL</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import/Export ‣ Stl (.stl) (experimental)</p>
+</dd>
+</dl>
+</div>
+<div>
+<p>Note</p>
+<p>This is the experimental STL importer designed to replace the much slower
+<a href="../../addons/import_export/mesh_stl.html">STL Importer Add-on</a></p>
+</div>
+<p>The STL-file format is useful if you intend to import/export the files for CAD software.
+It is also commonly used for loading into 3D printing software.</p>
+<section id="importing">
+<h2>Importing</h2>
+<section id="properties">
+<h3>Properties</h3>
+<dl>
+<dt>Scale</dt><dd><p>Value by which to scale the imported objects in relation to the world’s origin.</p>
+</dd>
+<dt>Scene Unit</dt><dd><p>Apply current scene’s unit (as defined by unit scale) to imported data.</p>
+</dd>
+<dt>Facet Normals</dt><dd><p>Use (import) facet normals (note that this will still give flat shading).</p>
+</dd>
+<dt>Forward / Up Axis</dt><dd><p>Since many applications use a different axis for pointing upwards, these are axis conversion for these settings,
+Forward and up axes – By mapping these to different axes you can convert rotations
+between applications default up and forward axes.</p>
+<p>Blender uses Y forward, Z up (since the front view looks along the +Y direction).
+For example, it is common for applications to use Y as the up axis, in that case -Z forward, Y up is needed.</p>
+</dd>
+<dt>Validate Mesh</dt><dd><p>Check the imported mesh for corrupt data and fix it if necessary.
+This option will make the importing slower but is often not necessary.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="exporting">
+<h2>Exporting</h2>
+<p>In order to export STL-files you must currently use the <a href="../../addons/import_export/mesh_stl.html">STL Add-on</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

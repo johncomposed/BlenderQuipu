@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Topology &gt; Face Of Corner</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Topology Nodes</a></li>
+<li>Face of Corner Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="face-of-corner-node">
+<h1>Face of Corner Node</h1>
+<p>The <em>Face of Corner</em> node retrieves the face a face corner is part of.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Corner Index</dt><dd><p>The index of the input face corner.</p>
+<div>
+<p>Note</p>
+<p>By default this uses the <a href="../../geometry/read/input_index.html">index</a>
+from the field context, which makes it important that the node is evaluated on
+the face corner domain.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Face Index</dt><dd><p>The index of the face the corner is a part of.</p>
+</dd>
+<dt>Index in Face</dt><dd><p>The index of the corner, starting from the first corner in the face.
+Each face is comprised of a list of face corners, this output is the distance
+from the start of that list. If the corner is the first in the face, the value
+will be zero. If it comes last, the value will be one less than the number of
+corners in the face.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

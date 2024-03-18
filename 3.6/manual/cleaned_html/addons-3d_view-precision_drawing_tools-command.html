@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Precision Drawing Tools &gt; Command</title></head>
+<body><ul>
+<li><a href="../../index.html">Add-ons</a></li>
+<li><a href="../index.html">3D View</a></li>
+<li><a href="index.html">Precision Drawing Tools (PDT)</a></li>
+<li>Command Line</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="command-line">
+<h1>Command Line</h1>
+<p>This section deals with the PDT Command Line, a system whereby PDT Operations &amp; Tools
+can be entered as keyed text rather than using the buttons and input boxes.</p>
+<p>The Menu For Command Line</p>
+<p>Here the Cursor has been set with the command <strong>cd-1.5,,</strong>
+placing the cursor negative 1.5 in X from the selected vertex.</p>
+<p>PDT has a <strong>Command Input</strong>, which activates when you press Return. this takes two letters,
+followed by numbers separated by commas “,”. Valid Primary letters are, can be capitals, or lower case:</p>
+<ul>
+<li><p>C = Cursor commands.</p></li>
+<li><p>D = Duplicate commands</p></li>
+<li><p>E = Extrude Geometry commands</p></li>
+<li><p>F = Fillet Commands</p></li>
+<li><p>G = Grab, or move commands.</p></li>
+<li><p>N = New Vertex commands.</p></li>
+<li><p>P = Pivot commands.</p></li>
+<li><p>S = Split Edges.</p></li>
+<li><p>V = Extrude Vertices only, not their edges, or faces.</p></li>
+</ul>
+<p>Valid Secondary letters are, can be capitals, or lower case:</p>
+<ul>
+<li><p>A = Absolute, or World coordinates and requires 3 numbers separated by 2 commas,
+zeros may be omitted, so <strong>*cd2,,1*</strong> is valid.</p></li>
+<li><p>D = Delta, or incremental coordinates and has the same requirements as A.</p></li>
+<li><p>I = Direction and requires a distance and an angle, separated by a comma,
+from View Horizontal, so <strong>ei2,135.6</strong> means extrude geometry 2 units at 135.6 degrees
+from positive view X axis. Valid Angle range is +-180.</p></li>
+<li><p>P = Use a percentage value to, for example, split an edge,
+so <strong>sp30</strong> means split edge at 30% of the way along it.</p></li>
+</ul>
+<section id="principles">
+<h2>Principles:</h2>
+<p>To operate the Command Line, first you must RMB-click in the input box, then type,
+or amend the command there, then press <code>Return</code> to activate the command.
+I will explore ways of capturing commands directly from the keyboard,
+maybe by using a “trigger” input first.</p>
+<p>For example, key ALT+P first then the command, with a “watcher” routine
+to send subsequent inputs to the command line, I do not know if this is possible yet.</p>
+</section>
+<section id="operations-first-letter">
+<h2>Operations (First Letter):</h2>
+<p><strong>Cursor</strong> Commands will use the <code>Plane</code> setting for commands related to distance
+and angle and also will use the <code>Mode</code> setting of either Current, or Selected.
+This setting related to whether incremental cursor changes are relative
+to the current position of the cursor, or the <code>Active</code> vertex.</p>
+<p>A command of <strong>cp30</strong> will place the cursor 30% of the way between two selected vertices for example.
+Error messages will tell you if your command is not a valid option,
+or if you do not have sufficient vertices/objects selected, or if you do not have sufficient values in your command.
+For example, <strong>d</strong> options (delta) require three values separated by two commas,
+<strong>p</strong> options require only one value. Mathematical Expressions are not evaluated in this way.
+In other cases, all missing values, or invalid values are converted to 0.</p>
+<p><strong>Pivot Point</strong> Commands, like cursor commands, will use the <code>Plane</code> setting for commands
+related to distance and angle and also will use the Mode setting of either Current, or Selected.
+This setting related to whether incremental cursor changes are relative
+to the current position of the cursor, or the Active vertex.</p>
+<p>A command of <strong>pi1,135</strong> will place the Pivot Point 1m at 135 degrees from the Active vertex.</p>
+<p><strong>Grab</strong> commands will move selected objects, or vertices by the values input,
+so if <code>Plane</code> is set to <code>View</code> and the command is <strong>gi1.5,38.75</strong>
+the selection will be moved a distance of 1.5 at 38.75 degrees to the view’s
+horizontal axis and in line with the views orientation to your screen.</p>
+<p><strong>New Vertex</strong> commands will place a new vertex as described by the values,
+so <strong>na1.5,,1.2</strong> will place a new vertex at Absolute (Global if you prefer) X = 1.5, Y = 0 , Z = 1.2.</p>
+<p><strong>Extrude Vertices</strong> commands will only extrude the selected vertices, not their associated edges, or faces.
+A command of <strong>vd,3,</strong> will extrude the selected vertices 0 in X, 3 in Y and 0 in Z.</p>
+<p><strong>Duplicate Geometry</strong> commands will duplicate the selected geometry.
+A command of <strong>dd,5,</strong> will duplicate the selected geometry 0 in X, 5 in Y and 0 in Z.</p>
+<p><strong>Extrude Geometry</strong> commands will extrude the selected geometry, edges and faces included.
+A command of <strong>ed1,3,2</strong> will extrude the selected geometry 1 in X, 3 in Y and 2 in Z.</p>
+<p><strong>Split</strong> commands can be operated in a number of geometry situations,
+so for example, if you want to split a Face like this:</p>
+<p>Image showing the new vertex inserted 25% of the way along the edge using the command <strong>sp25</strong>.</p>
+<p>In this next scenario, we have split an extruded Face, producing an Ngon:</p>
+<p>Command was <strong>sd0.2,,</strong> a new edge has been created and topological integrity preserved.</p>
+<p>In all cases the edges are split in two and then new vertex/vertices from these operations
+are then moved according to the command parameters. If you select such a combination of edges
+as to make a face, an error message is returned and the operation cancelled as this will,
+in all likelihood, result in bad topology.</p>
+<p><strong>Fillet</strong> commands will Fillet, or Bevel a corner, for single vertex corners, as in an edge loops,
+use the _v_ second letter, for edges, use _e_ second letter. this command requires 3 values;
+radius, number of segments and profile. Profile should be in range 0 to 1, 0.005 is a _convex_ fillet,
+0.5 is a _concave_ fillet. So a command of <strong>fv1.5,6,0.5</strong> will fillet vertices to radius 1.5,
+6 segments, concave fillet.</p>
+</section>
+<section id="note">
+<h2>Note!</h2>
+<p>Obviously unworkable commands like <strong>da1,3,4</strong> (duplicate geometry to an absolute location,
+resulting in all duplicate vertices having the same location) will quite reasonably result in an error message.</p>
+</section>
+<section id="maths-mode">
+<h2>Maths Mode:</h2>
+<p>Maths function (“M” primary letter) enable maths calculations to be input into other input boxes in PDT Design,
+so for example if you want to set the X input to <strong>1.2 * Sine(54)</strong>, that can be done.
+Additional Second Letters are introduced for this function, namely:</p>
+<ul>
+<li><p>X - send output to X Coord.</p></li>
+<li><p>Y - send output to Y Coord.</p></li>
+<li><p>Z - send output to Z Coord.</p></li>
+<li><p>D - send output to Distance.</p></li>
+<li><p>A - send output to Angle.</p></li>
+<li><p>P - send output to Percent.</p></li>
+<li><p>O - Send Output to Maths Out Field.</p></li>
+</ul>
+<p>So, in the option quoted above, a command of <strong>mx(1.2*sin(radians(54)))</strong>
+results in the X coord being set to <strong>0.97082</strong>:</p>
+<p>Alternatively a command of <strong>md4*sqrt(2)</strong> results in the Distance input being set to <strong>5.65685</strong>:</p>
+<p>From Version 1.1.8, Maths Function now can output to the Maths Output field:</p>
+<p>Here the command <strong>mosqrt(34)*(2.3**3)</strong> was used, meaning; Maths, Output, Square Root of 34 times 2.3 cubed.
+This value can be copied by floating your mouse over the field and keying CTRL+C, it can then be pasted anywhere.</p>
+<p>There is also a <strong>Re-Run Last Command</strong> button to submit the last command line input, as shown in the image above.</p>
+</section>
+<section id="command-line-additions-for-v1-2-0-above">
+<h2>Command Line Additions for v1.2.0 &amp; above.</h2>
+<p>With the introduction of v1.2.0, more commands have been introduced to the Command Line module, they are:</p>
+<p><strong>ad2</strong> Does what <em>Set A/D 2D</em> button does, ie. measure distance &amp; angle from 2 points.</p>
+<p><strong>ad3</strong> Does what <em>Set A/D 3D</em> button does, ie. measure distance &amp; angle from 3 points.</p>
+<p><strong>j2V</strong> Does what <em>Join 2 Verts</em> button does, i.e. join 2 vertices into an edge.</p>
+<p><strong>bis</strong> Does what <em>Bisect</em> button does, i.e. bisect two intersecting edges.</p>
+<p><strong>etf</strong> Does what <em>Edge To Face</em> button does, i.e. extrude edge to intersecting face.</p>
+<p><strong>intall</strong> Does what <em>Intersect All</em> button does, i.e. break a set of edges where they intersect.</p>
+<p><strong>tap</strong> Does what <em>Taper</em> button does, i.e. taper geometry at a user defined angle and axis set.</p>
+<p><strong>otc</strong> Does what <em>Origin To Cursor</em> button does, i.e. set the object origin to the cursor location.</p>
+<p>Then there are the three special cases of <strong>nml</strong>, <strong>cen</strong> &amp; <strong>int</strong>.
+These should be preceded by the Operation letter, see Valid First Letters above,
+so putting the cursor at the intersection of two edges would be done with the command <strong>cint</strong>,
+creating a new vertex at the normal intersection would be done with the command <strong>vnml</strong>.</p>
+<p>Clicking on any of the buttons in <code>PDT Design Operations</code>, or <code>PDT Design Tools</code>
+will write the equivalent command line expression into the command line input.
+So for example, filleting edges at 0.5 radius, 6 segments and 0.05 profile,
+as set in the inputs &amp; using the <em>Fillet</em> button will write <strong>fe0.5,5,0.05</strong> into the command line input.</p>
+<p>Entering a blank expression into the command line will result in <strong>No Action</strong>, i.e. it will be ignored.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

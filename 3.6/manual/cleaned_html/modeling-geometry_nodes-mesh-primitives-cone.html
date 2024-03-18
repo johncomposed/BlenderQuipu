@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Primitives &gt; Cone</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Primitive Nodes</a></li>
+<li>Cone Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cone-node">
+<h1>Cone Node</h1>
+<p>The <em>Cone</em> node generates a cone mesh that is optionally truncated.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vertices</dt><dd><p>Number of points on the circle at the top and bottom.
+No geometry is generated if the number is below three.</p>
+</dd>
+<dt>Side Segments</dt><dd><p>Number of edges running vertically along the side of the cone.
+No geometry is generated if the number is below one.</p>
+</dd>
+<dt>Fill Segments</dt><dd><p>Number of concentric rings used to fill the round faces at the top and bottom.
+No geometry is generated if the number is below one.</p>
+</dd>
+<dt>Radius Top</dt><dd><p>The distance of the vertices in the top circle from the Z axis.
+If this is zero, the vertices in the circle are merged into one.</p>
+</dd>
+<dt>Radius Bottom</dt><dd><p>Same as <em>Radius Top</em> but for the bottom circle.</p>
+</dd>
+<dt>Depth</dt><dd><p>Height of the generated cone.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>If the top and bottom radii are zero, this node will output a single line.</p>
+</div>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Fill Type</dt><dd><p>How the circles at the top and bottom are filled with faces when their radius is larger than zero.</p>
+<dl>
+<dt>None:</dt>
+<dd><p>Do not fill the circles.</p>
+</dd>
+<dt>N-Gon:</dt>
+<dd><p>Fill the innermost segment of the circles with a single face.</p>
+</dd>
+<dt>Triangles:</dt>
+<dd><p>Fill the innermost segment of the circles with triangles connected to a new vertex on the Z axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry output.</p>
+</dd>
+<dt>Top</dt><dd><p>A boolean attribute field with a selection of the faces on the top of the cone. If the <em>Fill Type</em>
+property is set to none, then this will be a selection of the top edges instead. If <em>Radius Top</em>
+is zero, this will be a selection of the top vertex.</p>
+</dd>
+<dt>Side</dt><dd><p>A boolean attribute field with a selection of the faces on the side of the cone.</p>
+</dd>
+<dt>Bottom</dt><dd><p>A boolean attribute field with a selection of the faces on the bottom of the cone. If the <em>Fill Type</em>
+property is set to none, then this will be a selection of the bottom edges instead. If <em>Radius Bottom</em>
+is zero, this will be a selection of the bottom vertex.</p>
+</dd>
+<dt>UV Map</dt><dd><p>A 2D vector representing the default X/Y coordinates of the <a href="../../../../glossary/index.html#term-UV-Map">UV Map</a> for the primitive’s shape.
+This can be connected to the <a href="../../attribute/store_named_attribute.html">Store Named Attribute Node</a>,
+to be used once the Geometry Nodes Modifier get applied.
+The UV map must be stored on the face corner in order to be accessed.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

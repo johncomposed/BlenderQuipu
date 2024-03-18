@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Import Export &gt; Images As Planes</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Import-Export</a></li>
+<li>Images as Planes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="images-as-planes">
+<h1>Images as Planes</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import ‣ Images as Planes,
+3D Viewport ‣ Add ‣ Image ‣ Images as Planes</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Properties panel.</p>
+</figcaption>
+</figure>
+<p>This add-on imports images and creates planes with them as textures.
+It automates the process of creating a plane, resizing it to fit the dimensions of the image,
+and creating a material with the image texture to it.
+The name of the plane, material, and texture will be derived from the name of the image file.</p>
+<p>You can import a single image, multiple images, or an image sequence/movie clip.
+If you choose a single image, it creates one plane; if you choose multiple images,
+it creates as many planes as the number of images you selected, either stacked on top of each other or spaced apart.
+Selecting a movie clip or an image sequence will create a single plane with an animation.</p>
+<section id="properties">
+<h2>Properties</h2>
+<p>You can save the current import settings as an <a href="../../interface/window_system/tabs_panels.html#ui-presets">Operator Preset</a>.</p>
+<section id="import-options">
+<h3>Import Options</h3>
+<dl>
+<dt>Relative Path</dt><dd><p>Set link to the image file using a <a href="../../files/blend/open_save.html#files-blend-relative-paths">relative file path</a>.</p>
+</dd>
+<dt>Force Reload</dt><dd><p>Reload the image file if it already exists as an image data-block.</p>
+</dd>
+<dt>Animate Image Sequences</dt><dd><p>Import sequentially numbered images as
+an animated <a href="../../video_editing/edit/montage/strips/image.html">image sequence</a> instead of separate planes.
+They will be imported as a <em>Clip</em> texture on a single plane.
+The frame range will be automatically set but can be changed later.</p>
+</dd>
+</dl>
+</section>
+<section id="compositing-nodes">
+<h3>Compositing Nodes</h3>
+<dl>
+<dt>Setup Corner Pin</dt><dd><p>Add a compositing setup of the Image Texture, Scale, and <a href="../../compositing/types/distort/corner_pin.html">Corner Pin</a>
+nodes to inject a warped view of the image into the compositor output. The add-on adds drivers to
+the corner values of the Corner Pin node so that transforms of the plane and camera drive them.
+Make sure to have an active camera in the scene before the import.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>You may want to disable the plane object from the final render to prevent it from overlapping the image in
+the composite.</p>
+</div>
+</section>
+<section id="material-settings">
+<h3>Material Settings</h3>
+<p>Images as Planes sets up a material to display the image. You can set the type of material and related settings
+before the import.</p>
+<dl>
+<dt>Material Type</dt><dd><dl>
+<dt>Principled:</dt>
+<dd><p>The material will have a <a href="../../render/shader_nodes/shader/principled.html">Principled BSDF</a> shader node
+with default settings as its main component.
+An Image Texture node linked to the imported image will be connected to the Base Color of the Principled
+BSDF node.</p>
+</dd>
+<dt>Shadeless:</dt>
+<dd><p>A shadeless material is a material that does not respond to light from other objects and always has the same
+color in any lighting environment.
+This option creates a material with a node group of a mix between a Diffuse and an Emission shader controlled
+by a Light Path node.</p>
+</dd>
+<dt>Emit:</dt>
+<dd><p>The material will have a Principled BSDF shader node as its main component, but the Color output from
+the Image Texture node will be linked to the Emission input instead of the Base Color.</p>
+<dl>
+<dt>Strength</dt><dd><p>Set the strength of the emission.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p><em>Blend Mode</em> and <em>Shadow Mode</em> options are specific to the Eevee renderer.
+For a detailed explanation of each option, see <a href="../../render/eevee/materials/settings.html">Material Settings</a>.</p>
+</div>
+<dl>
+<dt>Blend Mode</dt><dd><p>Set the alpha blend mode of the material.</p>
+</dd>
+<dt>Show Backface</dt><dd><p>Show backside of the transparent part.</p>
+</dd>
+<dt>Shadow Mode</dt><dd><p>Set the shadow mode of the material.</p>
+</dd>
+<dt>Backface Culling</dt><dd><p>Hide backside of the plane.</p>
+</dd>
+<dt>Overwrite Material</dt><dd><p>The add-on sets the name of the new material from the name of the imported image. However, if there is already
+a material with the same name, Blender will append a number to the name of the material to avoid conflict.
+This <em>Override Material</em> option makes it overwrite the existing material of the same name in that case.</p>
+</dd>
+</dl>
+</section>
+<section id="texture-settings">
+<h3>Texture Settings</h3>
+<div>
+<p>Note</p>
+<p>For a detailed explanation of each option, see <a href="../../render/shader_nodes/textures/image.html">Image Texture Node</a>.</p>
+</div>
+<dl>
+<dt>Interpolation</dt><dd><p>Set the method to scale the image.</p>
+</dd>
+<dt>Extension</dt><dd><p>Set how the image is extrapolated past the original bounds.</p>
+</dd>
+<dt>Use Alpha</dt><dd><p>Use the alpha channel of the image for transparency.</p>
+</dd>
+<dt>Auto Refresh</dt><dd><p>Automatically refresh the images in the viewport on frame changes.</p>
+</dd>
+</dl>
+</section>
+<section id="position">
+<h3>Position</h3>
+<p>Images as Planes creates the plane at the 3D Cursor’s location. With <em>Offset Planes</em>, multiple planes will be
+placed with distance intervals set in <em>Offset</em>, along the axis set in <em>Local Axis</em>, beginning at the 3D Cursor’s
+location.</p>
+<dl>
+<dt>Offset Planes</dt><dd><p>Place multiple planes with an offset. If disabled, all planes will be created at the same location.</p>
+</dd>
+<dt>Local Axis</dt><dd><p>Choose a local axis (not the global axis) to offset the planes. For example, if you choose <em>X+</em>, the planes
+will be placed along the positive direction of the plane’s local X axis.</p>
+</dd>
+<dt>Offset</dt><dd><p>Set a distance between each plane.</p>
+</dd>
+</dl>
+</section>
+<section id="plane-dimensions">
+<h3>Plane Dimensions</h3>
+<p>Set how the plane’s size will be determined.</p>
+<dl>
+<dt>Absolute</dt><dd><p>The size of the plane will be set based on the height value set in <em>Height</em>. The width will be set in direct
+ratio to the height value. For example, with the default height value of 1 m, an image of 800 × 600 pixels
+will have a width of 1 / 600 × 800 or 1.33 m.</p>
+<dl>
+<dt>Height</dt><dd><p>Set the height of the plane.</p>
+</dd>
+</dl>
+</dd>
+<dt>Camera Relative</dt><dd><p>The size of the plane will be set to fit or fill the camera frame. This will automatically set the <em>Align</em>
+option to <em>Face Camera</em>. Make sure to have an active camera in the scene before the import.</p>
+<dl>
+<dt>Fit:</dt>
+<dd><p>Scale the plane to fit inside the camera frame while preserving the aspect ratio.</p>
+</dd>
+<dt>Fill:</dt>
+<dd><p>Scale the plane so that it fills the entire camera view while preserving the aspect ratio, but some part of
+the image can spill outside the camera frame.</p>
+</dd>
+</dl>
+</dd>
+<dt><abbr title="Dots per inch">DPI</abbr></dt><dd><p>The size of the plane will be set based on the pixels per inch value set in <em>Definition</em>. With the <em>Unit System</em>
+set to <em>Metric</em> and the default definition of 600 DPI, an image of 800 × 600 pixels will have a size of
+0.0339 × 0.0254 units since 600 pixels are defined as 1 inch (0.0254 m).</p>
+<dl>
+<dt>Definition</dt><dd><p>Set the number of pixels to fit in 1 inch.</p>
+</dd>
+</dl>
+</dd>
+<dt>Dots/BU</dt><dd><p>The size of the plane will be set based on the pixels per Blender Unit set in <em>Definition</em>. With the default
+definition value of 600, an image of 800 × 600 pixels will have a size of 1.33 × 1 units.</p>
+<dl>
+<dt>Definition</dt><dd><p>Set the number of pixels to fit in 1 Blender Unit.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="orientation">
+<h3>Orientation</h3>
+<dl>
+<dt>Align</dt><dd><p>Set the rotation of the plane.</p>
+<dl>
+<dt>Main Axis:</dt>
+<dd><p>The plane will be aligned to a major axis that is best to face the camera’s view direction.
+If there is no camera in the scene, the plane will face toward Z+ (Up) axis.</p>
+</dd>
+<dt>Face Camera:</dt>
+<dd><p>Similar to the <em>Main Axis</em> but the plane will be rotated to directly face the camera’s view direction.</p>
+</dd>
+<dt>Z- (Down), Y-, X-, Z+ (Up), Y+, X+:</dt>
+<dd><p>The plane will be rotated to face toward the selected axis.</p>
+</dd>
+</dl>
+</dd>
+<dt>Track Camera</dt><dd><p>Add a <a href="../../animation/constraints/tracking/locked_track.html">Locked Track</a> constraint to make the plane always
+face the camera, even if the camera moves. This option is only available when <em>Main Axis</em> or <em>Face Camera</em>
+option is selected in the <em>Align</em> menu.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

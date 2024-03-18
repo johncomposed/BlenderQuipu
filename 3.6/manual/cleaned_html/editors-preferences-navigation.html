@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Preferences &gt; Navigation</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Preferences</a></li>
+<li>Navigation</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="navigation">
+<h1>Navigation</h1>
+<figure id="id1">
+<figcaption>
+<p>Blender Preferences navigation section.</p>
+</figcaption>
+</figure>
+<section id="orbit-pan">
+<h2>Orbit &amp; Pan</h2>
+<dl>
+<dt>Orbit Method</dt><dd><p>Choose you are preferred method of interactively rotating the 3D Viewport.</p>
+<dl>
+<dt>Turntable</dt><dd><p>Rotates the view keeping the horizon horizontal.</p>
+<p>This behaves like a potter’s wheel or record player where you have two axes of rotation available,
+and the world seems to have a better definition of what is “Up” and “Down” in it.</p>
+<p>The drawback to using the <em>Turntable</em> style is that you lose some flexibility when working with your objects.
+However, you gain the sense of “Up” and “Down” which can help if you are feeling disoriented.</p>
+</dd>
+<dt>Trackball</dt><dd><p>Is less restrictive, allowing any orientation.</p>
+</dd>
+</dl>
+</dd>
+<dt>Orbit Sensitivity</dt><dd><p>Adjusts the reactivity/speed of orbiting in the 3D Viewport.
+This setting works differently depending on what <em>Orbit Method</em> is used:</p>
+<ul>
+<li><p>Turntable: <em>Orbit Sensitivity</em> controls the amount
+of rotation per-pixel to control how fast the 3D Viewport rotates.</p></li>
+<li><p>Trackball: <em>Orbit Sensitivity</em> as a simple factor for how fast the 3D Viewport rotates.</p></li>
+</ul>
+</dd>
+</dl>
+<dl id="prefs-navigation-orbit-around-selection">
+<dt>Orbit Around Selection</dt><dd><p>The selection center becomes the rotation center of the viewport.
+When there is no selection the last selection will be used.</p>
+<p>This uses the selected object (bounding box center), in Object Mode and
+select elements in edit/pose modes.</p>
+<div>
+<p>Note</p>
+<p>While this may seem like ideal behavior,
+it can be inconvenient for larger objects such as a terrain mesh,
+where the center is not necessarily a point of interest.</p>
+</div>
+</dd>
+<dt>Auto</dt><dd><dl id="prefs-navigation-auto-perspective">
+<dt>Perspective</dt><dd><p>When enabled, the view switches to Perspective when orbiting the view,
+and to Orthographic when aligning to an axis (Top, Side, Front, Back, etc.).</p>
+<p>When disabled, this switching needs to be done manually.</p>
+</dd>
+</dl>
+<dl id="prefs-navigation-auto-depth">
+<dt>Auto Depth</dt><dd><p>Use the depth under the mouse to improve view pan, rotate, zoom functionality.
+Useful in combination with <em>Zoom To Mouse Position</em>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Smooth View</dt><dd><p>Time (in milliseconds) the animation takes when changing views
+(Top/Side/Front/Camera…). Reduce to zero to remove the animation.</p>
+</dd>
+</dl>
+<dl id="prefs-navigation-rotation-angle">
+<dt>Rotation Angle</dt><dd><p>Rotation step size in degrees, when <kbd>Numpad4</kbd>, <kbd>Numpad6</kbd>, <kbd>Numpad8</kbd>,
+or <kbd>Numpad2</kbd> are used to rotate the 3D Viewport.</p>
+</dd>
+</dl>
+</section>
+<section id="zoom">
+<h2>Zoom</h2>
+<dl>
+<dt>Zoom Method</dt><dd><p>Choose your preferred style of zooming in and out,
+when using interactive zoom.</p>
+<dl>
+<dt>Scale</dt><dd><p><em>Scale</em> zooming depends on where you first click in the view.
+To zoom out, move the cursor to the area center.
+To zoom in, move the cursor away from the area center.</p>
+</dd>
+<dt>Continue</dt><dd><p>The <em>Continue</em> zooming option allows you to control the speed
+(and not the value) of zooming by moving away from the initial cursor position.</p>
+<p>Moving up from the initial click point or to the right will zoom out,
+moving down or to the left will zoom in. The further away you move,
+the faster the zoom movement will be.
+The directions can be altered by the <em>Vertical</em> and <em>Horizontal</em> radio buttons and
+the <em>Invert Zoom Direction</em> option.</p>
+</dd>
+<dt>Dolly</dt><dd><p><em>Dolly</em> zooming works similarly to <em>Continue</em> zooming except that zoom speed is constant.</p>
+</dd>
+</dl>
+</dd>
+<dt>Zoom Axis</dt><dd><p>The axis of the mouse to use for zooming.</p>
+<dl>
+<dt>Vertical</dt><dd><p>Moving up zooms out and moving down zooms in.</p>
+</dd>
+<dt>Horizontal</dt><dd><p>Moving left zooms in and moving right zooms out.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="prefs-zoom-mouse-pos">
+<dt>Zoom to Mouse Position</dt><dd><p>When enabled, the mouse pointer position becomes the focus point of zooming instead of the 2D window center.
+Helpful to avoid panning if you are frequently zooming in and out.</p>
+<div>
+<p>Tip</p>
+<p>This is useful in combination with <a href="#prefs-navigation-auto-depth">Auto Depth</a>
+to quickly zoom into the point under the cursor.</p>
+</div>
+</dd>
+<dt>Invert Zoom Direction</dt><dd><dl>
+<dt>Mouse</dt><dd><p>Inverts the Zoom direction for <em>Dolly</em> and <em>Continue</em> zooming.</p>
+</dd>
+<dt>Wheel</dt><dd><p>Inverts the direction of the mouse wheel zoom.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="fly-walk">
+<h2>Fly &amp; Walk</h2>
+<dl>
+<dt>View Navigation</dt><dd><p>The default mode for interactive first person navigation.</p>
+<p>See <a href="../3dview/navigate/walk_fly.html#dview-fly-walk">Fly/Walk Navigation</a>.</p>
+</dd>
+</dl>
+<section id="walk">
+<h3>Walk</h3>
+<dl>
+<dt>Reverse Mouse</dt><dd><p>Inverts the mouse’s Y movement.</p>
+</dd>
+<dt>Mouse Sensitivity</dt><dd><p>Speed factor for when looking around, high values mean faster mouse movement.</p>
+</dd>
+<dt>Teleport Duration</dt><dd><p>Interval of time warp when teleporting in navigation mode.</p>
+</dd>
+<dt>Walk Speed</dt><dd><p>Base speed for walking and flying.</p>
+</dd>
+<dt>Speed Factor</dt><dd><p>The multiplication factor for the speed boost.</p>
+</dd>
+</dl>
+</section>
+<section id="gravity">
+<h3>Gravity</h3>
+<p>Simulates the effect of gravity when walking.</p>
+<dl>
+<dt>View Height</dt><dd><p>The distance from the ground floor to the camera when walking.</p>
+</dd>
+<dt>Jump Height</dt><dd><p>The maximum height of a jump.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

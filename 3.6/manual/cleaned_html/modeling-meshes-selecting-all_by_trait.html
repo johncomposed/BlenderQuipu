@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Selecting &gt; All By Trait</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Selecting</a></li>
+<li>Select All by Trait</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="select-all-by-trait">
+<h1>Select All by Trait</h1>
+<section id="non-manifold">
+<h2>Non-Manifold</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select All by Trait ‣ Non-Manifold</p>
+</dd>
+</dl>
+</div>
+<p>Selects the <a href="../../../glossary/index.html#term-Non-manifold">Non-manifold</a> geometry of a mesh.
+This entry is available when editing a mesh, in Vertex and Edge selection modes only.</p>
+<dl>
+<dt>Extend</dt><dd><p>Lets you extend the current selection.</p>
+</dd>
+<dt>Wire</dt><dd><p>Selects all the edges that do not belong to any face.</p>
+</dd>
+<dt>Boundaries</dt><dd><p>Selects edges in boundaries and holes.</p>
+</dd>
+<dt>Multiple Faces</dt><dd><p>Selects edges that belong to three or more faces.</p>
+</dd>
+<dt>Non Contiguous</dt><dd><p>Selects edges that belong to exactly two faces with opposite normals.</p>
+</dd>
+<dt>Vertices</dt><dd><p>Selects vertices that belong to <em>wire</em> and <em>multiple face</em> edges,
+isolated vertices, and vertices that belong to non-adjoining faces.</p>
+</dd>
+</dl>
+</section>
+<section id="loose-geometry">
+<h2>Loose Geometry</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select All by Trait ‣ Loose Geometry</p>
+</dd>
+</dl>
+</div>
+<p>This selection depends on the currently selected <a href="introduction.html#bpy-types-toolsettings-mesh-select-mode">Selection Modes</a>;
+In vertex and edge selection mode it selects all vertices or edges that do not form part of a face.
+In face selection mode it selects all faces that do not share edges with other faces.</p>
+</section>
+<section id="interior-faces">
+<h2>Interior Faces</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select All by Trait ‣ Interior Faces</p>
+</dd>
+</dl>
+</div>
+<p>Selects faces where all edges have more than two faces.</p>
+</section>
+<section id="faces-by-sides">
+<h2>Faces by Sides</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select All by Trait ‣ Faces by Sides</p>
+</dd>
+</dl>
+</div>
+<p>Selects all faces that have a specified number of edges.</p>
+</section>
+<section id="ungrouped-vertices">
+<h2>Ungrouped Vertices</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select All by Trait ‣ Ungrouped Vertices</p>
+</dd>
+</dl>
+</div>
+<p>Selects all vertices which are not part of
+a <a href="../properties/vertex_groups/index.html">vertex group</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

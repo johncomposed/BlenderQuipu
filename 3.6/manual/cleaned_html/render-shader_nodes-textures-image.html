@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Textures &gt; Image</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Texture</a></li>
+<li>Image Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="image-texture-node">
+<h1>Image Texture Node</h1>
+<p>Used for applying an image as a texture.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Vector</dt><dd><p>3D coordinate that’s projected onto the 2D image using the selected <em>Projection</em> method.
+The node then outputs the color and alpha at this projected point.</p>
+<p>This slot is usually connected to an output of the <a href="../input/texture_coordinate.html">Texture Coordinate Node</a>.
+If left unconnected, the coordinate is taken from the object’s active UV map (with Z = 0).</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Image</dt><dd><p>Image data-block to use.</p>
+</dd>
+<dt>Interpolation</dt><dd><p>Method to scale images up or down for rendering.</p>
+<dl>
+<dt>Linear:</dt>
+<dd><p>Regular quality interpolation.</p>
+</dd>
+<dt>Cubic:</dt>
+<dd><p>Smoother, better quality interpolation. Bump maps should use this for best results.</p>
+</dd>
+<dt>Closest:</dt>
+<dd><p>No interpolation (nearest neighbor). Useful for rendering pixel art.</p>
+</dd>
+<dt>Smart:</dt>
+<dd><p>Cycles Only
+Only for Open Shading Language. Use cubic interpolation when scaling up and linear when scaling down,
+for better performance and sharpness.</p>
+</dd>
+</dl>
+</dd>
+<dt>Projection</dt><dd><p>How to project <em>Vector</em> onto the image for arriving at a color.</p>
+<dl>
+<dt>Flat:</dt>
+<dd><p>Place the image in a unit square (stretching from (0, 0, 0) to (1, 1, 0))
+and project the <em>Vector</em> vertically onto it. This projection is typically used in combination
+with UV maps.</p>
+</dd>
+<dt>Box:</dt>
+<dd><p>Place the image on each side of a unit cube (stretching from (0, 0, 0) to (1, 1, 1))
+and project the <em>Vector</em> onto this cube, along the axis that’s closest to the mesh normal.
+This projection is commonly used in architectural models considering these have lots of
+box-shaped objects.</p>
+<dl>
+<dt>Blend</dt><dd><p>Rather than projecting onto just one side (which creates sharp transitions), project onto
+multiple sides and blend the results together. The higher the value, the more blending and
+the smoother the result.</p>
+</dd>
+</dl>
+</dd>
+<dt>Sphere:</dt>
+<dd><p>Wrap the image around a sphere with origin (0.5, 0.5, 0.5), and project the <em>Vector</em> from
+this origin onto this sphere. This projection is, of course, perfect for spherical objects
+such as planets, and is also useful for organic objects.</p>
+</dd>
+<dt>Tube:</dt>
+<dd><p>Wrap the image around a cylinder with base (0.5, 0.5, 0) and height 1, and project the
+<em>Vector</em> horizontally from the central axis onto this cylinder. This projection is useful for
+a label on a bottle, for example. However, it’s not suited for the top or bottom side of objects.</p>
+</dd>
+</dl>
+<table id="id1">
+<caption>Projections demonstrated using “Object” texture coordinates</caption>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Flat projection</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Box projection</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Sphere projection</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Tube projection</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Extension</dt><dd><p>How the image is extrapolated if <em>Vector</em> lies outside the regular (0, 0, 0) to (1, 1, 1) bounds:</p>
+<dl>
+<dt>Repeat:</dt>
+<dd><p>Repeat the image horizontally and vertically (tiling).</p>
+</dd>
+<dt>Extend:</dt>
+<dd><p>Extend the image by repeating the pixels on its edges.</p>
+</dd>
+<dt>Clip:</dt>
+<dd><p>Clip to the original image size and set all the exterior pixels values to transparent black.</p>
+</dd>
+<dt>Mirror:</dt>
+<dd><p>Repeatedly flip the image horizontally and vertically.</p>
+</dd>
+</dl>
+</dd>
+<dt>Source</dt><dd><p>Type of image (Single Image, Movie…). See <a href="../../../editors/image/image_settings.html">Image Settings</a>.</p>
+</dd>
+<dt>Frames</dt><dd><p>How many frames of the Movie-type image (video) to play. Past this point, the video will be paused
+(unless <em>Cyclic</em> is enabled).</p>
+<p>If you want to play the whole video, you can click
+<a href="../../../editors/image/image_settings.html#bpy-ops-image-match-movie-length">Match Movie Length</a> in the Image Editor’s Sidebar,
+then copy the <em>Frames</em> from there to the node.</p>
+</dd>
+<dt>Start Frame</dt><dd><p>Scene frame at which the video should start playing.</p>
+</dd>
+<dt>Offset</dt><dd><p>Number of frames to offset the video to an earlier point in time.
+(Put differently: how many frames at the start of the video to skip.)</p>
+<div>
+<p>Hint</p>
+<p>Blender plays video textures at the scene framerate, not their original framerate,
+meaning they’ll be faster or slower than intended if these framerates don’t match up.
+You can put a <a href="../../../animation/drivers/introduction.html">Driver</a> on the Offset to work
+around this. Simply type the following into the field, replacing <em>StartFrame</em>,
+<em>VideoFrameRate</em> and <em>SceneFrameRate</em> by their respective numbers:</p>
+<p>#(frame - StartFrame) * (VideoFrameRate - SceneFrameRate) / SceneFrameRate</p>
+</div>
+</dd>
+<dt>Cyclic</dt><dd><p>Start over after the last frame to create a continuous loop.</p>
+</dd>
+<dt>Auto Refresh</dt><dd><p>Update the video texture in the 3D Viewport when moving through the timeline.</p>
+</dd>
+<dt>Color Space</dt><dd><p>The <a href="../../../glossary/index.html#term-Color-Space">Color Space</a> the image file was saved in.
+See <a href="../../../editors/image/image_settings.html#bpy-types-colormanagedinputcolorspacesettings-name">Image Settings</a> for details.</p>
+</dd>
+<dt>Alpha</dt><dd><p>How the image uses its <a href="../../../glossary/index.html#term-Alpha-Channel">Alpha Channel</a>.
+See <a href="../../../editors/image/image_settings.html#bpy-types-image-alpha-mode">Image Settings</a> for details.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>RGB color from image. If the image has transparency, the color is premultiplied if the Alpha output is used,
+and unpremultiplied (straight) otherwise.</p>
+</dd>
+<dt>Alpha</dt><dd><p>Alpha channel from image.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id6">
+<figcaption>
+<p>Image texture from GoodTextures.com.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

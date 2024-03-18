@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Freestyle &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Freestyle</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Freestyle is an edge/line-based non-photorealistic (NPR) rendering engine.
+It relies on mesh data and Z-depth information to draw lines on selected edge types.
+Various line styles can be added to produce artistic (“hand drawn”, “painted”, etc.)
+or technical (hard line) looks.</p>
+<p>Freestyle can generate a powerful diversity of line styles and results.
+There are currently, two ways to define the way lines look;
+the first uses a series of parameter to create a <a href="view_layer/line_style/index.html">Line Style</a>.
+This mode allows intuitive editing of features such as dotted lines
+and easy setup of multiple line types and edge definitions.
+On top of all of that, with line style modifiers, the sky is the limit!</p>
+<p>The second method of generating lines is by using <a href="python.html">Python Scripting</a>.
+This method is much more advanced but Blender includes many pre-scripted styles
+such as Japanese big brush, cartoon, blueprint, and thickness-with-depth.</p>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>ATV buggy by Rylan Wright (RONIN). CC BY.
+(File:AtvBuggy.zip)</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>By mato.sus304. CC BY-SA.
+(File:Mato_sus304_cut02.zip)</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id3">
+<figcaption>
+<p>A cartoon scene from OHA Studio
+© Mechanimotion Entertainment.
+(blend-file)</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Blueprint render of Martin M-130 from 1935 by LightBWK. CC0. Warning:
+heavy file! designed for stress test Blender to the limits and may crash Blender.
+(File:M-130Blueprint.zip)</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="the-big-picture">
+<h2>The Big Picture</h2>
+<ul>
+<li><p>Activate Freestyle by the Properties ‣ Render ‣ Freestyle checkbox.</p></li>
+<li><p>Freestyle settings are located in the <a href="../../scene_layout/view_layers/index.html">View Layer</a> properties.</p></li>
+<li><p>One view layer can only have one view map. A view map holds the edge detection settings
+(Crease Angle, Culling toggle, Face Smoothness toggle, Material Boundaries toggle,
+Sphere Radius, and Kr Derivative Epsilon advanced options).</p></li>
+<li><p>A view map can have multiple Line Sets.</p></li>
+<li><p>A line set controls which line types and selections will be rendered, from lines based on your scene.</p></li>
+<li><p>Each line set uses one line style (which can be shared between multiple Line Sets).</p></li>
+<li><p>A line style tells Freestyle how to render the linked Line Sets in terms of color, alpha,
+thickness and other aspects.</p></li>
+</ul>
+<figure id="id5">
+<figcaption>
+<p>Block diagram of Freestyle view map and processes.</p>
+</figcaption>
+</figure>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<ul>
+<li><p>Highly memory demanding: All mesh objects in a view layer are loaded at once.</p></li>
+<li><p>Only faced mesh objects are supported.</p></li>
+<li><p>No edges at face intersections are detected yet.</p></li>
+<li><p>Freestyle rendering results do not have any Z depth information.</p></li>
+<li><p>Panoramic cameras are not supported.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

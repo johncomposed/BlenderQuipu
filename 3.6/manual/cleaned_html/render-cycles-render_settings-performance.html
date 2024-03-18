@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Render Settings &gt; Performance</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Performance</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="performance">
+<h1>Performance</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Performance</p>
+</dd>
+</dl>
+</div>
+<p>Properties that affect render speeds or memory consumption.
+There are several presets available to help choose between different trade offs:</p>
+<dl>
+<dt>Default:</dt>
+<dd><p>Balances memory saving and faster rendering settings.</p>
+</dd>
+<dt>Faster Render:</dt>
+<dd><p>Uses settings to render faster at the cost of higher memory consumption.</p>
+</dd>
+<dt>Lower Memory:</dt>
+<dd><p>Uses settings to decrease memory considered at the cost of slower renders.</p>
+</dd>
+</dl>
+<section id="threads">
+<h2>Threads</h2>
+<dl id="bpy-types-rendersettings-threads-mode">
+<dt>Threads Mode</dt><dd><p>Method to determine the maximum number of CPU cores to use while rendering.</p>
+<dl>
+<dt>Auto-Detect:</dt>
+<dd><p>Automatically chooses the amount of threads to match the number of logical processors on your computer.</p>
+</dd>
+<dt>Fixed:</dt>
+<dd><p>Manually choose the maximum number threads to use for rendering.
+This can be useful for example, if you want to use your computer while rendering,
+you can set the property to a thread count lower the amount of logical processors on your computer.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-threads">
+<dt>Threads</dt><dd><p>The maximum number of CPU cores to use simultaneously while rendering.</p>
+</dd>
+</dl>
+</section>
+<section id="tiles">
+<h2>Tiles</h2>
+<dl id="bpy-types-rendersettings-use-auto-tile">
+<dt>Use Tiling</dt><dd><p>Render high resolution images in tiles to reduce memory usage.
+Tiles are cached to disk while rendering to save memory.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-tile-size">
+<dt>Tile Size</dt><dd><p>This value is used to control the size of the tile used for rendering;
+decreasing the size reduces memory usage.</p>
+<div>
+<p>Note</p>
+<p>In some cases changing the <em>Tile Size</em> can result in increased performance.
+For example when a small object renders slowly compared to other objects,
+using a small <em>Tiles Size</em> can lead to an increase in performance.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="acceleration-structure">
+<h2>Acceleration Structure</h2>
+<dl id="bpy-types-cyclesrendersettings-debug-use-spatial-splits">
+<dt>Use Spatial Splits</dt><dd><p>Spatial splits improve the rendering performance in scenes with a mix of large and small polygons.
+The downsides are longer BVH build times and slightly increased memory usage.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-debug-use-hair-bvh">
+<dt>Use Curves BVH</dt><dd><p>Use a special type of <a href="../../../glossary/index.html#term-BVH">BVH</a> for rendering curves.
+The bounding boxes are not axis aligned allowing a spatially closer fit to the curve geometry.
+Disabling this option will reduce memory, at the cost of increasing curve render time.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-debug-bvh-time-steps">
+<dt>BVH Time Steps</dt><dd><p>Split BVH primitives by this number of time steps to speed up render time at the expense of memory.</p>
+</dd>
+<dt>Use Compact BVH</dt><dd><p>Use a more compact BVH structure, which can reduce RAM usage but render slower.</p>
+</dd>
+</dl>
+</section>
+<section id="final-render">
+<h2>Final Render</h2>
+<dl id="bpy-types-rendersettings-use-persistent-data">
+<dt>Persistent Data</dt><dd><p>Keep render data in memory after rendering for faster re-renders and animation renders
+at the cost of extra memory usage while performing other tasks in Blender.</p>
+<p>When using multiple <a href="../../layers/view_layer.html">View Layers</a>,
+only data from a single view layer is preserved to keep memory usage within bounds;
+however, objects shared between view layers are preserved.</p>
+</dd>
+</dl>
+</section>
+<section id="viewport">
+<h2>Viewport</h2>
+<dl id="bpy-types-rendersettings-preview-pixel-size">
+<dt>Pixel Size</dt><dd><p>Option to control the resolution for viewport rendering.
+Allows you to speed up viewport rendering, which is especially useful for displays with high DPI.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

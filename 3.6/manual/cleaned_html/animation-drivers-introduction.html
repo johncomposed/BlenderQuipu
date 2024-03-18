@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Drivers &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Animation &amp; Rigging</a></li>
+<li><a href="index.html">Drivers</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Drivers are a way to control values of properties by means of a function,
+or a mathematical expression.</p>
+<p>Effectively, drivers consist of:</p>
+<ul>
+<li><p>A <strong>driver configuration</strong> that specifies zero, one, or more input values using
+other properties or object transformation channels, and combines them using
+a predefined mathematical function or a custom Python expression.</p></li>
+<li><p>An <strong>animation</strong> <a href="../../editors/graph_editor/fcurves/introduction.html">F-Curve</a>
+that maps the output of the driver configuration to the final value to apply
+to the driven property.</p></li>
+</ul>
+<p>As an example, the rotation of Object 1 can be controlled by the scale of Object 2.
+It is then said that the scale of Object 2 <em>drives</em> the rotation of Object 1.</p>
+<p>Not only can drivers directly set the value of a property to the value of a different one,
+they can also combine multiple values using a fixed function or a Python expression
+and further modulate it with a manually defined curve and/or a modifier stack.</p>
+<p>Drivers are an extremely powerful tool for building rigs and are typically used
+to drive bone transforms and the influence of shape keys, action constraints and
+modifiers, often using custom properties as inputs.</p>
+<section id="graph-view">
+<h2>Graph View</h2>
+<figure id="id1">
+<figcaption>
+<p>Driver curve in the Drivers editor.</p>
+</figcaption>
+</figure>
+<p>The main area of the <a href="../../editors/drivers_editor.html">Drivers editor</a>
+shows an <a href="../../editors/graph_editor/fcurves/introduction.html">F-Curve</a> that
+represents the driver function.</p>
+<p>The <strong>X axis</strong> maps to the output value of the driver configuration. The units depend on the setup.</p>
+<p>The <strong>Y axis</strong> shows the value applied to the target property. The units depend on the property.</p>
+<p>In the example image, if the driver value is 2.0 the property value will be 0.5.</p>
+<p>The default F-Curve is an identity map, i.e. the value produced by the driver configuration
+is applied to the driven property unchanged. If the driver output value is 2.0,
+the property will be 2.0.</p>
+<p>The driver function can be defined artistically with Bézier curve handles or
+mathematically with trigonometric functions or polynomial expressions such as \(y = a + bx\).
+Furthermore, the function can also be procedurally modulated with noise or cyclic repetitions.
+See <a href="../../editors/graph_editor/fcurves/modifiers.html">Modifiers</a> for more details.</p>
+</section>
+<section id="driver-configuration">
+<h2>Driver Configuration</h2>
+<p>The <a href="drivers_panel.html">Drivers panel</a> shows the setup for a driver.</p>
+<p>A driver can have zero, one, or more <strong>variables</strong>. Variables specify which properties,
+object transformation channels, or relative distances between objects, are used as inputs
+by the driver.</p>
+<p>The driver <strong>type</strong> determines how the variables are used. The type can be:</p>
+<ul>
+<li><p>a built-in function: for example, the sum of the variables’ values, or</p></li>
+<li><p>a scripted expression: an arbitrary Python expression that refers to the variables by their names.</p></li>
+</ul>
+<p>This driver configuration outputs a single value which changes when the variables change.
+This value is then evaluated through the driver function curve to produce the result
+to be applied to the driven property.</p>
+</section>
+<section id="notes-on-scripted-expressions">
+<h2>Notes on Scripted Expressions</h2>
+<p>When a driver uses a <em>Scripted Expression</em>, Blender can evaluate it without using
+the fully featured Python interpreter if it is simple enough.
+This means that drivers are fast to evaluate with simple divisions, additions and other “simple” expressions.
+The built-in functions are always evaluated natively.</p>
+<p>See <a href="drivers_panel.html#drivers-simple-expressions">Simple Expressions</a>
+for a comprehensive list of expressions that can be evaluated natively.</p>
+<p>When the expression is not simple, it will be evaluated using Python.
+As a consequence, the driver will be slower and there is a security risk
+if the author of the Python code is unknown.
+This is an important thing to take into consideration for heavy scenes and
+when sharing files with other people.
+See also: <a href="../../advanced/scripting/security.html">Auto run</a>.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

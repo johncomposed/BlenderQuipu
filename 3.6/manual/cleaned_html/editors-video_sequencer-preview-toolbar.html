@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Preview &gt; Toolbar</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">Video Sequencer</a></li>
+<li><a href="index.html">Preview</a></li>
+<li>Toolbar</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="toolbar">
+<h1>Toolbar</h1>
+<dl>
+<dt>Tweak <kbd>W</kbd></dt><dd><p>Perform a multiple actions; first of it can be select images and by consequence their associated strip.
+Second it can move strips using the same principles as the <a href="#tool-vse-preview-move">Move tool</a>.
+Using the shortcut <kbd>W</kbd>, will cycle between this tool and other sub-tools described below.</p>
+<dl>
+<dt><a href="../../../interface/selecting.html#tool-select-box">Select Box</a> <kbd>B</kbd></dt><dd><p>Selects images within a rectangular box drawn in the Preview area.</p>
+<p>To use the tool, <kbd>LMB</kbd> and drag within the preview area to draw a rectangle,
+releasing the mouse confirms the selection.</p>
+<p>You can also just <kbd>LMB</kbd> to preform a normal single item selection.</p>
+</dd>
+</dl>
+</dd>
+<dt>Cursor</dt><dd><p>Changes the location of the <a href="sidebar.html#editors-sequencer-preview-2d-cursor">2D Cursor</a>.</p>
+<p>To use the tool, <kbd>LMB</kbd> within the preview area to move the cursor to that position.
+You can also click and drag to interactively position the cursor.</p>
+<p>The movement of the cursor can be constrained along the global/local X or Y axis by pressing <kbd>X</kbd> or <kbd>Y</kbd>,
+pressing the hotkeys will cycle between global/local orientations and disabling constraints.</p>
+<p>Holding <kbd>Shift</kbd> will move the cursor in smaller increments for more precision.
+You may also type in an exact amount to move for absolute precision.</p>
+<p>While the operation is running a message will display in the header indicating
+the distance in pixels the cursor has moved in each of the cardinal directions.
+The third number, between parenthesis, is the Euclidean distance the cursor has moved.</p>
+</dd>
+</dl>
+<dl id="tool-vse-preview-move">
+<dt>Move <kbd>G</kbd></dt><dd><p>Changes the location of the selected image by adjusting the strip’s
+<a href="../sequencer/sidebar/strip.html#bpy-types-sequencetransform-offset">Position</a> properties.</p>
+<p>To use the tool, <kbd>LMB</kbd> on the image and drag it to the desired position.
+If <a href="display/gizmos.html#bpy-types-spacesequenceeditor-show-gizmo-tool">Active Tools</a>
+is enabled, you can also move the image by dragging the gizmo.</p>
+<p>The movement of the image can be constrained along the global/local X or Y axis by pressing <kbd>X</kbd> or <kbd>Y</kbd>,
+pressing the hotkeys will cycle between global/local orientations and disabling constraints.</p>
+<p>Holding <kbd>Shift</kbd> will move the image in smaller increments for more precision.
+You may also type in an exact amount to move for absolute precision.</p>
+<p>While the operation is running a message will display in the header indicating
+the distance in pixels the image has moved in each of the cardinal directions.
+The third number, between parenthesis, is the Euclidean distance the image has moved.</p>
+</dd>
+<dt>Rotate <kbd>R</kbd></dt><dd><p>Moves the selected image’s in a circle about the <a href="controls/pivot_point.html#bpy-types-sequencertoolsettings-pivot-point">Pivot Point</a>
+by adjusting the strip’s <a href="../sequencer/sidebar/strip.html#bpy-types-sequencetransform-rotation">Rotation</a> property.
+By default, the image will rotate around its median but this can be changed by changing the Pivot Point.</p>
+<p>To use the tool, <kbd>LMB</kbd> on the image and drag it (in a circle) to the desired position.
+The further away the mouse cursor is from the Pivot point, the slower the rotation movement is.
+You can also use the Arrow-keys to move the handle very precisely.
+If <a href="display/gizmos.html#bpy-types-spacesequenceeditor-show-gizmo-tool">Active Tools</a>
+is enabled, you can also rotate the image by dragging the gizmo.</p>
+<p>Holding <kbd>Shift</kbd> will rotate the image in smaller increments for more precision.
+You may also type in an exact amount to move for absolute precision.</p>
+<p>While the operation is running a message will display in the header indicating
+the amount of rotation in the scene’s rotation unit.</p>
+</dd>
+<dt>Scale <kbd>S</kbd></dt><dd><p>Changes the size of the image by adjusting the strip’s
+<a href="../sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale</a> properties.
+The scaling use the <a href="controls/pivot_point.html#bpy-types-sequencertoolsettings-pivot-point">Pivot Point</a> as reference.
+So, for example, if the Pivot Point is set to <em>2D Cursor</em>,
+scaling down a strip will also move the strip in the direction of the 2D cursor.</p>
+<p>To use the tool, <kbd>LMB</kbd> on the image and drag it to the desired size.
+The further away the mouse cursor is initially from the Pivot point, the more precise the scaling is.
+You can also use the Arrow-keys to adjust the scale very precisely.
+If <a href="display/gizmos.html#bpy-types-spacesequenceeditor-show-gizmo-tool">Active Tools</a>
+is enabled, you can also scale the image by dragging the gizmo.</p>
+<p>The scale of the image can be constrained along the global/local X or Y axis by pressing <kbd>X</kbd> or <kbd>Y</kbd>,
+pressing the hotkeys will cycle between global/local orientations and disabling constraints.</p>
+<p>Holding <kbd>Shift</kbd> will scale the image in smaller increments for more precision.
+You may also type in an exact amount to scale for absolute precision.</p>
+<p>The amount of scaling is relative meaning a scale value of 0.4 will scale the image to 40% of its size.</p>
+<p>While the operation is running a message will display in the header indicating
+the amount the image has been scaled in each of the cardinal directions.</p>
+</dd>
+<dt>Transform</dt><dd><p>Supports any combination of the moving, rotating, scaling at the same time.
+In the figure below, the Transform tool is enabled and strip 3 selected.</p>
+<figure id="id1">
+<figcaption>
+<p>The Transform tool</p>
+</figcaption>
+</figure>
+<p>With the four squares at the corners of the strip, you can scale the strip.
+The circle on top is for rotating and the crosshair in the middle is for moving the strip.</p>
+</dd>
+<dt>Sample</dt><dd><p>Used to sample a pixel’s color from the preview.</p>
+<p>To use the Sample tool, <kbd>LMB</kbd> anywhere in the preview.
+Information about the pixel under the mouse cursor is shown in an overlay at the bottom of the editor.</p>
+<p>In the order of appearance, the following information is shown:</p>
+<ul>
+<li><p>The X and Y coordinates of the clicked pixel. Remember that the left bottom corner is location (0, 0).</p></li>
+<li><p>The values for the red, green, and blue component as from the color picker.</p></li>
+<li><p>The alpha value of the pixel.</p></li>
+<li><p>The color-managed values of the red, green, and blue component (the color as you see in the preview).</p></li>
+<li><p>The hue, saturation, value, and luminance equivalent values of the color-managed values.</p></li>
+</ul>
+<figure id="id2">
+<figcaption>
+<p>Sample tool example.</p>
+</figcaption>
+</figure>
+</dd>
+<dt><a href="../../../interface/annotate_tool.html#tool-annotate-freehand">Annotate</a></dt><dd><p>Draw free-hand annotation.</p>
+<dl>
+<dt><a href="../../../interface/annotate_tool.html#tool-annotate-line">Annotate Line</a></dt><dd><p>Draw straight line annotation.</p>
+</dd>
+<dt><a href="../../../interface/annotate_tool.html#tool-annotate-polygon">Annotate Polygon</a></dt><dd><p>Draw a polygon annotation.</p>
+</dd>
+<dt><a href="../../../interface/annotate_tool.html#tool-annotate-eraser">Annotate Eraser</a></dt><dd><p>Erase previous drawn annotations.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

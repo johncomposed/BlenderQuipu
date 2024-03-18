@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Video Editing &gt; Edit &gt; Montage &gt; Editing</head>
+<body><ul>
+<li><a href="../../index.html">Video Editing</a></li>
+<li><a href="../index.html">Edit Your Project</a></li>
+<li><a href="index.html">Montage</a></li>
+<li>Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="editing">
+<h1>Editing</h1>
+<section id="transform">
+<h2>Transform</h2>
+<section id="options">
+<h3>Options</h3>
+<section id="overlap-mode">
+<h4>Overlap Mode</h4>
+<p>Overlap Mode defines the result of transforming a strip so that it overlaps another strip.</p>
+<dl>
+<dt>Shuffle</dt><dd><p>The overlapping strip will be moved to the nearest free space so that it does not overlap.</p>
+</dd>
+<dt>Overwrite</dt><dd><p>The overlapped strip will be overwritten, trimmed or split by the overlapping strip.</p>
+</dd>
+<dt>Expand</dt><dd><p>All strips on the right side of (each) transformed will be shifted forward to accommodate
+the overlapping strip.</p>
+</dd>
+</dl>
+</section>
+<section id="snapping">
+<h4>Snapping</h4>
+<p>It is possible to enable snapping in the header of the VSE.
+The snapping behavior can be configured as follows:</p>
+<dl id="bpy-types-sequencertoolsettings-snap-to-hold-offset">
+<dt>Snap to</dt><dd><dl>
+<dt>Current Frame</dt><dd><p>Snaps the transformed selection to the Playhead.</p>
+</dd>
+<dt>Hold Offset</dt><dd><p>Snaps the transformed selection to the <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#sequencer-duration-hard">Hold Offset</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-sequencertoolsettings-snap-ignore-sound">
+<dt>Ignore</dt><dd><dl>
+<dt>Muted Strips</dt><dd><p>Muted Strips are not considered as snap targets.</p>
+</dd>
+<dt>Sound Strips</dt><dd><p>Sound Strips are not considered as snap targets.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-sequencertoolsettings-use-snap-current-frame-to-strips">
+<dt>Current Frame</dt><dd><dl>
+<dt>Snap to Strips</dt><dd><p>Snaps the Playhead to all strips.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="move">
+<h3>Move</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Transform ‣ Move</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>G</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Pressing <kbd>G</kbd> moves all the selected strip(s).
+Move your mouse horizontally (left/right) to change the strip’s position in time.
+Move vertically (up/down) to change channels.</p>
+<p>Holding down <kbd>Ctrl</kbd> while dragging enables or disables snapping.</p>
+<p>You can also lock the direction to time with <kbd>X</kbd> or to change the strip’s channel with <kbd>Y</kbd>.</p>
+<p>It is possible to move strips using mouse by dragging them while holding <kbd>LMB</kbd>.
+Currently it is possible to move only one strip by dragging.</p>
+<section id="start-frame-offset">
+<h4>Start Frame Offset</h4>
+<p>The <em>Start Frame Offset</em> for that strip can be selected by clicking <kbd>LMB</kbd> on the left handle of the strip;
+holding it down (or pressing <kbd>G</kbd> and then moving the mouse left/right)
+changes the start frame within the strip by the number of frames you move it.
+The frame number label under the strip displays the start frame of the strip.</p>
+<ul>
+<li><p>If you have a 20-image sequence strip, and drag the left handle to the right by 10 frames,
+the strip will start at image 11 (images 1 to 10 will be skipped).
+Use this to clip off a roll-up or undesired lead-in.</p></li>
+<li><p>Dragging the left handle left will create a lead-in (copies) of the first frame for as many frames as you drag it.
+Use this when you want some frames for a transition at the start of the clip.</p></li>
+</ul>
+</section>
+<section id="end-frame">
+<h4>End Frame</h4>
+<p>The <em>End Frame</em> of the strip could be selected by clicking <kbd>LMB</kbd> on the right handle of the strip;
+holding it down (or pressing <kbd>G</kbd>) and then moving the mouse changes the ending frame within the strip.
+The frame number label over the strip displays the end frame of the strip.</p>
+<ul>
+<li><p>Dragging the right handle to the left shortens the clip;
+any original images at the tail are ignored. Use this to quickly clip off a roll-down.</p></li>
+<li><p>Dragging the right handle to the right extends the clip.
+For movies and images sequences, more of the animation is used until exhausted.
+Extending a clip beyond its length will render as a copy of the last image.
+Use this for transitions out of this clip.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>Multiple selection</p>
+<p>You can select several (handles of) strips by <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> clicking: when you press <kbd>G</kbd>,
+everything that is selected will move with your mouse – this means that,
+for example, you can at the same time move a strip, shorten two others, and extend a forth one.</p>
+</div>
+</section>
+</section>
+<section id="move-extend-from-current-frame">
+<h3>Move/Extend from Current Frame</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Transform ‣ Move/Extend from Current Frame</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>E</kbd></p>
+</dd>
+</dl>
+</div>
+<p>With a number of strips selected, pressing <kbd>E</kbd> lets you interactively extend the strips.
+This is similar to moving but is useful for extending (or shortening) time around the current frame.</p>
+<p>All selected strip handles to the “mouse side” of the current frame indicator will transform together,
+so you can change the duration of strips at the current frame.</p>
+<div>
+<p>Hint</p>
+<p>Extend is a convenient way to adjust the time of rough edits such as an “animatic” (sequential storyboards).
+Where it’s possible to select everything and adjust the length of strips around the current frame.
+This can be especially useful when adding in audio or other elements that could cause
+the timing to need adjustment.</p>
+<p>When performing this operation you may want to enable Markers ‣ Sync Markers
+so markers are updated too.</p>
+<p>This simply a convenience operation, instead of manually selecting strips
+on one side of the current frame, as well as handles on one side of overlapping strips.
+Then selecting and transforming markers as well.
+This avoids the manual process, so re-timing can be accessed quickly.</p>
+</div>
+</section>
+<section id="slip-strip-contents">
+<h3>Slip Strip Contents</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Transform ‣ Slip Strip Contents</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>S</kbd></p>
+</dd>
+</dl>
+</div>
+<p>The Slip tool allows you to change the position of the contents of a strip without moving the strip itself.</p>
+</section>
+<section id="snap-strips-to-the-current-frame">
+<h3>Snap Strips to the Current Frame</h3>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Transform ‣ Snap Strips to the Current Frame</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Moves the strip or control point to the current frame.</p>
+</section>
+<section id="clear-strips-offset">
+<h3>Clear Strips Offset</h3>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Transform ‣ Clear Strips Offset</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>O</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>To reset the (soft) start/end frame handles.</p>
+</section>
+<section id="swap-strips">
+<h3>Swap Strips</h3>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Transform ‣ Swap Strips</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Left <kbd><kbd>Alt</kbd>-<kbd>Left</kbd></kbd></dt><dd><p>Swaps the active strip with the strip to the left.</p>
+</dd>
+<dt>Right <kbd><kbd>Alt</kbd>-<kbd>Right</kbd></kbd></dt><dd><p>Swaps the active strip with the strip to the right.</p>
+</dd>
+</dl>
+</section>
+<section id="remove-gaps">
+<h3>Remove Gaps</h3>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Transform ‣ Insert Gaps</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Backspace</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Remove blank frames between the current frame and the first strip to the left,
+independent of selection or locked state of strips.</p>
+<dl>
+<dt>All Gaps</dt><dd><p>Remove gaps to the right of the strip along with the left.</p>
+</dd>
+</dl>
+</section>
+<section id="insert-gaps">
+<h3>Insert Gaps</h3>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Transform ‣ Insert Gaps</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Equals</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Insert blank frames between the current frame and the first strips to the right,
+independent of selection or locked state of strips.</p>
+</section>
+</section>
+<section id="image-transform">
+<h2>Image Transform</h2>
+<section id="scale-to-fit">
+<h3>Scale to Fit</h3>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Image Transform ‣ Scale to Fit</p>
+</dd>
+</dl>
+</div>
+<p>Adjusts the strips <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a>
+so the visual contents of the strip to fit exactly within the project’s
+<a href="../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a>
+while maintaining the original aspect ratio.</p>
+<p>This may mean that the transparent areas may be added
+along the content’s border to fit the content in the rendered area.</p>
+</section>
+<section id="scale-to-fill">
+<h3>Scale to Fill</h3>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Image Transform ‣ Scale to Fill</p>
+</dd>
+</dl>
+</div>
+<p>Adjusts the strips <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a>
+so the visual contents of the strip to span the project’s
+<a href="../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a>
+while maintaining the original aspect ratio.</p>
+<p>This may mean that portions of the original image no longer fit the content inside the rendered area.</p>
+</section>
+<section id="stretch-to-fill">
+<h3>Stretch to Fill</h3>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Image Transform ‣ Stretch to Fill</p>
+</dd>
+</dl>
+</div>
+<p>Adjusts the strips <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a>
+so the visual contents of the strip to fill the project’s
+<a href="../../../render/output/properties/format.html#bpy-types-rendersettings-resolution-x">Resolution</a>.
+Note, unlike the other two methods described above, <em>Stretch to Fill</em> does not maintaining the original aspect ratio.</p>
+<p>This may mean that the original image becomes distorted to fit the content inside the rendered area.</p>
+</section>
+<section id="clear-position">
+<h3>Clear Position</h3>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Image Transform ‣ Clear Position</p>
+</dd>
+</dl>
+</div>
+<p>Resets the strips <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-rotation">Position Transforms</a> to a value of zero.</p>
+</section>
+<section id="clear-scale">
+<h3>Clear Scale</h3>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Image Transform ‣ Clear Scale</p>
+</dd>
+</dl>
+</div>
+<p>Resets the strips <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-scale">Scale Transforms</a> to a value of one.</p>
+</section>
+<section id="clear-rotation">
+<h3>Clear Rotation</h3>
+<div id="id14">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Image Transform ‣ Clear Rotation</p>
+</dd>
+</dl>
+</div>
+<p>Resets the strips <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform-rotation">Rotation Transform</a> to a value of zero.</p>
+</section>
+<section id="clear-all">
+<h3>Clear All</h3>
+<div id="id15">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Image Transform ‣ Clear All</p>
+</dd>
+</dl>
+</div>
+<p>Resets the strips position, scale, and rotation <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#bpy-types-sequencetransform">Transforms</a> to
+their default values.</p>
+</section>
+</section>
+<section id="split">
+<h2>Split</h2>
+<div id="id16">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Split</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>K</kbd></p>
+</dd>
+</dl>
+</div>
+<p>This splits the selected strip in two at the current frame.
+This will result in two strips which use the same source, fitting the original strip’s timing and length.</p>
+<div>
+<p>Hint</p>
+<p>This can be thought of as a quick way to duplicate the current strip,
+adjusting the start/end frames to form two non-overlapping strips showing the same content as before.</p>
+</div>
+</section>
+<section id="hold-split">
+<h2>Hold Split</h2>
+<div id="id17">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Hold Split</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>K</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Like <em>Split</em>, it splits a strip in two distinct strips;
+however you will not be able to drag the endpoints to show the frames past the split of each resulting strip.</p>
+<p>Although you can adjust the <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#sequencer-duration-hard">Hold Offset</a>
+number fields in the <em>Strip Info</em> panel.</p>
+<div>
+<p>Hint</p>
+<p>This can be thought of as a way to simulate splitting the video file in two parts at the cut-point,
+replacing the current strip with each.</p>
+</div>
+</section>
+<section id="duplicate-strips">
+<h2>Duplicate Strips</h2>
+<div id="id18">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Duplicate Strips</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Duplicate a strip to make an unlinked copy;
+drag it to a time and channel, and drop it by <kbd>LMB</kbd> click.</p>
+</section>
+<section id="delete">
+<h2>Delete</h2>
+<div id="id19">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Delete</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Delete</kbd>, <kbd>X</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Delete the selected strip(s).</p>
+</section>
+<section id="update-scene-frame-range">
+<h2>Update Scene Frame Range</h2>
+<div id="id20">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Update Scene Frame Range</p>
+</dd>
+</dl>
+</div>
+<p>For Scene strips only – Updates the strip’s <a href="../../../editors/video_sequencer/sequencer/sidebar/strip.html#sequencer-strips-properties-time">Time</a>
+properties to match the referenced scene’s frame range.
+This operator should be used when the referenced scene’s length is extended or shortened.</p>
+</section>
+<section id="separate-images">
+<h2>Separate Images</h2>
+<div id="id21">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Separate Images</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Y</kbd></p>
+</dd>
+</dl>
+</div>
+<p>For images sequence only – Converts the strip into multiple strips, one strip for each frame.
+Useful for slide shows and other cases where you want to bring in a set on non-continuous images.</p>
+<dl>
+<dt>Length</dt><dd><p>You have to specify the duration you want the resulting strips will be.</p>
+</dd>
+</dl>
+</section>
+<section id="movie-strip">
+<h2>Movie Strip</h2>
+<section id="set-render-size">
+<h3>Set Render Size</h3>
+<div id="id22">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Set Render Size</p>
+</dd>
+</dl>
+</div>
+<p>Sets the render resolution and aspect to match the strip’s resolution.</p>
+</section>
+<section id="deinterlace-movies">
+<h3>Deinterlace Movies</h3>
+<div id="id23">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Deinterlace Movies</p>
+</dd>
+</dl>
+</div>
+<p>Converts interlaced video into progressive video.</p>
+</section>
+</section>
+<section id="effect-strip">
+<h2>Effect Strip</h2>
+<section id="change-effect-input">
+<h3>Change Effect Input</h3>
+<div id="id24">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Effect Strip ‣ Change Effect Type</p>
+</dd>
+</dl>
+</div>
+<p>Swaps which strips are the input for the effect strip.</p>
+</section>
+<section id="change-effect-type">
+<h3>Change Effect Type</h3>
+<div id="id25">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Effect Strip ‣ Change Effect Type</p>
+</dd>
+</dl>
+</div>
+<p>Switch the effects on a selected Effect strip.</p>
+</section>
+<section id="reassign-inputs">
+<h3>Reassign Inputs</h3>
+<div id="id26">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Effect Strip ‣ Reassign Inputs</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>R</kbd></p>
+</dd>
+</dl>
+</div>
+<p>This tool can be used to assign (reconnect) effect strips in a different way.
+Select three arbitrary strips and press <kbd>R</kbd>.
+If you don’t create a cycle, those will be connected to a new effect chain.</p>
+</section>
+<section id="swap-inputs">
+<h3>Swap Inputs</h3>
+<div id="id27">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Strip ‣ Effect Strip ‣ Swap Inputs</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Swaps the first two inputs for the effect strip.</p>
+</section>
+</section>
+<section id="lock-unlock">
+<h2>Lock/Unlock</h2>
+<dl>
+<dt>Lock Strips <kbd><kbd>Shift</kbd>-<kbd>L</kbd></kbd></dt><dd><p>Disables the strip from being transformed.</p>
+</dd>
+<dt>Unlock Strips <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>L</kbd></kbd></dt><dd><p>Enables disabled strips allowing them to be transformed.</p>
+</dd>
+</dl>
+</section>
+<section id="mute-unmute">
+<h2>Mute/Unmute</h2>
+<dl>
+<dt>Mute/Unmute Strips <kbd>H</kbd>, <kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Mute or unmute the selected strips.</p>
+</dd>
+<dt>Mute/Unmute Deselected Strips <kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Mute or unmute all strips but the selected.</p>
+</dd>
+</dl>
+</section>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl id="bpy-ops-sequencer-reload">
+<dt>Reload Strips <kbd><kbd>Alt</kbd>-<kbd>R</kbd></kbd></dt><dd><p>Reloads the strips from their external saved location.</p>
+</dd>
+<dt>Reload Strips and Adjust Length <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>R</kbd></kbd></dt><dd><p>Reloads the strips from their external saved location and re-adjusts the strip duration.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-change-path">
+<dt>Change Path/Files</dt><dd><p>Changes the source file contained in a selected strip.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-sequencer-swap-data">
+<dt>Swap Data</dt><dd><p>Swaps two sequence strips.</p>
+</dd>
+</dl>
+</section>
+<section id="context-menu">
+<h2>Context Menu</h2>
+<p>You can activate context menu by clicking <kbd>RMB</kbd> in the Sequencer’s timeline.
+In this menu you can quickly access some commonly used tools.</p>
+</section>
+<section id="fades">
+<h2>Fades</h2>
+<div id="id28">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Fades</p>
+</dd>
+</dl>
+</div>
+<p>This submenu contains tools to add or remove fades to strips.
+In case of visual strips the tools will animate the opacity or volume in case of audio strips.</p>
+<dl>
+<dt>Clear Fades</dt><dd><p>Removes fade animation from selected sequences.</p>
+</dd>
+<dt>Fade In and Out</dt><dd><p>Fade selected strips in and out.</p>
+</dd>
+<dt>Fade In</dt><dd><p>Fade in selected strips.</p>
+</dd>
+<dt>Fade Out</dt><dd><p>Fade out selected strips.</p>
+</dd>
+<dt>From Current Frame</dt><dd><p>Fade from the current frame to the end of overlapping sequences.</p>
+</dd>
+<dt>To Current Frame</dt><dd><p>Fade from the start of sequences under the Playhead to the current frame.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

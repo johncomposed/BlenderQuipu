@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Editing &gt; Curve</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Curves</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Curve</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve">
+<h1>Curve</h1>
+<p>This page covers the basics of curve editing.</p>
+<section id="transform">
+<h2>Transform</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Transform</p>
+</dd>
+</dl>
+</div>
+<p>A Bézier curve can be edited by transforming the locations of both control points and handles.
+NURBS curve on the other hand have only control points.</p>
+<dl>
+<dt>Move, Rotate, Scale</dt><dd><p>Like other elements in Blender, curve control points and handles can be
+moved, rotated, or scaled as described in
+<a href="../../../scene_layout/object/editing/transform/introduction.html">Basic Transformations</a>.</p>
+</dd>
+<dt>To Sphere, Shear, Warp, Bend, Push/Pull, Warp, Randomize</dt><dd><p>The transform tools are described in
+the <a href="../../meshes/editing/mesh/transform/index.html">Transformations</a> sections.</p>
+</dd>
+<dt>Move/Scale Texture Space</dt><dd><p>Like other objects, curves have textures spaces which can be
+<a href="../../meshes/uv/uv_texture_spaces.html#properties-texture-space-editing">edited</a>.</p>
+</dd>
+</dl>
+<section id="radius">
+<h3>Radius</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Radius</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Transform ‣ Radius</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The Radius allows you to directly control the width of the extrusion along the “spinal” curve.
+The radius will be interpolated from point to point (you can check it with the normals).
+The <em>Radius</em> of the points is set using the <em>Radius</em> transform tool. Or in the Sidebar <em>Transform</em> panel.</p>
+<figure id="id14">
+<figcaption>
+<p>One control point radius set to zero.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="mirror">
+<h2>Mirror</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Mirror</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Mirror</em> tool is also available, behaving exactly as with
+<a href="../../meshes/editing/mesh/mirror.html">mesh vertices</a>.</p>
+</section>
+<section id="snap">
+<h2>Snap</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Snap</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p><a href="../../../editors/3dview/controls/snapping.html">Mesh snapping</a>
+also works with curve components.
+Both control points and their handles will be affected by snapping,
+except for within itself (other components of the active curve).
+Snapping works with 2D curves but points will be constrained to the local XY axes.</p>
+</section>
+<section id="spin">
+<h2>Spin</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Spin</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Spin</em> operator only works for one dimensional <a href="../../surfaces/index.html">surface</a> objects.
+Its use for curves is currently not possible,
+the full feature is documented in <a href="../../surfaces/editing/surface.html#bpy-ops-curve-spin">Surface editing</a>.</p>
+</section>
+<section id="add-duplicate">
+<h2>Add Duplicate</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Add Duplicate</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>D</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>This tool duplicates the selected control points,
+along with the curve segments implicitly selected (if any).
+If only a handle is selected, the full point will be duplicated too.
+The copy is selected and placed in select mode, so you can move it to another place.</p>
+</section>
+<section id="split">
+<h2>Split</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Split</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Y</kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Split</em> operator splits a selected segment of a curve from the rest of the curve.
+This curve can then be moved or altered without affecting the other curve.
+If a single control point is selected the <em>Split</em> operator will create a new singular loose control point;
+leaving the previously selected control point attached to the rest of the curve.</p>
+</section>
+<section id="separate">
+<h2>Separate</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Separate</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>P</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Curve objects that are made of multiple distinct curves can be separated into their own
+objects by selecting the desired segments and pressing <kbd>P</kbd>.
+Note, if there is only one curve in a Curve object,
+<em>Separate</em> will create a new Curve object with no control points.</p>
+</section>
+<section id="toggle-cyclic">
+<h2>Toggle Cyclic</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Toggle Cyclic</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>C</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>This toggles between an open curve and closed curve (Cyclic).
+Only curves with at least one selected control point will be closed/open.
+The shape of the closing segment is based on the start and end handles for Bézier curves,
+and as usual on adjacent control points for NURBS.
+The only time a handle is adjusted after closing is if the handle is an <em>Auto</em> one.
+Fig. <a href="#fig-curves-editing-open-close">Open and Closed curves.</a> is the same Bézier curve open and closed.</p>
+<p>This action only works on the original starting control point or the last control point added.
+Deleting a segment(s) does not change how the action applies;
+it still operates only on the starting and last control points. This means that
+<kbd><kbd>Alt</kbd>-<kbd>C</kbd></kbd> may actually join two curves instead of closing a single curve!
+Remember that when a 2D curve is closed, it creates a renderable flat face.</p>
+<figure id="id15">
+<figcaption>
+<p>Open and Closed curves.</p>
+</figcaption>
+</figure>
+</section>
+<section id="set-spline-type">
+<h2>Set Spline Type</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Set Spline Type</p>
+</dd>
+</dl>
+</div>
+<p><em>Set Spline Type</em> converts splines in a curve object between Bézier, NURBS, and Poly curves.
+Note, this is not a “smart” conversion, i.e. Blender does not try to keep the same shape,
+nor the same number of control points. For example, when converting a NURBS to a Bézier,
+each group of three NURBS control points become a unique Bézier one (center point and two handles).</p>
+<div>
+<p>See also</p>
+<p><a href="../../../scene_layout/object/editing/convert.html#object-convert-to">Convert</a>/from Mesh.</p>
+</div>
+</section>
+<section id="show-hide">
+<h2>Show/Hide</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Show/Hide</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>H</kbd></kbd>, <kbd>H</kbd>, <kbd><kbd>Shift</kbd>-<kbd>H</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>When in <em>Edit Mode</em>, you can hide and reveal elements from the display.
+You can only show or hide control points, as segments are always shown,
+unless all control points of the connected curve are hidden,
+in which case the curve is fully hidden.</p>
+<p>See <a href="../../../scene_layout/object/editing/show_hide.html#object-show-hide">Show/Hide</a> in <em>Object Mode</em>.
+See also the <a href="../curve_display.html">Curve Display</a> panel.</p>
+</section>
+<section id="cleanup">
+<h2>Cleanup</h2>
+<section id="decimate-curve">
+<h3>Decimate Curve</h3>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Clean Up ‣ Decimate Curve</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Decimate Curve</em> operator reduces the number of control points
+while trying to maintain the curves original shape.
+This operator works similar to its <a href="../../meshes/editing/mesh/cleanup.html#bpy-ops-mesh-decimate">mesh counterpart</a>.</p>
+<dl>
+<dt>Ratio</dt><dd><p>The percentage of control points to remove.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>This tool can only decimate Bézier curves.</p>
+</div>
+</section>
+</section>
+<section id="delete">
+<h2>Delete</h2>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Curve ‣ Delete…</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd>, <kbd>Delete</kbd>; <kbd><kbd>Ctrl</kbd>-<kbd>X</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Options for the <em>Delete</em> pop-up menu:</p>
+<dl>
+<dt>Vertices</dt><dd><p>This will delete the selected control points, <em>without</em> breaking the curve
+(i.e. the adjacent points will be directly linked, joined, once the intermediary ones are deleted).
+Remember that NURBS order cannot be higher than its number of control points,
+so it might decrease when you delete some control point.
+Of course, when only one point remains, there is no more visible curve,
+and when all points are deleted, the curve itself is deleted.</p>
+</dd>
+<dt>Segment</dt><dd><p>Deletes the segment that connects the selected control points and disconnecting them.</p>
+</dd>
+<dt>Dissolve Vertices <kbd><kbd>Ctrl</kbd>-<kbd>X</kbd></kbd></dt><dd><p>Deletes the selected control points, while the remaining segment is fitted to the deleted curve
+by adjusting its handles.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id16">
+<figcaption>
+<p>Before deleting.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id17">
+<figcaption>
+<p>Deleting vertices.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id18">
+<figcaption>
+<p>Deleting segment.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id19">
+<figcaption>
+<p>Dissolve vertices.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

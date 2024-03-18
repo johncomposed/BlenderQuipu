@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Mirror</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Mirror Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mirror-modifier">
+<h1>Mirror Modifier</h1>
+<p>The <em>Mirror</em> modifier mirrors a mesh along its local X, Y and/or Z axes, across the <a href="../../../glossary/index.html#term-Object-Origin">Object Origin</a>.
+It can also use another object as the mirror center, then use that object’s local axes instead of its own.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Mirror modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Axis</dt><dd><p>The X, Y, Z axis along which to mirror, i.e. the axis perpendicular to the mirror plane of symmetry.</p>
+<p>To understand how the axis applies to the mirror direction, if you were to mirror on the X axis,
+the positive X values of the original mesh would become the negative X values on the mirrored side.</p>
+<p>You can select more than one of these axes. And will then get more mirrored copies.
+With one axis you get a single mirror, with two axes four mirrors, and with all three axes eight mirrors.</p>
+</dd>
+<dt>Bisect</dt><dd><p>If the mesh is already on both sides of the mirror plane, it is cut by that plane,
+and only one side (the “positive” one by default) is kept to perform the mirror process.</p>
+</dd>
+<dt>Flip</dt><dd><p>When <em>Bisect</em> is enabled on an axis, you can use this setting to switch the side kept and mirrored
+(i.e. when it is enabled, the “negative” side will be kept, instead of the “positive” one).</p>
+</dd>
+<dt>Mirror Object</dt><dd><p>An <a href="../../../interface/controls/templates/data_block.html#ui-data-id">Object Selector</a> to select an object (usually an empty),
+which position and rotation will be used to define mirror planes
+(instead of using the ones from the modified object).</p>
+<p>You can animate it to move the mirror axis.</p>
+</dd>
+<dt>Clipping</dt><dd><p>Prevents vertices from moving through the mirror plane(s) when you transform them in Edit Mode.</p>
+<p>If it is enabled but vertices are beyond the mirror plane and outside of the <em>Merge Distance</em>,
+the vertices will not be merged. But as soon as the vertices are within <em>Merge Distance</em>
+they are snapped together and cannot be moved beyond the mirror plane.</p>
+<div>
+<p>Note</p>
+<p>Vertices on the mirror plane will be unable to move away from the mirror plane
+as long as <em>Clipping</em> is enabled.
+You must disable it to be able to move the vertices along the mirror axis again.</p>
+</div>
+</dd>
+<dt>Merge</dt><dd><p>Where a vertex is in the same place (within the <em>Merge Distance</em>) as its mirror
+it will be merged with the mirrored vertex.</p>
+<dl>
+<dt>Merge Distance</dt><dd><p>The maximum distance between a vertex and its mirror copy at which they are merged together
+(being snapped on the mirror plane). Needs <em>Merge</em> to be enabled.</p>
+</dd>
+</dl>
+</dd>
+<dt>Bisect Distance</dt><dd><p>Distance from the bisect plane within which vertices are removed.</p>
+</dd>
+</dl>
+<section id="data">
+<h3>Data</h3>
+<dl>
+<dt>Flip UV</dt><dd><p>With this option you can mirror the UV texture coordinates across the middle of the image.</p>
+<p>E.g. if you have a vertex with UV coordinates of (0.3, 0.9),
+its mirror copy will have UV coordinates of (0.7, 0.1).</p>
+</dd>
+<dt>UV Offsets</dt><dd><p>Amount to shift mirrored UVs on the U/V axes.</p>
+<p>It’s useful for baking (as overlapping UVs can cause artifacts to appear in the baked map),
+so the UVs can be moved outside the image and not used for baking, but still be used for display.</p>
+</dd>
+<dt>Vertex Groups</dt><dd><p>Try to mirror existing vertex groups, with the following specific prerequisites:</p>
+<ul>
+<li><p>The vertex groups you want to mirror must be named following the usual left/right pattern
+(i.e. with suffixes like “.R”, “.right”, “.L”, etc.).</p></li>
+<li><p>The mirror side vertex group must already exist (it will not be created automatically).
+It must also be completely empty (no vertices assigned to it).</p></li>
+</ul>
+</dd>
+<dt>Flip UDIM</dt><dd><p>Mirror the texture coordinates around each tile center.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="hints">
+<h2>Hints</h2>
+<p>Many modeling tasks involve creating objects that are symmetrical.
+This modifier offers a simple and efficient way to do this, with real-time update of the mirror as you edit it.
+Once your modeling is completed you can either click <em>Apply</em> to make a real version of your mesh,
+or leave it as-is for future editing.</p>
+<section id="accurately-positioning-the-mirror-plane">
+<h3>Accurately Positioning the Mirror Plane</h3>
+<p>To apply a <em>Mirror</em> modifier, it is common to have to move the object’s origin onto
+the edge or face that is to be the axis for mirroring.
+This can be tricky when attempted visually.</p>
+<p>A good technique to achieve an exact position is
+to select the edge, then <a href="../../../editors/3dview/controls/snapping.html">snap</a> <em>Cursor to Selection</em>.
+This will position the 3D Cursor in the center of the edge.
+Finally, use the <a href="../../../scene_layout/object/origin.html#bpy-ops-object-origin-set">Set Origin</a> menu, and select <em>Origin to 3D Cursor</em>.
+This will move the object’s origin (and thus, the mirror plane) to where the 3D cursor is located,
+and the mirroring will be exact.</p>
+<p>An alternative is to use an empty as a <em>Mirror Object</em> that you move to the correct position.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

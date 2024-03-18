@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Rigid Body &gt; Properties &gt; Collisions</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Rigid Body</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Collisions</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="collisions">
+<h1>Collisions</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Rigid Body ‣ Collisions</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-rigidbodyobject-collision-shape">
+<dt>Shape</dt><dd><p>Determines the collision shape of the object;
+these can be broken into two categories: primitive shapes and mesh based shapes.</p>
+<p>Primitive shapes (<em>Box</em>, <em>Sphere</em>, <em>Capsule</em>, <em>Cylinder</em>, and <em>Cone</em>)
+are best in terms of memory and performance but do not
+necessarily reflect the actual shape of the object.
+They are calculated based on the object’s bounding box.
+The center of gravity is always in the geometric center of the shape.
+Primitive shapes can be shown in the 3D Viewport by enabling <a href="../../../scene_layout/object/properties/display.html#bpy-types-object-show-bounds">Bounds</a>.</p>
+<p>Mesh based shapes (<em>Convex Hull</em> and <em>Mesh</em>) are calculated based on the geometry of the object
+so they are a better representation of the object.
+The center of gravity for these shapes is the object origin.</p>
+<dl>
+<dt>Box:</dt>
+<dd><p>Box-like shapes (e.g. cubes), including planes (e.g. ground planes).
+The size per axis is calculated from the bounding box.</p>
+</dd>
+<dt>Sphere:</dt>
+<dd><p>Sphere-like shapes. The radius is the largest axis of the bounding box.</p>
+</dd>
+<dt>Capsule:</dt>
+<dd><p>This points up the Z axis.</p>
+</dd>
+<dt>Cylinder:</dt>
+<dd><p>This points up the Z axis.
+The height is taken from the Z axis, while the radius is the larger of the X or Y axes.</p>
+</dd>
+<dt>Cone:</dt>
+<dd><p>This points up the Z axis.
+The height is taken from the Z axis, while the radius is the larger of the X or Y axes.</p>
+</dd>
+<dt>Convex Hull:</dt>
+<dd><p>A mesh-like surface encompassing (e.g. shrink-wrapped over) all vertices (best results with fewer vertices).
+A convex approximation of the object, which has good performance and stability.</p>
+</dd>
+<dt>Mesh:</dt>
+<dd><p><a href="../../../glossary/index.html#term-Mesh">Mesh</a> consisting of triangles only, allowing for more detailed interactions than convex hulls.
+Allows simulating concave objects, but is rather slow and unstable.</p>
+</dd>
+<dt>Compound Parent:</dt>
+<dd><p>Takes the collision shapes from the object’s <a href="../../../scene_layout/object/editing/parent.html">children</a>
+and combines them. This makes it possible to create concave shapes from primitive shapes.
+This usually results in a faster simulation than the <em>Mesh</em> collision shape
+while also being generally more stable.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-rigidbodyobject-mesh-source">
+<dt>Source</dt><dd><p>Source of the mesh used to create the collision shape.</p>
+<dl>
+<dt>Base:</dt>
+<dd><p>The base mesh of the object.</p>
+</dd>
+<dt>Deform:</dt>
+<dd><p>Includes any deformations added to the mesh (shape keys, deform modifiers).</p>
+</dd>
+<dt>Final:</dt>
+<dd><p>Includes all deformations and modifiers.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-rigidbodyobject-use-deform">
+<dt>Deforming</dt><dd><p>Mesh shapes can deform during simulation.</p>
+</dd>
+</dl>
+<section id="surface-response">
+<h2>Surface Response</h2>
+<dl id="bpy-types-rigidbodyobject-friction">
+<dt>Friction</dt><dd><p>Resistance of object to movement. Specifies how much velocity is lost when objects collide with each other.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rigidbodyobject-restitution">
+<dt>Bounciness</dt><dd><p>Tendency of object to bounce after colliding with another (0 to 1) (rigid to perfectly elastic).
+Specifies how much objects can bounce after collisions.</p>
+</dd>
+</dl>
+</section>
+<section id="sensitivity">
+<h2>Sensitivity</h2>
+<p>The collision margin is used to improve the performance and stability of rigid bodies.
+Depending on the shape, it behaves differently: some shapes embed it,
+while others have a visible gap around them.</p>
+<p>The margin is <em>embedded</em> for these shapes:</p>
+<ul>
+<li><p>Sphere</p></li>
+<li><p>Box</p></li>
+<li><p>Capsule</p></li>
+<li><p>Cylinder</p></li>
+<li><p>Convex Hull: Only allows for uniform scale when embedded.</p></li>
+</ul>
+<p>The margin is <em>not embedded</em> for these shapes:</p>
+<ul>
+<li><p>Cone</p></li>
+<li><p>Active Triangle Mesh</p></li>
+<li><p>Passive Triangle Mesh: Can be set to 0 most of the time.</p></li>
+</ul>
+<dl id="bpy-types-rigidbodyobject-collision-margin">
+<dt>Margin</dt><dd><p>Threshold of distance near the surface where collisions are still considered (best results when nonzero).</p>
+</dd>
+</dl>
+</section>
+<section id="collections">
+<h2>Collections</h2>
+<p>Allows rigid body collisions allocate on different groups (maximum 20).</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

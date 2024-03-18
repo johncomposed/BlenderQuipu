@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Soft Body &gt; Collision</head>
+<body><ul>
+<li><a href="../index.html">Physics</a></li>
+<li><a href="index.html">Soft Body</a></li>
+<li>Collision</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="collision">
+<h1>Collision</h1>
+<p>There are two different collision types that you may use:
+collision between different objects and internal collision.
+We should set one thing straight from the start –
+the primary targets of the collision calculation are the vertices of a soft body.
+So if you have too few vertices too few collision takes place.
+Secondarily, you can use edges and faces to improve the collision calculation.</p>
+<section id="collisions-with-other-objects">
+<h2>Collisions with Other Objects</h2>
+<p>For a soft body to collide with another object there are a few prerequisites:</p>
+<ul>
+<li><p>If <em>Collision Collection</em> is set, the object must belong to the collection.</p></li>
+<li><p>The collision object has to be a mesh object.</p></li>
+<li><p>You have to activate the <em>Collision</em> in the <em>Physics</em> tab for the collision object.
+The collision object may also be a soft body.</p></li>
+</ul>
+<section id="examples">
+<h3>Examples</h3>
+<p>A soft body cube colliding with a plane (Fig. <a href="#fig-softbody-collision-plane1">A soft body cube colliding with a plane.</a>)
+works pretty well, but a soft body plane falls right through a cube
+that it is supposed to collide with (Fig. <a href="#fig-softbody-collision-plane2">A soft body plane colliding with a cube, so no interaction at all.</a>).</p>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>A soft body cube colliding with a plane.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>A soft body plane colliding with a cube, so no interaction at all.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Why is that? Because the default method of calculation only checks to see if the four vertices
+of the soft body plane collides with the cube as the plane is pulled down by gravity.
+You can activate <em>Collision: Face</em> (in the <em>Soft Body Edges</em> panel) to enable collision between
+the face of the plane and the object instead, but this type of calculation takes much longer.</p>
+<p>Let us have a closer look at the collision calculation, so you can get an idea of how we might optimize it.</p>
+</section>
+<section id="calculating-collisions">
+<h3>Calculating Collisions</h3>
+<p>Soft body simulations are by default done on a per-vertex basis. If the vertices of the soft body
+do not collide with the collision object, there will be no interaction between the two objects.</p>
+<p>In the video below, you can see the vertices colliding with a plane.
+If a vertex penetrates the zone between <em>Outer</em> and <em>Inner</em>, it is repulsed by a force in
+the direction of the face normal. The position that a vertex finally ends up in is dependent
+on the forces that act upon it. In the example (the first vertex on the left in the video below)
+gravity and the repulsion force of the face balance out.
+The speed at which the vertex is pulled out of the collision zone is influenced by the <em>Choke</em> parameter
+in the <a href="settings/solver.html#physics-softbody-settings-solver">Soft Body Solver settings</a>.</p>
+<div>
+<p>See also</p>
+<p>Download the <a href="https://archive.blender.org/wiki/uploads/8/8d/CollidingVertices.blend">blend-file</a>.</p>
+</div>
+<p>Now let’s see what happens if we make vertices heavier and let them travel at a faster speed.
+In the video above, you can see vertices traveling at different speeds.
+The two on the far right (fifth and sixth) are traveling so fast that they pass right through
+the collision zone (this is because of the default solver precision, which we can fix later).
+You will notice that the fourth vertex also travels quite fast and because it is heavier
+it breaches the inner zone. The first three vertices collide correctly.</p>
+<p>You can set up your collision so that edges and even faces are included in the collision calculation
+in the <em>Soft Body Edges</em> panel with the Collision <em>Face</em> and <em>Edge</em> options.
+The collision is then calculated differently. It is checked whether the edge or face
+intersects with the collision object, the collision zones are not used.</p>
+</section>
+<section id="good-collisions">
+<h3>Good Collisions</h3>
+<p>If the collision you have set up is not behaving properly, you can try the following:</p>
+<ul>
+<li><p>The soft body object must have more subdivisions than the collision object.
+Add loop cuts to the soft body object in strategic areas that
+you know are most likely to be involved in a collision.</p></li>
+<li><p>Check the direction of the face normals.</p></li>
+<li><p>If the collision object has sharp spikes, they might penetrate the soft body.</p></li>
+<li><p>The resolution of the solver must match the speed at which soft body vertices are traveling.
+Lower the parameter <em>Error Limit</em> and carefully increase <em>Min Step</em>.</p></li>
+<li><p><em>Outer</em> and <em>Inner</em> should be large enough, but zones of opposite faces should not overlap,
+or you have forces in opposite directions.</p></li>
+<li><p>If you use strong forces you should use large zones.</p></li>
+<li><p>Set <em>Choke</em> to a high enough value (all the way up if necessary) if you have difficulties with repelled vertices.</p></li>
+<li><p>Colliding faces are difficult to control and need long calculation times. Try not to use them.</p></li>
+</ul>
+<p>Often it is better to create a simplified mesh to use as your collision object,
+however, this may be difficult if you are using an animated mesh.</p>
+</section>
+</section>
+<section id="self-collisions">
+<h2>Self-Collisions</h2>
+<p>For information on self-collision please refer to
+the <a href="settings/self_collision.html">Self Collision</a> settings.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Mesh &gt; Snap Utilities Line</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Mesh</a></li>
+<li>Snap Utilities Line</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="snap-utilities-line">
+<h1>Snap Utilities Line</h1>
+<section id="installation">
+<h2>Installation</h2>
+<ul>
+<li><p>This add-on is bundled with Blender.</p></li>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Mesh then Snap Utilities Line to enable the script.</p></li>
+</ul>
+</section>
+<section id="make-line">
+<h2>Make Line</h2>
+<p>Creates edges and operationally faces by snapping to mesh elements.
+When moving the cursor close to a face, edge or vertex, the cursor is snapped to the highlighted element.
+It can also be snapped to center or perpendicular of an edge.
+After selecting the first point you can specify the length of the line by typing a value and
+confirming with <kbd>Return</kbd>.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Make Line</p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="controls">
+<h2>Controls</h2>
+<dl>
+<dt><strong>Axis Constrain</strong> <kbd>X</kbd>, <kbd>Y</kbd>, <kbd>Z</kbd></dt><dd><p>Constraint the cursor movement on the  X, Y, or Z axis.</p>
+</dd>
+<dt><strong>Edge Constrain</strong> <kbd>Shift</kbd></dt><dd><p>Constraint the cursor movement towards an edge.</p>
+<p>For the constrain work, you need to have your cursor over an edge.</p>
+<p>This is useful for creating parallel lines.</p>
+</dd>
+<dt><strong>Confirm Input</strong> <kbd>Return</kbd></dt><dd><p>Confirms the numerical value written in the header for the line length.</p>
+</dd>
+<dt><strong>Cut Line</strong> <kbd>LMB</kbd></dt><dd><p>Starts the lines drawing.</p>
+</dd>
+<dt><strong>Confirm</strong> <kbd>RMB</kbd></dt><dd><p>Single click stops the lines drawing.</p>
+<p>Double-clicks completes the tool’s execution.</p>
+</dd>
+<dt><strong>Cancel</strong> <kbd>Esc</kbd></dt><dd><p>Cancel the operation.</p>
+</dd>
+</dl>
+</section>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt><strong>Create Faces</strong></dt><dd><p>A face is created when:</p>
+<p><strong>1.</strong> It detects the drawing of a closed segment.</p>
+<p><strong>2.</strong> The last vertex of the segment binds to an edge that connects another vertex of the segment.</p>
+<p><strong>3.</strong> It detects an isolated edge loop.</p>
+<p><strong>4.</strong> We redraw existing edges to match the conditions mentioned above.</p>
+</dd>
+</dl>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Mesh</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Tool that allows accurate modeling through its own snapping system</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport ‣ Tools ‣ Line Tool</p>
+</dd>
+<dt>File:</dt>
+<dd><p>mesh_snap_utilities_line folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Germano Cavalcante</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

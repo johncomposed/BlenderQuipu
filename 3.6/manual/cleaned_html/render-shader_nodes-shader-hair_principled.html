@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Hair Principled</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Principled Hair BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="principled-hair-bsdf">
+<h1>Principled Hair BSDF</h1>
+<p>Cycles Only</p>
+<p>The <em>Principled Hair</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr> is a physically-based,
+easy-to-use shader for rendering hair and fur.</p>
+<div>
+<p>Tip</p>
+<p>Realistic hair should have a minimum of variance between each strand.
+The shader allows for this by specifying two values, <em>Random Color</em>
+and <em>Random Roughness</em>, which remap the specified Melanin/Roughness values to
+the range \(Color/Roughness \pm Randomization\%\).</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>The RGB color of the strand. Only used in Direct coloring.</p>
+<div>
+<p>Hint</p>
+<p>The chosen color is converted to an absorption coefficient with
+the following formula (section 4.2 of <a href="#cbtb16" id="id1">[CBTB16]</a>):</p>
+<div>
+\[\sigma_{a} = \frac{\ln(Color)}
+{\left(5.969 - 0.215\beta_{N} + 2.532\beta_{N}^{2} -
+10.73\beta_{N}^{3} + 5.574\beta_{N}^{4} + 0.245\beta_{N}^{5}\right)^{2}}\]</div>
+<p>where \(\beta_{N}\) is the radial roughness of the hair after applying randomization (if specified).</p>
+</div>
+<figure id="id5">
+<figcaption>
+<p>Coloring hair using the Direct coloring parametrization. (The numbers on top are the RGB values.)</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Melanin</dt><dd><p>Absolute quantity of pigment.
+Range \([0, 1]\) equivalent to \([0\%, 100\%]\).</p>
+<div>
+<p>Hint</p>
+<p>This is a linear mapping to the underlying exponential function:</p>
+<div>
+\[melanin\_qty = -\ln(\max(1.0 - Melanin, 0.0001))\]</div>
+</div>
+<figure id="id6">
+<figcaption>
+<p>Melanin.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Melanin Redness</dt><dd><p>Ratio of pheomelanin to eumelanin.
+Range \([0, 1]\) equivalent to \([0\%, 100\%]\).</p>
+<div>
+<p>Hint</p>
+<p>The ratio formula is: \(eumelanin = Melanin*(1.0-MelaninRedness)\),
+\(pheomelanin = Melanin*MelaninRedness\).</p>
+<p>The resulting quantities are converted (after randomization, if specified)
+to absorption concentration via the following formula
+(section 6.1 of <a href="#efhla11" id="id2">[EFHLA11]</a>, adjusted for the range \([0, 1]\)):</p>
+<div>
+\[\begin{split}\sigma_{a} =
+eumelanin   * \left[\begin{matrix} 0.506 \\ 0.841 \\ 1.653 \\ \end{matrix}\right] +
+pheomelanin * \left[\begin{matrix} 0.343 \\ 0.733 \\ 1.924 \\ \end{matrix}\right]\end{split}\]</div>
+</div>
+<figure id="id7">
+<figcaption>
+<p>Melanin Redness.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Tint</dt><dd><p>Color used for dyeing the hair after applying the melanin pigment.
+It is not subject to randomization.
+It can be disabled by setting the color to white.</p>
+<div>
+<p>Hint</p>
+<p>This is converted via the Color mapping above and added to
+the absorption coefficient of the melanin concentration.</p>
+</div>
+<figure id="id8">
+<figcaption>
+<p>Tint, using Melanin 0.1 and the corresponding RGB values.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Absorption Coefficient</dt><dd><p>Attenuation coefficient \(\sigma\).</p>
+</dd>
+<dt>Roughness</dt><dd><p>Specify how much the glints are smoothed in the direction of the hair shaft.
+Too low values will smoothen the hair to the point of looking almost metallic,
+making glints look like <a href="../../../glossary/index.html#term-Fireflies">Fireflies</a>; while setting it too high will result in a Lambertian look.</p>
+<figure id="id9">
+<figcaption>
+<p>Roughness.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Radial Roughness</dt><dd><p>Specify how much the glints are smoothed in the direction of the hair normal.
+Too low values will concentrate the glint;
+while setting it too high will spread the light across the width of the strand.</p>
+<div>
+<p>Hint</p>
+<p>Mathematically, this parameter is mapped to the logistic distribution’s
+scale factor \(s\) (section 4.1 of <a href="#cbtb16" id="id3">[CBTB16]</a>).</p>
+</div>
+</dd>
+</dl>
+<figure id="id10">
+<figcaption>
+<p>Radial Roughness.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Coat</dt><dd><p>Simulate a shiny coat of fur, by reducing the Roughness to the given factor
+only for the first light bounce (diffuse).
+Range \([0, 1]\) equivalent to a reduction of \([0\%, 100\%]\) of the original Roughness.</p>
+<figure id="id11">
+<figcaption>
+<p>Coat.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>IOR</dt><dd><p>Index of refraction (<a href="../../../glossary/index.html#term-IOR">IOR</a>) defining how much the ray changes direction.
+At 1.0 rays pass straight through like in a transparent material;
+higher values give more refraction.
+Default value is \(1.55\).</p>
+</dd>
+<dt>Offset</dt><dd><p>Tilts the glint of the hair by increasing the angle of the scales of
+the hair’s cuticle with respect to the hair shaft.
+Human hair usually has low values.</p>
+</dd>
+<dt>Random Color</dt><dd><p>For each strand, vary the melanin concentration by \(RandomFactor\).
+Range \([0, 1]\) equivalent to \([0\%, 100\%]\) of
+the initial melanin concentration.</p>
+<div>
+<p>Hint</p>
+<p>The melanin concentration is multiplied by \(randomFactor\),
+where \(randomFactor = 1.0 + 2.0*(Random - 0.5) * RandomColor\).</p>
+</div>
+<figure id="id12">
+<figcaption>
+<p>Random Color.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Random Roughness</dt><dd><p>For each strand, vary both Roughness values by \(RandomFactor\).
+Range \([0, 1]\) equivalent to \([0\%, 100\%]\) of
+the initial roughness values.</p>
+<div>
+<p>Hint</p>
+<p>The applied formula is the same one as for <em>Random Color</em>.</p>
+</div>
+<figure id="id13">
+<figcaption>
+<p>Random Roughness.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Random</dt><dd><p>Random number source. If no node is connected here, it is automatically
+instanced with the value obtained from Hair Info ‣ Random.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Color Parametrization</dt><dd><p>The shader provides three different ways, or <em>parametrizations</em>, to color the hair strands.</p>
+<dl>
+<dt>Direct Coloring:</dt>
+<dd><p>Choose the desired RGB color and the shader will approximate
+the necessary <em>absorption coefficient</em> (below).</p>
+</dd>
+<dt>Melanin Concentration:</dt>
+<dd><p>This mode defines the color as the quantity and
+ratio of the pigments which are commonly found in hair and fur,
+<em>eumelanin</em> (prevalent in brown-black hair) and <em>pheomelanin</em> (red hair).
+The quantity is specified in the <em>Melanin</em> input, and the ratio between them in <em>Melanin Redness</em>.
+Increasing concentrations darken the hair (the following are with <em>Melanin Redness</em> \(1\)):</p>
+<ul>
+<li><p>White (Melanin \(0\))</p></li>
+<li><p>Blonde (Melanin \(0.25\))</p></li>
+<li><p>Reddish (Melanin \(0.5\))</p></li>
+<li><p>Brown (Melanin \(0.75\))</p></li>
+<li><p>Black (Melanin \(1\))</p></li>
+</ul>
+<p>Additionally, the <em>Tint</em> inputs allows to dye the hair with the desired color.</p>
+</dd>
+<dt>Absorption Coefficient:</dt>
+<dd><p>Specifies the attenuation coefficient \(\sigma_{a}\), as applied by the <a href="https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law#Expression_with_attenuation_coefficient">Beer-Lambert law</a>.
+This mode is intended mainly for technical users who want to use coefficients from the literature
+without any sort of conversion.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="references">
+<h2>References</h2>
+<p>This shader is an implementation of the paper by Chiang et al. <a href="#cbtb16" id="id4">[CBTB16]</a>,
+which was used in the Disney film, “Zootopia”<sup>®</sup>.</p>
+<div role="list">
+<div id="cbtb16" role="doc-biblioentry">
+[CBTB16]
+(1,2,3)
+<p>Chiang, M. J. , Bitterli, B. , Tappan, C. and Burley, B. (2016),
+A Practical and Controllable Hair and Fur Model for Production Path Tracing. Computer Graphics Forum, 35: 275-283.
+<a href="https://doi.org/10.1111/cgf.12830">doi:10.1111/cgf.12830</a></p>
+</div>
+<div id="efhla11" role="doc-biblioentry">
+[EFHLA11]
+<p>d’Eon, E. , Francois, G. , Hill, M. , Letteri, J. and Aubry, J. (2011),
+An Energy‐Conserving Hair Reflectance Model. Computer Graphics Forum, 30: 1181-1187.
+<a href="https://doi.org/10.1111/j.1467-8659.2011.01976.x">doi:10.1111/j.1467-8659.2011.01976.x</a></p>
+</div>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

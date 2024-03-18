@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Smooth</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Smooth Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="smooth-modifier">
+<h1>Smooth Modifier</h1>
+<p>The <em>Smooth</em> modifier smooths a mesh by flattening the angles between adjacent faces in it,
+just like the <a href="../../meshes/editing/vertex/smooth_vertices.html#bpy-ops-mesh-vertices-smooth">Smooth tool</a> in Edit Mode.
+It smooths without subdividing the mesh, the number of vertices remains the same.</p>
+<p>This modifier is not limited to smoothing, though.
+Its control factor can be configured outside the (0.0 to 1.0) range
+(including negative values), which can result in interesting deformations.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Smooth modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Axis</dt><dd><p>Enable/disable the modifier in the X, Y and/or Z axes directions.</p>
+</dd>
+<dt>Factor</dt><dd><p>Controls the smoothing amount.
+Higher values will increase the effect.</p>
+<p>Values outside expected range (above 1.0 or below 0.0) will distort the mesh.</p>
+</dd>
+<dt>Repeat</dt><dd><p>The number of smoothing iterations,
+equivalent to executing the <em>Smooth</em> tool multiple times.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>If set, restrict the effect to the only vertices in that vertex group.
+This allows for selective, real-time smoothing, by painting vertex weights.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="algorithm">
+<h2>Algorithm</h2>
+<p>The calculation done by the <em>Smooth</em> modifier is a simple and logical one,
+and can be thought of as the geometric equivalent of blurring images.</p>
+<p>Each new vertex position is simply moved towards the average position of all its neighbor vertices
+(topologically speaking, i.e. the vertices directly connected to it by an edge).</p>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Mesh before smoothing.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Mesh after one smoothing iteration.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Mesh after ten smoothing iterations.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Inspection</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Geometry Nodes</a></li>
+<li>Inspection</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="inspection">
+<h1>Inspection</h1>
+<p>Inspecting intermediate values in a geometry node tree is useful while
+building/understanding one or when trying to figure out why something is not working.
+Blender provides multiple tools to understand how a node tree is working
+or why it is not working.</p>
+<div>
+<p>Note</p>
+<p>Generally, the inspection tools display data from the last time the node tree has been evaluated.
+If it has not been evaluated, no information is available.</p>
+</div>
+<section id="socket-inspection">
+<h2>Socket Inspection</h2>
+<figure id="id2">
+<figcaption>
+<p>Socket Inspection.</p>
+</figcaption>
+</figure>
+<p>Socket inspection shows information about the value in a socket during the last evaluation.
+For primitive data types such as integers, vectors, and strings the actual value is shown.
+For geometry sockets only some data about the geometry is stored, including the set of
+data types the geometry contains, and a count of their elements.</p>
+<p>Socket values are only logged from when the node tree was executed, so a node must be
+connected to the <em>Group Output</em> to have a value for inspection. Values are not logged during
+rendering, to improve performance.</p>
+</section>
+<section id="attribute-search">
+<h2>Attribute Search</h2>
+<figure id="id3">
+<figcaption>
+<p>Attribute Search.</p>
+</figcaption>
+</figure>
+<p>The attribute search is shown when clicking on an attribute input in the modifier.
+It contains a list of all the attributes that were available at that point in
+the modifier or node execution.</p>
+</section>
+<section id="viewer-node">
+<h2>Viewer Node</h2>
+<p>The Viewer node is used to display intermediate geometry in the <a href="../../editors/spreadsheet.html">Spreadsheet Editor</a>
+and the Viewport. For more information see <a href="output/viewer.html">Viewer Node</a>.</p>
+</section>
+<section id="node-warnings">
+<h2>Node Warnings</h2>
+<figure id="id4">
+<figcaption>
+<p>Node Warning.</p>
+</figcaption>
+</figure>
+<p>When the inputs to a node are invalid, it displays a warning in the title.
+Hovering over the warning icon shows the error message. These warnings are only
+generated when the node is executed, so a node must be connected to the <em>Group Output</em>
+to have a warning.</p>
+</section>
+<section id="node-timings-overlay">
+<h2>Node Timings Overlay</h2>
+<figure id="id5">
+<figcaption>
+<p>The node timings overlay.</p>
+</figcaption>
+</figure>
+<p>Node timings show how long a node took to execute the last time the node group was evaluated.
+They can be turned on in the overlays popover on the top right of the node editor.
+When a node group is used in multiple places, the timings depend on the context of
+the node editor, which is displayed in the path on the top left.</p>
+<p>Frame nodes display the total time from all of the contained nodes
+and the <em>Group Output</em> node displays the total time for the entire node group.</p>
+<p>The displayed timings should only be considered an approximation, since they can
+also take into account actions like copying or deleting a geometry input that aren’t
+part of the node’s operation. Also, when a node uses multiple CPU cores, the evaluation
+system might work on other nodes at the same time. It’s also important to remember
+that <a href="fields.html#field-node-types">field nodes</a> generally don’t do work by themselves,
+so their execution time is only added to the data-flow nodes they are connected to.</p>
+</section>
+<section id="named-attributes-overlay">
+<h2>Named Attributes Overlay</h2>
+<p>The “Named Attributes” overlay allows displaying when a custom named attribute is used
+by a node or a node group. Named attributes can be used by the
+<a href="attribute/capture_attribute.html">Capture Attribute Node</a>, the
+<a href="geometry/read/named_attribute.html">Named Attribute Node</a>, and the
+<a href="attribute/remove_named_attribute.html">Remove Named Attribute Node</a>,
+and can be written to, read, or removed.</p>
+<p>Using named attributes (as opposed to <a href="attributes_reference.html#anonymous-attributes">Anonymous Attributes</a>) can be problematic
+when the original geometry already has attributes with the specified names. In that case
+a geometry node group might mistakenly overwrite some essential data. The overlay helps
+to make detecting that situation easy.</p>
+<p>The same data is also available in the <a href="../modifiers/generate/geometry_nodes.html#geometry-nodes-internal-dependencies">Internal Dependencies</a> panel
+in the modifier’s UI.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

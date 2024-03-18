@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Interface &gt; Copy Attributes</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Interface</a></li>
+<li>Copy Attributes Menu</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="copy-attributes-menu">
+<h1>Copy Attributes Menu</h1>
+<p>This add-on extends the <em>Copy Objects</em> <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> hotkey to include many extra copy types.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Interface then Copy Attributes Menu to enable the script.</p></li>
+</ul>
+</section>
+<section id="description">
+<h2>Description</h2>
+<section id="object-mode">
+<h3>Object Mode</h3>
+<p>Select more than one object, press <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> to copy attributes from active to selected,
+you’ll see the following menu:</p>
+<p>Each item on the menu will copy some attributes from the <em>active</em> (last selected object) to
+all the other <em>selected</em> items:</p>
+<dl>
+<dt>Copy Location</dt><dd><p>Copies the object location in world coordinates.</p>
+</dd>
+<dt>Copy Rotation</dt><dd><p>Copies the object rotation in world coordinates.</p>
+</dd>
+<dt>Copy Scale</dt><dd><p>Copies the object scale in world coordinates.</p>
+</dd>
+<dt>Copy Draw Options</dt><dd><p>Copies display options: for instance wireframe, empty display shape, empty display size, etc.</p>
+</dd>
+<dt>Copy Instancing</dt><dd><p>Copies the objects instancing group/vertex/face settings.</p>
+</dd>
+<dt>Copy Object Color</dt><dd><p>(Self-explanatory)</p>
+</dd>
+<dt>Copy Protected Transform</dt><dd><p>Duplicates the transform locks.</p>
+</dd>
+<dt>Copy Object Constraints</dt><dd><p>Currently deletes all constraints on the selected objects and
+replaces them with the constraints on the active object.</p>
+</dd>
+<dt>Copy Pass Index</dt><dd><p>(Self-explanatory)</p>
+</dd>
+<dt>Copy Modifiers</dt><dd><p>Currently behaves like constraints, all you original modifiers will be replaced by the ones on the active item.</p>
+</dd>
+<dt>Copy Vertex Weights</dt><dd><p>(Self-explanatory)</p>
+</dd>
+<dt>Collection Links</dt><dd><p>Copy selected into active object’s collection.</p>
+</dd>
+<dt>Copy Selected Constraints</dt><dd><p>Copy all the selected constraints from the active object to the selected objects.</p>
+</dd>
+<dt>Copy Selected Modifiers</dt><dd><p>Copy all the selected modifiers from the active object to the selected objects.</p>
+</dd>
+<dt>Copy Selected Custom Properties</dt><dd><p>Copy all the selected custom properties from the active object to the selected objects.</p>
+</dd>
+</dl>
+</section>
+<section id="mesh-edit-mode">
+<h3>Mesh Edit Mode</h3>
+<p>With a mesh object selected, enter Edit Mode and press <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> to copy texture face attributes.
+The following menu appears:</p>
+<p>Some of the items may not appear, depending on the number of UV textures or Color Attributes on the mesh.</p>
+<p>The first group of options copies attributes from the active face to
+all other selected faces in the same UV texture or Color Attribute.</p>
+<dl>
+<dt>Copy Material</dt><dd><p>Copy material index to selected faces.</p>
+</dd>
+<dt>Copy Image</dt><dd><p>Copy image assignment to selected faces.</p>
+</dd>
+<dt>Copy UV Coordinates</dt><dd><p>Copy UV coordinates to selected faces.</p>
+</dd>
+<dt>Copy Vertex Colors</dt><dd><p>Copy Color Attributes to selected faces.</p>
+</dd>
+</dl>
+<p>The second group of options copies attributes to selected faces in
+the active UV texture or Color Attribute from their corresponding faces in
+a different UV texture or Color Attribute.</p>
+<dl>
+<dt>Copy UV Coordinates from Layer</dt><dd><p>Copy UV coordinates from another layer for selected faces.</p>
+</dd>
+<dt>Vertex Colors from Layer</dt><dd><p>Copy Color Attributes from another layer for selected faces.</p>
+</dd>
+</dl>
+</section>
+<section id="pose-mode">
+<h3>Pose Mode</h3>
+<p>Select more than one bone, press <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> to copy attributes from <em>active</em> (last selected bone) to
+all other <em>selected</em> bones. The following menu appears:</p>
+<dl>
+<dt>Copy Local Location</dt><dd><p>Copies the location coordinate (as seen in the transform panel) to the selected bones.</p>
+</dd>
+<dt>Copy Local Rotation</dt><dd><p>Copies the rotation coordinate (as seen in the transform panel) to the selected bones.</p>
+</dd>
+<dt>Copy Local Scale</dt><dd><p>Copies the scale coordinate (as seen in the transform panel) to the selected bones.</p>
+</dd>
+<dt>Copy Visual Location</dt><dd><p>Copies the actual location of the bone (as seen in the screen) to the selected bones.</p>
+</dd>
+<dt>Copy Visual Rotation</dt><dd><p>Copies the actual rotation of the bone (as seen in the screen) to the selected bones.</p>
+</dd>
+<dt>Copy Visual Scale</dt><dd><p>Copies the actual size of the bone (as seen in the screen) to the selected bones.</p>
+</dd>
+<dt>Copy Bone Shape</dt><dd><p>(Self-explanatory)</p>
+</dd>
+<dt>Copy Protected Transform</dt><dd><p>(Self-explanatory)</p>
+</dd>
+<dt>Copy Pose Constraints</dt><dd><p>(Self-explanatory)</p>
+</dd>
+<dt>Copy IK Limits</dt><dd><p>(Self-explanatory)</p>
+</dd>
+<dt>Copy Pose</dt><dd><p>Is what was originally mapped to <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> before installing the add-on.</p>
+</dd>
+</dl>
+<section id="distinction-between-local-and-visual">
+<h4>Distinction between Local and Visual</h4>
+<p>Local transformation of bones is relative the each bone’s own rest position;
+if they do not match in Edit Mode, they will not match in Pose Mode,
+even though the numbers appear the same in the bone’s transformation panel.
+They also do not take into account constraints, or parenting.</p>
+<p>Visual transformation of bones copies the visual transform (on screen) of
+the active bone to the selected bones, regardless of parenting or constraints.
+The result should look exactly the same even if the bone’s numbers do not match.
+Constraints on the selected bones may prevent this from working (or drivers for that matter):</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Interface</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Copy Attributes Menu.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport <kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd></p>
+</dd>
+<dt>File:</dt>
+<dd><p>space_view3d_copy_attributes.py</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Bassam Kurdali, Fabian Fricke, Adam Wiseman</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>to do</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

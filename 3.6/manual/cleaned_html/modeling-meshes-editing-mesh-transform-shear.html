@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Transform &gt; Shear</title></head>
+<body><ul>
+<li><a href="../../../../index.html">Modeling</a></li>
+<li><a href="../../../index.html">Meshes</a></li>
+<li><a href="../../index.html">Editing</a></li>
+<li><a href="../index.html">Mesh Tools</a></li>
+<li><a href="index.html">Transformation</a></li>
+<li>Shear</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="shear">
+<h1>Shear</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object and Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Shear</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object/Mesh/Curve/Surface ‣ Transform ‣ Shear</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Shearing is a form of movement where parallel surfaces move past one another. During this transform,
+movement of the selected elements will occur along the horizontal axis of the current view.
+The axis location will be defined by
+the <a href="../../../../../editors/3dview/controls/pivot_point/index.html">Pivot Point</a>.
+Everything that is “above” this axis will move (shear)
+in the same direction as your mouse pointer (but always parallel to the horizontal axis).
+Everything that is “below” the horizontal axis will move in the opposite direction.</p>
+<figure id="id2">
+<figcaption>
+<p>Shear Offset Factor.</p>
+</figcaption>
+</figure>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<dl>
+<dt>Offset</dt><dd><p>How far items are shifted from their original location.</p>
+</dd>
+<dt>Axis</dt><dd><p>Defines one axis of the imaginary shearing plane.</p>
+</dd>
+<dt>Axis Orthographic</dt><dd><p>Defines the other axis of the imaginary shearing plane.</p>
+</dd>
+<dt>Orientation</dt><dd><p>See <a href="../../../../../editors/3dview/controls/orientation.html">Transform Orientations</a>.</p>
+</dd>
+<dt>Proportional Editing</dt><dd><p>See <a href="../../../../../editors/3dview/controls/proportional_editing.html">Proportional Editing</a>.</p>
+</dd>
+</dl>
+<div>
+<p>Warning</p>
+<p>The <em>Axis</em> and <em>Axis Orthographic</em> cannot be the same axis,
+else the imaginary plane is dimensionless and the objects will disappear into a point.</p>
+</div>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>See below for the result of using <em>Shear</em> on a number of different elements.</p>
+<figure id="id3">
+<figcaption>
+<p>The effects of a Shear transform with different Pivot Points.</p>
+</figcaption>
+</figure>
+<p>The three frames of the image above show the effects of shearing
+on the selected vertices when the pivot point is altered.
+In middle frame, the <a href="../../../../../editors/3dview/controls/pivot_point/index.html">Pivot Point</a>
+is set to <em>Median Point</em> and the mouse was moved to the left during the transform.
+In right frame, the <em>Pivot Point</em> is set to the 3D cursor which is located above the mesh.
+When the mouse is moved to the left during a <em>Shear</em> transform,
+the selected vertices are moved to the right as they are below the horizontal axis.</p>
+<div>
+<p>Tip</p>
+<p>Shear Transform Magnitude</p>
+<p>The magnitude of the <em>Shear</em> transform applied to the selected elements is
+directly proportional to the distance from the horizontal axis.
+i.e. the further it is away from the axis, the greater the movement.</p>
+</div>
+<figure id="id4">
+<figcaption>
+<p>The effects of a Shear transform on objects with different Pivot Points.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

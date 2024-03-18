@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; 3D Cursor</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">3D Viewport</a></li>
+<li>3D Cursor</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="d-cursor">
+<h1>3D Cursor</h1>
+<p>The 3D Cursor is a point in space that has both a location and a rotation.
+It’s used for a number of purposes. For example, it defines where newly
+added objects are placed, and can also be used to manually position and orient
+the transform gizmo (see <a href="controls/pivot_point/index.html">Pivot Point</a>
+and <a href="controls/orientation.html">Transform Orientation</a>).
+Some tools, such as <a href="../../modeling/meshes/editing/mesh/transform/bend.html">Bend</a>,
+also use the Cursor.</p>
+<section id="placement">
+<h2>Placement</h2>
+<p>There are a few methods to position the 3D Cursor.</p>
+<section id="direct-placement-with-the-mouse">
+<h3>Direct Placement with the Mouse</h3>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object, Edit, and Pose Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Cursor</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>RMB</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<figure id="id4">
+<figcaption>
+<p>Positioning the 3D Cursor with two orthogonal views.</p>
+</figcaption>
+</figure>
+<p>The Cursor tool offers the most flexibility. Simply select it in the Toolbar
+and click a point in the scene with <kbd>LMB</kbd> to place the 3D Cursor there.
+In the tool settings, you can choose how it should be oriented:
+by default, it matches the view orientation, but you can also make it
+match the surface normal of a piece of geometry,
+or the <a href="controls/orientation.html">transform orientation</a>.</p>
+<p>Alternatively, you can press <kbd><kbd>Shift</kbd>-<kbd>RMB</kbd></kbd> with any tool selected.
+In this case, the 3D Cursor will always be aligned to the view orientation.</p>
+<p>For accuracy you should use two perpendicular orthogonal 3D Viewports,
+i.e. any combination of top <kbd>Numpad7</kbd>, front <kbd>Numpad1</kbd> and side <kbd>Numpad3</kbd>.
+That way you can control the positioning along two axes in one view and
+determine the depth in the other.</p>
+<p>By default, the depth of the geometry under the cursor is used.
+This can be disabled using the <em>Cursor Surface Project</em> toggle
+in the <a href="../preferences/editing.html">Preferences</a>.</p>
+</section>
+<section id="sidebar">
+<h3>Sidebar</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Sidebar region ‣ View ‣ 3D Cursor</p>
+</dd>
+</dl>
+</div>
+<figure id="id5">
+<figcaption>
+<p>The 3D Cursor panel of the Sidebar region.</p>
+</figcaption>
+</figure>
+<p>The 3D Cursor can also be positioned and oriented by editing the
+respective values in the Sidebar.</p>
+</section>
+<section id="snapping">
+<h3>Snapping</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object, Edit, and Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object/Mesh/… ‣ Snap ‣ Cursor to …</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>One more way of positioning the 3D Cursor is through the Snap menu,
+which allows you to move the Cursor to the origin of the selected object
+for example.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

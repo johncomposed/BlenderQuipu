@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Filter &gt; Filter Node</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Filter Nodes</a></li>
+<li>Filter Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="filter-node">
+<h1>Filter Node</h1>
+<p>The Filter node implements various common image enhancement filters.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>Controls the amount of influence the node exerts on the output image.</p>
+</dd>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Type</dt><dd><p>The Soften, Laplace, Sobel, Prewitt and Kirsch all perform edge detection
+(in slightly different ways) based on vector calculus and set theory equations.</p>
+<dl>
+<dt>Soften:</dt>
+<dd><p>Slightly blurs the image.</p>
+</dd>
+<dt>Box Sharpen:</dt>
+<dd><p>Increases the contrast, especially at edges.</p>
+</dd>
+<dt>Diamond Sharpen:</dt>
+<dd><p>Less aggressive than box sharpen, reducing sharpening artifacts.</p>
+</dd>
+<dt>Laplace:</dt>
+<dd><p>Edge highlighting filter susceptible to highlighting visual noise.</p>
+</dd>
+<dt>Sobel:</dt>
+<dd><p>Creates a negative image that highlights edges.</p>
+</dd>
+<dt>Prewitt:</dt>
+<dd><p>Produces a similar results to Sobel.</p>
+</dd>
+<dt>Kirsch:</dt>
+<dd><p>Gives better blending than Sobel or Prewitt, when approaching an edge.</p>
+</dd>
+<dt>Shadow:</dt>
+<dd><p>Performs a relief, emboss effect, darkening outside edges.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table id="id1">
+<caption>The Filter node has eight modes, shown here.</caption>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Original image.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Soften.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Box Sharpen.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Diamond Sharpen.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Laplace.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Sobel.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Prewitt.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Kirsch.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id10">
+<figcaption>
+<p>Shadow.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

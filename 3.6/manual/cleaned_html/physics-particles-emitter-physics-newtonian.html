@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Emitter &gt; Physics &gt; Newtonian</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Particle System</a></li>
+<li><a href="../index.html">Emitter</a></li>
+<li><a href="index.html">Physics</a></li>
+<li>Newtonian</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="newtonian">
+<h1>Newtonian</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Newtonian</p>
+</dd>
+</dl>
+</div>
+<p>The particles will move according to classical (Newtonian) mechanics.
+Particles start their life with the specified initial velocities and angular velocities,
+and move according to external forces.
+The response to environment and to forces is computed differently,
+according to the given integrator chosen by the animator.</p>
+<section id="forces">
+<h2>Forces</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Forces</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Brownian</dt><dd><p>Specify the amount of Brownian motion.
+Brownian motion adds random motion to the particles based on a Brownian noise field.
+This is nice to simulate small, random wind forces.</p>
+</dd>
+<dt>Drag</dt><dd><p>A force that reduces particle velocity in relation to its speed and size
+(useful in order to simulate air drag or water drag).</p>
+</dd>
+<dt>Damp</dt><dd><p>Reduces particle velocity (deceleration, friction, dampening).</p>
+</dd>
+</dl>
+</section>
+<section id="integration">
+<h2>Integration</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Integration</p>
+</dd>
+</dl>
+</div>
+<p>Integrators are a set of mathematical methods available to calculate the movement of particles.
+The following guidelines will help to choose a proper integrator,
+according to the behavior aimed at by the animator.</p>
+<dl>
+<dt>Integration</dt><dd><dl>
+<dt>Euler</dt><dd><p>Also known as “Forward Euler”. Simplest integrator.
+Very fast but also with less exact results.
+If no dampening is used, particles get more and more energy over time.
+For example, bouncing particles will bounce higher and higher each time.
+Should not be confused with “Backward Euler” (not implemented) which has the opposite feature,
+the energy decrease over time, even with no dampening.
+Use this integrator for short simulations or simulations with a lot of
+dampening where speedy calculations are more important than accuracy.</p>
+</dd>
+<dt>Verlet</dt><dd><p>Very fast and stable integrator, energy is conserved over time with very little numerical dissipation.</p>
+</dd>
+<dt>Midpoint</dt><dd><p>Also known as “2nd order Runge-Kutta”. Slower than Euler but much more stable.
+If the acceleration is constant (no drag for example), it is energy conservative.
+It should be noted that in example of the bouncing particles,
+the particles might bounce higher than they started once in a while, but this is not a trend.
+This integrator is a generally good integrator for use in most cases.</p>
+</dd>
+<dt>RK4</dt><dd><p>Short for “4th order Runge-Kutta”. Similar to Midpoint but slower and in most cases more accurate.
+It is energy conservative even if the acceleration is not constant.
+Only needed in complex simulations where Midpoint is found not to be accurate enough.</p>
+</dd>
+</dl>
+</dd>
+<dt>Timestep</dt><dd><p>The amount of simulation time (in seconds) that passes during each frame.</p>
+</dd>
+<dt>Subframes</dt><dd><p>The number of simulation steps per frame.
+Subframes to simulate for improved stability and finer granularity in simulations.
+Use higher values for faster-moving particles.</p>
+</dd>
+</dl>
+<p>The following options are only available for Fluid type physics:</p>
+<dl>
+<dt>Adaptive</dt><dd><p>Automatically set the number of subframes.</p>
+<dl>
+<dt>Threshold</dt><dd><p>A tolerance value that allows the number of subframes to vary.
+It sets the relative distance a particle can move before requiring more subframes.</p>
+<p>The number of steps per frame will be at least Subframes + 1.
+More subframes may be simulated if the fluid becomes turbulent, according to the Threshold.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="deflection">
+<h2>Deflection</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Deflection</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Size Deflect</dt><dd><p>Use the particle size in deflections.</p>
+</dd>
+<dt>Die on Hit</dt><dd><p>Kill particle when it hits a deflector object.</p>
+</dd>
+<dt>Collision Collection</dt><dd><p>If set, particles collide with objects from the collection.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

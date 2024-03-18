@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Cloth &gt; Settings &gt; Collisions</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Cloth</a></li>
+<li><a href="index.html">Settings</a></li>
+<li>Collisions</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="collisions">
+<h1>Collisions</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Cloth ‣ Collision</p>
+</dd>
+</dl>
+</div>
+<p>In most cases, a piece of cloth does not just hang there in 3D space,
+it collides with other objects in the environment. To ensure proper simulation,
+there are several items that have to be set up and working together:</p>
+<ul>
+<li><p>The <em>Cloth</em> object must be told to participate in collisions.</p></li>
+<li><p>Optionally (but recommended) tell the cloth to collide with itself.</p></li>
+<li><p>Other objects must be visible to the <em>Cloth</em> object <em>via</em> shared layers.</p></li>
+<li><p>The other objects must be mesh objects.</p></li>
+<li><p>The other objects may move or be themselves deformed by other objects (like an armature or shape key).</p></li>
+<li><p>The other mesh objects must be told to deflect the cloth object.</p></li>
+<li><p>The blend-file must be saved in a directory so that simulation results can be saved.</p></li>
+<li><p>You then <em>Bake</em> the simulation. The simulator computes the shape of the cloth for a frame range.</p></li>
+<li><p>You can then edit the simulation results, or make adjustments to the cloth mesh, at specific frames.</p></li>
+<li><p>You can make adjustments to the environment or deforming objects,
+and then re-run the cloth simulation from the current frame forward.</p></li>
+</ul>
+<figure id="id2">
+<figcaption>
+<p>Cloth Collisions panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-types-clothcollisionsettings-collision-quality">
+<dt>Quality</dt><dd><p>A general setting for how fine and good a simulation you wish.
+Higher numbers take more time but ensure less tears and penetrations through the cloth.</p>
+</dd>
+</dl>
+<section id="object-collisions">
+<h2>Object Collisions</h2>
+<p>If the cloth object needs to be deflected by some other object. To deflect a cloth,
+the object must be enabled as an object that collides with the cloth object.
+To enable objects to collide with cloth objects enable
+<a href="../../collision.html#physics-collision-soft-bodt-cloth">collision physics</a>
+for the collider object (not on the cloth object).</p>
+<div>
+<p>Note</p>
+<p>If your colliding object is not a mesh object, such as a NURBS surface, or a text object,
+you must convert it to a mesh object using <a href="../../../scene_layout/object/editing/convert.html#object-convert-to">Convert</a>.</p>
+</div>
+<dl id="bpy-types-clothcollisionsettings-distance-min">
+<dt>Distance</dt><dd><p>The distance another object must get to the cloth for
+the simulation to repel the cloth out of the way.
+Smaller values might give errors but gives some speed-up while
+larger will give unrealistic results if too large and can be slow.
+It is best to find a good in between value.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothcollisionsettings-impulse-clamp">
+<dt>Impulse Clamping</dt><dd><p>Prevents explosions in tight and complicated collision situations
+by restricting the amount of movement after a collision.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothcollisionsettings-vertex-group-object-collisions">
+<dt>Vertex Group</dt><dd><p>Faces that have all vertices assigned to this
+<a href="../../../modeling/meshes/properties/vertex_groups/index.html">Vertex Group</a> are excluded from collision with objects.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothcollisionsettings-collection">
+<dt>Collision Collection</dt><dd><p>Only objects that are a part of this <a href="../../../scene_layout/collections/index.html">Collection</a>
+can collide with the cloth. Note that these objects must also have Collision physics enabled.</p>
+</dd>
+</dl>
+</section>
+<section id="self-collisions">
+<h2>Self-Collisions</h2>
+<p>Real cloth cannot penetrate itself, so you normally want the cloth to self-collide.
+Enable this to tell the cloth object that it should not penetrate itself.
+This adds to the simulation’s compute time, but provides more realistic results.</p>
+<div>
+<p>Tip</p>
+<p>A flag, viewed from a distance does not need this enabled,
+but a close-up of a cape or blouse on a character should have this enabled.</p>
+</div>
+<dl id="bpy-types-clothcollisionsettings-self-friction">
+<dt>Friction</dt><dd><p>A coefficient for how slippery the cloth is when it collides with itself.
+For example, silk has a lower coefficient of friction than cotton.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothcollisionsettings-self-distance-min">
+<dt>Distance</dt><dd><p>As cloth at this distance begins to repel away from itself.
+Smaller values might give errors but gives some speed-up while
+larger will give unrealistic results if too large and can be slow.
+It is best to find a good in between value.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothcollisionsettings-self-impulse-clamp">
+<dt>Impulse Clamping</dt><dd><p>Prevents explosions in tight and complicated collision situations
+by restricting the amount of movement after a collision.</p>
+</dd>
+</dl>
+<dl id="bpy-types-clothcollisionsettings-vertex-group-self-collisions">
+<dt>Vertex Group</dt><dd><p>Faces that have all vertices assigned to this
+<a href="../../../modeling/meshes/properties/vertex_groups/index.html">Vertex Group</a> are excluded from self-collision.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>Example blend-file:
+<a href="https://archive.blender.org/wiki/index.php/File:Cloth-regression-selfcollisions.blend">Cloth self-collisions</a>.</p>
+</div>
+<section id="troubleshooting">
+<h3>Troubleshooting</h3>
+<p>If you encounter some problems with collision detection, there are a few ways to fix them:</p>
+<ul>
+<li><p>The fastest solution is to increase the <em>Distance</em> for Object/Self Collisions.
+This will be the fastest way to fix the clipping; however, it will be less accurate and will not look as good.
+Using this method tends to make it look like the cloth is resting on air, and gives it a very rounded look.</p></li>
+<li><p>A second method is to increase the <em>Quality</em> (in the <em>Cloth</em> panel).
+This results in smaller steps for the simulator and
+therefore to a higher probability that fast-moving collisions get caught.
+You can also increase the Collisions <em>Quality</em> to perform more iterations to get collisions solved.</p></li>
+<li><p>If none of the methods help, you can easily edit the cached/baked result in <em>Edit Mode</em> afterwards.</p></li>
+<li><p>If the Cloth is torn by the deforming mesh; increase the stiffness settings.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

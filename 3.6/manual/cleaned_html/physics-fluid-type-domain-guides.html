@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Fluid &gt; Type &gt; Domain &gt; Guides</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Fluid</a></li>
+<li><a href="../index.html">Type</a></li>
+<li><a href="index.html">Domain</a></li>
+<li>Guides</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="guides">
+<h1>Guides</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Fluid ‣ Guides</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Domain</p>
+</dd>
+</dl>
+</div>
+<p>Fluid guides are used to apply forces onto the simulation. They are like simple external forces
+but also seek to preserve the physically accurate flow of the fluid.
+The <em>Guides</em> panel allows you to adjust guiding forces globally, i.e. for the entire domain.
+Enabling the guides hints the fluid solver to use the more accurate,
+but also computationally more expensive pressure solving step.</p>
+<p>Even when there are no guiding objects baked or there is no guiding domain attached,
+the fluid solver will still perform the more expensive pressure guiding algorithm
+if guiding is enabled. It is
+therefore recommended to only enable <em>Guides</em> when there is a clear intention to
+use guiding in the simulation.</p>
+<div>
+<p>See also</p>
+<p>Fluid guiding is an implementation of
+<a href="https://ge.in.tum.de/publications/2017-cgf-eckert/">Primal-Dual Optimization for Fluids</a>.</p>
+</div>
+<dl id="bpy-types-fluiddomainsettings-guide-alpha">
+<dt>Velocity Factor</dt><dd><p>Controls the lag of the guiding. A larger value (also known as the ‘alpha’ guiding value)
+results in a greater lag.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-guide-beta">
+<dt>Size</dt><dd><p>This setting determines the size of the vortices that the guiding produces.
+A greater guiding size (also known as the blur radius or ‘beta’ guiding value)
+results in larger vortices.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-guide-vel-factor">
+<dt>Velocity Factor</dt><dd><p>All guiding velocities are multiplied by this factor. That is, every cell of the guiding grid,
+which has the same size as the domain object, is multiplied by this factor.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-guide-source">
+<dt>Velocity Source</dt><dd><p>Guiding velocities can either come from objects that move inside the domain or from other fluid
+domains.</p>
+<dl>
+<dt>Effector</dt><dd><p>All effector objects inside the domain will be considered for the global guiding velocity grid.
+Once effector objects have been baked it is not possible to change the fluid domain resolution
+anymore.</p>
+</dd>
+<dt>Domain</dt><dd><p>When using another fluid domain as the guiding velocity source this domain may have a different
+resolution and may also be of a different type (e.g. the guiding domain is of type <em>Gas</em>
+while the actual domain with the guiding effect in it is of type <em>Liquid</em>).</p>
+<p>In order to use a domain as the velocity source, this domain needs to be baked already.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluiddomainsettings-guide-parent">
+<dt>Guide Parent</dt><dd><p>When using <em>Domain</em> as the velocity source, this field serves to select the guiding domain object.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-fluid-free-guides">
+<dt>Bake Guides, Free Guides</dt><dd><p>This option is only available when using the <a href="cache.html#bpy-types-fluiddomainsettings-cache-type">Modular</a> cache type
+and when using <em>Effector</em> as the <a href="#bpy-types-fluiddomainsettings-guide-source">Velocity Source</a>.
+<em>Bake Guides</em> writes vertex velocities of effector objects to drive.
+It is meant to be used before baking the fluid simulation.</p>
+<p>The progress will be displayed in the status bar. Pressing <kbd>Esc</kbd> will pause the simulation.</p>
+<p>Once the simulation has been baked, the cache can be deleted by pressing <em>Free Guides</em>.
+It is possible to pause or resume a <em>Bake Guides</em> process.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

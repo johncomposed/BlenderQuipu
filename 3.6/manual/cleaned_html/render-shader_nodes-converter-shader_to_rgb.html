@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Converter &gt; Shader To Rgb</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Converter</a></li>
+<li>Shader To RGB</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="shader-to-rgb">
+<h1>Shader To RGB</h1>
+<p>Eevee Only</p>
+<p>The Shader to RGB node is typically used for non-photorealistic rendering,
+to apply additional effects on the output of BSDFs.
+For example, a color ramp on the output of a diffuse BSDF can be used to create a flexible toon shader.</p>
+<p>Using this conversion breaks the <abbr title="Physically Based Rendering">PBR</abbr> pipeline and
+thus makes the result unpredictable when used in combination with effects such as
+ambient occlusion, contact shadows, soft shadows and screen space refraction.</p>
+<p>Some effects require multiple samples to converge, and applying arbitrary changes to
+noisy input may not convert to a smooth result.</p>
+<div>
+<p>Warning</p>
+<p>If a Shader to RGB node is used, any upstream BSDF will be invisible to the following effects:</p>
+<ul>
+<li><p>Screen Space Reflection</p></li>
+<li><p>Subsurface Scattering</p></li>
+<li><p>Alpha Clip and Alpha Hashed blend modes</p></li>
+</ul>
+<p>Shader to RGB node doesn’t give expected results in render passes.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Shader</dt><dd><p>Any shader such as a BSDF or Emission node can be linked here.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Surface color computed from BSDFs and lighting.</p>
+</dd>
+<dt>Alpha</dt><dd><p>Alpha transparency from any Transparent BSDFs in the input.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Simple toon shading with Shader to RGB and Freestyle.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

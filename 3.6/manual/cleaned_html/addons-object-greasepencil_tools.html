@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Object &gt; Greasepencil Tools</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Object</a></li>
+<li>Grease Pencil Tools</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="grease-pencil-tools">
+<h1>Grease Pencil Tools</h1>
+<p>A set of tools for Grease Pencil drawing.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Object then Grease pencil tools to enable the script.</p></li>
+</ul>
+</section>
+<section id="tools">
+<h2>Tools</h2>
+<section id="box-deform">
+<h3>Box Deform</h3>
+<p>Create a deformation box around Grease Pencil strokes.
+Press <kbd><kbd>Ctrl</kbd>-<kbd>T</kbd></kbd> to launch the deformation mode.</p>
+<p>The operational scope depends on the mode:</p>
+<ul>
+<li><p>Object Mode: the whole Grease Pencil object is deformed.</p></li>
+<li><p>Edit Mode: deform the selected points.</p></li>
+<li><p>Draw Mode: deform the last strokes only.</p></li>
+</ul>
+<p>Shortcuts available during deformation:</p>
+<ul>
+<li><p><kbd>Spacebar</kbd>/ <kbd>Return</kbd> to confirm.</p></li>
+<li><p><kbd>Delete</kbd>/ <kbd>Backspace</kbd>/ <kbd><kbd>Ctrl</kbd>-<kbd>T</kbd></kbd>/ <kbd>Tab</kbd> (twice) to cancel.</p></li>
+<li><p><kbd>M</kbd> to toggle between Linear and Spline mode.</p></li>
+<li><p><kbd><kbd>1</kbd>-<kbd>9</kbd></kbd> to set the subdivision level of the box.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Left</kbd></kbd>/ <kbd><kbd>Ctrl</kbd>-<kbd>Right</kbd></kbd> to subdivide the box incrementally on the X axis and
+<kbd><kbd>Ctrl</kbd>-<kbd>Up</kbd></kbd>/ <kbd><kbd>Ctrl</kbd>-<kbd>Down</kbd></kbd> on the Y axis.</p></li>
+</ul>
+</section>
+<section id="rotate-canvas">
+<h3>Rotate Canvas</h3>
+<p>Perform a rotation of the view in free navigation or active camera in camera view.</p>
+<ul>
+<li><p>Maintain <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>MMB</kbd></kbd> to rotate view (customizable in add-on preferences).</p></li>
+<li><p>Click and release immediately to reset view.</p></li>
+</ul>
+</section>
+<section id="layer-navigator">
+<h3>Layer Navigator</h3>
+<p>Continuous press on <kbd>Y</kbd> shortcut call a customized layer popup with following features:</p>
+<ul>
+<li><p>Active layer always pop under mouse when called.</p></li>
+<li><p>Active layer is changed by hovering, without any click.</p></li>
+<li><p>Layers can be reordered with simple drag-and-drop.</p></li>
+<li><p>Layer opacity, hide and lock states can be tweaked in popup.</p></li>
+<li><p>Placing mouse outside popup limits will fade inactive layers, useful to quickly inspect content.</p></li>
+<li><p>The plus button on the right adds a new layer.</p></li>
+</ul>
+<p>Extra shortcuts are enabled while layer navigator is up:</p>
+<ul>
+<li><p><kbd>H</kbd> toggle all hide.</p></li>
+<li><p><kbd>L</kbd> toggle all lock.</p></li>
+<li><p><kbd>T</kbd> toggle auto-lock.</p></li>
+<li><p><kbd>X</kbd> toggle In Front value of the object.</p></li>
+<li><p><kbd>RMB</kbd> or <kbd>Esc</kbd> to reset original active layer.</p></li>
+</ul>
+<p>Layers box height, width, font size, and left-handed mode are customizable in add-on preferences.</p>
+</section>
+<section id="timeline-scrub">
+<h3>Timeline Scrub</h3>
+<p>Call a timeline popup at mouse position to scrub without leaving the 3D viewport.</p>
+<p>Default shortcut to call the timeline is <kbd><kbd>Alt</kbd>-<kbd>MMB</kbd></kbd>.
+The shortcut enable the scrubbing when hovering timeline editors as well (dopesheet, sequencer, etc).</p>
+<p>Scene start/end and keyframes are represented with symbols on the timeline.</p>
+<p>While scrubbing, pressing <kbd>Ctrl</kbd> key Snap time cursor on keyframes.</p>
+<p>There are several settings to customize visual aspect and behavior in addon preferences:</p>
+<ul>
+<li><p>“Always Snap” checkbox invert the snapping behavior.</p></li>
+<li><p>Special “Rolling” mode is available. It displays keyframes with a constant spacing, discarding timing data when
+scrubbing back and forth. This is useful for quick flipping between keyframes.</p></li>
+<li><p>Filter to restrict the key display and snapping to Grease Pencil frames only.</p></li>
+<li><p>Change shortcut and choose to propagate it to timeline editors</p></li>
+<li><p>Customizable colors, frame spacing and amount of displayed information.</p></li>
+</ul>
+</section>
+<section id="straighten-stroke">
+<h3>Straighten Stroke</h3>
+<p>Straighten the stroke between first and last point.
+The influence can be tweaked in the redo panel.</p>
+<p>The scopes for this tool are:</p>
+<ul>
+<li><p>Last stroke in Grease Pencil Paint Mode.</p></li>
+<li><p>Selected stroke in Grease Pencil Edit Mode.</p></li>
+</ul>
+<div>
+<p>Tip</p>
+<p>Straight Influence Reset</p>
+<p>The influence percentage is stored for next use.
+Use <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> on the button to reset influence to full.</p>
+</div>
+</section>
+<section id="brush-pack-installer">
+<h3>Brush Pack Installer</h3>
+<p>Install included Grease Pencil <a href="https://cloud.blender.org/p/gallery/5f235cc297f8815e74ffb90b">textured brush pack</a> (made by Daniel Martinez Lara).
+This is available in Draw Mode in the <a href="../../grease_pencil/modes/draw/tool_settings/brush_settings.html#grease-pencil-draw-common-options">Brushes panel</a>.</p>
+<div>
+<p>Note</p>
+<p>This feature will be removed once the <a href="../../editors/asset_browser.html">Blender Asset Browser</a>
+has support for brushes.</p>
+</div>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Object</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Set of tools for Grease Pencil drawing.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport ‣ Sidebar ‣ Grease Pencil</p>
+</dd>
+<dt>File:</dt>
+<dd><p>greasepencil_addon folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Samuel Bernou, Antonio Vazquez, Daniel Martinez Lara, Matias Mendiola</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Curves &gt; Tools &gt; Draw</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Curves</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Draw</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="draw">
+<h1>Draw</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Draw</p>
+</dd>
+</dl>
+</div>
+<p>The Curve draw tool allows you to free-hand draw curves.</p>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<figure id="id2">
+<figcaption>
+<p>Curve Stroke panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Type</dt><dd><p>Type of curve to use for drawing.</p>
+<dl>
+<dt>Poly</dt><dd><p>Bézier Curve with straight line segments (auto handles).</p>
+</dd>
+<dt>Bézier</dt><dd><dl>
+<dt>Tolerance</dt><dd><p>Lower values give a result that is closer to the drawing stroke,
+while higher values give more smoothed results.</p>
+</dd>
+<dt>Method</dt><dd><dl>
+<dt>Refit</dt><dd><p>Incrementally refits the curve (gives best results).</p>
+</dd>
+<dt>Split</dt><dd><p>Splits the curve until the tolerance is met (gives a better drawing performance).</p>
+</dd>
+</dl>
+</dd>
+<dt>Detect Corners</dt><dd><p>Detects corners while drawing based on a specified angle;
+Any angles above the specified value are considered corners.
+If a corner is detected, the curve uses non-aligned handles
+for the corner resulting in a more crisp corner.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Radius</dt><dd><dl>
+<dt>Min</dt><dd><p>Minimum radius when the minimum pressure is applied (also the minimum when tapering).</p>
+</dd>
+<dt>Max</dt><dd><p>Radius to use when the maximum pressure is applied (or when a tablet is not used).</p>
+</dd>
+</dl>
+</dd>
+<dt>Use Pressure</dt><dd><p>Uses stylus pressure to control the radius of the curve.</p>
+</dd>
+<dt>Depth</dt><dd><p>Controls where and how the curves are drawn.</p>
+<dl>
+<dt>Cursor</dt><dd><p>Uses the depth under the cursor to draw curves.</p>
+</dd>
+<dt>Surface</dt><dd><p>Used to draw on top of other objects.</p>
+<dl>
+<dt>Offset</dt><dd><p>Distance to offset the curve from the surface.</p>
+</dd>
+<dt>Absolute Offset</dt><dd><p>Applies a fixed offset (does not scale by the curve radius).</p>
+</dd>
+<dt>Only First</dt><dd><p>Only uses the start of the stroke for the depth.</p>
+</dd>
+<dt>Plane</dt><dd><p>The orientation plane to draw on, available when <em>Only First</em> is enabled.</p>
+<dl>
+<dt>Normal/View</dt><dd><p>Draws perpendicular to the surface.</p>
+</dd>
+<dt>Normal/Surface</dt><dd><p>Draws aligned to the surface.</p>
+</dd>
+<dt>View</dt><dd><p>Draws aligned to the viewport.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="options">
+<h2>Options</h2>
+<p>After the tool is run, these options are available in the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel.</p>
+<dl>
+<dt>Error</dt><dd><p>Error distance in object units. This can be seen similar to a subdivision rate for the curve.
+Lower values give a result that is closer to the drawing stroke while higher values give more smoothed results.</p>
+</dd>
+<dt>Fit Method</dt><dd><dl>
+<dt>Refit</dt><dd><p>Incrementally refits the curve (gives best results).</p>
+</dd>
+<dt>Split</dt><dd><p>Splits the curve until the tolerance is met (gives a better drawing performance).</p>
+</dd>
+</dl>
+</dd>
+<dt>Corner Angle</dt><dd><p>Any angles above this are considered corners.</p>
+</dd>
+<dt>Cyclic</dt><dd><p>Toggles whether or not the curve is <a href="../../../glossary/index.html#term-Cyclic">Cyclic</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

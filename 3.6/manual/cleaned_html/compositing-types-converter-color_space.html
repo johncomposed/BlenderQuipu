@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Converter &gt; Color Space</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Converter Nodes</a></li>
+<li>Color Space Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="color-space-node">
+<h1>Color Space Node</h1>
+<p>The <em>Color Space Node</em> converts images from one <a href="../../../glossary/index.html#term-Color-Space">color spaces</a>.</p>
+<div>
+<p>Note</p>
+<p>Images are already automatically converted into linear color space unless specified in the image’s
+<a href="../../../editors/image/image_settings.html#bpy-types-colormanagedinputcolorspacesettings-name">Color Space</a> option.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>From, To</dt><dd><p>The color space of the input image and the color space to convert the image to.</p>
+<p>The list of color spaces depends on the active <a href="../../../render/color_management.html#ocio-config">OCIO config</a>.
+The default supported color spaces are described in detail here:
+<a href="../../../render/color_management.html#ocio-config-default-color-spaces">Default OpenColorIO Configuration</a></p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

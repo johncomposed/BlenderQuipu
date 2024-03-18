@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Volume &gt; Volume Cube</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Volume Nodes</a></li>
+<li>Volume Cube Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="volume-cube-node">
+<h1>Volume Cube Node</h1>
+<p>The <em>Volume Cube</em> generates a volume from scratch by evaluating an input field on every single
+voxel in a rectangular prism. The <em>Density</em> field defines the output volume grid’s value at every
+voxel. The field can only depend on the <a href="../geometry/read/position.html">Position Node</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Density</dt><dd><p>The value for the new grid at each voxel.</p>
+</dd>
+<dt>Background</dt><dd><p>The value of the grid outside the rectangular prism controlled by the <em>Min</em> and <em>Max</em> inputs.
+The node can generate a more memory-efficient volume when the values of the <em>Density</em> input are
+the same as the background value.</p>
+</dd>
+<dt>Min</dt><dd><p>One corner of the rectangular prism in which to fill evaluate the field.</p>
+</dd>
+<dt>Max</dt><dd><p>The other corner of the rectangular prism in which to fill evaluate the field.</p>
+</dd>
+<dt>Resolution X,Y,Z</dt><dd><p>The number of voxels to evaluate the field in on each axis.</p>
+<div>
+<p>Note</p>
+<p>Changing these values can have a significant impact on performance. For example, the default values
+of 32 mean the input field will be evaluated about 33 thousand times. Increasing the values to 100
+will give 1 million evaluations, and 1000 would give 1 billion.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Volume</dt><dd><p>Geometry containing the generated volume.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

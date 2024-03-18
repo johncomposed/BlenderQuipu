@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Tools &gt; Loop</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Loop Cut</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="loop-cut">
+<h1>Loop Cut</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Loop Cut</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>R</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>The <em>Loop Cut</em> tool is a modal tool version of the <a href="../editing/edge/loopcut_slide.html#bpy-ops-mesh-loopcut-slide">Loop Cut and Slide</a> operator.
+This tool splits a loop of faces by inserting new edge loops intersecting the chosen edge.</p>
+<section id="usage">
+<h2>Usage</h2>
+<p>The tool is interactive and has two steps:</p>
+<ol>
+<li><p>Pre-Visualizing the Cut</p>
+<p>After the tool is activated, move the cursor over a desired edge.
+The cut to be made is marked with a magenta colored line as you move the mouse over the various edges.
+The to be created edge loop stops at the poles (tris and n-gons) where the existing face loop terminates.</p>
+</li>
+<li><p>Perform the Cut</p>
+<p>Once the desired location of the new edge loop is found, the edge loop can be created via <kbd>LMB</kbd>.</p>
+</li>
+</ol>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Mesh before inserting edge loop.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Preview of edge loop location.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Interactive placement of edge loop between adjacent loops.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<dl>
+<dt>Number of Cuts</dt><dd><p>Increases and decreases the number of cuts to create.
+These cuts are uniformly distributed in the original face loop,
+and you will <em>not</em> be able to control their positions.</p>
+</dd>
+<dt>Correct UVs</dt><dd><p>Corrects the corresponding UV coordinates, if these exist, to avoid image distortions.</p>
+</dd>
+</dl>
+</section>
+<section id="options">
+<h2>Options</h2>
+<p>After the modal tool is run
+the <a href="../editing/edge/loopcut_slide.html#modeling-meshes-editing-edge-loopcut-slide-options">Loop Cut and Slide Options</a>
+are available in the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

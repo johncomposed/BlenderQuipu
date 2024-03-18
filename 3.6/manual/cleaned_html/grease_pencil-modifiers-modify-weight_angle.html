@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modifiers &gt; Modify &gt; Weight Angle</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li><a href="index.html">Modify</a></li>
+<li>Vertex Weight Angle Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="vertex-weight-angle-modifier">
+<h1>Vertex Weight Angle Modifier</h1>
+<p>This modifier sets the weights of the given vertex group,
+based on a predetermined angle.</p>
+<div>
+<p>Warning</p>
+<p>This modifier does implicit clamping of weight values in the standard (0.0 to 1.0) range.
+All values below 0.0 will be set to 0.0, and all values above 1.0 will be set to 1.0.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Vertex Weight Proximity modifier panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Vertex Group</dt><dd><p>The vertex group to affect.</p>
+<dl>
+<dt>Invert <code>&lt;--&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group. The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+<dt>Angle</dt><dd><p>Sets the angle for the maximum weights value.</p>
+</dd>
+<dt>Axis</dt><dd><p>The axis along which the angle affects the weights.</p>
+<p>X, Y, Z</p>
+</dd>
+<dt>Space</dt><dd><p>Coordinate space to be used.</p>
+</dd>
+<dt>Minimum</dt><dd><p>Minimum value for vertex weight.</p>
+</dd>
+<dt>Multiply Weights</dt><dd><p>Multiply the calculated weights with the existing values in the vertex group.</p>
+</dd>
+</dl>
+<section id="influence">
+<h3>Influence</h3>
+<p>See <a href="../introduction.html#grease-pencil-modifier-influence-filters">Influence Filters</a>.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

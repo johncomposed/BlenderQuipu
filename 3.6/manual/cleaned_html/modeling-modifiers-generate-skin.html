@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Skin</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Skin Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="skin-modifier">
+<h1>Skin Modifier</h1>
+<p>The <em>Skin</em> modifier uses vertices and edges to create a skinned surface,
+using a per-vertex radius to better define the shape.
+The output is mostly quads, although some triangles will appear around intersections.</p>
+<p>It is a quick way to generate base meshes for sculpting and/or smooth organic shapes with
+arbitrary topology.</p>
+<div>
+<p>Note</p>
+<p>Faces in the original geometry are ignored.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Skin modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Branch Smoothing</dt><dd><p>A branch point is a vertex with three or more connected edges.
+These areas tend to produce more complicated topology, some of which may overlap.
+This setting relaxes the surface around these points,
+with the side effect of shrinking it.</p>
+</dd>
+<dt>Symmetry</dt><dd><p>These checkboxes are used to keep the output topology symmetrical in their respective axes.
+In other words, using it avoids merging triangles across an axis unless the triangles form a symmetric quad.</p>
+<div>
+<p>Note</p>
+<p>They do not add geometry flipped across an axis.
+For that, the <a href="mirror.html">Mirror</a> modifier should be used,
+typically placed above the Skin one.</p>
+</div>
+</dd>
+<dt>Smooth Shading</dt><dd><p>Output faces with smooth shading rather than flat shading.
+The smooth/flat shading of the input geometry is not preserved.</p>
+</dd>
+<dt>Create Armature</dt><dd><p>Create an armature on top of the object. Each edge becomes a bone.</p>
+<div>
+<p>Note</p>
+<p>If the root vertex has more than one adjacent edge,
+an extra bone will be created to serve as the root.</p>
+</div>
+<p>This tool does the following:</p>
+<ol>
+<li><p>A new armature object is added with bones matching the input mesh.
+The active selection is switched to the new armature.</p></li>
+<li><p>Weight groups are added to the input mesh. The Skin modifier propagates these weights to the output as well.</p></li>
+<li><p>An <a href="../deform/armature.html">Armature</a> modifier is added directly below the Skin one.
+Note that the Armature modifier is being applied after
+the Skin one because it should only deform the output,
+whereas if it were above, it might change the resulting topology.</p></li>
+</ol>
+</dd>
+<dt>Add Skin Data</dt><dd><p>This modifier uses a <a href="#modeling-modifiers-generate-skin-data">custom set of data</a> in the mesh,
+that is generated automatically when you add the modifier the first time.</p>
+<p>However, you may remove that data, or loose it some way or the other. That operator will generate it again.</p>
+</dd>
+<dt>Mark/Clear Loose</dt><dd><p>By default, a branch vertex (vertex with three or more connected edges)
+will generate extra edge loops along adjacent edges in order to keep the output tight.
+Branches can be made loose by clicking <em>Mark Loose</em>, which will allow the output to stretch between
+all adjacent vertices. This can be disabled again by clicking <em>Clear Loose</em>.</p>
+</dd>
+<dt>Mark Root</dt><dd><p>Marking a vertex as root causes that vertex to be used for calculating rotations for connected limbs.
+Root vertices also affect the armature output, they will be used as the origin for the root bones.</p>
+<p>Each set of connected vertices should have one root node
+(one is selected by default if you do not assign any manually).
+<em>Mark Root</em> enforces the one-root per set rule, so it is not necessary to manually unmark roots.</p>
+</dd>
+<dt>Equalize Radii</dt><dd><p>Makes the skin radii of selected vertices equal on each axis.</p>
+</dd>
+</dl>
+</section>
+<section id="skin-mesh-data">
+<h2>Skin Mesh Data</h2>
+<p>That modifier needs a set of specific data in the original mesh to work properly.
+This data allows you to define the root vertices of each tree, which ones are loose,
+and the size (radius) of the skin at each vertex. The radii of input vertices can be individually
+scaled in Edit Mode with the <a href="../../meshes/editing/mesh/transform/skin_resize.html">Skin Resize</a>.</p>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id2">
+<figcaption>
+<p>Simple creature, made with only the Skin and Subdivision Surface modifiers.</p>
+</figcaption>
+</figure>
+</section>
+<section id="external-links">
+<h2>External Links</h2>
+<ul>
+<li><p><a href="https://www.blendernation.com/2011/03/11/skin-modifier-development/">Skin Modifier Development at Blender Nation</a> –
+An early demonstration of the Skin Modifier by Nicholas Bishop (March 2011).</p></li>
+<li><p>Ji, Zhongping; Liu, Ligang; Wang, Yigang (2010).
+B-Mesh: A Fast Modeling System for Base Meshes of 3D Articulated Shapes,
+Computer Graphics Forum 29(7), pp. 2169-2178. – The work this modifier is based on
+(<a href="https://doi.org/10.1111/j.1467-8659.2010.01805.x">DOI 10.1111/j.1467-8659.2010.01805.x</a>).</p></li>
+<li><p><a href="https://blenderartists.org/t/499364">Related thread on Blender artists</a>.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

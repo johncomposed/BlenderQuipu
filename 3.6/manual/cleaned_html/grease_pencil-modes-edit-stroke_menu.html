@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Edit &gt; Stroke Menu</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="index.html">Edit Mode</a></li>
+<li>Stroke Menu</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="stroke-menu">
+<h1>Stroke Menu</h1>
+<p>This page covers many of the tools in the <em>Strokes</em> menu.
+These are tools that work primarily on strokes, however,
+some also work with point selections.</p>
+<section id="subdivide">
+<h2>Subdivide</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Subdivide</p>
+</dd>
+</dl>
+</div>
+<p>Subdivides the strokes by inserting points between the selected points.</p>
+<dl>
+<dt>Number of Cuts</dt><dd><p>The number of subdivisions to perform.</p>
+</dd>
+<dt>Smooth</dt><dd><p>The amount of the smoothness on subdivided points.</p>
+</dd>
+<dt>Repeat</dt><dd><p>Number of times to repeat the procedure.</p>
+</dd>
+<dt>Selected Points</dt><dd><p>When enabled, limits the effect to only the selected points within the stroke.</p>
+</dd>
+<dt>Position</dt><dd><p>When enabled, the operator affect the points location.</p>
+</dd>
+<dt>Thickness</dt><dd><p>When enabled, the operator affect the points thickness.</p>
+</dd>
+<dt>Strength</dt><dd><p>When enabled, the operator affect the points strength (alpha).</p>
+</dd>
+<dt>UVs</dt><dd><p>When enabled, the operator affect the UV rotation on the points.</p>
+</dd>
+</dl>
+</section>
+<section id="simplify">
+<h2>Simplify</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Simplify</p>
+</dd>
+</dl>
+</div>
+<p>Reduce the amount of points in the strokes.</p>
+<section id="fixed">
+<h3>Fixed</h3>
+<p>Deletes alternated points in the strokes, except the start and end points.</p>
+<dl>
+<dt>Steps</dt><dd><p>The number of times to repeat the procedure.</p>
+</dd>
+</dl>
+</section>
+<section id="adaptive">
+<h3>Adaptive</h3>
+<p>Uses the RDP algorithm (Ramer-Douglas-Peucker algorithm) for points deletion.
+The algorithm tries to obtain a similar line shape with fewer points.</p>
+<dl>
+<dt>Factor</dt><dd><p>Controls the amount of recursively simplifications applied by the algorithm.</p>
+</dd>
+</dl>
+</section>
+<section id="sample">
+<h3>Sample</h3>
+<p>Recreates the stroke geometry with a predefined length between points.</p>
+<dl>
+<dt>Length</dt><dd><p>The distance between points on the recreated stroke.
+Smaller values will require more points to recreate the stroke,
+while larger values will result in fewer points needed to recreate the curve.</p>
+</dd>
+<dt>Sharp Threshold</dt><dd><p>The maximum angle between points on the recreated stroke.
+Smaller values will require more points to recreate the stroke,
+while larger values will result in fewer points needed to recreate the curve.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="trim">
+<h2>Trim</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Trim</p>
+</dd>
+</dl>
+</div>
+<p>Trims selected stroke to first loop or intersection.</p>
+<table>
+<tbody>
+<tr><td><figure id="id19">
+<figcaption>
+<p>Original stroke.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id20">
+<figcaption>
+<p>Result of trim operation.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outline">
+<h2>Outline</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Outline</p>
+</dd>
+</dl>
+</div>
+<p>Converts a stroke to an outline.</p>
+<dl>
+<dt>View</dt><dd><p>The projection method to generate the outline</p>
+<dl>
+<dt>View:</dt>
+<dd><p>Use the viewport’s view as a projection.</p>
+</dd>
+<dt>Front:</dt>
+<dd><p>Use the X-Z axes view as a projection.</p>
+</dd>
+<dt>Side:</dt>
+<dd><p>use the Y-Z axis view as a projection</p>
+</dd>
+<dt>Top:</dt>
+<dd><p>Use the X-Y axes view as a projection</p>
+</dd>
+<dt>Camera:</dt>
+<dd><p>Use the view from the active camera as a projection.</p>
+</dd>
+</dl>
+</dd>
+<dt>Material Mode</dt><dd><p>How materials are assigned to the outline.</p>
+<dl>
+<dt>Active Material:</dt>
+<dd><p>The stroke outline will be assigned the active material.</p>
+</dd>
+<dt>Keep Material:</dt>
+<dd><p>The stoke outline will have the same material as before.</p>
+</dd>
+<dt>New Material:</dt>
+<dd><p>A new material will be created and assigned to the outline.</p>
+</dd>
+</dl>
+</dd>
+<dt>Thickness</dt><dd><p>Thickness of the stroke perimeter.</p>
+</dd>
+<dt>Keep Shape</dt><dd><p>Try to keep global shape when the stroke thickness change.</p>
+</dd>
+<dt>Subdivisions</dt><dd><p>Number of subdivisions for the start and end caps.</p>
+</dd>
+<dt>Sample Length</dt><dd><p>The length each resulting segment of the outline.
+Smaller values create outlines closer to the original shape.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id21">
+<figcaption>
+<p>Original stroke.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id22">
+<figcaption>
+<p>Generated stroke after outline operation.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="join">
+<h2>Join</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Join ‣ Join, Join and Copy</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>J</kbd></kbd>, <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>J</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Join two or more strokes into a single one.</p>
+<dl>
+<dt>Type</dt><dd><dl>
+<dt>Join <kbd><kbd>Ctrl</kbd>-<kbd>J</kbd></kbd></dt><dd><p>Join selected strokes by connecting points.</p>
+</dd>
+<dt>Join and Copy <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>J</kbd></kbd></dt><dd><p>Join selected strokes by connecting points in a new stroke.</p>
+</dd>
+</dl>
+</dd>
+<dt>Leave Gaps</dt><dd><p>When enabled, do not use geometry to connect the strokes.</p>
+</dd>
+</dl>
+</section>
+<section id="move-to-layer">
+<h2>Move to Layer</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Move to Layer</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>M</kbd></p>
+</dd>
+</dl>
+</div>
+<p>A pop-up menu to move the stroke to a different layer.
+You can choose the layer to move the selected strokes to
+from a list of layers of the current Grease Pencil object.
+You can also add a new layer to move the selected stroke to.
+When creating a new layer, there is another pop-up to type in the name of the new layer.</p>
+</section>
+<section id="assign-material">
+<h2>Assign Material</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Assign Material</p>
+</dd>
+</dl>
+</div>
+<p>Changes the material linked to the selected stroke.
+You can choose the name of the material to be used by the selected stroke
+from a list of materials of the current Grease Pencil object.</p>
+</section>
+<section id="set-as-active-material">
+<h2>Set as Active Material</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Set as Active Material</p>
+</dd>
+</dl>
+</div>
+<p>Sets the active object material based on the selected stroke material.</p>
+</section>
+<section id="arrange">
+<h2>Arrange</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Arrange</p>
+</dd>
+</dl>
+</div>
+<p>Change the drawing order of the strokes in the 2D layer.</p>
+<dl>
+<dt>Bring to Front</dt><dd><p>Moves to the top the selected points/strokes.</p>
+</dd>
+<dt>Bring Forward</dt><dd><p>Moves the selected points/strokes upper the next one in the drawing order.</p>
+</dd>
+<dt>Send Backward</dt><dd><p>Moves the selected points/strokes below the previous one in the drawing order.</p>
+</dd>
+<dt>Send to Back</dt><dd><p>Moves to the bottom the selected points/strokes.</p>
+</dd>
+</dl>
+</section>
+<section id="close">
+<h2>Close</h2>
+<div id="id10">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Close</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>F</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Close or open strokes by connecting the last and first point.</p>
+<dl>
+<dt>Type</dt><dd><dl>
+<dt>Close All</dt><dd><p>Close all open selected strokes.</p>
+</dd>
+<dt>Open All</dt><dd><p>Open all closed selected strokes.</p>
+</dd>
+<dt>Toggle</dt><dd><p>Close or Open selected strokes as required.</p>
+</dd>
+</dl>
+</dd>
+<dt>Create Geometry</dt><dd><p>When enabled, points are added for closing the strokes.
+If disabled, the operator act the same as <em>Toggle Cyclic</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="toggle-cyclic">
+<h2>Toggle Cyclic</h2>
+<div id="id11">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Toggle Cyclic</p>
+</dd>
+</dl>
+</div>
+<p>Toggles between an open stroke and closed stroke (cyclic).</p>
+<dl>
+<dt>Type</dt><dd><dl>
+<dt>Close All</dt><dd><p>Close all open selected strokes.</p>
+</dd>
+<dt>Open All</dt><dd><p>Open all closed selected strokes.</p>
+</dd>
+<dt>Toggle</dt><dd><p>Close or Open selected strokes as required.</p>
+</dd>
+<dt>Create Geometry</dt><dd><p>When enabled, points are added for closing the strokes like when using the <em>Close</em> tool.
+If disabled, the stroke is close without any actual geometry.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="toggle-caps">
+<h2>Toggle Caps</h2>
+<div id="id12">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Toggle Caps</p>
+</dd>
+</dl>
+</div>
+<p>Toggle ending cap styles of the stroke.</p>
+<dl>
+<dt>Default</dt><dd><p>Sets stroke start and end points to rounded (default).</p>
+</dd>
+<dt>Both</dt><dd><p>Toggle stroke start and end points caps to flat or rounded.</p>
+</dd>
+<dt>Start</dt><dd><p>Toggle stroke start point cap to flat or rounded.</p>
+</dd>
+<dt>End</dt><dd><p>Toggle stroke end point cap to flat or rounded.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id23">
+<figcaption>
+<p>Stroke ending with rounded caps.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id24">
+<figcaption>
+<p>Stroke ending with flat caps.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id25">
+<figcaption>
+<p>Stroke ending with combined caps.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="switch-direction">
+<h2>Switch Direction</h2>
+<div id="id13">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Switch Direction</p>
+</dd>
+</dl>
+</div>
+<p>Reverse the direction of the points in the selected strokes
+(i.e. the start point will become the end one, and vice versa).</p>
+</section>
+<section id="set-start-point">
+<h2>Set Start Point</h2>
+<div id="id14">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Set Start Point</p>
+</dd>
+</dl>
+</div>
+<p>Set the start point for cyclic strokes.</p>
+</section>
+<section id="normalize-thickness">
+<h2>Normalize Thickness</h2>
+<div id="id15">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Normalize Thickness</p>
+</dd>
+</dl>
+</div>
+<p>Makes the thickness equal for the entire stroke.</p>
+<dl>
+<dt>Mode</dt><dd><p>Stroke Property to normalize.</p>
+</dd>
+<dt>Value</dt><dd><p>Thickness value to use on all points of the stroke.</p>
+</dd>
+</dl>
+</section>
+<section id="normalize-opacity">
+<h2>Normalize Opacity</h2>
+<div id="id16">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Normalize Opacity</p>
+</dd>
+</dl>
+</div>
+<p>Makes the opacity equal for the entire stroke.</p>
+<dl>
+<dt>Mode</dt><dd><p>Stroke Property to normalize.</p>
+</dd>
+<dt>Value</dt><dd><p>Opacity value to use on all points of the stroke.</p>
+</dd>
+</dl>
+</section>
+<section id="scale-thickness">
+<h2>Scale Thickness</h2>
+<div id="id17">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Scale Thickness</p>
+</dd>
+</dl>
+</div>
+<p>When enabled, scales the stroke thickness during scale transformations.</p>
+</section>
+<section id="reset-fill-transform">
+<h2>Reset Fill Transform</h2>
+<div id="id18">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Stroke ‣ Reset Fill Transform</p>
+</dd>
+</dl>
+</div>
+<p>Reset all fill translation, scaling and rotations in the selected strokes.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

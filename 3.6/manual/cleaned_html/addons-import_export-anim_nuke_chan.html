@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Import Export &gt; Anim Nuke Chan</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Import-Export</a></li>
+<li>Nuke Animation (chan)</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="nuke-animation-chan">
+<h1>Nuke Animation (chan)</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import/Export ‣ Nuke (.chan)</p>
+</dd>
+</dl>
+</div>
+<p>The chan format is used to store camera animations, including location, rotation and optionally field of view.
+This add-on can import and export chan files using the active object’s animation.</p>
+<p>A chan file is an ASCII file with parameter values saved in columns, one column per parameter, one line per frame.
+The properties saved and read by this script are:</p>
+<div><div><pre>frame location.x location.y location.z rotation_euler.x rotation_euler.y rotation_euler.z angle_y
+</pre></div>
+</div>
+<p>The file format itself is as simple as can be, but its simplicity is its greatest advantage.
+It is being used by applications like Nuke and Houdini, and since it is so simple
+to write an import or export script for it is both fast and easy.</p>
+<p><code>angle_y</code> stands for vertical field of view. It is used for calculation of the camera lens,
+and only applies to camera animations, while importing/exporting object animation this parameter is skipped.</p>
+<section id="usage">
+<h2>Usage</h2>
+<p>The add-on gets the currently active object (works in Object Mode only) and
+saves/loads its transformations from or to a simple ASCII file, through the whole animation range
+(set either in the Timeline or in the render settings). All you need to do is to select an object
+and run the add-on in File ‣ Import/Export ‣ Nuke (.chan).</p>
+<p>Note that Chan saves only the raw property values (<code>rotation_x</code>, <code>rotation_y</code>, <code>rotation_z</code>, etc.),
+so you have to mind the rotation order. In other words –
+the rotation orders during export and import must be the same
+(both are being set in the File Browser while importing/exporting).</p>
+<p>Another thing is the camera sensor size and its influence on camera lens.
+You can set the sensor size so you can fit a real life cameras (default in Blender is 32 × 18),
+the best practice in this case is using horizontal fit for the camera (Nuke is using this as a default).
+While importing the camera from a chan file you have to remember to set the same sensor size as
+you had in Nuke (or other software that this camera has been exported).</p>
+<div>
+<p>Tip</p>
+<p>File names</p>
+<p>It is a good practice to save the chan files with it’s rotations order and sensor size stored in a file name
+(i.e. <code>camera_for_shot_ZXY_36x24.chan</code>) so you don’t have to look for those values in old files.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Exporting Geometry to Other Software</p>
+<p>If you want to export the objects movement to other software via the OBJ format,
+you have to save it with the Z up, Y forward setting.
+After loading it to the other software it will be rotated 90 degrees,
+but when you apply the chan file it’ll jump into its place.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

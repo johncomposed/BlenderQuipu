@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Input &gt; Time Curve</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Input Nodes</a></li>
+<li>Time Curve Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="time-curve-node">
+<h1>Time Curve Node</h1>
+<p>The <em>Time Curve node</em> generates a factor value (from 0.0 to 1.0)
+that changes according to the curve as time progresses through the <em>Timeline</em>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>This node has no inputs.</p>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Curve</dt><dd><p>The Y value defined by the curve is the factor output.
+For the curve controls see: <a href="../../../interface/controls/templates/curve.html#ui-curve-widget">Curve widget</a>.</p>
+<div>
+<p>Tip</p>
+<p>Flipping the curve around reverses the time input, but
+doing so is easily overlooked in the node setup.</p>
+</div>
+</dd>
+<dt>Start, End</dt><dd><p>Start frame and End frame of the range of time specifying the values
+the output should last. This range becomes the X axis of the graph.
+The time input could be reversed by specifying a start frame greater than the end frame.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>A speed of time factor (from 0.0 to 1.0) relative to the scene’s <a href="../../../render/output/properties/format.html#bpy-types-rendersettings-fps">Frame Rate</a>.
+The factor changes according to the defined curve.</p>
+</dd>
+</dl>
+<div>
+<p>Hint</p>
+<p>Output values</p>
+<p>The <a href="../vector/map_value.html">Map Value</a>
+node can be used to map the output to a more appropriate value.
+With sometimes curves, it is possible that the Time Curve node
+may output a number larger than one or less than zero.
+To be safe, use the Min/Max clamping function of the Map Value node to limit output.</p>
+</div>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id1">
+<figcaption>
+<p>Time controls from left to right: no effect, slow down, freeze, accelerate, reverse.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

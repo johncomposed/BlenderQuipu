@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Output &gt; Properties &gt; Metadata</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Render Output</a></li>
+<li><a href="index.html">Output Properties</a></li>
+<li>Metadata</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="metadata">
+<h1>Metadata</h1>
+<figure id="id1">
+<figcaption>
+<p>Metadata panel.</p>
+</figcaption>
+</figure>
+<p>The <em>Metadata</em> panel includes options for writing metadata into render output.</p>
+<div>
+<p>Note</p>
+<p>Only some image formats support metadata:
+See <a href="../../../files/media/image_formats.html">image formats</a>.</p>
+</div>
+<dl>
+<dt>Metadata Input</dt><dd><p>Where to grab metadata from.</p>
+<dl>
+<dt>Scene:</dt>
+<dd><p>Use metadata from the current scene.</p>
+</dd>
+<dt>Sequencer Strips:</dt>
+<dd><p>Use metadata from the strips in the Sequencer.</p>
+</dd>
+</dl>
+</dd>
+<dt>Include</dt><dd><dl>
+<dt>Date</dt><dd><p>Includes the current date and time.</p>
+</dd>
+<dt>Time</dt><dd><p>Includes the current scene time and render frame at <code>HH:MM:SS.FF</code>.</p>
+</dd>
+<dt>Render Time</dt><dd><p>Includes the render time.</p>
+</dd>
+<dt>Frame</dt><dd><p>Includes the frame number.</p>
+</dd>
+<dt>Frame Range</dt><dd><p>Includes the start and end frame numbers.</p>
+</dd>
+<dt>Memory</dt><dd><p>Includes the peak memory usage.</p>
+</dd>
+<dt>Hostname</dt><dd><p>Includes the rendering machine’s <a href="https://en.wikipedia.org/wiki/Hostname">hostname</a>.</p>
+</dd>
+<dt>Camera</dt><dd><p>Includes the name of the active camera.</p>
+</dd>
+<dt>Lens</dt><dd><p>Includes the name of the active camera’s lens value.</p>
+</dd>
+<dt>Scene</dt><dd><p>Includes the name of the active scene.</p>
+</dd>
+<dt>Marker</dt><dd><p>Includes the name of the last marker.</p>
+</dd>
+<dt>Filename</dt><dd><p>Includes the filename of the blend-file.</p>
+</dd>
+<dt>Strip Name</dt><dd><p>Includes the name of the foreground sequence strip.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="note">
+<h2>Note</h2>
+<p>Includes a custom note.</p>
+<div>
+<p>Hint</p>
+<p>It can be useful to use the <em>Note</em> field if you are setting up a render farm.
+Since you can script any information you like into it,
+such as an identifier for the render node or the job number.
+For details on stamping arbitrary values,
+see: <a href="https://blender.stackexchange.com/questions/26643">this page</a>.</p>
+</div>
+</section>
+<section id="burn-into-image">
+<h2>Burn into Image</h2>
+<p>Add metadata as text to the render.</p>
+<dl>
+<dt>Font Size</dt><dd><p>Set the size of the text.</p>
+</dd>
+<dt>Text Color</dt><dd><p>Set the color and alpha of the stamp text.</p>
+</dd>
+<dt>Background</dt><dd><p>Set the color and alpha of the color behind the text.</p>
+</dd>
+<dt>Include Labels</dt><dd><p>Displays the labels before the metadata text. For example,
+“Camera” in front of the camera name, etc.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

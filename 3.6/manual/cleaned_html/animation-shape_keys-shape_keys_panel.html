@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Shape Keys &gt; Shape Keys Panel</title></head>
+<body><ul>
+<li><a href="../index.html">Animation &amp; Rigging</a></li>
+<li><a href="index.html">Shape Keys</a></li>
+<li>Shape Keys Panel</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="shape-keys-panel">
+<h1>Shape Keys Panel</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Editor:</dt>
+<dd><p>Properties</p>
+</dd>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Object Data ‣ Shape Keys</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Shape Keys panel.</p>
+</figcaption>
+</figure>
+<p>The Shape Keys panel is used for authoring shape keys.</p>
+<dl id="bpy-types-object-active-shape-key-index">
+<dt>Active Shape Key Index</dt><dd><p>A <a href="../../interface/controls/templates/list_view.html#ui-list-view">List View</a>.</p>
+<dl id="bpy-types-shapekey-frame">
+<dt>Value/Frame (number)</dt><dd><p>In Relative mode: Value is the current influence of the shape key used for blending between
+the shape (value=1.0) and its reference key (value=0.0). The reference key is usually the Basis shape.
+The weight of the blend can be extrapolated above 1.0 and below 0.0.</p>
+<p>In Absolute mode: Value is the <em>Evaluation Time</em> at which the shape will have maximum influence.</p>
+</dd>
+</dl>
+<dl id="bpy-types-shapekey-mute">
+<dt>Mute (check mark)</dt><dd><p>If unchecked, the shape key will not be taken into consideration when
+mixing the shape key stack into the result visible in the 3D Viewport.</p>
+</dd>
+</dl>
+</dd>
+<dt>Shape Key Specials</dt><dd><dl id="bpy-ops-object-shape-key-add">
+<dt>New Shape from Mix</dt><dd><p>Add a new shape key with the current deformed shape of the object.
+This differs from the <code>+</code> button of the list, as that one always copies
+the Basis shape independently of the current mix.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-shape-key-mirror">
+<dt>Mirror Shape Key</dt><dd><p>If your mesh is symmetrical, in <em>Object Mode</em>, you can mirror the shape keys on the X axis.
+This will not work unless the mesh vertices are perfectly symmetrical.
+Use the Mesh ‣ Symmetrize tool in <em>Edit Mode</em>.</p>
+</dd>
+<dt>Mirror Shape Key (Topology)</dt><dd><p>Same as <em>Mirror Shape Key</em> though it detects the mirrored vertices based on the topology of the mesh.
+The mesh vertices do not have to be perfectly symmetrical for this action to work.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-join-shapes">
+<dt>Join as Shapes (Transfer Mix)</dt><dd><p>Transfer the current resulting shape from a different object.</p>
+<p>Select the object to copy, then the object to copy into.
+Use this action and a new shape key will be added to the active object
+with the current mix of the first object.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-shape-key-transfer">
+<dt>Transfer Shape Key</dt><dd><p>Transfer the active shape key from a different object
+regardless of its current influence.</p>
+<p>Select the object to copy, then the object to copy into.
+Use this action and a new shape key will be added to the active object
+with the active shape of the first object.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-shape-key-remove">
+<dt>Delete All Shape Keys</dt><dd><p>Removes all Shape Keys and any effect that they had on the mesh.</p>
+</dd>
+<dt>Apply All Shape Keys</dt><dd><p>Saves the current visible shape to the mesh data and deletes all Shape Keys.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-key-use-relative">
+<dt>Relative</dt><dd><p>Set the shape keys to <em>Relative</em> or <em>Absolute</em>.
+See <a href="introduction.html#animation-shapekeys-relative-vs-absolute">Relative or Absolute Shape Keys</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-show-only-shape-key">
+<dt>Shape Key Lock (pin icon)</dt><dd><p>Show the active shape in the 3D Viewport without blending.
+<em>Shape Key Lock</em> gets automatically enabled while the object is in <em>Edit Mode</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-use-shape-key-edit-mode">
+<dt>Shape Key Edit Mode (edit mode icon)</dt><dd><p>If enabled, when entering <em>Edit Mode</em> the active shape key will <strong>not</strong> take maximum influence as is default.
+Instead, the current blend of shape keys will be visible and can be edited from that state.</p>
+</dd>
+</dl>
+<dl id="bpy-types-object-add-rest-position-attribute">
+<dt>Add Rest Position</dt><dd><p>Creates an <a href="../../modeling/geometry_nodes/attributes_reference.html">Attribute</a> in the vertex domain called
+<code>rest_position</code> which is a copy of the <code>position</code> attribute before shape keys and modifiers are evaluated.
+Only mesh objects support this option.</p>
+</dd>
+</dl>
+<section id="relative-shape-keys">
+<h2>Relative Shape Keys</h2>
+<figure id="id3">
+<figcaption>
+<p>Relative Shape Keys options.</p>
+</figcaption>
+</figure>
+<p>See <a href="introduction.html#animation-shapekeys-relative-vs-absolute">Relative or Absolute Shape Keys</a>.</p>
+<p>With relative shape keys, the value shown for each shape in the list represents
+the current weight or influence of that shape in the current <em>Mix</em>.</p>
+<dl id="bpy-ops-object-shape-key-clear">
+<dt>Clear Shape Keys <code>X</code></dt><dd><p>Set all influence values, or weights, to zero.
+Useful to quickly guarantee that the result shown in the 3D Viewport is not affected by shapes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-shapekey-value">
+<dt>Value</dt><dd><p>The weight of the blend between the shape key and its reference key (usually the Basis shape).</p>
+<p>A value of 0.0 denotes 100% influence of the reference key and 1.0 of the shape key.</p>
+</dd>
+</dl>
+<dl id="bpy-types-shapekey-slider-max">
+<dt>Range</dt><dd><p>Minimum and maximum range for the influence value of the active shape key.
+Blender can extrapolate results when the <em>Value</em> goes lower than 0.0 or above 1.0.</p>
+</dd>
+</dl>
+<dl id="bpy-types-shapekey-vertex-group">
+<dt>Vertex Group</dt><dd><p>Limit the active shape key deformation to a vertex group.
+Useful to break down a complex shape into components by assigning temporary vertex groups
+to the complex shape and copying the result into new simpler shapes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-shapekey-relative-key">
+<dt>Relative To</dt><dd><p>Select the shape key to deform from. This is called the <em>Reference Key</em> for that shape.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Rather than storing offsets directly, internally relative keys are stored as snapshots of the mesh shape.
+The relative deformation offsets are computed by subtracting <em>Reference Key</em> from that snapshot.</p>
+<p>Therefore, replacing the <em>Reference Key</em> has the effect of subtracting the difference between the new
+and old reference from the relative deformation of the current key.</p>
+</div>
+</section>
+<section id="absolute-shape-keys">
+<h2>Absolute Shape Keys</h2>
+<figure id="id4">
+<figcaption>
+<p>Absolute Shape Keys options.</p>
+</figcaption>
+</figure>
+<p>See <a href="introduction.html#animation-shapekeys-relative-vs-absolute">Relative or Absolute Shape Keys</a>.</p>
+<p>With absolute shape keys, the value shown for each shape in the list represents
+the <em>Evaluation Time</em> at which that shape key will be active.</p>
+<dl id="bpy-ops-object-shape-key-retime">
+<dt>Re-Time Shape Keys (clock icon)</dt><dd><p>Absolute shape keys are timed, by order in the list, at a constant interval.
+This button resets the timing for the keys. Useful if keys were removed or re-ordered.</p>
+</dd>
+</dl>
+<dl id="bpy-types-shapekey-interpolation">
+<dt>Interpolation</dt><dd><p>Controls the interpolation between shape keys.</p>
+<p>Linear, Cardinal, Catmull-Rom, B-Spline</p>
+<figure id="id5">
+<figcaption>
+<p>Different types of interpolation.</p>
+<div>
+<p>The red line represents interpolated values between keys (black dots).</p>
+</div>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<dl id="bpy-types-key-eval-time">
+<dt>Evaluation Time</dt><dd><p>Controls the shape key influence. Scrub to see the effect of the current configuration.
+Typically, this property is keyed for animation or rigged with a driver.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

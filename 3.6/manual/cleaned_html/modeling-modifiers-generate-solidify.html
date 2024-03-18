@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Solidify</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Solidify Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="solidify-modifier">
+<h1>Solidify Modifier</h1>
+<p>The <em>Solidify</em> modifier takes the surface of any mesh and adds depth, thickness to it.</p>
+<section id="options">
+<h2>Options</h2>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>The Solidify modifier in simple mode.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>The Solidify modifier in complex mode.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Mode</dt><dd><dl>
+<dt>Simple</dt><dd><p>This is the default solidify algorithm, which simply extrudes the geometry.
+This algorithm does not work on geometry where edges have more than two adjacent faces.</p>
+<div>
+<p>Important</p>
+<p>If the normals of adjacent faces don’t point into the same general direction, simple mode
+will not be able to solidify the boundary between those. This happens if the normals
+are not recalculated or for example on one-sided surfaces like a Möbius strip.</p>
+</div>
+</dd>
+<dt>Complex</dt><dd><p>This is a solidify algorithm which can handle every geometric situation
+to guarantee a manifold output geometry. This algorithm is able to
+solidify shapes like Möbius strips, Klein bottles, architectural wall layouts
+and many more which the <em>Simple Mode</em> isn’t able to do.
+If the special cases are not present it is recommended to choose <em>Simple</em>
+because the extra logic makes this algorithm much slower.</p>
+<div>
+<p>Note</p>
+<p>There are no options for crease in the Modifier tab because crease is handled in a dynamic way.
+The modifier will transfer the creases of the original mesh in a smart way to the output mesh to
+work with the <a href="subdivision_surface.html">Subdivision Surface</a> modifier.</p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Thickness Mode Complex Mode</dt><dd><p>Choose the kind of thickness handling (thickness solver).</p>
+<figure id="id3">
+<figcaption>
+<p>Different thickness options on a non-manifold mesh.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Fixed</dt><dd><p>This is similar to <em>Simple Mode</em> without <em>Even Thickness</em>.
+The new vertices are always in a fixed distance to the old ones.</p>
+</dd>
+<dt>Even</dt><dd><p>This is similar to <em>Simple Mode</em> with <em>Even Thickness</em> and <em>High Quality Normals</em>.
+It adjusts for sharp corners, but may not always work when more than three faces come together.</p>
+</dd>
+<dt>Constraints</dt><dd><p>This is a more advanced model to try to always get the optimal thickness everywhere.
+For up to three faces it is always guaranteed to find an optimal solution.</p>
+</dd>
+</dl>
+</dd>
+<dt>Boundary Complex Mode</dt><dd><p>Choose the kind of boundary that suits the model the most.</p>
+<figure id="id4">
+<figcaption>
+<p>Different boundary options with a matCap.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>None</dt><dd><p>No boundary fix is applied. Results are stable.</p>
+</dd>
+<dt>Round</dt><dd><p>Adjusts the boundary for an opening to face inwards (like a hole in an egg).</p>
+</dd>
+<dt>Flat</dt><dd><p>Adjusts the boundary of a planar opening to be a flat (like a cut sphere).</p>
+</dd>
+</dl>
+</dd>
+<dt>Thickness</dt><dd><p>The depth to be solidified.</p>
+<div>
+<p>Important</p>
+<p>The modifier thickness is calculated using local vertex coordinates.
+If the object has a non-uniform scale, the thickness will vary on different sides of the object.</p>
+<p>To fix this, either <a href="../../../scene_layout/object/editing/apply.html#bpy-ops-object-transform-apply">Apply</a>
+or <a href="../../../scene_layout/object/editing/clear.html#bpy-ops-object-clear">Clear</a> the scale.</p>
+</div>
+</dd>
+<dt>Offset</dt><dd><p>A value between (-1 to 1) to locate the solidified output inside or outside the original mesh.
+The inside and outside is determined by the face normals.
+Set to 0.0, the solidified output will be centered on the original mesh.</p>
+</dd>
+<dt>Even Thickness Simple Mode</dt><dd><p>Maintain thickness by adjusting for sharp corners.
+Sometimes improves quality but also increases computation time.</p>
+</dd>
+<dt>Merge Threshold Complex Mode</dt><dd><p>Distance within which degenerated geometry is merged.</p>
+</dd>
+<dt>Rim</dt><dd><dl>
+<dt>Fill</dt><dd><p>Fills the gap between the inner and outer edges.</p>
+</dd>
+<dt>Only Rim</dt><dd><p>In <em>Simple Mode</em>: Will not extrude surfaces parallel to the original one,
+but instead will only add the perpendicular rim.</p>
+<p>In <em>Complex Mode</em>: Will only leave the generated perpendicular rim.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p><em>Fill</em> and <em>Only Rim</em> only make a difference on <a href="../../../glossary/index.html#term-Non-manifold">Non-manifold</a> objects,
+since the rims are generated from the borders of the original geometry.</p>
+</div>
+</dd>
+<dt>Vertex Group</dt><dd><p>The weights of the selected vertex group are multiplied onto the <em>Thickness</em>,
+so vertices with lower weights will be less thick. The vertices which are not part
+of the vertex group will be used as if their weight was zero.</p>
+<dl>
+<dt>Invert</dt><dd><p>Reverses the vertex group weights, so that the used weight is one minus the actual weight.</p>
+</dd>
+<dt>Factor</dt><dd><p>How much the vertex weights are taken into account.</p>
+<ul>
+<li><p>On 0.0 , vertices with zero weight will have no thickness at all.</p></li>
+<li><p>On 0.5 , vertices with zero weight will be half as thick as those with full weight.</p></li>
+<li><p>On 1.0 , the weights are ignored and the <em>Thickness</em> value is used for every vertex.</p></li>
+</ul>
+</dd>
+<dt>Flat Faces Complex Mode</dt><dd><p>Use the minimal vertex weight assigned to the vertices of a face to make sure that
+new faces stay parallel to their original ones. This is slow, so disable it when it is not needed.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>If the final thickness of a vertex is zero, it will still be solidified.
+Therefore creating duplicate geometry, which sometimes needs extra care.</p>
+</div>
+</dd>
+</dl>
+<section id="normals">
+<h3>Normals</h3>
+<dl>
+<dt>Flip Normals</dt><dd><p>Reverse the normals of all geometry (both the inner and outer surfaces).</p>
+</dd>
+<dt>High Quality Normals Simple Mode</dt><dd><p>Normals are calculated to produce a more even thickness.
+Sometimes improves quality but also increases computation time.</p>
+</dd>
+</dl>
+</section>
+<section id="materials">
+<h3>Materials</h3>
+<dl>
+<dt>Material Offset</dt><dd><p>Choose a different material slot index to use for the new geometry.
+This is applied as an offset from the original material of the face from which it was solidified.</p>
+<ul>
+<li><p>A value of 0 means it will use the same material.</p></li>
+<li><p>A value of 1 means it will use the material immediately below the original material.</p></li>
+<li><p>A value of -2 means the material two positions above the original material will be used.</p></li>
+</ul>
+<p>These are clamped to the top-most and bottom-most material slots.</p>
+</dd>
+<dt>Rim</dt><dd><p>Similarly, you can give another material to the rim faces.</p>
+</dd>
+</dl>
+</section>
+<section id="edge-data">
+<h3>Edge Data</h3>
+<dl>
+<dt>Inner Simple Mode</dt><dd><p>Set a <a href="../../meshes/editing/mesh/transform/basic.html#modeling-edges-crease-subdivision">crease</a> to the inner edges.</p>
+</dd>
+<dt>Outer Simple Mode</dt><dd><p>Set a <a href="../../meshes/editing/mesh/transform/basic.html#modeling-edges-crease-subdivision">crease</a> to the outer edges.</p>
+</dd>
+<dt>Rim Simple Mode</dt><dd><p>Set a <a href="../../meshes/editing/mesh/transform/basic.html#modeling-edges-crease-subdivision">crease</a> to the rim.</p>
+</dd>
+<dt>Bevel Convex</dt><dd><p>Edge <a href="../../meshes/editing/mesh/transform/basic.html#modeling-edges-bevel-weight">bevel weight</a> to be added to outside edges.</p>
+</dd>
+</dl>
+<figure id="id5">
+<figcaption>
+<p>Edges which will get creases marked.</p>
+</figcaption>
+</figure>
+</section>
+<section id="thickness-clamp">
+<h3>Thickness Clamp</h3>
+<dl>
+<dt>Clamp</dt><dd><p>A value between (0 to 2) to clamp offsets to avoid self-intersection.
+The amount is determined by the length of the shortest adjacent edge.</p>
+<figure id="id6">
+<figcaption>
+<p>Clamp Offset.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Angle Clamp</dt><dd><p>If enabled clamping will also consider angles in the geometry, not only lengths.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output-vertex-groups">
+<h3>Output Vertex Groups</h3>
+<dl>
+<dt>Shell</dt><dd><p>Vertex group that the generated shell geometry will be weighted to.
+This allows you to use other modifiers to only affect the shell geometry
+by using a that modifier’s vertex group influence control.</p>
+</dd>
+<dt>Rim</dt><dd><p>Same as <em>Shell Vertex Group</em>, but for the generated rim geometry.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<section id="even-thickness">
+<h3>Even Thickness</h3>
+<p>Solidify thickness is an approximation.
+While <em>Even Thickness</em> and <em>High Quality Normals</em> should yield good results,
+the final wall thickness is not guaranteed and may vary depending on the mesh topology.
+Especially for vertices with more than three adjacent faces.</p>
+<p>In order to maintain a precise wall thickness in every case, we would need to add/remove faces on
+the offset shell, something this modifier does not do since this would add a lot of complexity.
+The best option to preserve wall thickness is complex mode with constraints thickness mode,
+but it is also not guaranteed to work perfect in every case.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

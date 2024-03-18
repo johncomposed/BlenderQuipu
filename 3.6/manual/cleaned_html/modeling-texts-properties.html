@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Texts &gt; Properties</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Text</a></li>
+<li>Properties</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="properties">
+<h1>Properties</h1>
+<section id="shape">
+<h2>Shape</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Text ‣ Shape</p>
+</dd>
+</dl>
+</div>
+<p>Most of the settings in the <em>Shape</em> panel are shared with those of
+<a href="../curves/properties/shape.html">Curves</a>
+data-blocks, please refer to those for details.</p>
+<dl id="bpy-types-textcurve-use-fast-edit">
+<dt>Fast Editing</dt><dd><p>Does not fill the letters in Edit Mode, only show their outline.</p>
+</dd>
+</dl>
+</section>
+<section id="texture-space">
+<h2>Texture Space</h2>
+<p>Each Object can have an automatically generated UV map, these maps can be adjusted here.</p>
+<p>See <a href="../meshes/uv/uv_texture_spaces.html#properties-texture-space">Generated UV Properties</a> for more information.</p>
+</section>
+<section id="geometry">
+<h2>Geometry</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Font ‣ Geometry</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Offset</dt><dd><p>Offset the control points of the curves defining the letters, which will make them thinner or thicker.
+Use with care, it can quickly lead to artifacts…</p>
+</dd>
+</dl>
+<section id="extrusion-taper-bevel">
+<h3>Extrusion, Taper &amp; Bevel</h3>
+<p>The remaining settings of that panel, which are used to give volume to the letters,
+are also shared with the <a href="../curves/properties/geometry.html">Curves</a> data-blocks,
+please refer to those for details.</p>
+<div>
+<p>Note</p>
+<p>How the Taper object effect works depends on how the curves defining the letters are built.
+The results can often look quite random…</p>
+</div>
+<div>
+<p>Note</p>
+<p><a href="../curves/properties/geometry.html#bpy-types-curve-bevel">Bevel</a> is applied to the curves defining the letters,
+which means that usually it will follow their outlines
+(there will be two parallel beveled curves, and not a single one, as one might expect).</p>
+</div>
+</section>
+</section>
+<section id="font">
+<h2>Font</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Font ‣ Font</p>
+</dd>
+</dl>
+</div>
+<p>Blender comes with a <em>built-in</em> font by default that is displayed in
+each of the four font style data-block menus.
+The <em>built-in</em> font is always present and shows in this list as “Bfont”.
+The data-block menu contains a list displaying the currently loaded fonts.
+Select one for each font style.</p>
+<p>To load a different <em>Font</em>, click one of the <em>Load</em> buttons
+in the <em>Font</em> panel and navigate to a font file.
+The <a href="../../editors/file_browser.html">File Browser</a> will give all valid fonts a capital “F” icon.</p>
+<p>If you select a font that is unsupported by Blender, you will get the error <code>Not a valid font</code>.</p>
+<div>
+<p>Note</p>
+<p>Location of Fonts on Unix</p>
+<p>Fonts are typically located under <code>/usr/lib/fonts</code>, or some variant like <code>/usr/lib/X11/fonts</code>,
+but not always. They may be in other locations as well,
+such as <code>/usr/share/local</code> or <code>/usr/local/share</code>, and possibly related sub-trees.</p>
+</div>
+<p>Remember that the same font will be applied to all chars with same style in a text,
+but that a separate font is required for each style.
+For example, you will need to load an <em>Italics</em> font in order to make characters or words italic.
+Once the font is loaded you can apply that font “Style” to the selected characters or the whole object.
+In all, you would need to load a minimum of four different types of fonts to represent each style
+(Normal, Italics, Bold, Bold &amp; Italics).</p>
+<p>It is important to understand, that Blender does not care what font
+you load for “normal”, “bold”, etc., styles.
+This is how you can have up to four different fonts in use in the same text,
+but you have to choose between different styles of a same font, or different fonts.
+Blender has a number of typographic controls for changing the style and layout of text,
+found in the <em>Font</em> panel.</p>
+<dl id="bpy-types-textcharacterformat-use-bold">
+<dt>Bold</dt><dd><p>With no text selected, toggles new text to be <strong>bold</strong>.
+With text selected, toggles the selected text to be <strong>bold</strong>.
+Text can also be set to bold by selecting it then using the <em>Bold</em>
+entry in the <em>Text</em> menu of the 3D Viewport.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcharacterformat-use-italic">
+<dt>Italic</dt><dd><p>With no text selected, toggles new text to be <em>italic</em>.
+With text selected, toggles the selected text to be <em>italic</em>.
+Text can also be set to italic by selecting it then using the <em>Bold</em>
+entry in the <em>Text</em> menu of the 3D Viewport.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcharacterformat-use-underline">
+<dt>Underline</dt><dd><p>With no text selected, toggles new text to be underline.
+With text selected, toggles the selected text to be underline.
+Text can also be set to underline by selecting it then using the <em>Underline</em>
+entry in the <em>Text</em> menu of the 3D Viewport.</p>
+<p>See also <a href="#modeling-text-character-underline">underline settings</a> below.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcharacterformat-use-small-caps">
+<dt>Small Caps</dt><dd><p>With no text selected, toggles new text to be small capitals.
+With text selected, toggles the selected text to be small capitals.
+Text can also be set to small caps by selecting it then using the <em>Small Caps</em>
+entry in the <em>Text</em> menu of the 3D Viewport.</p>
+<p>The size of the <em>Small Caps</em> can be changed with
+the <a href="#modeling-text-character-underline">Small Caps Scale setting</a>.</p>
+</dd>
+</dl>
+<section id="transform">
+<h3>Transform</h3>
+<dl id="bpy-types-textcurve-size">
+<dt>Size</dt><dd><p>Controls the size of the whole text (no way to control each char size independently).
+Note however, that chars with different fonts (different styles, see below) might have different visible sizes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-shear">
+<dt>Shear</dt><dd><p>Controls the inclination of the whole text.
+As similar as it may seem, this is not the same thing as italics style.</p>
+<figure id="id6">
+<figcaption>
+<p>Shear example.</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-family">
+<dt>Object Font</dt><dd><p>Allows individual objects to be used to render fonts, you can create/model your own complex font inside Blender!
+This field is used to select the objects prefix name (object “family”) to be used
+to locate the individual characters used for typing.
+This is quite a complex process, so here are detailed steps to follow:</p>
+<ol>
+<li><p>Create the font characters, each character can be any object type (mesh, curve, etc.).
+They must all have a name following the naming schema:
+“common prefix” followed by the “character name” (e.g. “ft.a”, “ft.b”, etc.).</p></li>
+<li><p>For the text object, enable
+<a href="../../scene_layout/object/properties/instancing/verts.html">Instancing Vertices</a>.</p></li>
+<li><p>In the <em>Font</em> tab, fill the <em>Object Font</em> field with the “common prefix” of your “font” objects.
+Now, each time a character in your text matches the <em>suffix part</em> of a “font” object’s name,
+this object is duplicated on this character.</p></li>
+</ol>
+<div>
+<p>Note</p>
+<p>The objects are duplicated so that their center is positioned at
+the <em>lower right corner</em> of the corresponding characters.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-follow-curve">
+<dt>Text on Curve</dt><dd><p>Select a curve object for the text object to follow.</p>
+<figure id="id7">
+<figcaption>
+<p>Text on curve.</p>
+</figcaption>
+</figure>
+<div>
+<p>Tip</p>
+<p>You should rather use the <a href="../modifiers/deform/curve.html">Curve modifier</a>,
+which offers more control, and is the standard way to achieve such effects in modern Blender.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-underline-position">
+<dt>Underline Position</dt><dd><p>This allows you to shift vertically the position of the underline.</p>
+</dd>
+</dl>
+<dl id="py-types-textcurve-underline-height">
+<dt>Underline Thickness</dt><dd><p>This controls the thickness of the underline.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-small-caps-scale">
+<dt>Small Caps Scale</dt><dd><p>The scaling applied to capital letters to turn them into small caps.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="paragraph">
+<h2>Paragraph</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Font ‣ Paragraph</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Paragraph</em> Panel has settings for the alignment and spacing of text.</p>
+<figure id="id8">
+<figcaption>
+<p>The Paragraph panel.</p>
+</figcaption>
+</figure>
+<section id="alignment">
+<h3>Alignment</h3>
+<dl id="bpy-types-textcurve-align-x">
+<dt>Horizontal</dt><dd><dl>
+<dt>Left:</dt>
+<dd><p>Aligns text to the left of the frames when using them,
+else uses the origin of the text object as the starting point of the text (which grows to the right).</p>
+</dd>
+<dt>Center:</dt>
+<dd><p>Centers text in the frames when using them,
+else uses the origin of the text object as the mid-point of the text
+(which grows equally to the left and right).</p>
+</dd>
+<dt>Right:</dt>
+<dd><p>Aligns text to the right of the frames when using them,
+else uses the origin of the text object as the ending point of the text (which grows to the left).</p>
+</dd>
+<dt>Justify:</dt>
+<dd><p>Only flushes a line when it is terminated by a word wrap (<strong>not</strong> by a newline),
+and uses <em>whitespace</em> instead of <em>character spacing</em> (kerning) to fill lines.</p>
+</dd>
+<dt>Flush:</dt>
+<dd><p>Always flushes the line, even when it is still being typed-in.
+It uses character spacing (kerning) to fill lines.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Both <em>Justify</em> and <em>Flush</em> only work within frames.</p>
+</div>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-align-y">
+<dt>Vertical</dt><dd><dl>
+<dt>Top:</dt>
+<dd><ul>
+<li><p>With text boxes, aligns the top of the text to the top of the frames.</p></li>
+<li><p>With no text box, aligns the top of the text to the origin of the object, and grows to the bottom.</p></li>
+</ul>
+</dd>
+<dt>Top Baseline:</dt>
+<dd><ul>
+<li><p>With text boxes, aligns the ‘top’ baseline of the text to the top of the frames.</p></li>
+<li><p>With no text box, aligns the actual baseline of the text to the origin of the object,
+and grows to the bottom.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>That difference of reference point in the first line
+depending on usage of boxes or not is indeed confusing.</p>
+</div>
+</dd>
+<dt>Middle:</dt>
+<dd><ul>
+<li><p>With text boxes, centers the text in the frames.</p></li>
+<li><p>With no text box, centers the text on the origin of the object,
+and grows in both top and bottom directions equally.</p></li>
+</ul>
+</dd>
+<dt>Bottom Baseline:</dt>
+<dd><ul>
+<li><p>With text boxes, aligns the baseline of the text to the bottom of the frames.</p></li>
+<li><p>With no text box, aligns the baseline of the text to the origin of the object, and grows to the top.</p></li>
+</ul>
+</dd>
+<dt>Bottom:</dt>
+<dd><ul>
+<li><p>With text boxes, align the bottom of the text to the bottom of the frames.</p></li>
+<li><p>With no text box, align the bottom of the text to the origin of the object, and grows to the top.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="spacing">
+<h3>Spacing</h3>
+<dl id="bpy-types-textcurve-space-character">
+<dt>Character Spacing</dt><dd><p>A factor by which space between each character (kerning) is scaled in width.</p>
+<p>In Edit Mode in the 3D Viewport, you can also control individual kerning
+at text cursor position by pressing <kbd><kbd>Alt</kbd>-<kbd>Left</kbd></kbd> / <kbd><kbd>Alt</kbd>-<kbd>Right</kbd></kbd> to decrease/increase it.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-space-word">
+<dt>Word Spacing</dt><dd><p>A factor by which whitespace between words is scaled in width.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-space-line">
+<dt>Line Spacing</dt><dd><p>A factor by which the vertical space between lines is scaled.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-offset-y">
+<dt>Offset X, Y</dt><dd><p>These settings control the X and Y offset of the text position within the object.
+This applies relatively to the object’s origin, either to the whole text or, when using text boxes, to each frame.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="text-boxes">
+<h2>Text Boxes</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Font ‣ Text Boxes</p>
+</dd>
+</dl>
+</div>
+<p>Text boxes (or frames) allow you to distribute the text among rectangular areas within a single text object.
+An arbitrary number of freely movable and re-sizable text frames are allowed per text object.</p>
+<p>The text flows continuously from the lowest-numbered frame to the highest-numbered frame with text
+inside each frame word-wrapped.
+It flows between frames when a lower-numbered frame cannot fit any more text.
+If the last frame is reached, text overflows out of it (by default, see options below).</p>
+<figure id="id9">
+<figcaption>
+<p>Text Boxes panel.</p>
+</figcaption>
+</figure>
+<dl id="bpy-ops-font-textbox-add">
+<dt>Add Textbox</dt><dd><p>Inserts a new frame, just after the current one (in text flow order).
+The new frame will have the same size and position as the selected one.</p>
+</dd>
+</dl>
+<p>.._bpy.ops.font.textbox_remove:</p>
+<dl>
+<dt>Delete <code>X</code></dt><dd><p>Delete the current frame.</p>
+</dd>
+</dl>
+<dl id="bpy-types-textcurve-overflow">
+<dt>Overflow</dt><dd><p>How to handle text overflowing available space in the defined boxes.</p>
+<dl>
+<dt>Overflow:</dt>
+<dd><p>Just keep text running out of the last box.</p>
+</dd>
+<dt>Scale to Fit:</dt>
+<dd><p>Scale text to fit into the available space.</p>
+</dd>
+<dt>Truncate:</dt>
+<dd><p>Hide the end of the text that does not fit into the available space.</p>
+<div>
+<p>Note</p>
+<p>It will only truncate in <em>Object Mode</em>,
+in <em>Edit Mode</em> the whole text remains visible (and overflows as needed).</p>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-textbox-width">
+<dt>Size X, Y</dt><dd><p>Specifies the width and height of the text box, if set to <strong>zero</strong> no word wrapping happens
+(it is ignored, and the whole text box system is disabled if all are set to a null size).</p>
+</dd>
+</dl>
+<dl id="bpy-types-textbox-y">
+<dt>Offset X, Y</dt><dd><p>Controls the <em>X</em> and <em>Y</em> offset of the frame, i.e. its position.</p>
+</dd>
+</dl>
+<figure id="id10">
+<figcaption>
+<p>Multiple columns, text flowing between boxes.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

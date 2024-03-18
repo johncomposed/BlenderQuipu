@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Sample &gt; Sample Uv Surface</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Sample Nodes</a></li>
+<li>Sample UV Surface Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sample-uv-surface-node">
+<h1>Sample UV Surface Node</h1>
+<p>The <em>Sample UV Surface</em> node finds values on a mesh’s surface at specific UV locations.
+Internally the process is a “reverse UV lookup” from a location in 2D space. The node then
+finds the face that corresponds to each UV coordinate, and the location within that face.</p>
+<div>
+<p>Warning</p>
+<p>Because of the node’s method of computation, the UV map should not have any overlapping faces.
+If the UV map is sampled at a location with no faces or overlapping faces, the node will
+output the default value for the data type, which is zeros for most types.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>A geometry containing the mesh with a UV map for sampling.</p>
+</dd>
+<dt>Value</dt><dd><p>A field to evaluate on the target <em>Mesh</em> geometry for later sampling at the surface positions.</p>
+</dd>
+<dt>Source UV Map</dt><dd><p>The mesh UV map to sample, evaluated on the <em>Mesh</em> input. Should not have overlapping faces.</p>
+</dd>
+<dt>Sample UV</dt><dd><p>The coordinates to sample within the UV map.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>The <a href="../../attributes_reference.html#attribute-data-types">data type</a> to use for the retrieved values.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>The data retrieved and interpolated from the <em>Mesh</em> geometry, mapped based on the node’s settings and inputs.</p>
+</dd>
+<dt>Is Valid</dt><dd><p>Whether the node could find a single face to sample at the UV coordinate.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

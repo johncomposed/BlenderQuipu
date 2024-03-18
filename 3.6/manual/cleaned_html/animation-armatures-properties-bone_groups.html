@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Properties &gt; Bone Groups</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Armatures</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Bone Groups</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bone-groups">
+<h1>Bone Groups</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Armature ‣ Bone Groups</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Pose ‣ Bone Groups ‣ …</p>
+</dd>
+</dl>
+</div>
+<p>This panel allows the creation, deletion and editing of Bone Groups.
+Bone Groups can be used for selection or to assign a color theme to a set of bones.
+In example to color the left parts of the rig as blue and right parts as red.</p>
+<dl>
+<dt>Active Bone Group</dt><dd><p>The Bone Group <a href="../../../interface/controls/templates/list_view.html#ui-list-view">List view</a>.</p>
+<dl>
+<dt>Color Set</dt><dd><p>A select menu.</p>
+<dl>
+<dt>Default Colors:</dt>
+<dd><p>The default (gray) colors.</p>
+</dd>
+<dt><em>nn</em> - Theme Color Set:</dt>
+<dd><p>One of the twenty Blender presets by the theme.</p>
+</dd>
+<dt>Custom Set:</dt>
+<dd><p>A custom set of colors, which is specific to each group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="custom-colors">
+<h2>Custom Colors</h2>
+<p>You can assign a “color theme” to a group (each bone will have these colors).
+Remember you have to enable the <em>Colors</em> checkbox (<em>Display</em> panel) to see these colors.</p>
+<dl id="bpy-types-themebonecolorset">
+<dt>Regular</dt><dd><p>The first color field is the color of unselected bones.</p>
+</dd>
+<dt>Select</dt><dd><p>The second color field is the outline color of selected bones.</p>
+</dd>
+<dt>Active</dt><dd><p>The third color field is the outline color of the active bone.</p>
+</dd>
+</dl>
+<p>As soon as you alter one of the colors, it is switched to the <em>Custom Set</em> option.</p>
+</section>
+<section id="assign-select">
+<h2>Assign &amp; Select</h2>
+<p>In the 3D Viewport, using the Pose ‣ Bone Groups menu entries,
+and/or the <em>Bone Groups</em> pop-up menu <kbd><kbd>Ctrl</kbd>-<kbd>G</kbd></kbd>, you can:</p>
+<dl id="bpy-ops-pose-group-assign">
+<dt>Assign</dt><dd><p>Assigns the selected bones to the active bone group.
+It is important to note that a bone can only belong to one group.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-pose-group-unassign">
+<dt>Remove</dt><dd><p>Removes the selected bones from the active bone group.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-pose-group-select">
+<dt>Select</dt><dd><p>Selects the bones in the active bone group.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-pose-group-deselect">
+<dt>Deselect</dt><dd><p>Deselects the bones in the active bone group.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>A single bone can be assigned to a group in the <a href="../bones/properties/relations.html#bpy-types-posebone-bone-group">Relations panel</a>.</p>
+</div>
+<div>
+<p>Tip</p>
+<p>Bones belonging to multiple groups is possible with the <em>Selection Sets</em> add-on.</p>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

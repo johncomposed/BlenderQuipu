@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modifiers &gt; Deform &gt; Hook</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li><a href="index.html">Deform</a></li>
+<li>Hook Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="hook-modifier">
+<h1>Hook Modifier</h1>
+<p>The <em>Hook</em> Modifier is used to deform stroke points using another object
+(usually an empty or a bone but it can be any object).</p>
+<p>As the hook moves, it pulls points from the strokes with it.
+You can think of it as animated
+<a href="../../../editors/3dview/controls/proportional_editing.html">Proportional Editing</a>.</p>
+<div>
+<p>See also</p>
+<p>This documentation refers to the Hook Modifier specific to the Grease Pencil object.
+For uses with other object types refer to the general <a href="../../../modeling/modifiers/deform/hooks.html">Hook Modifier</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Hook modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Object</dt><dd><p>The name of the object to hook points to.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>Restricts the effect only to a vertex group.</p>
+</dd>
+<dt>Strength</dt><dd><p>Adjust this hooks influence on the stroke points, were (0.0 to 1.0) (no change to fully follow the hook).</p>
+</dd>
+</dl>
+<section id="falloff">
+<h3>Falloff</h3>
+<dl>
+<dt>Type</dt><dd><p>This can be used to adjust the type of curve for the Strength attenuation.
+You can also define a custom curve to get a much higher level of control.</p>
+</dd>
+<dt>Radius</dt><dd><p>The size of the hooks influence.</p>
+</dd>
+<dt>Uniform Falloff</dt><dd><p>This setting is useful when using hooks on scaled objects,
+especially in cases where non-uniform scale would stretch the result of the hook.</p>
+</dd>
+</dl>
+</section>
+<section id="influence">
+<h3>Influence</h3>
+<p>See <a href="../introduction.html#grease-pencil-modifier-influence-filters">Influence Filters</a>.</p>
+<div>
+<p>Note</p>
+<p>The Hook Modifier stores points indices from the original strokes to determine what to affect;
+this means that modifiers that generate geometry, like a Subdivision Surface Modifier,
+should always be applied <strong>after</strong> the Hook Modifier;
+otherwise the generated geometry will be left out of the hook’s influence.</p>
+</div>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id2">
+<figcaption>
+<p>Empty used as a hook to manipulate a vertex group (right eye of the monkey).</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

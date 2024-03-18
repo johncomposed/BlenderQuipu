@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Posing &gt; Editing &gt; Pose Library</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Posing</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Pose Library</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="pose-library">
+<h1>Pose Library</h1>
+<p>This section describes the pose library, which is based on the <a href="../../../../editors/asset_browser.html">Asset Browser</a>.
+For an overview of the asset system, see the <a href="../../../../files/asset_libraries/index.html">Asset Libraries</a> section.
+The pose library is meant to be used in Pose Mode. In other words, it only works
+when posing an armature, and not for general object animation.</p>
+<div>
+<p>Note</p>
+<p>The pose library is implemented as an add-on. This add-on is enabled by
+default; disabling it will remove the pose library from Blender’s user
+interface.</p>
+<p>The “building blocks” of the pose library are actually implemented in Blender
+itself. The add-on only contains the user interface and the logic that
+determines what is stored in a pose asset. This was intentionally put into an
+add-on, so that artists or studios who want to change the behavior can do
+so with an add-on of their own.</p>
+</div>
+<section id="what-is-a-pose-asset">
+<h2>What is a Pose Asset?</h2>
+<p>A <em>pose asset</em> is an action that has been <a href="../../../../files/asset_libraries/introduction.html#asset-create">marked as asset</a>,
+and that contains exactly <strong>one frame of animation</strong> data.
+Usually these are created via the <em>Create Pose Asset</em> button (see below),
+but any action that is keyed on exactly one frame can be seen as pose asset.</p>
+<p>Each pose in the library is stored in its own action data-block.
+This means that it can get its own name, its own preview image,
+and can be organized in <a href="../../../../files/asset_libraries/catalogs.html">Asset Catalogs</a>.</p>
+</section>
+<section id="creating-a-pose-library">
+<h2>Creating a Pose Library</h2>
+<p>A <em>pose library file</em> is typically a blend-file that is dedicated to poses.
+It can link in a character, props, etc., which can then not only be used to create the poses,
+but also for <a href="#poselib-preview-images">rendering previews</a>.</p>
+<figure id="id1">
+<figcaption>
+<p>Example pose library of the Sprite Fright character Ellie.</p>
+</figcaption>
+</figure>
+<section id="pose-creation-via-action-editor">
+<h3>Pose Creation via Action Editor</h3>
+<p>To create a pose in the library from the Action Editor, <strong>pose the character,
+select the relevant bones</strong>, and click the <em>Create Pose Asset</em> button.
+This will create the new pose Action, which will contain keys for the current value of
+each bone’s location, rotation, scale, and Bendy Bone properties.</p>
+<figure id="id2">
+<figcaption>
+<p>To create a new pose asset, use the Create Pose Asset button in the Action editor.</p>
+</figcaption>
+</figure>
+<p><strong>The created Action is now assigned to the armature.</strong>
+This makes it possible to inspect which bones are included and to tweak anything.
+In that respect, it’s an Action like any other, and you can add or remove keys as usual.
+Just make sure that the keys are all on the same frame, in order to keep this a “pose”
+instead of an “animation snippet”; the latter isn’t supported at the moment.</p>
+<p>True to its name, the <em>Create Pose Asset</em> button automatically marks the Action as Asset.
+Not only does this make it available in the pose library, it will also act as a <em>fake user</em>
+to ensure the Action isn’t lost after you unassign it from the armature.</p>
+<p>The pose asset can be renamed in the Asset Browser. There you can also right
+click on the thumbnail, then choose Assign Action to assign the Action to the
+active Object (see description above).</p>
+<div>
+<p>Note</p>
+<p>The <strong>Create Pose Asset</strong> button creates a new Action. To make sure that this
+is actually visible in the user interface, so that you know that something happened,
+it tries to make sure that the Asset Browser shows the newly created pose asset.
+Because of this, it <strong>requires that there is an Asset Browser visible,
+and that it’s set to show the Current File asset library</strong>.</p>
+<p>This is especially relevant to pose assets, compared to other assets.
+You cannot mark an object as asset multiple times, but you can create ten pose assets
+from the same character pose.</p>
+</div>
+</section>
+<section id="pose-creation-from-existing-animation">
+<h3>Pose Creation from Existing Animation</h3>
+<p>Animators eat and breathe time, so there is a fair chance that you already have
+some poses lined up on the timeline. Creating a pose asset from existing animation
+is pretty much the same as described above, with a few subtle differences:</p>
+<ul>
+<li><p>Go to the frame with the pose you want to turn into an asset.</p></li>
+<li><p>Select the relevant bones and click the <strong>Create Pose Asset button</strong> in the Action Editor.</p></li>
+<li><p>This creates an Action as before, but this time
+<strong>it also includes any bone property that was keyed on the current frame</strong>.
+In other words: any bone property (regular and custom) that’s displayed in
+yellow in the user interface will be included in the pose asset.
+This makes it possible to also include properties that control IK/FK switching,
+for example. As with the pose, the current value is copied into the pose asset,
+and not the keyed value.</p></li>
+<li><p>Blender saves which action was previously assigned to the armature.</p></li>
+<li><p>The new pose Action is assigned to the armature so you can give it a name and
+inspect/adjust its contents.</p></li>
+<li><p>Click the <em>Restore Previous Action</em> button (back arrow icon) that appeared
+next to the Create Pose Asset button. This <strong>reassigns the previous Action</strong>,
+so that you’re back at the animation you had before.</p></li>
+</ul>
+</section>
+<section id="pose-creation-by-copying-from-other-file">
+<h3>Pose Creation by Copying from Other File</h3>
+<p>As described in <a href="../../../../files/asset_libraries/introduction.html#asset-libraries-design-limitations">Design Limitations</a>, Blender only writes
+data to the currently open blend-file. To copy a pose from some other file into
+a pose library file, see the following steps:</p>
+<ul>
+<li><p>Pose the character and select the relevant bones.</p></li>
+<li><p>Click the <strong>Copy Pose as Asset button</strong>, which is available in the Action Editor. This will create the pose asset
+(including its thumbnail) and store it in a temporary file somewhere.</p></li>
+<li><p>Choose an existing pose asset, and open its context menu. Click the <strong>Open Blend File</strong> option.</p></li>
+<li><p>A new Blender process will start, and automatically open the asset library
+file that contains the chosen pose. By the way, this works for all assets, not just poses!</p></li>
+<li><p>In the Asset Browser, click the <strong>Paste as New Asset button</strong>. This will load that temporary file,
+and load all the assets it can find in there. In our case, it will only find a single pose,
+but future versions of Blender may extend this for other asset types.
+This is why the button is named so generically – it is not pose-specific.</p></li>
+<li><p>Give the pose a name, and click on the “refresh” button in the preview image panel
+to render a new preview if you want.</p></li>
+<li><p><strong>Save the file and quit Blender</strong>.</p></li>
+<li><p>The original Blender is still running in the background and notices that the new Blender has quit.
+It <strong>automatically refreshes the Asset Browser</strong> to show the newly added pose.</p></li>
+</ul>
+</section>
+<section id="automatically-assigned-catalog">
+<h3>Automatically Assigned Catalog</h3>
+<p>When you create a pose asset, Blender may automatically assign it to an asset catalog.
+This only works if there is an Asset Browser visible;
+Blender then assigns the pose asset to its active asset catalog.
+If there are multiple Asset Browsers open, it performs the following steps:</p>
+<ul>
+<li><p>If the current window has one Asset Browser, it uses that one.</p></li>
+<li><p>If the current window has multiple Asset Browsers, it uses the biggest one.</p></li>
+<li><p>Otherwise Blender goes over the other windows (if there are any), and do a similar search.
+The first window it sees that has an Asset Browser wins.</p></li>
+</ul>
+</section>
+<section id="controlling-the-look-of-preview-images">
+<h3>Controlling the Look of Preview Images</h3>
+<p>The pose library preview images are rendered with the active <a href="../../../../scene_layout/scene/properties.html#bpy-types-scene-camera">Scene camera</a>.
+This approach was preferred over rendering a specific 3D Viewport for two main reasons:</p>
+<ul>
+<li><p>There is only one scene camera active at any time, making it predictable which camera is used.</p></li>
+<li><p>The camera, as well as the rest of the scene, can be set up specifically for rendering the thumbnails.
+Pose library files are intended for that purpose: to contain the poses and render their preview images.</p></li>
+</ul>
+<p>The preview images are rendered using the <a href="../../../../render/workbench/index.html">Workbench Engine</a>.
+Switch the scene to use that as render engine, and you’ll see various options to influence the look.
+Select a pose asset and press the Generate Preview button to re-render the preview image with the current settings.</p>
+<p>You can also animate settings such as MatCap rendering, light positions, and intensities, etc.
+Use this to your advantage!</p>
+</section>
+<section id="scene-animation-for-preview-images">
+<h3>Scene Animation for Preview Images</h3>
+<p>Sometimes it’s handy to have a few different background colors or camera angles
+for your poses. Many facial poses are made with a specific camera angle in mind.</p>
+<ul>
+<li><p>Background color can be animated by placing a plane behind the character and animating its material.
+In this case just for fun, but for more serious applications
+this could be used to indicate a certain character, or a mood, or anything else.</p></li>
+<li><p>The active camera can be switched by using <a href="../../../markers.html#bpy-ops-marker-camera-bind">camera markers</a>.</p></li>
+</ul>
+<p>Both make it possible to choose a specific frame to pick the background color and camera angle.
+Pose the character, click the <em>Create Pose Asset</em> button,
+and the pose action will be keyed on the current frame.
+This means it’s easy to edit the pose and refresh its preview image,
+because you know exactly which frame it was originally created on.</p>
+</section>
+</section>
+<section id="using-the-pose-library">
+<h2>Using the Pose Library</h2>
+<p>The pose library can be used to pose a character in a few different ways.
+In short, you can fully apply a pose or blend it into the character’s current pose interactively.
+How exactly these operations work depends on where you use them.
+This section will explain the use from both the Asset Browser and the 3D Viewport.</p>
+<section id="use-from-the-asset-browser">
+<h3>Use from the Asset Browser</h3>
+<p>The pose library can be used directly from the Asset Browser.
+The <strong>Pose Library panels will appear</strong> when the active object is an armature
+and in Pose Mode. The <a href="../../../../files/asset_libraries/catalogs.html">catalog system</a>
+and the filter bar at the top can be used to search for specific poses.</p>
+<p>The following operators can be accessed by <kbd>RMB</kbd> on a pose:</p>
+<dl id="bpy-ops-poselib-apply-pose-asset">
+<dt>Apply Pose</dt><dd><p>Applies the pose to the character. If there are any bones selected,
+the pose will be applied only to those bones. This makes it possible to
+create a “finger guns” pose by applying a fist pose to the hand,
+and then an “open hand” pose for only the index finger and thumb.
+Double-clicking a pose will also apply it.</p>
+</dd>
+<dt>Apply Pose Flipped</dt><dd><p>Will mirror the pose from left to right and vice versa. This makes it
+possible, for example, to apply a left-hand pose to the right hand, reducing
+the number of poses you have to put into the library. This can of course also
+be applied for asymmetrical facial expressions that depend on the camera
+angle. While blending (see below), keep <kbd>Ctrl</kbd> pressed to blend the flipped pose.</p>
+</dd>
+</dl>
+<p>. _bpy.ops.poselib.blend_pose_asset:</p>
+<dl>
+<dt>Blend Pose</dt><dd><p>Allows you to gradually blend a pose from the library into the character’s pose.
+Click the button, then move the mouse left/right to determine the desired blend.
+A pose asset can be “subtracted” while blending. Drag to the right to blend as usual, drag to the left to subtract the pose.
+While blending, you can use <kbd>Tab</kbd> to toggle between the original and the blended pose.
+As usual in Blender, <kbd>LMB</kbd> or press <kbd>Enter</kbd> to confirm; <kbd>RMB</kbd> or press <kbd>Esc</kbd> to cancel the operator.
+Blending can also exaggerate a pose, by pressing <kbd>E</kbd> (for Extrapolate) and applying a pose for more than 100%.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-poselib-pose-asset-select-bones">
+<dt>Select/Deselect Pose Bones</dt><dd><p>Select or deselect the bones that are used in the pose. This can be used to create a selection set,
+or simply show what was part of the pose and what wasn’t.</p>
+</dd>
+</dl>
+</section>
+<section id="use-from-3d-viewport">
+<h3>Use from 3D Viewport</h3>
+<figure id="id3">
+<figcaption>
+<p>The pose library as a side-panel of the 3D Viewport.</p>
+</figcaption>
+</figure>
+<p>The Sidebar of the 3D Viewport has a Pose Library panel in the Animations tab.
+Contrary to the Asset Browser, which can be used for different asset types and
+also for some asset management tasks, this panel is dedicated to applying poses.
+This means that it can allow faster interaction.</p>
+<p><strong>Click on a pose to apply it.</strong> A single click is enough.
+You can also select and apply a pose via the cursor keys.
+This allows for fast exploration of the poses,
+to directly see the result on the active character.</p>
+<p><strong>Drag the pose thumbnail left to right to blend it</strong> into the character’s current pose.
+Just release the mouse button to confirm.</p>
+<p>To <strong>search for poses</strong>, hover your mouse over the poses,
+then press <kbd><kbd>Ctrl</kbd>-<kbd>F</kbd></kbd> and type a search query.
+This will filter the poses to match what you typed.
+The scrollable area will automatically scroll the search field into view.</p>
+</section>
+</section>
+<section id="old-pose-library">
+<h2>Old Pose Library</h2>
+<p>In Blender 3.0, the Asset Browser based pose library, described above, replaced
+its predecessor pose library system. This section describes how to convert poses
+from the old pose library to the current system.</p>
+<section id="converting-old-pose-libraries">
+<h3>Converting Old Pose Libraries</h3>
+<p>Old-style pose libraries can be converted to pose assets in the following way:</p>
+<ul>
+<li><p>In the Action Editor, select the Action containing the pose library you want to convert.</p></li>
+<li><p>Make sure the scene camera is set up correctly for rendering preview images.</p></li>
+<li><p>In the Action Editor’s Pose Library panel, click the “Convert Old-Style Pose Library” button.</p></li>
+<li><p>Open the Asset Browser, and see the poses have been converted.</p></li>
+<li><p>If you’re happy with the result, remove the old pose library Action.</p></li>
+<li><p>Save the blend-file.</p></li>
+</ul>
+<p>As usual, the blend-file should be saved to a directory marked as asset library
+in order to use the pose assets from other blend-files.</p>
+<div>
+<p>Note</p>
+<p>This conversion does not assign the poses to any catalog, and so they will
+appear in the “Unassigned” section of the “Current File” asset library.</p>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

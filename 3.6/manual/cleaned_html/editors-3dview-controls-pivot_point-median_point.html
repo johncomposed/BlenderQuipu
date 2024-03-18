@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Controls &gt; Pivot Point &gt; Median Point</title></head>
+<body><ul>
+<li><a href="../../../index.html">Editors</a></li>
+<li><a href="../../index.html">3D Viewport</a></li>
+<li><a href="../index.html">Controls</a></li>
+<li><a href="index.html">Pivot Point</a></li>
+<li>Median Point</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="median-point">
+<h1>Median Point</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Edit Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p> Pivot Point ‣ Median Point</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Period</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Places the pivot point at the averaged-out position of the selected items.</p>
+<section id="in-object-mode">
+<h2>In Object Mode</h2>
+<p>In Object Mode, the Median Point is the averaged-out position of the
+<a href="../../../../scene_layout/object/origin.html">origins</a> of the selected objects.
+The shape and size of the objects is not taken into account.</p>
+<p>Origins can be chosen freely and can even lie outside their object’s
+geometry, so that the Median Point is not always what you might expect.</p>
+<figure id="id2">
+<figcaption>
+<p>Median points in Object Mode.</p>
+</figcaption>
+</figure>
+</section>
+<section id="in-edit-mode">
+<h2>In Edit Mode</h2>
+<p>In Edit Mode, the Median Point is the averaged-out position of the
+selected vertices. This means that the pivot point will shift towards
+the area with the densest geometry.</p>
+<p>In the example below, the pivot point lies perfectly in the middle
+if both cubes have the same number of vertices, but heavily leans towards
+the side if one cube is subdivided – even though both cubes still
+have the same size.</p>
+<figure id="id3">
+<figcaption>
+<p>Median points in Edit Mode.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

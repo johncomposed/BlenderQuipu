@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Contribute &gt; Guides &gt; Markup Guide</title></head>
+<body><ul>
+<li><a href="../index.html">Contribute Documentation</a></li>
+<li>Markup Style Guide</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="markup-style-guide">
+<h1>Markup Style Guide</h1>
+<p>This page covers the conventions for writing and use of the reStructuredText (RST) markup syntax.</p>
+<section id="conventions">
+<h2>Conventions</h2>
+<ul>
+<li><p>Three space indentation.</p></li>
+<li><p>Lines should be less than 120 characters long.</p></li>
+<li><p>Use italics for button/menu names.</p></li>
+</ul>
+<p>Other loose conventions:</p>
+<ul>
+<li><p>Avoid Unicode characters.</p></li>
+<li><p>Avoid heavily wrapped text
+(i.e. sentences can have their own lines).</p></li>
+</ul>
+</section>
+<section id="headings">
+<h2>Headings</h2>
+<div><div><pre>#################
+  Document Part
+#################
+
+****************
+Document Chapter
+****************
+
+Document Section
+================
+
+Document Subsection
+-------------------
+
+Document Subsubsection
+^^^^^^^^^^^^^^^^^^^^^^
+
+Document Paragraph
+""""""""""""""""""
+</pre></div>
+</div>
+<div>
+<p>Note</p>
+<p><em>Parts</em> should only be used for contents or index pages.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Each <code>.rst</code> file should only have one chapter heading (<code>*</code>) per file.</p>
+</div>
+</section>
+<section id="text-styling">
+<h2>Text Styling</h2>
+<p>See the <a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">overview on ReStructuredText</a>
+for more information on how to style the various elements of the documentation and
+on how to add lists, tables, pictures and code blocks.
+The <a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">Sphinx reference</a> provides
+more insight additional constructs.</p>
+<p>The following are useful markups for text styling:</p>
+<div><div><pre>*italic*
+**bold**
+``literal``
+</pre></div>
+</div>
+</section>
+<section id="interface-elements">
+<h2>Interface Elements</h2>
+<ul>
+<li><p><code>:kbd:`LMB`</code> – keyboard and mouse shortcuts.</p></li>
+<li><p><code>*Mirror*</code> – interface labels.</p></li>
+<li><p><code>:menuselection:`3D Viewport --&gt; Add --&gt; Mesh --&gt; Monkey`</code> – menus.</p></li>
+</ul>
+</section>
+<section id="code-samples">
+<h2>Code Samples</h2>
+<p>There is support for syntax highlighting if the programming language is provided,
+and line numbers can be optionally shown with the <code>:linenos:</code> option:</p>
+<div><div><pre>.. code-block:: python
+   :linenos:
+
+   import bpy
+   def some_function():
+       ...
+</pre></div>
+</div>
+</section>
+<section id="images">
+<h2>Images</h2>
+<p>Figures should be used to place images:</p>
+<div><div><pre>.. figure:: /images/interface_window-system_splash_current.png
+
+   Image caption.
+</pre></div>
+</div>
+<p>For consistency, and since it would be good to ensure screenshots are
+all a similar size when floated next to text,
+writers should take screenshots in the following manner:</p>
+<ol>
+<li><p>Prepare the area you would like to capture making sure to use the default theme and setting.
+(In some cases you may not want to use the default settings e.g. if some options are hidden behind a checkbox.)</p></li>
+<li><p>Zoom to the maximum zoom level (hold <kbd>NumpadPlus</kbd> or <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd> or similar).</p></li>
+<li><p>Zoom out eight zoom levels (<kbd>NumpadMinus</kbd> – eight times).</p></li>
+<li><p>In some cases you will want to leave a small margin around the thing you are trying to capture.
+This should be around 30px but does not have to be exact.</p></li>
+</ol>
+<p>This can be applied to several parts of the interface but might not work for all cases.</p>
+<section id="files">
+<h3>Files</h3>
+<dl>
+<dt>No Caps, No Gaps</dt><dd><p>Lower case filenames underscore between words.</p>
+</dd>
+<dt>Sort Usefully</dt><dd><p>Order naming with specific identifiers at the end.</p>
+</dd>
+<dt>Format</dt><dd><p>Use <code>.png</code> for images that have solid colors such as screenshots of the Blender interface,
+and <code>.jpg</code> for images with a high amount of color variance, such as sample renders and photographs.</p>
+<p>Do not use animated <code>.gif</code> files, these are hard to maintain, can be distracting
+and are usually large in file size. Instead use a video if needed (see <a href="#videos">Videos</a> below).</p>
+</dd>
+<dt>Location</dt><dd><p>Place the image in the <code>manual/images</code> folder. Use no other subfolders.</p>
+</dd>
+<dt>Naming</dt><dd><p>For naming files use underscores to separate chapters and sections,
+and use dashes to separate sections that are two or more words.
+So for image files should look like: <code>chapter_subsection_sub-subsection_id.png</code>, e.g:</p>
+<ul>
+<li><p><code>interface_splash_current.png</code></p></li>
+<li><p><code>interface_undo-redo_last.png</code></p></li>
+<li><p><code>interface_undo-redo_repeat-history-menu.png</code></p></li>
+</ul>
+<p>Do not use special characters or spaces!</p>
+</dd>
+</dl>
+</section>
+<section id="usage-guides">
+<h3>Usage Guides</h3>
+<ul>
+<li><p>Avoid specifying the resolution of the image,
+so that the theme can handle the images consistently
+and provide the best layout across different screen sizes.</p></li>
+<li><p>When documenting a panel or section of the UI,
+it is better to use a single image that shows all of the relevant areas
+(rather than multiple images for each icon or button)
+placed at the top of the section you are writing,
+and then explain the features in the order that they appear in the image.</p>
+<div>
+<p>Note</p>
+<p>It is important that the manual can be maintained long term,
+UI and tool options change so try to avoid having a lot of images
+(when they are not especially necessary).
+Otherwise, this becomes too much of a maintenance burden.</p>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="videos">
+<h2>Videos</h2>
+<p>Videos can be embedded from Blender’s self-hosted <a href="https://joinpeertube.org/">PeerTube</a> instance
+which can be found at <a href="https://video.blender.org/">video.blender.org</a>.
+To embed a video using the following directive:</p>
+<div><div><pre>.. peertube:: ID
+</pre></div>
+</div>
+<p>The <code>ID</code> is found in the video’s URL, e.g:</p>
+<p>The ID for <code>https://video.blender.org/videos/watch/47448bc1-0cc0-4bd1-b6c8-9115d8f7e08c</code>
+is <code>47448bc1-0cc0-4bd1-b6c8-9115d8f7e08c</code>.</p>
+<p>To get a new video uploaded, contact
+a <a href="https://projects.blender.org/blender/documentation">Documentation Project Administrator</a> or
+include the uploaded video in your <a href="../pull_requests.html">Pull Request</a> description.</p>
+<section id="id1">
+<h3>Usage Guides</h3>
+<ul>
+<li><p>Avoid adding videos that rely on voice or words, as this is difficult to translate.</p></li>
+<li><p>Do not embed video tutorials as a means of explaining a feature, the writing itself should explain it adequately.
+(Though you may include a link to the video at the bottom of the page under the heading <code>Tutorials</code>).</p></li>
+</ul>
+</section>
+</section>
+<section id="useful-constructs">
+<h2>Useful Constructs</h2>
+<ul>
+<li><p><code>|BLENDER_VERSION|</code> – Resolves to the current Blender version.</p></li>
+<li><p><code>:abbr:`SSAO (Screen Space Ambient Occlusion)`</code> –
+Abbreviations display the full text as a tooltip for the reader.</p></li>
+<li><p><code>:term:`Manifold`</code> – Links to an entry in the <a href="../../glossary/index.html">Glossary</a>.</p></li>
+</ul>
+</section>
+<section id="cross-references-and-linkage">
+<h2>Cross References and Linkage</h2>
+<p>You can link to another document in the manual with:</p>
+<div><div><pre>:doc:`The Title &lt;/section/path/to/file&gt;`
+</pre></div>
+</div>
+<p>To link to a specific section in another document (or the same one), explicit labels are available:</p>
+<div><div><pre>.. _sample-label:
+
+[section or image to reference]
+
+Some text :ref:`Optional Title &lt;sample-label&gt;`
+</pre></div>
+</div>
+<p>Linking to a title in the same file:</p>
+<div><div><pre>Titles are Targets
+==================
+
+Body text.
+
+Implicit references, like `Titles are Targets`_
+</pre></div>
+</div>
+<p>Linking to the outside world:</p>
+<div><div><pre>`Blender Website &lt;https://www.blender.org&gt;`__
+</pre></div>
+</div>
+<section id="context-sensitive-manual-access">
+<h3>Context Sensitive Manual Access</h3>
+<p>It is possible to link to a specific part of the manual from in Blender by opening
+the context menu (right click) of a property or operator and selecting <em>Online Manual</em>.
+In order for this to work, this needs to be accounted for in the documentation.
+To link a property or operator to a specific part of the manual you need to add
+an external reference link tag whose ID matches Blender’s RNA tag.
+The easiest way to find out what the tag for a property is to open the context menu of
+the property/operator and select <em>Online Python Reference</em> to extract the tag from the URL.
+Some examples of how this looks in the RST document are given below:</p>
+<div><div><pre>.. _bpy.types.FluidDomainSettings.use_fractions:
+
+Fractional Obstacles
+   Enables finer resolution in fluid / obstacle regions (second order obstacles)...
+
+   .. _bpy.types.FluidDomainSettings.fractions_distance:
+
+   Obstacle Distance
+      Determines how far apart fluid and obstacles are...
+</pre></div>
+</div>
+<p>For an operator:</p>
+<div><div><pre>.. _bpy.ops.curve.subdivide:
+
+Subdivide
+=========
+</pre></div>
+</div>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further Reading</h2>
+<p>To learn more about reStructuredText, see:</p>
+<dl>
+<dt><a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">Sphinx RST Primer</a></dt><dd><p>Good basic introduction.</p>
+</dd>
+<dt><a href="https://docutils.sourceforge.io/rst.html">Docutils reStructuredText Reference</a></dt><dd><p>Links to reference and user documentation.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

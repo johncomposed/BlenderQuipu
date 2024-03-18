@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Properties &gt; Display</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Properties</a></li>
+<li>Viewport Display</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="viewport-display">
+<h1>Viewport Display</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object and Pose Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Bone ‣ Viewport Display</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Viewport Display panel.</p>
+</figcaption>
+</figure>
+<p>Display panel lets you customize the look of your bones taking the shape of another existing object.</p>
+<dl>
+<dt>Hide</dt><dd><p>Hides the selected bone.</p>
+</dd>
+</dl>
+<section id="custom-shape">
+<h2>Custom Shape</h2>
+<p>Blender allows you to give to each bone of an armature a specific shape
+(in <em>Object Mode</em> and <em>Pose Mode</em>), using another object as “template”.
+In order to be visible the <em>Shapes</em> checkbox has to be enabled
+(Armature ‣ Viewport Display panel).</p>
+<dl>
+<dt>Custom Object</dt><dd><p>Object that defines the custom shape of the selected bone.</p>
+</dd>
+<dt>Scale X, Y, Z</dt><dd><p>Additional scaling factor to apply to the custom shape.</p>
+</dd>
+<dt>Translation X, Y, Z</dt><dd><p>Additional translation factor to apply to the custom shape.</p>
+</dd>
+<dt>Rotation X, Y, Z</dt><dd><p>Additional rotation factor to apply to the custom shape.</p>
+</dd>
+<dt>Override Transform</dt><dd><p>Bone that defines the display transform of the custom shape.</p>
+</dd>
+<dt>Scale to Bone Length</dt><dd><p>Option not to use bones length, so that changes in Edit Mode don’t resize the custom shape.</p>
+</dd>
+</dl>
+<dl id="bpy-types-bone-show-wire">
+<dt>Wireframe</dt><dd><p>When enabled, bone is displayed in wireframe mode regardless of the viewport display mode.
+Useful for non-obstructive custom bone chains.</p>
+</dd>
+</dl>
+<section id="workflow">
+<h3>Workflow</h3>
+<p>To assign a custom shape to a bone, you have to:</p>
+<ol>
+<li><p>Switch to <em>Pose Mode</em> <kbd><kbd>Ctrl</kbd>-<kbd>Tab</kbd></kbd>.</p></li>
+<li><p>Select the relevant bone by clicking on it.</p></li>
+<li><p>Go to the <em>Display</em> panel <em>Custom Shape</em> field and select the 3D object previously created in the scene;
+in this example we are using a cube and a cone. You can optionally set the <em>At</em> field to another bone.</p></li>
+</ol>
+<figure id="id3">
+<figcaption>
+<p>The armature with shape assigned to bone. Note the origin of the Cone object.</p>
+</figcaption>
+</figure>
+<div>
+<p>Note</p>
+<ul>
+<li><p>These shapes will never be rendered, like any bone, they are only visible in the 3D Viewport.</p></li>
+<li><p>Even if any type of object seems to be accepted by the <em>Object</em> field (meshes, curves, even metas…),
+only meshes really work. All other types just make the bone invisible.</p></li>
+<li><p>The origin of the shape object will be at the <em>root of the bone</em>
+(see the <a href="../index.html">bone page</a> for root/tip).</p></li>
+<li><p>The object properties of the shape are ignored
+(i.e. if you make a parallelepiped out of a cube by modifying its dimensions in <em>Object Mode</em>,
+you will still have a cube-shaped bone…).</p></li>
+<li><p>The “along bone” axis is the Y one,
+and the shape object is always scaled so that one unit stretches along the whole bone length.</p></li>
+<li><p>If you need to remove the custom shape of the bone,
+just right-click in the <em>Custom Shape</em> field and select <em>Reset to default value</em> in the pop-up menu.</p></li>
+</ul>
+</div>
+<p>So to summarize all this, you should use meshes as shape objects,
+with their center at their lower -Y end, and an overall Y length of 1.0 unit.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

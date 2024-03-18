@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Editing &gt; Transform</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Transform</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="transform">
+<h1>Transform</h1>
+<figure id="id4">
+<figcaption>
+<p>The Transform panel for armatures in Edit Mode.</p>
+</figcaption>
+</figure>
+<p>We will not detail here the various transformations of bones, nor things like axis locking, pivot points, and so on,
+as they are common to most object editing, and already described in
+the <a href="../../../../scene_layout/object/editing/transform/control/index.html">mesh section</a>.
+The same goes for mirroring,
+as it is nearly the same as with <a href="../../../../modeling/meshes/editing/mesh/mirror.html">mesh editing</a>.
+Just keep in mind that bones’ roots and tips behave more or less like meshes’ vertices,
+and bones themselves act like edges in a mesh.</p>
+<p>As you know, bones can have two types of relationships: They can be parented,
+and in addition connected. Parented bones behave in <em>Edit Mode</em> exactly as if they
+had no relations. They can be moved, rotated, scaled, etc. without affecting their descendants.
+However, connected bones must always have parent’s tips connected to child’s roots,
+so by transforming a bone, you will affect all its connected parent/children/siblings.</p>
+<p>While with other transform tools, the “local axes” means the object’s axes,
+here they are the bone’s own axes (when you lock to a local axis,
+by pressing the relevant key twice, the constraint is applied along the selected bone’s local axis,
+not the armature object’s axis).</p>
+<p>Finally, you can edit in the <em>Transform</em> panel in the Sidebar region
+the positions and radius of both joints of the active selected bone,
+as well as its <a href="bone_roll.html#armature-bone-roll">roll rotation</a>.</p>
+<section id="scale-radius">
+<h2>Scale Radius</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Transform ‣ Scale Radius</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can alter the radius that a bone has by selecting the head, body or tail of a bone,
+and then press <kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd> and move the mouse left or right.
+If the body is selected the mean radius will be scaled.
+And as usual, with connected bones, you scale at the same time the radius
+of the parent’s tip and of the children’s roots.</p>
+<p>You can also alter the bone radius by selecting the tail or head of the bone you wish to alter,
+then navigate to Properties ‣ Bone ‣ Deform ‣ Radius Section
+and entering new values for the <em>Tail</em> and <em>Head</em> number fields.</p>
+<table id="id5">
+<caption>Bone Scale and Scale Radius comparison.</caption>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>A single selected bone in Octahedron visualization.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>After normal scale.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id8">
+<figcaption>
+<p>A single selected bone in Envelope visualization.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>After Scaled Radius. Its length remains the same, but its joints’ radius are bigger.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note that, when you resize a bone (either by directly scaling it, or by moving one of its joints),
+Blender automatically adjusts the end-radii of its envelope proportionally to the size of the modification.
+Therefore, it is advisable to place all the bones first, and only then edit their properties.</p>
+</section>
+<section id="scale-envelope-distance">
+<h2>Scale Envelope Distance</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode and Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Transform ‣ Scale Envelope Distance</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>S</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can alter the size of the Bone Envelope volume by clicking on the body of the bone you want to alter,
+<kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>S</kbd></kbd> then drag your mouse left or right and the Bone Envelope volume will alter accordingly.</p>
+<p>You can also alter the Bone Envelope volume by selecting the Bone you wish to alter and
+then navigate to Properties ‣ Bone ‣ Deform ‣ Envelope ‣ Distance
+then enter a new value into it.</p>
+<p>Altering the Bone Envelope volume does not alter the size of the bone just the range
+within which it can influence vertices of child objects.</p>
+<table id="id10">
+<caption>Envelope scaling example.</caption>
+<tbody>
+<tr><td><figure id="id11">
+<figcaption>
+<p>A single bone selected in Envelope visualization.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id12">
+<figcaption>
+<p>Its envelope distance scaled.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id13">
+<caption>“Bone size” scaling example.</caption>
+<tbody>
+<tr><td><figure id="id14">
+<figcaption>
+<p>A single “default size” bone selected in B-Bone visualization.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id15">
+<figcaption>
+<p>Its envelope distance scaled.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id16">
+<figcaption>
+<p>The same armature in Object Mode and B-Bone visualization, with Bone.004’s size scaled up.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="align-bones">
+<h2>Align Bones</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Transform ‣ Align Bones</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>A</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Rotates the selected bones to achieve the same orientation as the active one.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

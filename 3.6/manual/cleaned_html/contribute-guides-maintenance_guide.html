@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Contribute &gt; Guides &gt; Maintenance Guide</title></head>
+<body><ul>
+<li><a href="../index.html">Contribute Documentation</a></li>
+<li>Maintenance</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="maintenance">
+<h1>Maintenance</h1>
+<section id="adding-removing-moving-files">
+<h2>Adding/Removing/Moving Files</h2>
+<p>When RST-files are added or removed the corresponding locale files
+are added or removed automatically by the update script.
+However, if files need to be moved please use this Python script:</p>
+<div><div><pre>python tools_rst/rst_remap.py start
+</pre></div>
+</div>
+<p>RST-files can then be freely moved and the remap script will move the locale file after:</p>
+<div><div><pre>python tools_rst/rst_remap.py finish
+</pre></div>
+</div>
+<p>It is best to avoid moving/renaming files as this breaks URLs and
+without this script translators will lose all their work in these files.
+Please ask an administrator if you think something should be renamed/moved.</p>
+<div>
+<p>Note</p>
+<p>This script also works for image file names.</p>
+</div>
+</section>
+<section id="release-checklist">
+<h2>Release Checklist</h2>
+<ul>
+<li><p>Create a release branch (<code>blender-3.2-release/</code>)</p></li>
+<li><p>Update the splash image: <code>interface_splash_current.png</code> in the release branch.</p></li>
+<li><p>Increase the <code>conf.py: blender_version</code> variable in the trunk version.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

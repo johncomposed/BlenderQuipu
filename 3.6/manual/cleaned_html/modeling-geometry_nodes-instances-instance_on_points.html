@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Instances &gt; Instance On Points</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Instances Nodes</a></li>
+<li>Instance on Points Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="instance-on-points-node">
+<h1>Instance on Points Node</h1>
+<p>The <em>Instance on Points</em> node adds a reference to a geometry to each of the points present
+in the input geometry. Instances are a fast way to add the same geometry to a scene many times
+without duplicating the underlying data. The node works on any geometry type
+with a <em>Point</em> domain, including meshes, point clouds, and curve control points.</p>
+<p>Any attributes on the points from the <em>Geometry</em> input will be available on the instance
+domain of the generated instances.</p>
+<div>
+<p>Tip</p>
+<p>The <a href="../../../scene_layout/object/editing/apply.html#bpy-ops-object-duplicates-make-real">Make Instances Real</a> operator can be used to create objects
+from instances generated with this node.</p>
+</div>
+<div>
+<p>Note</p>
+<p>To instance object types that do not contain geometry, like a light object, the
+<a href="../input/scene/object_info.html">Object Info Node</a> can be used. Other objects like
+<a href="../../metas/introduction.html">Metaball</a> objects are not supported for instancing.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input. The position of the points of this geometry affect the transforms of
+each instance output.</p>
+<div>
+<p>Note</p>
+<p>If the input geometry contains instances, the node will create more instances on
+the points inside the instances, creating <a href="../instances.html#geometry-nodes-nested-instancing">nested instancing</a>.
+In this case, each new instance will have the transform created by the node from the <em>Rotation</em>
+and <em>Scale</em> inputs, but it will <em>also</em> be transformed based on the parent instances.</p>
+</div>
+</dd>
+<dt>Selection</dt><dd><p>Whether to instance on each point. True values mean the an instance will be generated on the point,
+false values mean the point will be skipped.</p>
+</dd>
+<dt>Instance</dt><dd><p>The geometry to instance on each selected point. This can contain real geometry, or multiple instances,
+which can be useful when combined with the <em>Pick Instance</em> option.</p>
+</dd>
+<dt>Pick Instances</dt><dd><p>If enabled, instead of adding the entire geometry from the <em>Instance</em> input on every point,
+choose an instance from the instance list of the geometry based on the <em>Instance Index</em> input.
+This option is intended to be used with the <a href="../input/scene/collection_info.html">Collection Info Node</a>.</p>
+</dd>
+<dt>Instance Index</dt><dd><p>The selection of index for every selected point, only used when <em>Pick Instances</em> is true.
+By default the point <a href="../geometry/read/id.html">ID</a> is used,
+or the <a href="../geometry/read/input_index.html">index</a> if that doesn’t exist.
+Negative values or values that are too large are wrapped around to the other end of
+the instance list.</p>
+</dd>
+<dt>Rotation</dt><dd><p>The <a href="../../../glossary/index.html#term-Euler">Euler</a> rotation for every instance. This can use the rotation output of nodes like
+<a href="../point/distribute_points_on_faces.html">Distribute Points on Faces</a>
+and <a href="../curve/operations/curve_to_points.html">Curve to Points</a>. An Euler rotation
+can also be created from a direction vector like the <a href="../geometry/read/normal.html">normal</a>
+with the <a href="../utilities/rotation/align_euler_to_vector.html">Align Euler to Vector Node</a>.</p>
+</dd>
+<dt>Scale</dt><dd><p>The size of each generated instance.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry output. If the <code>id</code> attribute exists on the input geometry,
+it will be copied to the result instances.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

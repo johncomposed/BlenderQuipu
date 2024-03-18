@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Operations &gt; Bounding Box</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Geometry Operation Nodes</a></li>
+<li>Bounding Box Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bounding-box-node">
+<h1>Bounding Box Node</h1>
+<p>The <em>Bounding Box</em> node creates a box mesh with the minimum volume that encapsulates
+the geometry of the input. The node also can output the vector positions of the bounding dimensions.</p>
+<p>The mesh output and the <em>Min</em> and <em>Max</em> outputs do not take instances into account. Instead,
+for instanced geometry, a bounding box is computed for each instance rather than the whole geometry.
+To compute the bounding box including the instances,
+a <a href="../../instances/realize_instances.html">Realize Instances Node</a> can be used.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Bounding Box</dt><dd><p>The resulting box that encapsulate the input geometry.</p>
+</dd>
+<dt>Min</dt><dd><p>The coordinates corresponding to the box’s -X, -Y, -Z position values,
+i.e. how far the box extends in each of the negative axes directions.</p>
+</dd>
+<dt>Max</dt><dd><p>The coordinates corresponding to the box’s +X, +Y, +Z position values,
+i.e. how far the box extends in each of the positive axes directions.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id1">
+<figcaption>
+<p>Bounding Box node used to create a box that encapsulates the geometry of the monkey mesh.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

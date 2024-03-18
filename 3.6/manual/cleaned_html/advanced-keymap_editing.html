@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Advanced &gt; Keymap Editing</title></head>
+<body><ul>
+<li><a href="index.html">Advanced</a></li>
+<li>Keymap Customization</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="keymap-customization">
+<h1>Keymap Customization</h1>
+<section id="keys">
+<h2>Keys</h2>
+<section id="available-keys">
+<h3>Available Keys</h3>
+<p>When customizing keymaps it’s useful to use keys which won’t conflict with Blender’s default keymap.</p>
+<p>Here are keys which aren’t used and aren’t likely to be used in the future.</p>
+<dl>
+<dt>F-Keys (<kbd>F5</kbd> - <kbd>F8</kbd>)</dt><dd><p>These F-keys (including modifier combination)
+have been intentionally kept free for users to bind their own keys to.</p>
+</dd>
+<dt><kbd>OSKey</kbd> (also known as the <code>Windows-Key</code>, <code>Cmd</code> or <code>Super</code>)</dt><dd><p>Blender doesn’t use this key for any bindings.</p>
+<p><em>macOS</em> is an exception, where <kbd>Cmd</kbd> replaces <kbd>Ctrl</kbd>
+except in cases it would conflict with the system’s key bindings.</p>
+</dd>
+<dt>Modifier Double Click</dt><dd><p>Binding modifier keys as primary keys is supported,
+to avoid conflicts with regular usage you can bind them to double click.</p>
+</dd>
+</dl>
+</section>
+<section id="multi-action-keys">
+<h3>Multi-Action Keys</h3>
+<section id="click-drag">
+<h4>Click/Drag</h4>
+<p>It’s possible to configure a single key to perform multiple operations
+using <em>Click</em> event instead of <em>Press</em>. Then you may bind <em>Drag</em> to a separate action.</p>
+<p>This is useful for mixing actions where one uses a drag event, e.g:
+Toggle a setting using with <kbd>Tab</kbd>, drag to open a pie menu showing all options related to the setting.</p>
+<p>This is used in the default keymap in the 3D Viewport,
+<kbd><kbd>Alt</kbd>-<kbd>MMB</kbd></kbd> dragging in different directions rotates the view.</p>
+</section>
+</section>
+</section>
+<section id="common-operations">
+<h2>Common Operations</h2>
+<p>This section lists useful generic operations which can be used.</p>
+<section id="key-bindings-for-pop-ups">
+<h3>Key Bindings for Pop-Ups</h3>
+<p>Menus and panels can be assigned key shortcuts,
+even if they’re only accessible from submenus elsewhere.</p>
+<dl>
+<dt>Open a Pop-up Menu (<code>wm.call_menu</code>)</dt><dd><p>Open any menu on key press.</p>
+</dd>
+<dt>Open a Pie Menu (<code>wm.call_menu_pie</code>)</dt><dd><p>Open any pie menu on key press.</p>
+</dd>
+<dt>Open a Panel (<code>wm.call_panel</code>)</dt><dd><p>Open a pop-up panel (also known as a pop-over).</p>
+</dd>
+</dl>
+<section id="menu-panel-identifiers">
+<h4>Menu &amp; Panel Identifiers</h4>
+<p>To find the <code>name</code> of a menu,
+enable the preference Interface ‣ Display ‣ Python Tooltips.</p>
+<p>Then hover the cursor over the popover button or menu item.
+For submenus you will need to use the back arrow to prevent the submenu from opening and gaining focus.</p>
+</section>
+</section>
+<section id="key-bindings-for-properties">
+<h3>Key Bindings for Properties</h3>
+<p>There are many properties you might want to bind a key with.
+To avoid having to define operators for each property,
+there are generic operators for this purpose:</p>
+<p>Operators for adjusting properties begin with <code>wm.context_</code>.</p>
+<p>Some of these include:</p>
+<ul>
+<li><p><code>wm.context_toggle</code> toggle a Boolean property.</p></li>
+<li><p><code>wm.context_cycle_enum</code> cycle an <abbr title="enumeration">enum</abbr> property forwards or backwards.</p></li>
+<li><p><code>wm.context_menu_enum</code> show a pop-up menu for an enum property.</p></li>
+<li><p><code>wm.context_pie_enum</code> show a pie menu for an enum property.</p></li>
+<li><p><code>wm.context_scale_float</code> scale a number (used for increasing / decreasing brush size for example).</p></li>
+<li><p><code>wm.context_toggle_enum</code> toggle between two options of an enum.</p></li>
+<li><p><code>wm.context_modal_mouse</code> moving the cursor to interactively change a value.</p></li>
+</ul>
+<p>See <a href="https://docs.blender.org/api/current/bpy.ops.wm.html">bpy.ops.wm</a> for a complete list.</p>
+<p>Each of these operators has a <code>data_path</code> setting to reference the property to change.</p>
+<p>To find the <code>data_path</code>, basic Python knowledge is needed.</p>
+<p>For example, you can use the Python Console to access a Boolean property you wish to map to a key:</p>
+<div><div><pre>bpy.context.object.show_name
+</pre></div>
+</div>
+<p>To bind this to a key, add a new keymap item using the operator <code>wm.context_toggle</code>
+with <code>data_path</code> set to <code>object.show_name</code> (notice the <code>bpy.context</code> prefix is implicit).</p>
+<p>See <a href="https://docs.blender.org/api/current/bpy.context.html">bpy.context</a>
+for other context attributes.</p>
+<p>The Python API documentation can be used to find properties
+or you may use the Python Console’s auto-complete to inspect available properties.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

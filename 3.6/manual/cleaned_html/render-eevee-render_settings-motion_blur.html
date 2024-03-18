@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Eevee &gt; Render Settings &gt; Motion Blur</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Eevee</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Motion Blur</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="motion-blur">
+<h1>Motion Blur</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Motion Blur</p>
+</dd>
+</dl>
+</div>
+<p>Blender’s animations are by default rendered as a sequence of <em>perfectly still</em> images.
+While great for stop-motion and time-lapses, this is unrealistic, since fast-moving
+objects do appear to be blurred in the direction of motion,
+both in a movie frame and in a photograph from a real-world camera.</p>
+<div>
+<p>Note</p>
+<p>Motion blur is only available in final renders and is not shown in the 3D Viewport
+and thus <a href="../../../editors/3dview/viewport_render.html#bpy-ops-render-opengl">Viewport Renders</a>.</p>
+</div>
+<dl>
+<dt>Position</dt><dd><p>Controls at what point the shutter opens in relation to the current frame.</p>
+<dl>
+<dt>Start on Frame</dt><dd><p>Shutter is starting to open at the current frame.</p>
+</dd>
+<dt>Center on Frame</dt><dd><p>Shutter is fully opened at the current frame.</p>
+</dd>
+<dt>End on Frame</dt><dd><p>Shutter is fully closed at the current frame.</p>
+</dd>
+</dl>
+</dd>
+<dt>Shutter</dt><dd><p>Time (in frames) taken between shutter open and close.</p>
+</dd>
+<dt>Background Separation</dt><dd><p>Used by the post-process blur to avoid blurring the background over the foreground.
+Lower values will reduce background bleeding onto foreground elements.</p>
+</dd>
+<dt>Max Blur</dt><dd><p>Maximum blur distance a pixel can spread over.
+A value of 0 will disable the post-process blur and only use the accumulation blur.</p>
+<div>
+<p>Note</p>
+<p>High maximum blur values may also reduce the quality.</p>
+</div>
+<p>Eevee uses a fast post-process vector blur using a vector motion pass.
+This blurs the image between three time steps using pixel velocity.
+This technique is fast and produces clean gradients, but issues can occur at object borders
+or if the motion is locally too complex;
+for example, if there are many vector variations in a small area.</p>
+<p>This technique uses random sampling and the noise amount is proportional to the sample count found in
+Properties ‣ Render ‣ Sampling ‣ Render Samples.</p>
+<div>
+<p>Note</p>
+<p>Memory usage (VRAM) will be three times higher for objects using deformation motion blur
+if using post-process blur.</p>
+</div>
+<div>
+<p>Note</p>
+<p>Alpha blended surface or volumetric effects will not have the correct velocity and will not
+be correctly blurred by this technique. Use the accumulation blur for that.</p>
+</div>
+</dd>
+<dt>Steps</dt><dd><p>This controls the number of steps used by the accumulation blur and thus its accuracy.
+More steps means longer render time.</p>
+<div>
+<p>Note</p>
+<p>When using multiple time steps, the render sample count is rounded up to the next multiple
+of steps to ensure even distribution of samples across steps.</p>
+</div>
+<p>Eevee splits the render into multiple time steps and accumulates the result
+which is known as Accumulation Motion Blur.
+This technique is precise but requires many steps for clean gradients.
+This is used in combination with the post-process blur to handle the inter-step gaps.
+Each step corresponds to a full scene re-evaluation and can add a lot of overhead to the render time.
+By adding more steps you can also reduce the <em>Max Blur</em> options because the post-process blur
+has to cover a smaller distance.</p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example</h2>
+<table id="fig-render-motion-blur-properties-example">
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>No motion blur.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Only post-process blur.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id4">
+<figcaption>
+<p>4 time steps without post-process blur.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>4 time steps with post-process blur.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id6">
+<figcaption>
+<p>32 time steps without post-process blur.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>32 time steps with post-process blur.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

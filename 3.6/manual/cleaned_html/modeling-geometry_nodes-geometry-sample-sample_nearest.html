@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Sample &gt; Sample Nearest</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Sample Geometry Nodes</a></li>
+<li>Sample Nearest Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sample-nearest-node">
+<h1>Sample Nearest Node</h1>
+<p>The <em>Sample Nearest</em> node retrieves the <a href="../read/input_index.html">index</a>
+of the geometry element in its input geometry that is closest to the input position.</p>
+<p>This node is similar to the <a href="geometry_proximity.html">Geometry Proximity Node</a>,
+but it outputs the index of the closest element instead of its distance from the current location.</p>
+<div>
+<p>Tip</p>
+<p>If you want to find nearest to each point in same geometry, its better to use
+the <a href="index_of_nearest.html">Index of Nearest</a> node.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>The geometry to sample.</p>
+<div>
+<p>Note</p>
+<p>This node only supports point cloud and mesh inputs.</p>
+</div>
+</dd>
+<dt>Sample Position</dt><dd><p>The position to start from when finding the closest location on the target geometry.
+By default, this is the same as if the <a href="../read/position.html">Position Node</a> was connected.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Domain</dt><dd><p>The <a href="../../attributes_reference.html#attribute-domains">attribute domain</a> to consider the distance from.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Index</dt><dd><p>The <a href="../read/input_index.html">index</a> of the closest geometry element of the
+chosen domain.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Combining this node with the Sample Index Node gives a setup that
+can retrieve the closest attribute value from another geometry. This is the same behavior as the
+Transfer Attribute node in versions of Blender before 3.4.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Clear</title></head>
+<body><ul>
+<li><a href="../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../index.html">Objects</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Clear</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="clear">
+<h1>Clear</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Clear ‣ Location / Scale / Rotation / Origin</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>G</kbd></kbd>, <kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd>, <kbd><kbd>Alt</kbd>-<kbd>R</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Clearing transforms resets the transform values.
+The objects location and rotation values are set to 0, and the scale to 1.</p>
+<dl>
+<dt>Clear Location <kbd><kbd>Alt</kbd>-<kbd>G</kbd></kbd></dt><dd><p>Clear (reset) the location of the selection.
+This will move the selection back to the coordinates (0, 0, 0).</p>
+</dd>
+<dt>Clear Scale <kbd><kbd>Alt</kbd>-<kbd>S</kbd></kbd></dt><dd><p>Clear (reset) the scale of the selection.
+This will change the scale to (1, 1, 1).</p>
+</dd>
+<dt>Clear Rotation <kbd><kbd>Alt</kbd>-<kbd>R</kbd></kbd></dt><dd><p>Clear (reset) the rotation of the selection.
+This will set the rotation of the selection to 0 degrees in each plane.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-object-origin-clear">
+<dt>Clear Origin</dt><dd><p>Clears (resets) the offset of the child objects origin from
+the <a href="parent.html">Parent</a>.
+This will cause child objects to move to the origin of the parent.
+The relationship between the parent and child is not affected,
+you can confirm the relationship is still intact by using the <em>Outliner</em> to
+verify that the child object is still parented.</p>
+</dd>
+</dl>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>Clear Delta</dt><dd><p>Clear the <a href="../properties/transforms.html#bpy-types-object-delta">delta transform</a> in addition to clearing the primary transforms.
+(Appears in the <a href="../../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a> panel.)</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

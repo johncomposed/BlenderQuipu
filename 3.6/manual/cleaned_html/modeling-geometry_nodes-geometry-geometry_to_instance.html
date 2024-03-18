@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Geometry To Instance</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Geometry Nodes</a></li>
+<li>Geometry to Instance Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="geometry-to-instance-node">
+<h1>Geometry to Instance Node</h1>
+<p>The <em>Geometry to Instance</em> node turns every connected input geometry into an instance.
+Visually, the node has a similar result as the <a href="join_geometry.html">Join Geometry Node</a>,
+but it outputs the result as separate instances instead. The geometry data itself isn’t actually
+joined.</p>
+<p>The node can be used in combination with the <em>Pick Instances</em> option in the
+<a href="../instances/instance_on_points.html">Instance on Points Node</a>, as a way to pick
+between geometry generated in the node tree (as opposed to picking from separate
+instances from the <a href="../input/scene/collection_info.html">Collection Info Node</a>, for example).</p>
+<div>
+<p>Tip</p>
+<p>This node can be much faster than the join geometry node when the inputs are large geometries.
+This is because the join geometry node must actually create a larger mesh, or a larger curve.
+Even though the operation is simple, just creating a large mesh can have a significant cost.
+This node can be better, because instead of merging large geometries, it just groups them
+together as instances.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Geometry that will be joined. Multiple inputs are allowed.
+When the node is muted, only the first link will be passed through.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>The node used in combination with the <a href="../instances/instance_on_points.html">Instance on Points Node</a>
+to choose between multiple primitives for instancing.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

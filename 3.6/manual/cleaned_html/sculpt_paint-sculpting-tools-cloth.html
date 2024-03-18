@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Sculpt Paint &gt; Sculpting &gt; Tools &gt; Cloth</title></head>
+<body><ul>
+<li><a href="../../index.html">Sculpting &amp; Painting</a></li>
+<li><a href="../index.html">Sculpting</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Cloth</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cloth">
+<h1>Cloth</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Sculpt Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Cloth</p>
+</dd>
+</dl>
+</div>
+<p>This brush simulates cloth physics on the mesh under the brush cursor.
+There are various deformation types and settings to customize the brush.</p>
+<p>It’s also easy to sculpt the mesh with other brushes and tools
+in between using the cloth brushes.</p>
+<div>
+<p>Note</p>
+<p>Using a relatively small brush size makes the calculations much faster,
+while larger brush sizes might be too slow to get a usable brush.</p>
+</div>
+<section id="brush-settings">
+<h2>Brush Settings</h2>
+<section id="general">
+<h3>General</h3>
+<div>
+<p>Note</p>
+<p>More info at <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-general">General</a> brush settings
+and on <a href="../../brush/brush_settings.html#sculpt-tool-settings-brush-settings-advanced">Advanced</a> brush settings.</p>
+</div>
+</section>
+<section id="unique">
+<h3>Unique</h3>
+<dl>
+<dt>Persistent</dt><dd><p>Allows the cloth brush to not accumulate deformation after each stroke.
+This is convenient to always simulate the cloth based on the same initial shape,
+but applying different forces to it.</p>
+<p>When disabled, deformations accumulate after each stroke.</p>
+</dd>
+<dt>Set Persistent Base</dt><dd><p>Resets the base mesh so that you can add another layer of deformations.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-cloth-simulation-area-type">
+<dt>Simulation Area</dt><dd><p>Selects the part of the mesh that is going to be simulated when the stroke is active.
+This can greatly affect performance depending on the complexity of the mesh.</p>
+<dl>
+<dt>Local</dt><dd><p>Simulates only a specific area around the brush limited by a fixed radius.</p>
+</dd>
+<dt>Global</dt><dd><p>Simulates the entire mesh.</p>
+</dd>
+<dt>Dynamic</dt><dd><p>The active simulation area moves with the brush while still being limited by a fixed radius.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-cloth-sim-limit">
+<dt>Simulation Limit</dt><dd><p>The Factor added relative to the size of the radius to limit the cloth simulation effects.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-cloth-sim-falloff">
+<dt>Simulation Falloff</dt><dd><p>The area to apply deformation falloff to the effects of the simulation.
+This setting is a factor of the <em>Simulation Limit</em> and is shown as a dashed line around the cursor.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-cloth-pin-simulation-boundary">
+<dt>Pin Simulation Boundary</dt><dd><p>Lock the position of the vertices in the simulation falloff area to avoid artifacts
+and create a softer transition with unaffected areas.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-cloth-deform-type">
+<dt>Deformation</dt><dd><p>The type of cloth deformation that is used by the brush.</p>
+<dl>
+<dt>Drag:</dt>
+<dd><p>Simulates pulling the cloth to the cursor,
+similar to placing a finger on a table cloth and pulling.</p>
+</dd>
+<dt>Push:</dt>
+<dd><p>Simulates pushing the cloth away from the cursor,
+similar to placing a finger on a table cloth and pushing.</p>
+</dd>
+<dt>Pinch Point:</dt>
+<dd><p>Simulates pulling the cloth into a point.</p>
+</dd>
+<dt>Pinch Perpendicular:</dt>
+<dd><p>Simulates pulling the brush into a line.</p>
+</dd>
+<dt>Inflate:</dt>
+<dd><p>Simulates air being blown under the cloth so that the cloth lifts up.</p>
+</dd>
+<dt>Grab:</dt>
+<dd><p>Simulates picking up and moving the cloth.</p>
+</dd>
+<dt>Expand:</dt>
+<dd><p>Simulates stretching the cloth out.</p>
+</dd>
+<dt>Snake Hook:</dt>
+<dd><p>Simulates moving the cloth without producing any artifacts in the surface
+and creates more natural looking folds than any of the other deformation modes.
+This is accomplished by adjusting the strength of the deformation constraints per brush step
+to avoid affecting the results of the simulation as much as possible.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-cloth-force-falloff-type">
+<dt>Force Falloff</dt><dd><p>Shape used in the brush to apply force to the cloth.</p>
+<dl>
+<dt>Radial:</dt>
+<dd><p>Applies the force as a sphere.</p>
+</dd>
+<dt>Plane:</dt>
+<dd><p>Applies the force as a plane.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-brush-cloth-mass">
+<dt>Cloth Mass</dt><dd><p>Mass of each simulation particle.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-cloth-damping">
+<dt>Cloth Damping</dt><dd><p>How much the applied forces are propagated through the cloth.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-cloth-constraint-softbody-strength">
+<dt>Soft Body Plasticity</dt><dd><p>The amount the cloth preserves its original shape,
+acting as a <a href="../../../physics/soft_body/index.html">Soft Body</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-brush-use-cloth-collision">
+<dt>Use Collisions</dt><dd><p>Enables the detection of collisions with other objects during the simulation.
+In order for the sculpt object to collide with objects,
+the collision object must have <a href="../../../physics/collision.html">Collision Physics</a> activated.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

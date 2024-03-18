@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Tracking &gt; Graph</head>
+<body><ul>
+<li><a href="../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="index.html">Motion Tracking</a></li>
+<li>Graph View</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="graph-view">
+<h1>Graph View</h1>
+<figure id="id1">
+<figcaption>
+<p>Graph View.</p>
+</figcaption>
+</figure>
+<section id="introduction">
+<h2>Introduction</h2>
+<p>The graph or curves view has numerous purposes based on the color of the lines.
+The red and green lines on the graph show you the speed of the trackers at a given frame.
+Green is vertical movement, Red is horizontal. Therefore the first frames will always be at zero.</p>
+<p>The blue line is the line that comes out when you click on the film strip is the average per-frame error.
+This curve is available only after pressing camera solve and is not editable.
+This is the one line that you want to be as flat as possible and as closer to zero as you can.
+The high points will show you where in your shot you are having inaccurate tracking.</p>
+<p>Frames outside of scene frame range are darkened.</p>
+</section>
+<section id="header">
+<h2>Header</h2>
+<dl>
+<dt>Show Selected (mouse cursor icon)</dt><dd><p>Displays the graph for only selected trackers.</p>
+</dd>
+<dt>Display Hidden (ghost icon)</dt><dd><p>Displays channels from objects that are hidden.</p>
+</dd>
+<dt>Filter</dt><dd><p>Display options, defines what curves are visible.</p>
+<dl>
+<dt>Frames</dt><dd><p>Visualizes per-frame average reprojection error of all tracks in the active tracking object.</p>
+</dd>
+<dt>Motion</dt><dd><p>Shows curves for X and Y speed of tracks.</p>
+</dd>
+<dt>Error</dt><dd><p>Per-frame reprojection error of tracks.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>The curves are useful to see if particular trackers are moving differently than the average.
+A line that spikes from the rest of the curve usually means a tracking error.</p>
+<p>You can manually edit the curve by selecting a point in the curve and dragging it or deleting,
+that will affect the corresponding tracker on that particular frame.</p>
+<dl>
+<dt>Lock to Selection <kbd>L</kbd></dt><dd><p>Locks the view to selected markers during playback.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

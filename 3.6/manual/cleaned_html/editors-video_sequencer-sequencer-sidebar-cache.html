@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Video Sequencer &gt; Sequencer &gt; Sidebar &gt; Cache</title></head>
+<body><ul>
+<li><a href="../../../index.html">Editors</a></li>
+<li><a href="../../index.html">Video Sequencer</a></li>
+<li><a href="../index.html">Sequencer</a></li>
+<li><a href="index.html">Sidebar</a></li>
+<li>Cache</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="cache">
+<h1>Cache</h1>
+<p>The Cache is used to save frames in memory for preview,
+so they can be later displayed much faster than rendered from scratch.
+Cache capacity can be set in <a href="../../../preferences/system.html">System tab</a> of the Preferences.</p>
+<p>In order for this tab to be visible, enable <a href="../../../preferences/interface.html#prefs-interface-dev-extras">Developer Extras</a>.</p>
+<div>
+<p>See also</p>
+<p>Which frames are cached can be visualized by enabling <a href="../navigating.html#bpy-types-sequenceeditor-show-cache">Show Cache</a>.</p>
+</div>
+<section id="cache-settings">
+<h2>Cache Settings</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Cache ‣ Cache Settings</p>
+</dd>
+</dl>
+</div>
+<p>In this panel you can set up types of images that will be cached for all strips.</p>
+<dl>
+<dt>Cache</dt><dd><dl>
+<dt>Raw</dt><dd><p>Cache raw images read from drive, for faster tweaking of strip parameters at the cost of memory usage.</p>
+</dd>
+<dt>Pre-processed</dt><dd><p>Cache preprocessed images, for faster tweaking of effects at the cost of memory usage.</p>
+</dd>
+<dt>Composite</dt><dd><p>Cache intermediate composited images, for faster tweaking of stacked strips at the cost of memory usage.</p>
+</dd>
+<dt>Final</dt><dd><p>Cache final image for each frame.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="strip-cache">
+<h2>Strip Cache</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Sidebar ‣ Cache ‣ Cache Settings</p>
+</dd>
+</dl>
+</div>
+<p>This panel sets the types of images that will be cached for the active strip.
+Enable overriding the cache defaults, when disabled, <a href="#cache-settings">Cache Settings</a> will be used.</p>
+<dl>
+<dt>Cache</dt><dd><dl>
+<dt>Raw</dt><dd><p>Cache raw images read from drive, for faster tweaking of strip parameters at the cost of memory usage.</p>
+</dd>
+<dt>Preprocessed</dt><dd><p>Cache preprocessed images, for faster tweaking of effects at the cost of memory usage.</p>
+</dd>
+<dt>Composite</dt><dd><p>Cache intermediate composited images, for faster tweaking of stacked strips at the cost of memory usage.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Textures &gt; Voronoi</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Texture</a></li>
+<li>Voronoi Texture Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="voronoi-texture-node">
+<h1>Voronoi Texture Node</h1>
+<p>The <em>Voronoi Texture</em> node evaluates a <a href="https://en.wikipedia.org/wiki/Worley_noise">Worley Noise</a> at
+the input texture coordinates.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>The inputs are dynamic, they become available if needed depending on the node properties.</p>
+<dl>
+<dt>Vector</dt><dd><p>Texture coordinate to evaluate the noise at;
+defaults to <em>Generated</em> texture coordinates if the socket is left unconnected.</p>
+</dd>
+<dt>W</dt><dd><p>Texture coordinate to evaluate the noise at.</p>
+</dd>
+<dt>Scale</dt><dd><p>Scale of the noise.</p>
+</dd>
+<dt>Smoothness</dt><dd><p>The smoothness of the noise.</p>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Smoothness: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Smoothness: 0.25.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Smoothness: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Smoothness: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Smoothness: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Smoothness: 0.25.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Smoothness: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Smoothness: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Exponent</dt><dd><p>Exponent of the Minkowski distance metric.</p>
+<table>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>Exponent: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Exponent: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Exponent: 2.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id12">
+<figcaption>
+<p>Exponent: 32.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Randomness</dt><dd><p>The randomness of the noise.</p>
+<table>
+<tbody>
+<tr><td><figure id="id13">
+<figcaption>
+<p>Randomness: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id14">
+<figcaption>
+<p>Randomness: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id15">
+<figcaption>
+<p>Randomness: 0.25.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id16">
+<figcaption>
+<p>Randomness: 0.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Dimensions</dt><dd><p>The dimensions of the space to evaluate the noise in.</p>
+<dl>
+<dt>1D:</dt>
+<dd><p>Evaluate the noise in 1D space at the input W.</p>
+</dd>
+<dt>2D:</dt>
+<dd><p>Evaluate the noise in 2D space at the input Vector. The Z component is ignored.</p>
+</dd>
+<dt>3D:</dt>
+<dd><p>Evaluate the noise in 3D space at the input Vector.</p>
+</dd>
+<dt>4D:</dt>
+<dd><p>Evaluate the noise in 4D space at the input Vector and the input W as the fourth dimension.</p>
+</dd>
+</dl>
+<p>Higher dimensions corresponds to higher render time,
+so lower dimensions should be used unless higher dimensions are necessary.</p>
+</dd>
+<dt>Feature</dt><dd><p>The Voronoi feature that the node will compute.</p>
+<dl>
+<dt>F1:</dt>
+<dd><p>The distance to the closest feature point as well as its position and color.</p>
+<table>
+<tbody>
+<tr><td><figure id="id17">
+<figcaption>
+<p>Distance.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id18">
+<figcaption>
+<p>Color.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id19">
+<figcaption>
+<p>Position.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>F2:</dt>
+<dd><p>The distance to the second closest feature point as well as its position and color.</p>
+<table>
+<tbody>
+<tr><td><figure id="id20">
+<figcaption>
+<p>Distance.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id21">
+<figcaption>
+<p>Color.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id22">
+<figcaption>
+<p>Position.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Smooth F1:</dt>
+<dd><p>A smooth version of F1.</p>
+<table>
+<tbody>
+<tr><td><figure id="id23">
+<figcaption>
+<p>Distance.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id24">
+<figcaption>
+<p>Color.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id25">
+<figcaption>
+<p>Position.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Distance to Edge:</dt>
+<dd><p>The distance to the edges of the Voronoi cells.</p>
+<table>
+<tbody>
+<tr><td><figure id="id26">
+<figcaption>
+<p>Distance.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id27">
+<figcaption>
+<p>Distance smaller than 0.05.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>N-Sphere Radius:</dt>
+<dd><p>The radius of the n-sphere inscribed in the Voronoi cells.
+In other words, it is half the distance between the closest feature point and the feature point closest to it.</p>
+<table>
+<tbody>
+<tr><td><figure id="id28">
+<figcaption>
+<p>The n-sphere radius can be used to create tightly packed n-spheres.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id29">
+<figcaption>
+<p>Node tree for the shader to the left.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt>Distance Metric</dt><dd><p>The distance metric used to compute the texture.</p>
+<dl>
+<dt>Euclidean:</dt>
+<dd><p>Use the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance metric</a>.</p>
+</dd>
+<dt>Manhattan:</dt>
+<dd><p>Use the <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">Manhattan distance metric</a>.</p>
+</dd>
+<dt>Chebychev:</dt>
+<dd><p>Use the <a href="https://en.wikipedia.org/wiki/Chebyshev_distance">Chebychev distance metric</a>.</p>
+</dd>
+<dt>Minkowski:</dt>
+<dd><p>Use the <a href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski distance metric</a>.
+The Minkowski distance is a generalization of the aforementioned metrics with an <em>Exponent</em> as a parameter.
+Minkowski with an exponent of one is equivalent to the <em>Manhattan</em> distance metric.
+Minkowski with an exponent of two is equivalent to the <em>Euclidean</em> distance metric.
+Minkowski with an infinite exponent is equivalent to the <em>Chebychev</em> distance metric.</p>
+</dd>
+</dl>
+<table>
+<tbody>
+<tr><td><figure id="id30">
+<figcaption>
+<p>Minkowski Exponent: 0.5 (Minkowski 1/2).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id31">
+<figcaption>
+<p>Minkowski Exponent: 1.0 (Manhattan).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id32">
+<figcaption>
+<p>Minkowski Exponent: 2.0 (Euclidean).</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id33">
+<figcaption>
+<p>Minkowski Exponent: 32.0 (approximation of Chebychev).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Distance</dt><dd><p>Distance.</p>
+</dd>
+<dt>Color</dt><dd><p>Cell color. The color is arbitrary.</p>
+</dd>
+<dt>Position</dt><dd><p>Position of feature point.</p>
+</dd>
+<dt>W</dt><dd><p>Position of feature point.</p>
+</dd>
+<dt>Radius</dt><dd><p>N-Sphere radius.</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h2>Notes</h2>
+<p>In some configurations of the node, especially for low values of <em>Randomness</em>,
+rendering artifacts may occur. This happens due to the same reasons described
+in the <a href="white_noise.html#shader-white-noise-notes">Notes section</a> in the White Noise Texture page
+and can be fixed in a similar manner as described there.</p>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id34">
+<figcaption>
+<p>The difference between F1 and Smooth F1 can be used to create beveled Voronoi cells.</p>
+</figcaption>
+</figure>
+<figure id="id35">
+<figcaption>
+<p>Creating a hammered metal shader using the Voronoi Texture node.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

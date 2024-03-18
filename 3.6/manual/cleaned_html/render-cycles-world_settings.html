@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; World Settings</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Cycles</a></li>
+<li>World Settings</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="world-settings">
+<h1>World Settings</h1>
+<section id="mist-pass">
+<h2>Mist Pass</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>World ‣ Mist Pass</p>
+</dd>
+</dl>
+</div>
+<div>
+<p>Note</p>
+<p>The mist pass must be enabled in the View Layer tab
+of the <a href="../../editors/properties_editor.html">Properties Editor</a>
+before the settings below are available in the World tab.</p>
+</div>
+<p>Mist can greatly enhance the illusion of depth in your rendering. To create mist,
+Blender generates a render layer with a depth map ranging between 0.0 and 1.0
+that can be used in the Compositor to generate a mist effect.</p>
+<dl id="bpy-types-worldmistsettings-start">
+<dt>Start</dt><dd><p>The distance from the camera at which the mist starts to fade in.</p>
+</dd>
+</dl>
+<dl id="bpy-types-worldmistsettings-depth">
+<dt>Depth</dt><dd><p>The distance from <em>Start</em> of the mist, that it fades in over.
+Objects further from the camera than <em>Start + Depth</em> are completely hidden by the mist.</p>
+</dd>
+</dl>
+<dl id="bpy-types-worldmistsettings-falloff">
+<dt>Falloff</dt><dd><p>The curve function that controls the rate of change of the mist’s strength further and further into the distance.</p>
+<dl>
+<dt>Quadratic:</dt>
+<dd><p>Uses the same calculation as light falloff (\(1\over{x^2}\)) and provides the smoothest
+transition from transparent (0.0) to opaque (1.0).</p>
+</dd>
+<dt>Linear:</dt>
+<dd><p>Has a steeper start than quadratic (\(1\over{x}\)).</p>
+</dd>
+<dt>Inverse Quadratic:</dt>
+<dd><p>Has the steepest start (\(1\over{\sqrt{x}}\)) and approaches 1.0 faster than the other two functions.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>A visualization can be activated in the Camera ‣ Viewport Display panel.</p>
+</div>
+<figure id="id4">
+<figcaption>
+<p>Mist example (blend-file).</p>
+</figcaption>
+</figure>
+</section>
+<section id="ray-visibility">
+<h2>Ray Visibility</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>World ‣ Ray Visibility</p>
+</dd>
+</dl>
+</div>
+<p>As with other objects,
+<em>Ray Visibility</em> allows you to control which other shaders can “see” the environment.</p>
+<section id="tricks">
+<h3>Tricks</h3>
+<p>Sometimes it may be useful to have a different background that is directly visible versus one
+that is indirectly lighting the objects. A simple solution to this is to add a Mix node,
+with the <em>Blend Factor</em> set to <em>Is Camera Ray</em>. The first input color is then the indirect color,
+and the second the directly visible color. This is useful when using a high-res image for
+the background and a low-res image for the actual lighting.</p>
+<p>Similarly, adding the <em>Is Camera</em> and <em>Is Glossy</em> rays will mean that the high-res image
+will also be visible in reflections.</p>
+<figure id="id5">
+<figcaption>
+<p>Nodes for the trick above.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="settings">
+<h2>Settings</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>World ‣ Settings</p>
+</dd>
+</dl>
+</div>
+<section id="surface">
+<h3>Surface</h3>
+<dl id="bpy-types-cyclesworldsettings-sampling-method">
+<dt>Sampling</dt><dd><p>Controls the sampling method for the world material. Selecting Auto or Manual enables
+<em>Multiple Importance Sampling</em> while None disables it. <em>Multiple Importance Sampling</em>
+is a method to sample the background texture such that lighter parts are favored,
+creating an importance map. It will produce less noise in the render in trade of artifacts (<a href="../../glossary/index.html#term-Fireflies">Fireflies</a>).
+Enable this when using an image texture with small area lights (like the sun),
+otherwise noise can take a long time to converge.</p>
+<p>Below is a comparison between <em>Multiple Importance Sample</em> off and on.
+Both images are rendered for 25 seconds (Off: 1,500 samples, On: 1,000 samples).</p>
+<table>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Multiple Importance Sample off.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Multiple Importance Sample on.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesworldsettings-sample-map-resolution">
+<dt>Map Resolution</dt><dd><p>Sets the resolution of the importance map.
+A higher resolution will better detect small features in the map and give more accurate sampling
+but conversely will take up more memory and render slightly slower.
+Higher values also may produce less noise when using high-res images.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesworldsettings-max-bounces">
+<dt>Max Bounces</dt><dd><p>Maximal number of bounces the background light will contribute to the render.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>See <a href="optimizations/reducing_noise.html">Reducing Noise</a>
+for more information on how to reduce noise.</p>
+</div>
+<dl id="bpy-types-cyclesworldsettings-is-caustics-light">
+<dt>Shadow Caustics</dt><dd><p>Mark the World Shader as a refractive caustic caster. This setting can be used in conjunction with the
+<a href="object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-caster">Cast and Receive caustics object settings</a>
+to selectively speed up refractive caustic rendering of select objects.</p>
+</dd>
+</dl>
+</section>
+<section id="volume">
+<h3>Volume</h3>
+<dl id="bpy-types-cyclesworldsettings-volume-sampling">
+<dt>Sampling Method</dt><dd><dl>
+<dt>Distance:</dt>
+<dd><p>For dense volumes lit from far away <em>Distance</em> sampling is more efficient in most cases.
+Usually this shouldn’t be used for World volumes.</p>
+</dd>
+<dt>Equiangular:</dt>
+<dd><p>If you have got a light inside or near the volume then <em>equiangular</em> sampling is better.</p>
+</dd>
+<dt>Multiple Importance:</dt>
+<dd><p>If you have a combination of both, then the multiple importance sampling will be better.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesworldsettings-volume-interpolation">
+<dt>Interpolation</dt><dd><p>Interpolation method to use for the volume.</p>
+<dl>
+<dt>Linear:</dt>
+<dd><p>Simple interpolation which gives good results for thin volumes.</p>
+</dd>
+<dt>Cubic:</dt>
+<dd><p>Smoothed high-quality interpolation needed for more dense volumes, but slower.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesworldsettings-homogeneous-volume">
+<dt>Homogeneous</dt><dd><p>Assume volume has the same density everywhere (not using any textures), for faster rendering.
+Usually this is automatically determined by the renderer.
+This settings provides a manual control for cases where it is not detected.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesworldsettings-volume-step-size">
+<dt>Step Size</dt><dd><p>Distance between volume shader samples for world volume shaders.
+See <a href="render_settings/volumes.html">Volume Render Settings</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="light-group">
+<h3>Light Group</h3>
+<dl id="bpy-types-world-lightgroup">
+<dt>Light Group Cycles only</dt><dd><p>Select the <a href="../layers/passes.html#bpy-types-viewlayer-active-lightgroup-index">Light Group</a> to add the
+current <em>World Surface Shader</em> too.</p>
+<dl>
+<dt>Add Light Group</dt><dd><p>If the name input into the <em>Light Group</em> field does not align with an existing
+Light Group, then pressing this button will create a <em>Light Group</em> with that name
+and assign this <em>World Shader</em> to it.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

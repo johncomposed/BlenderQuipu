@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Bevel</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Bevel Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bevel-node">
+<h1>Bevel Node</h1>
+<p>Cycles Only</p>
+<p>The Bevel shader node can be used for rendering rounded corners.
+Like bump mapping, this does not modify the actual geometry, only the shading is affected.
+Slight rounding on edges helps to capture specular highlights that you would also see in the real world.</p>
+<p>Note that this is a very expensive shader, and may slow down renders
+by 20% even if there is a lot of other complexity in the scene.
+For that reason, we suggest to mainly use this for baking or
+still frame renders where render time is not as much of an issue.
+The Bevel modifier is a faster option when it works, but sometimes fails on complex or messy geometry.</p>
+<div>
+<p>Note</p>
+<dl>
+<dt>The Bevel node will not produce a valid result when:</dt><dd><ul>
+<li><p>The object is either a <a href="../../cycles/object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-caster">Caustic caster</a>
+or <a href="../../cycles/object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-receiver">Caustic receiver</a> while the scene
+contains an active <a href="../../cycles/object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-caster">Caustic caster</a>,
+<a href="../../cycles/object_settings/object_data.html#bpy-types-cyclesobjectsettings-is-caustics-receiver">Caustic receiver</a>, and
+<a href="../../cycles/light_settings.html#bpy-types-cycleslightsettings-is-caustics-light">Shadow Caustic Light</a>.</p></li>
+<li><p><a href="../osl.html">Open Shading Language</a> is active while using the OptiX rendering backend.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Radius</dt><dd><p>Width of the bevel effect on edges.</p>
+</dd>
+<dt>Normal</dt><dd><p>Normal to apply bevel on top of, to be combined with a Bump node for example.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Samples</dt><dd><p>Number of samples to take for each shader evaluation.
+More samples give more accurate results, but are also slower to render.
+The default value of 4 works well for most cases, with any noise resolved by using more AA samples.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Normal</dt><dd><p>Standard normal output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Bevel shader bringing out specular highlights on the edges.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Distort &gt; Displace</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Distort Nodes</a></li>
+<li>Displace Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="displace-node">
+<h1>Displace Node</h1>
+<p>The <em>Displace Node</em> displaces the pixel position based on an input vector.</p>
+<p>This node could be used to model phenomena, like hot air distortion,
+refractions of uneven glass or for surreal video effects.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Vector</dt><dd><p>Input of the displacement map.
+If the a color output is implicitly converted in the vector input,
+the first channel (red) value determines displacement along X axis.
+The second channel (green) the displacement along Y axis.
+If the input is a grayscale image, where both the channel values are equal,
+the input image will be displaced equally in both X and Y directions.</p>
+</dd>
+<dt>Scale X, Y</dt><dd><p>Separate scaling of the vector input in X and Y direction.
+Acting as multipliers by increasing or decreasing the strength of
+the displacement along their respective axes.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

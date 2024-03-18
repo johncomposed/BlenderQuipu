@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Posing &gt; Selecting</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Armatures</a></li>
+<li><a href="index.html">Posing</a></li>
+<li>Selecting</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="selecting">
+<h1>Selecting</h1>
+<p>Selection in <em>Pose Mode</em> is very similar to the one in <a href="../bones/selecting.html">Edit Mode</a>,
+with a few deviations:
+You can only select <em>whole bones</em> in <em>Pose Mode</em>, not roots/tips…</p>
+<section id="box-select">
+<h2>Box Select</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Box Select</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>B</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Interactive <a href="../../../interface/selecting.html#tool-select-box">box selection</a>.</p>
+</section>
+<section id="circle-select">
+<h2>Circle Select</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Circle Select</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>C</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Interactive <a href="../../../interface/selecting.html#tool-select-circle">circle selection</a>.</p>
+</section>
+<section id="lasso-select">
+<h2>Lasso Select</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Lasso Select</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>LMB</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>See <a href="../../../interface/selecting.html#tool-select-lasso">Select Lasso</a>.</p>
+</section>
+<section id="select-mirror">
+<h2>Select Mirror</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Mirror</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Flip the selection from one side to another.</p>
+</section>
+<section id="constraint-target">
+<h2>Constraint Target</h2>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Constraint Target</p>
+</dd>
+</dl>
+</div>
+<p>Todo.</p>
+</section>
+<section id="linked">
+<h2>Linked</h2>
+<div id="id6">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Linked</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Ctrl</kbd>-<kbd>L</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>Selects all the bones in the chain which the active (last selected) bone belongs to.</p>
+<dl>
+<dt>All Forks</dt><dd><p>Selects all bones connected to the active bone even if the branch off from the current bone.</p>
+</dd>
+</dl>
+<table id="id10">
+<caption>Linked bones selection.</caption>
+<tbody>
+<tr><td><figure id="id11">
+<figcaption>
+<p>A single selected bone.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id12">
+<figcaption>
+<p>Its whole chain selected with Linked.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="select-more-less">
+<h2>Select More/Less</h2>
+<div id="id7">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select More/Less</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Parent <kbd>[</kbd>, Child <kbd>]</kbd></dt><dd><p>You can deselect the active bone and select its immediate parent or one of its children.</p>
+</dd>
+<dt>Extend Parent <kbd><kbd>Shift</kbd>-<kbd>[</kbd></kbd>, Extend Child <kbd><kbd>Shift</kbd>-<kbd>]</kbd></kbd></dt><dd><p>Similar to <em>Parent</em>/<em>Child</em> but it keeps the active bone in the selection.</p>
+</dd>
+</dl>
+</section>
+<section id="grouped">
+<h2>Grouped</h2>
+<div id="id8">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Pose Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Grouped</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>You can select bones based on their group and/or layer, through the <em>Select Grouped</em> pop-up menu <kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd>:</p>
+<dl>
+<dt>Layer</dt><dd><p>To select all bones belonging to the same layer(s) as the selected ones,
+use the <em>In Same Layer</em> entry.</p>
+</dd>
+<dt>Group</dt><dd><p>To select all bones belonging to the same group(s) as the selected ones,
+use the <em>In Same Group</em> entry.</p>
+</dd>
+<dt>Keying Set</dt><dd><p>ToDo.</p>
+</dd>
+</dl>
+</section>
+<section id="select-pattern">
+<h2>Select Pattern</h2>
+<div id="id9">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Select ‣ Select Pattern…</p>
+</dd>
+</dl>
+</div>
+<p>Selects all bones whose name matches a given pattern.
+Supported wild-cards: * matches everything, ? matches any single character,
+[abc] matches characters in “abc”, and [!abc] match any character not in “abc”.
+As an example *house* matches any name that contains “house”,
+while floor* matches any name starting with “floor”.</p>
+<dl>
+<dt>Case Sensitive</dt><dd><p>The matching can be chosen to be case sensitive or not.</p>
+</dd>
+<dt>Extend</dt><dd><p>When <em>Extend</em> checkbox is checked the selection is extended instead of generating a new one.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

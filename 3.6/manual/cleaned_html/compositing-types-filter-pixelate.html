@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Filter &gt; Pixelate</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Filter Nodes</a></li>
+<li>Pixelate Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="pixelate-node">
+<h1>Pixelate Node</h1>
+<p>Add this node in front of a <a href="../distort/scale.html">Scale node</a>
+to get a pixelated (non-smoothed) image from the resultant upscaled image.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>Open an image you would like to pixelate using an Image node.
+Add two Scale nodes between the input and output Add ‣ Distort ‣ Scale.
+Change the values of X and Y to 0.2 in the first scale box and to 5 in the second.
+The composited image will appear unchanged. Now add a Pixelate node between the two Scale nodes.
+The result will be a pixelated image.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

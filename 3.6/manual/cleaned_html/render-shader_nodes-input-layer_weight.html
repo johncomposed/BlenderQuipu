@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Input &gt; Layer Weight</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Input</a></li>
+<li>Layer Weight Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="layer-weight-node">
+<h1>Layer Weight Node</h1>
+<p>The <em>Layer Weight</em> node outputs a weight typically used for layering shaders with the <em>Mix Shader</em> node.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Blend</dt><dd><p>Bias the output towards all 0 or all 1. Useful for uneven mixing of shaders.</p>
+</dd>
+<dt>Normal</dt><dd><p>Input meant for plugging in bump or normal maps which will affect the output.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Fresnel</dt><dd><p>Dielectric Fresnel weight, useful for example for layering diffuse and
+glossy shaders to create a plastic material. This is like the Fresnel node,
+except that the input of this node is in the often more convenient 0.0 to 1.0 range.</p>
+</dd>
+<dt>Facing</dt><dd><p>Weight that blends from the first to the second shader
+as the surface goes from facing the viewer to viewing it at a grazing angle.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

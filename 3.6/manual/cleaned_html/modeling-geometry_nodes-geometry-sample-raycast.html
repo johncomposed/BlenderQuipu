@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Geometry &gt; Sample &gt; Raycast</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Sample Geometry Nodes</a></li>
+<li>Raycast Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="raycast-node">
+<h1>Raycast Node</h1>
+<p>The <em>Raycast</em> node intersects rays from one geometry onto another. The source geometry is defined by
+the context of the node that the <em>Raycast</em> node is connected to.
+Each ray computes hit points on the target mesh and outputs normals, distances
+and any surface attribute specified.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Target Geometry</dt><dd><p>Geometry that rays are tested against.</p>
+</dd>
+<dt>Attribute</dt><dd><p>An optional field input evaluated on the <em>Target Geometry</em> that will be interpolated at the hit points.
+The resulting values are outputted with the <em>Attribute</em> output.</p>
+</dd>
+<dt>Source Position</dt><dd><p>The position from where to start each ray. By default, this is the same as
+if the <a href="../read/position.html">Position Node</a> was connected.</p>
+</dd>
+<dt>Ray Direction</dt><dd><p>Direction of each ray from the starting position.
+The field is evaluated on the geometry from the context of the field evaluation, not the <em>Target Geometry</em>.</p>
+</dd>
+<dt>Ray Length</dt><dd><p>Maximum distance a ray can travel before being considered “no hit”.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mapping</dt><dd><p>How attributes of the target mesh are mapped to the attribute values on the result geometry.</p>
+<dl>
+<dt>Interpolated:</dt>
+<dd><p>Vertex and corner attributes are interpolated smoothly, with a bilinear function.</p>
+</dd>
+<dt>Nearest:</dt>
+<dd><p>Choose the value of the closest vertex without interpolating.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Is Hit</dt><dd><p>Boolean output that is true for each ray which has hit the <em>Target Geometry</em>.</p>
+</dd>
+<dt>Hit Position</dt><dd><p>The location of the intersection point with the target mesh.</p>
+</dd>
+<dt>Hit Normal</dt><dd><p>The surface <a href="../../../../glossary/index.html#term-Normal">Normal</a> vector at the hit location.</p>
+</dd>
+<dt>Hit Distance</dt><dd><p>The distance from the ray origin to the <em>Hit Position</em>.</p>
+</dd>
+<dt>Attribute</dt><dd><p>Interpolated values of the <em>Attribute</em> input sampled at the <em>Hit Position</em>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

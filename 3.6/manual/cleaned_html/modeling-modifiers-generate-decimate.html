@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Decimate</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Decimate Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="decimate-modifier">
+<h1>Decimate Modifier</h1>
+<p>The <em>Decimate</em> modifier allows you to reduce the vertex/face count of a mesh with minimal shape changes.</p>
+<p>This is not usually used on meshes which have been created by modeling carefully and economically
+(where all vertices and faces are necessary to correctly define the shape).
+But if the mesh is the result of complex modeling,
+sculpting and/or applied <a href="subdivision_surface.html">Subdivision Surface</a>/
+<a href="multiresolution.html">Multiresolution</a> modifiers,
+the <em>Decimate</em> one can be used to reduce the polygon count for a performance increase,
+or simply remove unnecessary vertices and edges.</p>
+<p>Unlike the majority of existing modifiers, this one does not allow
+you to visualize your changes in Edit Mode.</p>
+<p>The modifier displays the number of remaining faces as a result of the <em>Decimate</em> modifier.</p>
+<section id="options">
+<h2>Options</h2>
+<section id="collapse">
+<h3>Collapse</h3>
+<figure id="id1">
+<figcaption>
+<p>The Decimate modifier in Collapse mode.</p>
+</figcaption>
+</figure>
+<p>Merges vertices together progressively, taking the shape of the mesh into account.</p>
+<dl>
+<dt>Ratio</dt><dd><p>The ratio of faces to keep after decimation.</p>
+<ul>
+<li><p>On 1.0: the mesh is unchanged.</p></li>
+<li><p>On 0.5: edges have been collapsed such that half the number of faces remain (see note below).</p></li>
+<li><p>On 0.0: all faces have been removed.</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>Although the <em>Ratio</em> is directly proportional to the number of remaining faces,
+triangles are used when calculating the ratio.</p>
+<p>This means that if your mesh contains quads or other polygons,
+the number of remaining faces will be larger than expected,
+because those will remain unchanged if their edges are not collapsed.</p>
+<p>This is only true if the <em>Triangulate</em> option is disabled.</p>
+</div>
+</dd>
+<dt>Symmetry</dt><dd><p>Maintains symmetry on a single axis.</p>
+</dd>
+<dt>Triangulate</dt><dd><p>Keeps any resulting triangulated geometry from the decimation process.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>A vertex group that controls what parts of the mesh are decimated.</p>
+</dd>
+<dt>Factor</dt><dd><p>The amount of influence the <em>Vertex Group</em> has on the decimation.</p>
+</dd>
+</dl>
+</section>
+<section id="un-subdivide">
+<h3>Un-Subdivide</h3>
+<figure id="id2">
+<figcaption>
+<p>The Decimate modifier in Un-Subdivide mode.</p>
+</figcaption>
+</figure>
+<p>It can be thought of as the reverse of subdivide.
+It attempts to remove edges that were the result of a subdivide operation.
+It is intended for meshes with a mainly grid-based topology (without giving uneven geometry).
+If additional editing has been done after the subdivide operation, the results may be unexpected.</p>
+<dl>
+<dt>Iterations</dt><dd><p>The number of times to perform the un-subdivide operation.
+Two iterations is the same as one subdivide operation, so you will usually want to use even numbers.</p>
+</dd>
+</dl>
+</section>
+<section id="planar">
+<h3>Planar</h3>
+<figure id="id3">
+<figcaption>
+<p>The Decimate modifier in Planar mode.</p>
+</figcaption>
+</figure>
+<p>It reduces details on forms comprised of mainly flat surfaces.</p>
+<dl>
+<dt>Angle Limit</dt><dd><p>Dissolve geometry which form angles (between surfaces) higher than this setting.</p>
+</dd>
+<dt>Delimit</dt><dd><p>Prevent dissolving geometry in certain places.</p>
+<dl>
+<dt>Normal</dt><dd><p>Does not dissolve edges on the borders of areas where the face normals are reversed.</p>
+</dd>
+<dt>Material</dt><dd><p>Does not dissolve edges on the borders of where different materials are assigned.</p>
+</dd>
+<dt>Seam</dt><dd><p>Does not dissolve edges marked as seams.</p>
+</dd>
+<dt>Sharp</dt><dd><p>Does not dissolve edges marked as sharp.</p>
+</dd>
+<dt>UVs</dt><dd><p>Does not dissolve edges that are part of a UV map.</p>
+</dd>
+</dl>
+</dd>
+<dt>All Boundaries</dt><dd><p>When enabled, all vertices along the boundaries of faces are dissolved.
+This can give better results when using a high <em>Angle Limit</em>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

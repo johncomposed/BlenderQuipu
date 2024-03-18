@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Mesh &gt; Operations &gt; Triangulate</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Mesh Nodes</a></li>
+<li><a href="index.html">Mesh Operation Nodes</a></li>
+<li>Triangulate Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="triangulate-node">
+<h1>Triangulate Node</h1>
+<p>The <em>Triangulate</em> node converts all faces in a mesh (quads and n-gons) to triangular faces.
+It functions the same as the <a href="../../../meshes/editing/face/triangulate_faces.html#bpy-ops-mesh-quads-convert-to-tris">Triangulate</a> tool in Edit Mode.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>A standard Boolean selection input to determine which faces will be triangulated.</p>
+</dd>
+<dt>Minimum Vertices</dt><dd><p>Minimum number of vertices a face must have to be triangulated.
+For example, setting this value to 5, will prevent triangulation of <a href="../../../../glossary/index.html#term-Quad">Quads</a>
+and only triangulate <a href="../../../../glossary/index.html#term-N-gon">N-gons</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Quad Method</dt><dd><dl>
+<dt>Beauty:</dt>
+<dd><p>Split the quads in nice triangles, slower method.</p>
+</dd>
+<dt>Fixed:</dt>
+<dd><p>Split the quads on their 1st and 3rd vertices.</p>
+</dd>
+<dt>Fixed Alternate:</dt>
+<dd><p>Split the quads on their 2nd and 4th vertices.</p>
+</dd>
+<dt>Shortest Diagonal:</dt>
+<dd><p>Split the quads along their shortest diagonal.</p>
+</dd>
+<dt>Longest Diagonal:</dt>
+<dd><p>Split the quads along their longest diagonal. This is the preferred mode for cloth simulations.</p>
+</dd>
+</dl>
+</dd>
+<dt>N-gon Method</dt><dd><dl>
+<dt>Beauty:</dt>
+<dd><p>Arrange the new triangles nicely, slower method.</p>
+</dd>
+<dt>Clip:</dt>
+<dd><p>Split n-gons using an ear-clipping algorithm
+(the same method of tessellation used for viewport display).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Mesh before triangulation.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Mesh after triangulation.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Generate &gt; Mesh To Volume</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Mesh to Volume Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh-to-volume-modifier">
+<h1>Mesh to Volume Modifier</h1>
+<div id="id1">
+<p>Reference</p>
+<p>This modifier is only available for <a href="../../volumes/index.html">Volume Objects</a>.</p>
+</div>
+<p>The <em>Mesh to Volume</em> modifier uses a mesh to create a new volume grid.
+All previously existing volume grids on the volume object are discarded.
+So this modifier is usually added to an empty volume object.
+The new volume grid is called “density”.</p>
+<div>
+<p>Tip</p>
+<p>To copy and move the generated volume separately from the mesh object,
+use a <a href="../../../scene_layout/object/properties/instancing/collection.html">collection instance</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id2">
+<figcaption>
+<p>The Mesh to Volume modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Object</dt><dd><p>The mesh object that determines where the volume data will be generated.</p>
+</dd>
+<dt>Density</dt><dd><p>Makes the generated volume appear denser or less dense when rendering.</p>
+</dd>
+<dt>Fill Volume</dt><dd><p>The entire enclosed volume or otherwise only the voxels close to the surface
+will get a density greater than zero.
+This setting is only used when the mesh object is <a href="../../../glossary/index.html#term-Manifold">Manifold</a>.</p>
+</dd>
+<dt>Exterior Band Width</dt><dd><p>The maximum distance of the included voxels to the surface on the outside of the mesh.</p>
+</dd>
+<dt>Interior Band Width</dt><dd><p>The maximum distance of the included voxels to the surface on the inside of the mesh.</p>
+</dd>
+<dt>Resolution Mode</dt><dd><p>Mode for how the voxel size is specified.</p>
+<dl>
+<dt>Voxel Amount</dt><dd><p>This allows setting an approximate number of voxels that will be used to represent mesh along its diagonal.
+When the dimensions of the mesh changes, the voxel size will change as well.
+For final rendering of animations, it’s better to specify the voxel size explicitly to avoid artifacts.</p>
+</dd>
+<dt>Voxel Size</dt><dd><p>This allows setting the exact voxel size that will be used.
+This is idea for rendering when the voxel size should not change between frames.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id3">
+<figcaption>
+<p>Converting Suzanne to a volume.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

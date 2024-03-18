@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Nla &gt; Strips</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Nonlinear Animation</a></li>
+<li>Strips</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="strips">
+<h1>Strips</h1>
+<p>There are four kinds of strips: Action, Transition, Sound clip and Meta.</p>
+<section id="action-strips">
+<h2>Action Strips</h2>
+<p>Action Strips are a container of keyframe data of an action.
+Any action used by the NLA first must be turned into an Action strip.
+This is done so by clicking the <a href="tracks.html#bpy-ops-nla-action-pushdown">Push Down Action</a> button see above.
+Alternatively, you can go to Add ‣ Action Strip.</p>
+<div>
+<p>Note</p>
+<p>Action Strips only playback the keyframe data that fits into the length of the strip.
+This includes any <a href="../graph_editor/fcurves/modifiers.html">modifiers</a>
+that might extend keyframe data.</p>
+</div>
+</section>
+<section id="transition-strips">
+<h2>Transition Strips</h2>
+<p>Transitions interpolate between Actions. They must be placed in between other strips.
+Select two or more strips on the same track,
+and go to Add ‣ Transition.</p>
+<figure id="id3">
+<figcaption>
+<p>Transition Strip.</p>
+</figcaption>
+</figure>
+</section>
+<section id="sound-clip-strips">
+<h2>Sound Clip Strips</h2>
+<p>Controls when a speaker plays a sound clip.
+Add ‣ Sound Clip.</p>
+</section>
+<section id="meta-strips">
+<h2>Meta Strips</h2>
+<p>Meta strips group strips together as a whole, so you can move them as one.
+If you find yourself moving a lot of strips together, you can group them into a Meta strip.
+A Meta strip can be moved and duplicated like a normal strip.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Add Meta-Strips</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Select two or more strips.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Combine them into a meta strip.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A Meta strip still contains the underlying strips. You can ungroup a Meta strip.</p>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Remove Meta-Strips</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>G</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

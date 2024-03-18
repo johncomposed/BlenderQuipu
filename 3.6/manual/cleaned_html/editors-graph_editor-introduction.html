@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Graph Editor &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Graph Editor</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>The Graph Editor allows users to adjust animation curves over time for any animatable property.
+<a href="fcurves/introduction.html">F-Curves</a>.</p>
+<figure id="id1">
+<figcaption>
+<p>The Graph Editor.</p>
+</figcaption>
+</figure>
+<section id="main-region">
+<h2>Main Region</h2>
+<p>The curve view allows you to view and edit F-Curves.
+An F-Curve has several key parts:</p>
+<dl>
+<dt>Curve</dt><dd><p>The curve defines the value (Y axis) of the property over time (X axis).</p>
+<p>See <a href="fcurves/index.html">F-Curves</a>.</p>
+</dd>
+<dt>Keyframes</dt><dd><p>Keyframes are user-defined values on certain frames and are represented
+by little black squares which become orange if selected.</p>
+<p>See <a href="../../animation/keyframes/index.html">Keyframes</a> for more information.</p>
+</dd>
+<dt>Handles</dt><dd><p>Each keyframe has a handle that helps determine the values of the curve between keyframes.
+These handles are represented by extruding lines with circular ends
+and can be selected and modified to change the shape of the curve.</p>
+<p>See <a href="fcurves/properties.html#editors-graph-fcurves-settings-handles">F-Curve Handles</a> for more information.</p>
+</dd>
+</dl>
+<figure id="id2">
+<figcaption>
+<p>A simple curve.</p>
+</figcaption>
+</figure>
+<div>
+<p>See also</p>
+<p>See <a href="fcurves/introduction.html">F-Curves</a> for more info.</p>
+</div>
+<section id="navigation">
+<h3>Navigation</h3>
+<p>As with most editors, you can:</p>
+<dl>
+<dt>Pan</dt><dd><p>Pan the view vertically (values) or horizontally (time) with click and drag <kbd>MMB</kbd>.</p>
+</dd>
+<dt>Zoom</dt><dd><p>Zoom in and out with the mouse wheel <kbd>Wheel</kbd>.</p>
+</dd>
+<dt>Scale View</dt><dd><p>Scale the view vertically or horizontally <kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd>.</p>
+</dd>
+</dl>
+<p>In addition, you can also use the scrollbars to pan and zoom the view.</p>
+</section>
+<section id="playhead-2d-cursor">
+<h3>Playhead &amp; 2D Cursor</h3>
+<figure id="id3">
+<figcaption>
+<p>Graph Editor 2D Cursor.</p>
+</figcaption>
+</figure>
+<p>The current frame is represented by a blue vertical line called the <em>Playhead</em>.</p>
+<p>As in the <a href="../timeline.html">Timeline</a>,
+you can change the current frame by <kbd>LMB</kbd>-dragging in the scrubbing area at the top of the editor.</p>
+<p>The blue horizontal line is called the <em>2D Cursor</em>.
+This can be enabled or disabled via the <em>View Menu</em> or the <em>View Properties</em> panel.</p>
+<p>These two lines can be used as a reference for moving and scaling keyframe handles.</p>
+<div>
+<p>See also</p>
+<p>See Graph Editor’s <a href="#graph-editor-view-properties">View Tab</a>.</p>
+</div>
+</section>
+<section id="view-axes">
+<h3>View Axes</h3>
+<p>For <em>Actions</em> the X axis represents time,
+the Y axis represents the value to set the property.</p>
+<p>Depending on the selected curves, the values have different meaning:
+for example rotation properties are shown in degrees.</p>
+</section>
+</section>
+<section id="header">
+<h2>Header</h2>
+<section id="view-menu">
+<h3>View Menu</h3>
+<dl>
+<dt>Realtime Updates</dt><dd><p>When transforming keyframes, changes to the animation data are propagated to other views.</p>
+</dd>
+<dt>Show Cursor</dt><dd><p>Toggles the visibility of the <a href="#playhead-2d-cursor">Playhead &amp; 2D Cursor</a>.</p>
+</dd>
+<dt>Show Sliders</dt><dd><p>A toggle option that shows the value sliders for the channels.
+See the Fig. <a href="../dope_sheet/introduction.html#fig-dope-sheet-action">The Action editor’s channels region.</a>.</p>
+</dd>
+<dt>Auto-Merge Keyframes</dt><dd><p>Automatically merge nearby keyframes.</p>
+</dd>
+<dt>Show Markers</dt><dd><p>Shows the markers region. When disabled, the <a href="#markers-menu">Markers Menu</a> is also hidden
+and markers operators are not available in this editor.</p>
+</dd>
+</dl>
+<dl id="bpy-types-spacegrapheditor-show-extrapolation">
+<dt>Show Extrapolation</dt><dd><p>Toggles the visibility of the <a href="channels/editing.html#editors-graph-fcurves-settings-extrapolation">extrapolated</a>
+portion of curves.</p>
+</dd>
+<dt>Show Handles <kbd><kbd>Ctrl</kbd>-<kbd>H</kbd></kbd></dt><dd><p>Toggles the display of a curve’s handles in the curve view.</p>
+</dd>
+<dt>Only Selected Curve Keyframes</dt><dd><p>Only shows the keyframes markers on the selected curves.</p>
+</dd>
+<dt>Only Selected Keyframes Handles</dt><dd><p>Only shows the handles for the currently selected curves.</p>
+</dd>
+<dt>Frame All <kbd>Home</kbd></dt><dd><p>Reset viewable area to show all keyframes.</p>
+</dd>
+<dt>Frame Selected <kbd>NumpadPeriod</kbd></dt><dd><p>Reset viewable area to show selected keyframes.</p>
+</dd>
+<dt>Go to Current Frame <kbd>Numpad0</kbd></dt><dd><p>Centers the area to the Playhead.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<ul>
+<li><p>See Graph Editor’s <a href="#graph-editor-view-properties">View Tab</a>.</p></li>
+<li><p>See Timeline’s <a href="../timeline.html#timeline-view-menu">View Menu</a>.</p></li>
+</ul>
+</div>
+<section id="preview-range">
+<h4>Preview Range</h4>
+<dl>
+<dt>Set Preview Range <kbd>P</kbd></dt><dd><p>Interactively define frame range used for playback.
+Allows you to define a temporary preview range to use for animation playback
+(this is the same thing as the <em>Playback Range</em> option of
+the <a href="../timeline.html#animation-editors-timeline-headercontrols">Timeline editor header</a>).</p>
+</dd>
+<dt>Clear Preview Range <kbd><kbd>Alt</kbd>-<kbd>P</kbd></kbd></dt><dd><p>Clears the preview range.</p>
+</dd>
+<dt>Set Preview Range to Selected <kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>P</kbd></kbd></dt><dd><p>Sets the preview range to playback the selected NLA strips.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="markers-menu">
+<h3>Markers Menu</h3>
+<p><a href="../../animation/markers.html">Markers</a> are used to denote frames with key points or significant events
+within an animation. Like with most animation editors, markers are shown at the bottom of the editor.</p>
+<figure id="id4">
+<figcaption>
+<p>Markers in animation editor.</p>
+</figcaption>
+</figure>
+<p>For descriptions of the different marker tools see <a href="../../animation/markers.html#animation-markers-editing">Editing Markers</a>.</p>
+</section>
+<section id="view-controls">
+<h3>View Controls</h3>
+<figure id="id5">
+<figcaption>
+<p>View controls.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Show Only Selected</dt><dd><p>Only include curves related to the selected objects and data.</p>
+</dd>
+<dt>Show Hidden</dt><dd><p>Include curves from objects/bones that are not visible.</p>
+</dd>
+<dt>Show Only Errors</dt><dd><p>Only include curves and drivers that are disabled or have errors.
+Useful for debugging.</p>
+</dd>
+<dt>Filter (funnel icon)</dt><dd><p>Only include curves with keywords contained in the search field.</p>
+<dl>
+<dt>Multi-Word</dt><dd><p>Fuzzy/Multi-Word name filtering matches word snippets/partial words,
+instead of having to match everything. It breaks down the search text based on whitespace placement.
+e.g. “lo ro” will filter all location and rotation, while “lc rt” will <em>not</em> work.</p>
+</dd>
+<dt>Type Filter</dt><dd><p>Filter curves by property type.</p>
+</dd>
+<dt>Filtering Collection</dt><dd><p>Select a collection to only show keyframes from objects contained in that collection.</p>
+</dd>
+<dt>Sort Data-Blocks</dt><dd><p>Objects data-blocks appear in alphabetical order, so that it is easier to find where they occur
+(as well as helping to keep the animation of related objects together in the NLA for instance).</p>
+<p>If you find that your playback speed suffers from this being enabled
+(it should only really be an issue when working with lots of objects in the scene),
+you can turn this off.</p>
+</dd>
+</dl>
+</dd>
+<dt>Normalize</dt><dd><p>Normalize curves so the maximum or minimum point equals 1.0 or -1.0.
+When enabled, the view scales to fit the normalized curves and the outer range is darkened.</p>
+<p>If a preview range is defined, keyframes within the range are normalized, while the rest is scaled proportionally.</p>
+<dl>
+<dt>Auto</dt><dd><p>Automatically recalculate curve normalization on every curve edit.
+This is useful to prevent curves from jumping after tweaking it.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="f-curve-controls">
+<h3>F-Curve Controls</h3>
+<figure id="id6">
+<figcaption>
+<p>F-Curve controls.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Proportional Editing <kbd>O</kbd></dt><dd><p>See <a href="../3dview/controls/proportional_editing.html">Proportional Editing</a>.</p>
+</dd>
+<dt>Auto Snap</dt><dd><p>Auto snap the keyframes for transformations.</p>
+<ul>
+<li><p>No Auto-Snap</p></li>
+<li><p>Frame Step</p></li>
+<li><p>Second Step</p></li>
+<li><p>Nearest Frame</p></li>
+<li><p>Nearest Second</p></li>
+<li><p>Nearest Marker</p></li>
+</ul>
+</dd>
+<dt>Pivot Point</dt><dd><p>Pivot point for rotation.</p>
+<dl>
+<dt>Bounding Box Center</dt><dd><p>Center of the selected keyframes.</p>
+</dd>
+<dt>2D Cursor</dt><dd><p>Center of the <em>2D Cursor</em>. <em>Playhead</em> + <em>Cursor</em>.</p>
+</dd>
+<dt>Individual Centers</dt><dd><p>Rotate the selected keyframe <em>Bézier</em> handles.</p>
+</dd>
+</dl>
+</dd>
+<dt>Create Ghost Curves (framed F-Curve icon)</dt><dd><p>Creates a picture with the current shape of the curves.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="sidebar-region">
+<h2>Sidebar Region</h2>
+<p>The panels in the <em>Sidebar region</em>.</p>
+<section id="view-tab">
+<h3>View Tab</h3>
+<figure id="id7">
+<figcaption>
+<p>View Tab.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Show Cursor</dt><dd><p>Toggles the visibility of the <a href="#graph-editor-2d-cursor">2D Cursor</a>.</p>
+</dd>
+<dt>Cursor X, Y</dt><dd><p>Moves the cursor to the specified frame (X value) and value (Y value).</p>
+</dd>
+<dt>Cursor to Selection</dt><dd><p>Places the <em>2D Cursor</em> at the midpoint of the selected keyframes.</p>
+</dd>
+</dl>
+<div>
+<p>See also</p>
+<p>Graph Editor’s <a href="#graph-view-menu">View Menu</a>.</p>
+</div>
+</section>
+<section id="further-tabs">
+<h3>Further Tabs</h3>
+<dl>
+<dt>F-Curve Tab</dt><dd><p>See <a href="fcurves/properties.html">F-Curve</a>.</p>
+</dd>
+<dt>Modifiers Tab</dt><dd><p>See <a href="fcurves/modifiers.html">F-Curve Modifiers</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

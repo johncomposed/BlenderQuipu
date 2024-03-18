@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Transform &gt; Control &gt; Axis Locking</title></head>
+<body><ul>
+<li><a href="../../../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../../../index.html">Objects</a></li>
+<li><a href="../../index.html">Editing</a></li>
+<li><a href="../index.html">Transform</a></li>
+<li><a href="index.html">Transform Control</a></li>
+<li>Axis Locking</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="axis-locking">
+<h1>Axis Locking</h1>
+<figure id="id4">
+<figcaption>
+<p>Axis locking.</p>
+</figcaption>
+</figure>
+<p>This option limits the transformation to the specified axis.</p>
+<p><a href="../introduction.html">Transformations (translation/scale/rotation)</a>
+in <em>Object Mode</em> and <em>Edit Mode</em> (as well as extrusions in <em>Edit Mode</em>)
+can be locked to a particular axis relative to
+the current <a href="../../../../../editors/3dview/controls/orientation.html">transform orientation</a>.
+By locking a transformation to a particular axis you are restricting transformations to a single dimension.</p>
+<section id="usage">
+<h2>Usage</h2>
+<p>A locked axis will display in a brighter color than an unlocked axis. For example in the image to the right,
+the Z axis is shown in light blue as movement is constrained to this axis. This example, can be achieved in two ways:</p>
+<section id="hotkey">
+<h3>Hotkey</h3>
+<p>The axis of movement can be changed at any time during transformation by typing <kbd>X</kbd>, <kbd>Y</kbd>, <kbd>Z</kbd>.</p>
+</section>
+<section id="pointing">
+<h3>Pointing</h3>
+<figure id="id5">
+<figcaption>
+<p>Axis constraint in action.</p>
+</figcaption>
+</figure>
+<p>Holding <kbd>MMB</kbd> after starting a transformation lets you select an axis to constrain to.
+A visual option to constrain the translation will be available,
+showing the three axes in the 3D Viewport space. A dotted white line is used as a pointer.
+The axis of choice to confirm the operation
+will depend on the highlighted axis about which the <kbd>MMB</kbd> is released.</p>
+<p>When you already moved the mouse in the desired direction,
+pressing <kbd>MMB</kbd> will lock to the axis which was pointed at.</p>
+</section>
+</section>
+<section id="axis-locking-types">
+<h2>Axis Locking Types</h2>
+<section id="id1">
+<h3>Axis Locking</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object and Edit Modes (move, rotate, scale, extrude)</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>X</kbd>, <kbd>Y</kbd>, <kbd>Z</kbd> or <kbd>MMB</kbd> after moving the mouse in the desired direction.</p>
+</dd>
+</dl>
+</div>
+<p>Axis locking limits the transformation to a single axis (or forbids transformations along two axes).
+An object, face, vertex or other selectable item will only be able to move,
+scale or rotate in a single dimension.</p>
+</section>
+<section id="plane-locking">
+<h3>Plane Locking</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object and Edit Modes (move, scale)</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>X</kbd></kbd>, <kbd><kbd>Shift</kbd>-<kbd>Y</kbd></kbd>, <kbd><kbd>Shift</kbd>-<kbd>Z</kbd></kbd> or <kbd><kbd>Shift</kbd>-<kbd>MMB</kbd></kbd>
+after moving the mouse in the desired direction.</p>
+</dd>
+</dl>
+</div>
+<figure id="id6">
+<figcaption>
+<p>Plane locking.</p>
+</figcaption>
+</figure>
+<p>Plane locking locks the transformation to <em>two</em> axes
+(or forbids transformations along one axis),
+thus creating a plane in which the element can be moved or scaled freely.
+Plane locking only affects translation and scaling.</p>
+<p>Note that for rotation, both axis and plane locking have the same effect because a rotation is
+always constrained around one axis.
+<em>Trackball</em> type rotations <kbd><kbd>R</kbd> <kbd>R</kbd></kbd> cannot be locked at all.</p>
+</section>
+<section id="axis-locking-modes">
+<h3>Axis Locking Modes</h3>
+<p>A single key press constrains movement to the current transform orientation selection.
+A second key press of the <em>same</em> key constrains movement to the corresponding <em>Global</em> axis
+(except if the transform orientation is set to <em>Global</em>, in which case the <em>Local</em> orientation is used).
+A third key press of the same key removes constraints.</p>
+<p>The orientation can be set
+in the <a href="../../../../../editors/3dview/controls/orientation.html">Transform Orientation</a>
+selector of the 3D Viewport header.</p>
+<p>For example, if the current transform orientation is set to <em>Normal</em>,
+pressing <kbd>G</kbd> to start translation, followed by <kbd>Z</kbd> will lock translation
+in the Z direction relative to the <em>Normal</em> orientation, pressing <kbd>Z</kbd>
+again will lock translation to the Z axis relative to the <em>Global</em> orientation.
+Pressing <kbd>Z</kbd> again will remove all constraints.
+The current mode will be displayed in the left-hand side of the 3D Viewport header.</p>
+<table id="id7">
+<caption>Axis locking modes.</caption>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Z axis locking in Global orientation.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Z axis locking in Local orientation.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Z axis locking in Global orientation with vertex selection.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Z axis locking in Normal orientation with vertex selection.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As can be seen in the <em>Axis locking modes</em> image,
+the direction of the transform also takes into account the selection.</p>
+<p>Note that using a locked axis does not prevent you from using the keyboard to enter
+<a href="numeric_input.html">numeric transformation</a> values.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

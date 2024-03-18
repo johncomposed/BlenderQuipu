@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Tools &gt; Extrude Region</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Extrude Region</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="extrude-region">
+<h1>Extrude Region</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Extrude Region</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>E</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Extrusion tools duplicate vertices, while keeping the new geometry connected with the original vertices.
+Vertices are turned into edges and edges will form faces.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Single vertex extruded.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Single edge extruded.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This tool is of paramount importance for creating new geometry.
+It allows you to create parallelepipeds from rectangles and cylinders from circles,
+as well as easily creating such things as tree limbs.</p>
+<p>The axis on which vertices and edges are extruded along can be set interactively.
+Faces are extruded by default along their averaged normal.
+The extrusion can be limited to a single axis by specifying an axis;
+see <a href="../../../scene_layout/object/editing/transform/control/axis_locking.html">Axis Locking</a>.</p>
+<p>The extrude tools differentiate in how the new geometry is connected in itself.</p>
+<p>Only the border loop gets extruded.
+The inner region of the selection gets moved unchanged with the extrusion.</p>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Selected face.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>During extrude.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Set to Z axis.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="details">
+<h2>Details</h2>
+<p>Although the process is quite intuitive,
+the principles behind <em>Extrude</em> are fairly elaborate as discussed below:</p>
+<ul>
+<li><p>First, the algorithm determines the outside edge loop of the extrude; that is,
+which among the selected edges will be changed into faces. By default (see below),
+the algorithm considers edges belonging to two or more selected faces as internal, and hence not part of the loop.</p></li>
+<li><p>The edges in the edge loop are then changed into faces.</p></li>
+<li><p>If the edges in the edge loop belong to only one face in the complete mesh,
+then all of the selected faces are duplicated and linked to the newly created faces. For example,
+rectangles will result in parallelepipeds during this stage.</p></li>
+<li><p>In other cases, the selected faces are linked to the newly created faces but not duplicated.
+This prevents undesired faces from being retained “inside” the resulting mesh.
+This distinction is extremely important since it ensures the construction of consistently coherent,
+closed volumes at all times when using <em>Extrude</em>.</p></li>
+<li><p>When extruding completely closed volumes (like e.g. a cube with all its six faces),
+extrusion results merely in a duplication, as the volume is duplicated, without any link to the original one.</p></li>
+<li><p>Edges not belonging to selected faces, which form an “open” edge loop,
+are duplicated and a new face is created between the new edge and the original one.</p></li>
+<li><p>Single selected vertices which do not belong to selected edges
+are duplicated and a new edge is created between the two.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

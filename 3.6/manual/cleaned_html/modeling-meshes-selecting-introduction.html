@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Selecting &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Meshes</a></li>
+<li><a href="index.html">Selecting</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>There are many ways to select elements, and it depends on what <em>Mesh Select Mode</em>
+you are in as to what selection tools are available.
+First we will go through these modes and after that a look is taken at basic selection tools.</p>
+<section id="selection-modes">
+<h2>Selection Modes</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>3D Viewport Header ‣ Select Mode</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>
+(<kbd>Shift</kbd> <a href="#multiple-selection-modes">Multiple Selection Modes</a>,
+<kbd>Ctrl</kbd> <a href="#expand-contract-selection">Expand/Contract Selection</a>).</p>
+</dd>
+</dl>
+</div>
+<p>In <em>Edit Mode</em> there are three different selection modes.
+You can enter the different modes by selecting one of the three buttons in the header.</p>
+<figure id="id2">
+<figcaption>
+<p>Edit Mode selection buttons from right to left: Vertex, Edge, Face.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Vertex</dt><dd><p>In this mode vertices are shown as points.
+Selected vertices are displayed in orange, unselected vertices in black,
+and the active or last selected vertex in white.</p>
+</dd>
+<dt>Edge</dt><dd><p>In this mode the vertices are not shown.
+Instead the selected edges are displayed in orange,
+unselected edges black, and the active or last selected edge in white.</p>
+</dd>
+<dt>Face</dt><dd><p>In this mode the faces are displayed with a selection point in the middle which is used for selecting a face.
+Selected faces and their selection point are displayed in orange,
+unselected faces are displayed in black, and the active or last selected face is highlighted in white.</p>
+</dd>
+</dl>
+<p>When using these buttons, you can make use of modifier keys, see: <a href="#switching-select-mode">Switching Select Mode</a>.</p>
+<p>Almost all tools are available in all three mesh selection modes.
+So you can <em>Rotate</em>, <em>Scale</em>, <em>Extrude</em>, etc. in all modes.
+Of course rotating and scaling a <em>single</em> vertex will not do anything useful
+(<em>without</em> setting the pivot point to another location), so some tools
+are more or less applicable in some modes.</p>
+<p>See Fig. <a href="#fig-mesh-select-intro-selection-modes">Selection modes.</a> for examples of the different modes.</p>
+<section id="multiple-selection-modes">
+<h3>Multiple Selection Modes</h3>
+<p>By holding <kbd><kbd>Shift</kbd>-<kbd>LMB</kbd></kbd> when selecting a selection mode,
+you can enable multiple <em>Selection Modes</em> at once.
+This allows you to quickly select vertices, edges, or faces,
+without first having to switch mode.</p>
+<table id="id3">
+<caption>Selection modes.</caption>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Vertex mode example.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Edge mode example.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Face mode example.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Mixed mode example.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="switching-select-mode">
+<h3>Switching Select Mode</h3>
+<p>When switching modes in an “ascendant” way (i.e. from simpler to more complex),
+from <em>Vertices</em> to <em>Edges</em> and from <em>Edges</em> to <em>Faces</em>,
+the selected parts will still be selected if they form a complete element in the new mode.</p>
+<p>For example, if all four edges in a face are selected,
+switching from <em>Edges</em> mode to <em>Faces</em> mode will keep the face selected.
+All selected parts that do not form a complete set in the new mode will be unselected.</p>
+<table>
+<tbody>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Edge mode, the initial selection.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Switching to Face mode.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Hence, switching in a “descendant” way (i.e. from more complex to simpler),
+all elements defining the “high-level” element (like a face) will be selected
+(the four vertices or edges of a quadrangle, for example).</p>
+<section id="expand-contract-selection">
+<h4>Expand/Contract Selection</h4>
+<p>By holding <kbd>Ctrl</kbd> when selecting a higher selection mode,
+all elements touching the current selection will be added,
+even if the selection does not form a complete higher element.
+Or contracting the selection when switching to a lower mode.</p>
+<table>
+<tbody>
+<tr><td><figure id="id10">
+<figcaption>
+<p>Vertex mode, the initial selection.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Expanding to Edge mode.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="x-ray">
+<h2>X-Ray</h2>
+<p>The <a href="../../../editors/3dview/display/shading.html#dview-shading-xray">X-Ray</a> setting is not just for shading, it impacts selection too.
+When enabled, selection isn’t occluded by the objects geometry (as if the object was solid).</p>
+<table>
+<tbody>
+<tr><td><figure id="id12">
+<figcaption>
+<p>X-ray enabled.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id13">
+<figcaption>
+<p>X-ray disabled.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="select-menu">
+<h2>Select Menu</h2>
+<dl>
+<dt>All <kbd>A</kbd></dt><dd><p>Select all.</p>
+</dd>
+<dt>None <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd></dt><dd><p>Select none.</p>
+</dd>
+<dt>Inverse <kbd><kbd>Ctrl</kbd>-<kbd>I</kbd></kbd></dt><dd><p>Selects all the geometry that is not selected, and deselect currently selected components.</p>
+</dd>
+</dl>
+<dl>
+<dt><a href="../../../interface/selecting.html#tool-select-box">Box Select</a> <kbd>B</kbd></dt><dd><p>Interactive box selection.</p>
+</dd>
+<dt><a href="../../../interface/selecting.html#tool-select-circle">Circle Select</a> <kbd>C</kbd></dt><dd><p>Interactive circle selection.</p>
+</dd>
+<dt><a href="../../../interface/selecting.html#tool-select-lasso">Lasso Select</a></dt><dd><p>Interactive free-form selection.</p>
+</dd>
+</dl>
+<dl>
+<dt><a href="random.html#bpy-ops-mesh-select-random">Select Random</a></dt><dd><p>Selects a random group of vertices, edges, or faces, based on a percentage value.</p>
+</dd>
+<dt><a href="checker_deselect.html#bpy-ops-mesh-select-nth">Checker Deselect</a></dt><dd><p>Deselect alternate elements relative to the active item.</p>
+</dd>
+</dl>
+<dl>
+<dt>Select Sharp Edges</dt><dd><p>This tool selects all edges between two faces forming an angle greater than the angle value,
+where an increasing angle selects sharper edges.</p>
+</dd>
+</dl>
+<dl>
+<dt><a href="similar.html#bpy-ops-mesh-select-similar">Select Similar</a> <kbd><kbd>Shift</kbd>-<kbd>G</kbd></kbd></dt><dd><p>Select elements similar to the current selection.</p>
+</dd>
+</dl>
+<dl>
+<dt><a href="all_by_trait.html">Select All by Trait</a></dt><dd><p>Select geometry by querying its characteristics.</p>
+</dd>
+</dl>
+<dl>
+<dt>Select More/Less</dt><dd><dl>
+<dt>More <kbd><kbd>Ctrl</kbd>-<kbd>NumpadPlus</kbd></kbd></dt><dd><p>Expands the selection to the adjacent elements of the selection type.</p>
+</dd>
+<dt>Less <kbd><kbd>Ctrl</kbd>-<kbd>NumpadMinus</kbd></kbd></dt><dd><p>Contracts the selection from the adjacent elements of the selection type.</p>
+</dd>
+<dt>Next Active <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>NumpadPlus</kbd></kbd></dt><dd><p>This uses selection history to select the next vertex, edge, or face based on surrounding topology.</p>
+</dd>
+<dt>Previous Active <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>NumpadMinus</kbd></kbd></dt><dd><p>Select previous just removes the last selected element.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>Select Loops</dt><dd><dl>
+<dt><a href="loops.html#bpy-ops-mesh-loop-multi-select">Edge Loops</a></dt><dd><p>Select connected edges.</p>
+</dd>
+<dt><a href="loops.html#modeling-meshes-selecting-face-loops">Face Loops</a></dt><dd><p>Select connected faces.</p>
+</dd>
+<dt><a href="loops.html#modeling-meshes-selecting-edge-rings">Edge Rings</a></dt><dd><p>Select connected edge ring.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>Select Linked</dt><dd><dl>
+<dt><a href="linked.html#bpy-ops-mesh-select-linked">Select Linked</a></dt><dd><p>Selects all components that are connected to the current selection.</p>
+</dd>
+<dt><a href="linked.html#bpy-ops-mesh-shortest-path-select">Shortest Path</a></dt><dd><p>Path between two selected elements.</p>
+</dd>
+<dt>Linked Flat Faces</dt><dd><p>Select connected faces based on a threshold of the angle between them.
+This is useful for selecting faces that are planar.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>Select Side of Active</dt><dd><p>Selects all vertices on the mesh in a single axis relative to the active vertex.
+In Vertex selection mode only.</p>
+</dd>
+<dt>Select Mirror <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>M</kbd></kbd></dt><dd><p>Select mesh items at the mirrored location across the chosen axis.</p>
+</dd>
+</dl>
+</section>
+<section id="known-issues">
+<h2>Known Issues</h2>
+<section id="dense-meshes">
+<h3>Dense Meshes</h3>
+<p>Selecting dense meshes with X-Ray disabled, has a limitation where dense meshes may not have
+all the elements selected.
+When selecting regions with Box, Circle and Lasso select, vertices may overlap each other causing
+some vertices not to be selected.
+This is a limitation with the current selection method, you may workaround this by zooming in or enabling X-Ray.</p>
+</section>
+<section id="n-gons-in-face-select-mode">
+<h3>N-Gons in Face Select Mode</h3>
+<figure id="id14">
+<figcaption>
+<p>N-gon face having its center dot inside another face.</p>
+</figcaption>
+</figure>
+<p>As already noted, in X-Ray and Wireframe mode faces are marked with a dot in the middle.
+With n-gons that can lead in certain cases to a confusing display.
+The example shows the center dot of the U-shaped n-gon being inside of the oblong face inside the “U”.
+It is not easy to identify which dot belongs to which face (the orange dot in the image is the object origin).</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

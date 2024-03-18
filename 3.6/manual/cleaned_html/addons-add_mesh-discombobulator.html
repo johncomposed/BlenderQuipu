@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Add Mesh &gt; Discombobulator</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Add Mesh</a></li>
+<li>Discombobulator</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="discombobulator">
+<h1>Discombobulator</h1>
+<p>This add-on creates a greeble object based on selected faces.
+It quickly creates science fiction style panels across your mesh.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Add Mesh then Discombobulator to enable the script.</p></li>
+</ul>
+</section>
+<section id="interface">
+<h2>Interface</h2>
+<p>Located in the 3D Viewport ‣ Add ‣ Mesh menu.</p>
+<p>Discombobulator works in mesh Object Mode and mesh Edit Mode.</p>
+</section>
+<section id="instructions">
+<h2>Instructions</h2>
+<ol>
+<li><p>Select the quad faces you want to add greebles to.</p></li>
+<li><p>3D Viewport ‣ Add ‣ Mesh ‣ Discombobulator.</p></li>
+<li><p>Now you will see the interface but nothing happens to the mesh.</p></li>
+<li><p>It’s useful at this point to read the <em>Usage Information</em> at the top of the panel.</p></li>
+<li><p>With the default settings press <em>OK</em> and you will see a new mesh object created that has raised areas.</p></li>
+<li><p>Let’s look at the settings below.</p></li>
+</ol>
+<section id="protrusions-settings">
+<h3>Protrusions Settings</h3>
+<dl>
+<dt>Make Protrusions</dt><dd><p>This checkbox turns on the functions for protrusions.
+If you turn it off, nothing will happen when you run the script.
+You may want to turn Protrusions off if you are using only the Doodads function described further below.</p>
+</dd>
+<dt>Min/Max Height</dt><dd><p>Adjust the height of the protrusions, you can use negative and positive values.
+The negative values will create the protrusions on the opposite side of the selected face(s).</p>
+</dd>
+<dt>Min/Max Taper</dt><dd><p>Adjust the taper of the protrusions. This will affect the pointiness of the protrusions.</p>
+</dd>
+<dt>1, 2, 3, 4</dt><dd><p>These checkboxes provide options for the subdivision of the faces or the amount of protrusions per face.
+Based on random, if you have all selected, each face will have either 1, 2, 3 or 4 protrusions.
+Use only one or any combination and the faces will only have your selected value(s).</p>
+</dd>
+<dt>Repeat Protrusions</dt><dd><p>This button creates extra levels of protrusions built on top of the first set of protrusions.
+It’s important not to set this too high as it may take time to compute.
+Note also that repeating protrusions is based on face normals and
+will create protrusions on all faces created in the previous iteration.</p>
+</dd>
+</dl>
+</section>
+<section id="doodads-settings">
+<h3>Doodads Settings</h3>
+<p>This checkbox allows you to use your own mesh object and have it applied on top of the protrusions.</p>
+<p>Doodads can be a little tricky to set up:</p>
+<ol>
+<li><p>Select the object(s) you want to use as a doodad.</p></li>
+<li><p>Run Discombobulator and press <em>Pick Doodad</em>.</p></li>
+<li><p>Select your mesh to scatter doodads on and run Discombobulator.</p></li>
+</ol>
+</section>
+<section id="materials-settings">
+<h3>Materials Settings</h3>
+<p>These settings allow you to add materials to the sides and tops of the protrusions.</p>
+<ol>
+<li><p>It’s best to set up your materials first. Add two different materials to your mesh (two materials slots).</p></li>
+<li><p>Number 0 will be the first slot in your materials, number 1 will be the second slot.</p></li>
+<li><p>Run Discombobulator and you can pick the material for the top or sides.</p></li>
+</ol>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Add Mesh</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Add Greeble type effect to a mesh.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport ‣ Add ‣ Mesh</p>
+</dd>
+<dt>File:</dt>
+<dd><p>add_mesh_discombobulator folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Evan J. Rosky (syrux)</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>To Do</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Community</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

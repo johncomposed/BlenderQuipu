@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Deform &gt; Hooks</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>Hook Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="hook-modifier">
+<h1>Hook Modifier</h1>
+<p>The <em>Hook</em> modifier is used to deform a mesh, curve or lattice using another object
+(usually an empty or a bone but it can be any object).
+As an object specified as hook moves, it pulls vertices or control points from the geometry with it.
+You can think of it as animated
+<a href="../../../editors/3dview/controls/proportional_editing.html">Proportional Editing</a>.</p>
+<p>While hooks do not give you the fine control over vertices movement that shape keys do,
+they have the advantage that you can select vertices directly for manipulation.</p>
+<p>To assign selected vertices (in Edit Mode) you can use the <em>Assign</em> button on the modifier panel
+or use the <a href="../../meshes/editing/vertex/hooks.html#bpy-ops-object-hook-add-selob">Add Hook</a> menu.</p>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Hook modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Object</dt><dd><p>The name of the object to hook vertices to.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>Allows you to define the influence per vertex.</p>
+<p>Useful when you want something other than a spherical field of influence.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+<dt>Strength</dt><dd><p>Adjust this hooks influence on the vertices, were (0.0 to 1.0) (no change to fully follows the hook).</p>
+<p>Since multiple hooks can work on the same vertices, you can weight the influence of a hook using this property.</p>
+</dd>
+</dl>
+<p>The following settings are only available in Edit Mode:</p>
+<dl>
+<dt>Reset</dt><dd><p>Recalculate and clear the offset transform of the hook.</p>
+</dd>
+<dt>Recenter</dt><dd><p>Set the hook center to the 3D cursor position.</p>
+</dd>
+<dt>Select</dt><dd><p>Select the vertices affected by this hook.</p>
+</dd>
+<dt>Assign</dt><dd><p>Assigns selected vertices to this hook.</p>
+</dd>
+</dl>
+<div>
+<p>Warning</p>
+<p>The Hook Modifier stores vertex indices from the original mesh to determine what to affect.
+This means that modifiers that generate geometry, like <em>Subdivision Surface</em>,
+should always be put <strong>after</strong> the <em>Hook</em> one in the stack.
+Otherwise, the generated geometry will be left out of the hook’s influence.</p>
+</div>
+<section id="falloff">
+<h3>Falloff</h3>
+<dl>
+<dt>Type</dt><dd><p>This can be used to adjust the kind of influence curve that the hook has on the mesh.
+You can also define a custom curve to get a much higher level of control.</p>
+</dd>
+<dt>Radius</dt><dd><p>The size of the hooks influence.</p>
+</dd>
+<dt>Uniform Falloff</dt><dd><p>This setting is useful when using hooks on scaled objects,
+especially in cases where non-uniform scale would stretch the result of the hook.</p>
+<p>This is especially useful for lattices, where it is common to use non-uniform scaling.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id2">
+<figcaption>
+<p>Empty used as Hook to deform a subdivided cube.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

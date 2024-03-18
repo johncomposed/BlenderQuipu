@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Hair &gt; Guides &gt; Create Guide Index Map</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Hair Nodes</a></li>
+<li><a href="index.html">Hair Guides Nodes</a></li>
+<li>Create Guide Index Map</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="create-guide-index-map">
+<h1>Create Guide Index Map</h1>
+<p>Creates an integer attribute named <code>guide_curve_index</code> that stores
+the nearest guide curve for every curve to its nearest guide via index.</p>
+<p>Other nodes in the <a href="index.html">Hair Guides Nodes</a>
+category can generate guide maps themselves for convenience, but the behavior is
+always the same as this node.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p><strong>Geometry</strong></p>
+<dl>
+<dt>Guides</dt><dd><p>Guide Curves or Points used for the selection of Guide Curves.</p>
+</dd>
+<dt>Guide Distance</dt><dd><p>Minimum distance between two guides.</p>
+</dd>
+<dt>Guide Mask</dt><dd><p>Mask for which curve are eligible to be selected as guides.</p>
+</dd>
+<dt>Group ID</dt><dd><p>ID to group together curves for guide map creation.
+Curves will only choose a guide with the same ID value.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Geometry</dt><dd><p>Output geometry including the new map attribute and the guide selection
+<a href="../../attributes_reference.html#anonymous-attributes">anonymous attribute</a> as well. This geometry
+includes the guide curves, they are not separated.</p>
+</dd>
+<dt>Guide Curves</dt><dd><p>Output geometry including only the selected guide curves.</p>
+</dd>
+<dt>Guide Index</dt><dd><p>The index of the closest curve with the same <em>Group ID</em> value.</p>
+</dd>
+<dt>Guide Selection</dt><dd><p>A selection in the <em>Geometry</em> output set to true for only the curves
+that were chosen as guides.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

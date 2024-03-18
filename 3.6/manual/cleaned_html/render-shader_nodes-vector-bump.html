@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Vector &gt; Bump</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Vector</a></li>
+<li>Bump Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="bump-node">
+<h1>Bump Node</h1>
+<p>The <em>Bump</em> node generates a perturbed normal from a height texture, for bump mapping.
+The height value will be sampled at the shading point and two nearby points
+on the surface to determine the local direction of the normal.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Strength</dt><dd><p>Strength of the bump mapping effect, interpolating between no bump mapping and full bump mapping.</p>
+</dd>
+<dt>Distance</dt><dd><p>Multiplier for the height value to control the overall distance for bump mapping.</p>
+</dd>
+<dt>Height</dt><dd><p>Scalar value giving the height offset from the surface at the shading point; this is where you plug in textures.</p>
+</dd>
+<dt>Normal</dt><dd><p>Standard normal input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Invert</dt><dd><p>Invert the bump mapping, to displace into the surface instead of out.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Normal</dt><dd><p>Standard normal output.</p>
+</dd>
+</dl>
+<div>
+<p>Tip</p>
+<p>If the <em>Height</em> input is not connected, the node becomes a <a href="../../cycles/optimizations/nodes.html">no-op</a>
+that outputs its <em>Normal</em> input as is, or defaults to the geometry normal if not connected. Routing a node
+group input via a no-op Bump node before doing math effectively makes it default to normal.</p>
+</div>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>The above node setup will only bump the diffuse part of the shader,
+simulating a bumpy diffuse surface coated with a smooth glossy “glaze” layer.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

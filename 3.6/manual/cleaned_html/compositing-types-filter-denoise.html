@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Filter &gt; Denoise</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Filter Nodes</a></li>
+<li>Denoise Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="denoise-node">
+<h1>Denoise Node</h1>
+<p>The Denoise node is used to denoise renders from <a href="../../../render/cycles/index.html">Cycles</a>
+and other ray tracing renderers. This helps to significantly reduce render time by
+rendering with fewer samples.</p>
+<p>It uses <a href="https://www.openimagedenoise.org/">Open Image Denoise</a>,
+which transforms noisy images into clean images with machine learning.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Noisy image input.</p>
+</dd>
+<dt>Normal</dt><dd><p>Optional normal render pass to better preserve detail.
+For Cycles, it is recommended to use the Denoising Normal render pass,
+which is available when enabling the Denoising Data passes.</p>
+</dd>
+<dt>Albedo</dt><dd><p>Optional albedo render pass to better preserve detail.
+For Cycles, it is recommended to use the Denoising Albedo render pass,
+which is available when enabling the Denoising Data passes.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Prefilter</dt><dd><dl>
+<dt>None:</dt>
+<dd><p>Does not apply any prefiltering to the input passes. This option retains the most detail and
+is the fastest, but assumes the input passes are noise free which may require a high sample
+count. If the input passes are not noise free, then noise will remain in the image after denoising.</p>
+</dd>
+<dt>Fast:</dt>
+<dd><p>Assumes the input passes are not noise free, yet does not apply prefiltering to the input passes.
+This option is faster than <em>Accurate</em> but produces a blurrier result.</p>
+</dd>
+<dt>Accurate:</dt>
+<dd><p>Prefilters the input passes before denoising to reduce noise. This option usually produces
+more detailed results than <em>Fast</em> with increased processing time.</p>
+</dd>
+</dl>
+</dd>
+<dt>HDR</dt><dd><p>Preserve colors outside the 0 to 1 range.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Denoised image output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<figure id="id1">
+<figcaption>
+<p>Render before and after denoising, with a very low number of samples as input.
+As more samples are used, the denoiser will be able to better preserve detail.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

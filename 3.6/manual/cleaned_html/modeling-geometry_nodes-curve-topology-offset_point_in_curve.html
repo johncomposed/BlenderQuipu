@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Topology &gt; Offset Point In Curve</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Topology Nodes</a></li>
+<li>Offset Point in Curve Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="offset-point-in-curve-node">
+<h1>Offset Point in Curve Node</h1>
+<p>The <em>Offset Point in Curve</em> node retrieves other points in the same curve as
+the input control point. This is like starting at a specific control point and
+walking along neighboring points toward the start or end of the curve.</p>
+<p>Conceptually the operation is similar to the
+<a href="../../mesh/topology/offset_corner_in_face.html">Offset Corner in Face Node</a>,
+but the point index doesn’t wrap around to the other end of the curve unless it is cyclic.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Point Index</dt><dd><p>The index of the input control point.</p>
+<div>
+<p>Note</p>
+<p>By default this uses the <a href="../../geometry/read/input_index.html">index</a>
+from the field context, which makes it important that the node is evaluated on
+the point domain.</p>
+</div>
+</dd>
+<dt>Offset</dt><dd><p>The number of points to move around the curve before finding the result.
+If the curve is <a href="../read/is_spline_cyclic.html">cyclic</a>
+and the offset goes past the start or end point of the curve, it will wrap around
+to the other side.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Is Valid Offset</dt><dd><p>Whether the input control point plus the offset is a valid index of the original curve.
+Any offset in a cyclic curve is always valid.</p>
+</dd>
+<dt>Point Index</dt><dd><p>The index of the offset curve point.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

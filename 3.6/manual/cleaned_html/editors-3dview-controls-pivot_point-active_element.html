@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Controls &gt; Pivot Point &gt; Active Element</title></head>
+<body><ul>
+<li><a href="../../../index.html">Editors</a></li>
+<li><a href="../../index.html">3D Viewport</a></li>
+<li><a href="../index.html">Controls</a></li>
+<li><a href="index.html">Pivot Point</a></li>
+<li>Active Element</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="active-element">
+<h1>Active Element</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode and Edit Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p> Pivot Point ‣ Active Element</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Period</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Places the pivot point at the active element, which is the element that was selected most recently.</p>
+<section id="in-object-mode">
+<h2>In Object Mode</h2>
+<p>When in Object Mode,
+rotation and scaling happen around the origin of the active object,
+which is the element with a lighter outline than the others.</p>
+<p>The effect of the pivot point is shown in the image below, where the active object (the cube)
+remains in the same location while the others move.</p>
+<figure id="id2">
+<figcaption>
+<p>Starting point, rotation, and scaling.</p>
+</figcaption>
+</figure>
+</section>
+<section id="in-edit-mode">
+<h2>In Edit Mode</h2>
+<p>When in Edit Mode, rotation and scaling happen around the centerpoint of
+the active element, which is the element with a white outline.
+That centerpoint remains in the same location while everything else
+is transformed around it.</p>
+<p>The image below illustrates rotation around the active vertex,
+edge, and face. Each time, the active element rotates in place,
+while the others “orbit” around it. In the case of vertices,
+the active vertex is not changed at all, as a vertex on its own
+is just a point that has no concept of rotation.</p>
+<figure id="id3">
+<figcaption>
+<p>Left column: starting situation, right column: after rotation.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

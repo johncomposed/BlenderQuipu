@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Import Export &gt; Mesh Stl</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Import-Export</a></li>
+<li>STL</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="stl">
+<h1>STL</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Import-Export</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>File ‣ Import/Export ‣ Stl (.stl)</p>
+</dd>
+</dl>
+</div>
+<p>This format is useful if you intend to import/export the files for CAD software.
+It is also commonly used for loading into 3D printing software.</p>
+<div>
+<p>Warning</p>
+<p>Currently the script does not handle importing or exporting of normals
+and does not handle endian-ness, there is nothing in the STL specification about it.</p>
+</div>
+<section id="importing">
+<h2>Importing</h2>
+<div>
+<p>Note</p>
+<p>The STL importer Add-on is deprecated and being replaced with the much faster
+<a href="../../files/import_export/stl.html#bpy-ops-wm-stl-import">Integrated STL Importer</a>.</p>
+</div>
+<section id="properties">
+<h3>Properties</h3>
+<section id="transform">
+<h4>Transform</h4>
+<dl>
+<dt>Scale</dt><dd><p>Value by which to scale the imported objects in relation to the world’s origin.</p>
+</dd>
+<dt>Scene Unit</dt><dd><p>Apply current scene’s unit (as defined by unit scale) to imported data.</p>
+</dd>
+<dt>Forward / Up Axis</dt><dd><p>Since many applications use a different axis for pointing upwards, these are axis conversion for these settings,
+Forward and up axes – By mapping these to different axes you can convert rotations
+between applications default up and forward axes.</p>
+<p>Blender uses Y forward, Z up (since the front view looks along the +Y direction).
+For example, it is common for applications to use Y as the up axis, in that case -Z forward, Y up is needed.</p>
+</dd>
+</dl>
+</section>
+<section id="geometry">
+<h4>Geometry</h4>
+<dl>
+<dt>Facet Normals</dt><dd><p>Use (import) facet normals (note that this will still give flat shading).</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="exporting">
+<h2>Exporting</h2>
+<section id="id2">
+<h3>Properties</h3>
+<dl>
+<dt>ASCII</dt><dd><p>TODO.</p>
+</dd>
+<dt>Batch Mode</dt><dd><p>TODO.</p>
+</dd>
+</dl>
+<section id="include">
+<h4>Include</h4>
+<dl>
+<dt>Selection Only</dt><dd><p>When checked, only selected objects are exported.
+Instanced objects, for example collections that are instanced in the scene,
+are considered ‘selected’ when their instancer is selected.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h4>Transform</h4>
+<dl>
+<dt>Scale</dt><dd><p>Value by which to scale the exported objects in relation to the world’s origin.</p>
+</dd>
+<dt>Scene Unit</dt><dd><p>Apply current scene’s unit (as defined by unit scale) to exported data.</p>
+</dd>
+<dt>Forward / Up Axis</dt><dd><p>Since many applications use a different axis for ‘Up’, these are axis conversion for these settings,
+Forward and Up axes – By mapping these to different axes you can convert rotations
+between applications default up and forward axes.</p>
+<p>Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
+For example, it’s common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h4>Geometry</h4>
+<dl>
+<dt>Apply Modifiers</dt><dd><p>Export objects using the evaluated mesh, meaning the resulting mesh after all
+<a href="../../modeling/modifiers/index.html">Modifiers</a> have been calculated.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>Use the operator to import ASCII or binary STL-files, you can select multiple files at once.
+For exporting you can select multiple objects and they will be exported as a single STL-file.
+You can select between ASCII/binary file format (binary is more compact).
+You can also choose to enable or disable the modifiers during the export.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

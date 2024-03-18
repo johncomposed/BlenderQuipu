@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Operations &gt; Subdivide Curve</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Operation Nodes</a></li>
+<li>Subdivide Curve Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="subdivide-curve-node">
+<h1>Subdivide Curve Node</h1>
+<p>The <em>Subdivide Curve</em> node adds more control points in between existing control points on the curve input.
+For Bézier and poly splines, the shape of the spline will not be changed at all.</p>
+<p>With Bézier curves, this can be used to increase the control on the shape of the curve
+while still having the higher-level provided by Bézier splines.
+Unlike the <a href="resample_curve.html">Resample Curve Node</a>, where they are converted to poly splines.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Cuts</dt><dd><p>The number of control points to create on the segment following each point.
+When the input is a field, the number of cuts for a segment is determined by
+the value of the field when evaluated at the previous point.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Distort &gt; Corner Pin</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Distort Nodes</a></li>
+<li>Corner Pin Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="corner-pin-node">
+<h1>Corner Pin Node</h1>
+<p>The Corner Pin node uses explicit corner values for a plane warp transformation.
+It works like the <a href="plane_track_deform.html">Plane Track Deform</a> node,
+but without using “plane track” data from the Movie Clip Editor.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+<dt>Corners</dt><dd><p>Four vector inputs to define the plane warping. (Z component of vector inputs is ignored.)</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output. (The image after distorting.)</p>
+</dd>
+<dt>Plane</dt><dd><p>A black-and-white alpha mask of the plane.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id1">
+<figcaption>
+<p>An example of the Corner Pin node.</p>
+</figcaption>
+</figure>
+<figure id="id2">
+<figcaption>
+<p>An example of the distorted image.</p>
+</figcaption>
+</figure>
+<p>In the example above, the image of the bird is distorted by the vectors specified by the Corner Pin node.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

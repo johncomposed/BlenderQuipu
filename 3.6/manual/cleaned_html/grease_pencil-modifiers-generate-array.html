@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modifiers &gt; Generate &gt; Array</title></head>
+<body><ul>
+<li><a href="../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li><a href="index.html">Generate</a></li>
+<li>Array Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="array-modifier">
+<h1>Array Modifier</h1>
+<p>The <em>Array</em> modifier creates an array of copies of the base object, with each copy being offset from
+the previous one in any of a number of possible ways.</p>
+<p>Useful for creating complex repetitive drawings.</p>
+<p>Multiple Array modifiers may be active for an object at the same time
+(e.g. to create complex three-dimensional constructs).</p>
+<div>
+<p>See also</p>
+<p>This documentation refers to the Array Modifier specific to the Grease Pencil object.
+For uses with other object types refer to the general <a href="../../../modeling/modifiers/generate/array.html">Array Modifier</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>The Array modifier.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Count</dt><dd><p>Total number of copies.</p>
+</dd>
+<dt>Material Override</dt><dd><p>Index of the material to use on duplicated strokes (0 use strokes original materials).</p>
+</dd>
+</dl>
+<section id="relative-offset">
+<h3>Relative Offset</h3>
+<dl>
+<dt>Factor X, Y, Z</dt><dd><p>Adds a translation equal to the object’s bounding box size along each axis,
+multiplied by a scaling factor, to the offset. X, Y and Z scaling factors can be specified.</p>
+</dd>
+</dl>
+</section>
+<section id="constant-offset">
+<h3>Constant Offset</h3>
+<dl>
+<dt>Factor X, Y, Z</dt><dd><p>Adds a constant translation component to the duplicate object’s offset.
+X, Y and Z constant components can be specified.</p>
+</dd>
+</dl>
+</section>
+<section id="object-offset">
+<h3>Object Offset</h3>
+<dl>
+<dt>Distance X, Y, Z</dt><dd><p>Adds a transformation taken from an object (relative to the current object) to the offset.
+It is good practice to use an empty object centered or near to the initial object.</p>
+</dd>
+</dl>
+</section>
+<section id="randomize">
+<h3>Randomize</h3>
+<dl>
+<dt>Offset X, Y, Z</dt><dd><p>Add random offset values to the copies.</p>
+</dd>
+<dt>Rotation X, Y, Z</dt><dd><p>Add random rotation values to the copies.</p>
+</dd>
+<dt>Scale X, Y, Z</dt><dd><p>Add random scale values to the copies.</p>
+</dd>
+<dt>Uniform Scale</dt><dd><p>Use the same random <em>Seed</em> for each scale axis in the copies for a uniform scale.</p>
+</dd>
+<dt>Seed</dt><dd><p><a href="../../../glossary/index.html#term-Seed">Seed</a> used by the pseudo-random number generator.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>The <em>Depth Order</em> used in the Grease Pencil object has an influence on
+the visualization of the strokes when using the Array modifier.
+See <a href="../../properties/strokes.html">Depth Order</a> for more information.</p>
+</div>
+</section>
+<section id="influence">
+<h3>Influence</h3>
+<p>See <a href="../introduction.html#grease-pencil-modifier-influence-filters">Influence Filters</a>.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

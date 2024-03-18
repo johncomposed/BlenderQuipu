@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Controls &gt; Buttons &gt; Fields</title></head>
+<body><ul>
+<li><a href="../../index.html">User Interface</a></li>
+<li>Fields</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="fields">
+<h1>Fields</h1>
+<section id="text-search-fields">
+<h2>Text &amp; Search Fields</h2>
+<figure id="id1">
+<figcaption>
+<p>A text and a search field.</p>
+</figcaption>
+</figure>
+<p>Text fields show a rounded rectangular border, and optionally an icon and/or text inside the border.
+Text fields store text strings, and provide the means to edit text
+by <a href="../../keymap/introduction.html">standard text editing shortcuts</a>.</p>
+<p>For text fields with an icon and pop-ups, see <a href="../templates/data_block.html#ui-data-id">Data ID</a>.</p>
+</section>
+<section id="number-fields">
+<h2>Number Fields</h2>
+<figure id="id2">
+<figcaption>
+<p>Number fields.</p>
+</figcaption>
+</figure>
+<p>Number fields store values and units.</p>
+<p>The first type of number field shows triangles pointing left (&lt;) and right (&gt;)
+on the sides of the field when mouse pointer is over the field.
+Sliders, a second type of number field, have a colored bar in the background
+to display values over a range, e.g. percentage values.</p>
+<p>The value can be edited in several ways:</p>
+<dl>
+<dt>Incremental Steps</dt><dd><p>To change the value in unit steps, click <kbd>LMB</kbd> on the small triangles
+(only available on first field type).
+You can also use <kbd><kbd>Ctrl</kbd>-<kbd>Wheel</kbd></kbd> while hovering over the field to edit the value.</p>
+</dd>
+<dt>Dragging</dt><dd><p>To change the value with the mouse, hold down <kbd>LMB</kbd> and drag to left or right.</p>
+<p>Hold <kbd>Ctrl</kbd> to snap to the discrete steps while dragging or <kbd>Shift</kbd> for precision input.</p>
+</dd>
+<dt>Keyboard Input</dt><dd><p>Press <kbd>LMB</kbd> or <kbd>Return</kbd> to enter value by typing it with keyboard.</p>
+<p>When entering values by keyboard, number fields work like text fields:</p>
+<ul>
+<li><p>Press <kbd>Return</kbd> or <kbd>LMB</kbd> outside the field to apply the change.</p></li>
+<li><p>Press <kbd>Esc</kbd> or <kbd>RMB</kbd> to cancel.</p></li>
+<li><p>Press <kbd>Tab</kbd> to jump to the next field or <kbd><kbd>Shift</kbd>-<kbd>Tab</kbd></kbd> to go to the previous field.</p></li>
+<li><p>Press <kbd>Minus</kbd> while hovering over a number field to negate the value.</p></li>
+</ul>
+</dd>
+</dl>
+<section id="multi-value-editing">
+<h3>Multi-Value Editing</h3>
+<figure id="id3">
+<figcaption>
+<p>Multi-value editing.</p>
+</figcaption>
+</figure>
+<p>You can edit multiple number fields at once by pressing down
+<kbd>LMB</kbd> on the first field, and then dragging vertically over
+the fields you want to edit. Finally you can either drag left or right to
+adjust value with the mouse, or release the <kbd>LMB</kbd> and type in a value.</p>
+</section>
+<section id="value-limits">
+<h3>Value Limits</h3>
+<p>Most numerical values are restricted by “soft limit” and “hard limit” value ranges.
+Changing values by dragging with the mouse is restricted to the “soft limit” value range.
+Input via keyboard will allow the use of wider value ranges, but never wider than the “hard limit”.</p>
+</section>
+<section id="expressions">
+<h3>Expressions</h3>
+<p>You can enter mathematical expressions into any number field.
+For example, enter <code>3*2</code> or <code>10/5+4</code> instead of <code>6</code>.
+Even constants like <code>pi</code> (3.142) or functions like <code>sqrt(2)</code> (square root of 2)
+may be used.</p>
+<div>
+<p>See also</p>
+<p>These expressions are evaluated by Python; for all available math expressions see:
+<a href="https://docs.python.org/3/library/math.html">Math module reference</a>.</p>
+</div>
+<section id="expressions-as-drivers">
+<h4>Expressions as Drivers</h4>
+<p>You may want your expression to be re-evaluated after it is entered.
+Blender supports this using <a href="../../../animation/drivers/index.html">Drivers</a> (a feature of the animation system).</p>
+<p>Expressions beginning with <code>#</code> have a special use.
+Instead of evaluating the value and discarding the expression,
+a driver is added to the property with the expression entered.</p>
+<p>The expression <code>#frame</code> is a quick way to map a value to the current frame,
+but more complex expressions like <code>#fmod(frame, 24) / 24</code> are also supported.</p>
+<p>This is simply a convenient shortcut to add drivers which can also be added via the <kbd>RMB</kbd> menu.</p>
+</section>
+</section>
+<section id="units">
+<h3>Units</h3>
+<p>As well as expressions, you can specify numbers and units.
+If no unit is given, then a default unit is applied.
+The unit system can be changed in <a href="../../../scene_layout/scene/properties.html#bpy-types-unitsettings">scene settings</a>.</p>
+<p>You can use either the unit abbreviation or the full name after the value.</p>
+<p>Examples of valid usage of length units include:</p>
+<table><tr><td><ul>
+<li><p><code>1cm</code></p></li>
+<li><p><code>1m 3mm</code></p></li>
+<li><p><code>1m, 3mm</code></p></li>
+</ul>
+</td><td><ul>
+<li><p><code>2ft</code></p></li>
+<li><p><code>3ft/0.5km</code></p></li>
+<li><p><code>2.2mm + 5' / 3" - 2yards</code></p></li>
+</ul>
+</td></tr></table>
+<div>
+<p>Note</p>
+<p>Using Units</p>
+<ul>
+<li><p>Decimal separator is optional.</p></li>
+<li><p>You can mix units, e.g. metric and imperial even though you can only show one at a time.</p></li>
+<li><p>Plurals of the names are recognized too, so <code>meter</code> and <code>meters</code> can both be used.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="color-fields">
+<h2>Color Fields</h2>
+<figure id="id4">
+<figcaption>
+<p>Color fields. With and without alpha.</p>
+</figcaption>
+</figure>
+<p>The color field stores a color value.
+Clicking on it with <kbd>LMB</kbd> opens the <a href="../templates/color_picker.html">Color Picker</a>.</p>
+<p>Color fields with an alpha channel are divided in half: on the left, the color is shown without an alpha channel,
+and on the right, it’s shown with an alpha channel over a checker pattern.</p>
+<p>Colors can be copied to other color fields by dragging and dropping.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

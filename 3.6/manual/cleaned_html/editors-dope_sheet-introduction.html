@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; Dope Sheet &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Editors</a></li>
+<li><a href="index.html">Dope Sheet</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<figure id="id1">
+<figcaption>
+<p>The Dope Sheet.</p>
+</figcaption>
+</figure>
+<p>The Dope Sheet gives the animator a birds-eye-view of the keyframes inside the scene.</p>
+<p>The Dope Sheet is inspired by classical hand-drawn animation process,
+in which animators will make use of a chart, showing exactly when each drawing,
+sound and camera move will occur, and for how long. This is called an exposure sheet or ‘dope sheet’.
+While CG foundations dramatically differ from classical hand-drawn animation,
+Blender’s <em>Dope Sheet</em> inherits a similar directive.</p>
+<section id="dope-sheet-modes">
+<h2>Dope Sheet Modes</h2>
+<figure id="id2">
+<figcaption>
+<p>Dope Sheet modes.</p>
+</figcaption>
+</figure>
+<p>While the Dope Sheet Mode allows you to edit multiple actions at once,
+the other ones are dedicated to view and edit specific data-blocks used in different context of animation.</p>
+<ul>
+<li><p>Dope Sheet</p></li>
+<li><p><a href="action.html">Action Editor</a></p></li>
+<li><p><a href="shape_key.html#dope-sheet-shape-key">Shape Key Editor</a></p></li>
+<li><p><a href="grease_pencil.html">Grease Pencil</a></p></li>
+<li><p><a href="shape_key.html#dope-sheet-mask">Mask</a></p></li>
+<li><p>Cache File: Alembic Todo 2.78.</p></li>
+</ul>
+</section>
+<section id="main-region">
+<h2>Main Region</h2>
+<section id="navigation">
+<h3>Navigation</h3>
+<p>As with most editors, you can:</p>
+<dl>
+<dt>Pan</dt><dd><p>Pan the view vertically (values) or horizontally (time) with click and drag (<kbd>MMB</kbd>).</p>
+</dd>
+<dt>Zoom</dt><dd><p>Zoom in and out with the mouse wheel (<kbd>Wheel</kbd>).</p>
+</dd>
+<dt>Scale View</dt><dd><p>Scale the view vertically or horizontally (<kbd><kbd>Ctrl</kbd>-<kbd>MMB</kbd></kbd>).</p>
+</dd>
+</dl>
+<p>In addition, you can also use the scrollbars to pan and zoom the view.</p>
+</section>
+<section id="keyframes">
+<h3>Keyframes</h3>
+<figure id="id3">
+<figcaption>
+<p>The Dope Sheet Editor with object channels.</p>
+</figcaption>
+</figure>
+<p>This area contains keyframes for all visible action channels.
+As with the other time-based editors, the X axis represents time.
+The Y axis represents a stack of action channels.</p>
+<p>On these channels lay the keyframes, which can show different information:</p>
+<table>
+<tbody>
+<tr><td><p>Gray</p></td>
+<td><p>Unselected</p></td>
+</tr>
+<tr><td><p>Yellow</p></td>
+<td><p>Selected</p></td>
+</tr>
+<tr><td><p>Diamond</p></td>
+<td><p>Free Keyframe Handle</p></td>
+</tr>
+<tr><td><p>Round</p></td>
+<td><p>Auto-Clamped Keyframe Handle</p></td>
+</tr>
+<tr><td><p>Circle</p></td>
+<td><p>Automatic Keyframe Handle</p></td>
+</tr>
+<tr><td><p>Square</p></td>
+<td><p>Vector Keyframe Handle</p></td>
+</tr>
+<tr><td><p>Rhombus</p></td>
+<td><p>Aligned Keyframe Handle</p></td>
+</tr>
+<tr><td><p>Various colors</p></td>
+<td><p>These represent custom keyframe tags set by the user (Key ‣ Keyframe Type)</p></td>
+</tr>
+<tr><td><p>Gray bar between keys</p></td>
+<td><p>Held key (the two keyframes are identical)</p></td>
+</tr>
+<tr><td><p>Green line between keys</p></td>
+<td><p>Fixed keyframe interpolation (set in Key ‣ Interpolation Mode)</p></td>
+</tr>
+<tr><td><p>Upwards arrow</p></td>
+<td><p>Maximum Extreme keyframe (visible if View ‣ Show Curve Extremes are enabled)</p></td>
+</tr>
+<tr><td><p>Downwards arrow</p></td>
+<td><p>Minimum Extreme keyframe (visible if View ‣ Show Curve Extremes are enabled)</p></td>
+</tr>
+</tbody>
+</table>
+<p>A diagonal hash fill in the background is used to display the
+<a href="../../animation/actions.html#bpy-types-action-use-frame-range">Manual Frame Range</a> of the action the channel belong to.</p>
+</section>
+<section id="selecting-keyframes">
+<h3>Selecting Keyframes</h3>
+<p>Selection tools are available in the Select menu in the header, and the main shortcuts are listed below:</p>
+<dl>
+<dt>Selecting</dt><dd><p>Click on a key to select it. Hold <kbd>Shift</kbd> to extend the current selection.</p>
+</dd>
+<dt>Box Selecting</dt><dd><p>Click and drag to box select multiple keyframes at once.
+You can hold <kbd>Shift</kbd> to extend or <kbd>Ctrl</kbd> to subtract from the current selection.</p>
+</dd>
+<dt>Select Lasso</dt><dd><p>See <a href="../../interface/selecting.html#tool-select-lasso">Select Lasso</a>.</p>
+</dd>
+<dt>Select/Deselect All</dt><dd><ul>
+<li><p>To select all keys, press <kbd>A</kbd>.</p></li>
+<li><p>To deselect all keys, press <kbd><kbd>Alt</kbd>-<kbd>A</kbd></kbd>.</p></li>
+<li><p>To inverse the selection, press <kbd><kbd>Ctrl</kbd>-<kbd>I</kbd></kbd>.</p></li>
+</ul>
+</dd>
+<dt>Before/After Current Frame <kbd>[</kbd>, <kbd>]</kbd></dt><dd><p>Select all to the right or left.
+Or hold <kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd></kbd> and click on either side of the Playhead.</p>
+</dd>
+</dl>
+<p>See the Select menu for a full list of selection tools.</p>
+</section>
+<section id="manipulating-keyframes">
+<h3>Manipulating Keyframes</h3>
+<p>Keyframe tools are available in the Key menu in the header, and the main shortcuts listed below:</p>
+<dl>
+<dt>Moving Keyframes</dt><dd><p>To move a single keyframe, click and drag on a key.
+To move multiple keyframes, make sure several keys are selected and press <kbd>G</kbd>.</p>
+</dd>
+<dt>Scaling Keyframes</dt><dd><p>To scale (stretch) selected keys, press <kbd>S</kbd>.</p>
+</dd>
+<dt>Extending Keyframes</dt><dd><p>To extend the time between two keys, select all with <kbd>A</kbd>,
+place the Playhead between two keyframes and press <kbd>E</kbd>.</p>
+</dd>
+</dl>
+<p>See the Key menu for a full list of selection tools.</p>
+</section>
+<section id="channels-region">
+<h3>Channels Region</h3>
+<figure id="id4">
+<figcaption>
+<p>The Action editor’s channels region.</p>
+</figcaption>
+</figure>
+<p>See <a href="../graph_editor/channels/index.html">Channels</a>.</p>
+</section>
+<section id="header">
+<h3>Header</h3>
+<p>Here you find the menus, a first group of controls related to the editor “mode”,
+a second one concerning the action data-blocks, and a few other tools
+(like the copy/paste buttons, and snapping type).</p>
+<section id="view-menu">
+<h4>View Menu</h4>
+<dl>
+<dt>Adjust Last Operation</dt><dd><p>Displays a pop-up panel to alter properties of the last
+completed operation. See <a href="../../interface/undo_redo.html#bpy-ops-screen-redo-last">Adjust Last Operation</a>.</p>
+</dd>
+</dl>
+<figure id="id5">
+<figcaption>
+<p>Handle types.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Show Handles and Interpolation</dt><dd><p>Instead of displaying all keyframes as diamonds, different icons are used to show the Bézier handle type.
+When curves use a different interpolation type, a line is shown between keys to highlight that.</p>
+<p>See <a href="../../animation/keyframes/introduction.html#keyframe-handle-display">Handles &amp; Interpolation Display</a>.</p>
+</dd>
+</dl>
+<figure id="id6">
+<figcaption>
+<p>Extreme markers.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Show Extremes</dt><dd><p>Detect keys where the curve changes direction based on comparing with the adjacent key values,
+and display that by changing the keyframe icons to resemble an arrow.
+A muted version of the icon is used if the curve overshoots the extreme,
+or for groups with different results for contained curves.</p>
+</dd>
+</dl>
+<p>See Graph editor’s <a href="../graph_editor/introduction.html#graph-view-menu">View Menu</a>.</p>
+</section>
+<section id="markers-menu">
+<h4>Markers Menu</h4>
+<p><a href="../../animation/markers.html">Markers</a> are used to denote frames with key points or significant events
+within an animation. Like with most animation editors, markers are shown at the bottom of the editor.</p>
+<figure id="id7">
+<figcaption>
+<p>Markers in animation editor.</p>
+</figcaption>
+</figure>
+<p>There are some options that are exclusive to the Dope Sheet editor:</p>
+<dl>
+<dt>Sync Markers</dt><dd><p>Sync Markers with keyframe edits.</p>
+</dd>
+<dt>Show Pose Markers</dt><dd><p>Available in <a href="action.html">Action</a> and <a href="shape_key.html">Shape Key</a> modes.
+Shows pose markers owned by the active action instead of the scene ones.</p>
+</dd>
+<dt>Make Markers Local</dt><dd><p>Available in <a href="action.html">Action</a> and <a href="shape_key.html">Shape Key</a> modes.
+Converts selected scene markers in pose markers, assigning them to the active action.</p>
+</dd>
+</dl>
+<p>For more information and the description of the other marker tools,
+see <a href="../../animation/markers.html#animation-markers-editing">Editing Markers</a>.</p>
+</section>
+<section id="key-menu">
+<h4>Key Menu</h4>
+<dl>
+<dt>Keyframe Type <kbd>R</kbd></dt><dd><p>Sets the <a href="../../animation/keyframes/introduction.html#keyframe-type">Keyframe Types</a> of the selected keyframes.</p>
+</dd>
+</dl>
+<p>See <a href="../graph_editor/fcurves/index.html">F-Curve</a>.</p>
+</section>
+<section id="filters">
+<h4>Filters</h4>
+<dl id="bpy-types-dopesheet-show-only-selected">
+<dt>Only Show Selected</dt><dd><p>Only include keyframes related to the selected item this item
+could be sequencer strips, nodes, objects, or any other type of data.</p>
+</dd>
+<dt>Show Hidden</dt><dd><p>Include keyframes from objects or bones that are not visible.</p>
+</dd>
+<dt>Only Show Errors</dt><dd><p>Only include curves and drivers that are disabled or have errors.
+Useful for debugging.</p>
+</dd>
+<dt>F-Curve Name Filter</dt><dd><p>Fuzzy/Multi-Word name filtering matches word snippets/partial words,
+instead of having to match everything. It breaks down the search text based on whitespace placement.
+e.g. “lo ro” will filter all location and rotation, while “lc rt” will <em>not</em> work.</p>
+</dd>
+<dt>Filter by Type</dt><dd><p>Filter curves by property type.</p>
+</dd>
+<dt>Filtering Collection</dt><dd><p>Select a collection to only show keyframes from objects contained in that collection.</p>
+</dd>
+<dt>Sort Data-Blocks</dt><dd><p>Objects data-blocks appear in alphabetical order, so that it is easier to find where they occur
+(as well as helping to keep the animation of related objects together in the NLA editor for instance).</p>
+<p>If you find that your playback speed suffers from this being enabled
+(it should only really be an issue when working with lots of objects in the scene),
+you can turn this off.</p>
+</dd>
+<dt>Summary</dt><dd><p>Toggles the “Dope Sheet Summary” channel at the top of the <a href="#channels-region">Channels Region</a>.
+This is used to give an overview of all the channels by combining all the actions into one channel.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="sidebar-region">
+<h3>Sidebar Region</h3>
+<section id="action-panel">
+<h4>Action Panel</h4>
+<figure id="id8">
+<figcaption>
+<p>Actions with and without a Manual Frame Range in Dope Sheet.</p>
+</figcaption>
+</figure>
+<p>When the editor is in the Action mode, or a channel belonging to an action is selected in
+Dope Sheet mode, this panel allows changing some settings of the selected action, specifically
+the <a href="../../animation/actions.html#bpy-types-action-use-frame-range">Manual Frame Range</a>.</p>
+</section>
+<section id="custom-properties">
+<h4>Custom Properties</h4>
+<p>Create and manage your own properties to store data in the action’s data block.
+See the <a href="../../files/custom_properties.html#files-data-blocks-custom-properties">Custom Properties</a> page for more information.</p>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

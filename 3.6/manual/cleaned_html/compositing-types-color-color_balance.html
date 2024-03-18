@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Color &gt; Color Balance</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Color Nodes</a></li>
+<li>Color Balance Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="color-balance-node">
+<h1>Color Balance Node</h1>
+<p>The Color Balance node can adjust the color and values of an image.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Factor</dt><dd><p>Controls the amount of influence the node exerts on the output image.</p>
+</dd>
+<dt>Color</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>Two different correction formulas could be selected.</p>
+<dl>
+<dt>Lift/Gamma/Gain</dt><dd><dl>
+<dt>Lift</dt><dd><p>Increases the value of dark colors.</p>
+</dd>
+<dt>Gamma</dt><dd><p>Adjusts midtones.</p>
+</dd>
+<dt>Gain</dt><dd><p>Adjusts highlights.</p>
+</dd>
+</dl>
+</dd>
+<dt>Offset/Power/Slope (ASC-CDL)</dt><dd><dl>
+<dt>Offset</dt><dd><p>Summand. (Adjusts the overall brightness.)</p>
+<dl>
+<dt>Basis</dt><dd><p>Additional offset, allows to specify a negative Offset value.</p>
+</dd>
+</dl>
+</dd>
+<dt>Power</dt><dd><p>Over-all exponent. (Adjusts the midtones.)</p>
+</dd>
+<dt>Slope</dt><dd><p>Multiplier. (Adjusts the highlights.)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Standard output image.</p>
+</dd>
+</dl>
+</section>
+<section id="advanced">
+<h2>Advanced</h2>
+<section id="the-offset-power-slope-formula">
+<h3>The Offset/Power/Slope Formula</h3>
+<p><em>out</em> = (<em>i</em> × <em>s</em> + <em>o</em>)<sup>p</sup></p>
+<p>where:</p>
+<ul>
+<li><p><em>out</em>: The color graded pixel code value.</p></li>
+<li><p><em>i</em>: The input pixel code value (0 to 1) (black to white).</p></li>
+<li><p><em>s</em>: Slope (any number 0 or greater, nominal value is 1.0).</p></li>
+<li><p><em>o</em>: Offset (any number, the nominal value is 0).</p></li>
+<li><p><em>p</em>: Power (any number greater than 0, nominal value is 1.0).</p></li>
+</ul>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

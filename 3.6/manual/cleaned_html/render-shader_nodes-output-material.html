@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Output &gt; Material</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Output</a></li>
+<li>Material Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="material-node">
+<h1>Material Node</h1>
+<p>The <em>Material Output</em> node is used to output surface material information to a surface object.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Surface</dt><dd><p>Shading for the <a href="../../materials/components/surface.html">surface</a> of the object.</p>
+</dd>
+<dt>Volume</dt><dd><p>Shading for the <a href="../../materials/components/volume.html">volume</a> inside the object.</p>
+</dd>
+<dt>Displacement</dt><dd><p>Used to create bump mapping or actual subdivided <a href="../../materials/components/displacement.html">displacement</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Target</dt><dd><p>Render engine the input shaders are used for.
+By default shaders are shared between Cycles and Eevee,
+with multiple output nodes specialized shader setups can be created for each.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<p>This node has no outputs.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Vr Scene Inspection</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">3D View</a></li>
+<li>VR Scene Inspection</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="vr-scene-inspection">
+<h1>VR Scene Inspection</h1>
+<p>The <abbr title="Virtual Reality">VR</abbr> Scene Inspection add-on exposes and extends
+the native virtual reality features of Blender in the user interface.
+The feature set is limited to scene inspection use cases.
+More advanced use cases may be enabled through further development inside of Blender.</p>
+<p>VR support in Blender is based on the OpenXR specification and requires some set up steps.
+These are explained in the <a href="../../getting_started/configuration/hardware.html#hardware-head-mounted-displays">Head-Mounted Displays (HMD)</a> section.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click 3D View then VR Scene Inspection to enable the script.</p></li>
+</ul>
+</section>
+<section id="interface">
+<h2>Interface</h2>
+<p>Located in the 3D Viewport ‣ Sidebar ‣ VR tab.</p>
+<section id="vr-session">
+<h3>VR Session</h3>
+<dl>
+<dt>Start VR Session</dt><dd><p>Try to set up a connection to the OpenXR platform to share the viewport with
+an <a href="../../getting_started/configuration/hardware.html#hardware-head-mounted-displays">HMD</a>.</p>
+</dd>
+<dt>Tracking</dt><dd><dl>
+<dt>Positional</dt><dd><p>Only track rotational changes of the head, do not allow the HMD
+to affect the location of the viewer in virtual space.</p>
+</dd>
+<dt>Absolute</dt><dd><p>Skip eye offsets that are normally added for placing the viewer
+exactly at landmarks. This allows the tracking origin to be defined
+independently of the HMD position.</p>
+</dd>
+</dl>
+</dd>
+<dt>Use Controller Actions</dt><dd><p>Enable default controller actions for viewport navigation,
+controller tracking, and haptics.</p>
+</dd>
+</dl>
+</section>
+<section id="view">
+<h3>View</h3>
+<dl>
+<dt>Show</dt><dd><dl>
+<dt>Floor</dt><dd><p>Set visibility of the ground plane in the VR view.</p>
+</dd>
+<dt>Annotations</dt><dd><p>Set visibility of annotation strokes in the VR view.</p>
+</dd>
+<dt>Selection</dt><dd><p>Set visibility of selection outlines in the VR view.</p>
+</dd>
+<dt>Controllers</dt><dd><p>Set visibility of VR motion controllers.
+Requires enabling the <a href="#vr-session">Use Controller Actions</a> option.</p>
+</dd>
+<dt>Custom Overlays</dt><dd><p>Set visibility of custom operator drawing (e.g. default teleport beam).</p>
+</dd>
+<dt>Object Extras</dt><dd><p>Set visibility of object extras, including empties, lights, and cameras.</p>
+</dd>
+<dt>Object Type Visibility <code>👁</code></dt><dd><p>Set visibility of objects by type.</p>
+</dd>
+</dl>
+</dd>
+<dt>Controller Style</dt><dd><p>Preferred visualization of VR motion controllers.</p>
+</dd>
+<dt>Clip Start/End</dt><dd><p>Clipping values of the VR view, <a href="../../editors/3dview/sidebar.html#bpy-types-spaceview3d-clip-start">as in the 3D Viewport</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="landmarks">
+<h3>Landmarks</h3>
+<p>Landmarks are used to store reusable base poses (position and rotation) for the viewer in the virtual space.
+In addition, a base viewer reference scale can be set for landmarks of types Custom Object and Custom Pose.</p>
+<dl>
+<dt>Landmark</dt><dd><p>A <a href="../../interface/controls/templates/list_view.html#ui-list-view">list view</a>.</p>
+<dl>
+<dt>Selected Landmark</dt><dd><p>Defines which landmark’s settings are shown below the list.
+Changing the selected landmark does not have an influence on the VR view.</p>
+</dd>
+<dt>Activate <code>〇</code></dt><dd><p>Activates a landmark, making it change the base pose of the VR view.</p>
+</dd>
+<dt>Add <code>+</code></dt><dd><p>Create a landmark.</p>
+</dd>
+<dt>Remove <code>-</code></dt><dd><p>Delete the selected landmark.</p>
+</dd>
+<dt>Add from Session <code>⊕</code></dt><dd><p>Create a landmark from the viewer pose of the running VR session.</p>
+</dd>
+<dt>Landmark Controls <code>v</code></dt><dd><dl>
+<dt>Add Camera and VR Landmark from Session</dt><dd><p>Create a new camera and landmark from the viewer pose of the running VR session.</p>
+</dd>
+<dt>Add Landmark from Camera</dt><dd><p>Add a new landmark from the active camera object.</p>
+</dd>
+<dt>Update Custom Landmark</dt><dd><p>Update the selected landmark from the current VR viewer pose.</p>
+</dd>
+<dt>Cursor to Landmark</dt><dd><p>Move the 3D Cursor to the selected landmark.</p>
+</dd>
+<dt>Scene Camera to Landmark</dt><dd><p>Position the scene camera at the selected landmark.</p>
+</dd>
+<dt>Camera from Landmark</dt><dd><p>Create a new camera from the selected landmark.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Type</dt><dd><dl>
+<dt>Scene Camera</dt><dd><p>Follow the scene’s <a href="../../scene_layout/scene/properties.html#bpy-types-scene-camera">active camera</a>
+to define the base pose of the viewer.</p>
+</dd>
+<dt>Custom Object</dt><dd><p>Set an arbitrary object to define the base pose of the viewer.</p>
+</dd>
+<dt>Custom Pose</dt><dd><p>Manually define a position and rotation to use as the base pose of the viewer.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="action-maps">
+<h3>Action Maps</h3>
+<dl>
+<dt>Gamepad</dt><dd><p>Use input from a gamepad (Microsoft Xbox Controller) instead of motion controllers for
+VR actions such as viewport navigation.</p>
+</dd>
+<dt>Extensions</dt><dd><p>Enable additional controller bindings to ensure correct input-to-action mappings.
+Note that a given extension may not be supported by all
+<a href="../../getting_started/configuration/hardware.html#hardware-head-mounted-displays">VR platforms</a>.</p>
+<dl>
+<dt>HP Reverb G2</dt><dd><p>Enable bindings for the HP Reverb G2 controllers.</p>
+</dd>
+<dt>HTC Vive Cosmos</dt><dd><p>Enable bindings for the HTC Vive Cosmos controllers.</p>
+</dd>
+<dt>HTC Vive Focus</dt><dd><p>Enable bindings for the HTC Vive Focus 3 controllers.</p>
+</dd>
+<dt>Huawei</dt><dd><p>Enable bindings for the Huawei controllers.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="viewport-feedback">
+<h3>Viewport Feedback</h3>
+<dl>
+<dt>Show VR Camera</dt><dd><p>Draw an indicator of the current VR viewer pose (location and rotation in the virtual space)
+in the current 3D Viewport.</p>
+</dd>
+<dt>Show VR Controllers</dt><dd><p>Draw indicators of tracked VR motion controllers in the current 3D viewport.
+Requires enabling the <a href="#vr-session">Use Controller Actions</a> option.</p>
+</dd>
+<dt>Show Landmarks</dt><dd><p>Draw <a href="#landmarks">landmark</a> indicators in the current 3D Viewport.</p>
+</dd>
+<dt>Mirror VR Session</dt><dd><p>Make the current 3D Viewport follow the perspective of the VR view.</p>
+</dd>
+</dl>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>3D View</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>View the viewport with virtual reality glasses (head-mounted displays).</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>3D Viewport ‣ Sidebar ‣ VR tab</p>
+</dd>
+<dt>File:</dt>
+<dd><p>viewport_vr_preview folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Julian Eisel, Sebastian Koenig, Peter Kim</p>
+</dd>
+<dt>Maintainer:</dt>
+<dd><p>Julian Eisel, Peter Kim</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Support Level:</dt>
+<dd><p>Official</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

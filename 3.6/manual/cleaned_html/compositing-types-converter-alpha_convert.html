@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Converter &gt; Alpha Convert</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Converter Nodes</a></li>
+<li>Alpha Convert Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="alpha-convert-node">
+<h1>Alpha Convert Node</h1>
+<p>The <em>Alpha Convert Node</em> converts the alpha channel interpretation of an image.</p>
+<p>For compositing and rendering, <a href="../../../glossary/index.html#term-Premultiplied-Alpha">Premultiplied Alpha</a> is the standard in Blender.
+Render layers will be premultiplied alpha, and images loaded into rendering
+or compositing will be converted to this.</p>
+<p>If you want to do a compositing operation with straight alpha,
+the <em>Alpha Convert</em> node can be used. Typically this would be a color correction operation
+where it might give better results working on RGB channels without alpha.
+If the alpha is converted to straight in the Compositor,
+it should be converted back to premultiplied before the <em>Composite Output</em> node,
+otherwise some artifacts might occur.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color input.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mapping</dt><dd><p>The direction of convert alpha.
+For details on the difference between both ways to store alpha values see <a href="../../../glossary/index.html#term-Alpha-Channel">Alpha Channel</a>.</p>
+<dl>
+<dt>To Premultiplied:</dt>
+<dd><p>Converts from <a href="../../../glossary/index.html#term-Straight-Alpha">Straight Alpha</a> to <a href="../../../glossary/index.html#term-Premultiplied-Alpha">Premultiplied Alpha</a>.</p>
+</dd>
+<dt>To Straight:</dt>
+<dd><p>Converts from <a href="../../../glossary/index.html#term-Premultiplied-Alpha">Premultiplied Alpha</a> to <a href="../../../glossary/index.html#term-Straight-Alpha">Straight Alpha</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Image</dt><dd><p>Standard color output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

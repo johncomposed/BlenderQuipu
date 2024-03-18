@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Motion Tracking &gt; Object Solver</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Object Solver Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="object-solver-constraint">
+<h1>Object Solver Constraint</h1>
+<p>The <em>Object Solver</em> constraint gives the owner of this constraint,
+the location and rotation of the “solved object motion”.</p>
+<p>The “solved object motion” is where Blender thinks the physical,
+real-world (tracked) object was, relative to the camera that filmed it.</p>
+<p>Can be used to add a mesh to video for example.</p>
+<div>
+<p>Note</p>
+<p>This constraint only works after you have set up a minimum of eight markers and pressed
+<a href="../../../movie_clip/tracking/clip/toolbar/solve.html#editors-movie-clip-tracking-clip-solve-motion">Solve object Motion</a>.
+Located at Movie Clip Editor ‣ Toolbar ‣ Solve ‣ Solve Camera Motion.</p>
+<p>If it says <em>Solve Camera Motion</em> instead of <em>Solve Object Motion</em> then go into
+the Movie Clip Editor ‣ Sidebar region ‣ Objects
+and switch it from the camera, to an object.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Object Solver Constraint panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Active Clip</dt><dd><p>Receive tracking data from the scene’s <a href="../../../scene_layout/scene/properties.html#bpy-types-scene-active-clip">Active Clip</a>.
+If unchecked, an option appears to choose from the other clips.</p>
+</dd>
+<dt>Object</dt><dd><p>Select a tracked object to receive transform data from.</p>
+</dd>
+<dt>Camera</dt><dd><p>Select the camera to which the motion is parented to (if left empty the active scene camera is used).</p>
+</dd>
+<dt>Set Inverse</dt><dd><p>Moves the origin of the object to the origin of the camera.</p>
+</dd>
+<dt>Clear Inverse</dt><dd><p>Moves the origin of the object back to the spot set
+in the Movie Clip Editor Toolbar ‣ Solve ‣ Orientation ‣ Set Origin.</p>
+</dd>
+<dt>Constraint to F-Curve</dt><dd><p>Applies the constraint, creating keyframes for the transforms.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

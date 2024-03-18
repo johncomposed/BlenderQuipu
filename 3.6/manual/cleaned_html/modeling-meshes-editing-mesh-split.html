@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Split</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Mesh Tools</a></li>
+<li>Split</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="split">
+<h1>Split</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Split</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Alt</kbd>-<kbd>M</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<section id="selection">
+<h2>Selection</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Split ‣ Selection</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>Y</kbd></p>
+</dd>
+</dl>
+</div>
+<p>Splits (disconnects) the selection from the rest of the mesh.
+The border edge to any non-selected elements are duplicated.</p>
+<p>Note that the “copy” is left exactly at the same position as the original, so you must move it
+<kbd>G</kbd> to see it clearly…</p>
+</section>
+<section id="faces-by-edges">
+<h2>Faces by Edges</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Split ‣ Faces by Edges</p>
+</dd>
+</dl>
+</div>
+<p><em>Faces by Edges</em> is similar to the <em>Rip</em> tool. When two or more touching interior edges,
+or a border edge is selected, a hole will be created,
+and the selected edges will be duplicated to form the border of the hole.</p>
+<table>
+<tbody>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Selected edges.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Adjacent face moved to reveal hole left by split.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="faces-edges-by-vertices">
+<h2>Faces &amp; Edges by Vertices</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Mesh ‣ Split ‣ Faces &amp; Edges by Vertices</p>
+</dd>
+</dl>
+</div>
+<p><em>Faces &amp; Edges by Vertices</em> is similar to <em>Faces by Edges</em> except that
+it also splits the vertices of the adjacent connecting edges.
+This has the same functionality as manually ripping all faces and edges away from a vertex.</p>
+<table>
+<tbody>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>After (also moving edges away).</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

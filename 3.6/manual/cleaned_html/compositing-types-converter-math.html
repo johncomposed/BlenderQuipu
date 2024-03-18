@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Compositing &gt; Types &gt; Converter &gt; Math</title></head>
+<body><ul>
+<li><a href="../../index.html">Compositing</a></li>
+<li><a href="index.html">Converter Nodes</a></li>
+<li>Math Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="math-node">
+<h1>Math Node</h1>
+<p>The <em>Math Node</em> performs math operations.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<p>The inputs of the node are dynamic. Some inputs are only available in certain operations.
+For instance, the <em>Addend</em> input is only available in the <em>Multiply Add</em> operator.</p>
+<dl>
+<dt>Value</dt><dd><p>Input Value. Trigonometric functions read this value as radians.</p>
+</dd>
+<dt>Addend</dt><dd><p>Input Addend.</p>
+</dd>
+<dt>Base</dt><dd><p>Input Base.</p>
+</dd>
+<dt>Exponent</dt><dd><p>Input Exponent.</p>
+</dd>
+<dt>Epsilon</dt><dd><p>Input Epsilon.</p>
+</dd>
+<dt>Distance</dt><dd><p>Input Distance.</p>
+</dd>
+<dt>Min</dt><dd><p>Input Minimum.</p>
+</dd>
+<dt>Max</dt><dd><p>Input Maximum.</p>
+</dd>
+<dt>Increment</dt><dd><p>Input Increment.</p>
+</dd>
+<dt>Scale</dt><dd><p>Input Scale.</p>
+</dd>
+<dt>Degrees</dt><dd><p>Input Degrees.</p>
+</dd>
+<dt>Radians</dt><dd><p>Input Radians.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Operation</dt><dd><p>The mathematical operator to be applied to the input values:</p>
+<dl>
+<dt>Functions</dt><dd><dl>
+<dt>Add:</dt>
+<dd><p>The sum of the two values.</p>
+</dd>
+<dt>Subtract:</dt>
+<dd><p>The difference between the two values.</p>
+</dd>
+<dt>Multiply:</dt>
+<dd><p>The product of the two values.</p>
+</dd>
+<dt>Divide:</dt>
+<dd><p>The division of the first value by the second value.</p>
+</dd>
+<dt>Multiply Add:</dt>
+<dd><p>The sum of the product of the two values with <em>Addend</em>.</p>
+</dd>
+<dt>Power:</dt>
+<dd><p>The <em>Base</em> raised to the power of <em>Exponent</em>.</p>
+</dd>
+<dt>Logarithm:</dt>
+<dd><p>The log of the value with a <em>Base</em> as its base.</p>
+</dd>
+<dt>Square Root:</dt>
+<dd><p>The square root of the value.</p>
+</dd>
+<dt>Inverse Square Root:</dt>
+<dd><p>One divided by the square root of the value.</p>
+</dd>
+<dt>Absolute:</dt>
+<dd><p>The input value is read without regard to its sign.
+This turns negative values into positive values.</p>
+</dd>
+<dt>Exponent:</dt>
+<dd><p>Raises <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler’s number</a>
+to the power of the value.</p>
+</dd>
+</dl>
+</dd>
+<dt>Comparison</dt><dd><dl>
+<dt>Minimum:</dt>
+<dd><p>Outputs the smallest of the input values.</p>
+</dd>
+<dt>Maximum:</dt>
+<dd><p>Outputs the largest of two input values.</p>
+</dd>
+<dt>Less Than:</dt>
+<dd><p>Outputs 1.0 if the first value is smaller than the second value. Otherwise the output is 0.0.</p>
+</dd>
+<dt>Greater Than:</dt>
+<dd><p>Outputs 1.0 if the first value is larger than the second value. Otherwise the output is 0.0.</p>
+</dd>
+<dt>Sign:</dt>
+<dd><p>Extracts the sign of the input value. All positive numbers
+will output 1.0. All negative numbers will output -1.0. And 0.0 will output 0.0.</p>
+</dd>
+<dt>Compare:</dt>
+<dd><p>Outputs 1.0 if the difference between the two input values is less than or equal to <em>Epsilon</em>.</p>
+</dd>
+<dt>Smooth Minimum:</dt>
+<dd><p><a href="https://en.wikipedia.org/wiki/Smooth_maximum">Smooth Minimum</a>.</p>
+</dd>
+<dt>Smooth Maximum:</dt>
+<dd><p><a href="https://en.wikipedia.org/wiki/Smooth_maximum">Smooth Maximum</a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Rounding</dt><dd><dl>
+<dt>Round:</dt>
+<dd><p>Rounds the input value to the nearest integer.</p>
+</dd>
+<dt>Floor:</dt>
+<dd><p>Rounds the input value down to the nearest integer.</p>
+</dd>
+<dt>Ceil:</dt>
+<dd><p>Rounds the input value up to the nearest integer.</p>
+</dd>
+<dt>Truncate:</dt>
+<dd><p>Outputs the integer part of the <em>value</em>.</p>
+</dd>
+<dt>Fraction:</dt>
+<dd><p>Returns the fractional part of the <em>value</em>.</p>
+</dd>
+<dt>Modulo:</dt>
+<dd><p>Outputs the remainder once the first value is divided by the second value.</p>
+</dd>
+<dt>Wrap:</dt>
+<dd><p>Outputs a value between <em>Min</em> and <em>Max</em> based on the absolute difference between
+the input value and the nearest integer multiple of <em>Max</em> less than the value.</p>
+</dd>
+<dt>Snap:</dt>
+<dd><p>Rounds the input value down to the nearest integer multiple of <em>Increment</em>.</p>
+</dd>
+<dt>Ping-pong:</dt>
+<dd><p>The output value is moved between 0.0 and the <em>Scale</em> based on the input value.</p>
+</dd>
+</dl>
+</dd>
+<dt>Trigonometric</dt><dd><dl>
+<dt>Sine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Sine">Sine</a> of the input value.</p>
+</dd>
+<dt>Cosine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">Cosine</a> of the input value.</p>
+</dd>
+<dt>Tangent:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">Tangent</a> of the input value.</p>
+</dd>
+<dt>Arcsine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arcsine</a> of the input value.</p>
+</dd>
+<dt>Arccosine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arccosine</a> of the input value.</p>
+</dd>
+<dt>Arctangent:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arctangent</a> of the input value.</p>
+</dd>
+<dt>Arctan2:</dt>
+<dd><p>Outputs the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Inverse Tangent</a>
+of the first value divided by the second value measured in radians.</p>
+</dd>
+<dt>Hyperbolic Sine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Sine</a> of the input value.</p>
+</dd>
+<dt>Hyperbolic Cosine:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Cosine</a> of the input value.</p>
+</dd>
+<dt>Hyperbolic Tangent:</dt>
+<dd><p>The <a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Tangent</a> of the input value.</p>
+</dd>
+</dl>
+</dd>
+<dt>Conversion</dt><dd><dl>
+<dt>To Radians:</dt>
+<dd><p>Converts the input from degrees to radians.</p>
+</dd>
+<dt>To Degrees:</dt>
+<dd><p>Converts the input from radians to degrees.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Clamp</dt><dd><p>Limits the output to the range (0.0 to 1.0). See <a href="../../../glossary/index.html#term-Clamp">Clamp</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>Numerical value output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<section id="manual-z-mask">
+<h3>Manual Z-Mask</h3>
+<figure id="id1">
+<figcaption>
+<p>Minimum and maximum function example.</p>
+</figcaption>
+</figure>
+<p>This example has one scene input by the top <em>Render Layers</em> node,
+which has a cube that is about 10 units from the camera.
+The bottom <em>Render Layers</em> node inputs a scene
+with a plane that covers the left half of the view and is 7 units from the camera.
+Both are fed through their respective <em>Map Value</em> nodes to divide the Z-buffer by 20
+(multiply by 0.05, as shown in the Size field)
+and clamped to be a min/max of 0.0/1.0 respectively.</p>
+<p>For the minimum function,
+the node selects those Z values where the corresponding pixel is closer to the camera;
+so it chooses the Z values for the plane and part of the cube.
+The background has an infinite Z value, so it is clamped to 1.0 (shown as white).
+In the maximum example, the Z values of the cube are greater than the plane,
+so they are chosen for the left side, but the plane <em>Render Layers</em> Z are infinite
+(mapped to 1.0) for the right side, so they are chosen.</p>
+</section>
+<section id="using-sine-function-to-pulsate">
+<h3>Using Sine Function to Pulsate</h3>
+<figure id="id2">
+<figcaption>
+<p>Using sine function example.</p>
+</figcaption>
+</figure>
+<p>This example has a <em>Time</em> node putting out a linear sequence from 0 to 1 over the course of 101 frames.
+At frame 25, the output value is 0.25.
+That value is multiplied by 2 × pi (6.28) and converted to 1.0 by the Sine function,
+since \(sin(2 × pi/ 4) = sin(pi/ 2) = +1.0\).</p>
+<p>Since the sine function can put out values between (-1.0 to 1.0),
+the <em>Map Value</em> node scales that to 0.0 to 1.0 by taking the input (-1 to 1), adding 1
+(making 0 to 2), and multiplying the result by one-half (thus scaling the output between 0 to 1).
+The default <em>Color Ramp</em> converts those values to a gray-scale.
+Thus, medium gray corresponds to a 0.0 output by the sine, black to -1.0,
+and white to 1.0. As you can see, \(sin(pi/ 2) = 1.0\). Like having your own visual color calculator!
+Animating this node setup provides a smooth cyclic sequence through the range of grays.</p>
+<p>Use this function to vary, for example,
+the alpha channel of an image to produce a fading in/out effect.
+Alter the Z channel to move a scene in/out of focus.
+Alter a color channel value to make a color “pulse”.</p>
+</section>
+<section id="brightening-scaling-a-channel">
+<h3>Brightening (Scaling) a Channel</h3>
+<figure id="id3">
+<figcaption>
+<p>Scaling a channel example.</p>
+</figcaption>
+</figure>
+<p>This example has a <em>Math (Multiply)</em> node increasing the luminance channel (Y)
+of the image to make it brighter. Note that you should use a <em>Map Value node</em>
+with min() and max() enabled to clamp the output to valid values.
+With this approach, you could use a logarithmic function to make a high dynamic range image.
+For this particular example,
+there is also a <em>Brightness/Contrast node</em> that might give simpler control over brightness.</p>
+</section>
+<section id="restrict-color-selection-posterization">
+<h3>Restrict Color Selection (Posterization)</h3>
+<figure id="id4">
+<figcaption>
+<p>Posterization example.</p>
+</figcaption>
+</figure>
+<p>In this example, we restrict the color values to be one of the six values: 0, 0.2, 0.4, 0.6, 0.8, 1.</p>
+<p>To split up a continuous range of values between 0 and 1 to certain set of values,
+the following function is used: \(round(x × n - 0.5) / (n - 1)\),
+where “n” is the number of possible output values, and “x” is the input pixel color.
+<a href="https://archive.blender.org/wiki/index.php/Doc:2.4/Manual/Composite_Nodes/Types/Convertor/#Quantize.2FRestrict_Color_Selection">Read more about this function</a>.</p>
+<p>To implement this function in Blender, consider the node setup above.
+We string the Math nodes into a function that takes each color (values from 0 to 1),
+multiplies it up by six, the desired number of divisions (values become from 0 to 6),
+offsets it by 0.5 (-0.5 to 5.5),
+rounds the value to the nearest whole number (produces 0, 1, 2, 3, 4, 5),
+and then divides the image pixel color by five (0.0, 0.2, 0.4, 0.6, 0.8, 1.0).</p>
+<p>In the case of a color image,
+you need to split it into separate RGB channels using <em>Separate/Combine RGBA</em> nodes
+and perform this operation on each channel independently.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

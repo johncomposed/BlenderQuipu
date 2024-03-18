@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Scene Layout &gt; Object &gt; Editing &gt; Link Transfer &gt; Transfer Mesh Data</title></head>
+<body><ul>
+<li><a href="../../../index.html">Scenes &amp; Objects</a></li>
+<li><a href="../../index.html">Objects</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Link/Transfer Data</a></li>
+<li>Transfer Mesh Data</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="transfer-mesh-data">
+<h1>Transfer Mesh Data</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object ‣ Link/Transfer Data ‣ Transfer Mesh Data</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Data Transfer</em> tool transfers several types of data from one mesh to another.
+Data types include vertex groups, UV maps, Color Attributes, custom normals…
+Transfer works by generating a mapping between source mesh’s elements (vertices, edges, etc.)
+and destination ones, either on a one-to-one basis, or mapping several source elements
+to a single destination one by interpolated mapping.</p>
+<p>Transfers data layer(s) from active to selected meshes.</p>
+<dl>
+<dt>Freeze Operator</dt><dd><p>Prevent changes to settings to re-run the operator.
+This is useful if you are editing several settings at once with heavy geometry.</p>
+</dd>
+<dt>Data Type</dt><dd><p>Which data to transfer.</p>
+<figure id="id2">
+<figcaption>
+<p>Data types.</p>
+</figcaption>
+</figure>
+</dd>
+<dt>Create Data</dt><dd><p>Add data layers on destination meshes if needed.</p>
+</dd>
+<dt>Vertex Mapping</dt><dd><p>Method used to map source vertices to destination ones.
+Because the options change depending on the <em>Data Type</em>
+options are explained in <a href="#vertex-mapping">Vertex Mapping</a> below.</p>
+</dd>
+</dl>
+<section id="vertex-mapping">
+<h2>Vertex Mapping</h2>
+<section id="topology">
+<h3>Topology</h3>
+<p>The simplest option, expects both meshes to have identical number of elements, and match them by order (indices).
+Useful e.g. between meshes that were identical copies, and got deformed differently.</p>
+</section>
+<section id="one-to-one-mappings">
+<h3>One-To-One Mappings</h3>
+<p>Those always select only one source element for each destination one, often based on shortest distance.</p>
+<dl>
+<dt>Vertices</dt><dd><dl>
+<dt>Nearest Vertex</dt><dd><p>Uses source’s nearest vertex.</p>
+</dd>
+<dt>Nearest Edge Vertex</dt><dd><p>Uses source’s nearest vertex of source’s nearest edge.</p>
+</dd>
+<dt>Nearest Face Vertex</dt><dd><p>Uses source’s nearest vertex of source’s nearest face.</p>
+</dd>
+</dl>
+</dd>
+<dt>Edges</dt><dd><dl>
+<dt>Nearest Vertices</dt><dd><p>Uses source’s edge which vertices are nearest from destination edge’s vertices.</p>
+</dd>
+<dt>Nearest Edge</dt><dd><p>Uses source’s nearest edge (using edge’s midpoints).</p>
+</dd>
+<dt>Nearest Face Edge</dt><dd><p>Uses source’s nearest edge of source’s nearest face (using edge’s midpoints).</p>
+</dd>
+</dl>
+</dd>
+<dt>Face Corners</dt><dd><p>A face corner is not a real element by itself, it’s some kind of split vertex attached to a specific face.
+Hence both vertex (location) and face (normal, …) aspects are used to match them together.</p>
+<dl>
+<dt>Nearest Corner and Best Matching Normal</dt><dd><p>Uses source’s corner having the most similar <em>split</em> normal with destination one,
+from those sharing the nearest source’s vertex.</p>
+</dd>
+<dt>Nearest Corner and Best Matching Face Normal</dt><dd><p>Uses source’s corner having the most similar <em>face</em> normal with destination one,
+from those sharing the nearest source’s vertex.</p>
+</dd>
+<dt>Nearest Corner of Nearest Face</dt><dd><p>Uses source’s nearest corner of source’s nearest face.</p>
+</dd>
+</dl>
+</dd>
+<dt>Faces</dt><dd><dl>
+<dt>Nearest Face</dt><dd><p>Uses source’s nearest face.</p>
+</dd>
+<dt>Best Normal-Matching:</dt><dd><p>Uses source’s face which normal is most similar with destination one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="interpolated-mappings">
+<h3>Interpolated Mappings</h3>
+<p>Those use several source elements for each destination one, interpolating their data during the transfer.</p>
+<dl>
+<dt>Vertices</dt><dd><dl>
+<dt>Nearest Edge Interpolated</dt><dd><p>Uses nearest point on nearest source’s edge, interpolates data from both source edge’s vertices.</p>
+</dd>
+<dt>Nearest Face Interpolated</dt><dd><p>Uses nearest point on nearest source’s face, interpolates data from all that source face’s vertices.</p>
+</dd>
+<dt>Projected Face Interpolated</dt><dd><p>Uses point of face on source hit by projection of destination vertex along its own normal,
+interpolates data from all that source face’s vertices.</p>
+</dd>
+</dl>
+</dd>
+<dt>Edges</dt><dd><dl>
+<dt>Projected Edge Interpolated</dt><dd><p>This is a sampling process. Several rays are cast from along the destination’s edge
+(interpolating both edge’s vertex normals), and if enough of them hit a source’s edge,
+all hit source edges’ data are interpolated into destination one.</p>
+</dd>
+</dl>
+</dd>
+<dt>Face Corners</dt><dd><p>A face corner is not a real element by itself, it’s some kind of split vertex attached to a specific face.
+Hence both vertex (location) and face (normal, …) aspects are used to match them together.</p>
+<dl>
+<dt>Nearest Face Interpolated</dt><dd><p>Uses nearest point of nearest source’s face, interpolates data from all that source face’s corners.</p>
+</dd>
+<dt>Projected Face Interpolated</dt><dd><p>Uses point of face on source hit by projection of destination corner along its own normal,
+interpolates data from all that source face’s corners.</p>
+</dd>
+</dl>
+</dd>
+<dt>Faces</dt><dd><dl>
+<dt>Projected Face Interpolated</dt><dd><p>This is a sampling process. Several rays are cast from the whole destination’s face (along its own normal),
+and if enough of them hit a source’s face, all hit source faces’ data are interpolated into destination one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="further-options">
+<h2>Further Options</h2>
+<dl>
+<dt>Auto Transform</dt><dd><p>Automatically computes the transformation to get the best possible match between source and destination meshes.</p>
+<p>This allows to match and transfer data between two meshes with similar shape,
+but transformed differently. Note that you’ll get best results with exact copies of the same mesh.
+Otherwise, you’ll likely get better results
+if you “visually” make them match in 3D space (and use <em>Object Transform</em>) instead.</p>
+</dd>
+<dt>Object Transform</dt><dd><p>Evaluate source and destination meshes in global space.</p>
+</dd>
+<dt>Only Neighbor Geometry</dt><dd><p>Source elements must be closer than given distance from destination one.</p>
+<dl>
+<dt>Max Distance</dt><dd><p>Maximum allowed distance between source and destination element (for non-topology mappings).</p>
+</dd>
+</dl>
+</dd>
+<dt>Ray Radius</dt><dd><p>The starting ray radius to use when <a href="https://en.wikipedia.org/wiki/Ray_casting">Ray Casting</a>
+against vertices or edges. When transferring data between meshes Blender performs a series of
+ray casts to generate mappings. Blender starts with a ray with the radius defined here,
+if that does not detect a hit then the radius is progressively
+increased until a positive hit or a limit is reached.</p>
+<p>This property acts as an accuracy/performance control;
+using a lower ray radius will be more accurate however,
+might take longer if Blender has to progressively increase the limit.
+Lower values will work better for dense meshes with lots of detail
+while larger values are probably better suited for simple meshes.</p>
+</dd>
+<dt>Mix Mode</dt><dd><p>How to affect destination elements with source values.</p>
+<dl>
+<dt>All</dt><dd><p>Replaces everything in destination (note that <em>Mix Factor</em> is still used).</p>
+</dd>
+<dt>Above Threshold</dt><dd><p>Only replaces destination value if it is above given threshold <em>Mix Factor</em>.
+How that threshold is interpreted depends on data type,
+note that for Boolean values this option fakes a logical AND.</p>
+</dd>
+<dt>Below Threshold</dt><dd><p>Only replaces destination value if it is below given threshold <em>Mix Factor</em>.
+How that threshold is interpreted depends on data type,
+note that for Boolean values this option fakes a logical OR.</p>
+</dd>
+<dt>Mix, Add, Subtract, Multiply</dt><dd><p>Apply that operation, using mix factor to control how much of source or destination value to use.
+Only available for a few types (vertex groups, Color Attributes).</p>
+</dd>
+</dl>
+</dd>
+<dt>Mix Factor</dt><dd><p>How much of the transferred data gets mixed into existing one (not supported by all data types).</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Forces &gt; Force Fields &gt; Introduction</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Forces</a></li>
+<li><a href="index.html">Force Fields</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Force fields offer a way to influence a simulation, in example to add extra movement.
+<a href="../../particles/index.html">Particles</a>, <a href="../../soft_body/index.html">Soft Bodies</a>,
+<a href="../../rigid_body/index.html">Rigid Bodies</a>, and <a href="../../cloth/index.html">Cloth objects</a>
+can all be affected by forces fields.
+Force fields automatically affect everything.
+To remove a simulation or particle system from their influence,
+simply turn down the influence of that type of force field in its Field Weights panel.</p>
+<ul>
+<li><p>All types of objects and particles can generate fields,
+but only curve object can bear a <a href="types/curve_guide.html">Curve Guide</a> field.</p></li>
+<li><p>Force fields can also be generated from particles.
+See <a href="../../particles/emitter/physics/index.html">Particle Physics</a>.</p></li>
+<li><p>The objects need to share at least one common layer to have an effect.</p></li>
+</ul>
+<p>You may limit the effect on particles to a group of objects
+(see the <a href="../../particles/emitter/physics/index.html">Particle Physics</a> page).</p>
+<section id="creating-a-force-field">
+<h2>Creating a Force Field</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Add ‣ Force Field</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Force Field</p>
+</dd>
+</dl>
+</div>
+<p>To create a single force field,
+you can select Add ‣ Force Field and select the desired force field.
+This method creates an empty with the force field attached.</p>
+<table id="id2">
+<caption>Examples of an empty with the force field attached.</caption>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Vortex force field.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Wind force field.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Force force field.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>To create a field from an existing object you have to select the object and
+change to the <em>Physics</em> tab. Select the field type in the <em>Fields</em> menu.</p>
+<div>
+<p>Note</p>
+<p>After changing the fields <em>Fields</em> panel or deflection <em>Collision</em> panel settings,
+you have to recalculate the particle, soft body or cloth system by <em>Free Cache</em>,
+this is not done automatically.</p>
+<p>Particles react to all kinds of force fields,
+soft bodies only to <em>Force</em>, <em>Wind</em>, <em>Vortex</em>
+(they react on <em>Harmonic</em> fields but not in a useful way).</p>
+</div>
+</section>
+<section id="common-field-settings">
+<h2>Common Field Settings</h2>
+<p>Most fields have the same settings, even though they act very differently.
+Settings unique to a field type are described below.
+Curve Guide and Texture fields have very different options.</p>
+<dl id="bpy-types-fieldsettings-shape">
+<dt>Shape</dt><dd><p>Sets the direction which is used to calculate the effector force.
+For force fields from an empty object only <em>Point</em>, <em>Line</em> and <em>Plane</em> shapes are available,
+as for a field from a 3D object there are additional <em>Surface</em> and <em>Every Point</em> options,
+and <em>Curve</em> for a field from a curve.</p>
+<dl>
+<dt>Point:</dt>
+<dd><p>Point with omni-directional influence. Uses the object origin as the effector point.</p>
+</dd>
+<dt>Line:</dt>
+<dd><p>The force only acts in the local XY plane, using the Z axis line as the effector.</p>
+</dd>
+<dt>Plane:</dt>
+<dd><p>The force only acts in the local Z direction, using the XY axis plane as the effector.</p>
+</dd>
+<dt>Surface:</dt>
+<dd><p>The force field acts on a 3D object’s surface.
+In this case, the Z axis is the surface normal.</p>
+</dd>
+<dt>Every Point:</dt>
+<dd><p>Uses every vertex in the mesh object as an effector point.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-strength">
+<dt>Strength</dt><dd><p>The strength of the field effect.
+This can be positive or negative to change the direction that the force operates in.
+A force field’s strength is scaled with the force object’s scale,
+allowing you to scale up and down the scene, keeping the same effects.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-flow">
+<dt>Flow</dt><dd><p>If nonzero, this adds a drag force proportional and opposite to the point velocity.</p>
+<p>This effectively re-interprets the force field so that the <em>Strength</em> to <em>Flow</em> ratio
+at a certain point defines the velocity of an “air flow” field, and objects are
+encouraged to follow the flow by the resistance caused by the <em>Flow</em> drag force.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-apply-to-rotation">
+<dt>Affect</dt><dd><dl>
+<dt>Location</dt><dd><p>Influence the location of particles and other physics entities.</p>
+</dd>
+<dt>Rotation</dt><dd><p>Influence the rotation of particles with <a href="../../particles/emitter/rotation.html">Dynamic Rotation</a>.
+The option is not relevant for other types of physics systems.</p>
+</dd>
+</dl>
+<p>Disabling both options completely deactivates the force field.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-noise">
+<dt>Noise Amount</dt><dd><p>Adds noise to the strength of the force.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-seed">
+<dt>Seed</dt><dd><p>Changes the seed of the random noise.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-use-absorption">
+<dt>Absorption</dt><dd><p>Force gets absorbed by collision objects.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-wind-factor">
+<dt>Wind Factor</dt><dd><p>Specifies how much the force is reduced when acting parallel to a surface, e.g. cloth.
+If set to 1, only the normal component of the force is taken into account.</p>
+</dd>
+</dl>
+<section id="falloff">
+<h3>Falloff</h3>
+<p>Here you can specify the shape of the force field
+(if the falloff <em>Power</em> is greater than 0).</p>
+<dl id="bpy-types-fieldsettings-falloff-type">
+<dt>Shape</dt><dd><dl>
+<dt>Cone:</dt>
+<dd><p>The falloff results in a cone-shaped force field. Additional options are the same as those of <em>Tube</em> options.</p>
+</dd>
+<dt>Sphere:</dt>
+<dd><p>The falloff is uniform in all directions, as in a sphere.</p>
+</dd>
+<dt>Tube:</dt>
+<dd><p>The falloff results in a tube-shaped force field.
+The field’s <em>Radial Power</em> can be adjusted,
+as well as the <em>Minimum</em> and <em>Maximum</em> distances of the field.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-z-direction">
+<dt>Z Direction</dt><dd><p>The direction the force affects on the Z axis.</p>
+<dl>
+<dt>+Z:</dt>
+<dd><p>The force only has an affect on the positive Z axis.</p>
+</dd>
+<dt>-Z:</dt>
+<dd><p>The force only has an affect on the negative Z axis.</p>
+</dd>
+<dt>Both Z:</dt>
+<dd><p>The force has an affect on the positive and negative Z axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-falloff-power">
+<dt>Power</dt><dd><p>How the power of the force field changes with the distance from the force field.
+If <em>r</em> is the distance from the origin of the object, the force changes with 1/(<em>r</em> - <em>min</em> + 1)<sup>power</sup>.
+A falloff of 2 changes the force field with 1/(<em>r</em> - <em>min</em> + 1)<sup>2</sup>,
+which is similar to the falloff of gravitational pull.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-distance-min">
+<dt>Min Distance</dt><dd><p>The distance from the object’s origin, up to where the force field is effective with full strength.
+If you have a falloff of 0, this parameter will have no effect,
+because the field is effective with full strength up to <em>Max Distance</em> (or infinite).
+Shown by an additional circle around the object.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fieldsettings-distance-max">
+<dt>Max Distance</dt><dd><p>Specifies the maximum radius in which the force field affects other objects
+(shown by an additional circle around the object).</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

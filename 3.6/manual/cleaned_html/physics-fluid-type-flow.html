@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Fluid &gt; Type &gt; Flow</head>
+<body><ul>
+<li><a href="../../index.html">Physics</a></li>
+<li><a href="../index.html">Fluid</a></li>
+<li><a href="index.html">Type</a></li>
+<li>Flow</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="flow">
+<h1>Flow</h1>
+<p>Fluid <em>Flow</em> types are used to add or remove fluid to a domain object. Flow objects should be
+contained within the domain’s <a href="../../../glossary/index.html#term-Bounding-Box">Bounding Box</a> in order to work.</p>
+<p>To define any mesh object as a <em>Flow</em> object, add Fluid physics by clicking <em>Fluid</em> in
+Properties ‣ Physics. Then select <em>Flow</em> as the fluid <em>Type</em>. Now you should have
+a default fluid flow source object.</p>
+<section id="settings">
+<h2>Settings</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Fluid ‣ Settings</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Flow</p>
+</dd>
+</dl>
+</div>
+<dl id="bpy-types-fluidflowsettings-flow-type">
+<dt>Flow Type</dt><dd><dl>
+<dt>Smoke</dt><dd><p>Emit only smoke.</p>
+</dd>
+<dt>Fire + Smoke</dt><dd><p>Emit both fire and smoke.</p>
+</dd>
+<dt>Fire</dt><dd><p>Emit only fire. Note that the domain will automatically create some smoke to simulate smoke
+left by burnt fuel.</p>
+</dd>
+<dt>Liquid</dt><dd><p>Emit liquid.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-flow-behavior">
+<dt>Flow Behavior</dt><dd><p>Controls if the Flow object either adds (<em>Inflow</em>), removes (<em>Outflow</em>),
+or turns the mesh itself into fluid (<em>Geometry</em>).</p>
+<dl>
+<dt>Inflow</dt><dd><p>This object will emit fluid into the simulation, like a water tap or base of a fire.</p>
+</dd>
+<dt>Outflow</dt><dd><p>Any fluid that enters the <a href="../../../glossary/index.html#term-Bounding-Box">Bounding Box</a> of this object will be removed from
+the domain (think of a drain or a black hole). This can be useful in combination with
+an inflow to prevent the whole domain from filling up. Outflow objects can be animated
+and the area where the fluid disappears will follow the object as it moves around.</p>
+</dd>
+<dt>Geometry</dt><dd><p>All regions of this object that are inside the domain bounding box will be used as
+actual fluid in the simulation. You can place more than one fluid object inside the domain.
+Also make sure that the surface normals are pointing outwards or else they will not simulate
+properly. In contrast to domain objects, the actual mesh geometry is used for fluid objects.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-use-flow">
+<dt>Use Flow</dt><dd><p>Enables or disables the flow of fluid, this property is useful for animations to selectively enable and
+disable when fluid is being added to or removed from the domain.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-subframes">
+<dt>Sampling Substeps</dt><dd><p>Number of sub-steps used to reduce gaps in emission of fluid from fast-moving sources.</p>
+<table id="id3">
+<caption>Comparison of smoke inflow quickly rising upwards at different sub-step rates.</caption>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Sampling sub-steps: 0.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Sampling sub-steps: 3.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note that these emission sub-steps occur at every simulation step and not per frame.
+The simulation step count is controlled by the adaptive time stepping.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-smoke-color">
+<dt>Smoke Color</dt><dd><p>The color of emitted smoke. When smoke of different colors are mixed they will blend together,
+eventually settling into a new combined color.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-use-absolute">
+<dt>Absolute Density</dt><dd><p>If this checkbox is enabled, the emitter will only produce more smoke or fire if there is space for
+it in the emitter region. Otherwise smoke or fire will always be produced and add up.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-temperature">
+<dt>Initial Temperature</dt><dd><p>Difference between the temperature of emitted smoke and the domain’s ambient temperature.
+This setting’s effect on smoke depends on the domain’s <a href="domain/settings.html#bpy-types-fluiddomainsettings-beta">Heat Buoyancy</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-density">
+<dt>Density</dt><dd><p>Amount of smoke to emit at once. Larger values result in more density being produced.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-fuel-amount">
+<dt>Fuel</dt><dd><p>Amount of “fuel” being burned per second. Larger values result in larger flames,
+smaller values result in smaller flames:</p>
+<table id="id6">
+<caption>Comparison of flames with varying fuel rates.</caption>
+<tbody>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Fuel: 0.5.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Fuel: 1.0.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-density-vertex-group">
+<dt>Vertex Group</dt><dd><p>When set, use the specified <a href="../../../modeling/meshes/properties/vertex_groups/vertex_groups.html">Vertex Group</a>
+to control where smoke is emitted.</p>
+</dd>
+</dl>
+<section id="flow-source">
+<h3>Flow Source</h3>
+<dl id="bpy-types-fluidflowsettings-flow-source">
+<dt>Flow Source</dt><dd><p>This setting defines the method used to emit fluid.</p>
+<dl>
+<dt>Mesh</dt><dd><p>Emit fluid directly from the object’s mesh.</p>
+<dl id="bpy-types-fluidflowsettings-use-plane-init">
+<dt>Is Planar</dt><dd><p>Defines the effector as either a single dimension object i.e. a plane or the mesh is <a href="../../../glossary/index.html#term-Non-manifold">Non-manifold</a>.
+This ensures that the fluid simulator will give the most accurate results for these types of meshes.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-surface-distance">
+<dt>Surface Emission</dt><dd><p>Maximum distance in <a href="../../../glossary/index.html#term-Voxel">Voxels</a> from the surface of the mesh in which fluid is emitted.
+Since this setting uses voxels to determine the distance,
+results will vary depending on the domain’s resolution.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-volume-density">
+<dt>Volume Emission Fire or Smoke Only:</dt><dd><p>Amount of fluid to emit inside the emitter mesh, where 0 is none and 1 is the full amount.
+Note that emitting fluid based on volume can have unpredictable results
+if your mesh is <a href="../../../glossary/index.html#term-Non-manifold">Non-manifold</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-particle-system">
+<dt>Particle System Fire or Smoke Only:</dt><dd><p>Create smoke or fire from a particle system on the flow object.
+which can be select with a <a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a>.</p>
+<p>Note that only <em>Emitter</em> type particle systems can add smoke.
+See <a href="../../particles/introduction.html">Particles</a> for information on
+how to create a particle system.</p>
+<dl>
+<dt>Set Size</dt><dd><p>When this setting is enabled, it allows the <em>Size</em> setting to define the maximum distance in voxels
+at which particles can emit smoke, similar to the <em>Surface Emission</em> setting for mesh sources.</p>
+<p>When disabled, particles will fill the nearest <a href="../../../glossary/index.html#term-Voxel">Voxel</a> with smoke.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="initial-velocity">
+<h3>Initial Velocity</h3>
+<p>When enabled, the fluid will inherit the momentum of the flow source.</p>
+<dl id="bpy-types-fluidflowsettings-velocity-factor">
+<dt>Source</dt><dd><p>Factor for the inherited velocity. A value of 1 will emit fluid moving at the same speed as the source.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-velocity-normal">
+<dt>Normal</dt><dd><p>This option controls how much velocity fluid is given along a face <a href="../../../glossary/index.html#term-Normal">Normal</a>.
+Note that, initial velocities will always be applied along all face normals.
+Thus with a closed flow source mesh, fluid will always be emitted in more than one direction.
+To set initial velocities along only one direction all normals need to point in the same direction.
+This is can be achieved when using a plane as the flow object.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-velocity-coord">
+<dt>Initial X, Y, Z</dt><dd><p>Initial velocity along X, Y, Z coordinates in world space.
+This can be used in addition to the initial velocity along
+the <a href="#bpy-types-fluidflowsettings-velocity-normal">Normal</a>.</p>
+</dd>
+</dl>
+</section>
+<section id="texture">
+<h3>Texture</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Type:</dt>
+<dd><p>Flow</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Physics ‣ Fluid ‣ Settings ‣ Texture</p>
+</dd>
+</dl>
+</div>
+<p>When enabled, use the specified texture and settings to control where on
+the mesh smoke or fire can be emitted from. These settings have no effect on <em>Outflow Flow Behavior</em>.</p>
+<dl id="bpy-types-fluidflowsettings-noise-texture">
+<dt>Texture</dt><dd><p>A <a href="../../../interface/controls/templates/data_block.html#ui-data-id">Data ID</a> selector to choose the <a href="../../../render/materials/legacy_textures/index.html">Texture</a>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-texture-map-type">
+<dt>Mapping</dt><dd><p>Controls whether to use <a href="../../../modeling/meshes/uv/uv_texture_spaces.html#properties-texture-space">Generated UVs</a> or manual UV mapping.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-texture-size">
+<dt>Size</dt><dd><p>Overall texture scale.</p>
+</dd>
+</dl>
+<dl id="bpy-types-fluidflowsettings-texture-offset">
+<dt>Offset</dt><dd><p>Translates the texture along the Z axis.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

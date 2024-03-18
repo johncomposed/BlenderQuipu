@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Cycles &gt; Render Settings &gt; Volumes</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Cycles</a></li>
+<li><a href="index.html">Render Settings</a></li>
+<li>Volumes</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="volumes">
+<h1>Volumes</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Render ‣ Volumes</p>
+</dd>
+</dl>
+</div>
+<p>Volume <em>Step</em> size is the distance between volume shader samples.
+Cycles automatically estimates this distance based on voxel size in
+volume objects and smoke simulations.</p>
+<p>Render time can be reduced by increasing the step size, at the cost of
+potentially losing some volume detail. For procedural volume shaders
+that add detail, step size can be increased per object, material or world.</p>
+<dl id="bpy-types-cyclesrendersettings-volume-step-rate">
+<dt>Step Rate Render</dt><dd><p>Global multiplier on the step size for all volumes in renders.
+Increase to reduce render time, at the cost of losing detail.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-volume-preview-step-rate">
+<dt>Viewport</dt><dd><p>Global multiplier on the step size for all volumes in the viewport.
+Increase for more responsive viewport rendering.</p>
+</dd>
+</dl>
+<dl id="bpy-types-cyclesrendersettings-volume-max-steps">
+<dt>Max Steps</dt><dd><p>Maximum number of steps through the volume before giving up,
+to protect from extremely long render times with big objects or small step sizes.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

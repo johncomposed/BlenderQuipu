@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Modifiers &gt; Modify &gt; Uv Warp</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Modifiers</a></li>
+<li>UV Warp Modifier</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="uv-warp-modifier">
+<h1>UV Warp Modifier</h1>
+<p>The <em>UV Warp</em> modifier transforms an object’s UV map based on values or two objects.
+Its purpose is to give you direct control over the object’s UVs in the 3D Viewport,
+allowing you to directly move, rotate, and scale existing UV coordinates
+using defined values or a controller object or bone.</p>
+<section id="options">
+<h2>Options</h2>
+<dl>
+<dt>UV Layer</dt><dd><p>Which UV map to modify; if not set it defaults to the active rendering layer.</p>
+</dd>
+<dt>UV Center</dt><dd><p>The center point of the UV map to use when applying scale or rotation.
+With (0, 0) at the bottom left and (1, 1) at the top right.</p>
+</dd>
+<dt>Axis U/V</dt><dd><p>The axes to use when mapping the 3D coordinates into 2D.</p>
+</dd>
+<dt>Object From, To</dt><dd><p>The two objects used to define the transformation. See <a href="#usage">Usage</a> below.</p>
+</dd>
+<dt>Vertex Group</dt><dd><p>The vertex group can be used to scale the influence of the transformation per vertex.</p>
+<dl>
+<dt>Invert <code>&lt;-&gt;</code></dt><dd><p>Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p>The setting reverses the weight values of the group.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<section id="transform">
+<h3>Transform</h3>
+<dl>
+<dt>Offset</dt><dd><p>Amount to move the UV map.</p>
+</dd>
+<dt>Scale</dt><dd><p>Amount to scale the UV map.</p>
+</dd>
+<dt>Rotate</dt><dd><p>Amount to rotate the UV map.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>How the UVs are warped is determined by the difference between the transforms (location, rotation and scale)
+of the <em>from</em> and <em>to</em> objects.</p>
+<p>If the <em>to</em> object has the same transforms as the <em>from</em> object, the UVs will not be changed.</p>
+<p>Assuming the <em>UV Axis</em> of the modifier is X/Y and the scale of the objects is (1, 1, 1), if the <em>to</em> object is
+one unit away from the <em>from</em> object on the X axis, the UVs will be transformed on the U axis (horizontally)
+by one full UV space (the entire width of the image).</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

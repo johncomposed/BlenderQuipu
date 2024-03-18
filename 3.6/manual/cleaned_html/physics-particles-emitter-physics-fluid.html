@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Physics &gt; Particles &gt; Emitter &gt; Physics &gt; Fluid</head>
+<body><ul>
+<li><a href="../../../index.html">Physics</a></li>
+<li><a href="../../index.html">Particle System</a></li>
+<li><a href="../index.html">Emitter</a></li>
+<li><a href="index.html">Physics</a></li>
+<li>Fluid</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="fluid">
+<h1>Fluid</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics</p>
+</dd>
+<dt>Type:</dt>
+<dd><p>Fluid</p>
+</dd>
+</dl>
+</div>
+<p>Fluid particles are similar to Newtonian ones but this time particles are influenced by
+internal forces like pressure, surface tension, viscosity, springs, etc.
+From liquids to slime, goo to sand and wispy smoke the number of possible use cases is endless.</p>
+<p>Blender particle fluids use the SPH techniques to solve the particles fluid equations.
+Smoothed-particle hydrodynamics (SPH) is a computational method used for simulating fluid flows.
+It has been used in many fields of research, including astrophysics, ballistics, vulcanology,
+and oceanography. It is a mesh-free Lagrangian method (where the coordinates move with the fluid),
+and the resolution of the method can easily be adjusted with respect to variables such as the density.</p>
+<section id="options">
+<h2>Options</h2>
+<p>Fluid physics share options with <a href="newtonian.html">Newtonian Physics</a>.
+These are covered on that page.</p>
+<section id="fluid-properties">
+<h3>Fluid Properties</h3>
+<dl>
+<dt>Stiffness</dt><dd><p>How incompressible the fluid is.</p>
+</dd>
+<dt>Viscosity</dt><dd><p>Linear viscosity. Use lower viscosity for thicker fluids.</p>
+</dd>
+<dt>Buoyancy</dt><dd><p>Artificial buoyancy force in negative gravity direction based on pressure differences inside the fluid.</p>
+</dd>
+</dl>
+</section>
+<section id="advanced">
+<h3>Advanced</h3>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Advanced</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Repulsion Factor</dt><dd><p>How strongly the fluid tries to keep from clustering (factor of stiffness).
+Checkbox sets repulsion as a factor of stiffness.</p>
+</dd>
+<dt>Stiff Viscosity</dt><dd><p>Creates viscosity for expanding fluid. Checkbox sets this to be a factor of normal viscosity.</p>
+</dd>
+<dt>Interaction Radius</dt><dd><p>Fluid’s interaction radius. Checkbox sets this to be a factor of 4 × <em>particle size</em>.</p>
+</dd>
+<dt>Rest Density</dt><dd><p>Density of fluid when at rest. Checkbox sets this to be a factor of default density.</p>
+</dd>
+</dl>
+</section>
+<section id="springs">
+<h3>Springs</h3>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Particle System ‣ Physics ‣ Springs</p>
+</dd>
+</dl>
+</div>
+<dl>
+<dt>Force</dt><dd><p>Spring force.</p>
+</dd>
+<dt>Rest Length</dt><dd><p>Rest length of springs. Factor of particle radius. Checkbox sets this to be a factor of 2 × <em>particle size</em>.</p>
+</dd>
+<dt>Viscoelastic Springs</dt><dd><p>Use viscoelastic springs instead of Hooke’s springs.</p>
+</dd>
+<dt>Elastic Limit</dt><dd><p>How much the spring has to be stretched/compressed in order to change its rest length.</p>
+</dd>
+<dt>Plasticity</dt><dd><p>How much the spring rest length can change after the elastic limit is crossed.</p>
+</dd>
+<dt>Initial Rest Length</dt><dd><p>Use initial length as spring rest length instead of 2 × <em>particle size</em>.</p>
+</dd>
+<dt>Frames</dt><dd><p>Create springs for this number of frames since particle’s birth (0 is always).</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

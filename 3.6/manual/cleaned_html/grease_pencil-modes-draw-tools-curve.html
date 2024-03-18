@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Grease Pencil &gt; Modes &gt; Draw &gt; Tools &gt; Curve</title></head>
+<body><ul>
+<li><a href="../../../index.html">Grease Pencil</a></li>
+<li><a href="../index.html">Draw Mode</a></li>
+<li><a href="index.html">Tools</a></li>
+<li>Curve Tool</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve-tool">
+<h1>Curve Tool</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Draw Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Curve</p>
+</dd>
+</dl>
+</div>
+<p>The Curve tool create complex Bézier style curves.</p>
+<section id="tool-settings">
+<h2>Tool Settings</h2>
+<p>You can configure the brush main settings exposed on the Tool Settings for convenience.
+For the draw brushes configuration and settings see:
+<a href="draw.html">Draw Brush</a>.</p>
+<dl>
+<dt>Subdivisions</dt><dd><p>The number of stroke points between each stroke edge.</p>
+</dd>
+<dt>Thickness Profile</dt><dd><p>Use a <a href="../../../../interface/controls/templates/curve.html">curve widget</a> to define the stroke thickness
+from the start (left) to end (right) of the stroke.</p>
+<dl>
+<dt>Use Curve</dt><dd><p>When enabled, the stroke use a curve profile to control the thickness along the curve.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<table id="id2">
+<caption>Different thickness profile samples.</caption>
+</table>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<section id="selecting-a-brush-and-material">
+<h3>Selecting a Brush and Material</h3>
+<p>In the Tool Settings select the brush, material and color type to use with the tool.
+The Curve tool uses <em>Draw Brush</em> types.
+See <a href="../tool_settings/brush_settings.html#grease-pencil-draw-common-options">Brush Settings</a> for more information.</p>
+</section>
+<section id="creating-curves">
+<h3>Creating Curves</h3>
+<ol>
+<li><p>Click (<kbd>LMB</kbd> or the <kbd>Pen</kbd> tip) and drag the start point.</p></li>
+<li><p>Release on the desired end point.</p></li>
+<li><p>After releasing you can tweak the curve using two cyan Bézier like manipulators.</p></li>
+<li><p>Then confirm (<kbd>Return</kbd>/<kbd>MMB</kbd>) or cancel (<kbd>Esc</kbd>/<kbd>RMB</kbd>).</p></li>
+</ol>
+<p>While dragging you can hold <kbd>Shift</kbd> to use only one manipulator to tweak the curve (like the Arc tool),
+use <kbd>Alt</kbd> to create the arc from a center point.</p>
+<p><kbd>NumpadPlus</kbd> and <kbd>NumpadMinus</kbd> or using the mouse <kbd>Wheel</kbd> will increase
+or decrease the amount of points in the final curve.</p>
+<table>
+<tbody>
+<tr><td><figure id="id3">
+<figcaption>
+<p>click and dragging the start point.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Tweaking curve with the manipulators.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>The curve after confirming.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="extruding">
+<h3>Extruding</h3>
+<p>Before confirming you can use <kbd>E</kbd> to extrude the end point of the curve
+to generate multiple connected curves.</p>
+<table>
+<tbody>
+<tr><td><figure id="id6">
+<figcaption>
+<p>End point extruding.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Tweaking the last curve with the manipulators.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>The connected curves after confirming.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

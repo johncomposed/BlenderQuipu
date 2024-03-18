@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; 3D View &gt; Precision Drawing Tools &gt; Begin</title></head>
+<body><ul>
+<li><a href="../../index.html">Add-ons</a></li>
+<li><a href="../index.html">3D View</a></li>
+<li><a href="index.html">Precision Drawing Tools (PDT)</a></li>
+<li>Before You Begin</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="before-you-begin">
+<h1>Before You Begin</h1>
+<p>There are a number of principles to be aware of before you begin working with PDT:</p>
+<p>Be sure to check out <a href="https://github.com/Clockmender/Precision-Drawing-Tools/wiki/98-PDT-Latest-Release-Menus">latest-menus</a> to see current layouts.</p>
+<ol>
+<li><p>PDT is split into several sections and this list will grow as the add-on develops.</p></li>
+<li><p>PDT has a concept of a <code>Working Plane</code> that applies in all Operations,
+i.e. those defined in the Design section and some in the Pivot Point section.</p></li>
+<li><p>PDT has been designed to work as far as possible in Edit and
+Object modes with many commands equally applicable to both.</p></li>
+<li><p>Certain Operations relating to <code>Cursor Placement</code> and <code>Pivot Point Placement</code>
+have been set to work in either Selected, or Relative Modes, these will be explained later.</p></li>
+<li><p>PDT can be driven from its own Command Line input for <strong>most</strong> operations.</p></li>
+</ol>
+<p>The first thing to establish is the <code>Working Plane</code>, here a number of choices are available:</p>
+<ol>
+<li><p><code>Front(X-Z)</code> - Uses Global X and Z axes, if you want to work from the Back view,
+the working plane is also this as the axes remain the same.</p></li>
+<li><p><code>Top(X-Y)</code> - Uses Global X and Y axes, if you want to work from the Bottom view,
+the working plane is also this as the axes remain the same.</p></li>
+<li><p><code>Right(Y-Z)</code> - Uses Global Y and Z axes, if you want to work from the Left view,
+the working plane is also this as the axes remain the same.</p></li>
+<li><p><code>View</code> - This uses axes relative to your screen, no matter how the 3D View is rotated,
+X is always view-horizontal, Y is always view-vertical and Z is always view-depth.</p></li>
+</ol>
+<section id="setting-the-working-plane">
+<h2>Setting the Working Plane.</h2>
+<p>Whatever your <code>View</code> is set to other than <strong>View</strong>,
+it does not matter how the view is oriented, inputs are always along global axes.</p>
+<p>The second thing is whether you want Cursor, or Pivot Point locations to be based upon <code>Selected</code>,
+or <code>Current</code> values. Set <code>Selected</code> if you want the Cursor to be placed relative to selected geometry,
+or <code>Current</code> if you want it to be placed relative to its current location.
+For example, moving the cursor in <code>Current</code> mode by a <code>Delta</code>
+input of 1,3,2 will move the cursor relative to itself,
+so it moves this amount every time you activate the command.</p>
+</section>
+<section id="setting-the-cursor-pivot-point-movement-mode">
+<h2>Setting the Cursor/Pivot Point Movement Mode.</h2>
+<p>Then you can set the type of Operation you want to undertake,
+these will be discussed on another page. There are a number of Operations, shown below:</p>
+<ol>
+<li><p>Cursor.</p></li>
+<li><p>Pivot Point.</p></li>
+<li><p>Move.</p></li>
+<li><p>New Vertex.</p></li>
+<li><p>Extrude Vertices.</p></li>
+<li><p>Split Edges.</p></li>
+<li><p>Duplicate Geometry.</p></li>
+<li><p>Extrude Geometry.</p></li>
+</ol>
+</section>
+<section id="setting-the-operation-mode">
+<h2>Setting the Operation Mode.</h2>
+<p>Setting the <cite>Operation</cite> mode determines what the buttons below this command actually do,
+so for example to <strong>move</strong> the <code>Cursor</code> to <code>Absolute</code> location, you would select <code>Cursor</code> operation,
+set the input values for <strong>X, Y &amp; Z</strong> then click the <code>Absolute</code> button.</p>
+<p>Below is a table showing which options are available in which Modes, including Edit, or Object Modes in Blender:</p>
+<p>Note! Only Edit and Object Modes are supported by PDT at present,
+Further, only Mesh Objects are supported, not Curves for now.</p>
+<p>Note! From Version 1.1.8, Menu widths will affect how the menus are arranged,
+with less items per row as the width decreases below a threshold set in the PDT add-on’s Preferences.
+Here are two sample Images:</p>
+<p>Note! PDT Add-on Preferences now also sets the Parts Library location and Debug mode.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

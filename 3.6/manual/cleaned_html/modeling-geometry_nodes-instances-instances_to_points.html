@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Instances &gt; Instances To Points</title></head>
+<body><ul>
+<li><a href="../../index.html">Modeling</a></li>
+<li><a href="../index.html">Geometry Nodes</a></li>
+<li><a href="index.html">Instances Nodes</a></li>
+<li>Instances to Points Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="instances-to-points-node">
+<h1>Instances to Points Node</h1>
+<p>The <em>Instances to Points</em> node generates points at the origins of top-level instances.
+Attributes on the <a href="../attributes_reference.html#attribute-domains">instance domain</a> are moved to the point cloud points.</p>
+<div>
+<p>Note</p>
+<p>Top-level instances are those that are owned by the node’s input geometry.
+Instances owned by other instances, i.e. nested instances, are not considered
+by this node.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Instances</dt><dd><p>Standard geometry input.</p>
+</dd>
+<dt>Selection</dt><dd><p>The instances used to generate points. True values mean a point is created for the instance,
+false values mean the instance is skipped.</p>
+</dd>
+<dt>Position</dt><dd><p>Overrides the default position of generated point.</p>
+</dd>
+<dt>Radius</dt><dd><p>Controls the radius of the result points.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Points</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

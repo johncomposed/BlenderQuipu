@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Edge &gt; Edge Data</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Edge Tools</a></li>
+<li>Edge Data</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="edge-data">
+<h1>Edge Data</h1>
+<p>Edges can have several different properties that affect how certain other tools affect the mesh.</p>
+<section id="edge-crease">
+<h2>Edge Crease</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Edge ‣ Edge Crease</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd><kbd>Shift</kbd>-<kbd>E</kbd></kbd></p>
+</dd>
+</dl>
+</div>
+<p>This operator interactively sets the <a href="../mesh/transform/basic.html#modeling-edges-crease-subdivision">Edge Crease</a> amount
+by moving the mouse (or typing a value with the keyboard).
+Selecting more than one edge will adjust the mean (average) crease value.
+A negative value will subtract from the actual crease value, if present.
+To clear the crease edge property, enter a value of -1.</p>
+</section>
+<section id="edge-bevel-weight">
+<h2>Edge Bevel Weight</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Edge ‣ Edge Bevel Weight</p>
+</dd>
+</dl>
+</div>
+<p>This edge property, a value between (0.0 to 1.0),
+is used by the <a href="../../../modifiers/generate/bevel.html">Bevel Modifier</a>
+to control the bevel intensity of the edges.
+This operator enters an interactive mode (a bit like transform tools),
+where by moving the mouse (or typing a value with the keyboard)
+you can set the bevel weight of selected edges. If two or more edges are selected,
+this operator alters the average weight of the edges.</p>
+<div>
+<p>See also</p>
+<p><a href="../mesh/transform/basic.html#modeling-vertex-bevel-weight">Vertex Bevel Weight</a></p>
+</div>
+</section>
+<section id="mark-seam-clear-seam">
+<h2>Mark Seam &amp; Clear Seam</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Edge ‣ Mark Seam/Clear Seam</p>
+</dd>
+</dl>
+</div>
+<p>These operators set or unset this mark for selected edges.
+Seams are a way to create separations, “islands”, in UV maps.
+See the <a href="../../../../editors/uv/index.html#editors-uv-index">UV Mapping section</a> for more details.</p>
+</section>
+<section id="mark-sharp-clear-sharp">
+<h2>Mark Sharp &amp; Clear Sharp</h2>
+<div id="id4">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Edge ‣ Mark Sharp/Clear Sharp</p>
+</dd>
+</dl>
+</div>
+<p>The <em>Sharp</em> mark is used by the <a href="../../structure.html#auto-smooth">split normals</a>
+and the <a href="../../../modifiers/generate/edge_split.html">Edge Split</a> modifier,
+which are part of the smoothing or customized shading techniques.
+As seams, it is a property of edges, and these operators set or unset it for selected ones.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

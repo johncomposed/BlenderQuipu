@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Layers &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">Rendering</a></li>
+<li><a href="index.html">Layers &amp; Passes</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<p>Renders can be separated into layers, to composite them back together afterwards.</p>
+<p>Some example usages are applying compositing effects to characters separately,
+blurring the background and foreground layers separately for depth of field,
+or rendering different lighting variations of the same scene.</p>
+<p>Using View Layers can also save you from having to re-render your entire image after each change,
+allowing you to instead re-render only the layer(s) that you have altered.</p>
+<section id="view-layers">
+<h2>View Layers</h2>
+<figure id="id2">
+<figcaption>
+<p>View Layers.</p>
+</figcaption>
+</figure>
+<p>In the top of the screen there is a list of all the View Layers in the active scene.</p>
+<dl id="bpy-types-viewlayer-name">
+<dt>Name</dt><dd><p>The name of the active view layer, click to edit the name.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-scene-view-layer-add">
+<dt>Add View Layer</dt><dd><p>Will add a new view layer to the active scene.</p>
+<dl>
+<dt>New</dt><dd><p>Adds a new view layer.</p>
+</dd>
+<dt>Copy Settings</dt><dd><p>Adds a new view layer with all the settings of current view layer.</p>
+</dd>
+<dt>Blank</dt><dd><p>Adds a new view layer with all collections disabled.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-ops-scene-view-layer-remove">
+<dt>Remove View Layer</dt><dd><p>Will remove the selected view layer from the active scene.</p>
+<div>
+<p>Note</p>
+<p>A scene must have at least one view layer.</p>
+</div>
+</dd>
+</dl>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>Each <a href="../../scene_layout/scene/introduction.html">Scene</a> has an associated set of
+<a href="../../scene_layout/collections/collections.html">Collections</a>.
+The visibility settings of each collection can be changed per View Layer to separate the
+rendering of different objects and lights into layers.</p>
+</section>
+<section id="collections">
+<h2>Collections</h2>
+<p>Per collection you can adjust the way how the render engine needs to render the objects inside.
+Based on the render engine different options can be set.</p>
+<figure id="id3">
+<figcaption>
+<p>Collection/View layer settings.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Disable from View Layer</dt><dd><p>Remove this collection from the active view layer. Objects that are only in
+this collection will not be rendered for the active view layer.
+This is useful to sometimes leave out some object influence for a particular view layer.</p>
+</dd>
+<dt>Enable in View Layer</dt><dd><p>Add this collection to the active view layer. Objects inside the collection
+will be rendered with the active view layer.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-outliner-collection-holdout-set">
+<dt>Set Holdout</dt><dd><p>Objects inside this collection will generate a holdout/mask in the active view layer.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-outliner-collection-holdout-clear">
+<dt>Clear Holdout</dt><dd><p>Clear the Set Holdout flag.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-outliner-collection-indirect-only-set">
+<dt>Set Indirect Only Cycles Only</dt><dd><p>Objects inside this collection will only contribute to the final image
+indirectly through shadows and reflections.</p>
+</dd>
+</dl>
+<dl id="bpy-ops-outliner-collection-indirect-only-clear">
+<dt>Clear Indirect Only Cycles Only</dt><dd><p>Clear the <em>Indirect Only</em> flag. Objects inside this collection will contribute normally to the final image.</p>
+</dd>
+</dl>
+</section>
+<section id="cycles">
+<h2>Cycles</h2>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>View Layers ‣ Layer</p>
+</dd>
+</dl>
+</div>
+<p>This section covers only the Render Layer settings appropriate for the Cycles renderer.
+For the engine-independent settings, see <a href="#render-layers">this section</a>.</p>
+<section id="filter">
+<h3>Filter</h3>
+<dl id="bpy-types-viewlayer-use-sky">
+<dt>Include</dt><dd><dl>
+<dt>Environment</dt><dd><p>Disables rendering the <em>Environment</em> render pass in the final render.</p>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayer-use-solid">
+<dt>Surfaces</dt><dd><p>Disables rendering object materials in the final render.</p>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayer-use-strand">
+<dt>Curves</dt><dd><p>Disables rendering curve strands in the final render.</p>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayer-use-volumes">
+<dt>Volume</dt><dd><p>Disables rendering <a href="../../modeling/volumes/index.html">Volumes</a> in the final render.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayer-use-motion-blur">
+<dt>Use</dt><dd><dl>
+<dt>Motion Blur</dt><dd><p>Render motion blur for this Layer,
+if enabled in the <a href="../cycles/render_settings/motion_blur.html#bpy-types-rendersettings-use-motion-blur">Render Settings</a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="override">
+<h3>Override</h3>
+<dl id="bpy-types-viewlayer-material-override">
+<dt>Material Override</dt><dd><p>Overrides all materials in the render layer.</p>
+</dd>
+</dl>
+<dl id="bpy-types-viewlayer-samples">
+<dt>Samples</dt><dd><p>View layer samples to override the scene samples.
+Controlled by the <a href="../cycles/render_settings/sampling.html#bpy-types-cyclesrendersettings-use-layer-samples">layer samples</a> in the Sampling panel.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Face &gt; Inset Faces</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Meshes</a></li>
+<li><a href="../index.html">Editing</a></li>
+<li><a href="index.html">Face Tools</a></li>
+<li>Inset Faces</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="inset-faces">
+<h1>Inset Faces</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Tool:</dt>
+<dd><p>Toolbar ‣ Inset Faces</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Face ‣ Inset Faces</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>I</kbd></p>
+</dd>
+</dl>
+</div>
+<p>This tool takes the currently selected faces and creates an inset of them,
+with adjustable thickness and depth. Think of it as like creating an edge loop,
+but relative to the selected edges, even in complex meshes.</p>
+<p>The tool is modal, such that when you activate it,
+you may adjust the thickness with your mouse position.
+You may also adjust the depth of the inset during the modal operation by holding <kbd>Ctrl</kbd>.</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Selection to inset.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Result of inset with Select Outer enabled.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="options">
+<h2>Options</h2>
+<figure id="id4">
+<figcaption>
+<p>Inset operator options.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Boundary <kbd>B</kbd></dt><dd><p>Determines whether open edges will be inset or not.</p>
+</dd>
+<dt>Offset Even</dt><dd><p>Scale the offset to give a more even thickness.</p>
+</dd>
+<dt>Offset Relative</dt><dd><p>Scale the offset by lengths of surrounding geometry.</p>
+</dd>
+<dt>Edge Rail</dt><dd><p>Created vertices slide along the original edges of the inner geometry, instead of the normals.</p>
+</dd>
+<dt>Thickness</dt><dd><p>Set the size of the offset.</p>
+</dd>
+<dt>Depth <kbd>Ctrl</kbd></dt><dd><p>Raise or lower the newly inset faces to add depth.</p>
+</dd>
+<dt>Outset <kbd>O</kbd></dt><dd><p>Create an outset rather than an inset.
+Causes the geometry to be created surrounding selection (instead of within).</p>
+</dd>
+<dt>Select Outer</dt><dd><p>Toggle which side of the inset is selected after the operation.</p>
+</dd>
+<dt>Individual <kbd>I</kbd></dt><dd><p>By default the Inset tool operates on the region around selected faces,
+but with this option each selected face can be inset on its own.</p>
+</dd>
+<dt>Interpolate</dt><dd><p>Interpolate mesh data: e.g. UVs, Color Attribute’s colors, weights, etc.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

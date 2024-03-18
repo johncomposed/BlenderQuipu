@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Utilities &gt; Math &gt; Compare</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Utilities Nodes</a></li>
+<li><a href="index.html">Math Utility Nodes</a></li>
+<li>Compare Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="compare-node">
+<h1>Compare Node</h1>
+<p>The <em>Compare</em> node takes two inputs and does an operation to determine whether they are similar.
+The node can work on all generic data types, and has modes for vectors that contain more complex
+comparisons, which can help to reduce the number of necessary nodes, and make a node tree more readable.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>A, B</dt><dd><p>Standard value inputs of the selected type.</p>
+</dd>
+<dt>C</dt><dd><p>Compared against the dot product of two input vectors in when the <em>Mode</em> property is set to <em>Dot Product</em>.</p>
+</dd>
+<dt>Epsilon</dt><dd><p>This value is used as a threshold for still considering the two inputs as equal
+for the Equal and Not Equal operations.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Mode</dt><dd><dl>
+<dt>Element-Wise:</dt>
+<dd><p>Compare each axis of the input vectors separately, and output true only when the result is true
+for each axis.</p>
+</dd>
+<dt>Length:</dt>
+<dd><p>Compare the length of the two input vectors.</p>
+</dd>
+<dt>Average:</dt>
+<dd><p>Compare the average of the elements of the input vectors. This is the same as the implicit
+conversion used when setting the node’s data type to <em>Float</em>.</p>
+</dd>
+<dt>Dot Product:</dt>
+<dd><p>Compare the dot product of the two vectors with the separate <em>C</em> input, using the selected operation.
+The dot product outputs a single value that says how much the two vectors “agree”.</p>
+</dd>
+<dt>Direction:</dt>
+<dd><p>Compare the angle between the two vectors with the separate <em>Angle</em> input, using the selected operation.
+The vectors are normalized, so their length does not matter.</p>
+</dd>
+</dl>
+</dd>
+<dt>Operation</dt><dd><dl>
+<dt>Less Than:</dt>
+<dd><p>True when the first input is smaller than second input.</p>
+</dd>
+<dt>Less Than or Equal:</dt>
+<dd><p>True when the first input is smaller than the second input or equal.</p>
+</dd>
+<dt>Greater Than:</dt>
+<dd><p>True when the first input is greater than the second input.</p>
+</dd>
+<dt>Greater Than or Equal:</dt>
+<dd><p>True when the first input is greater than the second input or equal.</p>
+</dd>
+<dt>Equal:</dt>
+<dd><p>True when both the difference between the two inputs is smaller than the <em>Epsilon</em> input.</p>
+</dd>
+<dt>Not Equal:</dt>
+<dd><p>True when both the difference between the two inputs is larger than the <em>Epsilon</em> input.</p>
+</dd>
+<dt>Brighter:</dt>
+<dd><p>True when the first color input is brighter than the second.</p>
+</dd>
+<dt>Darker:</dt>
+<dd><p>True when the first color input is darker than the second.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h2>Output</h2>
+<dl>
+<dt>Result</dt><dd><p>Standard Boolean output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Here, the compare node is used with the <em>Direction</em> mode to compare the direction of the
+sphere’s <a href="../../geometry/read/normal.html">face normals</a> to the “direction”
+of the cube object’s location. Anywhere that the directions are less than 32.9 degrees apart,
+the faces will be selected, and deleted.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

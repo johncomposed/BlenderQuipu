@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Editors &gt; 3Dview &gt; Controls &gt; Proportional Editing</title></head>
+<body><ul>
+<li><a href="../../index.html">Editors</a></li>
+<li><a href="../index.html">3D Viewport</a></li>
+<li><a href="index.html">Controls</a></li>
+<li>Proportional Editing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="proportional-editing">
+<h1>Proportional Editing</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Object and Edit Mode</p>
+</dd>
+<dt>Header:</dt>
+<dd><p> Proportional Editing</p>
+</dd>
+<dt>Shortcut:</dt>
+<dd><p><kbd>O</kbd></p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Proportional Editing popover.</p>
+</figcaption>
+</figure>
+<p>Proportional Editing is a way of transforming selected elements while also affecting
+the nearby unselected elements. The farther away an unselected element is, the less it will be affected
+(hence the “proportional”). This feature is very useful for smoothly deforming dense meshes.</p>
+<div>
+<p>Note</p>
+<p>Blender also has a <a href="../../../sculpt_paint/sculpting/index.html#painting-sculpting-index">Sculpting</a> workflow
+that contains brushes and tools for proportionally editing a mesh without seeing the individual vertices.</p>
+</div>
+<section id="controls">
+<h2>Controls</h2>
+<dl>
+<dt>Disable <kbd>O</kbd></dt><dd><p>Proportional Editing is off, only selected vertices will be affected.</p>
+</dd>
+<dt>Enable <kbd>O</kbd></dt><dd><p>Vertices other than the selected vertex are affected, within a defined radius.</p>
+</dd>
+</dl>
+<section id="proportional-size">
+<h3>Proportional Size</h3>
+<p>You can increase or decrease the radius of the tool’s influence during a transform operation
+from the Proportional Editing popover or with <kbd>WheelUp</kbd>/<kbd>WheelDown</kbd>, or <kbd>PageUp</kbd>/<kbd>PageDown</kbd>
+respectively. As you change the radius, the points surrounding your selection will adjust their positions
+accordingly.</p>
+<figure id="id3">
+<figcaption>
+<p>Influence circle.</p>
+</figcaption>
+</figure>
+</section>
+<section id="falloff">
+<h3>Falloff</h3>
+<p>While editing, you can change the curve profile by either clicking the <em>Falloff</em> icon in the header
+or pressing <kbd><kbd>Shift</kbd>-<kbd>O</kbd></kbd> to get a pie menu.</p>
+<table>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Constant, No Falloff.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Random Falloff.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Linear Falloff.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id7">
+<figcaption>
+<p>Sharp Falloff.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id8">
+<figcaption>
+<p>Root Falloff.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Sphere Falloff.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id10">
+<figcaption>
+<p>Smooth Falloff.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id11">
+<figcaption>
+<p>Inverse Square Falloff.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="object-mode">
+<h2>Object Mode</h2>
+<p>Proportional Editing is typically used in <em>Edit Mode</em>, but it can also be used in <em>Object Mode</em>.
+The tool then works on entire objects rather than individual mesh components.</p>
+<p>In the image below, the leftmost cylinder is being scaled up vertically,
+which also affects the cylinders near it.</p>
+<figure id="id12">
+<figcaption>
+<p>Proportional Editing in Object Mode.</p>
+</figcaption>
+</figure>
+</section>
+<section id="edit-mode">
+<h2>Edit Mode</h2>
+<p>When working with dense geometry, it can become difficult to make subtle adjustments
+without causing visible lumps and creases in the model’s surface.
+When you face situations like this, Proportional Editing can help.</p>
+<figure id="id13">
+<figcaption>
+<p>Proportional Editing in Edit Mode.</p>
+</figcaption>
+</figure>
+<section id="options">
+<h3>Options</h3>
+<dl id="bpy-types-toolsettings-use-proportional-connected">
+<dt>Connected Only <kbd><kbd>Alt</kbd>-<kbd>O</kbd></kbd></dt><dd><p>Rather than using a radius only, the proportional falloff spreads via connected geometry.
+This means that you can proportionally edit the vertices in a finger of a hand
+without affecting the other fingers. While the other vertices are physically close (in 3D space),
+they are far away following the topological edge connections of the mesh.
+The icon will have a blue center when <em>Connected</em> is active.
+This mode is only available in <em>Edit Mode</em>.</p>
+</dd>
+</dl>
+<dl id="bpy-types-toolsettings-use-proportional-projected">
+<dt>Projected from View</dt><dd><p>Depth along the view is ignored when applying the radius.</p>
+<figure id="id14">
+<figcaption>
+<p>The difference between having “Projected from View” disabled (left) and enabled (right).</p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>The image below shows the final render of a low-poly landscape
+obtained by moving up the vertices of a triangulated grid
+with <em>Proportional Editing</em> enabled.</p>
+<figure id="id15">
+<figcaption>
+<p>A landscape obtained via Proportional Editing.</p>
+</figcaption>
+</figure>
+</section>
+</section>
+</div>
+</div></body>
+</html>

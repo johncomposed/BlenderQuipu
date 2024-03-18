@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; System &gt; Demo Mode</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">System</a></li>
+<li>Demo Mode</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="demo-mode">
+<h1>Demo Mode</h1>
+<p>Todo.</p>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click System then Demo Mode to enable the script.</p></li>
+</ul>
+</section>
+<section id="configuration">
+<h2>Configuration</h2>
+<p>This is done from File ‣ Demo Mode (Setup) in the File menu, from here you can select a directory
+which is searched recursively for blend-files to loop over.</p>
+<p>There are options as to what to do with each file at the moment the main options are to render or
+play an animation with options as to how many cycles to play, time to wait after render is done.</p>
+<section id="automatic-configuration">
+<h3>Automatic Configuration</h3>
+<p>The <em>Auto</em> option selects between <em>Render</em> and <em>Play</em> option based on the window layout’s use of image/node editors.
+If you are happy to use these settings on all files, you can leave the <em>Run Immediately</em> option enabled and confirm.</p>
+</section>
+<section id="adjusting-the-configuration">
+<h3>Adjusting the Configuration</h3>
+<p>If you want to set options per file, you can disable <em>Run Immediately</em>,
+during setup and select <code>demo.py</code> text data-block.
+This file has one line per file and settings can be edited and saved with the blend-file.
+When <code>demo.py</code> is present you only have to go to File ‣ Demo Mode (Start).</p>
+<section id="attributes">
+<h4>Attributes</h4>
+<p>These keyword arguments show up in generated <code>demo.py</code>, e.g:</p>
+<div><div><pre>dict(anim_cycles=2, anim_render=False, anim_screen_switch=0.0, anim_time_max=8.0, anim_time_min=4.0,
+display_render=4.0, file='foobar.blend', mode='AUTO'),
+</pre></div>
+</div>
+<ul>
+<li><p><code>anim_cycles</code> – Number of times to play the animation.</p></li>
+<li><p><code>anim_render</code> – Render entire animation (applies to <code>mode='RENDER'</code> only).</p></li>
+<li><p><code>anim_screen_switch</code> – Time between switching screens (in seconds) or 0 to disable.</p></li>
+<li><p><code>anim_time_max</code> – Maximum number of seconds to show the animation for
+(in case the end frame is very high for no reason).</p></li>
+<li><p><code>anim_time_min</code> – Minimum number of seconds to show the animation for (for small loops).</p></li>
+<li><p><code>display_render</code> – Time to display the rendered image before moving on (in seconds).</p></li>
+<li><p><code>file</code> – The filepath for the blend-file.</p></li>
+<li><p><code>mode</code> – <code>AUTO</code> / <code>PLAY</code> / <code>RENDER</code> – what to do on load.</p></li>
+</ul>
+</section>
+<section id="portable-configuration">
+<h4>Portable Configuration</h4>
+<p>Once you setup a <code>demo.py</code> you may want to move it to a different system.
+In this case the paths might not match up, if so
+update the <code>search_path</code> variable to point to the path on the new system.
+You can also set the <code>search_path</code> to use the directory of the current blend-file:</p>
+<div><div><pre>search_path = "//"
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>Once the demo starts it will play, render and load different files in the same Blender instance.
+Since its using a modal operator you can still use with Blender while the demo runs.</p>
+<p>If you want to stop Demo Mode, you can press <kbd>Esc</kbd> and continue using Blender.
+To enable again there are three buttons at the right hand side of the file menu to navigate <em>Prev</em>/<em>Pause</em>/<em>Next</em>.</p>
+</section>
+<section id="limitations">
+<h2>Limitations</h2>
+<ul>
+<li><p>One file can’t play an animation then render, you need to copy the line in <code>demo.py</code> and
+set one mode to <code>RENDER</code> the other to <code>PLAY</code>.</p></li>
+</ul>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>System</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Demo Mode lets you select multiple blend-files and loop over them.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>File ‣ Demo menu</p>
+</dd>
+<dt>File:</dt>
+<dd><p>system_demo_mode folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Campbell Barton</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

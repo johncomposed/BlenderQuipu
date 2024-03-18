@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Transform &gt; Maintain Volume</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Maintain Volume Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="maintain-volume-constraint">
+<h1>Maintain Volume Constraint</h1>
+<p>The <em>Maintain Volume</em> constraint limits the volume of a mesh or
+a bone to a given ratio of its original volume.</p>
+<div>
+<p>See also</p>
+<p><a href="https://web.archive.org/web/20220702025853/http://www.harkyman.com/2010/03/16/maintaining-bone-volume-a-new-constraint/">Harkyman on the development of the Maintain Volume constraint</a>.</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Maintain Volume Constraint.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mode</dt><dd><p>Specifies how the constraint handles scaling of the non-free axes.</p>
+<dl>
+<dt>Strict</dt><dd><p>This mode overrides non-free axis scaling to strictly maintain the specified volume.
+Only the ratio between the scale of the non-free axes is passed through.</p>
+</dd>
+<dt>Uniform</dt><dd><p>This mode maintains the volume as specified only when the pre-constraint scaling is uniform.
+Deviations from uniform scaling on non-free axes are passed through.</p>
+</dd>
+<dt>Single Axis</dt><dd><p>This mode maintains the volume only when the object is scaled just on its free axis.
+Any additional non-free axis scaling is passed through.</p>
+</dd>
+</dl>
+</dd>
+<dt>Free Axis</dt><dd><p>The free-scaling axis of the object.</p>
+</dd>
+<dt>Volume</dt><dd><p>The bone’s rest volume.</p>
+</dd>
+<dt>Owner</dt><dd><p>This constraint allows you to choose in which space to evaluate its owner’s transform properties.
+See <a href="../interface/common.html#rigging-constraints-interface-common-space">common constraint properties</a> for more information.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h2>Example</h2>
+</section>
+</section>
+</div>
+</div></body>
+</html>

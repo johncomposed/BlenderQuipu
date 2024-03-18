@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>Movie Clip &gt; Tracking &gt; Dope Sheet</head>
+<body><ul>
+<li><a href="../index.html">Motion Tracking &amp; Masking</a></li>
+<li><a href="index.html">Motion Tracking</a></li>
+<li>Dope Sheet View</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="dope-sheet-view">
+<h1>Dope Sheet View</h1>
+<figure id="id1">
+<figcaption>
+<p>Dope Sheet View.</p>
+</figcaption>
+</figure>
+<p>The Dope Sheet View is used to visualize motion tracking data,
+it is implemented as separate view of the Movie Clip editor just like the Graph View.</p>
+<p>It displays channels for selected tracks and each channel visualizes tracked
+segments of tracks as dark bars and keyframed positions of tracks as small diamonds.</p>
+<p>The background is highlighted depending on the number of tracks in a frame.
+This means that if for a frame (or sequence of frames) there are less than eight tracks,
+the background will turn red;
+if there are from eight to sixteen tracks, the background will be yellow.</p>
+<p>This is only a visual feedback, which doesn’t mean that the camera motion will not
+reconstruct with less than eight tracks. It only means that you should pay attention to those frames and
+check if all possible good feature points are tracked there. Remember, if there are no good feature points in
+the frame and there are less than 16 tracks in the frame, it doesn’t mean the solution won’t be accurate.
+Rather, adding more tracks on bad feature points will reduce the accuracy of solution.</p>
+<section id="header">
+<h2>Header</h2>
+<figure id="id2">
+<figcaption>
+<p>Sort order of the channels.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Show Only Selected (mouse cursor icon)</dt><dd><p>Limits Dope Sheet channels to only information about selected tracks.</p>
+</dd>
+<dt>Hidden (ghost icon)</dt><dd><p>Includes information from hidden tracks.</p>
+</dd>
+</dl>
+<dl id="bpy-types-movietrackingdopesheet-sort-method">
+<dt>Sort Method</dt><dd><p>Sort order of the tracks.</p>
+<dl>
+<dt>Name:</dt>
+<dd><p>Sort selected tracks in alphabetical order based on their names.</p>
+</dd>
+<dt>Longest:</dt>
+<dd><p>Sort tracks by longest tracked segment length.</p>
+</dd>
+<dt>Total:</dt>
+<dd><p>Sort tracks by overall amount of frames.</p>
+</dd>
+<dt>Average Error:</dt>
+<dd><p>Sort tracks by their average reprojection error after solving camera or object motion.</p>
+</dd>
+<dt>Start Frame:</dt>
+<dd><p>Sort channels by first frame number.</p>
+</dd>
+<dt>End Frame:</dt>
+<dd><p>Sort channels by last frame number.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-movietrackingdopesheet-use-invert-sort">
+<dt>Invert</dt><dd><p>To change the sort order from ascending to descending.</p>
+</dd>
+</dl>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>The Dope Sheet View is for visualization and does not have any tools to actually edit data.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

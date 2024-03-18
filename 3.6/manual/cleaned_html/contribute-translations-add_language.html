@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Contribute &gt; Translations &gt; Add Language</title></head>
+<body><ul>
+<li>Adding a Language</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="adding-a-language">
+<h1>Adding a Language</h1>
+<section id="preparations">
+<h2>Preparations</h2>
+<p>If the language you want to translate has not been started by someone else already and
+you wish to create a set of new files for the desired language, say ‘fr’ (French),
+then you must first use the environment you have created,
+as guided in <a href="../index.html#about-getting-started">Getting Started</a>,
+in particular <a href="../install/index.html">Installing Dependencies</a> and <a href="../build.html">Building the Manual</a> sections.</p>
+<p>This will give you a foundation environment for:</p>
+<ul>
+<li><p>Creating a new set of translation language from English source.</p></li>
+<li><p>Perform <code>make</code> command to turn translated texts in po files into html files for testing locally.</p></li>
+<li><p>Update changes in English texts which have been added by other contributors.</p></li>
+</ul>
+<p>Below examples show the process to create a new set of files for French, language code <code>fr</code>, on Linux platform.
+Other platforms might vary slightly but should be mainly the same.</p>
+<ol>
+<li><p><cite>Create a Blender ID &lt;https://id.blender.org/register/&gt;</cite> if you have not done so already</p></li>
+<li><p>Log into <a href="https://projects.blender.org/">projects.blender.org</a> and
+<a href="https://projects.blender.org/blender/documentation/issues/new">Create an Issue</a>
+requesting for commit access in order to transfer changes to the central repository of the translation team.</p></li>
+<li><p>Open an instance of a console application.</p></li>
+<li><p>Change the current working directory to the directory of <code>blender-manual</code>,
+where the instance of <code>Makefile</code> resides.</p></li>
+</ol>
+</section>
+<section id="trying-the-make-process-to-create-html-files-in-english">
+<h2>Trying the Make Process to Create HTML Files in English</h2>
+<ol>
+<li><p>Ensure the previous instance of <code>build</code> directory is removed, if any exists:</p>
+<div><div><pre>make clean
+</pre></div>
+</div>
+</li>
+<li><p>Convert all the <code>rst</code> files into <code>pot</code> translation files:</p>
+<div><div><pre>make gettext
+</pre></div>
+</div>
+</li>
+<li><p>Create <code>html</code> files:</p>
+<div><div><pre>make html
+</pre></div>
+</div>
+</li>
+<li><p>After this, you can actually view the created html files locally
+by opening the <code>blender-manual/build/html/index.html</code> file.</p></li>
+</ol>
+</section>
+<section id="creating-the-language-entry-in-the-html-menu">
+<h2>Creating the Language Entry in the HTML Menu</h2>
+<ol>
+<li><p>Create an entry for the language in the html menu by opening file <code>./resources/theme/js/version_switch.js</code>
+(assuming you are at the <code>blender-manual</code> subdirectory).</p></li>
+<li><p>Find the table for the languages in <code>var all_langs = {..};</code>.</p></li>
+<li><p>Enter the entry: <code>"fr": "Fran&amp;ccedil;ais",</code>, (<code>"fr": "Français"</code>).
+(Notice the Unicode characters.)</p></li>
+<li><p>Commit the updated file:</p>
+<div><div><pre>git add ./resources/theme/js/version_switch.js
+git commit -m "HTML: Add French to language menu"
+</pre></div>
+</div>
+</li>
+<li><p>Push your changes to the upstream repository:</p>
+<div><div><pre>git push
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="generating-the-set-of-files-for-the-target-language">
+<h2>Generating the Set of Files for the Target Language</h2>
+<ol>
+<li><p>Check out the current translation repository using the command:</p>
+<div><div><pre>git clone https://projects.blender.org/blender/blender-manual-translations.git locale
+</pre></div>
+</div>
+<p>This will download all language sets available in the repository into the <code>locale</code> directory of your drive.
+You can go to the <code>locale</code> directory to see the hidden subdirectory <code>.git</code> within it,
+together with directories of languages.
+You’ll need to add your own set of files for the language you are trying to translating to.</p>
+</li>
+<li><p>From the <code>blender-manual</code> directory to generate a set of files for <code>fr</code> language:</p>
+<div><div><pre>make update_po
+</pre></div>
+</div>
+<p>These files are still in English only, with all <code>msgstr</code> entries blank.</p>
+</li>
+<li><p>Submit new set of files to the central repository:</p>
+<div><div><pre>cd locale
+git add fr
+git commit -m "Initial commit language set of files for French"
+</pre></div>
+</div>
+</li>
+</ol>
+<div>
+<p>Tip</p>
+<ul>
+<li><p>It is recommended you make two environment variables for these directories, in the <code>.bashrc</code>
+to make it more convenient for changing or scripting batch/shell commands
+for the process of translation and reviewing results:</p>
+<div><div><pre>export BLENDER_MAN_EN=$HOME/&lt;directory to make file directory above&gt;/blender-manual
+export BLENDER_MAN_FR=$BLENDER_MAN_EN/locale
+</pre></div>
+</div>
+</li>
+<li><p>Newly generated files will contain some placeholders for authors and revision dates etc.
+If you find the job of replacing them repetitive, make use of the script <code>change_placeholders.sh</code>
+in the subdirectory <code>~/blender-manual/tools_maintenance</code>, make a copy of that to your local <code>bin</code> directory
+and replace all values that were mentioned in the file with your specific details,
+then after each change to a file, you would do following commands
+to update the file with your personal details, revision date and time,
+plus generating the html files for your language, which you can view using your Internet browser:</p>
+<div><div><pre>$HOME/bin/change_placeholders.sh $BLENDER_MAN_FR
+make -d --trace -w -B -e SPHINXOPTS="-D language='fr'" 2&gt;&amp;1
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

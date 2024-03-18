@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Operations &gt; Curve To Mesh</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Operation Nodes</a></li>
+<li>Curve to Mesh Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="curve-to-mesh-node">
+<h1>Curve to Mesh Node</h1>
+<p>The Curve to Mesh node converts all splines of a curve to a mesh.
+Optionally, a profile curve can be provided to give the curve a custom shape.</p>
+<p>The node transfers attributes to the result. Attributes that are built-in on meshes but not curves,
+like <code>sharp_face</code>, will be transferred to the correct domain as well.</p>
+<div>
+<p>Tip</p>
+<p>The output mesh has <a href="../../../meshes/structure.html#auto-smooth">auto smooth</a> set
+and <a href="../../../meshes/structure.html#modeling-meshes-normals-sharp-edge">sharp edges</a> from
+the profile curve tagged automatically. If any splines in the profile curve
+are Bézier splines and any of the control points use <em>Free</em> or <em>Vector</em> handles,
+the corresponding edges will be shaded sharp.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curve</dt><dd><p>Standard geometry input.
+All non-curve components are ignored.</p>
+</dd>
+<dt>Profile Curve</dt><dd><p>If a profile curve is provided, it will be extruded along all splines.
+Otherwise the generated mesh will just be a chain of edges.</p>
+</dd>
+<dt>Fill Caps</dt><dd><p>If the profile spline is cyclic, fill the ends of the generated mesh with n-gons.
+The resulting mesh is <a href="../../../../glossary/index.html#term-Manifold">Manifold</a>, the two new faces for each spline are
+simply connected to existing edges.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<p>This node has no properties.</p>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Mesh</dt><dd><p>Standard geometry output.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

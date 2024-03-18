@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Interface &gt; Keymap &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../index.html">User Interface</a></li>
+<li>Common Shortcuts</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="common-shortcuts">
+<h1>Common Shortcuts</h1>
+<section id="conventions-used-in-this-manual">
+<h2>Conventions Used in This Manual</h2>
+<section id="keyboards">
+<h3>Keyboards</h3>
+<p>Hotkey letters are shown in this manual like they appear on a keyboard; for example:</p>
+<dl>
+<dt><kbd>G</kbd></dt><dd><p>refers to the lowercase <code>g</code>.</p>
+</dd>
+<dt><kbd>Shift</kbd>, <kbd>Ctrl</kbd>, <kbd>Alt</kbd></dt><dd><p>are specified as modifier keys.</p>
+</dd>
+<dt><kbd><kbd>Ctrl</kbd>-<kbd>W</kbd></kbd>, <kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>A</kbd></kbd>, …</dt><dd><p>indicates that these keys should be pressed simultaneously.</p>
+</dd>
+<dt><kbd>Numpad0</kbd> to <kbd>Numpad9</kbd>, <kbd>NumpadPlus</kbd></dt><dd><p>refer to the keys on the separate numeric keypad.</p>
+</dd>
+</dl>
+<p>Other keys are referred to by their names,
+such as <kbd>Esc</kbd>, <kbd>Tab</kbd>, <kbd>F1</kbd> to <kbd>F12</kbd>.
+Of special note are the arrow keys, <kbd>Left</kbd>, <kbd>Right</kbd> and so on.</p>
+</section>
+<section id="mouse">
+<h3>Mouse</h3>
+<p>This manual refers to mouse buttons as:</p>
+<dl>
+<dt><kbd>LMB</kbd></dt><dd><p>Left Mouse Button</p>
+</dd>
+<dt><kbd>RMB</kbd></dt><dd><p>Right Mouse Button</p>
+</dd>
+<dt><kbd>MMB</kbd></dt><dd><p>Middle Mouse Button</p>
+</dd>
+<dt><kbd>Wheel</kbd>, <kbd>WheelUp</kbd> &amp; <kbd>WheelDown</kbd></dt><dd><p>Scrolling the wheel.</p>
+</dd>
+</dl>
+<div>
+<p>Note</p>
+<p>Blender has two main selection modes: left-click select and right-click select.
+See the <a href="blender_default.html#keymap-blender-default-prefs-select-with">Select with Mouse Button</a> preference.</p>
+<p>While left-click select is the default as it’s the most common in other applications,
+right-click select does have its advantages.
+See: <a href="https://vimeo.com/76335056">Learn the benefits of right-click select</a>.</p>
+</div>
+</section>
+</section>
+<section id="hovering">
+<h2>Hovering</h2>
+<p>While hovering (when the cursor is held over a button).</p>
+<section id="properties">
+<h3>Properties</h3>
+<ul>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> – Copy the (single) value of the button.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd> – Paste the (single) value of the button.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>C</kbd></kbd> – Copy the entire vector or color of the field.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>V</kbd></kbd> – Paste the entire vector or color of the field.</p></li>
+<li><p><kbd>RMB</kbd> – Open the context menu.</p></li>
+<li><p><kbd>Backspace</kbd> – Clear the value (sets to zero or clears a text field).</p></li>
+<li><p><kbd>Minus</kbd> – Negate number values (multiply by -1.0).</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Wheel</kbd></kbd> – Change the value incremental steps.</p>
+<p>For pop-up option menus buttons, this cycles the value.</p>
+</li>
+<li><p><kbd>Return</kbd> – Activates menus or toggles the value.</p></li>
+<li><p><kbd>Alt</kbd> – Hold while editing values to apply the change to all selected items
+(objects, bones, sequence-strips).</p>
+<p>This can be used for number fields and toggles.</p>
+</li>
+</ul>
+</section>
+<section id="animation">
+<h3>Animation</h3>
+<ul>
+<li><p><kbd>I</kbd> – Insert a keyframe.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>I</kbd></kbd> – Clear the keyframe.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Alt</kbd>-<kbd>I</kbd></kbd> – Clear all keyframes (removing all F-Curves).</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>D</kbd></kbd> – Assign a driver.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>D</kbd></kbd> – Clear the driver.</p></li>
+<li><p><kbd>K</kbd> – Add a Keying Set.</p></li>
+<li><p><kbd><kbd>Alt</kbd>-<kbd>K</kbd></kbd> – Clear the Keying Set.</p></li>
+</ul>
+</section>
+<section id="python-scripting">
+<h3>Python Scripting</h3>
+<ul>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> over any <a href="../controls/buttons/buttons.html#ui-operator-buttons">Operator Buttons</a> copies their Python command into the clipboard.</p>
+<p>This can be used in the Python Console or in the Text editor when writing scripts.</p>
+</li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> over property buttons copies their data path for this property
+(also available from the context menu).</p>
+<p>Useful when writing drivers or scripts.</p>
+</li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>C</kbd></kbd> over property buttons copies their <em>full</em> data path for the data-block and property.</p>
+<p>Note that in most cases it is best to access values based on the context, instead of by name.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="dragging">
+<h2>Dragging</h2>
+<ul>
+<li><p><kbd>Ctrl</kbd> – While dragging, snap to discrete steps.</p></li>
+<li><p><kbd>Shift</kbd> – Gives precision control over the value.</p></li>
+<li><p><kbd><kbd>Shift</kbd>-<kbd>Ctrl</kbd></kbd> – Precise snap will move the object with high precision
+along with the snapping constraint.</p></li>
+</ul>
+</section>
+<section id="text-editing">
+<h2>Text Editing</h2>
+<ul>
+<li><p><kbd>Home</kbd> – Go to the start of the line.</p></li>
+<li><p><kbd>End</kbd> – Go to the end of the line.</p></li>
+<li><p><kbd>Left</kbd>, <kbd>Right</kbd> – Move the cursor a single character.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Left</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>Right</kbd></kbd> – Move the cursor an entire word.</p></li>
+<li><p><kbd>Backspace</kbd>, <kbd>Delete</kbd> – Delete characters.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>Backspace</kbd></kbd>, <kbd><kbd>Ctrl</kbd>-<kbd>Delete</kbd></kbd> – Delete words.</p></li>
+<li><p><kbd>Shift</kbd> – Select while holding the key and moving the cursor.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>A</kbd></kbd> – Select all text.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>C</kbd></kbd> – Copy the selected text.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>X</kbd></kbd> – Cut the selected text.</p></li>
+<li><p><kbd><kbd>Ctrl</kbd>-<kbd>V</kbd></kbd> – Paste text at the cursor position.</p></li>
+</ul>
+</section>
+<section id="confirm-cancel">
+<h2>Confirm &amp; Cancel</h2>
+<ul>
+<li><p><kbd>Esc</kbd>, <kbd>RMB</kbd> – Cancel.</p></li>
+<li><p><kbd>Return</kbd>, <kbd>LMB</kbd> – Confirm.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

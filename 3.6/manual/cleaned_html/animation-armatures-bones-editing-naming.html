@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Armatures &gt; Bones &gt; Editing &gt; Naming</title></head>
+<body><ul>
+<li><a href="../../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../../index.html">Armatures</a></li>
+<li><a href="../index.html">Bones</a></li>
+<li><a href="index.html">Editing</a></li>
+<li>Naming</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="naming">
+<h1>Naming</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>All Modes</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Bone Properties</p>
+</dd>
+</dl>
+</div>
+<p>You can rename your bones, either using the <em>Name</em> field in the <em>Bones Properties</em>.
+It is also possible to rename by double-clicking bones in the Outliner.</p>
+<p>Blender also provides you some tools that take advantage of bones named in a left/right
+symmetry fashion, and others that automatically name the bones of an armature.</p>
+<section id="naming-conventions">
+<h2>Naming Conventions</h2>
+<p>Naming conventions in Blender are not only useful for you in finding the right bone,
+but also to tell Blender when any two of them are counterparts.</p>
+<p>In case your armature can be mirrored in half (i.e. it is bilaterally symmetrical),
+it is worthwhile to stick to a left/right naming convention.
+This will enable you to use some tools that will probably save you time and effort
+(like the <em>X-Axis Mirror</em> editing tool).</p>
+<figure id="id4">
+<figcaption>
+<p>An example of left/right bone naming in a simple rig.</p>
+</figcaption>
+</figure>
+<ol>
+<li><p>First you should give your bones meaningful base-names,
+like “leg”, “arm”, “finger”, “back”, “foot”, etc.</p></li>
+<li><p>If you have a bone that has a copy on the other side (a pair),
+like an arm, give it one of the following separators:</p>
+<ul>
+<li><p>Left/right separators can be either the second position
+“L<strong>_</strong>calfbone” or last-but-one “calfbone<strong>.</strong>R”.</p></li>
+<li><p>If there is a lower or upper case “L”, “R”, “left” or “right”, Blender handles the counterpart correctly.
+See below for a list of valid separators.
+Pick one and stick to it as close as possible when rigging; it will pay off.</p></li>
+</ul>
+<p>Examples of valid separators:</p>
+<ul>
+<li><p>(nothing): handLeft –&gt; handRight</p></li>
+<li><p>“_” (underscore): hand<strong>_</strong>L –&gt; hand<strong>_</strong>R</p></li>
+<li><p>“.” (dot): hand<strong>.</strong>l –&gt; hand<strong>.</strong>r</p></li>
+<li><p>“-” (dash): hand<strong>-</strong>l –&gt; hand<strong>-</strong>r</p></li>
+<li><p>” ” (space): hand LEFT –&gt; hand RIGHT</p></li>
+</ul>
+<div>
+<p>Note</p>
+<p>Note that all examples above are also valid with the left/right part placed before the name.
+You can only use the short “L”/ “R” code if you use a separator (e.g. “handL”/ “handR” will not work!).</p>
+</div>
+</li>
+<li><p>Before Blender handles an armature for mirroring or flipping,
+it first removes the number extension, e.g. “.001”.</p></li>
+<li><p>You can copy a bone named “bla.L” and flip it over using <a href="#bpy-ops-armature-flip-names">Flip Names</a>.
+Blender will name the copy “bla.L.001” and flipping the name will give you “bla.R”.</p></li>
+</ol>
+</section>
+<section id="auto-name">
+<h2>Auto-Name</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Names ‣ Auto-Name Left/Right, Front/Back, Top/Bottom</p>
+</dd>
+</dl>
+</div>
+<p>The three <em>AutoName</em> entries of the Armature ‣ Names menu allow you to
+automatically add a suffix to all selected bones, based on the position of their root
+relative to the armature’s origin and its local coordinates:</p>
+<dl>
+<dt>AutoName Left/Right</dt><dd><p>Will add the “.L” suffix to all bones with a <em>positive</em> X coordinate root,
+and the “.R” suffix to all bones with a <em>negative</em> X coordinate root.
+If the root is exactly at 0.0 on the X axis, the X coordinate of the tip is used.
+If both joints are at 0.0 on the X axis, the bone will just get a period suffix, with no “L”/ “R”
+(as Blender cannot decide whether it is a left or right bone…).</p>
+</dd>
+<dt>AutoName Front/Back</dt><dd><p>Will add the “.Bk” suffix to all bones with a <em>positive</em> Y coordinate root,
+and the “.Fr” suffix to all bones with a <em>negative</em> Y coordinate root.
+The same as with <em>AutoName Left-Right</em> goes for 0.0 Y coordinate bones…</p>
+</dd>
+<dt>AutoName Top/Bottom</dt><dd><p>Will add the “.Top” suffix to all bones with a <em>positive</em> Z coordinate root,
+and the “.Bot” suffix to all bones with a <em>negative</em> Z coordinate root.
+The same as with <em>AutoName Left-Right</em> goes for 0.0 Z coordinate bones…</p>
+</dd>
+</dl>
+</section>
+<section id="flip-names">
+<h2>Flip Names</h2>
+<div id="id3">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Armature ‣ Names ‣ Flip Names</p>
+</dd>
+</dl>
+</div>
+<p>You can flip left/right markers (see above) in selected bone names.
+This can be useful if you have constructed half of a symmetrical rig
+(marked for a left or right side) and duplicated and mirrored it,
+and want to update the names for the new side.
+Blender will swap text in bone names according to the above naming conventions,
+and remove number extensions if possible.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

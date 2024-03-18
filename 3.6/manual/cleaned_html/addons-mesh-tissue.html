@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Mesh &gt; Tissue</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Mesh</a></li>
+<li>Tissue</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="tissue">
+<h1>Tissue</h1>
+<p>Tissue is a collection of tools that facilitate the use of computational-design techniques inside Blender.
+It consists of different tools, visible in the right panel.
+According to the active mode, different tools are displayed:</p>
+<ul>
+<li><p><a href="#tissue-tools">Tissue Tools</a> (visible in Edit Mode and Object Mode)</p></li>
+<li><p><a href="#tissue-weight-tools">Tissue Weight Tools</a>  (visible in Weight Paint Mode)</p></li>
+<li><p><a href="#tissue-color-tools">Tissue Color Tools</a>  (visible in Vertex Weight Mode)</p></li>
+</ul>
+<section id="activation">
+<h2>Activation</h2>
+<ul>
+<li><p>Open Blender and go to Preferences then the Add-ons tab.</p></li>
+<li><p>Click Mesh then Tissue to enable the script.</p></li>
+</ul>
+</section>
+<section id="tissue-tools">
+<h2>Tissue Tools</h2>
+<section id="generators">
+<h3>Generators</h3>
+<p><em>Generators</em> are non-destructive functions that generate new objects starting
+from input objects. They include <strong>Tessellate</strong>, <strong>Dual Mesh</strong> (a special
+Tessellate) and <strong>Convert to Curve</strong>. For all of them, a <strong>Refresh</strong> operator can be used in order to reload the
+changes from the input objects.</p>
+</section>
+<section id="tessellate">
+<h3>Tessellate</h3>
+<p>The <em>Tessellate</em> tool allows the user to copy a selected object (Component) on the faces of
+the active object (Base), adapting its bounding box to the shape of quad faces.
+It is possible to use as input objects <em>Mesh</em>, <em>Curve</em>, <em>Surface</em> and <em>Text</em> and <em>Meta</em> objects.
+When using Tessellate, two objects must be selected.
+Once the <em>Tessellate</em> button was pressed, then more options will appear in the tool parameters.</p>
+<p>Later it will be possible to change them,
+together with more advanced settings from the <em>Object Data Panel</em> of the generated object.</p>
+<dl>
+<dt>Use Modifiers</dt><dd><p>This option is available for both <em>Base</em> and <em>Component</em> objects and allows the use
+the respective modifiers. If this option is disabled, then only the original object’s
+data will be used.</p>
+</dd>
+<dt>Fill Mode</dt><dd><p>Tessellation strategy used to map the Component’s coordinates on the Base’s faces.</p>
+<dl>
+<dt>Tri</dt><dd><p>This options will automatically triangulate the Base object and will map the component
+to the triangular faces. The input domain will be considered rectangular, but the
+target domain will have two vertices coincident.</p>
+</dd>
+<dt>Quad (default)</dt><dd><p>This is the default method and will map the Component domain to each quad face of the Base object.
+If an face has more than 4 vertices, then it will be automatically separated in quad or triangular faces.</p>
+</dd>
+<dt>Fan</dt><dd><p>This option will split every face of the Base object in triangles connecting each side of the face
+to its center.</p>
+</dd>
+<dt>Patch</dt><dd><p>This option require the use of a Subdivision Surface modifier on the Base object.
+It is similar to the <em>Quad</em> method, but it will allow to use curved domains, based on the Subdivided patches.
+If more subdivision surfaces (or Multiresolution modifiers) are used, then only the last one will be used for
+defining the target patches.</p>
+</dd>
+<dt>Frame</dt><dd><p>Similarly to an Inset Face operator, this option will allow to apply the components along
+offset faces of a given Thickness.</p>
+</dd>
+</dl>
+</dd>
+<dt>Merge</dt><dd><p>Automatically merge together all the generated components.</p>
+</dd>
+<dt>Smooth Shading</dt><dd><p>Automatically sets the shading of the generated geometry as Smooth. If the Component
+object is already set as Smooth, then this option is not necessary.</p>
+</dd>
+<dt>Components</dt><dd><p>Three different method can be used to assign the components.</p>
+<dl>
+<dt>Object:</dt>
+<dd><p>Repeat the same object on all the target faces.</p>
+</dd>
+<dt>Collection:</dt>
+<dd><p>Assign the objects contained in a given Collection.
+The components can be assigned either randomly or according to a Vertex Group.</p>
+</dd>
+<dt>Materials:</dt>
+<dd><p>Assign the components according to the name of the materials assigned to each face.
+If for a given material, there is no an object with the same name, then the face is not used.</p>
+<p>Watch the <a href="https://youtu.be/2Wcu9E0EGEM">Tutorial</a> (it is based on an old version of Tissue,
+the procedure is slightly different now)</p>
+</dd>
+</dl>
+</dd>
+<dt>Thickness</dt><dd><dl>
+<dt>Scale Mode</dt><dd><dl>
+<dt>Constant:</dt>
+<dd><p>Generate components with a fixed and uniform thickness in the normal direction.</p>
+</dd>
+<dt>Relative:</dt>
+<dd><p>Generate components with a thickness proportional to the target face dimension.
+This will produce components with an aspect ration similar to the original Component
+object.</p>
+</dd>
+<dt>Scale:</dt>
+<dd><p>control the scaling factor of the components’ Thickness</p>
+</dd>
+<dt>Offset:</dt>
+<dd><p>Allows to control the alignment of the components in relation to the Base object surface.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Components Coordinates</dt><dd><p>Strategy used to determine the component’s domain for mapping it on the target faces.</p>
+<dl>
+<dt>Bounds (Default)</dt><dd><p>Automatically defines the domain according the <em>Bounding Box</em> of the component object.</p>
+</dd>
+<dt>Local</dt><dd><p>Defines the domain according to the local coordinates of the component object.
+The face domain is considered from 0 to 1 in both Local X and Local Y directions.
+This method allows a customization of the mapping strategies, maintaining the result independent
+from Location/Rotation/Scale of the component object.</p>
+</dd>
+<dt>Global</dt><dd><p>Similar to Local, but based on the Global coordinates of the component. This allows to easily
+produce animations changing the Location/Rotation/Scale of the component.</p>
+<p>Watch the <a href="https://youtu.be/PRIcB1Q-gK4">Tutorial</a></p>
+</dd>
+<dt>Extend (Local and Global coordinates)</dt><dd><p>Extend the domain of the components with a domain bigger than 0-1.</p>
+</dd>
+<dt>Clip (Local and Global coordinates)</dt><dd><p>Truncate the component according to the domain 0-1.</p>
+</dd>
+<dt>Cyclic (Local and Global coordinates)</dt><dd><p>Cut and move to the other side the parts of the component that exceed the domain 0-1.</p>
+</dd>
+</dl>
+</dd>
+<dt>Weight and Morphing</dt><dd><p>Combine the Vertex Groups of the base object with the Shape Keys from the component,
+in order to generate morphing components.</p>
+<dl>
+<dt>Map Vertex Groups</dt><dd><p>Remap each Vertex Group from the base mesh to the generated geometry</p>
+</dd>
+<dt>Use Shape Keys</dt><dd><p>Transfer the Shape Keys from the component object to the generated object.
+If the name of the base’s vertex groups and the Shape Keys match, then they
+will be automatically assigned in order to control their morphing behavior.</p>
+<p>Watch the <a href="https://youtu.be/2Wcu9E0EGEM">Tutorial</a></p>
+</dd>
+</dl>
+</dd>
+<dt>Iterations</dt><dd><p>Automatically repeat the tessellation using as base the result of the previous iteration.</p>
+<dl>
+<dt>Repeat</dt><dd><p>Number of iterations.</p>
+</dd>
+<dt>Combine iterations</dt><dd><p>Combine the resulting tessellation with part or all of the previous iteration:</p>
+<blockquote>
+<div><dl>
+<dt>Last</dt><dd><p>Ignore the previous iterations.</p>
+</dd>
+<dt>Unused</dt><dd><p>Combine the tessellation with the faces of the previous iteration that are not generating components.</p>
+</dd>
+<dt>All</dt><dd><p>Combine the tessellation with all the faces from the previous iteration.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="dual-mesh">
+<h3>Dual Mesh</h3>
+<p><em>Dual Mesh</em> modifies the selected meshes creating dual meshes.
+Dual Mesh output is a polygonal mesh derived from the triangular mesh.
+Quadrangular meshes are automatically converted to triangular before.</p>
+<dl>
+<dt>Quad Method</dt><dd><p>Methods for splitting the quads into triangles. (Inherited from the <em>Triangulate Faces</em> tool.)</p>
+</dd>
+<dt>Polygon Method</dt><dd><p>Methods for splitting the polygons into triangles. (Inherited from the <em>Triangulate Faces</em> tool.)</p>
+</dd>
+<dt>Preserve Borders</dt><dd><p>Prevent alteration of the open boundaries of the mesh.</p>
+</dd>
+</dl>
+</section>
+<section id="convert-to-curve">
+<h3>Convert to Curve</h3>
+<p>Generate a Curve object from the <em>Loops</em>, <em>Edges</em> or <em>Particles</em> of the active object.
+This is a non-destructive operation, meaning that in any moment it will be possible to reload
+the changes from the base object and change the parameters of the conversion.
+It will be possible to convert specific edges/loops according to different criteria, together
+with the addition of a pattern effect.</p>
+<p>(To Do)</p>
+</section>
+<section id="refresh">
+<h3>Refresh</h3>
+<p>Update the active object according to the changes in the base geometries.
+This operator works on the objects generated through <em>Tessellate</em> and <em>Convert to Curve</em>.</p>
+</section>
+<section id="rotate-faces">
+<h3>Rotate Faces</h3>
+<p>Rotate the indexes of the selected faces (in Edit-Mode). This allows to control the rotation of the components
+of Tessellated objects, when using <em>Default</em> rotation.
+Once the operator is executed, then the interested Tessellated objects are automatically refreshed.</p>
+</section>
+<section id="convert-to-dual-mesh">
+<h3>Convert to Dual Mesh</h3>
+<p>Destructive version of the Dual-Mesh operator. This directly convert the active object to its Dual-Mesh.</p>
+</section>
+<section id="polyhedra-wireframe">
+<h3>Polyhedra Wireframe</h3>
+<p>(To Do)</p>
+</section>
+<section id="lattice-along-surface">
+<h3>Lattice Along Surface</h3>
+<p>(To Do)</p>
+</section>
+<section id="uv-to-mesh">
+<h3>UV to Mesh</h3>
+<p>Convert the active UV-map to mesh trying to preserve the original 3D model total surface area.</p>
+</section>
+<section id="random-materials">
+<h3>Random Materials</h3>
+<p>Assign random materials to the face’s of the active mesh object.</p>
+</section>
+<section id="weight-to-materials">
+<h3>Weight to Materials</h3>
+<p>Distribute existing materials according to the weight of the active vertex group.
+It is also possible to automatically create new materials.</p>
+</section>
+<section id="tissue-render-animation">
+<h3>Tissue Render Animation</h3>
+<p>(To Do)</p>
+</section>
+</section>
+<section id="tissue-weight-tools">
+<h2>Tissue Weight Tools</h2>
+<section id="area">
+<h3>Area</h3>
+<p>Automatically assigns weight values based on the area of each face. (Automatic Bounds, Manual Bounds)</p>
+</section>
+<section id="curvature">
+<h3>Curvature</h3>
+<p>Weight from Curvature (Based on Dirty Color Attributes)</p>
+</section>
+<section id="weight-distance">
+<h3>Weight Distance</h3>
+<p>Generate a vertex group according to the distance from the selected vertices.
+Different methods can be used: <em>Geodesic</em>, <em>Euclidean</em> or <em>Topology</em> distance.</p>
+</section>
+<section id="weight-formula">
+<h3>Weight Formula</h3>
+<p>Weight based on Vertices parameters. Allows to use vertices coordinates and normals direction.
+Integer and Float sliders can be created in order to find the proper parameters more easily.</p>
+</section>
+<section id="weight-laplacian">
+<h3>Weight Laplacian</h3>
+<p>(To Do)</p>
+</section>
+<section id="harmonic">
+<h3>Harmonic</h3>
+<p>Harmonic function based on active Weight</p>
+</section>
+<section id="random">
+<h3>Random</h3>
+<p>(To Do)</p>
+</section>
+<section id="edges-deformation">
+<h3>Edges Deformation</h3>
+<p>Generate a Vertex Group based on Edges Deformation evaluated on the Modifiers result
+(Deformation Modifiers and Simulations)</p>
+</section>
+<section id="edges-bending">
+<h3>Edges Bending</h3>
+<p>Generate a Vertex Group based on Edges Bending evaluated on the Modifiers result
+(Deformation Modifiers and Simulations).</p>
+</section>
+<section id="streamlines-curves">
+<h3>Streamlines Curves</h3>
+<p>(To Do)</p>
+</section>
+<section id="contour-curves">
+<h3>Contour Curves</h3>
+<p>Generates isocurves based on Active Weight.</p>
+</section>
+<section id="contour-displace">
+<h3>Contour Displace</h3>
+<p>Cut the mesh according to active Weight in a variable number of isocurves and automatically add a Displace Modifier.</p>
+</section>
+<section id="contour-mask">
+<h3>Contour Mask</h3>
+<p>Trim the mesh according to active Weight.</p>
+</section>
+<section id="reaction-diffusion">
+<h3>Reaction Diffusion</h3>
+<p>Tissue implements the Gray-Scott model for the
+<a href="https://en.wikipedia.org/wiki/Reaction%E2%80%93diffusion_system">Reaction-Diffusion</a> simulation.
+This allows to simulate through the vertex groups the distribution of the two substances
+that generate the various patterns of many living organisms.</p>
+<p>See <a href="https://youtu.be/J-0NzU1TmIY">this video</a> for an example of the Reaction-Diffusion simulation with Tissue.</p>
+</section>
+<section id="radom-materials">
+<h3>Radom Materials</h3>
+<p>(To Do)</p>
+</section>
+<section id="id3">
+<h3>Weight to Materials</h3>
+<p>(To Do)</p>
+</section>
+<section id="convert-to-colors">
+<h3>Convert to Colors</h3>
+<dl>
+<dt>Convert To</dt><dd><p>Value Channel, Red Channel, Green Channel, Blue Channel, False Color</p>
+</dd>
+<dt>Invert</dt><dd><p>Invert the values read from vertex weight.</p>
+</dd>
+</dl>
+</section>
+<section id="convert-to-uv">
+<h3>Convert to UV</h3>
+<p>(To Do)</p>
+</section>
+</section>
+<section id="tissue-color-tools">
+<h2>Tissue Color Tools</h2>
+<section id="convert-to-weight">
+<h3>Convert to Weight</h3>
+<dl>
+<dt>Red Channel</dt><dd><p>Add a vertex group derived to red channel of the active Color Attribute.</p>
+</dd>
+<dt>Green Channel</dt><dd><p>Add a vertex group derived to green channel of the active Color Attribute.</p>
+</dd>
+<dt>Blue Channel</dt><dd><p>Add a vertex group derived to blue channel of the active Color Attribute.</p>
+</dd>
+<dt>Value Channel</dt><dd><p>Add a vertex group derived to value channel of the active Color Attribute.</p>
+</dd>
+<dt>Invert</dt><dd><p>Invert the values read from vertex weight.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<p>See <a href="https://vimeo.com/132720942">this video</a> for an example of the Tissue add-on in action.</p>
+<div id="id5">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Mesh</p>
+</dd>
+<dt>Description:</dt>
+<dd><p>Tools for computational design.</p>
+</dd>
+<dt>Location:</dt>
+<dd><p>Sidebar ‣ Edit tab</p>
+</dd>
+<dt>File:</dt>
+<dd><p>mesh_tissue folder</p>
+</dd>
+<dt>Author:</dt>
+<dd><p>Alessandro Zomparelli (Co-de-iT)</p>
+</dd>
+<dt>License:</dt>
+<dd><p>GPL</p>
+</dd>
+<dt>Note:</dt>
+<dd><p>This add-on is bundled with Blender.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+</div></body>
+</html>

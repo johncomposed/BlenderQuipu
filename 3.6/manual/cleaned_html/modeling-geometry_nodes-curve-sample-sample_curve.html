@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Geometry Nodes &gt; Curve &gt; Sample &gt; Sample Curve</title></head>
+<body><ul>
+<li><a href="../../../index.html">Modeling</a></li>
+<li><a href="../../index.html">Geometry Nodes</a></li>
+<li><a href="../index.html">Curve Nodes</a></li>
+<li><a href="index.html">Curve Sample Nodes</a></li>
+<li>Sample Curve Node</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="sample-curve-node">
+<h1>Sample Curve Node</h1>
+<p>The <em>Sample Curve</em> calculates a point on a curve at a certain distance from the start of the curve,
+specified by the length or factor inputs. It also outputs data retrieved from that position on the curve.
+The sampled values are linearly interpolated from the values at the evaluated curve points
+at each side of the sampled point.</p>
+<div>
+<p>Note</p>
+<p>When the curve contains multiple splines, the sample position is found based on the total accumulated length,
+including the lengths of all previous splines. The order of the splines is the same order as
+displayed in the <a href="../../../../editors/spreadsheet.html">Spreadsheet Editor</a>.</p>
+</div>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Curves</dt><dd><p>Standard geometry input with a curve component.</p>
+</dd>
+<dt>Input</dt><dd><p>A field input to evaluate custom attributes.
+The evaluation is outputted through the <em>Value</em> output.</p>
+</dd>
+<dt>Factor Factor mode</dt><dd><p>The portion of the total length used to determine the sample position.</p>
+</dd>
+<dt>Length Length mode</dt><dd><p>A length in distance units used to determine how far along the curve to travel before sampling.</p>
+</dd>
+<dt>Curve Index</dt><dd><p>An index to only evaluate specific splines, these indices can be specified manually
+or from the <a href="../../geometry/read/input_index.html">Index Node</a>.
+This input is ignored when the <em>All Curves</em> property is enabled.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Data Type</dt><dd><p>The <a href="../../attributes_reference.html#attribute-data-types">data type</a> used for the evaluated data.</p>
+</dd>
+<dt>Mode</dt><dd><p>How to find endpoint positions for the trimmed spline.
+The option acts the same as it does in the <a href="../operations/trim_curve.html">Trim Curve Node</a>.</p>
+<dl>
+<dt>Factor:</dt>
+<dd><p>Find the endpoint positions using a factor of each spline’s length.
+The input values should be between 0 or 1.</p>
+</dd>
+<dt>Length:</dt>
+<dd><p>Find the endpoint positions using a length from the start of each spline.
+The input values should be between 0 and the length of the splines.</p>
+</dd>
+</dl>
+</dd>
+<dt>All Curves</dt><dd><p>Sample lengths based on the total length of all curves, rather than using a length inside each selected curve.</p>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>Value</dt><dd><p>The value of the input <em>Value</em> at the sample point.</p>
+</dd>
+<dt>Position</dt><dd><p>The position at the sample along the spline.</p>
+</dd>
+<dt>Tangent</dt><dd><p>The normalized <a href="../read/curve_tangent.html">curve tangent</a> at the sample.</p>
+<div>
+<p>Tip</p>
+<p>This output can be combined with the <a href="../../utilities/rotation/align_euler_to_vector.html">Align Euler to Vector Node</a>
+to create a rotation that lines up with direction of the curve. Including the <em>Normal</em> output
+in a second align node after can align the other rotation axis.</p>
+</div>
+</dd>
+<dt>Normal</dt><dd><p>The normalized <a href="../../geometry/read/normal.html">curve normal</a> at the sample.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<p>Here, the <em>Count</em> mode of the <a href="../operations/resample_curve.html">Resample Curve Node</a> is recreated,
+except a mesh is used for the result instead of a curve. The Z axis of the position can be used
+as the sample factor because the position is between zero and one for the entire line.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

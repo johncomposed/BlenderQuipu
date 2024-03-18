@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Animation &gt; Constraints &gt; Motion Tracking &gt; Camera Solver</title></head>
+<body><ul>
+<li><a href="../../index.html">Animation &amp; Rigging</a></li>
+<li><a href="../index.html">Constraints</a></li>
+<li>Camera Solver Constraint</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="camera-solver-constraint">
+<h1>Camera Solver Constraint</h1>
+<p>The <em>Camera Solver</em> constraint gives the owner of this constraint,
+the location and rotation of the “solved camera motion”.</p>
+<p>The “solved camera motion” is where Blender reconstructs the position of the physical, real-world camera,
+when it filmed the video footage, relative to the thing being tracked.</p>
+<div>
+<p>Note</p>
+<p>This constraint only works after you have set up a minimum of eight markers and pressed
+<a href="../../../movie_clip/tracking/clip/toolbar/solve.html#editors-movie-clip-tracking-clip-solve-motion">Solve Camera Motion</a>
+(Movie Clip Editor ‣ Toolbar ‣ Solve ‣ Solve Camera Motion).</p>
+</div>
+<section id="options">
+<h2>Options</h2>
+<figure id="id1">
+<figcaption>
+<p>Camera Solver Constraint panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Active Clip</dt><dd><p>Receive tracking data from the scene’s <a href="../../../scene_layout/scene/properties.html#bpy-types-scene-active-clip">Active Clip</a>.
+If unchecked, an option appears to choose from the other clips.</p>
+</dd>
+<dt>Constraint to F-Curve</dt><dd><p>Applies the constraint, creating Keyframes for the transforms.</p>
+</dd>
+<dt>Influence</dt><dd><p>Controls the percentage of affect the constraint has on the object.
+See <a href="../interface/common.html#bpy-types-constraint-influence">common constraint properties</a> for more information.</p>
+</dd>
+</dl>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Addons &gt; Render &gt; Render Freestyle Svg</title></head>
+<body><ul>
+<li><a href="../index.html">Add-ons</a></li>
+<li><a href="index.html">Render</a></li>
+<li>Freestyle SVG Exporter</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="freestyle-svg-exporter">
+<h1>Freestyle SVG Exporter</h1>
+<p>This add-on can export your <a href="../../render/freestyle/index.html#bpy-types-freestyle">Freestyle Renders</a> into an SVG file.
+It can fill contours with their material color and can also export SVG animations.</p>
+<figure id="id3">
+<figcaption>
+<p>An example of an SVG result produced by the Freestyle SVG Exporter.</p>
+</figcaption>
+</figure>
+<section id="activation">
+<h2>Activation</h2>
+<p>This add-on can be enabled via Preferences ‣ Add-ons ‣ Render ‣ Freestyle SVG Exporter.
+The interface for the exporter should now be visible as a new panel in the Render tab.</p>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Category:</dt>
+<dd><p>Render</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Render ‣ Freestyle SVG Export</p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="usage">
+<h2>Usage</h2>
+<p>Activate <a href="../../render/freestyle/introduction.html">Freestyle rendering</a> and then render your scene with <em>Render Image</em>.
+Your render will be displayed, and the SVG version will be saved to the default output path
+Properties ‣ Output ‣ Output.</p>
+</section>
+<section id="options">
+<h2>Options</h2>
+<figure id="id4">
+<figcaption>
+<p>Freestyle SVG Export panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Mode</dt><dd><p>Option between Frame and Animation. Frame will render a single frame,
+Animation will bundle all rendered frames into a single <code>.svg</code> file.</p>
+</dd>
+<dt>Split at Invisible</dt><dd><p>By default the exporter will not take invisible vertices into account and export them like they are visible.
+Some stroke modifiers, like Blueprint, mark vertices as invisible to achieve a certain effect. Enabling this
+option will make the paths split when encountering an invisible vertex, which leads to a better result.</p>
+</dd>
+<dt>Fill Contours</dt><dd><p>The contour of objects is filled with their material color.</p>
+<div>
+<p>Note</p>
+<p>This feature is somewhat unstable – especially with animations.</p>
+</div>
+</dd>
+<dt>Stroke Cap Style</dt><dd><p>Defines the style the stroke caps will have in the SVG output.</p>
+<dl>
+<dt>Miter</dt><dd><p>Corners with sharp edges.</p>
+</dd>
+<dt>Round</dt><dd><p>Corners are smoothed.</p>
+</dd>
+<dt>Bevel</dt><dd><p>Corners are beveled.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="exportable-properties">
+<h2>Exportable Properties</h2>
+<div id="id2">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ View Layers ‣ Freestyle Line Style SVG Export</p>
+</dd>
+</dl>
+</div>
+<p>Because the representation of Freestyle strokes and SVG path objects is fundamentally different, a one-on-one
+translation between Freestyle and SVG is not possible. The main shortcoming of SVG compared to Freestyle is that
+Freestyle defines style per-point, where SVG defines it per-path. This means that Freestyle can produce much more
+complex results that are impossible to achieve in SVG.</p>
+<p>There are extended options for the exporter,
+located at the specific panels of the Freestyle renderer at the View Layers tab of the Properties.
+Those options are located at the Freestyle Line Style SVG Export panel, at the bottom of the tab.</p>
+<p>The properties (no modifiers applied) that can be exported are:</p>
+<ul>
+<li><p>Base color</p></li>
+<li><p>Base alpha</p></li>
+<li><p>Base thickness</p></li>
+<li><p>Dashes</p></li>
+</ul>
+</section>
+<section id="animations">
+<h2>Animations</h2>
+<p>The exporter supports the creation of SVG animations. When the Mode is set to Animation, all frames from a render –
+one when rendering a frame (<kbd>F12</kbd>)
+or all when rendering an animation (<kbd><kbd>Shift</kbd>-<kbd>F12</kbd></kbd>) – are saved into a single file.
+Most modern browsers support the rendering of SVG animations.</p>
+<figure id="id5">
+<figcaption>
+<p>An SVG animation rendered with the exporter.</p>
+</figcaption>
+</figure>
+<section id="exporting-fills">
+<h3>Exporting Fills</h3>
+<p>Fills are colored areas extracted from a Freestyle render result. Specifically, they are defined by a combination of
+the Contour and External Contour edge type, combined with some predicates. The fill result can be unexpected,
+when the SVG renderer cannot correctly render the path that the exporter has generated.
+This problem is extra apparent in animations.</p>
+<figure id="id6">
+<figcaption>
+<p>An example of an SVG result produced by the Freestyle SVG Exporter.
+Model by Julien Deswaef.</p>
+</figcaption>
+</figure>
+<p>Fills support holes and layering. When using layers, the exporter tries to render objects with the same material as
+the patch. The exporting of fills and especially the order in which they are layered is by no means perfect.
+In most cases, these problems can be easily solved in Inkscape or a text editor.</p>
+</section>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Mesh Analysis</title></head>
+<body><ul>
+<li><a href="../index.html">Modeling</a></li>
+<li><a href="index.html">Meshes</a></li>
+<li>Mesh Analysis</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="mesh-analysis">
+<h1>Mesh Analysis</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Mode</p>
+</dd>
+<dt>Panel:</dt>
+<dd><p>Header ‣ Overlays ‣ Mesh Analysis</p>
+</dd>
+</dl>
+</div>
+<p>Mesh analysis is useful for displaying attributes of the mesh,
+that may impact certain use cases.</p>
+<p>The mesh analysis works in <em>Edit Mode</em> and <em>Solid</em> Viewport shading.
+It shows areas with a high value in red, and areas with a low value in blue.
+Geometry outside the range is displayed gray.</p>
+<p>Currently the different modes target 3D printing as their primary use.</p>
+<section id="overhang">
+<h2>Overhang</h2>
+<p>Extrusion 3D printers have a physical limit to the overhang that can be printed,
+this display mode shows the overhang with angle range and axis selection.</p>
+<dl>
+<dt>Minimum/Maximum</dt><dd><p>Minimum/Maximum angle to display.</p>
+</dd>
+<dt>Axis</dt><dd><p>Axis and direction to use as the bases to calculate the angle to visualize.</p>
+</dd>
+</dl>
+<figure id="id2">
+<figcaption>
+<p>Overhang.</p>
+</figcaption>
+</figure>
+</section>
+<section id="thickness">
+<h2>Thickness</h2>
+<p>Printers have a limited <em>wall-thickness</em> where very thin areas cannot be printed,
+this test uses ray casting and a distance range to the thickness of the geometry.</p>
+<dl>
+<dt>Minimum/Maximum</dt><dd><p>Minimum/Maximum thickness to display.</p>
+</dd>
+<dt>Samples</dt><dd><p>Number of samples to use to calculate the thickness.</p>
+</dd>
+</dl>
+<figure id="id3">
+<figcaption>
+<p>Thickness.</p>
+</figcaption>
+</figure>
+</section>
+<section id="intersections">
+<h2>Intersections</h2>
+<p>Another common cause of problems for printing are intersections between surfaces,
+where the inside/outside of a model cannot be reliably detected.</p>
+<p>Unlike other display modes, intersections have no variance and are either on or off.</p>
+<figure id="id4">
+<figcaption>
+<p>Intersecting faces.</p>
+</figcaption>
+</figure>
+</section>
+<section id="distortion">
+<h2>Distortion</h2>
+<p>Distorted geometry can cause problems since the triangulation of a distorted n-gon is undefined.</p>
+<p>Distortion is measured by faces which are not flat,
+with parts of the face pointing in different directions.</p>
+<dl>
+<dt>Minimum/Maximum</dt><dd><p>Minimum/Maximum distortion to display.</p>
+</dd>
+</dl>
+<figure id="id5">
+<figcaption>
+<p>Distorted Faces.</p>
+</figcaption>
+</figure>
+</section>
+<section id="sharp-edges">
+<h2>Sharp Edges</h2>
+<p>Similar to wall-thickness, sharp edges can form shapes that are too thin to be able to print.</p>
+<dl>
+<dt>Minimum/Maximum</dt><dd><p>Minimum/Maximum angle to display.</p>
+</dd>
+</dl>
+<figure id="id6">
+<figcaption>
+<p>Sharp edges.</p>
+</figcaption>
+</figure>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations</h2>
+<p>There are some known limitations with mesh analysis:</p>
+<ul>
+<li><p>Currently only displayed with Deform Modifiers.</p></li>
+<li><p>For high-poly meshes the performance is low while editing.</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Output &gt; Properties &gt; Post Processing</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Render Output</a></li>
+<li><a href="index.html">Output Properties</a></li>
+<li>Post Processing</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="post-processing">
+<h1>Post Processing</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Panel:</dt>
+<dd><p>Properties ‣ Output ‣ Post Processing</p>
+</dd>
+</dl>
+</div>
+<p>The Post Processing panel is used to control different options used to process your image after rendering.</p>
+<figure id="id2">
+<figcaption>
+<p>Post Processing panel.</p>
+</figcaption>
+</figure>
+<dl>
+<dt>Pipeline</dt><dd><p>Todo.</p>
+<dl id="bpy-types-rendersettings-use-compositing">
+<dt>Compositing</dt><dd><p>Renders the output from the compositing node setup,
+and then applies the Composite node tree on all images,
+displaying the image inputted in the Composite Output node.</p>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-use-sequencer">
+<dt>Sequencer</dt><dd><p>Renders the output of the Video Sequence editor, instead of the view from the 3D scene’s active camera.
+If the sequence contains Scene strips, these will also be rendered as part of the pipeline.
+If <em>Compositing</em> is also enabled, the Scene strip will be the output of the Compositor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl id="bpy-types-rendersettings-dither-intensity">
+<dt>Dither</dt><dd><p>Dithering is a technique for blurring pixels to prevent banding that is seen in areas of
+gradients, where stair-stepping appears between colors.
+Banding artifacts are more noticeable when gradients are longer, or less steep.
+Dithering was developed for graphics with low bit depths,
+meaning they had a limited range of possible colors.</p>
+<p>Dithering works by taking pixel values and comparing them with a threshold and
+neighboring pixels then does calculations to generate the appropriate color.
+Dithering creates the perceived effect of a larger color palette by creating a sort of visual color mixing.
+For example, if you take a grid and distribute red and yellow pixels evenly across it,
+the image would appear to be orange.</p>
+</dd>
+</dl>
+</section>
+</div>
+</div></body>
+</html>

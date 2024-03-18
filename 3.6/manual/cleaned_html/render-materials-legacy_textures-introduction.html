@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Materials &gt; Legacy Textures &gt; Introduction</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Materials</a></li>
+<li><a href="index.html">Legacy Textures</a></li>
+<li>Introduction</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="introduction">
+<h1>Introduction</h1>
+<figure id="id1">
+<figcaption>
+<p>The Texture Type list in the Texture panel of the Texture buttons.</p>
+</figcaption>
+</figure>
+<p>Procedural textures are textures that are defined mathematically.
+They are generally relatively simple to use,
+because they do not need to be mapped in a special way.
+This does not mean that procedural textures cannot become very complex.</p>
+<p>These types of textures are ‘real’ 3D. By that we mean that they fit together perfectly at
+the edges and continue to look like what they are meant to look like even when they are cut;
+as if a block of wood had really been cut in two.
+Procedural textures are not filtered or anti-aliased. This is hardly ever a problem:
+the user can easily keep the specified frequencies within acceptable limits.</p>
+<section id="common-options">
+<h2>Common Options</h2>
+<section id="noise-basis">
+<h3>Noise Basis</h3>
+<p>Each noise-based Blender texture (except Voronoi and Simple Noise) has
+a <em>Noise Basis</em> setting that allows the user to select
+which algorithm is used to generate the texture.
+This list includes the original Blender noise algorithm.
+The <em>Noise Basis</em> settings makes the procedural textures extremely flexible (especially <em>Musgrave</em>).</p>
+<p>The <em>Noise Basis</em> governs the structural appearance of the texture:</p>
+<table>
+<tbody>
+<tr><td><figure id="id2">
+<figcaption>
+<p>Blender Original.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id3">
+<figcaption>
+<p>Voronoi F1.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Voronoi F2-F1.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id5">
+<figcaption>
+<p>Original Perlin.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id6">
+<figcaption>
+<p>Voronoi F2.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Voronoi Crackle.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id8">
+<figcaption>
+<p>Improved Perlin.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id9">
+<figcaption>
+<p>Voronoi F3.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Cell Noise.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id11">
+<figcaption>
+<p>Voronoi F4.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>There are two more possible settings for <em>Noise Basis</em>, which are relatively similar to <em>Blender Original</em>:
+Improved Perlin and Original Perlin.</p>
+</section>
+<section id="nabla">
+<h3>Nabla</h3>
+<p>Almost all procedural textures in Blender use derivatives for calculating normals for texture mapping
+(except <em>Blend</em> and <em>Magic</em>). This is important for Normal and Displacement Maps.
+The strength of the effect is controlled with the <em>Nabla</em> number field.</p>
+</section>
+</section>
+<section id="hints">
+<h2>Hints</h2>
+<p>Procedural textures can either produce colored textures, intensity only textures,
+textures with alpha values and normal textures.
+If intensity only ones are used the result is a black-and-white texture,
+which can be greatly enhanced by the use of ramps.
+If on the other hand you use ramps and need an intensity value,
+you have to switch on <em>No RGB</em> in the <em>Mapping</em> panel.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>

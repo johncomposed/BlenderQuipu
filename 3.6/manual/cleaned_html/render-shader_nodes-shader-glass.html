@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Render &gt; Shader Nodes &gt; Shader &gt; Glass</title></head>
+<body><ul>
+<li><a href="../../index.html">Rendering</a></li>
+<li><a href="../index.html">Shader Nodes</a></li>
+<li><a href="index.html">Shader</a></li>
+<li>Glass BSDF</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="glass-bsdf">
+<h1>Glass BSDF</h1>
+<p>The <em>Glass</em> <abbr title="Bidirectional Scattering Distribution Function">BSDF</abbr>
+is used to add a Glass-like shader mixing refraction and reflection at grazing angles.
+Like the transparent shader, only pure white will make it transparent.
+The glass shader tends to cause noise due to caustics.
+Since the Cycles path tracing integrator is not very good at rendering caustics,
+it helps to combine this with a transparent shader for shadows;
+for <a href="../../cycles/optimizations/reducing_noise.html#render-cycles-reducing-noise-glass-and-transp-shadows">more details see here</a>.</p>
+<section id="inputs">
+<h2>Inputs</h2>
+<dl>
+<dt>Color</dt><dd><p>Color of the surface, or physically speaking, the probability that light is transmitted for each wavelength.</p>
+</dd>
+<dt>Roughness</dt><dd><p>Influences sharpness of the refraction; perfectly sharp at 0.0 and smoother with higher values.</p>
+</dd>
+<dt>IOR</dt><dd><p>Index of refraction (<a href="../../../glossary/index.html#term-IOR">IOR</a>) defining how much the ray changes direction. At 1.
+0 rays pass straight through like transparent; higher values give more refraction.</p>
+</dd>
+<dt>Normal</dt><dd><p>Normal used for shading.</p>
+</dd>
+</dl>
+</section>
+<section id="properties">
+<h2>Properties</h2>
+<dl>
+<dt>Distribution</dt><dd><p>Microfacet distribution to use.</p>
+<dl>
+<dt>Sharp:</dt>
+<dd><p>Results in perfectly sharp reflections like a mirror. The <em>Roughness</em> value is not used.</p>
+</dd>
+<dt>GGX:</dt>
+<dd><p>GGX microfacet distribution.</p>
+</dd>
+<dt>Multiple-scattering GGX:</dt>
+<dd><p>Cycles Only
+Takes multiple bounce (scattering) events between microfacets into account.
+This gives a more energy conserving results, which would otherwise be visible as excessive darkening.</p>
+</dd>
+<dt>Beckmann:</dt>
+<dd><p>Cycles Only
+Beckmann microfacet distribution.</p>
+</dd>
+<dt>Ashikhmin-Shirley:</dt>
+<dd><p>Cycles Only
+Ashikhmin-Shirley microfacet distribution.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="outputs">
+<h2>Outputs</h2>
+<dl>
+<dt>BSDF</dt><dd><p>Standard shader output.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples</h2>
+<table>
+<tbody>
+<tr><td><figure id="id1">
+<figcaption>
+<p>Sharp Glass example.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id2">
+<figcaption>
+<p>Sharp Glass behavior.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id3">
+<figcaption>
+<p>Rough Glass example.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id4">
+<figcaption>
+<p>Rough Glass behavior.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div></body>
+</html>

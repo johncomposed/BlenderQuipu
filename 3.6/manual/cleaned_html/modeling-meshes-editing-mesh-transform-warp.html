@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Modeling &gt; Meshes &gt; Editing &gt; Mesh &gt; Transform &gt; Warp</title></head>
+<body><ul>
+<li><a href="../../../../index.html">Modeling</a></li>
+<li><a href="../../../index.html">Meshes</a></li>
+<li><a href="../../index.html">Editing</a></li>
+<li><a href="../index.html">Mesh Tools</a></li>
+<li><a href="index.html">Transformation</a></li>
+<li>Warp</li>
+</ul><div>
+<div itemprop="articleBody">
+<section id="warp">
+<h1>Warp</h1>
+<div id="id1">
+<p>Reference</p>
+<dl>
+<dt>Mode:</dt>
+<dd><p>Edit Modes</p>
+</dd>
+<dt>Menu:</dt>
+<dd><p>Object/Mesh/Curve/Surface ‣ Transform ‣ Warp</p>
+</dd>
+</dl>
+</div>
+<figure id="id2">
+<figcaption>
+<p>Warp tool options.</p>
+</figcaption>
+</figure>
+<p>The <em>Warp</em> transformation takes selected elements and
+warps them around the 3D cursor by a certain angle.
+Note that this transformation is always dependent on the location of the 3D cursor.
+The Pivot Point is not taken into account.
+The results of the <em>Warp</em> transformation are also view dependent.</p>
+<section id="usage">
+<h2>Usage</h2>
+<table id="id3">
+<caption>In this example, a plane is warped around the 3D cursor by the indicated number of degrees.</caption>
+<tbody>
+<tr><td><figure id="id4">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id5">
+<figcaption>
+<p>Warp Angle 90.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id6">
+<figcaption>
+<p>Warp Angle 180.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id7">
+<figcaption>
+<p>Warp Angle 360.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="cursor-position-view">
+<h3>Cursor Position &amp; View</h3>
+<p>The location of the 3D cursor can be used to alter the results of the <em>Warp</em> transformation.
+As can be seen from the example in this section, the <em>Warp</em> radius
+is dependent on the distance of the cursor from the selected elements.
+The greater the distance, the greater the radius.</p>
+<p>The result of the <em>Warp</em> transform is also influenced by your current view.
+The example in this section shows the results of a 180 degree <em>Warp</em> transform applied
+to the same Plane mesh when in different views.</p>
+<table id="id8">
+<caption>This image shows how the Warp transform is influenced by the location of the cursor.</caption>
+<tbody>
+<tr><td><figure id="id9">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id10">
+<figcaption>
+<p>Warp Angle 180.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id11">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id12">
+<figcaption>
+<p>Warp Angle 180.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="id13">
+<caption>This image shows the influence of the current view.</caption>
+<tbody>
+<tr><td><figure id="id14">
+<figcaption>
+<p>Before.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id15">
+<figcaption>
+<p>Warp Angle 180 in XZ view.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr><td><figure id="id16">
+<figcaption>
+<p>Warp Angle 180 in YZ view.</p>
+</figcaption>
+</figure>
+</td>
+<td><figure id="id17">
+<figcaption>
+<p>Warp Angle 180 in User view.</p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>Note</p>
+<p>Warping text</p>
+<p>If you want to warp text, you will need to convert it from a text object to mesh
+using <a href="../../../../../scene_layout/object/editing/convert.html#object-convert-to">Convert</a>.</p>
+</div>
+</section>
+</section>
+<section id="example">
+<h2>Example</h2>
+<figure id="id18">
+<figcaption>
+<p>Text wrapped around logo.</p>
+</figcaption>
+</figure>
+<p>This was made by creating the Blender logo and text as separate objects.
+The text was converted to a mesh and then warped around the Blender logo.</p>
+</section>
+</section>
+</div>
+</div></body>
+</html>
